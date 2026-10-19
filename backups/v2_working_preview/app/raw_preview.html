@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>台灣吃喝玩樂 Taiwan Travel Hub - 原始預覽</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --ocean-blue: #0F4C81;    /* 台灣海洋蔚藍 */
+      --sky-blue: #E8F1F5;      /* 晨霧水藍 */
+      --rock-brown: #8D6E63;    /* 北海岸岩石褐 */
+      --coral-orange: #FF6F61;  /* 活力珊瑚橘 */
+      --card-bg: #FFFFFF;
+      --text-title: #1E293B;
+      --text-body: #475569;
+      --text-muted: #94A3B8;
+      --border-light: #F1F5F9;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow-soft: 0 8px 24px rgba(15, 76, 129, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: #CBD5E1;
+      display: flex;
+      justify-content: center;
+      padding: 24px 0;
+    }
+
+    /* 模擬手機外框 (iPhone 15 Pro / Android 比例) */
+    .phone-container {
+      width: 412px;
+      height: 890px;
+      background: #FAFCFE;
+      border-radius: 46px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+      border: 9px solid #1E293B;
+      position: relative;
+    }
+
+    /* 頂部動態島 / 狀態列 */
+    .notch-bar {
+      height: 44px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 24px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-title);
+      background: #FAFCFE;
+    }
+
+    .scroll-content {
+      flex: 1;
+      overflow-y: auto;
+      padding-bottom: 90px;
+    }
+    .scroll-content::-webkit-scrollbar { display: none; }
+
+    /* 語系切換橫列 (7 國語言) */
+    .lang-bar {
+      padding: 6px 16px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .lang-bar::-webkit-scrollbar { display: none; }
+    .lang-btn {
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 14px;
+      background: var(--sky-blue);
+      color: var(--ocean-blue);
+      font-weight: 700;
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+    }
+    .lang-btn.active {
+      background: var(--ocean-blue);
+      color: #fff;
+    }
+
+    /* 品牌標題與聯絡按鈕 */
+    .brand-section {
+      padding: 16px 20px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--ocean-blue);
+      letter-spacing: -0.5px;
+    }
+    .brand-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--rock-brown);
+      font-weight: 700;
+    }
+    .contact-badge {
+      font-size: 11px;
+      background: #EFF6FF;
+      color: var(--ocean-blue);
+      padding: 5px 10px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid #DBEAFE;
+    }
+
+    /* 頂部機票/包車/接送/高鐵 (Trip & Klook 分潤入口) */
+    .affiliate-strip {
+      margin: 10px 16px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .aff-btn {
+      background: linear-gradient(145deg, #ffffff, #F8FAFC);
+      border: 1px solid #E2E8F0;
+      border-radius: var(--radius-sm);
+      padding: 10px 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .aff-btn i { font-size: 16px; color: var(--coral-orange); }
+    .aff-btn span { font-size: 11px; font-weight: 700; color: var(--text-title); }
+
+    /* 項目一：地區快速切換橫軸 (台北、桃園、花蓮、台南優先) */
+    .region-row {
+      display: flex;
+      gap: 8px;
+      padding: 10px 16px;
+      overflow-x: auto;
+    }
+    .region-row::-webkit-scrollbar { display: none; }
+    .region-chip {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      background: #FFFFFF;
+      color: var(--text-body);
+      border: 1px solid #E2E8F0;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .region-chip.active {
+      background: var(--ocean-blue);
+      color: #fff;
+      border-color: var(--ocean-blue);
+    }
+
+    /* 項目二：16 大主題專欄網格 (雙排全覽矩陣) */
+    .topics-container {
+      margin: 8px 16px 20px;
+      background: #FFFFFF;
+      padding: 16px 14px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+    .topics-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-title);
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px 8px;
+    }
+    .topic-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .topic-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--sky-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--ocean-blue);
+      transition: all 0.2s ease;
+    }
+    .topic-item:hover .topic-icon {
+      background: var(--coral-orange);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .topic-item span {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-title);
+    }
+
+    /* 專題視覺橫幅 (澎湖/綠島/花東) */
+    .spotlight-banner {
+      margin: 0 16px 20px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      height: 160px;
+      box-shadow: var(--shadow-soft);
+    }
+    .spotlight-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,76,129,0.92), transparent 70%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 14px 16px;
+      color: #fff;
+    }
+    .banner-tag {
+      background: var(--coral-orange);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      width: fit-content;
+      margin-bottom: 6px;
+    }
+    .banner-title { font-size: 16px; font-weight: 800; }
+    .banner-desc { font-size: 11px; opacity: 0.9; margin-top: 2px; }
+
+    /* 左右雙欄對抗榜單 (手搖飲 Top20 vs 人氣景點 Top20) */
+    .dual-ranking-section {
+      margin: 0 16px 20px;
+    }
+    .ranking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .rank-column {
+      background: #FFFFFF;
+      padding: 12px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-soft);
+    }
+    .rank-col-header {
+      font-size: 12px;
+      font-weight: 800;
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+      border-bottom: 1.5px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .rank-cell {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .rank-num {
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--rock-brown);
+      width: 14px;
+    }
+    .drink-logo-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #FFF5EB;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: bold;
+      color: #D97706;
+      flex-shrink: 0;
+    }
+    .cell-info h4 { font-size: 11px; color: var(--text-title); font-weight: 700; }
+    .cell-info p { font-size: 9px; color: var(--text-muted); }
+    .cell-action-btn {
+      font-size: 9px;
+      background: #FFF1F2;
+      color: var(--coral-orange);
+      border: 1px solid #FFE4E6;
+      border-radius: 6px;
+      padding: 2px 6px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 2px;
+    }
+
+    /* 國際旅人踩點留言牆 */
+    .social-feed {
+      margin: 0 16px 20px;
+      background: #FFFFFF;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-soft);
+    }
+    .comment-card {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .comment-card:last-child { border: none; }
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .comment-text {
+      font-size: 12px;
+      color: var(--text-body);
+      line-height: 1.4;
+    }
+
+    /* 頁尾品牌與商務合作資訊 */
+    .brand-footer {
+      padding: 16px 20px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      border-top: 1px solid #E2E8F0;
+      background: #F8FAFC;
+    }
+    .brand-footer a {
+      color: var(--ocean-blue);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    /* 底部導覽列 (Bottom Navigation) */
+    .bottom-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 70px;
+      background: #FFFFFF;
+      border-top: 1px solid #E2E8F0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding-bottom: 8px;
+    }
+    .bottom-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .bottom-tab.active {
+      color: var(--ocean-blue);
+    }
+    .bottom-tab i { font-size: 18px; }
+  </style>
+</head>
+<body>
+
+<div class="phone-container">
+  <!-- 狀態列 -->
+  <div class="notch-bar">
+    <span>9:41</span>
+    <div><i class="fa-solid fa-wifi"></i> <i class="fa-solid fa-battery-full"></i></div>
+  </div>
+
+  <!-- 多國語言切換 (中、英、日、韓、西、德、泰) -->
+  <div class="lang-bar">
+    <button class="lang-btn active">繁體中文</button>
+    <button class="lang-btn">English</button>
+    <button class="lang-btn">日本語</button>
+    <button class="lang-btn">한국어</button>
+    <button class="lang-btn">Español</button>
+    <button class="lang-btn">Deutsch</button>
+    <button class="lang-btn">ไทย</button>
+  </div>
+
+  <div class="scroll-content">
+    <!-- 頂部品牌與合作信箱入口 -->
+    <div class="brand-section">
+      <div>
+        <div class="brand-title">台灣吃喝玩樂</div>
+        <div class="brand-sub">TAIWAN WANDERLUST</div>
+      </div>
+      <a href="mailto:himydream.studio0220@gmail.com" class="contact-badge" title="商務合作聯繫">
+        <i class="fa-regular fa-envelope"></i> 品牌合作
+      </a>
+    </div>
+
+    <!-- 頂部高轉化金流入口 (Trip / Klook / 機場接送 / 高鐵) -->
+    <div class="affiliate-strip">
+      <a href="#" class="aff-btn">
+        <i class="fa-solid fa-plane-departure"></i>
+        <span>搜便宜機票</span>
+      </a>
+      <a href="#" class="aff-btn">
+        <i class="fa-solid fa-car-side"></i>
+        <span>全台預約包車</span>
+      </a>
+      <a href="#" class="aff-btn">
+        <i class="fa-solid fa-van-shuttle"></i>
+        <span>機場接送</span>
+      </a>
+      <a href="#" class="aff-btn">
+        <i class="fa-solid fa-train"></i>
+        <span>高鐵特惠票</span>
+      </a>
+    </div>
+
+    <!-- 項目一：地區快速切換橫軸 (台北、桃園、花蓮、台南優先) -->
+    <div class="region-row">
+      <div class="region-chip active">全台灣 All</div>
+      <div class="region-chip">台北市 Taipei</div>
+      <div class="region-chip">桃園市 Taoyuan</div>
+      <div class="region-chip">花蓮縣 Hualien</div>
+      <div class="region-chip">台南市 Tainan</div>
+      <div class="region-chip">台中市 Taichung</div>
+      <div class="region-chip">高雄市 Kaohsiung</div>
+      <div class="region-chip">台東縣 Taitung</div>
+    </div>
+
+    <!-- 項目二：16 大主題專欄網格 (雙排全覽矩陣，避免橫滑漏看) -->
+    <div class="topics-container">
+      <div class="topics-title">
+        <span>探索主題專欄 TOPICS</span>
+        <span style="font-size:11px; color:var(--coral-orange); font-weight:700;">精選 16 大主題</span>
+      </div>
+      <div class="topics-grid">
+        <div class="topic-item"><div class="topic-icon">🏝️</div><span>離島</span></div>
+        <div class="topic-item"><div class="topic-icon">🏞️</div><span>花東</span></div>
+        <div class="topic-item"><div class="topic-icon">🏮</div><span>節慶</span></div>
+        <div class="topic-item"><div class="topic-icon">🎪</div><span>活動</span></div>
+        <div class="topic-item"><div class="topic-icon">⚾</div><span>棒球</span></div>
+        <div class="topic-item"><div class="topic-icon">⛰️</div><span>登山</span></div>
+        <div class="topic-item"><div class="topic-icon">🚂</div><span>火車</span></div>
+        <div class="topic-item"><div class="topic-icon">🍢</div><span>夜市</span></div>
+        <div class="topic-item"><div class="topic-icon">🌃</div><span>夜景</span></div>
+        <div class="topic-item"><div class="topic-icon">♨️</div><span>溫泉</span></div>
+        <div class="topic-item"><div class="topic-icon">⛺</div><span>露營</span></div>
+        <div class="topic-item"><div class="topic-icon">🌊</div><span>北海岸</span></div>
+        <div class="topic-item"><div class="topic-icon">🚴</div><span>環島</span></div>
+        <div class="topic-item"><div class="topic-icon">🤿</div><span>潛水</span></div>
+        <div class="topic-item"><div class="topic-icon">🏄</div><span>衝浪</span></div>
+        <div class="topic-item"><div class="topic-icon">🪅</div><span>廟會</span></div>
+      </div>
+    </div>
+
+    <!-- 專題視覺橫幅 (澎湖/綠島/花東) -->
+    <div class="spotlight-banner">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop" alt="離島專題">
+      <div class="banner-overlay">
+        <span class="banner-tag">離島精選專題</span>
+        <div class="banner-title">澎湖・綠島・基隆嶼包船跳島遊</div>
+        <div class="banner-desc">必去 Top 30 排行榜 ｜ 租機車/船票 Klook 立即預定</div>
+      </div>
+    </div>
+
+    <!-- 左右雙欄對抗榜單 (手搖飲 Top20 vs 人氣景點 Top20) -->
+    <div class="dual-ranking-section">
+      <div class="ranking-grid">
+        <!-- 左欄：手搖飲排行榜 -->
+        <div class="rank-column">
+          <div class="rank-col-header" style="color: #D97706;">
+            <i class="fa-solid fa-mug-hot"></i> 必喝手搖 Top20
+          </div>
+          <div class="rank-cell">
+            <span class="rank-num">01</span>
+            <div class="drink-logo-badge">麻</div>
+            <div class="cell-info">
+              <h4>麻古茶坊</h4>
+              <p>芝芝芒果 / 柳橙翡翠</p>
+            </div>
+          </div>
+          <div class="rank-cell">
+            <span class="rank-num">02</span>
+            <div class="drink-logo-badge" style="background:#EEF2FF; color:#4338CA;">得</div>
+            <div class="cell-info">
+              <h4>得正 Oolong</h4>
+              <p>焙烏龍奶茶 / 春烏龍</p>
+            </div>
+          </div>
+          <div class="rank-cell">
+            <span class="rank-num">03</span>
+            <div class="drink-logo-badge" style="background:#ECFDF5; color:#059669;">沐</div>
+            <div class="cell-info">
+              <h4>一沐日</h4>
+              <p>逮丸奶茶 / 蕎麥茶</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右欄：人氣景點排行榜 (直接串接 Klook 購票) -->
+        <div class="rank-column">
+          <div class="rank-col-header" style="color: var(--ocean-blue);">
+            <i class="fa-solid fa-fire"></i> 熱門景點 Top20
+          </div>
+          <div class="rank-cell">
+            <span class="rank-num">01</span>
+            <div class="cell-info">
+              <h4>台北 101 觀景台</h4>
+              <a href="#" class="cell-action-btn">Klook 快速購票</a>
+            </div>
+          </div>
+          <div class="rank-cell">
+            <span class="rank-num">02</span>
+            <div class="cell-info">
+              <h4>國立故宮博物院</h4>
+              <a href="#" class="cell-action-btn">免排隊門票</a>
+            </div>
+          </div>
+          <div class="rank-cell">
+            <span class="rank-num">03</span>
+            <div class="cell-info">
+              <h4>九份 & 野柳專車</h4>
+              <a href="#" class="cell-action-btn">預約包車直達</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 國際旅人踩點留言牆 -->
+    <div class="social-feed">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <span style="font-size:13px; font-weight:800; color:var(--text-title);">🌏 世界旅人即時踩點心得</span>
+        <span style="font-size:11px; color:var(--ocean-blue); font-weight:700; cursor:pointer;">留下心得</span>
+      </div>
+      <div class="comment-card">
+        <div class="comment-header">
+          <span>🇺🇸 Sarah W.</span>
+          <span style="font-size:10px; color:var(--text-muted);">2 小時前・九份老街</span>
+        </div>
+        <p class="comment-text">The tea house view in Jiufen was incredible! Booked the charter car from this app, super easy and reliable!</p>
+      </div>
+      <div class="comment-card">
+        <div class="comment-header">
+          <span>🇯🇵 Kenji Sato</span>
+          <span style="font-size:10px; color:var(--text-muted);">5 小時前・士林夜市</span>
+        </div>
+        <p class="comment-text">胡椒餅とジーパイが最高でした！このアプリのおすすめ通りに回って大正解。</p>
+      </div>
+    </div>
+
+    <!-- 官方品牌與聯繫信箱 -->
+    <div class="brand-footer">
+      <p>商務合作 / 景點資料勘誤 / 品牌聯繫</p>
+      <p style="margin-top: 4px;">
+        <a href="mailto:himydream.studio0220@gmail.com">himydream.studio0220@gmail.com</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- 底部導覽列 -->
+  <div class="bottom-bar">
+    <a href="#" class="bottom-tab active">
+      <i class="fa-solid fa-compass"></i>
+      <span>首頁探索</span>
+    </a>
+    <a href="#" class="bottom-tab">
+      <i class="fa-solid fa-map-location-dot"></i>
+      <span>地圖附近</span>
+    </a>
+    <a href="#" class="bottom-tab">
+      <i class="fa-solid fa-heart"></i>
+      <span>我的行程</span>
+    </a>
+    <a href="#" class="bottom-tab">
+      <i class="fa-solid fa-comment-dots"></i>
+      <span>旅人牆</span>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
+

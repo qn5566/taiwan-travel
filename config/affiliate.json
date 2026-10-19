@@ -1,0 +1,28 @@
+{
+  "project": "台灣吃喝玩樂",
+  "version": "1.0.0",
+  "affiliate": {
+    "klook": {
+      "aid": "123436",
+      "utm_source": "non-network",
+      "utm_medium": "affiliate-alwayson",
+      "utm_campaign": "taiwan_fun_food",
+      "default_campaign": "123436"
+    },
+    "kkday": {
+      "cid": "123436",
+      "utm_source": "taiwan_fun",
+      "utm_medium": "web"
+    },
+    "agoda": {
+      "cid": "123436",
+      "market": "tw"
+    }
+  },
+  "default_channels": {
+    "tickets": "klook",
+    "transport": "kkday",
+    "hotels": "agoda"
+  }
+}
+

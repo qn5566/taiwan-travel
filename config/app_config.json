@@ -1,0 +1,26 @@
+{
+  "appName": "台灣吃喝玩樂",
+  "appNameEn": "Taiwan Food & Fun Express",
+  "appSubtitle": "島嶼風土地圖・必比登小吃・老宅海景咖啡・秘境市集指南",
+  "designPhilosophy": "島嶼暖陽・文青慢步調・在地人情味・免排隊踩雷指引",
+  "server": {
+    "host": "127.0.0.1",
+    "port": 8081
+  },
+  "regions": [
+    { "id": "all", "name": "全台灣", "name_en": "All Taiwan", "center": [23.8, 121.0], "zoom": 8 },
+    { "id": "north", "name": "北部圈 (基北北桃竹)", "name_en": "North (Taipei & Surrounds)", "center": [25.04, 121.53], "zoom": 11 },
+    { "id": "central", "name": "中部圈 (苗中彰投雲)", "name_en": "Central (Taichung & Sun Moon Lake)", "center": [24.15, 120.67], "zoom": 11 },
+    { "id": "south", "name": "南部圈 (嘉南高屏)", "name_en": "South (Tainan, Kaohsiung & Kenting)", "center": [22.99, 120.20], "zoom": 11 },
+    { "id": "east", "name": "東部與離島 (宜花東/澎金馬)", "name_en": "East & Islands (Yilan, Hualien, Taitung)", "center": [24.01, 121.60], "zoom": 10 }
+  ],
+  "categories": [
+    { "id": "all", "name": "全部探索", "icon": "🇹🇼", "theme": "theme-spot" },
+    { "id": "food", "name": "必吃美食", "icon": "🍜", "theme": "theme-food" },
+    { "id": "cafe", "name": "老宅咖啡", "icon": "☕", "theme": "theme-cafe" },
+    { "id": "spot", "name": "絕美秘境", "icon": "🏞️", "theme": "theme-spot" },
+    { "id": "market", "name": "週末市集", "icon": "🎪", "theme": "theme-market" },
+    { "id": "onsen", "name": "渡假溫泉", "icon": "♨️", "theme": "theme-onsen" }
+  ]
+}
+

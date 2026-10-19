@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>台灣吃喝玩樂 TAIWAN TRAVEL HUB - Refined iOS UI</title>
+  
+  <style>
+    :root {
+      --bg-studio: #F3F1EC;
+      --phone-canvas: #FFFFFF;
+      --accent-turquoise: #0D9488;
+      --accent-turquoise-light: #F0FDFA;
+      --accent-turquoise-border: #CCFBF1;
+      --accent-sand: #C28A5B;
+      --accent-sand-light: #FDF8F3;
+      
+      --text-heading: #0F172A;
+      --text-body: #334155;
+      --text-muted: #94A3B8;
+      --text-light: #64748B;
+      
+      --radius-sm: 16px;
+      --radius-md: 24px;
+      --radius-lg: 32px;
+      --radius-pill: 9999px;
+      
+      --glass-bg: rgba(255, 255, 255, 0.88);
+      --glass-blur: blur(28px);
+      --glass-border: rgba(255, 255, 255, 0.7);
+      
+      --shadow-3d: 0 45px 95px -25px rgba(15, 23, 42, 0.22), 0 20px 45px -15px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.03);
+      --shadow-card: 0 12px 32px -8px rgba(15, 23, 42, 0.06), 0 4px 12px -2px rgba(15, 23, 42, 0.02);
+      --shadow-float: 0 20px 40px -10px rgba(13, 148, 136, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "PingFang TC", "Noto Sans TC", sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 10%, #FAF8F5 0%, #EAE6DF 60%, #E0DBD2 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px 14px 60px;
+      color: var(--text-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 頂部作品集工具列 */
+    .figma-portfolio-bar {
+      width: 100%;
+      max-width: 960px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding: 10px 22px;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: var(--glass-blur);
+      border-radius: var(--radius-pill);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      border: 1px solid rgba(255,255,255,0.85);
+    }
+    .figma-logo-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+    .figma-badge {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 3px 8px;
+      background: var(--accent-turquoise-light);
+      color: var(--accent-turquoise);
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--accent-turquoise-border);
+    }
+    .view-mode-pill {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid #E2E8F0;
+      background: #FFF;
+      color: var(--text-light);
+      cursor: pointer;
+    }
+    .view-mode-pill.active {
+      background: var(--text-heading);
+      color: #FFF;
+      border-color: var(--text-heading);
+    }
+
+    /* 雙螢幕工作舞台 */
+    .studio-stage {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 960px;
+      transition: all 0.3s ease;
+    }
+
+    /* 手機外框實體 */
+    .phone-mockup {
+      width: 395px;
+      height: 844px;
+      background: var(--phone-canvas);
+      border-radius: 52px;
+      border: 10px solid #1E293B;
+      box-shadow: var(--shadow-3d);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    /* 頂部動態島 */
+    .phone-top-bar {
+      height: 40px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #FFFFFF;
+      z-index: 50;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-heading);
+      position: relative;
+    }
+    .dynamic-island {
+      position: absolute;
+      left: 50%;
+      top: 8px;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 24px;
+      background: #000;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      font-size: 9px;
+      font-weight: 600;
+      gap: 6px;
+    }
+
+    /* 滾動內容容器 */
+    .screen-body {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      position: relative;
+      padding-bottom: 96px;
+      background: #FFFFFF;
+    }
+    .screen-body::-webkit-scrollbar { display: none; }
+
+    /* =========================================================
+       1. 頂部多國語言切換列 (最上面、用戶一秒即時切換)
+       ========================================================= */
+    .top-lang-bar {
+      padding: 8px 16px 6px;
+      background: #FAF8F5;
+      border-bottom: 1px solid #F1EDE7;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+    }
+    .top-lang-bar::-webkit-scrollbar { display: none; }
+    .lang-chip {
+      flex-shrink: 0;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: #FFFFFF;
+      color: var(--text-body);
+      border: 1px solid #E2E8F0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .lang-chip.active {
+      background: var(--text-heading);
+      color: #FFFFFF;
+      border-color: var(--text-heading);
+    }
+
+    /* =========================================================
+       2. 品牌 LOGO 列 + 旁邊小圖快捷按鈕 (🏆雙榜, ❤️收藏, 💬留言)
+       ========================================================= */
+    .brand-hero-row {
+      padding: 12px 18px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #FFFFFF;
+    }
+    .brand-logo-left {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-main-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--text-heading);
+      letter-spacing: -0.6px;
+      line-height: 1.1;
+    }
+    .brand-sub-title {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      color: var(--accent-sand);
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+    .brand-actions-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .mini-badge-btn {
+      padding: 6px 10px;
+      border-radius: var(--radius-pill);
+      background: #FAF8F5;
+      border: 1px solid #F1EDE7;
+      color: var(--text-heading);
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+    }
+    .mini-badge-btn:active {
+      transform: scale(0.95);
+      background: var(--accent-turquoise-light);
+      border-color: var(--accent-turquoise-border);
+      color: var(--accent-turquoise);
+    }
+    .mini-badge-btn.highlight {
+      background: var(--text-heading);
+      color: #FFFFFF;
+      border-color: var(--text-heading);
+    }
+
+    /* 頂部交通 4 大服務膠囊列 (高鐵置入官方連結與分潤) */
+    .top-service-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      padding: 8px 18px;
+      background: #FFFFFF;
+    }
+    .service-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 7px 4px;
+      background: #FAF8F5;
+      border: 1px solid #F1EDE7;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      color: var(--text-heading);
+      font-size: 10px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .service-btn:hover, .service-btn:active {
+      background: var(--accent-turquoise-light);
+      border-color: var(--accent-turquoise-border);
+      color: var(--accent-turquoise);
+    }
+    .service-btn .btn-icon {
+      font-size: 15px;
+    }
+
+    /* =========================================================
+       3. 乾淨簡約搜尋欄
+       ========================================================= */
+    .search-strip-clean {
+      padding: 6px 18px 12px;
+    }
+    .clean-search-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .clean-search-box input {
+      border: none;
+      outline: none;
+      background: transparent;
+      width: 100%;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+    .clean-search-box input::placeholder {
+      color: var(--text-muted);
+    }
+
+    /* =========================================================
+       4. 縣市快選 (台北市、桃園市、花蓮縣、台南市優先)
+       ========================================================= */
+    .region-filter-bar {
+      padding: 0 0 14px;
+    }
+    .eyebrow-label {
+      padding: 0 18px 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+    }
+    .region-chips-scroll {
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      padding: 0 18px;
+    }
+    .region-chips-scroll::-webkit-scrollbar { display: none; }
+    .reg-chip {
+      flex-shrink: 0;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      background: #F8FAFC;
+      color: var(--text-body);
+      font-size: 11px;
+      font-weight: 700;
+      border: 1px solid #E2E8F0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .reg-chip.active {
+      background: var(--accent-turquoise);
+      color: #FFFFFF;
+      border-color: var(--accent-turquoise);
+      box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+    }
+
+    /* =========================================================
+       5. 景點卡牌 (32px 圓角、毛玻璃標籤)
+       ========================================================= */
+    .spots-feed-wrap {
+      padding: 0 18px 24px;
+    }
+    .spots-grid-2col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .feed-spot-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid #F1F5F9;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .feed-spot-card:hover, .feed-spot-card:active {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.12);
+      border-color: var(--accent-turquoise);
+    }
+    .feed-spot-card.selected {
+      border: 2px solid var(--accent-turquoise);
+    }
+    .feed-card-imgwrap {
+      width: 100%;
+      height: 125px;
+      position: relative;
+      overflow: hidden;
+      background: #E2E8F0;
+    }
+    .feed-card-imgwrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .feed-spot-card:hover .feed-card-imgwrap img {
+      transform: scale(1.06);
+    }
+    .card-fav-bubble {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border: none;
+    }
+    .card-city-glass-tag {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(8px);
+      color: #FFF;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+    }
+    .feed-card-body {
+      padding: 10px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+    .feed-card-name {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--text-heading);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .feed-card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    /* =========================================================
+       6. 16 大主題專區檢視 (點擊精選選單展出)
+       ========================================================= */
+    .themes-view-container {
+      display: none;
+      padding: 14px 18px 24px;
+    }
+    .themes-big-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .theme-photo-card {
+      height: 150px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: all 0.25s ease;
+    }
+    .theme-photo-card:active {
+      transform: scale(0.98);
+    }
+    .theme-photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .theme-photo-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.15) 50%, rgba(0,0,0,0.05) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 10px 12px;
+      color: #FFF;
+    }
+    .theme-photo-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(6px);
+      color: var(--text-heading);
+      font-size: 8px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: var(--radius-pill);
+    }
+
+    /* =========================================================
+       7. 底部 5 大導覽列：首頁 ｜ 精選 ｜ 地區 ｜ 收藏 ｜ 留言
+       ========================================================= */
+    .phone-bottom-nav {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      right: 14px;
+      height: 64px;
+      background: rgba(255, 255, 255, 0.90);
+      backdrop-filter: var(--glass-blur);
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0 8px;
+      z-index: 60;
+    }
+    .nav-tab-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 9px;
+      font-weight: 800;
+      border: none;
+      background: transparent;
+      padding: 6px 10px;
+      border-radius: var(--radius-pill);
+      transition: all 0.2s ease;
+    }
+    .nav-tab-btn.active {
+      color: var(--accent-turquoise);
+    }
+    .nav-tab-btn .tab-icon {
+      font-size: 17px;
+    }
+
+    /* =========================================================
+       右機：景點詳情 / 16 大主題專屬獨立子頁面
+       ========================================================= */
+    .detail-full-bleed {
+      position: relative;
+      height: 52%;
+      background: #000;
+      overflow: hidden;
+    }
+    .detail-full-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .detail-top-controls {
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+    .ctrl-circle-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .detail-glass-card {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 45%;
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border-top-left-radius: var(--radius-lg);
+      border-top-right-radius: var(--radius-lg);
+      border-top: 1px solid rgba(255, 255, 255, 0.9);
+      padding: 24px 22px 90px;
+      overflow-y: auto;
+      box-shadow: 0 -15px 45px rgba(15, 23, 42, 0.08);
+    }
+    .detail-glass-card::-webkit-scrollbar { display: none; }
+    
+    .detail-location-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--accent-turquoise);
+      background: var(--accent-turquoise-light);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 8px;
+      border: 1px solid var(--accent-turquoise-border);
+    }
+    .detail-spot-title {
+      font-size: 21px;
+      font-weight: 900;
+      color: var(--text-heading);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .detail-quick-metrics {
+      display: flex;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid #F1F5F9;
+      margin-bottom: 16px;
+    }
+    .metric-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .metric-val {
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--text-heading);
+    }
+    .metric-lbl {
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .detail-desc-body {
+      font-size: 13px;
+      color: var(--text-body);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+    .btn-book-now {
+      display: block;
+      width: 100%;
+      background: var(--accent-turquoise);
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 14px;
+      border-radius: var(--radius-pill);
+      text-align: center;
+      text-decoration: none;
+      box-shadow: var(--shadow-float);
+    }
+
+    /* 16 大主題子頁面 (Subpage Views) */
+    .thematic-subpage-view {
+      display: none;
+      height: 100%;
+      overflow-y: auto;
+      padding-bottom: 80px;
+      background: #FFFFFF;
+    }
+    .thematic-subpage-view.active {
+      display: block;
+    }
+    .subpage-banner {
+      width: 100%;
+      height: 180px;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 14px 16px;
+      color: #FFF;
+    }
+    .subpage-banner::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(to bottom, rgba(15,23,42,0.4) 0%, rgba(15,23,42,0.1) 40%, rgba(15,23,42,0.85) 100%);
+    }
+    .subpage-back-btn {
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(8px);
+      color: var(--text-heading);
+      border: none;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+    }
+    .subpage-banner-info {
+      position: relative;
+      z-index: 2;
+    }
+    .subpage-action-hub {
+      padding: 10px 16px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      background: #FAF8F5;
+      border-bottom: 1px solid #F1EDE7;
+    }
+    .subpage-action-hub::-webkit-scrollbar { display: none; }
+    .action-hub-btn {
+      flex-shrink: 0;
+      padding: 7px 12px;
+      border-radius: var(--radius-pill);
+      background: #FFFFFF;
+      color: var(--text-heading);
+      border: 1px solid #E2E8F0;
+      font-size: 10px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .subpage-content-padding {
+      padding: 16px;
+    }
+    .step-body-card {
+      background: #FFFFFF;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      border: 1px solid #F1F5F9;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    /* 彈出抽屜 (Bottom Drawer / Modal) */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-sheet {
+      width: 100%;
+      max-width: 440px;
+      max-height: 85vh;
+      background: #FFFFFF;
+      border-top-left-radius: 36px;
+      border-top-right-radius: 36px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.25);
+    }
+    .modal-sheet-header {
+      padding: 16px 20px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #F1F5F9;
+    }
+    .modal-sheet-close {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-sheet-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 18px 24px;
+    }
+    .modal-duel-tabs {
+      display: flex;
+      background: #F1F5F9;
+      padding: 3px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 12px;
+    }
+    .modal-duel-tab-btn {
+      flex: 1;
+      padding: 7px 10px;
+      font-size: 11px;
+      font-weight: 800;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: transparent;
+      color: var(--text-light);
+      cursor: pointer;
+      text-align: center;
+    }
+    .modal-duel-tab-btn.active {
+      background: #FFFFFF;
+      color: var(--text-heading);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .drink-rank-card {
+      background: #FAF8F5;
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      border: 1px solid #F1EDE7;
+    }
+    .spot-rank-card {
+      background: #FAF8F5;
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #F1EDE7;
+    }
+
+    @media (max-width: 860px) {
+      .studio-stage {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+      .phone-mockup {
+        width: 100%;
+        max-width: 412px;
+        height: 840px;
+      }
+      #right-phone-screen {
+        display: none;
+      }
+      #right-phone-screen.mobile-active {
+        display: flex;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 頂部作品集工具列 -->
+  <div class="figma-portfolio-bar">
+    <div class="figma-logo-title">
+      <span>🇹🇼 台灣吃喝玩樂 Taiwan Travel Hub</span>
+      <span class="figma-badge">Refined iOS UI</span>
+    </div>
+    <div class="figma-actions">
+      <button class="view-mode-pill active" id="btn-view-dual" onclick="setViewMode('dual')">雙機並列</button>
+      <button class="view-mode-pill" id="btn-view-single" onclick="setViewMode('single')">單機實機</button>
+      <a href="mailto:himydream.studio0220@gmail.com" class="view-mode-pill" style="text-decoration:none;">聯繫合作</a>
+    </div>
+  </div>
+
+  <!-- 雙螢幕工作舞台 -->
+  <div class="studio-stage" id="studio-stage">
+
+    <!-- ==========================================
+         左機：首頁與核心導覽 (Home Screen)
+         ========================================== -->
+    <div class="phone-mockup" id="left-phone-screen">
+      <!-- 頂部動態島與狀態列 -->
+      <div class="phone-top-bar">
+        <span>09:41</span>
+        <div class="dynamic-island">
+          <span>🇹🇼 Taiwan Hub</span>
+        </div>
+        <span>5G 􀛨 100%</span>
+      </div>
+
+      <!-- 1. 頂部多國語言切換列 (最上面、用戶一秒切換) -->
+      <div class="top-lang-bar">
+        <div class="lang-chip active" onclick="switchLanguage('zh-TW', this)">🇹🇼 繁體中文</div>
+        <div class="lang-chip" onclick="switchLanguage('en', this)">🇺🇸 English</div>
+        <div class="lang-chip" onclick="switchLanguage('ja', this)">🇯🇵 日本語</div>
+        <div class="lang-chip" onclick="switchLanguage('ko', this)">🇰🇷 한국어</div>
+        <div class="lang-chip" onclick="switchLanguage('es', this)">🇪🇸 Español</div>
+        <div class="lang-chip" onclick="switchLanguage('de', this)">🇩🇪 Deutsch</div>
+        <div class="lang-chip" onclick="switchLanguage('th', this)">🇹🇭 ภาษาไทย</div>
+      </div>
+
+      <!-- 滾動內容容器 -->
+      <div class="screen-body" id="left-scroll-body">
+
+        <!-- 2. 品牌 LOGO 主要專區 + 旁邊小圖快捷按鈕 (🏆 雙榜, ❤️ 收藏, 💬 留言) -->
+        <div class="brand-hero-row">
+          <div class="brand-logo-left">
+            <h1 class="brand-main-title">台灣吃喝玩樂</h1>
+            <span class="brand-sub-title">TAIWAN TRAVEL HUB</span>
+          </div>
+          <div class="brand-actions-right">
+            <button class="mini-badge-btn highlight" onclick="openRankingsModal()" title="查看手搖與景點雙榜">
+              <span>🏆 雙榜</span>
+            </button>
+            <button class="mini-badge-btn" onclick="switchNavTab('favorites')" title="查看收藏清單">
+              <span>❤️ 收藏</span>
+            </button>
+            <button class="mini-badge-btn" onclick="switchNavTab('community')" title="全球踩點留言">
+              <span>💬 留言</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 頂部交通 4 大服務膠囊列 (高鐵置入官方預訂連結與分潤) -->
+        <div class="top-service-strip">
+          <a href="https://tw.trip.com/flights/?allianceid=123436&sid=123436" target="_blank" class="service-btn">
+            <span class="btn-icon">✈️</span>
+            <span data-i18n="flight_search">搜機票</span>
+          </a>
+          <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" class="service-btn">
+            <span class="btn-icon">🚗</span>
+            <span data-i18n="car_charter">包車預約</span>
+          </a>
+          <a href="https://www.klook.com/zh-TW/airport-transfers/?aid=123436" target="_blank" class="service-btn">
+            <span class="btn-icon">🚐</span>
+            <span data-i18n="airport_transfer">機場接送</span>
+          </a>
+          <!-- 置入官方高鐵預訂首頁與分潤代碼 -->
+          <a href="https://www.klook.com/zh-TW/rails-32/1012-taiwan/?aid=123436" target="_blank" class="service-btn">
+            <span class="btn-icon">🚄</span>
+            <span data-i18n="high_speed_rail">台灣高鐵</span>
+          </a>
+        </div>
+
+        <!-- 3. 精簡搜尋欄 (提示台灣景點，飲料，餐廳，花東離島) -->
+        <div class="search-strip-clean">
+          <div class="clean-search-box">
+            <span>🔍</span>
+            <input type="text" id="spot-search-input" placeholder="搜尋台灣景點，飲料，餐廳，花東離島..." oninput="handleSearch(this.value)">
+          </div>
+        </div>
+
+        <!-- =========================
+             A. 首頁視圖 (Home View)
+             ========================= -->
+        <div id="view-tab-home">
+          <!-- 縣市快選 (台北市、桃園市、花蓮縣、台南市優先) -->
+          <div class="region-filter-bar">
+            <div class="eyebrow-label">
+              <span data-i18n="region_label">REGIONAL DISCOVERY · 縣市快選</span>
+              <span style="cursor:pointer;color:var(--accent-turquoise);" onclick="switchNavTab('regions')">全部縣市 ALL ➔</span>
+            </div>
+            <div class="region-chips-scroll">
+              <div class="reg-chip active" onclick="filterByRegion('全部', this)">✨ 全部景點</div>
+              <div class="reg-chip" onclick="filterByRegion('台北市', this)">🏙️ 台北市</div>
+              <div class="reg-chip" onclick="filterByRegion('桃園市', this)">✈️ 桃園市</div>
+              <div class="reg-chip" onclick="filterByRegion('花蓮縣', this)">🐬 花蓮縣</div>
+              <div class="reg-chip" onclick="filterByRegion('台南市', this)">🏛️ 台南市</div>
+              <div class="reg-chip" onclick="filterByRegion('新北市', this)">🌊 新北市</div>
+              <div class="reg-chip" onclick="filterByRegion('台中市', this)">🧋 台中市</div>
+              <div class="reg-chip" onclick="filterByRegion('高雄市', this)">⚓ 高雄市</div>
+              <div class="reg-chip" onclick="filterByRegion('屏東縣', this)">🏄 屏東縣</div>
+              <div class="reg-chip" onclick="filterByRegion('宜蘭縣', this)">♨️ 宜蘭縣</div>
+              <div class="reg-chip" onclick="filterByRegion('台東縣', this)">🌾 台東縣</div>
+              <div class="reg-chip" onclick="filterByRegion('南投縣', this)">🌲 南投縣</div>
+              <div class="reg-chip" onclick="filterByRegion('嘉義縣', this)">🚂 嘉義縣</div>
+              <div class="reg-chip" onclick="filterByRegion('澎湖縣', this)">🏝️ 澎湖縣</div>
+            </div>
+          </div>
+
+          <!-- 精選 30 大景點瀑布流 -->
+          <div class="spots-feed-wrap">
+            <div class="eyebrow-label" style="padding-left:0;padding-right:0;margin-bottom:8px;">
+              <span data-i18n="spots_label">CURATED DESTINATIONS · 必訪景點</span>
+              <span id="spots-count-label">30 PLACES</span>
+            </div>
+            <div class="spots-grid-2col" id="all-spots-grid"></div>
+          </div>
+        </div>
+
+        <!-- =========================
+             B. 精選視圖 (16 大主題歸類全覽)
+             ========================= -->
+        <div id="view-tab-featured" class="themes-view-container">
+          <div class="eyebrow-label" style="padding:0 0 10px;">
+            <span>16 大精選主題專區 · 點擊進入子專題</span>
+            <span>16 THEMES</span>
+          </div>
+          <div class="themes-big-grid" id="themes-grid-list"></div>
+        </div>
+
+        <!-- =========================
+             C. 地區視圖 (全部地區分類瀏覽)
+             ========================= -->
+        <div id="view-tab-regions" style="display:none;padding:14px 18px 24px;">
+          <div class="eyebrow-label" style="padding:0 0 10px;">
+            <span>全台縣市專區 · 點擊切換縣市景點</span>
+            <span>22 CITIES</span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;" id="regions-full-cloud">
+            <!-- 完整全台縣市按鈕 -->
+          </div>
+          <div class="spots-grid-2col" id="regions-spots-grid"></div>
+        </div>
+
+        <!-- =========================
+             D. 收藏視圖 (Saved)
+             ========================= -->
+        <div id="view-tab-favorites" style="display:none;padding:14px 18px 24px;">
+          <div class="eyebrow-label" style="padding:0 0 10px;">
+            <span>❤️ 我的收藏庫 (離線永久保存)</span>
+            <span id="fav-count-tag">0 項</span>
+          </div>
+          <div id="fav-view-list"></div>
+        </div>
+
+        <!-- =========================
+             E. 留言視圖 (Community)
+             ========================= -->
+        <div id="view-tab-community" style="display:none;padding:14px 18px 24px;">
+          <div class="eyebrow-label" style="padding:0 0 10px;">
+            <span>💬 全球旅人踩點心得牆</span>
+            <span>LIVE REVIEWS</span>
+          </div>
+          <div class="comment-post-box">
+            <div style="display:flex;gap:8px;margin-bottom:8px;">
+              <input type="text" id="input-author" placeholder="您的暱稱 (e.g. Ken, Yuki)" style="flex:1;padding:8px 12px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;">
+              <select id="select-country" style="padding:8px 10px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;background:#FFF;">
+                <option value="🇹🇼 台灣">🇹🇼 台灣</option>
+                <option value="🇯🇵 日本">🇯🇵 日本</option>
+                <option value="🇰🇷 韓國">🇰🇷 韓國</option>
+                <option value="🇺🇸 美國">🇺🇸 美國</option>
+                <option value="🇪🇸 西班牙">🇪🇸 西班牙</option>
+                <option value="🇩🇪 德國">🇩🇪 德國</option>
+                <option value="🇹🇭 泰國">🇹🇭 泰國</option>
+                <option value="🇭🇰 香港">🇭🇰 香港</option>
+              </select>
+            </div>
+            <textarea id="input-comment" placeholder="分享您在台灣的旅行心得、推薦私房小吃或踩點感受..." style="width:100%;height:60px;padding:8px 12px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;resize:none;margin-bottom:8px;"></textarea>
+            <button onclick="submitNewComment()" style="width:100%;padding:10px;border-radius:var(--radius-pill);background:var(--accent-turquoise);color:#FFF;font-size:12px;font-weight:800;border:none;cursor:pointer;">🚀 發布踩點感想</button>
+          </div>
+          <div id="feedback-list-container"></div>
+        </div>
+
+      </div>
+
+      <!-- 5. 底部 5 大核心選單分類：首頁 ｜ 精選 ｜ 地區 ｜ 收藏 ｜ 留言 -->
+      <div class="phone-bottom-nav">
+        <button class="nav-tab-btn active" id="tab-btn-home" onclick="switchNavTab('home')">
+          <span class="tab-icon">🏠</span>
+          <span data-i18n="nav_home">首頁</span>
+        </button>
+        <button class="nav-tab-btn" id="tab-btn-featured" onclick="switchNavTab('featured')">
+          <span class="tab-icon">✨</span>
+          <span data-i18n="nav_featured">精選</span>
+        </button>
+        <button class="nav-tab-btn" id="tab-btn-regions" onclick="switchNavTab('regions')">
+          <span class="tab-icon">🗺️</span>
+          <span data-i18n="nav_regions">地區</span>
+        </button>
+        <button class="nav-tab-btn" id="tab-btn-favorites" onclick="switchNavTab('favorites')">
+          <span class="tab-icon">❤️</span>
+          <span data-i18n="nav_favorites">收藏</span>
+        </button>
+        <button class="nav-tab-btn" id="tab-btn-community" onclick="switchNavTab('community')">
+          <span class="tab-icon">💬</span>
+          <span data-i18n="nav_community">留言</span>
+        </button>
+      </div>
+    </div>
+
+
+    <!-- ==========================================
+         右機：景點詳情 / 16 大主題專屬獨立子頁面
+         ========================================== -->
+    <div class="phone-mockup" id="right-phone-screen">
+      <!-- 頂部動態島與狀態列 -->
+      <div class="phone-top-bar">
+        <span>09:41</span>
+        <div class="dynamic-island">
+          <span id="right-island-text">📍 景點深度導覽</span>
+        </div>
+        <span>5G 􀛨 100%</span>
+      </div>
+
+      <!-- 預設視圖：景點深度詳情頁 -->
+      <div class="screen-body" id="detail-view-container" style="padding-bottom: 0;">
+        <div class="detail-full-bleed">
+          <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=900&auto=format&fit=crop" id="detail-main-img" class="detail-full-img" alt="Scenic Spot">
+          <div class="detail-top-controls">
+            <button class="ctrl-circle-btn" onclick="closeMobileRightScreen()" title="返回">←</button>
+            <button class="ctrl-circle-btn" id="btn-detail-fav" onclick="toggleCurrentDetailFav()" title="收藏景點">❤️</button>
+          </div>
+        </div>
+
+        <div class="detail-glass-card">
+          <div class="detail-location-badge" id="detail-location-tag">📍 屏東縣 · 墾丁崩崖海灣</div>
+          <h2 class="detail-spot-title" id="detail-title">墾丁龍磐崩崖秘境</h2>
+
+          <div class="detail-quick-metrics">
+            <div class="metric-col">
+              <span class="metric-val" id="detail-metric-rating">⭐ 4.8</span>
+              <span class="metric-lbl" data-i18n="metric_rating">旅人評分</span>
+            </div>
+            <div class="metric-col">
+              <span class="metric-val" id="detail-metric-temp">🌡️ 26°C</span>
+              <span class="metric-lbl" data-i18n="metric_climate">平均氣候</span>
+            </div>
+            <div class="metric-col">
+              <span class="metric-val" id="detail-metric-duration">⏱️ 半日遊</span>
+              <span class="metric-lbl" data-i18n="metric_duration">建議遊程</span>
+            </div>
+          </div>
+
+          <p class="detail-desc-body" id="detail-desc-text">
+            龍磐公園位於屏東墾丁東海岸，全區屬於石灰岩崩崖地形。站在崩崖頂端居高臨下，壯闊的太平洋浩瀚無垠，珊瑚礁岩裂溝、崩崖與石灰岩洞穴交織出台灣最震撼的海島天際線。
+          </p>
+
+          <a href="https://www.klook.com/zh-TW/activity/1090-kenting-day-tour-kaohsiung/?aid=123436" target="_blank" class="btn-book-now" id="detail-book-cta">
+            <span>🎟️ Book Now 立即預訂行程</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 16 個主題專用子頁面容器 -->
+      <div id="thematic-subpages-wrapper" style="display: none; height: 100%;"></div>
+
+    </div>
+
+  </div>
+
+  <!-- ==========================================
+       彈出抽屜：雙榜單 Modal (手搖飲 TOP 20 & 景點人次 TOP 20)
+       ========================================== -->
+  <div class="modal-overlay" id="ranking-modal-overlay" onclick="closeRankingsModal(event)">
+    <div class="modal-sheet" onclick="event.stopPropagation()">
+      <div class="modal-sheet-header">
+        <h3 class="modal-sheet-title" style="font-size:15px;font-weight:900;">🏆 台灣超人氣雙榜單指南</h3>
+        <button class="modal-sheet-close" onclick="closeRankingsModal()">✕</button>
+      </div>
+      <div class="modal-sheet-body">
+        <div class="modal-duel-tabs">
+          <button class="modal-duel-tab-btn active" id="modal-tab-drinks" onclick="switchModalDuelTab('drinks')">🧋 必喝手搖 TOP 20</button>
+          <button class="modal-duel-tab-btn" id="modal-tab-spots" onclick="switchModalDuelTab('spots')">🏛️ 景點人次 TOP 20</button>
+        </div>
+        <div id="modal-duel-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ==========================================
+    // 1. 多語系字典 (7 國語言)
+    // ==========================================
+    const I18N_DICT = {
+      "zh-TW": {
+        flight_search: "搜機票", car_charter: "包車預約", airport_transfer: "機場接送", high_speed_rail: "台灣高鐵",
+        region_label: "REGIONAL DISCOVERY · 縣市快選", spots_label: "CURATED DESTINATIONS · 必訪景點",
+        metric_rating: "旅人評分", metric_climate: "平均氣候", metric_duration: "建議遊程",
+        nav_home: "首頁", nav_featured: "精選", nav_regions: "地區", nav_favorites: "收藏", nav_community: "留言"
+      },
+      "en": {
+        flight_search: "Flights", car_charter: "Charter Car", airport_transfer: "Transfers", high_speed_rail: "THSR Rail",
+        region_label: "REGIONAL DISCOVERY · CITIES", spots_label: "CURATED DESTINATIONS · TOP SPOTS",
+        metric_rating: "Rating", metric_climate: "Climate", metric_duration: "Duration",
+        nav_home: "Home", nav_featured: "Featured", nav_regions: "Regions", nav_favorites: "Saved", nav_community: "Reviews"
+      },
+      "ja": {
+        flight_search: "航空券検索", car_charter: "貸切チャーター", airport_transfer: "空港送迎", high_speed_rail: "台湾新幹線",
+        region_label: "エリア別フィルター", spots_label: "厳選絶景スポット",
+        metric_rating: "評価", metric_climate: "気候", metric_duration: "所要時間",
+        nav_home: "ホーム", nav_featured: "特集", nav_regions: "地域", nav_favorites: "お気に入り", nav_community: "口コミ"
+      },
+      "ko": {
+        flight_search: "항공권 검색", car_charter: "차량 투어", airport_transfer: "공항 픽업", high_speed_rail: "고속철도",
+        region_label: "지역별 필터", spots_label: "필수 방문 명소",
+        metric_rating: "평점", metric_climate: "기후", metric_duration: "추천 일정",
+        nav_home: "홈", nav_featured: "추천테마", nav_regions: "지역", nav_favorites: "보관함", nav_community: "리뷰"
+      },
+      "es": {
+        flight_search: "Vuelos", car_charter: "Coche Privado", airport_transfer: "Traslados", high_speed_rail: "Tren Rápido",
+        region_label: "REGIONES DE TAIWÁN", spots_label: "DESTINOS IMPERDIBLES",
+        metric_rating: "Calificación", metric_climate: "Clima", metric_duration: "Duración",
+        nav_home: "Inicio", nav_featured: "Especial", nav_regions: "Regiones", nav_favorites: "Favoritos", nav_community: "Comunidad"
+      },
+      "de": {
+        flight_search: "Flüge", car_charter: "Chauffeur", airport_transfer: "Transfer", high_speed_rail: "Schnellzug",
+        region_label: "REGIONEN & STÄDTE", spots_label: "SPEKTAKULÄRE ZIELE",
+        metric_rating: "Bewertung", metric_climate: "Klima", metric_duration: "Dauer",
+        nav_home: "Entdecken", nav_featured: "Themen", nav_regions: "Regionen", nav_favorites: "Gespeichert", nav_community: "Bewertungen"
+      },
+      "th": {
+        flight_search: "ค้นหาเที่ยวบิน", car_charter: "เช่ารถพร้อมคนขับ", airport_transfer: "รับส่งสนามบิน", high_speed_rail: "รถไฟความเร็วสูง",
+        region_label: "ค้นหาตามภูมิภาค", spots_label: "สถานที่ยอดนิยม",
+        metric_rating: "คะแนนรีวิว", metric_climate: "สภาพอากาศ", metric_duration: "ระยะเวลา",
+        nav_home: "หน้าแรก", nav_featured: "คัดสรร", nav_regions: "ภูมิภาค", nav_favorites: "รายการโปรด", nav_community: "รีวิว"
+      }
+    };
+
+    function switchLanguage(langCode, el) {
+      document.querySelectorAll(".lang-chip").forEach(p => p.classList.remove("active"));
+      if (el) el.classList.add("active");
+
+      const dict = I18N_DICT[langCode] || I18N_DICT["zh-TW"];
+      document.querySelectorAll("[data-i18n]").forEach(elem => {
+        const key = elem.getAttribute("data-i18n");
+        if (dict[key]) {
+          elem.innerText = dict[key];
+        }
+      });
+    }
+
+    // ==========================================
+    // 2. 16 大精選主題資料集 (真實實景攝影圖)
+    // ==========================================
+    const THEMES_DATA = [
+      { id: "islands", name: "離島", en: "Islands", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&auto=format&fit=crop", badge: "HOT" },
+      { id: "huadong", name: "花東", en: "East Coast", img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=500&auto=format&fit=crop", badge: "MUST" },
+      { id: "festivals", name: "節慶", en: "Festivals", img: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=500&auto=format&fit=crop", badge: "SPECIAL" },
+      { id: "events", name: "活動", en: "Events", img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500&auto=format&fit=crop", badge: "LIVE" },
+      { id: "baseball", name: "棒球", en: "Baseball", img: "https://images.unsplash.com/photo-1508344928928-7165b67de128?w=500&auto=format&fit=crop", badge: "CPBL" },
+      { id: "trekking", name: "登山", en: "Trekking", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=500&auto=format&fit=crop", badge: "ALPINE" },
+      { id: "railway", name: "火車", en: "Railways", img: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=500&auto=format&fit=crop", badge: "SCENIC" },
+      { id: "nightmarket", name: "夜市", en: "Night Markets", img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&auto=format&fit=crop", badge: "FOODIE" },
+      { id: "nightview", name: "夜景", en: "Night Views", img: "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=500&auto=format&fit=crop", badge: "ROOFTOP" },
+      { id: "hotspring", name: "溫泉", en: "Hot Springs", img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=500&auto=format&fit=crop", badge: "SPA" },
+      { id: "camping", name: "露營", en: "Camping", img: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=500&auto=format&fit=crop", badge: "GLAMP" },
+      { id: "northcoast", name: "北海岸", en: "North Coast", img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=500&auto=format&fit=crop", badge: "COAST" },
+      { id: "roundtaiwan", name: "環島", en: "Round Taiwan", img: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=500&auto=format&fit=crop", badge: "EXPEDITION" },
+      { id: "diving", name: "潛水", en: "Diving", img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&auto=format&fit=crop", badge: "OCEAN" },
+      { id: "surfing", name: "衝浪", en: "Surfing", img: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=500&auto=format&fit=crop", badge: "WAVE" },
+      { id: "templefair", name: "廟會", en: "Temple Fairs", img: "https://images.unsplash.com/photo-1528164344705-475426879c0d?w=500&auto=format&fit=crop", badge: "CULTURE" }
+    ];
+
+    // ==========================================
+    // 3. 最新推薦排序「必喝手搖 Top 20」
+    // ==========================================
+    const DRINKS_DATA = [
+      { rank: 1, name: "50嵐 50LAN", logo: "🟡", tag: "經典國民 · 國民珍奶・絕對零踩雷", drinks: ["1號四季春珍波椰", "波霸奶茶"], rate: "4.9★", votes: "14.2萬票" },
+      { rank: 2, name: "吃茶三千 CHICHA San Chen", logo: "👑", tag: "台中發跡 · 專利現萃百元奢華奶茶", drinks: ["國王珍珠奶茶", "決明烏龍厚奶"], rate: "4.9★", votes: "13.8萬票" },
+      { rank: 3, name: "得正 Oolong Tea", logo: "🟦", tag: "青年文青純茶 · 烏龍茶專門", drinks: ["焙烏龍奶茶（加茶凍）", "檸檬春烏龍"], rate: "4.9★", votes: "12.5萬票" },
+      { rank: 4, name: "辻利茶舗 TSUJIRI", logo: "🍵", tag: "日本京都百年正統 · 全台抹茶天花板", drinks: ["辻利抹茶拿鐵", "抹茶黑糖白玉"], rate: "4.9★", votes: "11.6萬票" },
+      { rank: 5, name: "SOMA 特調飲品", logo: "✨", tag: "日韓遊客排隊名店 · 法式精品茶歐蕾", drinks: ["原味茶歐蕾", "莊園大吉嶺歐蕾"], rate: "4.8★", votes: "10.9萬票" },
+      { rank: 6, name: "可不可熟成紅茶 KEBUKE", logo: "🍷", tag: "濃茶重奶 · 小紅書推崇熟成茶香", drinks: ["熟成歐蕾（加白玉）", "胭脂紅茶"], rate: "4.8★", votes: "10.4萬票" },
+      { rank: 7, name: "麻古茶坊 MACU", logo: "🥭", tag: "台灣新鮮水果果肉 · 芝芝甜點系", drinks: ["芝芝芒果果粒", "楊枝甘露"], rate: "4.8★", votes: "10.1萬票" },
+      { rank: 8, name: "一沐日 1MUJI", logo: "🍃", tag: "台灣在地古早味料神 · 草仔粿粉圓", drinks: ["逮丸奶茶（草仔粿）", "油切蕎麥茶"], rate: "4.8★", votes: "9.7萬票" },
+      { rank: 9, name: "迷客夏 Milksha", logo: "🥛", tag: "自家牧場鮮奶 · 天然白玉珍珠", drinks: ["珍珠紅茶拿鐵", "大甲芋頭鮮奶"], rate: "4.8★", votes: "9.3萬票" },
+      { rank: 10, name: "八曜和茶 Hachiyo", logo: "🌾", tag: "日系十穀炒焙穀物茶 · 無咖啡因首選", drinks: ["八曜和茶歐蕾", "柚香覺醒炙烏龍"], rate: "4.8★", votes: "8.9萬票" },
+      { rank: 11, name: "龜記茗品 GUIJI", logo: "🐢", tag: "古早味鮮果茶 · 紅柚翡翠專門", drinks: ["紅柚翡翠", "蘋果紅萱"], rate: "4.7★", votes: "8.5萬票" },
+      { rank: 12, name: "五桐號 WooTea", logo: "🪵", tag: "手工杏仁凍焙茶 · 聯名潮流手搖", drinks: ["杏仁凍五桐茶", "最完美手沖泰奶"], rate: "4.7★", votes: "8.1萬票" },
+      { rank: 13, name: "約翰紅茶公司 John Tea", logo: "🎩", tag: "英倫頂級紅茶專賣 · 紅茶控聖殿", drinks: ["煮濃那堤", "雨果那堤"], rate: "4.9★", votes: "7.8萬票" },
+      { rank: 14, name: "春水堂 Chun Shui Tang", logo: "🏮", tag: "世界珍珠奶茶發源地 · 人文雅致茶館", drinks: ["原創珍珠奶茶", "鐵觀音拿鐵"], rate: "4.8★", votes: "7.4萬票" },
+      { rank: 15, name: "珍煮丹 TRUEDAN", logo: "🟤", tag: "手工慢熬黑糖珍珠祖師 · 濃醇黑糖香", drinks: ["黑糖珍珠鮮奶", "黑糖泰泰鮮奶茶"], rate: "4.6★", votes: "7.0萬票" },
+      { rank: 16, name: "清心福全 Ching Shin", logo: "❤️", tag: "全台分店最多 · 國民多多綠霸主", drinks: ["優多綠茶（多多綠）", "烏龍綠茶"], rate: "4.7★", votes: "6.8萬票" },
+      { rank: 17, name: "茶湯會 TP-TEA", logo: "🧋", tag: "春水堂家族系 · 鐵觀音茶專門", drinks: ["鐵觀音拿鐵", "觀音雙Q奶茶"], rate: "4.6★", votes: "6.5萬票" },
+      { rank: 18, name: "萬波島嶼紅茶 Wanpo", logo: "🏝️", tag: "眷村復古記憶 · 古早味甜品入茶", drinks: ["紅豆粉粿鮮奶", "金萱珍波粉"], rate: "4.6★", votes: "6.2萬票" },
+      { rank: 19, name: "先喝道 TaoTao Tea", logo: "🌹", tag: "古典玫瑰園旗下 · 英式宮廷花草茶", drinks: ["英式玫瑰鮮奶拿鐵", "四季春蜜桃茶"], rate: "4.6★", votes: "5.8萬票" },
+      { rank: 20, name: "大苑子 DaYungs", logo: "🍊", tag: "產地直送鮮果現榨 · 芒果盛宴霸榜", drinks: ["愛文芒果冰沙", "柚美粒"], rate: "4.6★", votes: "5.5萬票" }
+    ];
+
+    // ==========================================
+    // 4. 熱門景點人次 TOP 20 資料
+    // ==========================================
+    const SPOTS_TOP20_DATA = [
+      { rank: 1, name: "台北 101 觀景台", city: "台北市", visitors: "360 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/1659-taipei-101-observation-deck-ticket-taipei/?aid=123436" },
+      { rank: 2, name: "國立故宮博物院", city: "台北市", visitors: "280 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/2112-national-palace-museum-ticket-taipei/?aid=123436" },
+      { rank: 3, name: "日月潭國家風景區", city: "南投縣", visitors: "320 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/2381-sun-moon-lake-shuishe-nantou/?aid=123436" },
+      { rank: 4, name: "九份山城老街", city: "新北市", visitors: "260 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/1874-jiufen-shifen-day-tour-taipei/?aid=123436" },
+      { rank: 5, name: "墾丁國家公園", city: "屏東縣", visitors: "250 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/1090-kenting-day-tour-kaohsiung/?aid=123436" },
+      { rank: 6, name: "阿里山國家森林遊樂區", city: "嘉義縣", visitors: "220 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/1628-alishan-forest-railway-day-tour-chiayi/?aid=123436" },
+      { rank: 7, name: "野柳地質公園", city: "新北市", visitors: "210 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/1089-yehliu-geopark-ticket-taipei/?aid=123436" },
+      { rank: 8, name: "太魯閣國家公園", city: "花蓮縣", visitors: "200 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/1095-taroko-gorge-day-tour-hualien/?aid=123436" },
+      { rank: 9, name: "高雄駁二藝術特區", city: "高雄市", visitors: "230 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/2280-pier-2-art-center-kaohsiung/?aid=123436" },
+      { rank: 10, name: "台南奇美博物館", city: "台南市", visitors: "190 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/2855-chimei-museum-ticket-tainan/?aid=123436" },
+      { rank: 11, name: "淡水老街與漁人碼頭", city: "新北市", visitors: "240 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/2210-tamsui-sunset-tour-taipei/?aid=123436" },
+      { rank: 12, name: "清境農場青青草原", city: "南投縣", visitors: "180 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/2180-cingjing-farm-day-tour-taichung/?aid=123436" },
+      { rank: 13, name: "台中高美濕地", city: "台中市", visitors: "170 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/2080-gaomei-wetlands-day-tour-taichung/?aid=123436" },
+      { rank: 14, name: "台中國家歌劇院", city: "台中市", visitors: "165 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/2390-taichung-opera-house-tour/?aid=123436" },
+      { rank: 15, name: "台南赤崁樓與安平古堡", city: "台南市", visitors: "160 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/2410-tainan-historic-sites-pass/?aid=123436" },
+      { rank: 16, name: "宜蘭傳統藝術中心", city: "宜蘭縣", visitors: "150 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/2199-national-center-for-traditional-arts-yilan/?aid=123436" },
+      { rank: 17, name: "太平山見晴懷古步道", city: "宜蘭縣", visitors: "140 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/2890-taipingshan-day-tour-yilan/?aid=123436" },
+      { rank: 18, name: "蘭陽博物館", city: "宜蘭縣", visitors: "130 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/2770-lanyang-museum-ticket-yilan/?aid=123436" },
+      { rank: 19, name: "高雄義大世界", city: "高雄市", visitors: "145 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/1690-e-da-theme-park-ticket-kaohsiung/?aid=123436" },
+      { rank: 20, name: "小琉球花瓶岩浮潛", city: "屏東縣", visitors: "125 萬人次/年", aid: "https://www.klook.com/zh-TW/activity/2950-xiaoliuqiu-snorkeling-turtle/?aid=123436" }
+    ];
+
+    // ==========================================
+    // 5. 精選 30 大景點
+    // ==========================================
+    const ALL_SPOTS_DATA = [
+      { id: 1, name: "墾丁龍磐崩崖秘境", city: "屏東縣", img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=600&auto=format&fit=crop", rate: "4.8★", duration: "半日遊", temp: "26°C", desc: "全台最壯麗石灰岩崩崖地形，俯瞰浩瀚太平洋與夜間無光害璀璨銀河。", aid: "https://www.klook.com/zh-TW/activity/1090-kenting-day-tour-kaohsiung/?aid=123436" },
+      { id: 2, name: "九份山城豎崎路老街", city: "新北市", img: "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=600&auto=format&fit=crop", rate: "4.9★", duration: "一日遊", temp: "21°C", desc: "如夢似幻的神隱少女紅燈籠梯道，品嚐阿柑姨芋圓與百年茶樓俯瞰基隆嶼。", aid: "https://www.klook.com/zh-TW/activity/1874-jiufen-shifen-day-tour-taipei/?aid=123436" },
+      { id: 3, name: "太魯閣燕子口巨石峽谷", city: "花蓮縣", img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop", rate: "4.9★", duration: "一日遊", temp: "22°C", desc: "立霧溪千萬年雕琢的大理石絕壁與壺穴地形，世界頂級地質奇觀。", aid: "https://www.klook.com/zh-TW/activity/1095-taroko-gorge-day-tour-hualien/?aid=123436" },
+      { id: 4, name: "阿里山特富野古道神木", city: "嘉義縣", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&auto=format&fit=crop", rate: "4.8★", duration: "一日遊", temp: "15°C", desc: "舊鐵道與柳杉林環抱的古道，晨曦破曉時分追逐祝山金黃雲海。", aid: "https://www.klook.com/zh-TW/activity/1628-alishan-forest-railway-day-tour-chiayi/?aid=123436" },
+      { id: 5, name: "日月潭水社碼頭晨霧", city: "南投縣", img: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&auto=format&fit=crop", rate: "4.7★", duration: "一日遊", temp: "23°C", desc: "全球十大最美環湖自行車道，向山眺望湖光山色與阿婆茶葉蛋芳香。", aid: "https://www.klook.com/zh-TW/activity/2381-sun-moon-lake-shuishe-nantou/?aid=123436" },
+      { id: 6, name: "清境農場青青草原天空步道", city: "南投縣", img: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=600&auto=format&fit=crop", rate: "4.8★", duration: "一日遊", temp: "18°C", desc: "高山小瑞士綿羊脫毛秀與漫步海拔 1,750 米高架景觀步道。", aid: "https://www.klook.com/zh-TW/activity/2180-cingjing-farm-day-tour-taichung/?aid=123436" },
+      { id: 7, name: "台中高美濕地風車夕陽", city: "台中市", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop", rate: "4.9★", duration: "半日遊", temp: "25°C", desc: "退潮時如天空之鏡般的絕美倒影，十七座風車在晚霞中浪漫佇立。", aid: "https://www.klook.com/zh-TW/activity/2080-gaomei-wetlands-day-tour-taichung/?aid=123436" },
+      { id: 8, name: "台北 101 秘境觀景台", city: "台北市", img: "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=600&auto=format&fit=crop", rate: "4.9★", duration: "2小時", temp: "24°C", desc: "登上超高速電梯至 89 樓俯瞰台北夜空，近距離觀賞重達 660 噸的阻尼器風阻球。", aid: "https://www.klook.com/zh-TW/activity/1659-taipei-101-observation-deck-ticket-taipei/?aid=123436" },
+      { id: 9, name: "高雄駁二大港橋海灣特區", city: "高雄市", img: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop", rate: "4.7★", duration: "一日遊", temp: "28°C", desc: "全台首座旋轉大港橋、輕軌穿梭倉庫文創展覽與哈瑪星鐵道園區。", aid: "https://www.klook.com/zh-TW/activity/2280-pier-2-art-center-kaohsiung/?aid=123436" },
+      { id: 10, name: "野柳地質公園女王頭", city: "新北市", img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop", rate: "4.8★", duration: "半日遊", temp: "22°C", desc: "大自然風化與海蝕奇蹟，形如優雅女王側影的世界級地質景點。", aid: "https://www.klook.com/zh-TW/activity/1089-yehliu-geopark-ticket-taipei/?aid=123436" },
+      { id: 11, name: "台南奇美博物館西洋宮殿", city: "台南市", img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&auto=format&fit=crop", rate: "4.9★", duration: "半日遊", temp: "27°C", desc: "阿波羅噴泉與純白希臘神話宮殿，典藏頂級小提琴名琴與西洋名畫。", aid: "https://www.klook.com/zh-TW/activity/2855-chimei-museum-ticket-tainan/?aid=123436" },
+      { id: 12, name: "宜蘭見晴懷古步道檜木鐵道", city: "宜蘭縣", img: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600&auto=format&fit=crop", rate: "4.9★", duration: "一日遊", temp: "14°C", desc: "CNN 評選全球最美 28 條步道，煙霧迷濛中的百年高空運材鐵軌。", aid: "https://www.klook.com/zh-TW/activity/2890-taipingshan-day-tour-yilan/?aid=123436" },
+      { id: 13, name: "澎湖奎壁山摩西分海踏浪", city: "澎湖縣", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop", rate: "4.8★", duration: "半日遊", temp: "28°C", desc: "退潮時海水奇蹟般向兩側退去，露出 S 型玄武岩礫石步道通往赤嶼。", aid: "https://www.klook.com/zh-TW/activity/2920-penghu-moses-sea-parting/?aid=123436" },
+      { id: 14, name: "綠島朝日海底溫泉", city: "台東縣", img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&auto=format&fit=crop", rate: "4.9★", duration: "半日遊", temp: "27°C", desc: "全世界僅三處罕見的海底鹹水溫泉，邊泡露天湯泉邊迎接太平洋第一道曙光。", aid: "https://www.klook.com/zh-TW/activity/2930-green-island-hotspring/?aid=123436" },
+      { id: 15, name: "基隆嶼包船登島與陰陽海", city: "基隆市", img: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=600&auto=format&fit=crop", rate: "4.8★", duration: "半日遊", temp: "23°C", desc: "搭船出海登上黑鯨美譽的基隆嶼，攻頂燈塔並眺望金黃漸層的陰陽海奇景。", aid: "https://www.klook.com/zh-TW/activity/2940-keelung-islet-boat-tour/?aid=123436" },
+      { id: 16, name: "台北北投溫泉地熱谷", city: "台北市", img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&auto=format&fit=crop", rate: "4.7★", duration: "半日遊", temp: "24°C", desc: "硫磺煙霧裊裊如仙境的地熱谷，搭配百年綠建築北投圖書館與日式泡湯體驗。", aid: "https://www.klook.com/zh-TW/activity/2120-beitou-hotspring-taipei/?aid=123436" },
+      { id: 17, name: "南投峇嵐杉丘奢華星空帳篷", city: "南投縣", img: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&auto=format&fit=crop", rate: "4.9★", duration: "二日遊", temp: "20°C", desc: "免裝備懶人露營首選，透明星空帳、專人現烤頂級和牛晚宴與晨間山林瑜伽。", aid: "https://www.klook.com/zh-TW/activity/2980-balan-hill-glamping/?aid=123436" },
+      { id: 18, name: "台北大巨蛋棒球應援特區", city: "台北市", img: "https://images.unsplash.com/photo-1508344928928-7165b67de128?w=600&auto=format&fit=crop", rate: "4.9★", duration: "3小時", temp: "22°C", desc: "四萬人頂級室內恆溫大巨蛋，體驗撼動人心的台灣職棒熱血應援加油歌。", aid: "https://www.klook.com/zh-TW/activity/3010-taipei-dome-baseball-pass/?aid=123436" },
+      { id: 19, name: "平溪十分瀑布與放天燈", city: "新北市", img: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600&auto=format&fit=crop", rate: "4.8★", duration: "一日遊", temp: "22°C", desc: "台版尼加拉瀑布之稱的十分大瀑布，並在鐵軌中央寫下心願冉冉升起祈福天燈。", aid: "https://www.klook.com/zh-TW/activity/1874-jiufen-shifen-day-tour-taipei/?aid=123436" },
+      { id: 20, name: "台北士林夜市美食地下街", city: "台北市", img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&auto=format&fit=crop", rate: "4.7★", duration: "2小時", temp: "25°C", desc: "全台名氣最響亮夜市，品嚐大餅包小餅、豪大大雞排、士林大香腸與米其林生煎包。", aid: "https://www.klook.com/zh-TW/activity/2150-shilin-night-market-tour/?aid=123436" },
+      { id: 21, name: "台北象山六巨石百萬夜景", city: "台北市", img: "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=600&auto=format&fit=crop", rate: "4.9★", duration: "2小時", temp: "23°C", desc: "攀登 20 分鐘步道即可零死角擁抱台北 101 高樓與璀璨萬家燈火的繁華夜景。", aid: "https://www.klook.com/zh-TW/activity/2160-elephant-mountain-night-tour/?aid=123436" },
+      { id: 22, name: "東北角鼻頭角稜谷步道", city: "新北市", img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop", rate: "4.8★", duration: "半日遊", temp: "21°C", desc: "有台版萬里長城美稱，行走在山巒稜線上，左右兩側皆為浩瀚蔚藍太平洋。", aid: "https://www.klook.com/zh-TW/activity/2230-bitoujiao-cape-tour/?aid=123436" },
+      { id: 23, name: "玉山主峰台灣最高屋脊", city: "南投縣", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&auto=format&fit=crop", rate: "5.0★", duration: "二日遊", temp: "8°C", desc: "海拔 3,952 米東北亞第一高峰，登頂眺望群山萬壑與雲海翻騰的壯闊台灣驕傲。", aid: "https://www.klook.com/zh-TW/activity/3050-yushan-trekking-tour/?aid=123436" },
+      { id: 24, name: "宜蘭頭城烏石港衝浪浪點", city: "宜蘭縣", img: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=600&auto=format&fit=crop", rate: "4.7★", duration: "半日遊", temp: "26°C", desc: "初學者浪人天堂，平緩細緻的黑沙灘搭配一對一專業教練，遠眺龜山島逐浪。", aid: "https://www.klook.com/zh-TW/activity/3070-wushi-harbor-surfing/?aid=123436" },
+      { id: 25, name: "大甲鎮瀾宮媽祖遶境祈福", city: "台中市", img: "https://images.unsplash.com/photo-1528164344705-475426879c0d?w=600&auto=format&fit=crop", rate: "5.0★", duration: "一日遊", temp: "26°C", desc: "被譽為全球三大宗教盛事之一，萬人簇擁鑽轎底、傳統八家將與煙火陣頭震撼。", aid: "https://www.klook.com/zh-TW/activity/3090-dajia-mazu-pilgrimage/?aid=123436" },
+      { id: 26, name: "小琉球與野生海龜共游", city: "屏東縣", img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&auto=format&fit=crop", rate: "4.9★", duration: "一日遊", temp: "28°C", desc: "台灣唯一不受東北季風影響珊瑚礁島，清澈見底的海水中與巨大綠蠵龜近距離共游。", aid: "https://www.klook.com/zh-TW/activity/2950-xiaoliuqiu-snorkeling-turtle/?aid=123436" },
+      { id: 27, name: "台南安平古堡與赤崁樓", city: "台南市", img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&auto=format&fit=crop", rate: "4.7★", duration: "一日遊", temp: "28°C", desc: "四百年台灣歷史原點熱蘭遮城，紅磚古牆間品嚐安平蝦捲、豆花與溫體牛肉湯。", aid: "https://www.klook.com/zh-TW/activity/2410-tainan-historic-sites-pass/?aid=123436" },
+      { id: 28, name: "花蓮清水斷崖獨木舟日出", city: "花蓮縣", img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop", rate: "4.9★", duration: "半日遊", temp: "25°C", desc: "清晨划著獨木舟航行在深邃太平洋上，仰望高聳入雲的千公尺垂直斷崖迎曙光。", aid: "https://www.klook.com/zh-TW/activity/3120-qingshui-cliff-kayak/?aid=123436" },
+      { id: 29, name: "台東池上伯朗大道金城武樹", city: "台東縣", img: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=600&auto=format&fit=crop", rate: "4.8★", duration: "一日遊", temp: "25°C", desc: "廣闊無垠的翠綠金色稻浪，沒有任何一支電線桿的純淨天堂路，騎乘單車迎風前行。", aid: "https://www.klook.com/zh-TW/activity/3140-chishang-biking-tour/?aid=123436" },
+      { id: 30, name: "新北歡樂耶誕城光雕魔幻", city: "新北市", img: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop", rate: "4.9★", duration: "2小時", temp: "18°C", desc: "全台冬季最大盛事，市府大樓 3D 巨型光雕秀、夢幻天橋星空光廊與德國耶誕市集。", aid: "https://www.klook.com/zh-TW/activity/3160-christmasland-tour/?aid=123436" }
+    ];
+
+    // 全台縣市清單 (地區選單完整庫)
+    const TAIWAN_CITIES = [
+      "台北市", "桃園市", "花蓮縣", "台南市", "新北市", "台中市", "高雄市", 
+      "屏東縣", "宜蘭縣", "台東縣", "南投縣", "嘉義縣", "澎湖縣", "基隆市", 
+      "新竹市", "苗栗縣", "彰化縣", "雲林縣", "金門縣"
+    ];
+
+    // 狀態持久化
+    let favoritesList = JSON.parse(localStorage.getItem("tw_travel_favs") || "[]");
+    let communityReviews = JSON.parse(localStorage.getItem("tw_travel_comments") || "[]");
+
+    if (communityReviews.length === 0) {
+      communityReviews = [
+        { author: "Kenji 🇯🇵", country: "🇯🇵 日本", date: "2026/10/18", rating: "5.0★", text: "九份の夜景は本当に神隠しの世界のようでした！お茶も美味しく、阿里山の日の出も最高。" },
+        { author: "Sarah & Mike 🇺🇸", country: "🇺🇸 美國", date: "2026/10/16", rating: "4.9★", text: "Taroko Gorge is breathtaking! The charter car driver was super friendly and drove safely through the mountains." },
+        { author: "Minho 🇰🇷", country: "🇰🇷 韓國", date: "2026/10/15", rating: "5.0★", text: "대만 밀크티 1일 3잔 마셨습니다! 50LAN 버블티와 먹차 산첸 치차산첸 최고예요." }
+      ];
+      localStorage.setItem("tw_travel_comments", JSON.stringify(communityReviews));
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      renderAllSpots(ALL_SPOTS_DATA);
+      renderThemesBigGrid();
+      renderRegionsCloud();
+      renderFeedbackList();
+      renderFavoritesView();
+      selectSpot(1);
+    });
+
+    // ==========================================
+    // 導覽分頁切換：首頁 ｜ 精選 ｜ 地區 ｜ 收藏 ｜ 留言
+    // ==========================================
+    function switchNavTab(tab) {
+      document.querySelectorAll(".nav-tab-btn").forEach(b => b.classList.remove("active"));
+      const btn = document.getElementById(`tab-btn-${tab}`);
+      if (btn) btn.classList.add("active");
+
+      document.getElementById("view-tab-home").style.display = (tab === "home") ? "block" : "none";
+      document.getElementById("view-tab-featured").style.display = (tab === "featured") ? "block" : "none";
+      document.getElementById("view-tab-regions").style.display = (tab === "regions") ? "block" : "none";
+      document.getElementById("view-tab-favorites").style.display = (tab === "favorites") ? "block" : "none";
+      document.getElementById("view-tab-community").style.display = (tab === "community") ? "block" : "none";
+
+      if (tab === "favorites") renderFavoritesView();
+      if (tab === "community") renderFeedbackList();
+
+      document.getElementById("left-scroll-body").scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // 渲染 16 大主題大圖卡片 (精選分頁)
+    function renderThemesBigGrid() {
+      const container = document.getElementById("themes-grid-list");
+      container.innerHTML = THEMES_DATA.map(t => `
+        <div class="theme-photo-card" onclick="openThemeSubpage('${t.id}')">
+          <img src="${t.img}" alt="${t.name}">
+          <span class="theme-photo-badge">${t.badge}</span>
+          <div class="theme-photo-overlay">
+            <div style="font-size:14px;font-weight:900;">${t.name}</div>
+            <div style="font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.85;">${t.en}</div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    // 渲染全台縣市專區 (地區分頁)
+    function renderRegionsCloud() {
+      const cloud = document.getElementById("regions-full-cloud");
+      cloud.innerHTML = TAIWAN_CITIES.map(c => `
+        <div class="reg-chip" onclick="filterByFullRegion('${c}', this)">📍 ${c}</div>
+      `).join("");
+      renderRegionSpots(ALL_SPOTS_DATA);
+    }
+
+    function filterByFullRegion(cityName, el) {
+      document.querySelectorAll("#regions-full-cloud .reg-chip").forEach(c => c.classList.remove("active"));
+      if (el) el.classList.add("active");
+      const filtered = ALL_SPOTS_DATA.filter(s => s.city.includes(cityName));
+      renderRegionSpots(filtered.length > 0 ? filtered : ALL_SPOTS_DATA);
+    }
+
+    function renderRegionSpots(spots) {
+      const container = document.getElementById("regions-spots-grid");
+      container.innerHTML = spots.map(s => `
+        <div class="feed-spot-card" onclick="selectSpot(${s.id})">
+          <div class="feed-card-imgwrap">
+            <img src="${s.img}" alt="${s.name}">
+            <span class="card-city-glass-tag">${s.city}</span>
+          </div>
+          <div class="feed-card-body">
+            <div class="feed-card-name">${s.name}</div>
+            <div class="feed-card-meta">
+              <span style="color:#D97706;font-weight:800;">${s.rate}</span>
+              <span>⏱️ ${s.duration}</span>
+            </div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    // 渲染首頁 30 大景點
+    function renderAllSpots(spots) {
+      const grid = document.getElementById("all-spots-grid");
+      const countLabel = document.getElementById("spots-count-label");
+      countLabel.innerText = `${spots.length} PLACES`;
+
+      grid.innerHTML = spots.map(s => {
+        const isFav = favoritesList.some(f => f.id === s.id);
+        return `
+          <div class="feed-spot-card" id="feed-card-${s.id}" onclick="selectSpot(${s.id})">
+            <div class="feed-card-imgwrap">
+              <img src="${s.img}" alt="${s.name}" loading="lazy">
+              <button class="card-fav-bubble" onclick="toggleSpotFav(${s.id}, event)">
+                ${isFav ? "❤️" : "🤍"}
+              </button>
+              <span class="card-city-glass-tag">${s.city}</span>
+            </div>
+            <div class="feed-card-body">
+              <div class="feed-card-name">${s.name}</div>
+              <div class="feed-card-meta">
+                <span style="color:#D97706;font-weight:800;">${s.rate}</span>
+                <span>⏱️ ${s.duration}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function filterByRegion(regionName, el) {
+      document.querySelectorAll(".region-chips-scroll .reg-chip").forEach(c => c.classList.remove("active"));
+      if (el) el.classList.add("active");
+
+      if (regionName === "全部") {
+        renderAllSpots(ALL_SPOTS_DATA);
+      } else {
+        const filtered = ALL_SPOTS_DATA.filter(s => s.city.includes(regionName));
+        renderAllSpots(filtered.length > 0 ? filtered : ALL_SPOTS_DATA);
+      }
+    }
+
+    function handleSearch(keyword) {
+      const q = keyword.trim().toLowerCase();
+      if (!q) {
+        renderAllSpots(ALL_SPOTS_DATA);
+        return;
+      }
+      const filtered = ALL_SPOTS_DATA.filter(s => 
+        s.name.toLowerCase().includes(q) || 
+        s.city.toLowerCase().includes(q) || 
+        s.desc.toLowerCase().includes(q)
+      );
+      renderAllSpots(filtered);
+    }
+
+    // 雙榜單彈窗
+    function openRankingsModal() {
+      document.getElementById("ranking-modal-overlay").classList.add("active");
+      switchModalDuelTab("drinks");
+    }
+    function closeRankingsModal() {
+      document.getElementById("ranking-modal-overlay").classList.remove("active");
+    }
+
+    function switchModalDuelTab(type) {
+      document.getElementById("modal-tab-drinks").classList.toggle("active", type === "drinks");
+      document.getElementById("modal-tab-spots").classList.toggle("active", type === "spots");
+      const container = document.getElementById("modal-duel-content");
+
+      if (type === "drinks") {
+        container.innerHTML = DRINKS_DATA.map(d => `
+          <div class="drink-rank-card">
+            <span style="font-size:13px;font-weight:900;color:var(--accent-sand);width:22px;margin-top:2px;">#${d.rank}</span>
+            <div style="font-size:22px;margin-top:2px;">${d.logo}</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:2px;">
+                <span style="font-size:13px;font-weight:900;color:var(--text-heading);">${d.name}</span>
+                <span style="font-size:9px;font-weight:700;color:var(--accent-turquoise);background:var(--accent-turquoise-light);padding:2px 6px;border-radius:var(--radius-pill);border:1px solid var(--accent-turquoise-border);">${d.tag}</span>
+              </div>
+              <div style="font-size:10px;font-weight:700;color:var(--text-muted);margin:3px 0 2px;">必喝推薦（必喝 2 選）：</div>
+              <div style="display:flex;gap:4px;flex-wrap:wrap;">
+                ${d.drinks.map(item => `<span style="background:#FFF;border:1px solid #E2E8F0;font-size:9px;padding:2px 6px;border-radius:6px;color:var(--accent-sand);font-weight:800;">🧋 ${item}</span>`).join("")}
+              </div>
+            </div>
+            <div style="text-align:right;flex-shrink:0;">
+              <div style="font-size:11px;font-weight:900;color:#D97706;">${d.rate}</div>
+              <div style="font-size:8px;color:var(--text-muted);margin-top:2px;">${d.votes}</div>
+            </div>
+          </div>
+        `).join("");
+      } else {
+        container.innerHTML = SPOTS_TOP20_DATA.map(s => `
+          <div class="spot-rank-card">
+            <span style="font-size:13px;font-weight:900;color:var(--accent-turquoise);width:22px;">#${s.rank}</span>
+            <div style="flex:1;">
+              <div style="font-size:13px;font-weight:800;color:var(--text-heading);">${s.name}</div>
+              <div style="font-size:10px;color:var(--accent-turquoise);font-weight:700;margin-top:2px;">👥 ${s.visitors} · ${s.city}</div>
+            </div>
+            <a href="${s.aid}" target="_blank" style="background:var(--accent-turquoise);color:#FFF;font-size:10px;font-weight:800;padding:6px 12px;border-radius:var(--radius-pill);text-decoration:none;">🎟️ 預訂行程</a>
+          </div>
+        `).join("");
+      }
+    }
+
+    // 雙機即時連動
+    let currentSelectedSpot = null;
+    function selectSpot(id) {
+      const spot = ALL_SPOTS_DATA.find(s => s.id === id);
+      if (!spot) return;
+      currentSelectedSpot = spot;
+
+      document.querySelectorAll(".feed-spot-card").forEach(c => c.classList.remove("selected"));
+      const card = document.getElementById(`feed-card-${id}`);
+      if (card) card.classList.add("selected");
+
+      document.getElementById("detail-view-container").style.display = "block";
+      document.getElementById("thematic-subpages-wrapper").style.display = "none";
+      document.getElementById("right-island-text").innerText = `📍 ${spot.city} 景點導覽`;
+
+      document.getElementById("detail-main-img").src = spot.img;
+      document.getElementById("detail-location-tag").innerText = `📍 ${spot.city} · ${spot.name}`;
+      document.getElementById("detail-title").innerText = spot.name;
+      document.getElementById("detail-metric-rating").innerText = spot.rate;
+      document.getElementById("detail-metric-temp").innerText = `🌡️ ${spot.temp}`;
+      document.getElementById("detail-metric-duration").innerText = `⏱️ ${spot.duration}`;
+      document.getElementById("detail-desc-text").innerText = spot.desc;
+      document.getElementById("detail-book-cta").href = spot.aid;
+
+      const isFav = favoritesList.some(f => f.id === spot.id);
+      document.getElementById("btn-detail-fav").innerText = isFav ? "❤️" : "🤍";
+
+      if (window.innerWidth <= 860) {
+        document.getElementById("right-phone-screen").classList.add("mobile-active");
+      }
+    }
+
+    function closeMobileRightScreen() {
+      document.getElementById("right-phone-screen").classList.remove("mobile-active");
+    }
+
+    // 16 大主題專屬獨立子頁面
+    function openThemeSubpage(themeId) {
+      document.getElementById("detail-view-container").style.display = "none";
+      const wrapper = document.getElementById("thematic-subpages-wrapper");
+      wrapper.style.display = "block";
+
+      const theme = THEMES_DATA.find(t => t.id === themeId);
+      document.getElementById("right-island-text").innerText = `✨ ${theme.name}專區`;
+      wrapper.innerHTML = generateSubpageHTML(themeId);
+
+      if (window.innerWidth <= 860) {
+        document.getElementById("right-phone-screen").classList.add("mobile-active");
+      }
+    }
+
+    function closeSubpageToHome() {
+      document.getElementById("thematic-subpages-wrapper").style.display = "none";
+      document.getElementById("detail-view-container").style.display = "block";
+      if (currentSelectedSpot) {
+        selectSpot(currentSelectedSpot.id);
+      } else {
+        selectSpot(1);
+      }
+      closeMobileRightScreen();
+    }
+
+    function generateSubpageHTML(id) {
+      const theme = THEMES_DATA.find(t => t.id === id) || THEMES_DATA[0];
+      return `
+        <div class="thematic-subpage-view active">
+          <div class="subpage-banner" style="background-image: url('${theme.img}');">
+            <div>
+              <button class="subpage-back-btn" onclick="closeSubpageToHome()">← 返回景點</button>
+            </div>
+            <div class="subpage-banner-info">
+              <h2 style="font-size:22px;font-weight:900;">${theme.name}專題專區</h2>
+              <p style="font-size:9px;text-transform:uppercase;letter-spacing:1px;opacity:0.9;">${theme.en} EXPEDITION</p>
+            </div>
+          </div>
+
+          <div class="subpage-action-hub">
+            <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" class="action-hub-btn">🚐 專案包車直達</a>
+            <a href="https://www.klook.com/zh-TW/rails-32/1012-taiwan/?aid=123436" target="_blank" class="action-hub-btn">🚄 台灣高鐵預訂</a>
+            <a href="https://tw.trip.com/hotels/?allianceid=123436&sid=123436" target="_blank" class="action-hub-btn">🏨 特色住宿預約</a>
+          </div>
+
+          <div class="subpage-content-padding">
+            <div style="background:#FAF8F5;border-radius:16px;padding:12px 14px;border:1px solid #F1EDE7;margin-bottom:12px;font-size:12px;line-height:1.6;">
+              <b>💎 ${theme.name}深度體驗指南：</b><br>
+              嚴選台灣在地必訪秘境、特色行程與美食打卡點，所有交通票券皆已為您串聯專屬優惠預訂！
+            </div>
+            <div class="step-body-card">
+              <div style="font-weight:800;color:var(--text-heading);margin-bottom:2px;">推薦行程規劃</div>
+              <p>點選上方快速預約按鈕即可享有最優惠之聯盟專屬折扣，安全便捷玩遍台灣！</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // 收藏系統
+    function toggleSpotFav(id, event) {
+      if (event) event.stopPropagation();
+      const spot = ALL_SPOTS_DATA.find(s => s.id === id);
+      if (!spot) return;
+
+      const idx = favoritesList.findIndex(f => f.id === id);
+      if (idx > -1) {
+        favoritesList.splice(idx, 1);
+      } else {
+        favoritesList.push(spot);
+      }
+      localStorage.setItem("tw_travel_favs", JSON.stringify(favoritesList));
+
+      renderAllSpots(ALL_SPOTS_DATA);
+      renderFavoritesView();
+      if (currentSelectedSpot && currentSelectedSpot.id === id) {
+        const isFav = favoritesList.some(f => f.id === id);
+        document.getElementById("btn-detail-fav").innerText = isFav ? "❤️" : "🤍";
+      }
+    }
+
+    function toggleCurrentDetailFav() {
+      if (currentSelectedSpot) toggleSpotFav(currentSelectedSpot.id);
+    }
+
+    function renderFavoritesView() {
+      const body = document.getElementById("fav-view-list");
+      const tag = document.getElementById("fav-count-tag");
+      if (tag) tag.innerText = `${favoritesList.length} 項`;
+      if (!body) return;
+
+      if (favoritesList.length === 0) {
+        body.innerHTML = `
+          <div style="text-align:center;padding:40px 20px;color:var(--text-muted);">
+            <div style="font-size:36px;margin-bottom:8px;">🤍</div>
+            <p style="font-size:13px;font-weight:700;">目前尚未有任何收藏</p>
+            <p style="font-size:11px;margin-top:4px;">點擊景點卡牌右上角愛心即可永久保存於手機！</p>
+          </div>
+        `;
+      } else {
+        body.innerHTML = favoritesList.map(item => `
+          <div style="display:flex;align-items:center;gap:10px;padding:10px;background:#FAF8F5;border:1px solid #F1EDE7;border-radius:16px;margin-bottom:8px;">
+            <img src="${item.img}" style="width:48px;height:48px;border-radius:12px;object-fit:cover;">
+            <div style="flex:1;">
+              <div style="font-size:12px;font-weight:800;color:var(--text-heading);">${item.name}</div>
+              <div style="font-size:10px;color:var(--text-muted);">📍 ${item.city} · ${item.rate}</div>
+            </div>
+            <a href="${item.aid}" target="_blank" style="background:var(--accent-turquoise);color:#FFF;font-size:10px;font-weight:700;padding:6px 10px;border-radius:var(--radius-pill);text-decoration:none;">預訂</a>
+            <button onclick="toggleSpotFav(${item.id});" style="border:none;background:none;color:#94A3B8;cursor:pointer;font-size:14px;padding:4px;">✕</button>
+          </div>
+        `).join("");
+      }
+    }
+
+    // 留言系統
+    function renderFeedbackList() {
+      const container = document.getElementById("feedback-list-container");
+      if (!container) return;
+      container.innerHTML = communityReviews.map(c => `
+        <div style="padding:12px 14px;background:#FFFFFF;border:1px solid #F1F5F9;border-radius:16px;margin-bottom:8px;box-shadow:0 2px 6px rgba(0,0,0,0.02);">
+          <div style="display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:800;margin-bottom:4px;">
+            <span>${c.country} <b>${c.author}</b></span>
+            <span style="font-size:9px;color:var(--text-muted);">${c.date} · ⭐ ${c.rating || "5.0★"}</span>
+          </div>
+          <p style="font-size:12px;color:var(--text-body);line-height:1.5;">${c.text}</p>
+        </div>
+      `).join("");
+    }
+
+    function submitNewComment() {
+      const authorInput = document.getElementById("input-author");
+      const countrySelect = document.getElementById("select-country");
+      const commentTextarea = document.getElementById("input-comment");
+
+      const author = authorInput.value.trim() || "匿名旅人";
+      const country = countrySelect.value;
+      const text = commentTextarea.value.trim();
+
+      if (!text) {
+        alert("請輸入您的踩點心得或旅行感想！");
+        return;
+      }
+
+      const today = new Date();
+      const dateStr = today.getFullYear() + "/" + (today.getMonth() + 1) + "/" + today.getDate();
+
+      communityReviews.unshift({ author, country, date: dateStr, rating: "5.0★", text });
+      localStorage.setItem("tw_travel_comments", JSON.stringify(communityReviews));
+
+      authorInput.value = "";
+      commentTextarea.value = "";
+      renderFeedbackList();
+      alert("🎉 感謝您的分享！您的踩點心得已發布在世界旅人留言牆！");
+    }
+
+    function setViewMode(mode) {
+      document.getElementById("btn-view-dual").classList.toggle("active", mode === "dual");
+      document.getElementById("btn-view-single").classList.toggle("active", mode === "single");
+      const rightPhone = document.getElementById("right-phone-screen");
+      if (mode === "single") {
+        rightPhone.style.display = "none";
+      } else {
+        rightPhone.style.display = "flex";
+      }
+    }
+  </script>
+</body>
+</html>
