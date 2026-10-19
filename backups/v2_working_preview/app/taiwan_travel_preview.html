@@ -2001,7 +2001,7 @@
     .card-clean-gradient-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(10, 15, 28, 0.92) 0%, rgba(15, 23, 42, 0.35) 55%, rgba(0,0,0,0) 100%);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.32) 100%);
       pointer-events: none;
     }
 
@@ -2040,14 +2040,49 @@
     /* 底部純粹乾淨文字區塊 (如同 GOA BEACH / SOUTHWESTERN 風格) */
     .card-clean-bottom-info {
       position: absolute;
-      bottom: 14px;
-      left: 16px;
-      right: 16px;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      /* A floating modern Glassmorphism UI card at the bottom, translucent dark teal frosted glass effect */
+      background: rgba(10, 48, 56, 0.70);
+      backdrop-filter: blur(24px) saturate(190%);
+      -webkit-backdrop-filter: blur(24px) saturate(190%);
+      /* Ultra-thin white inner border glow & soft rounded corners */
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      box-shadow: 0 10px 28px rgba(7, 30, 36, 0.32), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+      border-radius: 18px;
+      padding: 12px 14px;
       display: flex;
       flex-direction: column;
       gap: 3px;
       z-index: 5;
-      pointer-events: none;
+      pointer-events: auto;
+      transition: all 0.25s ease;
+    }
+    .feed-spot-card-immersive:hover .card-clean-bottom-info {
+      background: rgba(10, 48, 56, 0.82);
+      border-color: rgba(255, 255, 255, 0.38);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(7, 30, 36, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.45);
+    }
+    .card-clean-title {
+      font-size: 15px;
+      font-weight: 900;
+      color: #FFFFFF;
+      letter-spacing: -0.2px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .card-clean-subtitle {
+      font-size: 11px;
+      font-weight: 700;
+      color: #A7F3D0; /* Elegant soft aqua / teal highlight */
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     .card-clean-title {
       font-size: 16px;
@@ -2542,6 +2577,171 @@
       transform: translateY(-1px);
     }
 
+
+    /* =========================================================
+       8. 外國旅客交流留言板 (Global Travelers Community Lounge)
+       ========================================================= */
+    .travelers-hub-banner {
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      border-radius: 20px;
+      padding: 16px 18px;
+      color: #FFFFFF;
+      margin-bottom: 14px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .travelers-hub-banner::after {
+      content: '🌏';
+      position: absolute;
+      right: -8px;
+      bottom: -15px;
+      font-size: 78px;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+    .live-pulse-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulse-green 1.8s infinite;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    @keyframes pulse-green {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+    .community-filters-scroll {
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 14px;
+      scrollbar-width: none;
+    }
+    .community-filters-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .community-filter-chip {
+      padding: 6px 13px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+      border: 1px solid #E2E8F0;
+      background: #FFFFFF;
+      color: #475569;
+      transition: all 0.2s ease;
+    }
+    .community-filter-chip.active {
+      background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+      color: #FFFFFF;
+      border-color: #0284C7;
+      box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
+    }
+    .community-post-box-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      padding: 15px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+    }
+    .community-thread-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      padding: 15px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .community-thread-card:hover {
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+    }
+    .community-avatar-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-weight: 900;
+      font-size: 14px;
+      flex-shrink: 0;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    }
+    .community-topic-badge {
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .badge-meetup { background: #FEF3C7; color: #B45309; }
+    .badge-food { background: #FEE2E2; color: #DC2626; }
+    .badge-qna { background: #EDE9FE; color: #6D28D9; }
+    .badge-review { background: #ECFDF5; color: #047857; }
+    .badge-transport { background: #E0F2FE; color: #0369A1; }
+    .community-translate-btn {
+      background: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-radius: 12px;
+      padding: 3px 9px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #475569;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      transition: all 0.15s ease;
+    }
+    .community-translate-btn:hover {
+      background: #EDF2F7;
+      color: #0284C7;
+      border-color: #0284C7;
+    }
+    .community-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: transparent;
+      border: none;
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748B;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 8px;
+      transition: all 0.15s ease;
+    }
+    .community-action-btn:hover {
+      background: #F1F5F9;
+      color: #0F172A;
+    }
+    .community-action-btn.liked {
+      color: #EF4444;
+    }
+    .community-reply-item {
+      padding: 8px 11px;
+      background: #F8FAFC;
+      border-radius: 12px;
+      border-left: 3px solid #0284C7;
+      margin-top: 6px;
+      font-size: 11px;
+    }
+
   </style>
 </head>
 <body>
@@ -2642,6 +2842,7 @@
         <!-- =========================
              A. 首頁視圖 (Home View)
              ========================= -->
+        <div id="inline-spot-detail-container" style="display:none;position:absolute;top:0;left:0;right:0;bottom:0;background:#FFF;z-index:95;overflow-y:auto;"></div>
         <div id="view-tab-home">
           <!-- 縣市快選 (台北市、桃園市、花蓮縣、台南市優先) -->
           <div class="region-filter-bar">
@@ -2730,40 +2931,24 @@
           <div id="fav-view-list"></div>
         </div>
 
-        <!-- =========================
-             E. 留言視圖 (Community)
+                <!-- =========================
+             E. 外國旅人交流留言板 (Community Lounge)
              ========================= -->
         <div id="view-tab-community" style="display:none;padding:14px 18px 24px;">
-          <div class="eyebrow-label" style="padding:0 0 10px;">
-            <span>💬 全球旅人踩點心得牆</span>
-            <span>LIVE REVIEWS</span>
-          </div>
-          <div class="comment-post-box">
-            <div style="display:flex;gap:8px;margin-bottom:8px;">
-              <input type="text" id="input-author" placeholder="您的暱稱 (e.g. Ken, Yuki)" style="flex:1;padding:8px 12px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;">
-              <select id="select-country" style="padding:8px 10px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;background:#FFF;">
-                <option value="🇹🇼 台灣">🇹🇼 台灣</option>
-                <option value="🇯🇵 日本">🇯🇵 日本</option>
-                <option value="🇰🇷 韓國">🇰🇷 韓國</option>
-                <option value="🇺🇸 美國">🇺🇸 美國</option>
-                <option value="🇪🇸 西班牙">🇪🇸 西班牙</option>
-                <option value="🇩🇪 德國">🇩🇪 德國</option>
-                <option value="🇹🇭 泰國">🇹🇭 泰國</option>
-                <option value="🇭🇰 香港">🇭🇰 香港</option>
-              </select>
-            </div>
-            <textarea id="input-comment" placeholder="分享您在台灣的旅行心得、推薦私房小吃或踩點感受..." style="width:100%;height:60px;padding:8px 12px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;resize:none;margin-bottom:8px;"></textarea>
-            <button onclick="submitNewComment()" style="width:100%;padding:10px;border-radius:var(--radius-pill);background:var(--accent-turquoise);color:#FFF;font-size:12px;font-weight:800;border:none;cursor:pointer;">🚀 發布踩點感想</button>
-          </div>
-          <div id="feedback-list-container"></div>
+          <div id="travelers-community-container"></div>
         </div>
-
       </div>
 
               <!-- =========================
              F. 台灣 20 大必買伴手禮專區 (Souvenirs View)
              ========================= -->
-        <div id="view-tab-souvenirs" style="display:none;padding:14px 18px 24px;">
+                <div id="view-tab-souvenirs" style="display:none;padding:14px 18px 24px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <button onclick="switchNavTab('home')" style="background:#F1F5F9;border:1px solid #E2E8F0;border-radius:14px;padding:6px 14px;font-size:12px;font-weight:700;color:#334155;cursor:pointer;display:inline-flex;align-items:center;gap:4px;">
+              ← 返回首頁
+            </button>
+            <span style="font-size:11px;font-weight:800;color:#64748B;">🛍️ 伴手禮專屬推薦</span>
+          </div>
           <!-- 頂部萬家福線上點餐 / 生鮮電商 (OneLink 專屬直配入口) -->
           <div style="background:linear-gradient(135deg, #EA580C 0%, #C2410C 100%);border-radius:22px;padding:18px;color:#FFF;margin-bottom:18px;box-shadow:0 8px 24px rgba(234,88,12,0.3);">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
@@ -2800,9 +2985,9 @@
           <span class="tab-icon">✨</span>
           <span>精選</span>
         </button>
-        <button class="nav-tab-btn" id="tab-btn-souvenirs" onclick="switchNavTab('souvenirs')">
-          <span class="tab-icon">🛍️</span>
-          <span>伴手禮</span>
+        <button class="nav-tab-btn" id="tab-btn-community" onclick="switchNavTab('community')">
+          <span class="tab-icon">💬</span>
+          <span>旅人交流</span>
         </button>
         <button class="nav-tab-btn" id="tab-btn-regions" onclick="switchNavTab('regions')">
           <span class="tab-icon">🗺️</span>
@@ -4265,30 +4450,158 @@ const ALL_ISLANDS_DATA = {
     let currentRoundTaiwanMode = "cycling";
     let currentTrekkingLevel = "beginner";
 
-    let communityReviews = JSON.parse(localStorage.getItem("tw_travel_comments") || "[]");
+    let currentCommunityFilter = "all";
+    let communityReviews = JSON.parse(localStorage.getItem("tw_travel_community_v3") || "null");
 
-    if (communityReviews.length === 0) {
+    if (!communityReviews || communityReviews.length === 0) {
       communityReviews = [
-        { author: "Kenji 🇯🇵", country: "🇯🇵 日本", date: "2026/10/18", rating: "5.0★", text: "九份の夜景は本当に神隠しの世界のようでした！お茶も美味しく、阿里山の日の出も最高。" },
-        { author: "Sarah & Mike 🇺🇸", country: "🇺🇸 美國", date: "2026/10/16", rating: "4.9★", text: "Taroko Gorge is breathtaking! The charter car driver was super friendly and drove safely through the mountains." },
-        { author: "Minho 🇰🇷", country: "🇰🇷 韓國", date: "2026/10/15", rating: "5.0★", text: "대만 밀크티 1일 3잔 마셨습니다! 50LAN 버블티와 먹차 산첸 치차산첸 최고예요." }
+        {
+          id: 101,
+          author: "Sarah & Mike",
+          country: "🇺🇸 美國 (Seattle)",
+          countryFlag: "🇺🇸",
+          avatarBg: "linear-gradient(135deg, #2563EB, #1D4ED8)",
+          role: "🎒 背包客夫妻",
+          timeAgo: "12 分鐘前",
+          topic: "meetup",
+          topicName: "🙋‍♂️ 揪團約伴",
+          spotTag: "花蓮太魯閣峽谷 & 清水斷崖",
+          rating: "5.0★",
+          text: "Hey fellow travelers! We are a friendly couple from Seattle planning a private charter car to Taroko Gorge & Qingshui Cliff tomorrow (8:00 AM departure). Looking for 2 more people to split costs (~NT$800 each)! Anyone interested? Reply here!",
+          translation: "哈囉各國旅人！我們是一對來自西雅圖的夫妻，明天上午 8:00 預計包車前往太魯閣峽谷與清水斷崖，想再找 2 位旅伴平攤車資（約每人 NT$800）！有人有興趣一起成行嗎？歡迎在下方直接回覆！",
+          likes: 42,
+          isLiked: false,
+          showTranslation: false,
+          showReplyBox: false,
+          replies: [
+            { author: "Lukas M. 🇩🇪", timeAgo: "7 分鐘前", text: "Count me in! I am staying near Hualien Station. Will bring snacks and coffee! 🥪" },
+            { author: "在地嚮導 Alan 🇹🇼", timeAgo: "2 分鐘前", text: "明天太魯閣天氣極好，推薦順遊砂卡礑步道，碧藍溪水超美！祝你們玩得開心！" }
+          ]
+        },
+        {
+          id: 102,
+          author: "佐藤 健太 (Kenta)",
+          country: "🇯🇵 日本 (Tokyo)",
+          countryFlag: "🇯🇵",
+          avatarBg: "linear-gradient(135deg, #DC2626, #991B1B)",
+          role: "🍜 美食吃貨",
+          timeAgo: "40 分鐘前",
+          topic: "food",
+          topicName: "🍜 美食推薦",
+          spotTag: "士林夜市 & 寧夏夜市",
+          rating: "5.0★",
+          text: "台湾の夜市文化は本当に最高です！寧夏夜市の『劉芋仔蛋黃芋餅』と士林夜市の生煎包は絶対食べるべき。タピオカミルクティー（50嵐）の『微糖微冰』を頼んだら完璧な甘さでした。明日は九份へ行きます！",
+          translation: "台灣的夜市文化真的太讚了！寧夏夜市的『劉芋仔蛋黃芋餅』和士林夜市的生煎包絕對是人生必吃。點了 50 嵐珍珠奶茶的『微糖微冰』，甜度恰到好處！明天準備出發去九份！",
+          likes: 68,
+          isLiked: false,
+          showTranslation: false,
+          showReplyBox: false,
+          replies: [
+            { author: "Minho 🇰🇷", timeAgo: "18 分鐘前", text: "50LAN 정말 맛있어요! CHICHA San Chen (吃茶三千) 버블티도 꼭 가보세요!" }
+          ]
+        },
+        {
+          id: 103,
+          author: "박지훈 (Ji-hoon)",
+          country: "🇰🇷 韓國 (Seoul)",
+          countryFlag: "🇰🇷",
+          avatarBg: "linear-gradient(135deg, #7C3AED, #5B21B6)",
+          role: "📸 獨旅探險",
+          timeAgo: "2 小時前",
+          topic: "qna",
+          topicName: "💡 旅遊請益",
+          spotTag: "阿里山林業鐵路",
+          rating: "5.0★",
+          text: "안녕하세요! 이번 주말에 아리산 일출 보러 가는데, 주산 일출 기차표는 전날 현장에서 사도 괜찮을까요? 그리고 새벽에 많이 추운가요? 옷차림 조언 부탁드립니다!",
+          translation: "大家好！這週末要去阿里山看日出，請問祝山日出小火車票前一天在現場買來得及嗎？另外清晨山上會很冷嗎？想請教大家衣物穿著的建議！",
+          likes: 31,
+          isLiked: false,
+          showTranslation: false,
+          showReplyBox: false,
+          replies: [
+            { author: "阿里山背包管家 🇹🇼", timeAgo: "1 小時前", text: "祝山日出線車票建議前一天 13:00~16:00 到阿里山車站 2 樓預購喔！清晨氣溫通常只有 10~12 度，務必帶防風保暖外套！" }
+          ]
+        },
+        {
+          id: 104,
+          author: "Liam Wilson",
+          country: "🇦🇺 澳洲 (Melbourne)",
+          countryFlag: "🇦🇺",
+          avatarBg: "linear-gradient(135deg, #059669, #047857)",
+          role: "⚾ 棒球應援狂熱",
+          timeAgo: "3 小時前",
+          topic: "meetup",
+          topicName: "🙋‍♂️ 揪團約伴",
+          spotTag: "台北大巨蛋 (Taipei Dome)",
+          rating: "5.0★",
+          text: "CPBL Baseball game at Taipei Dome this Friday! The cheerleading culture and non-stop brass band drums are completely unreal. Anyone want to grab Taiwan Beer and sit together in the active cheer section?",
+          translation: "這週五台北大巨蛋中職棒球賽！這裡的應援吶喊文化和不斷奏響的銅管樂鼓聲完全是世界級震撼體驗。有人想一起買台灣金牌啤酒、坐在熱力應援區一起嗨嗎？",
+          likes: 55,
+          isLiked: false,
+          showTranslation: false,
+          showReplyBox: false,
+          replies: [
+            { author: "Kenji 🇯🇵", timeAgo: "2 小時前", text: "大巨蛋の応援は本当に熱狂的です！ぜひ一緒に行きましょう！" }
+          ]
+        },
+        {
+          id: 105,
+          author: "Camille Dupont",
+          country: "🇫🇷 法國 (Paris)",
+          countryFlag: "🇫🇷",
+          avatarBg: "linear-gradient(135deg, #D97706, #B45309)",
+          role: "🌿 景觀攝影師",
+          timeAgo: "5 小時前",
+          topic: "review",
+          topicName: "🎒 踩點分享",
+          spotTag: "日月潭自行車道",
+          rating: "5.0★",
+          text: "Le tour du lac Sun Moon Lake à vélo électrique est à couper le souffle. Louez un vélo près de l'embarcadère de Shuishe et partez vers le Xiangshan Visitor Center vers 16h pour le coucher de soleil!",
+          translation: "騎電輔自行車環日月潭真是美得令人屏息。強烈推薦在水社碼頭租車，大約下午 4 點騎往向山遊客中心看落日夕陽，金色湖光倒影絕美！",
+          likes: 89,
+          isLiked: false,
+          showTranslation: false,
+          showReplyBox: false,
+          replies: []
+        },
+        {
+          id: 106,
+          author: "Ethan Walker",
+          country: "🇬🇧 英國 (London)",
+          countryFlag: "🇬🇧",
+          avatarBg: "linear-gradient(135deg, #4F46E5, #3730A3)",
+          role: "🚂 鐵道迷漫遊",
+          timeAgo: "7 小時前",
+          topic: "transport",
+          topicName: "🚗 交通包車",
+          spotTag: "平溪支線 & 猴硐貓村",
+          rating: "5.0★",
+          text: "Taking the Pingxi line train to Houtong Cat Village and Shifen waterfall was so smooth with an EasyCard. Don't forget to check the train departure schedules as trains run once per hour!",
+          translation: "用悠遊卡搭平溪支線火車去猴硐貓村和十分瀑布非常順暢！記得留意火車發車時刻表，通常一小時才有一班車喔！",
+          likes: 47,
+          isLiked: false,
+          showTranslation: false,
+          showReplyBox: false,
+          replies: []
+        }
       ];
-      localStorage.setItem("tw_travel_comments", JSON.stringify(communityReviews));
+      localStorage.setItem("tw_travel_community_v3", JSON.stringify(communityReviews));
     }
 
     document.addEventListener("DOMContentLoaded", function() {
       renderAllSpots(ALL_SPOTS_DATA);
       renderThemesBigGrid();
       renderRegionsCloud();
-      renderFeedbackList();
+      renderCommunityBoard();
       renderFavoritesView();
-      selectSpot(1);
+      selectSpot(1, false);
     });
 
     // ==========================================
     // 導覽分頁切換：首頁 ｜ 精選 ｜ 地區 ｜ 收藏 ｜ 留言
     // ==========================================
     function switchNavTab(tab) {
+      closeSpotDetailView();
       document.querySelectorAll(".nav-tab-btn").forEach(b => b.classList.remove("active"));
       const btn = document.getElementById(`tab-btn-${tab}`);
       if (btn) btn.classList.add("active");
@@ -4306,7 +4619,7 @@ const ALL_ISLANDS_DATA = {
       }
 
       if (tab === "favorites") renderFavoritesView();
-      if (tab === "community") renderFeedbackList();
+      if (tab === "community") renderCommunityBoard();
       if (tab === "souvenirs") renderSouvenirsView();
       
       if (tab === "featured") {
@@ -4684,7 +4997,7 @@ const ALL_ISLANDS_DATA = {
       } else {
         openRankingsModal(type);
       }
-      if (window.innerWidth <= 860) {
+      if (openInline && window.innerWidth <= 860) {
         document.getElementById("right-phone-screen").classList.add("mobile-active");
       }
     }
@@ -4702,39 +5015,7 @@ const ALL_ISLANDS_DATA = {
       if (!container) return;
 
       if (type === "drinks") {
-        container.innerHTML = DRINKS_DATA.map(d => {
-          const cleanBrand = d.name.split(' ')[0].trim();
-          return `
-            <div class="drink-rank-card" style="display:flex;flex-direction:column;gap:8px;padding:12px;background:#FFFFFF;border:1px solid #F1F5F9;border-radius:16px;margin-bottom:10px;box-shadow:0 3px 10px rgba(0,0,0,0.03);cursor:pointer;" onclick="openDrinkMapNavigation('${cleanBrand}')">
-              <div style="display:flex;align-items:center;gap:10px;">
-                <span style="font-size:13px;font-weight:900;color:#D97706;width:24px;">#${d.rank}</span>
-                <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);display:flex;align-items:center;justify-content:center;font-size:20px;border:1.5px solid #FCD34D;box-shadow:0 2px 6px rgba(217,119,6,0.15);flex-shrink:0;">
-                  ${d.logo}
-                </div>
-                <div style="flex:1;">
-                  <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:2px;">
-                    <span style="font-size:14px;font-weight:900;color:var(--text-heading);">${d.name}</span>
-                    <span style="font-size:9px;font-weight:800;color:#0284C7;background:#F0F9FF;padding:2px 6px;border-radius:10px;border:1px solid #BAE6FD;">${d.tag}</span>
-                  </div>
-                  <div style="font-size:10px;font-weight:700;color:var(--text-muted);margin:2px 0;">必喝推薦（必喝 2 選）：</div>
-                  <div style="display:flex;gap:4px;flex-wrap:wrap;">
-                    ${d.drinks.map(item => `<span style="background:#FFFBEB;border:1px solid #FDE68A;font-size:10px;padding:2px 7px;border-radius:8px;color:#92400E;font-weight:800;display:inline-flex;align-items:center;gap:3px;">🧋 ${item}</span>`).join("")}
-                  </div>
-                </div>
-                <div style="text-align:right;flex-shrink:0;">
-                  <div style="font-size:12px;font-weight:900;color:#D97706;">${d.rate}</div>
-                  <div style="font-size:9px;color:var(--text-muted);margin-top:2px;">${d.votes}</div>
-                </div>
-              </div>
-              <div style="display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px dashed #E2E8F0;margin-top:2px;">
-                <span style="font-size:10px;color:var(--text-muted);font-weight:700;">點擊開啟 Google Maps 找分店</span>
-                <button onclick="event.stopPropagation(); openDrinkMapNavigation('${cleanBrand}')" style="background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;border:none;border-radius:10px;padding:5px 12px;font-size:11px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;gap:4px;box-shadow:0 3px 8px rgba(2,132,199,0.3);">
-                  <span>🗺️ 找附近店家・開始導航 ➔</span>
-                </button>
-              </div>
-            </div>
-          `;
-        }).join("");
+        container.innerHTML = DRINKS_DATA.map(renderCleanDrinkCard).join("");
       } else {
         const scenicImages = [
           "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=600&auto=format&fit=crop",
@@ -4819,39 +5100,7 @@ const ALL_ISLANDS_DATA = {
       if (!container) return;
 
       if (type === "drinks") {
-        container.innerHTML = DRINKS_DATA.map(d => {
-          const cleanBrand = d.name.split(' ')[0].trim();
-          return `
-            <div class="drink-rank-card" style="display:flex;flex-direction:column;gap:8px;padding:12px;background:#FFFFFF;border:1px solid #F1F5F9;border-radius:16px;margin-bottom:10px;box-shadow:0 3px 10px rgba(0,0,0,0.03);cursor:pointer;" onclick="openDrinkMapNavigation('${cleanBrand}')">
-              <div style="display:flex;align-items:center;gap:10px;">
-                <span style="font-size:13px;font-weight:900;color:#D97706;width:24px;">#${d.rank}</span>
-                <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);display:flex;align-items:center;justify-content:center;font-size:20px;border:1.5px solid #FCD34D;box-shadow:0 2px 6px rgba(217,119,6,0.15);flex-shrink:0;">
-                  ${d.logo}
-                </div>
-                <div style="flex:1;">
-                  <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:2px;">
-                    <span style="font-size:14px;font-weight:900;color:var(--text-heading);">${d.name}</span>
-                    <span style="font-size:9px;font-weight:800;color:#0284C7;background:#F0F9FF;padding:2px 6px;border-radius:10px;border:1px solid #BAE6FD;">${d.tag}</span>
-                  </div>
-                  <div style="font-size:10px;font-weight:700;color:var(--text-muted);margin:2px 0;">必喝推薦（必喝 2 選）：</div>
-                  <div style="display:flex;gap:4px;flex-wrap:wrap;">
-                    ${d.drinks.map(item => `<span style="background:#FFFBEB;border:1px solid #FDE68A;font-size:10px;padding:2px 7px;border-radius:8px;color:#92400E;font-weight:800;display:inline-flex;align-items:center;gap:3px;">🧋 ${item}</span>`).join("")}
-                  </div>
-                </div>
-                <div style="text-align:right;flex-shrink:0;">
-                  <div style="font-size:12px;font-weight:900;color:#D97706;">${d.rate}</div>
-                  <div style="font-size:9px;color:var(--text-muted);margin-top:2px;">${d.votes}</div>
-                </div>
-              </div>
-              <div style="display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px dashed #E2E8F0;margin-top:2px;">
-                <span style="font-size:10px;color:var(--text-muted);font-weight:700;">點擊開啟 Google Maps 找分店</span>
-                <button onclick="event.stopPropagation(); openDrinkMapNavigation('${cleanBrand}')" style="background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;border:none;border-radius:10px;padding:5px 12px;font-size:11px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;gap:4px;box-shadow:0 3px 8px rgba(2,132,199,0.3);">
-                  <span>🗺️ 找附近店家・開始導航 ➔</span>
-                </button>
-              </div>
-            </div>
-          `;
-        }).join("");
+        container.innerHTML = DRINKS_DATA.map(renderCleanDrinkCard).join("");
       } else {
         const scenicImages = [
           "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=600&auto=format&fit=crop",
@@ -4906,42 +5155,7 @@ const ALL_ISLANDS_DATA = {
       const container = document.getElementById("modal-duel-content");
 
       if (type === "drinks") {
-        container.innerHTML = DRINKS_DATA.map(d => {
-          const cleanBrand = d.name.split(' ')[0].trim();
-          return `
-            <div class="drink-rank-card" style="display:flex;flex-direction:column;gap:8px;padding:12px;background:#FFFFFF;border:1px solid #F1F5F9;border-radius:16px;margin-bottom:10px;box-shadow:0 3px 10px rgba(0,0,0,0.03);cursor:pointer;" onclick="openDrinkMapNavigation('${cleanBrand}')">
-              <div style="display:flex;align-items:center;gap:10px;">
-                <span style="font-size:13px;font-weight:900;color:#D97706;width:24px;">#${d.rank}</span>
-                <!-- 圓形 ICON 中間品牌符號 -->
-                <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);display:flex;align-items:center;justify-content:center;font-size:20px;border:1.5px solid #FCD34D;box-shadow:0 2px 6px rgba(217,119,6,0.15);flex-shrink:0;">
-                  ${d.logo}
-                </div>
-                <div style="flex:1;">
-                  <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:2px;">
-                    <span style="font-size:14px;font-weight:900;color:var(--text-heading);">${d.name}</span>
-                    <span style="font-size:9px;font-weight:800;color:#0284C7;background:#F0F9FF;padding:2px 6px;border-radius:10px;border:1px solid #BAE6FD;">${d.tag}</span>
-                  </div>
-                  <div style="font-size:10px;font-weight:700;color:var(--text-muted);margin:2px 0;">必喝推薦（必喝 2 選）：</div>
-                  <div style="display:flex;gap:4px;flex-wrap:wrap;">
-                    ${d.drinks.map(item => `<span style="background:#FFFBEB;border:1px solid #FDE68A;font-size:10px;padding:2px 7px;border-radius:8px;color:#92400E;font-weight:800;display:inline-flex;align-items:center;gap:3px;">🧋 ${item}</span>`).join("")}
-                  </div>
-                </div>
-                <div style="text-align:right;flex-shrink:0;">
-                  <div style="font-size:12px;font-weight:900;color:#D97706;">${d.rate}</div>
-                  <div style="font-size:9px;color:var(--text-muted);margin-top:2px;">${d.votes}</div>
-                </div>
-              </div>
-
-              <!-- 📍 尋找附近分店・開始導航按鈕 -->
-              <div style="display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px dashed #E2E8F0;margin-top:2px;">
-                <span style="font-size:10px;color:var(--text-muted);font-weight:700;">點擊卡片或按鈕開啟 Google Maps 找分店</span>
-                <button onclick="event.stopPropagation(); openDrinkMapNavigation('${cleanBrand}')" style="background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;border:none;border-radius:10px;padding:5px 12px;font-size:11px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;gap:4px;box-shadow:0 3px 8px rgba(2,132,199,0.3);">
-                  <span>🗺️ 找附近店家・開始導航 ➔</span>
-                </button>
-              </div>
-            </div>
-          `;
-        }).join("");
+        container.innerHTML = DRINKS_DATA.map(renderCleanDrinkCard).join("");
       } else {
         const scenicImages = [
           "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=600&auto=format&fit=crop",
@@ -4985,30 +5199,259 @@ const ALL_ISLANDS_DATA = {
 
     // 雙機即時連動
     // currentSelectedSpot moved to top
-    function selectSpot(id) {
+    
+    // =========================================================
+    // 手搖飲品牌 2 字 ICON 與漸層配色字典 (Request 3: 乾淨極簡 + MAP)
+    // =========================================================
+    const DRINK_BRAND_PROFILES = {
+      "50嵐": { twoChar: "50嵐", gradient: "linear-gradient(135deg, #F59E0B, #D97706)" },
+      "吃茶三千": { twoChar: "吃茶", gradient: "linear-gradient(135deg, #059669, #047857)" },
+      "得正": { twoChar: "得正", gradient: "linear-gradient(135deg, #2563EB, #1E40AF)" },
+      "辻利茶舗": { twoChar: "辻利", gradient: "linear-gradient(135deg, #16A34A, #15803D)" },
+      "SOMA": { twoChar: "SOMA", gradient: "linear-gradient(135deg, #EC4899, #BE185D)" },
+      "可不可熟成紅茶": { twoChar: "可不", gradient: "linear-gradient(135deg, #881337, #4C0519)" },
+      "麻古茶坊": { twoChar: "麻古", gradient: "linear-gradient(135deg, #EA580C, #C2410C)" },
+      "一沐日": { twoChar: "一沐", gradient: "linear-gradient(135deg, #65A30D, #4D7C0F)" },
+      "迷客夏": { twoChar: "迷客", gradient: "linear-gradient(135deg, #0284C7, #0369A1)" },
+      "八曜和茶": { twoChar: "八曜", gradient: "linear-gradient(135deg, #D97706, #B45309)" },
+      "龜記茗品": { twoChar: "龜記", gradient: "linear-gradient(135deg, #4D7C0F, #365314)" },
+      "五桐號": { twoChar: "五桐", gradient: "linear-gradient(135deg, #78350F, #451A03)" },
+      "約翰紅茶公司": { twoChar: "約翰", gradient: "linear-gradient(135deg, #4338CA, #312E81)" },
+      "春水堂": { twoChar: "春水", gradient: "linear-gradient(135deg, #B45309, #78350F)" },
+      "珍煮丹": { twoChar: "珍煮", gradient: "linear-gradient(135deg, #7C2D12, #431407)" },
+      "清心福全": { twoChar: "清心", gradient: "linear-gradient(135deg, #0284C7, #075985)" },
+      "茶湯會": { twoChar: "茶湯", gradient: "linear-gradient(135deg, #B45309, #92400E)" },
+      "大苑子": { twoChar: "苑子", gradient: "linear-gradient(135deg, #15803D, #166534)" },
+      "再睡5分鐘": { twoChar: "再睡", gradient: "linear-gradient(135deg, #8B5CF6, #6D28D9)" },
+      "萬波島嶼紅茶": { twoChar: "萬波", gradient: "linear-gradient(135deg, #C2410C, #9A3412)" }
+    };
+
+    function getDrinkBrandProfile(fullName) {
+      const brandKey = fullName.split(' ')[0].trim();
+      return DRINK_BRAND_PROFILES[brandKey] || {
+        twoChar: brandKey.substring(0, 2),
+        gradient: "linear-gradient(135deg, #F59E0B, #EA580C)"
+      };
+    }
+
+    // 渲染手搖飲排行榜單張卡片 (超乾淨、圓形漸層店名2字、2款推薦、俐落MAP按鈕)
+    function renderCleanDrinkCard(d) {
+      const cleanBrand = d.name.split(' ')[0].trim();
+      const prof = getDrinkBrandProfile(d.name);
+      return `
+        <div class="drink-rank-card" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#FFFFFF;border:1px solid #F1F5F9;border-radius:18px;margin-bottom:10px;box-shadow:0 3px 10px rgba(0,0,0,0.03);cursor:pointer;transition:all 0.2s ease;" onclick="openDrinkMapNavigation('${cleanBrand}')">
+          <!-- 排名 -->
+          <span style="font-size:13px;font-weight:900;color:#F59E0B;width:24px;text-align:center;">#${d.rank}</span>
+
+          <!-- 圓型漸層色 + 中間店名兩個字 -->
+          <div style="width:42px;height:42px;border-radius:50%;background:${prof.gradient};display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-weight:900;font-size:13px;flex-shrink:0;box-shadow:0 3px 8px rgba(0,0,0,0.15);letter-spacing:-0.2px;">
+            ${prof.twoChar}
+          </div>
+
+          <!-- 店名與必喝推薦 2 選 -->
+          <div style="flex:1;min-width:0;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+              <span style="font-size:14px;font-weight:900;color:#0F172A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${d.name}</span>
+              <span style="font-size:11px;font-weight:900;color:#F59E0B;flex-shrink:0;">⭐ ${d.rate.replace('★','')}</span>
+            </div>
+            <!-- 必喝推薦兩個就好 -->
+            <div style="display:flex;gap:5px;flex-wrap:wrap;">
+              ${d.drinks.slice(0, 2).map(item => `
+                <span style="background:#F8FAFC;border:1px solid #E2E8F0;font-size:10.5px;padding:2px 7px;border-radius:8px;color:#334155;font-weight:700;">
+                  🧋 ${item}
+                </span>
+              `).join("")}
+            </div>
+          </div>
+
+          <!-- 俐落乾淨 MAP 按鈕 -->
+          <button style="background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;border:none;border-radius:12px;padding:7px 11px;font-size:11px;font-weight:800;display:inline-flex;align-items:center;gap:3px;cursor:pointer;flex-shrink:0;box-shadow:0 3px 8px rgba(2,132,199,0.3);" onclick="event.stopPropagation(); openDrinkMapNavigation('${cleanBrand}')">
+            <span>🗺️</span> MAP
+          </button>
+        </div>
+      `;
+    }
+
+    // =========================================================
+    // 景點詳情頁面渲染 (Request 1: 參照用戶圖片設計)
+    // 滿版大圖 + 輪播圓點 + 標題 + 右側大粉紅愛心收藏 + 3數據徽章 + About + 包車/行程 + Google Map
+    // =========================================================
+    function generateSpotDetailHTML(spot, isInline = false) {
+      const isFav = favoritesList.some(f => f.id === spot.id || f.name === spot.name);
+      const closeAction = isInline ? "closeSpotDetailView()" : "closeMobileRightScreen()";
+      
+      return `
+        <div class="spot-detail-page-container" style="background:#FFF;min-height:100%;">
+          <!-- 頂部滿版大圖與控制鈕 -->
+          <div style="position:relative;height:340px;background:#000;overflow:hidden;">
+            <img src="${spot.img}" style="width:100%;height:100%;object-fit:cover;" alt="${spot.name}">
+            
+            <!-- 左上角圓形毛玻璃返回鈕 (如同圖片左上角白圓圈箭頭) -->
+            <button class="circle-icon-btn-frosted" onclick="${closeAction}" style="position:absolute;top:14px;left:14px;z-index:20;" title="返回上一頁">
+              ←
+            </button>
+
+            <!-- 底部 3 顆輪播指示點 (Carousel Dots 如同圖片中下方 ...) -->
+            <div style="position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10;">
+              <span style="width:8px;height:8px;border-radius:50%;background:#FF2D55;"></span>
+              <span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.6);"></span>
+              <span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.6);"></span>
+            </div>
+          </div>
+
+          <!-- 下方白底圓角懸浮卡牌 (向上覆蓋大圖) -->
+          <div style="margin-top:-20px;position:relative;background:#FFFFFF;border-top-left-radius:26px;border-top-right-radius:26px;padding:20px 18px 80px;box-shadow:0 -6px 20px rgba(0,0,0,0.06);z-index:15;">
+            
+            <!-- 標題與大顆粉紅收藏愛心鈕 (完全吻合圖片右側桃紅大愛心) -->
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px;">
+              <div>
+                <h1 style="font-size:22px;font-weight:900;color:#0F172A;line-height:1.25;margin:0 0 6px;">
+                  ${spot.name}
+                </h1>
+                <div style="display:flex;align-items:center;gap:4px;font-size:12px;color:#64748B;font-weight:700;">
+                  <span style="color:#FF2D55;font-size:14px;">📍</span>
+                  <span>${spot.city} · 台灣熱門精選勝地</span>
+                </div>
+              </div>
+
+              <!-- 桃紅圓形大愛心收藏按鈕 -->
+              <button class="spot-big-heart-btn" onclick="toggleSpotFav(${spot.id})" style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg, #FF2D55 0%, #E11D48 100%);border:3px solid #FFF;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(255,45,85,0.4);cursor:pointer;flex-shrink:0;transition:transform 0.2s ease;">
+                <span style="font-size:22px;color:#FFF;">${isFav ? '❤️' : '🤍'}</span>
+              </button>
+            </div>
+
+            <!-- 3 個圓角數據指標徽章 (⭐ 4.9 Reviews | 🏷️ NT$650起 | 🌤️ 25°C Sunny) -->
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:16px 0 20px;">
+              <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:12px 8px;text-align:center;">
+                <div style="font-size:18px;margin-bottom:2px;">⭐</div>
+                <div style="font-size:14px;font-weight:900;color:#0F172A;">${spot.rate.replace('★','')}</div>
+                <div style="font-size:9.5px;color:#64748B;font-weight:700;">1.2萬則評價</div>
+              </div>
+              <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:12px 8px;text-align:center;">
+                <div style="font-size:18px;margin-bottom:2px;">🏷️</div>
+                <div style="font-size:14px;font-weight:900;color:#0284C7;">NT$ 650起</div>
+                <div style="font-size:9.5px;color:#64748B;font-weight:700;">超值特惠</div>
+              </div>
+              <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:12px 8px;text-align:center;">
+                <div style="font-size:18px;margin-bottom:2px;">🌤️</div>
+                <div style="font-size:14px;font-weight:900;color:#0F172A;">${spot.temp || '24°C'}</div>
+                <div style="font-size:9.5px;color:#64748B;font-weight:700;">晴朗舒適</div>
+              </div>
+            </div>
+
+            <!-- About 景點重要介紹區塊 (附 Show More 展開更多) -->
+            <div style="margin-bottom:22px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                <span style="font-size:16px;font-weight:900;color:#0F172A;">About</span>
+                <span style="font-size:11px;font-weight:800;color:#FF2D55;cursor:pointer;" onclick="toggleAboutExpand()">展開全覽</span>
+              </div>
+              <p id="detail-about-text" style="font-size:12.5px;color:#475569;line-height:1.65;margin:0;">
+                ${spot.desc} 這裡匯聚了全台灣最震撼人心的自然地貌與人文底蘊，無論是清晨微風初起的朝霞、抑或落日餘暉灑落山海之際，皆能為旅人帶來無與倫比的心靈洗滌與視覺享受。
+              </p>
+            </div>
+
+            <!-- 景點包車與推薦行程預約卡牌 (直連預定，絕不出現 KLOOK 字樣) -->
+            <div style="margin-bottom:20px;">
+              <div style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
+                <span>🔥</span> 推薦預約與專屬交通直通車
+              </div>
+
+              <!-- 包車直達 -->
+              <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);border:1px solid #BBF7D0;border-radius:16px;text-decoration:none;margin-bottom:10px;box-shadow:0 2px 8px rgba(34,197,94,0.12);">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <span style="font-size:24px;">🚗</span>
+                  <div>
+                    <div style="font-size:13px;font-weight:900;color:#166534;">預約景點專屬包車直達</div>
+                    <div style="font-size:10px;color:#15803D;font-weight:700;">專業司機導覽・飯店直達門口・免轉車煩惱</div>
+                  </div>
+                </div>
+                <span style="background:#16A34A;color:#FFF;font-size:11px;font-weight:800;padding:6px 12px;border-radius:12px;white-space:nowrap;">
+                  預約包車 ➔
+                </span>
+              </a>
+
+              <!-- 推薦行程體驗 (無 KLOOK 字眼) -->
+              <a href="${spot.aid || 'https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436'}" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);border:1px solid #BFDBFE;border-radius:16px;text-decoration:none;margin-bottom:10px;box-shadow:0 2px 8px rgba(59,130,246,0.12);">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <span style="font-size:24px;">🎟️</span>
+                  <div>
+                    <div style="font-size:13px;font-weight:900;color:#1E40AF;">推薦深度特色行程與體驗</div>
+                    <div style="font-size:10px;color:#1D4ED8;font-weight:700;">免排隊即買即用・專屬導覽與戶外冒險活動</div>
+                  </div>
+                </div>
+                <span style="background:#2563EB;color:#FFF;font-size:11px;font-weight:800;padding:6px 12px;border-radius:12px;white-space:nowrap;">
+                  預約行程 ➔
+                </span>
+              </a>
+            </div>
+
+            <!-- 最後可以點開 MAP 導航 (符合用戶需求) -->
+            <div>
+              <div style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+                <span>🗺️</span> 景點位置與地圖導航
+              </div>
+              <button onclick="openGoogleMap('${spot.city}', '${spot.name}')" style="width:100%;padding:14px;border-radius:16px;background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFFFFF;border:none;font-size:13px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 6px 20px rgba(2,132,199,0.35);">
+                <span>🗺️</span> 開啟 Google Maps 開始導航
+              </button>
+            </div>
+
+          </div>
+        </div>
+      `;
+    }
+
+    function openGoogleMap(city, name) {
+      const query = encodeURIComponent(city + " " + name);
+      window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, "_blank");
+    }
+
+    function closeSpotDetailView() {
+      const inlineContainer = document.getElementById("inline-spot-detail-container");
+      if (inlineContainer) inlineContainer.style.display = "none";
+    }
+
+    function toggleAboutExpand() {
+      const el = document.getElementById("detail-about-text");
+      if (!el) return;
+      if (el.dataset.expanded === "true") {
+        el.style.display = "-webkit-box";
+        el.style.webkitLineClamp = "3";
+        el.style.webkitBoxOrient = "vertical";
+        el.dataset.expanded = "false";
+      } else {
+        el.style.display = "block";
+        el.dataset.expanded = "true";
+      }
+    }
+
+    function selectSpot(id, openInline = true) {
       const spot = ALL_SPOTS_DATA.find(s => s.id === id);
       if (!spot) return;
       currentSelectedSpot = spot;
 
-      document.querySelectorAll(".feed-spot-card").forEach(c => c.classList.remove("selected"));
+      document.querySelectorAll(".feed-spot-card-immersive").forEach(c => c.classList.remove("selected"));
       const card = document.getElementById(`feed-card-${id}`);
       if (card) card.classList.add("selected");
 
-      document.getElementById("detail-view-container").style.display = "block";
-      document.getElementById("thematic-subpages-wrapper").style.display = "none";
-      document.getElementById("right-island-text").innerText = `📍 ${spot.city} 景點導覽`;
+      // 1. 在左手機視圖內嵌展示 (如同圖片跳轉展示，附返回鈕)
+      const inlineContainer = document.getElementById("inline-spot-detail-container");
+      if (openInline && inlineContainer) {
+        inlineContainer.innerHTML = generateSpotDetailHTML(spot, true);
+        inlineContainer.style.display = "block";
+        inlineContainer.scrollTo({ top: 0, behavior: "smooth" });
+      }
 
-      document.getElementById("detail-main-img").src = spot.img;
-      document.getElementById("detail-location-tag").innerText = `📍 ${spot.city} · ${spot.name}`;
-      document.getElementById("detail-title").innerText = spot.name;
-      document.getElementById("detail-metric-rating").innerText = spot.rate;
-      document.getElementById("detail-metric-temp").innerText = `🌡️ ${spot.temp}`;
-      document.getElementById("detail-metric-duration").innerText = `⏱️ ${spot.duration}`;
-      document.getElementById("detail-desc-text").innerText = spot.desc;
-      document.getElementById("detail-book-cta").href = spot.aid;
+      // 2. 同步更新右手機螢幕視圖
+      const detailContainer = document.getElementById("detail-view-container");
+      if (detailContainer) {
+        detailContainer.innerHTML = generateSpotDetailHTML(spot, false);
+        detailContainer.style.display = "block";
+        const thematicWrap = document.getElementById("thematic-subpages-wrapper");
+        if (thematicWrap) thematicWrap.style.display = "none";
+      }
 
-      const isFav = favoritesList.some(f => f.id === spot.id);
-      document.getElementById("btn-detail-fav").innerText = isFav ? "❤️" : "🤍";
+      const islandText = document.getElementById("right-island-text");
+      if (islandText) islandText.innerText = `📍 ${spot.city} 景點導覽`;
 
       if (window.innerWidth <= 860) {
         document.getElementById("right-phone-screen").classList.add("mobile-active");
@@ -5057,7 +5500,7 @@ const ALL_ISLANDS_DATA = {
       if (currentSelectedSpot) {
         selectSpot(currentSelectedSpot.id);
       } else {
-        selectSpot(1);
+        selectSpot(1, false);
       }
       closeMobileRightScreen();
     }
@@ -7630,45 +8073,294 @@ function renderSubpageDefault(theme) {
       }
     }
 
-    // 留言系統
-    function renderFeedbackList() {
-      const container = document.getElementById("feedback-list-container");
-      if (!container) return;
-      container.innerHTML = communityReviews.map(c => `
-        <div style="padding:12px 14px;background:#FFFFFF;border:1px solid #F1F5F9;border-radius:16px;margin-bottom:8px;box-shadow:0 2px 6px rgba(0,0,0,0.02);">
-          <div style="display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:800;margin-bottom:4px;">
-            <span>${c.country} <b>${c.author}</b></span>
-            <span style="font-size:9px;color:var(--text-muted);">${c.date} · ⭐ ${c.rating || "5.0★"}</span>
-          </div>
-          <p style="font-size:12px;color:var(--text-body);line-height:1.5;">${c.text}</p>
-        </div>
-      `).join("");
+    // =========================================================
+    // 8. 外國旅客交流留言板系統 (互相留言、約伴、即時翻譯)
+    // =========================================================
+    function filterCommunityTopic(topic) {
+      currentCommunityFilter = topic;
+      renderCommunityBoard();
     }
 
-    function submitNewComment() {
-      const authorInput = document.getElementById("input-author");
-      const countrySelect = document.getElementById("select-country");
-      const commentTextarea = document.getElementById("input-comment");
+    function toggleCommunityLike(id) {
+      const thread = communityReviews.find(t => t.id === id);
+      if (!thread) return;
+      if (thread.isLiked) {
+        thread.likes -= 1;
+        thread.isLiked = false;
+      } else {
+        thread.likes += 1;
+        thread.isLiked = true;
+      }
+      localStorage.setItem("tw_travel_community_v3", JSON.stringify(communityReviews));
+      renderCommunityBoard();
+    }
 
-      const author = authorInput.value.trim() || "匿名旅人";
-      const country = countrySelect.value;
-      const text = commentTextarea.value.trim();
+    function toggleCommunityTranslation(id) {
+      const thread = communityReviews.find(t => t.id === id);
+      if (!thread) return;
+      thread.showTranslation = !thread.showTranslation;
+      renderCommunityBoard();
+    }
 
-      if (!text) {
-        alert("請輸入您的踩點心得或旅行感想！");
+    function toggleCommunityReplyBox(id) {
+      const thread = communityReviews.find(t => t.id === id);
+      if (!thread) return;
+      thread.showReplyBox = !thread.showReplyBox;
+      renderCommunityBoard();
+    }
+
+    function submitCommunityReply(id) {
+      const thread = communityReviews.find(t => t.id === id);
+      if (!thread) return;
+      const authorInput = document.getElementById("reply-author-" + id);
+      const textInput = document.getElementById("reply-text-" + id);
+      if (!textInput || !textInput.value.trim()) {
+        alert("請輸入回覆內容！");
+        return;
+      }
+      const author = (authorInput && authorInput.value.trim()) ? authorInput.value.trim() : "旅行好友";
+      const text = textInput.value.trim();
+      if (!thread.replies) thread.replies = [];
+      thread.replies.push({
+        author: author + " 💬",
+        timeAgo: "剛剛",
+        text: text
+      });
+      localStorage.setItem("tw_travel_community_v3", JSON.stringify(communityReviews));
+      renderCommunityBoard();
+    }
+
+    function submitNewCommunityPost() {
+      const authorInput = document.getElementById("comm-author-input");
+      const countrySelect = document.getElementById("comm-country-select");
+      const topicSelect = document.getElementById("comm-topic-select");
+      const spotInput = document.getElementById("comm-spot-input");
+      const textInput = document.getElementById("comm-text-input");
+
+      if (!textInput || !textInput.value.trim()) {
+        alert("請輸入您的留言、旅行提問或約伴訊息！");
         return;
       }
 
-      const today = new Date();
-      const dateStr = today.getFullYear() + "/" + (today.getMonth() + 1) + "/" + today.getDate();
+      const author = (authorInput && authorInput.value.trim()) ? authorInput.value.trim() : "全球旅人";
+      const countryFull = countrySelect ? countrySelect.value : "🇹🇼 台灣";
+      const countryFlag = countryFull.substring(0, 4).trim();
+      const topic = topicSelect ? topicSelect.value : "meetup";
+      const topicNames = {
+        meetup: "🙋‍♂️ 揪團約伴",
+        qna: "💡 旅遊請益",
+        food: "🍜 美食推薦",
+        review: "🎒 踩點分享",
+        transport: "🚗 交通包車"
+      };
+      const spotTag = (spotInput && spotInput.value.trim()) ? spotInput.value.trim() : "全台各地";
+      const text = textInput.value.trim();
 
-      communityReviews.unshift({ author, country, date: dateStr, rating: "5.0★", text });
-      localStorage.setItem("tw_travel_comments", JSON.stringify(communityReviews));
+      const newThread = {
+        id: Date.now(),
+        author: author,
+        country: countryFull,
+        countryFlag: countryFlag,
+        avatarBg: "linear-gradient(135deg, #0284C7, #0369A1)",
+        role: "🌏 國際自由行旅人",
+        timeAgo: "剛剛發布",
+        topic: topic,
+        topicName: topicNames[topic] || "💬 旅人交流",
+        spotTag: spotTag,
+        rating: "5.0★",
+        text: text,
+        translation: "[即時翻譯] " + text,
+        likes: 1,
+        isLiked: true,
+        showTranslation: false,
+        showReplyBox: true,
+        replies: []
+      };
 
-      authorInput.value = "";
-      commentTextarea.value = "";
-      renderFeedbackList();
-      alert("🎉 感謝您的分享！您的踩點心得已發布在世界旅人留言牆！");
+      communityReviews.unshift(newThread);
+      localStorage.setItem("tw_travel_community_v3", JSON.stringify(communityReviews));
+      renderCommunityBoard();
+      alert("🎉 您的旅人留言已成功發布在世界旅人交流牆！各國旅人現在都可以看到並回覆您！");
+    }
+
+    function renderCommunityBoard() {
+      const container = document.getElementById("travelers-community-container");
+      if (!container) return;
+
+      const filtered = (currentCommunityFilter === "all") 
+        ? communityReviews 
+        : communityReviews.filter(t => t.topic === currentCommunityFilter);
+
+      const htmlContent = `
+        <!-- 頂部即時在線橫幅 -->
+        <div class="travelers-hub-banner">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span style="font-size:22px;">💬</span>
+              <span style="font-size:16px;font-weight:900;letter-spacing:-0.2px;">外國旅人交流留言板</span>
+            </div>
+            <span style="background:rgba(255,255,255,0.15);font-size:10px;font-weight:800;padding:3px 9px;border-radius:12px;backdrop-filter:blur(4px);">
+              <span class="live-pulse-dot"></span>432 在線交流
+            </span>
+          </div>
+          <p style="font-size:11px;opacity:0.92;line-height:1.5;margin:0 0 10px;">
+            專為各國旅客設計的台灣即時交流板！互相留言、約伴揪團、私房美食請益，支援各國語言即時翻譯。
+          </p>
+          <div style="display:flex;align-items:center;gap:10px;font-size:10px;color:#94A3B8;border-top:1px solid rgba(255,255,255,0.1);padding-top:8px;">
+            <span>🌍 覆蓋 58+ 國家旅人</span>
+            <span>•</span>
+            <span>🤝 互相留言即時互動</span>
+            <span>•</span>
+            <span>🌐 支援多國語言</span>
+          </div>
+        </div>
+
+        <!-- 類別切換篩選器 -->
+        <div class="community-filters-scroll">
+          <button class="community-filter-chip ${currentCommunityFilter === 'all' ? 'active' : ''}" onclick="filterCommunityTopic('all')">✨ 全部 (${communityReviews.length})</button>
+          <button class="community-filter-chip ${currentCommunityFilter === 'meetup' ? 'active' : ''}" onclick="filterCommunityTopic('meetup')">🙋‍♂️ 揪團約伴</button>
+          <button class="community-filter-chip ${currentCommunityFilter === 'qna' ? 'active' : ''}" onclick="filterCommunityTopic('qna')">💡 旅遊請益</button>
+          <button class="community-filter-chip ${currentCommunityFilter === 'food' ? 'active' : ''}" onclick="filterCommunityTopic('food')">🍜 美食推薦</button>
+          <button class="community-filter-chip ${currentCommunityFilter === 'review' ? 'active' : ''}" onclick="filterCommunityTopic('review')">🎒 踩點分享</button>
+          <button class="community-filter-chip ${currentCommunityFilter === 'transport' ? 'active' : ''}" onclick="filterCommunityTopic('transport')">🚗 交通包車</button>
+        </div>
+
+        <!-- 旅人留言發表框 -->
+        <div class="community-post-box-card">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+            <span style="font-size:12px;font-weight:900;color:#0F172A;display:flex;align-items:center;gap:6px;">
+              <span>✍️</span> 留下您的旅人訊息 / Post Message
+            </span>
+            <span style="font-size:9px;color:#64748B;font-weight:700;">支援各國語言自由發表</span>
+          </div>
+          
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+            <input type="text" id="comm-author-input" placeholder="您的暱稱 (Name / Nickname)" style="padding:8px 11px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;outline:none;background:#F8FAFC;">
+            <select id="comm-country-select" style="padding:8px 10px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;background:#FFF;color:#334155;">
+              <option value="🇺🇸 美國 (USA)">🇺🇸 美國 (USA)</option>
+              <option value="🇯🇵 日本 (Japan)">🇯🇵 日本 (Japan)</option>
+              <option value="🇰🇷 韓國 (Korea)">🇰🇷 韓國 (Korea)</option>
+              <option value="🇬🇧 英國 (UK)">🇬🇧 英國 (UK)</option>
+              <option value="🇫🇷 法國 (France)">🇫🇷 法國 (France)</option>
+              <option value="🇩🇪 德國 (Germany)">🇩🇪 德國 (Germany)</option>
+              <option value="🇦🇺 澳洲 (Australia)">🇦🇺 澳洲 (Australia)</option>
+              <option value="🇸🇬 新加坡 (Singapore)">🇸🇬 新加坡 (Singapore)</option>
+              <option value="🇲🇾 馬來西亞 (Malaysia)">🇲🇾 馬來西亞 (Malaysia)</option>
+              <option value="🇹🇭 泰國 (Thailand)">🇹🇭 泰國 (Thailand)</option>
+              <option value="🇪🇸 西班牙 (Spain)">🇪🇸 西班牙 (Spain)</option>
+              <option value="🇨🇦 加拿大 (Canada)">🇨🇦 加拿大 (Canada)</option>
+              <option value="🇭🇰 香港 (Hong Kong)">🇭🇰 香港 (Hong Kong)</option>
+              <option value="🇹🇼 台灣 (Taiwan)">🇹🇼 台灣 (Taiwan)</option>
+            </select>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+            <select id="comm-topic-select" style="padding:8px 10px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;background:#FFF;color:#334155;">
+              <option value="meetup">🙋‍♂️ 揪團約伴 (Meetup)</option>
+              <option value="qna">💡 旅遊請益 (Q&A)</option>
+              <option value="food">🍜 美食推薦 (Food)</option>
+              <option value="review">🎒 踩點分享 (Reviews)</option>
+              <option value="transport">🚗 交通包車 (Transport)</option>
+            </select>
+            <input type="text" id="comm-spot-input" placeholder="相關景點 (如: 太魯閣, 九份)" style="padding:8px 11px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;outline:none;background:#F8FAFC;">
+          </div>
+
+          <textarea id="comm-text-input" placeholder="分享旅行心得、發起約伴、或是詢問台灣行程建議... (Any languages welcome)" style="width:100%;height:65px;padding:9px 12px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;resize:none;margin-bottom:10px;outline:none;background:#F8FAFC;line-height:1.4;box-sizing:border-box;"></textarea>
+
+          <button onclick="submitNewCommunityPost()" style="width:100%;padding:10px;border-radius:12px;background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;font-size:12px;font-weight:800;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 4px 12px rgba(2,132,199,0.3);">
+            <span>🚀</span> 發布旅人留言 (Post to Global Board)
+          </button>
+        </div>
+
+        <!-- 旅人留言串流清單 -->
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          ${filtered.map(c => `
+            <div class="community-thread-card">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div class="community-avatar-circle" style="background:${c.avatarBg || '#0284C7'};">
+                    ${c.countryFlag || '🌍'}
+                  </div>
+                  <div>
+                    <div style="display:flex;align-items:center;gap:6px;">
+                      <span style="font-size:12px;font-weight:900;color:#0F172A;">${c.author}</span>
+                      <span style="font-size:9px;color:#64748B;background:#F1F5F9;padding:1px 6px;border-radius:8px;">${c.role || '旅人'}</span>
+                    </div>
+                    <div style="font-size:10px;color:#64748B;margin-top:1px;">
+                      ${c.country} · ${c.timeAgo}
+                    </div>
+                  </div>
+                </div>
+                <span class="community-topic-badge badge-${c.topic}">${c.topicName}</span>
+              </div>
+
+              ${c.spotTag ? `
+                <div style="display:inline-flex;align-items:center;gap:4px;background:#F0FDF4;border:1px solid #DCFCE7;color:#166534;font-size:10px;font-weight:800;padding:2px 8px;border-radius:8px;margin-bottom:8px;">
+                  <span>📍</span> ${c.spotTag}
+                </div>
+              ` : ''}
+
+              <!-- 留言主要內容 (支援原文與中文切換) -->
+              <p style="font-size:12px;color:#1E293B;line-height:1.55;margin:0 0 10px;word-break:break-word;">
+                ${c.showTranslation ? `<span style="color:#0284C7;font-weight:800;font-size:10px;display:block;margin-bottom:3px;">🌐 中文翻譯：</span>${c.translation || c.text}` : c.text}
+              </p>
+
+              <!-- 操作功能列：翻譯、點讚、互相留言回覆 -->
+              <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F1F5F9;padding-top:9px;">
+                <button class="community-translate-btn" onclick="toggleCommunityTranslation(${c.id})">
+                  <span>🌐</span> ${c.showTranslation ? '顯示原文' : '翻譯成中文'}
+                </button>
+
+                <div style="display:flex;align-items:center;gap:4px;">
+                  <button class="community-action-btn ${c.isLiked ? 'liked' : ''}" onclick="toggleCommunityLike(${c.id})">
+                    <span>${c.isLiked ? '❤️' : '🤍'}</span>
+                    <span>${c.likes || 0}</span>
+                  </button>
+                  <button class="community-action-btn" onclick="toggleCommunityReplyBox(${c.id})">
+                    <span>💬 互相留言</span>
+                    <span>(${c.replies ? c.replies.length : 0})</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- 互相留言展開區 (外國旅人間的對話回覆) -->
+              ${(c.showReplyBox || (c.replies && c.replies.length > 0)) ? `
+                <div style="margin-top:10px;border-top:1px dashed #E2E8F0;padding-top:10px;">
+                  ${(c.replies && c.replies.length > 0) ? `
+                    <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:10px;">
+                      ${c.replies.map(r => `
+                        <div class="community-reply-item">
+                          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px;">
+                            <span style="font-weight:800;color:#0F172A;">${r.author}</span>
+                            <span style="font-size:9px;color:#94A3B8;">${r.timeAgo}</span>
+                          </div>
+                          <div style="color:#334155;line-height:1.4;">${r.text}</div>
+                        </div>
+                      `).join('')}
+                    </div>
+                  ` : ''}
+
+                  <!-- 即時回覆輸入框 -->
+                  <div style="display:flex;gap:6px;align-items:center;">
+                    <input type="text" id="reply-author-${c.id}" placeholder="您的名字" style="width:75px;padding:6px 8px;border-radius:10px;border:1px solid #CBD5E1;font-size:10px;background:#F8FAFC;outline:none;">
+                    <input type="text" id="reply-text-${c.id}" placeholder="回覆此旅人 (Reply to traveler)..." style="flex:1;padding:6px 10px;border-radius:10px;border:1px solid #CBD5E1;font-size:10px;background:#F8FAFC;outline:none;">
+                    <button onclick="submitCommunityReply(${c.id})" style="padding:6px 10px;background:#0284C7;color:#FFF;border:none;border-radius:10px;font-size:10px;font-weight:800;cursor:pointer;white-space:nowrap;">
+                      送出回覆
+                    </button>
+                  </div>
+                </div>
+              ` : ''}
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      container.innerHTML = htmlContent;
+    }
+
+    // 保留向下相容函式別名
+    function renderFeedbackList() {
+      renderCommunityBoard();
     }
 
     function setViewMode(mode) {
