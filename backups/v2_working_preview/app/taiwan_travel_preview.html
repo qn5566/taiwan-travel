@@ -3546,6 +3546,74 @@
     };
 
     // ============================================================
+    // 🗓️ 離島 3天2夜 / 2天1夜 經典推薦行程資料庫 (含路線走法與預訂小按鈕)
+    // ============================================================
+    const ISLAND_ITINERARIES_DATA = {
+      "penghu-3d2n": {
+        id: "penghu-3d2n",
+        title: "【3天2夜】澎湖蔚藍跳島與花火漫遊",
+        duration: "3天2夜 · 經典熱門",
+        days: [
+          { day: 1, route: "馬公市區取車 ➔ 跨海大橋 ➔ 二崁傳統聚落古厝 ➔ 奎壁山摩西分海 ➔ 入住海景旅宿" },
+          { day: 2, route: "南海碼頭搭快艇出海 ➔ 七美雙心石滬 ➔ 望安綠蠵龜保育館 ➔ 澎湖海上花火節 / 夜釣小管" },
+          { day: 3, route: "山水沙灘 SUP 立槳 ➔ 風櫃洞聽濤海蝕洞 ➔ 篤行十村眷村文創 ➔ 伴手禮黑糖糕 ➔ 馬公搭機返程" }
+        ],
+        actions: [
+          { icon: "🚢", label: "布袋快艇預訂", url: "https://www.klook.com/zh-TW/transport-4/ferry-1012-taiwan/?aid=123436" },
+          { icon: "🎆", label: "花火節/跳島行程", url: "https://www.klook.com/zh-TW/city/19-penghu-things-to-do/?aid=123436" },
+          { icon: "🛵", label: "澎湖租機車/包車", url: "https://www.klook.com/zh-TW/car-rentals/?aid=123436" },
+          { icon: "🏨", label: "推薦海景旅宿", url: "https://tw.trip.com/hotels/?allianceid=123436&sid=123436" }
+        ]
+      },
+      "greenisland-2d1n": {
+        id: "greenisland-2d1n",
+        title: "【2天1夜】綠島朝日海底溫泉與深潛冒險",
+        duration: "2天1夜 · 療癒深潛",
+        days: [
+          { day: 1, route: "台東富岡搭快艇 ➔ 綠島南寮碼頭取車 ➔ 柴口浮潛 ➔ 綠島燈塔夕陽 ➔ 夜泡朝日海底溫泉觀星" },
+          { day: 2, route: "石朗水下十字架世界級深潛 ➔ 藍洞秘境跳水 ➔ 帆船鼻大草原俯瞰大洋 ➔ 碼頭免稅店搭船返程" }
+        ],
+        actions: [
+          { icon: "🚢", label: "富岡-綠島船票", url: "https://www.klook.com/zh-TW/transport-4/ferry-1012-taiwan/?aid=123436" },
+          { icon: "♨️", label: "朝日溫泉門票", url: "https://www.klook.com/zh-TW/city/19-green-island-things-to-do/?aid=123436" },
+          { icon: "🤿", label: "綠島深潛體驗", url: "https://www.klook.com/zh-TW/city/19-green-island-things-to-do/?aid=123436" },
+          { icon: "🛵", label: "碼頭租機車", url: "https://www.klook.com/zh-TW/car-rentals/?aid=123436" }
+        ]
+      },
+      "xiaoliuqiu-3d2n": {
+        id: "xiaoliuqiu-3d2n",
+        title: "【3天2夜】小琉球海龜共游與免裝備度假",
+        duration: "3天2夜 · 親海放鬆",
+        days: [
+          { day: 1, route: "屏東東港搭船（20分直達）➔ 花瓶岩浮潛尋野生綠蠵龜 ➔ 落日亭壯麗火燒雲夕陽" },
+          { day: 2, route: "蛤板灣威尼斯沙灘 SUP ➔ 烏鬼洞珊瑚海蝕迷宮 ➔ 龍蝦洞網美老木打卡 ➔ 厚石天然海水泳池自潛" },
+          { day: 3, route: "杉福生態廊道 ➔ 現炸麻花捲與海龜燒 ➔ 大福漁港海上溜滑梯 ➔ 搭船返回東港" }
+        ],
+        actions: [
+          { icon: "🚢", label: "東港來回船票", url: "https://www.klook.com/zh-TW/transport-4/ferry-1012-taiwan/?aid=123436" },
+          { icon: "🐢", label: "海龜共游浮潛", url: "https://www.klook.com/zh-TW/city/19-xiao-liu-qiu-things-to-do/?aid=123436" },
+          { icon: "🛵", label: "環島機車租借", url: "https://www.klook.com/zh-TW/car-rentals/?aid=123436" },
+          { icon: "🏨", label: "琉球海景Villa", url: "https://tw.trip.com/hotels/?allianceid=123436&sid=123436" }
+        ]
+      },
+      "keelung-2d1n": {
+        id: "keelung-2d1n",
+        title: "【2天1夜】基隆嶼包船登島與象鼻岩巡航",
+        duration: "2天1夜 · 秘境出海",
+        days: [
+          { day: 1, route: "基隆碧砂漁港包船啟航 ➔ 基隆嶼登島繞島 ➔ 攻頂 360 度山頂燈塔 ➔ 象鼻岩外海巡航" },
+          { day: 2, route: "潮境公園飛天掃帚 ➔ 望海巷跨海橋海風漫步 ➔ 基隆廟口夜市米雕美食 ➔ 歡樂賦歸" }
+        ],
+        actions: [
+          { icon: "🚤", label: "基隆嶼包船預訂", url: "https://www.klook.com/zh-TW/activity/43423-keelung-islet-boat-tour/?aid=123436" },
+          { icon: "🏄", label: "象鼻岩外海SUP", url: "https://www.klook.com/zh-TW/activity/43423-keelung-islet-boat-tour/?aid=123436" },
+          { icon: "🚗", label: "專屬包車接送", url: "https://www.klook.com/zh-TW/car-rentals/?aid=123436" },
+          { icon: "🏨", label: "基隆長榮桂冠", url: "https://tw.trip.com/hotels/?allianceid=123436&sid=123436" }
+        ]
+      }
+    };
+
+    // ============================================================
 // 🏝️ 台灣全部離島 20 大必訪景點資料庫 (含包車、住宿、KLOOK關鍵字行程)
 // ============================================================
 const ALL_ISLANDS_DATA = {
@@ -4060,6 +4128,7 @@ const ALL_ISLANDS_DATA = {
     // 全域狀態管理變數 (置頂以防 TDZ ReferenceError)
     let currentSelectedSpot = null;
     let currentIslandTab = "penghu";
+    let currentIslandItinKey = "penghu-3d2n";
     let currentHuadongItin = "itin-2d1n";
     let currentFestCategoryKey = "lunar";
     let currentNightMarketCity = "taipei";
@@ -4977,15 +5046,24 @@ const EVENTS_API_DATA = [{"name": "大港開唱 Megaport Festival", "loc": "高�
 // currentTrekkingLevel moved
 
 function updateSubpageView(themeId) {
+  const subHtml = generateSubpageHTML(themeId);
   const wrapper = document.getElementById("thematic-subpages-wrapper");
   if (wrapper) {
-    wrapper.innerHTML = generateSubpageHTML(themeId);
-    wrapper.scrollTop = 0;
+    wrapper.innerHTML = subHtml;
+  }
+  const inlineContent = document.getElementById("subpage-inline-content");
+  if (inlineContent) {
+    inlineContent.innerHTML = subHtml;
   }
 }
 
 function switchIslandSubTab(key) {
   currentIslandTab = key;
+  updateSubpageView("islands");
+}
+
+function switchIslandItinerary(itinId) {
+  currentIslandItinKey = itinId;
   updateSubpageView("islands");
 }
 
@@ -5051,6 +5129,9 @@ function renderSubpageIslands(theme) {
   const islandTitle = islandData.title;
   const islandDesc = islandData.desc;
 
+  // 取得當前選中的經典離島行程 (3天2夜 / 2天1夜)
+  const currentItin = ISLAND_ITINERARIES_DATA[currentIslandItinKey] || ISLAND_ITINERARIES_DATA["penghu-3d2n"];
+
   // 頂部視覺 Banner 主圖三圖輪播 (基隆嶼空拍, 七美雙心石滬夕陽, 綠島朝日溫泉日出)
   const heroBanners = [
     { url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1000&auto=format&fit=crop", caption: "基隆嶼包船環島空拍 · 台灣龍珠火山孤島" },
@@ -5099,66 +5180,73 @@ function renderSubpageIslands(theme) {
       <div class="detail-sliding-sheet-img2">
         <div class="sliding-drag-handle"></div>
 
-        <!-- ✈️ 離島機票查詢快捷專區 (下面要有機票查詢可以到離島) -->
-        <div style="background:linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%);border:1.5px solid #38BDF8;border-radius:16px;padding:12px 14px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 14px rgba(56,189,248,0.25);">
+        <!-- ✈️ 離島機票查詢快捷卡片 (簡約清爽、字少俐落) -->
+        <div style="background:#FFFFFF;border:1.5px solid #BAE6FD;border-radius:18px;padding:12px 14px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 14px rgba(2,132,199,0.08);">
           <div style="display:flex;align-items:center;gap:10px;">
-            <div style="width:38px;height:38px;border-radius:12px;background:#0284C7;color:#FFF;display:flex;align-items:center;justify-content:center;font-size:18px;">
+            <div style="width:36px;height:36px;border-radius:12px;background:#E0F2FE;color:#0284C7;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">
               ✈️
             </div>
             <div>
-              <div style="font-size:13px;font-weight:900;color:#0369A1;">國內跳島機票即時比價查詢</div>
-              <div style="font-size:10px;color:#0284C7;font-weight:700;">松山 / 台中 / 高雄 飛 澎湖 · 金門 · 馬祖</div>
+              <div style="font-size:13px;font-weight:900;color:#0369A1;letter-spacing:-0.2px;">離島機票查詢</div>
+              <div style="font-size:10px;color:#0284C7;font-weight:700;">直飛澎湖 · 金門 · 馬祖 · 綠島</div>
             </div>
           </div>
-          <a href="https://tw.trip.com/flights/?allianceid=123436&sid=123436" target="_blank" class="btn-solid-cyan" style="padding:6px 14px;font-size:11px;font-weight:900;text-decoration:none;box-shadow:0 3px 8px rgba(2,132,199,0.35);">
-            查詢機票 ➔
+          <a href="https://tw.trip.com/flights/?allianceid=123436&sid=123436" target="_blank" style="background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;padding:6px 14px;font-size:11px;font-weight:900;text-decoration:none;border-radius:20px;box-shadow:0 3px 8px rgba(2,132,199,0.25);white-space:nowrap;display:inline-flex;align-items:center;gap:4px;">
+            <span>查機票</span> <span>➔</span>
           </a>
         </div>
 
-        <!-- 交通直通車 (分潤入口) -->
-        <div style="font-size:13px;font-weight:900;color:var(--text-heading);margin-bottom:8px;">🚀 離島交通直通車（即時分潤購票入口）：</div>
-        <div class="segmented-blue-pill-bar" style="margin-bottom:12px;">
-          <a href="https://www.klook.com/zh-TW/transport-4/ferry-1012-taiwan/?aid=123436" target="_blank" class="seg-pill-item active" style="text-decoration:none;">
-            🚢 船票即時預訂
-          </a>
-          <a href="https://tw.trip.com/flights/?allianceid=123436&sid=123436" target="_blank" class="seg-pill-item" style="text-decoration:none;">
-            ✈️ 國內跳島機票
-          </a>
-          <a href="https://www.klook.com/zh-TW/activity/43423-keelung-islet-boat-tour/?aid=123436" target="_blank" class="seg-pill-item" style="text-decoration:none;">
-            🚤 基隆嶼包船秘境
-          </a>
+        <!-- 🗓️ 離島經典推薦行程 (3天2夜 / 2天1夜 精選行程 + 專屬預訂小按鈕) -->
+        <div style="font-size:13px;font-weight:900;color:var(--text-heading);margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">
+          <span>🗓️ 經典跳島行程推薦：</span>
+          <span style="font-size:10px;color:#0284C7;font-weight:800;background:#E0F2FE;padding:2px 8px;border-radius:10px;">3天2夜 · 2天1夜</span>
+        </div>
+        
+        <!-- 行程分類切換標籤 -->
+        <div style="display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:10px;" class="no-scrollbar">
+          <button class="seg-pill-item ${currentIslandItinKey==='penghu-3d2n'?'active':''}" onclick="switchIslandItinerary('penghu-3d2n')" style="flex-shrink:0;padding:6px 12px;font-size:11px;">
+            🎆 3天2夜 澎湖跳島花火
+          </button>
+          <button class="seg-pill-item ${currentIslandItinKey==='greenisland-2d1n'?'active':''}" onclick="switchIslandItinerary('greenisland-2d1n')" style="flex-shrink:0;padding:6px 12px;font-size:11px;">
+            ♨️ 2天1夜 綠島溫泉深潛
+          </button>
+          <button class="seg-pill-item ${currentIslandItinKey==='xiaoliuqiu-3d2n'?'active':''}" onclick="switchIslandItinerary('xiaoliuqiu-3d2n')" style="flex-shrink:0;padding:6px 12px;font-size:11px;">
+            🐢 3天2夜 小琉球海龜遊
+          </button>
+          <button class="seg-pill-item ${currentIslandItinKey==='keelung-2d1n'?'active':''}" onclick="switchIslandItinerary('keelung-2d1n')" style="flex-shrink:0;padding:6px 12px;font-size:11px;">
+            🚤 2天1夜 基隆嶼包船
+          </button>
         </div>
 
-        <!-- 3 大交通卡片 -->
-        <div class="four-service-matrix" style="margin-bottom:14px;">
-          <a href="https://www.klook.com/zh-TW/transport-4/ferry-1012-taiwan/?aid=123436" target="_blank" class="service-box-card">
-            <div class="service-box-icon">🚢</div>
-            <div>
-              <div class="service-box-title">即時船票預訂</div>
-              <div class="service-box-desc">布袋-澎湖、富岡-綠島蘭嶼、東港-小琉球快速通關。</div>
-            </div>
-          </a>
-          <a href="https://tw.trip.com/flights/?allianceid=123436&sid=123436" target="_blank" class="service-box-card">
-            <div class="service-box-icon">✈️</div>
-            <div>
-              <div class="service-box-title">跳島國內機票</div>
-              <div class="service-box-desc">松山/台中/高雄直飛澎湖、金門、馬祖比價預訂。</div>
-            </div>
-          </a>
-          <a href="https://www.klook.com/zh-TW/activity/43423-keelung-islet-boat-tour/?aid=123436" target="_blank" class="service-box-card">
-            <div class="service-box-icon">🚤</div>
-            <div>
-              <div class="service-box-title">基隆嶼包船秘境</div>
-              <div class="service-box-desc">登島＋繞島＋象鼻岩海上巡航預約，探訪台灣龍珠。</div>
-            </div>
-          </a>
-          <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" class="service-box-card">
-            <div class="service-box-icon">🛵</div>
-            <div>
-              <div class="service-box-title">碼頭租車與包車</div>
-              <div class="service-box-desc">下船即刻取車自駕，環島專屬包車司機導覽無憂。</div>
-            </div>
-          </a>
+        <!-- 當前行程展示卡 -->
+        <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:18px;padding:14px;margin-bottom:16px;box-shadow:0 4px 14px rgba(2,132,199,0.06);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <div style="font-size:13.5px;font-weight:900;color:#0369A1;">${currentItin.title}</div>
+            <span style="font-size:10px;font-weight:800;background:#F0F9FF;color:#0284C7;border:1px solid #BAE6FD;padding:2px 8px;border-radius:10px;">${currentItin.duration}</span>
+          </div>
+          
+          <!-- 每日路線 -->
+          <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px;">
+            ${currentItin.days.map(d => `
+              <div style="display:flex;gap:8px;align-items:flex-start;">
+                <span style="background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;font-size:9.5px;font-weight:900;padding:2px 7px;border-radius:8px;flex-shrink:0;margin-top:2px;">
+                  Day ${d.day}
+                </span>
+                <span style="font-size:11px;color:#334155;line-height:1.55;font-weight:600;">
+                  ${d.route}
+                </span>
+              </div>
+            `).join("")}
+          </div>
+
+          <!-- 精緻小按鈕列 (推薦包車、船票、具體行程預訂) -->
+          <div style="display:flex;gap:6px;flex-wrap:wrap;padding-top:10px;border-top:1px dashed #E2E8F0;">
+            ${currentItin.actions.map(a => `
+              <a href="${a.url}" target="_blank" style="background:#F8FAFC;border:1px solid #CBD5E1;color:#0F172A;font-size:10.5px;font-weight:800;padding:5px 11px;border-radius:12px;text-decoration:none;display:inline-flex;align-items:center;gap:4px;box-shadow:0 1px 3px rgba(0,0,0,0.04);transition:all 0.15s ease;">
+                <span>${a.icon}</span> <span>${a.label}</span>
+              </a>
+            `).join("")}
+          </div>
         </div>
 
         <!-- 分類全部離島 (島嶼切換標籤) -->
