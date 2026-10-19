@@ -1792,6 +1792,136 @@
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     }
 
+    /* 離島與主題專區 2 欄精緻小巧景點卡片 (高密度、字數少、視覺豐富、2個一排) */
+    .compact-subpage-spot-card {
+      background: #FFFFFF;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid #F1F5F9;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .compact-subpage-spot-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+      border-color: #38BDF8;
+    }
+    .compact-subpage-spot-card:active {
+      transform: scale(0.97);
+    }
+    .spot-img-wrap {
+      width: 100%;
+      height: 120px;
+      position: relative;
+      overflow: hidden;
+      background: #E2E8F0;
+    }
+    .spot-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .compact-subpage-spot-card:hover .spot-img-wrap img {
+      transform: scale(1.08);
+    }
+    .spot-top-rank-pill {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(6px);
+      color: #FFFFFF;
+      font-size: 9px;
+      font-weight: 900;
+      padding: 2px 7px;
+      border-radius: 10px;
+      letter-spacing: 0.3px;
+    }
+    .spot-top-fav-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    }
+    .spot-card-body {
+      padding: 9px 10px 10px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+    .spot-card-title {
+      font-size: 13px;
+      font-weight: 900;
+      color: #0F172A;
+      line-height: 1.3;
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .spot-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 10px;
+      margin-bottom: 7px;
+    }
+    .spot-card-rate {
+      color: #D97706;
+      font-weight: 800;
+      font-size: 10px;
+    }
+    .spot-card-tag {
+      color: #0284C7;
+      background: #E0F2FE;
+      padding: 1px 6px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 9px;
+      max-width: 65px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .spot-card-cta-btn {
+      width: 100%;
+      padding: 5px 0;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+      color: #FFFFFF !important;
+      font-size: 10px;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.2);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .spot-card-cta-btn:hover {
+      box-shadow: 0 3px 8px rgba(2, 132, 199, 0.35);
+    }
+
     /* =========================================================
        🎨 全局按鈕選中樣式優化 (告別沉悶黑色，換上台灣海洋蔚藍漸層)
        ========================================================= */
@@ -5297,62 +5427,33 @@ function renderSubpageIslands(theme) {
           <span style="font-size:11px;font-weight:900;color:var(--cyan-deep);background:var(--cyan-light);padding:3px 10px;border-radius:12px;">共 ${spotsList.length} 處</span>
         </div>
 
-        <!-- 景點瀑布流卡片 (每個景點卡片附：介紹 + 推薦包車按鈕 + 推薦住宿按鈕 + KLOOK 具體關鍵字行程按鈕) -->
-        <div class="top10-visual-stream">
-          ${spotsList.map(s => `
-            <div class="curated-thematic-spot-card" style="margin-bottom:20px;" onclick="selectSpot(${s.id || 1})">
-              <!-- 滿版絕美實景背景大圖 (Style 2: 滿版實景大圖) -->
-              <img class="curated-bg-photo" src="${s.img}" alt="${s.name}" loading="lazy">
-              
-              <!-- 頂部懸浮排名膠囊與愛心按鈕 -->
-              <div class="curated-top-floating-bar">
-                <div class="curated-top-circle-btn" style="width:auto;padding:0 12px;border-radius:20px;font-size:11px;">
-                  ${s.rank <= 3 ? '🔥' : '📍'} TOP ${s.rank}
+        <!-- 2 欄精緻小巧景點網格 (2個一排、高度適中、字數少、可一眼瀏覽多個玩樂景點) -->
+        <div class="spots-grid-2col" style="margin-bottom:20px;">
+          ${spotsList.map(s => {
+            const isFav = favoritesList.some(f => f.name === s.name);
+            const bookingUrl = s.actUrl || "https://www.klook.com/zh-TW/city/19-penghu-things-to-do/?aid=123436";
+            return `
+              <div class="compact-subpage-spot-card" onclick="selectSpot(${s.id || 1})">
+                <div class="spot-img-wrap">
+                  <img src="${s.img}" alt="${s.name}" loading="lazy">
+                  <span class="spot-top-rank-pill">${s.rank <= 3 ? '🔥' : '📍'} TOP ${s.rank}</span>
+                  <button class="spot-top-fav-btn" onclick="event.stopPropagation(); toggleFav('${s.name}', '離島', '${s.img}')" title="收藏">
+                    ${isFav ? '❤️' : '🤍'}
+                  </button>
                 </div>
-                <div class="curated-top-circle-btn" onclick="event.stopPropagation(); toggleFav('${s.name}', '離島', '${s.img}')">
-                  ❤️
-                </div>
-              </div>
-
-              <!-- 底部懸浮深碳綠色/深灰青毛玻璃卡片 (Dark Slate Frosted Glass Card) -->
-              <div class="curated-floating-slate-card">
-                <div class="curated-loc-pin">📍 ${islandTitle} · 台灣跳島秘境</div>
-                <div class="curated-card-headline">${s.name}</div>
-                
-                <!-- 3 條橫向水平數據指標 -->
-                <div class="curated-metrics-bar">
-                  <span>⭐ ${s.rate}</span>
-                  <span class="bar-div">|</span>
-                  <span>🌡️ 26°C 湛藍海島</span>
-                  <span class="bar-div">|</span>
-                  <span>⏱️ ${s.tag || '必訪'}</span>
-                </div>
-
-                <!-- 故事性介紹 -->
-                <div class="curated-desc-p">
-                  ${s.desc} <span class="curated-read-more">Read More</span>
-                </div>
-
-                <!-- 高對比純白膠囊預訂按鈕 -->
-                <a href="${s.klook_url}" target="_blank" class="curated-book-now-white-btn" onclick="event.stopPropagation()">
-                  Book Now 立即預訂行程 ➔
-                </a>
-
-                <!-- 卡片三組功能按鈕：推薦包車 + 推薦住宿 + 具體關鍵字行程 -->
-                <div class="curated-sub-actions-row">
-                  <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" class="curated-sub-action-pill" onclick="event.stopPropagation()">
-                    🚗 ${s.charter}
-                  </a>
-                  <a href="https://tw.trip.com/hotels/?allianceid=123436&sid=123436" target="_blank" class="curated-sub-action-pill" onclick="event.stopPropagation()">
-                    🏨 ${s.hotel}
-                  </a>
-                  <a href="${s.klook_url}" target="_blank" class="curated-sub-action-pill" style="border-color:#38BDF8;color:#BAE6FD;" onclick="event.stopPropagation()">
-                    🤿 ${s.klook_keyword} ➔
+                <div class="spot-card-body">
+                  <div class="spot-card-title">${s.name}</div>
+                  <div class="spot-card-meta">
+                    <span class="spot-card-rate">⭐ ${s.rate}</span>
+                    <span class="spot-card-tag">${s.tag || '必訪'}</span>
+                  </div>
+                  <a href="${bookingUrl}" target="_blank" class="spot-card-cta-btn" onclick="event.stopPropagation()">
+                    ${s.activity ? s.activity.slice(0, 7) + '…' : '預訂行程'} ➔
                   </a>
                 </div>
               </div>
-            </div>
-          `).join("")}
+            `;
+          }).join("")}
         </div>
 
         <!-- 底部吸底訂購與預訂提醒列 -->
