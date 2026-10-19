@@ -232,24 +232,40 @@
       gap: 4px;
     }
     .seg-pill-item {
-      flex: 1;
-      padding: 8px 12px;
-      text-align: center;
-      border-radius: var(--radius-pill);
-      font-size: 11px;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 11.5px;
       font-weight: 800;
       cursor: pointer;
-      color: rgba(255, 255, 255, 0.92);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      border: none;
-      background: transparent;
+      color: #334155 !important; /* 確保未選中時字體清晰深色，絕非白色看不到 */
+      background: #FFFFFF !important;
+      border: 1px solid #CBD5E1 !important;
+      transition: all 0.2s ease;
       white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    .seg-pill-item:hover {
+      background: #F8FAFC !important;
+      border-color: #94A3B8 !important;
     }
     .seg-pill-item.active {
-      background: #FFFFFF !important;
-      color: var(--cyan-deep) !important;
+      background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%) !important;
+      color: #FFFFFF !important;
       font-weight: 900;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+      border: 1px solid #0284C7 !important;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35) !important;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none !important;
+      scrollbar-width: none !important;
     }
 
     /* 5. 底部導航列 (Bottom Nav Bar - 參考圖一與圖二 Discover / Home 選中底色膠囊) */
@@ -784,14 +800,15 @@
       gap: 14px;
     }
     .theme-photo-card {
-      height: 185px;
-      border-radius: 26px;
+      height: 165px;
+      border-radius: 20px;
       overflow: hidden;
       position: relative;
       cursor: pointer;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      border: none !important; /* 徹底移除黑色框線 */
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      background: #F8FAFC;
     }
     .theme-photo-card:hover {
       transform: translateY(-3px) scale(1.02);
@@ -827,13 +844,14 @@
     .theme-photo-overlay {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(to top, rgba(10, 15, 28, 0.92) 0%, rgba(15, 23, 42, 0.45) 55%, rgba(0,0,0,0) 100%);
+      /* 移除厚重黑塊，改為極透自然落影 */
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.0) 35%, rgba(0, 0, 0, 0.52) 100%) !important;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       padding: 12px 14px;
-      color: #FFF;
-      z-index: 2;
+      color: #FFFFFF;
+      pointer-events: none;
     }
 
 
@@ -1724,10 +1742,10 @@
       overflow: hidden;
       position: relative;
       cursor: pointer;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      border: none !important; /* 徹底移除黑色框線 */
       transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-      background: #1E293B;
+      background: #F8FAFC;
     }
     .theme-photo-card:hover {
       transform: translateY(-3px) scale(1.02);
@@ -1749,7 +1767,8 @@
     .theme-photo-overlay {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.04) 40%, rgba(15, 23, 42, 0.88) 100%);
+      /* 移除厚重黑塊，改為極透自然落影 */
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.0) 35%, rgba(0, 0, 0, 0.52) 100%) !important;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -2149,10 +2168,94 @@
          * 底部全寬膠囊行動按鈕
        ========================================================= */
     .homepage-spots-stream {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px !important;
+      margin-bottom: 24px !important;
+    }
+    .feed-spot-card-2col {
+      background: #FFFFFF;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      cursor: pointer;
+      transition: all 0.25s ease;
       display: flex;
       flex-direction: column;
-      gap: 22px;
+      border: 1px solid #F1F5F9; /* 乾淨淺色邊框，無黑框 */
+      position: relative;
+    }
+    .feed-spot-card-2col:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+    }
+    .feed-spot-card-2col .spot-img-box {
+      position: relative;
       width: 100%;
+      height: 122px;
+      overflow: hidden;
+      background: #F1F5F9;
+    }
+    .feed-spot-card-2col .spot-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .feed-spot-card-2col:hover .spot-img-box img {
+      transform: scale(1.08);
+    }
+    .feed-spot-card-2col .spot-rank-chip {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(15, 23, 42, 0.72);
+      backdrop-filter: blur(6px);
+      color: #FFFFFF;
+      font-size: 9.5px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 10px;
+    }
+    .feed-spot-card-2col .spot-fav-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    }
+    .feed-spot-card-2col .spot-info-box {
+      padding: 9px 11px 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .feed-spot-card-2col .spot-name-text {
+      font-size: 13.5px;
+      font-weight: 900;
+      color: #0F172A;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.3;
+    }
+    .feed-spot-card-2col .spot-meta-text {
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748B;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     .homepage-all-spot-card {
       background: #FFFFFF;
@@ -2742,7 +2845,184 @@
       font-size: 11px;
     }
 
-  </style>
+  
+    /* 十六大主題頂部最佳觀看比例 (190px，不遮擋內容) */
+    .detail-hero-stage-img2 {
+      height: 190px !important;
+      max-height: 190px !important;
+      position: relative;
+      overflow: hidden;
+    }
+    .detail-hero-stage-img2 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+    /* =========================================================
+       🌟 活潑可愛互動、無黑框、奢華柔和陰影與專屬按鈕配色系統
+       ========================================================= */
+    @keyframes cuteHeartPop {
+      0% { transform: scale(0.8); }
+      50% { transform: scale(1.3) rotate(-8deg); }
+      100% { transform: scale(1); }
+    }
+    @keyframes cuteBounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08) rotate(-2deg); }
+    }
+    @keyframes cuteWiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-5deg); }
+      75% { transform: rotate(5deg); }
+    }
+
+    /* 輕彈跳觸感回饋 (Springy Press Feedback) */
+    button, a.spot-card-cta-btn, .btn-charter-action, .btn-hotel-action, .btn-tour-action, .btn-map-action, 
+    .circle-icon-btn-frosted, .spot-big-heart-btn, .spot-top-fav-btn, .seg-pill-item, .cat-chip-pill, 
+    .fest-dyn-pill-btn, .compact-header-btn, .spot-fav-btn {
+      transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+      user-select: none;
+    }
+    button:active, a:active, .btn-charter-action:active, .btn-hotel-action:active, .btn-tour-action:active {
+      transform: scale(0.94) !important;
+    }
+
+    /* 🚗 專屬包車直達按鈕 (Fresh Mint Emerald) */
+    .btn-charter-action {
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
+      color: #FFFFFF !important;
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.28) !important;
+      cursor: pointer;
+    }
+    .btn-charter-action:hover {
+      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.38) !important;
+      transform: translateY(-2px);
+    }
+
+    /* 🏨 專屬訂房/旅宿按鈕 (Warm Sunset Coral) */
+    .btn-hotel-action {
+      background: linear-gradient(135deg, #F97316 0%, #EA580C 100%) !important;
+      color: #FFFFFF !important;
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      box-shadow: 0 4px 14px rgba(249, 115, 22, 0.28) !important;
+      cursor: pointer;
+    }
+    .btn-hotel-action:hover {
+      box-shadow: 0 6px 18px rgba(249, 115, 22, 0.38) !important;
+      transform: translateY(-2px);
+    }
+
+    /* 🎟️ 專屬行程體驗按鈕 (Ocean Azure Cyan) */
+    .btn-tour-action {
+      background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%) !important;
+      color: #FFFFFF !important;
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.28) !important;
+      cursor: pointer;
+    }
+    .btn-tour-action:hover {
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.38) !important;
+      transform: translateY(-2px);
+    }
+
+    /* 🗺️ 地圖導航按鈕 (Soft Ice Blue) */
+    .btn-map-action {
+      background: #F0F9FF !important;
+      color: #0284C7 !important;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1.5px solid #BAE6FD !important;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 3px 10px rgba(2, 132, 199, 0.08) !important;
+    }
+    .btn-map-action:hover {
+      background: #E0F2FE !important;
+      border-color: #7DD3FC !important;
+      transform: translateY(-2px);
+    }
+
+    /* 景點卡片全面去黑框、增加精緻層次陰影 */
+    .feed-spot-card-2col, .compact-subpage-spot-card, .thematic-card-rich, .fest-top10-card, .community-thread-card {
+      border: 1px solid rgba(226, 232, 240, 0.85) !important;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.03) !important;
+      border-radius: 18px !important;
+    }
+    .feed-spot-card-2col:hover, .compact-subpage-spot-card:hover {
+      border-color: #7DD3FC !important;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1) !important;
+      transform: translateY(-3px);
+    }
+
+    /* 愛心活潑跳動特效 */
+    .spot-top-fav-btn:hover, .spot-big-heart-btn:hover {
+      animation: cuteHeartPop 0.35s ease forwards;
+    }
+
+    /* 可愛 Toast 提示泡泡元件 */
+    #cute-app-toast {
+      position: fixed;
+      bottom: 82px;
+      left: 50%;
+      transform: translateX(-50%) translateY(30px);
+      background: rgba(15, 23, 42, 0.94);
+      color: #FFFFFF;
+      padding: 10px 20px;
+      border-radius: 24px;
+      font-size: 12.5px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 999999;
+    }
+    #cute-app-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+</style>
 </head>
 <body>
 
@@ -2888,8 +3168,8 @@
           <!-- 16 主題專區首頁清單 (預設展示 · 2 欄精緻相片卡) -->
           <div id="featured-main-wrap">
             <div class="eyebrow-label" style="padding:0 0 12px;">
-              <span>全台 16 大主題專區 · 點擊卡片探索完整攻略</span>
-              <span>16 THEMES</span>
+              <span>全台 18 大主題專區 · 點擊卡片探索完整攻略</span>
+              <span>18 THEMES</span>
             </div>
             <div class="themes-big-grid" id="themes-grid-list"></div>
           </div>
@@ -2897,8 +3177,9 @@
           <!-- 子專題單頁嵌入檢視器 (點擊任一主題後於當前螢幕展開，附返回按鈕) -->
           <div id="subpage-inline-viewer" style="display:none;">
             <div style="position:sticky;top:0;z-index:90;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:10px 0;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #E2E8F0;">
-              <button onclick="closeInlineSubpage()" style="background:#2F3E46;color:#FFF;border:none;border-radius:20px;padding:8px 16px;font-size:12px;font-weight:900;cursor:pointer;display:flex;align-items:center;gap:6px;box-shadow:0 4px 12px rgba(47,62,70,0.25);">
-                ← 返回 16 大精選專題
+              <button onclick="closeInlineSubpage()" style="background:linear-gradient(135deg, #FF2D55 0%, #E11D48 100%);color:#FFFFFF;border:none;border-radius:24px;padding:9px 20px;font-size:13px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 18px rgba(255,45,85,0.42);transition:all 0.2s ease;">
+                <span style="font-size:16px;line-height:1;">←</span>
+                <span>返回 18 大精選專題</span>
               </button>
               <span id="subpage-inline-title" style="font-size:13px;font-weight:900;color:#2F3E46;">專題子頁</span>
             </div>
@@ -2962,7 +3243,7 @@
               外國旅客「伴手禮免排隊・一鍵直送飯店」服務！露營空手免備料生鮮烤肉火鍋箱、過年中秋禮盒線上免排隊直配。
             </p>
             <a href="https://onelink.one/s/KmfgH" target="_blank" style="background:#FFFFFF;color:#C2410C;font-family:'Inter',sans-serif;font-weight:900;font-size:13px;border-radius:9999px;padding:10px 18px;display:inline-flex;align-items:center;gap:6px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.18);">
-              🛒 前往萬家福線上點餐 / 預訂商城 ➔
+              🛒 預訂伴手禮 ➔
             </a>
           </div>
 
@@ -2975,7 +3256,7 @@
           <div id="souvenirs-list-container" style="display:flex;flex-direction:column;gap:16px;"></div>
         </div>
 
-      <!-- 5. 底部 5 大核心選單分類：首頁 ｜ 精選 (16大主題) ｜ 伴手禮 (20大名產) ｜ 地區 ｜ 收藏 -->
+      <!-- 5. 底部 5 大核心選單分類：首頁 ｜ 精選 (18大主題) ｜ 伴手禮 (20大名產) ｜ 地區 ｜ 收藏 -->
       <div class="phone-bottom-nav">
         <button class="nav-tab-btn active" id="tab-btn-home" onclick="switchNavTab('home')">
           <span class="tab-icon">🏠</span>
@@ -3066,7 +3347,7 @@
               </div>
             </div>
             <a href="https://onelink.one/s/KmfgH" target="_blank" class="btn-solid-cyan" style="width:100%;justify-content:center;background:linear-gradient(135deg, #EA580C 0%, #C2410C 100%);box-shadow:0 4px 14px rgba(234,88,12,0.3);text-decoration:none;font-size:11px;">
-              🛍️ 立即預訂伴手禮・直送下榻飯店（萬家福）
+              🛍️ 直送飯店 ➔
             </a>
           </div>
         </div>
@@ -4099,6 +4380,33 @@ const ALL_ISLANDS_DATA = {
   }
 };
 
+    
+    // ==========================================
+    // 17. 🏪 台灣 20 大特色 7-11 旗艦門市資料集
+    // ==========================================
+    const SEVEN_ELEVEN_DATA = [
+      { rank: 1, name: "7-11 紹興門市 (史努比 SNOOPY 聯名主題店)", city: "台北市中正區", rate: "4.9★", tag: "史努比旗艦", desc: "滿滿史努比美式漫畫風！大型史努比公仔、飛機造型展示架與限定聯名咖啡杯，粉絲打卡朝聖必訪。", img: "https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=600&auto=format&fit=crop", activity: "拍照打卡", actUrl: "https://www.google.com/maps/search/?api=1&query=7-11+紹興門市" },
+      { rank: 2, name: "7-11 威克門市 (卡娜赫拉的小動物粉紅店)", city: "台北市中山區", rate: "4.9★", tag: "卡娜赫拉粉紅店", desc: "整間店被粉紅兔兔與 P 助全面攻佔！巨型粉紅公仔迎賓，特製餐桌椅萌翻天，少女心大爆發。", img: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop", activity: "粉紅打卡", actUrl: "https://www.google.com/maps/search/?api=1&query=7-11+威克門市" },
+      { rank: 3, name: "7-11 六門市 (西門町 Hello Kitty 旗艦店)", city: "台北市萬華區", rate: "4.9★", tag: "三麗鷗 Kitty 店", desc: "西門町最吸睛粉嫩地標！粉紅凱蒂貓蝴蝶結門面、三麗鷗家族天花板彩繪，外國旅客最愛合影景點。", img: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop", activity: "西門町合影", actUrl: "https://www.google.com/maps/search/?api=1&query=7-11+六門市" },
+      { rank: 4, name: "7-11 億承門市 (全台首創樂高積木城堡店)", city: "台中市清水區", rate: "4.8★", tag: "樂高彩色積木", desc: "外觀由鮮豔彩色巨型積木堆疊而成的童話城堡！內部設有積木人偶展示牆，宛如走入積木遊樂園。", img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop", activity: "積木城堡打卡", actUrl: "https://www.google.com/maps/search/?api=1&query=7-11+億承門市" },
+      { rank: 5, name: "7-11 阿里山門市 (海拔最高神木門市)", city: "嘉義縣阿里山鄉", rate: "4.9★", tag: "海拔 2,170m", desc: "全台灣最高海拔 7-11 門市！溫暖熱咖啡與關東煮是所有清晨追祝山日出旅人的救贖。", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&auto=format&fit=crop", activity: "高山暖心補給", actUrl: "https://www.google.com/maps/search/?api=1&query=7-11+阿里山門市" },
+      { rank: 6, name: "7-11 富基門市 (台灣本島最北端門市)", city: "新北市石門區", rate: "4.8★", tag: "極北門市", desc: "鄰近富貴角燈塔與富基漁港，擁有海景視野露天座位，重機與單車騎士環島必停據點。", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop", activity: "極北點紀念打卡", actUrl: "https://www.google.com/maps/search/?api=1&query=7-11+富基門市" },
+      { rank: 7, name: "7-11 船帆石門市 (墾丁無敵海景門市)", city: "屏東縣恆春鎮", rate: "4.8★", tag: "海景第一排", desc: "二樓設有全景落地窗觀景座，正對墾丁著名地標船帆石與蔚藍海洋，渡假感爆棚。", img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=600&auto=format&fit=crop", activity: "船帆石海景座", actUrl: "https://www.google.com/maps/search/?api=1&query=7-11+船帆石門市" },
+      { rank: 8, name: "7-11 清境小瑞士門市 (高山歐風花園店)", city: "南投縣仁愛鄉", rate: "4.9★", tag: "海拔 1,743m", desc: "歐式尖頂童話木屋建築，四周群山環繞與歐風小瑞士花園步道相連，高山空氣清新無比。", img: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=600&auto=format&fit=crop", activity: "清境歐風合影", actUrl: "https://www.google.com/maps/search/?api=1&query=7-11+小瑞士門市" }
+    ];
+
+    // ==========================================
+    // 18. 🎡 全台 20 大特色共融公園資料集
+    // ==========================================
+    const INCLUSIVE_PARKS_DATA = [
+      { rank: 1, name: "新北三重 熊猴森樂園", city: "新北市三重區", rate: "4.9★", tag: "全台最大堤坡滑梯", desc: "全台最大特色滑梯樂園！31座溜滑梯、100種以上遊具，結合台灣台灣黑熊、獼猴等生態造型。", img: "https://images.unsplash.com/photo-1519331379826-f10be5486c6f?w=600&auto=format&fit=crop", activity: "熊猴森玩樂", actUrl: "https://www.google.com/maps/search/?api=1&query=熊猴森樂園" },
+      { rank: 2, name: "台北 大佳河濱共融式遊戲場", city: "台北市中山區", rate: "4.9★", tag: "全台最大共融沙坑", desc: "全台最大共融沙坑區與鯨魚造型戲水噴泉區，設有無障礙沙桌、輪椅共融鞦韆，夏季消暑天堂。", img: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&auto=format&fit=crop", activity: "大佳沙坑戲水", actUrl: "https://www.google.com/maps/search/?api=1&query=大佳河濱共融式遊戲場" },
+      { rank: 3, name: "屏東 勝利動物溜滑梯公園", city: "屏東縣屏東市", rate: "4.9★", tag: "10座巨型動物溜滑梯", desc: "超萌吸睛巨型動物群！恐龍、大象、章魚、鱷魚等10座繽紛動物溜滑梯，分齡適性遊玩。", img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=600&auto=format&fit=crop", activity: "勝利星村順遊", actUrl: "https://www.google.com/maps/search/?api=1&query=勝利動物溜滑梯公園" },
+      { rank: 4, name: "苗栗 貓裏喵親子公園", city: "苗栗縣苗栗市", rate: "4.8★", tag: "9米八爪章魚溜滑梯", desc: "超吸睛 9 公尺高八爪章魚長滑梯！搭配扇形貝殼滑梯、鳥巢鞦韆與大沙坑，大小朋友嗨翻天。", img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop", activity: "八爪章魚滑梯", actUrl: "https://www.google.com/maps/search/?api=1&query=貓裏喵親子公園" },
+      { rank: 5, name: "桃園 風禾公園 (滾輪滑梯)", city: "桃園市桃園區", rate: "4.8★", tag: "50米滾輪滑梯", desc: "全台最刺激 50 米長滾輪滑梯！利用滯洪池地形打造高低落差，還有六座磨石子滑梯與大草坪。", img: "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=600&auto=format&fit=crop", activity: "50米長滑梯體驗", actUrl: "https://www.google.com/maps/search/?api=1&query=風禾公園" },
+      { rank: 6, name: "高雄 衛武營共融遊戲場", city: "高雄市鳳山區", rate: "4.8★", tag: "藝術綠地雙結合", desc: "緊鄰衛武營國家藝術中心，擁有巨型七彩獨木橋、森林攀爬樹屋、共融轉盤，綠意盎然。", img: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop", activity: "衛武營藝術漫步", actUrl: "https://www.google.com/maps/search/?api=1&query=衛武營共融遊戲場" }
+    ];
+
     const THEMES_DATA = [
       { 
         id: "islands", 
@@ -4933,25 +5241,23 @@ const ALL_ISLANDS_DATA = {
       const countLabel = document.getElementById("spots-count-label");
       if (countLabel) countLabel.innerText = `${spots.length} 處景點`;
 
-      grid.innerHTML = spots.map(s => {
+      grid.innerHTML = spots.map((s, idx) => {
         const isFav = favoritesList.some(f => f.id === s.id);
-        const englishSubtitle = (s.en || s.city || "TAIWAN").toUpperCase();
         return `
-          <div class="feed-spot-card-immersive" id="feed-card-${s.id}" onclick="selectSpot(${s.id})">
-            <img class="card-main-img" src="${s.img}" alt="${s.name}" loading="lazy">
-            <div class="card-clean-gradient-overlay"></div>
-            
-            <!-- 右上角極簡毛玻璃書籤收藏鈕 (如同用戶圖片設計) -->
-            <button class="card-bookmark-circle-btn ${isFav ? 'favorited' : ''}" onclick="toggleSpotFav(${s.id}, event)" title="收藏景點">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-              </svg>
-            </button>
-
-            <!-- 底部純白無死角字體 (大標題 + 大寫英文副標題，無任何圓形文字雜訊) -->
-            <div class="card-clean-bottom-info">
-              <div class="card-clean-title">${s.name}</div>
-              <div class="card-clean-subtitle">${englishSubtitle} · ${s.rate}</div>
+          <div class="feed-spot-card-2col" id="feed-card-${s.id}" onclick="selectSpot(${s.id})">
+            <div class="spot-img-box">
+              <img src="${s.img}" alt="${s.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=500&auto=format&fit=crop'">
+              <span class="spot-rank-chip">${idx < 3 ? '🔥 TOP ' + (idx + 1) : '⭐ ' + s.rate.replace('★','')}</span>
+              <button class="spot-fav-btn" onclick="event.stopPropagation(); toggleSpotFav(${s.id})" title="收藏景點">
+                ${isFav ? '❤️' : '🤍'}
+              </button>
+            </div>
+            <div class="spot-info-box">
+              <div class="spot-name-text">${s.name}</div>
+              <div class="spot-meta-text">
+                <span>📍 ${s.city}</span>
+                <span style="color:#0284C7;font-weight:800;">${s.duration || '熱門'}</span>
+              </div>
             </div>
           </div>
         `;
@@ -5391,7 +5697,7 @@ const ALL_ISLANDS_DATA = {
                 <span>🗺️</span> 景點位置與地圖導航
               </div>
               <button onclick="openGoogleMap('${spot.city}', '${spot.name}')" style="width:100%;padding:14px;border-radius:16px;background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFFFFF;border:none;font-size:13px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 6px 20px rgba(2,132,199,0.35);">
-                <span>🗺️</span> 開啟 Google Maps 開始導航
+                <span>🗺️</span> 開啟地圖導航
               </button>
             </div>
 
@@ -5687,6 +5993,8 @@ function generateSubpageHTML(id) {
   if (id === "surfing") return renderSubpageSurfing(theme);
   if (id === "templefair") return renderSubpageTempleFair(theme);
   if (id === "events") return renderSubpageEvents(theme);
+  if (id === "seven_eleven") return renderSubpageSevenEleven(theme);
+  if (id === "inclusive_parks") return renderSubpageInclusiveParks(theme);
 
   return renderSubpageDefault(theme);
 }
@@ -5694,541 +6002,503 @@ function generateSubpageHTML(id) {
 // ============================================================
 // 1. 🏝️ 離島專題頁（Islands of Taiwan）
 // ============================================================
-function renderSubpageIslands(theme) {
-  // 依據當前島嶼標籤取得該島 20 大景點
-  const islandKey = (currentIslandTab in ALL_ISLANDS_DATA) ? currentIslandTab : "penghu";
-  const islandData = ALL_ISLANDS_DATA[islandKey];
-  const spotsList = islandData.spots;
-  const islandTitle = islandData.title;
-  const islandDesc = islandData.desc;
 
-  // 取得當前選中的經典離島行程 (3天2夜 / 2天1夜)
-  const currentItin = ISLAND_ITINERARIES_DATA[currentIslandItinKey] || ISLAND_ITINERARIES_DATA["penghu-3d2n"];
-
-  // 頂部視覺 Banner 主圖三圖輪播 (基隆嶼空拍, 七美雙心石滬夕陽, 綠島朝日溫泉日出)
-  const heroBanners = [
-    { url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1000&auto=format&fit=crop", caption: "基隆嶼包船環島空拍 · 台灣龍珠火山孤島" },
-    { url: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=1000&auto=format&fit=crop", caption: "澎湖七美雙心石滬夕陽 · 浪漫先人智慧" },
-    { url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1000&auto=format&fit=crop", caption: "綠島朝日海底溫泉日出 · 罕見世界級奇景" }
-  ];
-
+// ============================================================
+// 🌟 16 大主題統一奢華 UI 構建器 (完全依照用戶圖片標準構建)
+// 包含：頂部最佳觀看風景照(~220px) + 白色圓形返回鈕 + 3顆指示點
+// 下方圓角白卡 + 標題與所在地 + 桃紅圓形大愛心收藏鈕 + 3個數據指標
+// About 區塊 + 2D1N/3D2N 行程 + 預約包車/特色行程(無KLOOK) + Google Maps + 2欄景點
+// ============================================================
+function buildThematicSubpageUI(opts) {
+  const isFav = favoritesList.some(f => f.name === opts.title);
+  
   return `
-    <div class="thematic-subpage-view active" style="padding-bottom:0;">
-      <!-- 頂部視覺 Banner (三主圖輪播展示，基隆嶼包船環島空拍、七美雙心石滬夕陽、綠島朝日溫泉日出) -->
-      <div class="detail-hero-stage-img2" style="height:270px;position:relative;overflow:hidden;">
-        <img id="island-banner-hero-img" src="${heroBanners[0].url}" alt="Taiwan Islands Hero" style="width:100%;height:100%;object-fit:cover;transition:all 0.5s ease;">
+    <div class="thematic-subpage-view active" style="padding-bottom:0;background:#FFFFFF;">
+      <!-- 1. 頂部最佳觀看風景照 (~220px，絕不超大遮擋) + 左上白圓形返回鈕 + 底部 3 顆輪播點 -->
+      <div style="position:relative;height:220px;background:#0F172A;overflow:hidden;">
+        <img src="${opts.img}" style="width:100%;height:100%;object-fit:cover;display:block;" alt="${opts.title}">
         
-        <div class="detail-ctrl-floating-bar">
-          <button class="circle-icon-btn-frosted" onclick="closeSubpageToHome()">←</button>
-          <button class="circle-icon-btn-frosted" onclick="toggleCurrentDetailFav()">❤️</button>
-        </div>
+        <!-- 左上角圓形毛玻璃返回鈕 (依照用戶圖片) -->
+        <button class="circle-icon-btn-frosted" onclick="closeSubpageToHome()" style="position:absolute;top:14px;left:14px;z-index:20;" title="返回上一頁">
+          ←
+        </button>
 
-        <!-- 3 圖切換小膠囊標籤 -->
-        <div style="position:absolute;top:54px;left:16px;display:flex;gap:6px;z-index:20;">
-          <button onclick="document.getElementById('island-banner-hero-img').src='${heroBanners[0].url}'" style="background:rgba(15,23,42,0.65);backdrop-filter:blur(6px);color:#FFF;border:1px solid rgba(255,255,255,0.4);border-radius:12px;padding:3px 8px;font-size:9px;font-weight:800;cursor:pointer;">
-            🚤 基隆嶼空拍
-          </button>
-          <button onclick="document.getElementById('island-banner-hero-img').src='${heroBanners[1].url}'" style="background:rgba(15,23,42,0.65);backdrop-filter:blur(6px);color:#FFF;border:1px solid rgba(255,255,255,0.4);border-radius:12px;padding:3px 8px;font-size:9px;font-weight:800;cursor:pointer;">
-            🌅 七美雙心石滬
-          </button>
-          <button onclick="document.getElementById('island-banner-hero-img').src='${heroBanners[2].url}'" style="background:rgba(15,23,42,0.65);backdrop-filter:blur(6px);color:#FFF;border:1px solid rgba(255,255,255,0.4);border-radius:12px;padding:3px 8px;font-size:9px;font-weight:800;cursor:pointer;">
-            ♨️ 綠島朝日溫泉
-          </button>
-        </div>
-
-        <div class="detail-hero-info-overlay">
-          <div>
-            <div class="detail-hero-title-main">航向湛藍秘境：台灣離島跳島全攻略<br><span style="font-size:12px;font-weight:700;opacity:0.9;">碧海、火山玄武岩與星空下的純淨島嶼</span></div>
-            <div class="detail-hero-meta-row">
-              <span class="detail-hero-rating">⭐ 4.9 (42k 旅人高分推薦)</span>
-            </div>
-          </div>
-          <div class="circle-icon-btn-frosted" style="color:#FF6F61;background:#FFF;" onclick="toggleCurrentDetailFav()">
-            ❤️
-          </div>
+        <!-- 底部 3 顆輪播指示點 (Carousel Dots • • •) -->
+        <div style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10;">
+          <span style="width:8px;height:8px;border-radius:50%;background:#FF2D55;"></span>
+          <span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.65);"></span>
+          <span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.65);"></span>
         </div>
       </div>
 
-      <!-- 下方滑動卡片 -->
-      <div class="detail-sliding-sheet-img2">
-        <div class="sliding-drag-handle"></div>
-
-        <!-- ✈️ 離島機票查詢快捷卡片 (簡約清爽、字少俐落) -->
-        <div style="background:#FFFFFF;border:1.5px solid #BAE6FD;border-radius:18px;padding:12px 14px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 14px rgba(2,132,199,0.08);">
-          <div style="display:flex;align-items:center;gap:10px;">
-            <div style="width:36px;height:36px;border-radius:12px;background:#E0F2FE;color:#0284C7;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">
-              ✈️
-            </div>
-            <div>
-              <div style="font-size:13px;font-weight:900;color:#0369A1;letter-spacing:-0.2px;">離島機票查詢</div>
-              <div style="font-size:10px;color:#0284C7;font-weight:700;">直飛澎湖 · 金門 · 馬祖 · 綠島</div>
-            </div>
-          </div>
-          <a href="https://tw.trip.com/flights/?allianceid=123436&sid=123436" target="_blank" style="background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;padding:6px 14px;font-size:11px;font-weight:900;text-decoration:none;border-radius:20px;box-shadow:0 3px 8px rgba(2,132,199,0.25);white-space:nowrap;display:inline-flex;align-items:center;gap:4px;">
-            <span>查機票</span> <span>➔</span>
-          </a>
-        </div>
-
-        <!-- 🗓️ 離島經典推薦行程 (3天2夜 / 2天1夜 精選行程 + 專屬預訂小按鈕) -->
-        <div style="font-size:13px;font-weight:900;color:var(--text-heading);margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">
-          <span>🗓️ 經典跳島行程推薦：</span>
-          <span style="font-size:10px;color:#0284C7;font-weight:800;background:#E0F2FE;padding:2px 8px;border-radius:10px;">3天2夜 · 2天1夜</span>
-        </div>
+      <!-- 2. 下方白底圓角懸浮卡片 (向上覆蓋大圖 -22px) -->
+      <div style="margin-top:-22px;position:relative;background:#FFFFFF;border-top-left-radius:26px;border-top-right-radius:26px;padding:20px 18px 80px;box-shadow:0 -6px 20px rgba(0,0,0,0.06);z-index:15;">
         
-        <!-- 行程分類切換標籤 -->
-        <div style="display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:10px;" class="no-scrollbar">
-          <button class="seg-pill-item ${currentIslandItinKey==='penghu-3d2n'?'active':''}" onclick="switchIslandItinerary('penghu-3d2n')" style="flex-shrink:0;padding:6px 12px;font-size:11px;">
-            🎆 3天2夜 澎湖跳島花火
-          </button>
-          <button class="seg-pill-item ${currentIslandItinKey==='greenisland-2d1n'?'active':''}" onclick="switchIslandItinerary('greenisland-2d1n')" style="flex-shrink:0;padding:6px 12px;font-size:11px;">
-            ♨️ 2天1夜 綠島溫泉深潛
-          </button>
-          <button class="seg-pill-item ${currentIslandItinKey==='xiaoliuqiu-3d2n'?'active':''}" onclick="switchIslandItinerary('xiaoliuqiu-3d2n')" style="flex-shrink:0;padding:6px 12px;font-size:11px;">
-            🐢 3天2夜 小琉球海龜遊
-          </button>
-          <button class="seg-pill-item ${currentIslandItinKey==='keelung-2d1n'?'active':''}" onclick="switchIslandItinerary('keelung-2d1n')" style="flex-shrink:0;padding:6px 12px;font-size:11px;">
-            🚤 2天1夜 基隆嶼包船
-          </button>
-        </div>
-
-        <!-- 當前行程展示卡 -->
-        <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:18px;padding:14px;margin-bottom:16px;box-shadow:0 4px 14px rgba(2,132,199,0.06);">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
-            <div style="font-size:13.5px;font-weight:900;color:#0369A1;">${currentItin.title}</div>
-            <span style="font-size:10px;font-weight:800;background:#F0F9FF;color:#0284C7;border:1px solid #BAE6FD;padding:2px 8px;border-radius:10px;">${currentItin.duration}</span>
-          </div>
-          
-          <!-- 每日路線 -->
-          <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px;">
-            ${currentItin.days.map(d => `
-              <div style="display:flex;gap:8px;align-items:flex-start;">
-                <span style="background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;font-size:9.5px;font-weight:900;padding:2px 7px;border-radius:8px;flex-shrink:0;margin-top:2px;">
-                  Day ${d.day}
-                </span>
-                <span style="font-size:11px;color:#334155;line-height:1.55;font-weight:600;">
-                  ${d.route}
-                </span>
-              </div>
-            `).join("")}
-          </div>
-
-          <!-- 精緻小按鈕列 (推薦包車、船票、具體行程預訂) -->
-          <div style="display:flex;gap:6px;flex-wrap:wrap;padding-top:10px;border-top:1px dashed #E2E8F0;">
-            ${currentItin.actions.map(a => `
-              <a href="${a.url}" target="_blank" style="background:#F8FAFC;border:1px solid #CBD5E1;color:#0F172A;font-size:10.5px;font-weight:800;padding:5px 11px;border-radius:12px;text-decoration:none;display:inline-flex;align-items:center;gap:4px;box-shadow:0 1px 3px rgba(0,0,0,0.04);transition:all 0.15s ease;">
-                <span>${a.icon}</span> <span>${a.label}</span>
-              </a>
-            `).join("")}
-          </div>
-        </div>
-
-        <!-- 分類全部離島 (島嶼切換標籤) -->
-        <div style="font-size:13px;font-weight:900;color:var(--text-heading);margin-bottom:8px;">🏝️ 分類全部離島（點選切換專屬景點）：</div>
-        <div style="display:flex;gap:7px;overflow-x:auto;padding-bottom:8px;margin-bottom:14px;" class="no-scrollbar">
-          <button class="seg-pill-item ${islandKey==='penghu'?'active':''}" onclick="switchIslandSubTab('penghu')" style="flex-shrink:0;">
-            🏝️ 澎湖群島 (20)
-          </button>
-          <button class="seg-pill-item ${islandKey==='greenisland'?'active':''}" onclick="switchIslandSubTab('greenisland')" style="flex-shrink:0;">
-            🐢 綠島秘境 (20)
-          </button>
-          <button class="seg-pill-item ${islandKey==='orchid'?'active':''}" onclick="switchIslandSubTab('orchid')" style="flex-shrink:0;">
-            🛶 蘭嶼原鄉 (20)
-          </button>
-          <button class="seg-pill-item ${islandKey==='xiaoliuqiu'?'active':''}" onclick="switchIslandSubTab('xiaoliuqiu')" style="flex-shrink:0;">
-            🐢 小琉球 (20)
-          </button>
-          <button class="seg-pill-item ${islandKey==='kinmen'?'active':''}" onclick="switchIslandSubTab('kinmen')" style="flex-shrink:0;">
-            🪖 金門戰地 (20)
-          </button>
-          <button class="seg-pill-item ${islandKey==='matsu'?'active':''}" onclick="switchIslandSubTab('matsu')" style="flex-shrink:0;">
-            ✨ 馬祖石屋 (20)
-          </button>
-          <button class="seg-pill-item ${islandKey==='keelung'?'active':''}" onclick="switchIslandSubTab('keelung')" style="flex-shrink:0;">
-            🚤 基隆嶼包船
-          </button>
-        </div>
-
-        <!-- 當前島嶼精選大卡片橫幅 -->
-        <div class="fest-feature-immersive-banner" style="background:linear-gradient(135deg, #0C4A6E 0%, #0284C7 100%);">
-          <img class="fest-banner-photo-bg" src="${spotsList[0].img}" alt="Island Banner">
-          <div class="fest-banner-content-inner">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-              <span style="font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:1px;color:#38BDF8;">🏝️ ISLAND CURATED TOP 20</span>
-              <span style="font-size:11px;font-weight:800;background:rgba(255,255,255,0.25);padding:2px 8px;border-radius:12px;">必去景點排行榜</span>
-            </div>
-            <div style="font-size:15px;font-weight:900;margin-bottom:6px;line-height:1.3;">${islandTitle}</div>
-            <p style="font-size:12px;opacity:0.92;line-height:1.6;margin:0;">${islandDesc}</p>
-          </div>
-        </div>
-
-        <!-- 景點清單標題 -->
-        <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
+        <!-- 標題與大顆粉紅收藏愛心鈕 (完全吻合圖片右側桃紅大愛心) -->
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px;">
           <div>
-            <span style="font-size:15px;font-weight:900;color:var(--text-heading);">${islandTitle}</span>
-            <div style="font-size:10px;color:var(--text-muted);font-weight:700;">文字與實景大圖對照 · 附推薦包車、住宿與具體行程</div>
-          </div>
-          <span style="font-size:11px;font-weight:900;color:var(--cyan-deep);background:var(--cyan-light);padding:3px 10px;border-radius:12px;">共 ${spotsList.length} 處</span>
-        </div>
-
-        <!-- 2 欄精緻小巧景點網格 (2個一排、高度適中、字數少、可一眼瀏覽多個玩樂景點) -->
-        <div class="spots-grid-2col" style="margin-bottom:20px;">
-          ${spotsList.map(s => {
-            const isFav = favoritesList.some(f => f.name === s.name);
-            const bookingUrl = s.actUrl || "https://www.klook.com/zh-TW/city/19-penghu-things-to-do/?aid=123436";
-            return `
-              <div class="compact-subpage-spot-card" onclick="selectSpot(${s.id || 1})">
-                <div class="spot-img-wrap">
-                  <img src="${s.img}" alt="${s.name}" loading="lazy">
-                  <span class="spot-top-rank-pill">${s.rank <= 3 ? '🔥' : '📍'} TOP ${s.rank}</span>
-                  <button class="spot-top-fav-btn" onclick="event.stopPropagation(); toggleFav('${s.name}', '離島', '${s.img}')" title="收藏">
-                    ${isFav ? '❤️' : '🤍'}
-                  </button>
-                </div>
-                <div class="spot-card-body">
-                  <div class="spot-card-title">${s.name}</div>
-                  <div class="spot-card-meta">
-                    <span class="spot-card-rate">⭐ ${s.rate}</span>
-                    <span class="spot-card-tag">${s.tag || '必訪'}</span>
-                  </div>
-                  <a href="${bookingUrl}" target="_blank" class="spot-card-cta-btn" onclick="event.stopPropagation()">
-                    ${s.activity ? s.activity.slice(0, 7) + '…' : '預訂行程'} ➔
-                  </a>
-                </div>
-              </div>
-            `;
-          }).join("")}
-        </div>
-
-        <!-- 底部吸底訂購與預訂提醒列 -->
-        <div class="sticky-book-tour-bar" style="margin-top:14px;">
-          <a href="https://www.klook.com/zh-TW/transport-4/ferry-1012-taiwan/?aid=123436" target="_blank" class="btn-book-tour-orange" style="text-decoration:none;">
-            <span>🚢 Book Ferry & Tours 立即預訂離島跳島船票與套裝行程 (分潤已套用)</span>
-          </a>
-        </div>
-
-      </div>
-    </div>
-  `;
-}
-
-// 2. 花東縱谷
-function renderSubpageHuadong(theme) {
-  const currentItinObj = HUADONG_DATA.itineraries.find(i => i.id === currentHuadongItin) || HUADONG_DATA.itineraries[0];
-
-  return `
-    <div class="thematic-subpage-view active" style="padding-bottom:0;">
-      <!-- 頂部 50% 滿版實景大圖 -->
-      <div class="detail-hero-stage-img2">
-        <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=1000&auto=format&fit=crop" alt="Hualien and Taitung">
-        <div class="detail-ctrl-floating-bar">
-          <button class="circle-icon-btn-frosted" onclick="closeSubpageToHome()">←</button>
-          <button class="circle-icon-btn-frosted" onclick="toggleCurrentDetailFav()">❤️</button>
-        </div>
-        <div class="detail-hero-info-overlay">
-          <div>
-            <div class="detail-hero-title-main">“The Majestic East Coast: Where Pacific Meets the Mountains”<br><span style="font-size:12px;font-weight:700;opacity:0.9;">縱谷的風、太平洋的浪，世界旅人的純淨避風港</span></div>
-            <div class="detail-hero-meta-row">
-              <span class="detail-hero-rating">⭐ 4.95 (外國旅人好評榜首)</span>
-              <div class="avatar-stack-group">
-                <div class="avatar-pill" style="background-image:url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop');"></div>
-                <div class="avatar-pill" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop');"></div>
-                <div class="avatar-pill" style="background-image:url('https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=100&auto=format&fit=crop');"></div>
-                <div class="avatar-more-count">24+</div>
-              </div>
+            <h1 style="font-size:20px;font-weight:900;color:#0F172A;line-height:1.25;margin:0 0 4px;">
+              ${opts.title}
+            </h1>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11.5px;color:#64748B;font-weight:700;">
+              <span style="color:#FF2D55;font-size:13px;">📍</span>
+              <span>${opts.location}</span>
             </div>
           </div>
-          <div class="circle-icon-btn-frosted" style="color:#FF6F61;background:#FFF;" onclick="toggleCurrentDetailFav()">
-            ❤️
+
+          <!-- 桃紅圓形大愛心收藏按鈕 -->
+          <button class="spot-big-heart-btn" onclick="toggleFav('${opts.title}', '${opts.location.split('·')[0].trim()}', '${opts.img}')" style="width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg, #FF2D55 0%, #E11D48 100%);border:3px solid #FFF;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(255,45,85,0.35);cursor:pointer;flex-shrink:0;">
+            <span style="font-size:20px;color:#FFF;">${isFav ? '❤️' : '🤍'}</span>
+          </button>
+        </div>
+
+        <!-- 3 個圓角數據指標徽章 (⭐ 4.95 Reviews | 🏷️ NT$800起 | 🌤️ 24°C Sunny) -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:16px 0 18px;">
+          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:16px;padding:10px 6px;text-align:center;">
+            <div style="font-size:16px;margin-bottom:2px;">⭐</div>
+            <div style="font-size:13.5px;font-weight:900;color:#0F172A;">${opts.rate || '4.9'}</div>
+            <div style="font-size:9.5px;color:#64748B;font-weight:700;">${opts.reviews || '好評榜首'}</div>
+          </div>
+          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:16px;padding:10px 6px;text-align:center;">
+            <div style="font-size:16px;margin-bottom:2px;">🏷️</div>
+            <div style="font-size:13.5px;font-weight:900;color:#0284C7;">${opts.price || 'NT$ 750起'}</div>
+            <div style="font-size:9.5px;color:#64748B;font-weight:700;">${opts.priceDesc || '特惠行程'}</div>
+          </div>
+          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:16px;padding:10px 6px;text-align:center;">
+            <div style="font-size:16px;margin-bottom:2px;">🌤️</div>
+            <div style="font-size:13.5px;font-weight:900;color:#0F172A;">${opts.temp || '24°C'}</div>
+            <div style="font-size:9.5px;color:#64748B;font-weight:700;">${opts.tempDesc || '舒適晴朗'}</div>
           </div>
         </div>
-      </div>
 
-      <!-- 下方滑動卡片 -->
-      <div class="detail-sliding-sheet-img2">
-        <div class="sliding-drag-handle"></div>
-
-        <!-- 外國旅人雙語導引卡 -->
-        <div style="background:linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);border:1px solid #BAE6FD;border-radius:18px;padding:12px 14px;margin-bottom:14px;">
-          <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
-            <span style="font-size:13px;font-weight:900;color:#0284C7;">🌟 Foreign Visitors' #1 Choice · 英文/日語友善導覽</span>
-            <span style="font-size:9px;font-weight:800;color:#0369A1;background:#FFF;padding:2px 6px;border-radius:var(--radius-pill);">BILINGUAL GUIDE</span>
+        <!-- About 專題深度介紹區塊 (附 Show More 展開更多) -->
+        <div style="margin-bottom:20px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+            <span style="font-size:15px;font-weight:900;color:#0F172A;">About</span>
+            <span style="font-size:11px;font-weight:800;color:#FF2D55;cursor:pointer;" onclick="toggleAboutExpand()">Show More</span>
           </div>
-          <p style="font-size:11px;color:#0F172A;line-height:1.6;margin:0;">
-            花東直面浩瀚太平洋與中央山脈，是全球探險家與自由行旅客的最愛。推薦預約英語/日語專業包車司機導覽，或租借 SUV 甲租乙還，暢遊清水斷崖日出、秀姑巒溪泛舟與伯朗大道稻浪。
+          <p id="detail-about-text" style="font-size:12px;color:#475569;line-height:1.6;margin:0;">
+            ${opts.about}
           </p>
         </div>
 
-        <!-- 3 大特色體驗主題分類 -->
-        <div style="font-size:13px;font-weight:900;color:var(--text-heading);margin-bottom:8px;">🚙 花東 3 大特色體驗主題：</div>
-        <div class="four-service-matrix" style="margin-bottom:16px;">
-          <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" class="service-box-card">
-            <div class="service-box-icon">🚙</div>
-            <div>
-              <div class="service-box-title">探險租車自駕</div>
-              <div class="service-box-desc">花東台 9 線/台 11 線 SUV 租借指南、花蓮取車台東還。</div>
-            </div>
-          </a>
-          <a href="https://www.klook.com/zh-TW/activity/1092-rafting-hualien/?aid=123436" target="_blank" class="service-box-card">
-            <div class="service-box-icon">🚣</div>
-            <div>
-              <div class="service-box-title">激流冒險泛舟</div>
-              <div class="service-box-desc">秀姑巒溪激流泛舟一日挑戰、清水斷崖太平洋日出 SUP。</div>
-            </div>
-          </a>
-          <a href="https://www.klook.com/zh-TW/city/19-hualien-things-to-do/?aid=123436" target="_blank" class="service-box-card">
-            <div class="service-box-icon">🌿</div>
-            <div>
-              <div class="service-box-title">東海岸秘境探訪</div>
-              <div class="service-box-desc">石梯坪海蝕壺穴、都蘭阿美族部落巡禮、三仙台日出拱橋。</div>
-            </div>
-          </a>
-          <a href="https://tw.trip.com/hotels/?allianceid=123436&sid=123436" target="_blank" class="service-box-card">
-            <div class="service-box-icon">🏨</div>
-            <div>
-              <div class="service-box-title">太平洋海景旅宿</div>
-              <div class="service-box-desc">海景落地窗第一排、瑞穗溫泉飯店、池上稻田景觀民宿。</div>
-            </div>
-          </a>
-        </div>
+        <!-- 自訂額外切換或導引卡 (如離島機票、分類切換等) -->
+        ${opts.customWidgets || ''}
 
-        <!-- 經典行程切換 -->
-        <div style="font-size:13px;font-weight:900;color:var(--text-heading);margin-bottom:8px;">🗓️ 經典行程規劃選擇（點擊查看詳細每日走法）：</div>
-        <div class="segmented-blue-pill-bar" style="margin-bottom:12px;">
-          <button class="seg-pill-item ${currentHuadongItin==='itin-2d1n'?'active':''}" onclick="switchHuadongItinerary('itin-2d1n')">
-            🌊 2天1夜 濱海輕旅行
-          </button>
-          <button class="seg-pill-item ${currentHuadongItin==='itin-3d2n'?'active':''}" onclick="switchHuadongItinerary('itin-3d2n')">
-            🚴 3天2夜 縱谷鐵馬溫泉
-          </button>
-          <button class="seg-pill-item ${currentHuadongItin==='itin-4d3n'?'active':''}" onclick="switchHuadongItinerary('itin-4d3n')">
-            🚐 4天3夜 外國人全包車
-          </button>
-        </div>
-
-        <!-- 每日行程卡 -->
-        <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:18px;padding:14px;margin-bottom:16px;box-shadow:0 4px 14px rgba(2,132,199,0.06);">
-          <div style="font-size:14px;font-weight:900;color:#0284C7;margin-bottom:10px;">${currentItinObj.name}</div>
-          ${currentItinObj.days.map(d => `
-            <div style="display:flex;gap:10px;margin-bottom:10px;align-items:flex-start;">
-              <span class="btn-solid-cyan" style="padding:2px 8px;font-size:10px;border-radius:6px;flex-shrink:0;">${d.day}</span>
-              <span style="font-size:12px;color:var(--text-heading);font-weight:700;line-height:1.5;">${d.title}</span>
+        <!-- 經典行程規劃走法 (2天1夜 / 3天2夜) -->
+        ${opts.itineraries && opts.itineraries.length > 0 ? `
+          <div style="margin-bottom:20px;">
+            <div style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">
+              <span>跳島行程：</span>
+              <span style="font-size:10px;color:#0284C7;font-weight:800;background:#E0F2FE;padding:2px 8px;border-radius:10px;">自由切換</span>
             </div>
-          `).join("")}
-          <div style="margin-top:12px;display:flex;gap:8px;">
-            <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" class="btn-solid-cyan" style="flex:1;justify-content:center;text-decoration:none;">
-              🚐 預約此行程包車司機
-            </a>
-            <a href="https://tw.trip.com/hotels/?allianceid=123436&sid=123436" target="_blank" class="btn-outline-cyan" style="flex:1;justify-content:center;text-decoration:none;">
-              🏨 查詢沿途海景飯店
-            </a>
+            
+            <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:18px;padding:14px;box-shadow:0 4px 14px rgba(2,132,199,0.06);">
+              ${opts.itineraries.map((itin, idx) => `
+                <div style="margin-bottom:${idx < opts.itineraries.length - 1 ? '14px' : '0'};padding-bottom:${idx < opts.itineraries.length - 1 ? '14px' : '0'};border-bottom:${idx < opts.itineraries.length - 1 ? '1px dashed #E2E8F0' : 'none'};">
+                  <div style="font-size:13.5px;font-weight:900;color:#0369A1;margin-bottom:8px;">${itin.title}</div>
+                  <div style="display:flex;flex-direction:column;gap:8px;">
+                    ${itin.days.map(d => `
+                      <div style="display:flex;gap:8px;align-items:flex-start;">
+                        <span style="background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;font-size:9.5px;font-weight:900;padding:2px 7px;border-radius:8px;flex-shrink:0;margin-top:2px;">
+                          Day ${d.day}
+                        </span>
+                        <span style="font-size:11px;color:#334155;line-height:1.55;font-weight:600;">
+                          ${d.route}
+                        </span>
+                      </div>
+                    `).join('')}
+                  </div>
+                </div>
+              `).join('')}
+            </div>
           </div>
-        </div>
+        ` : ''}
 
-        <!-- 吸底按鈕 -->
-        <div class="sticky-book-tour-bar">
-          <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" class="btn-book-tour-orange">
-            <span>Book East Coast Tour 🏞️ 立即預訂花東包車司機與泛舟 (優惠已套用)</span>
+        <!-- 核心服務快速按鈕列 (包車綠色、行程藍色、訂房橙色、地圖冰藍，配色舒適分明) -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+          <a href="${opts.charterUrl || 'https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436'}" target="_blank" class="btn-charter-action">
+            <span>🚗</span> 預約包車 ➔
+          </a>
+          <a href="${opts.tourUrl || 'https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436'}" target="_blank" class="btn-tour-action">
+            <span>🎟️</span> 預訂行程 ➔
           </a>
         </div>
+        <div style="margin-bottom:12px;">
+          <a href="${opts.hotelUrl || 'https://tw.trip.com/hotels/?allianceid=123436&sid=123436'}" target="_blank" class="btn-hotel-action" style="width:100%;box-sizing:border-box;">
+            <span>🏨</span> 查詢嚴選旅宿空房 ➔
+          </a>
+        </div>
+
+        <!-- 開啟 Google Maps 導航按鈕 -->
+        <button onclick="showCuteToast('正在開啟地圖導航...','🗺️'); openGoogleMap('${opts.location.split('·')[0].trim()}', '${opts.title}')" class="btn-map-action" style="width:100%;margin-bottom:22px;">
+          <span>🗺️</span> 地圖導航 ➔
+        </button>
+
+        <!-- 2 欄精緻緊湊景點推薦清單 (2 cards per row) -->
+        ${opts.spots && opts.spots.length > 0 ? `
+          <div style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:10px;">
+            📍 推薦必訪景點排行榜：
+          </div>
+          <div class="spots-grid-2col" style="margin-bottom:20px;">
+            ${opts.spots.map(s => {
+              const isFavSpot = favoritesList.some(f => f.name === s.name);
+              const bookingUrl = s.actUrl || "https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436";
+              return `
+                <div class="compact-subpage-spot-card" onclick="selectSpot(${s.id || 1})">
+                  <div class="spot-img-wrap">
+                    <img src="${s.img}" alt="${s.name}" loading="lazy">
+                    <span class="spot-top-rank-pill">${s.rank <= 3 ? '🔥' : '📍'} TOP ${s.rank}</span>
+                    <button class="spot-top-fav-btn" onclick="event.stopPropagation(); toggleFav('${s.name}', '${s.tag || ''}', '${s.img}')" title="收藏">
+                      ${isFavSpot ? '❤️' : '🤍'}
+                    </button>
+                  </div>
+                  <div class="spot-card-body">
+                    <div class="spot-card-title">${s.name}</div>
+                    <div class="spot-card-meta">
+                      <span style="color:#D97706;font-weight:900;">${s.rate}</span>
+                      <span style="background:#F1F5F9;padding:1px 6px;border-radius:6px;color:#475569;">${s.tag || '熱門'}</span>
+                    </div>
+                    <div class="spot-card-action-bar">
+                      <a href="${bookingUrl}" target="_blank" class="spot-card-cta-btn" onclick="event.stopPropagation()">
+                        <span>預訂行程</span>
+                        <span>➔</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        ` : ''}
 
       </div>
     </div>
   `;
 }
 
-// ============================================================
+// 1. 🏝️ 離島專題頁（Islands of Taiwan）
+function renderSubpageIslands(theme) {
+  const islandKey = (currentIslandTab in ALL_ISLANDS_DATA) ? currentIslandTab : "penghu";
+  const islandData = ALL_ISLANDS_DATA[islandKey];
+  const spotsList = islandData.spots;
+  const currentItin = ISLAND_ITINERARIES_DATA[currentIslandItinKey] || ISLAND_ITINERARIES_DATA["penghu-3d2n"];
+
+  const customWidgets = `
+    <!-- ✈️ 離島機票查詢快捷卡片 -->
+    <div style="background:#FFFFFF;border:1.5px solid #BAE6FD;border-radius:16px;padding:12px 14px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 14px rgba(2,132,199,0.08);">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:36px;height:36px;border-radius:12px;background:#E0F2FE;color:#0284C7;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">
+          ✈️
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:900;color:#0369A1;letter-spacing:-0.2px;">離島機票查詢</div>
+          <div style="font-size:10px;color:#0284C7;font-weight:700;">直飛澎湖 · 金門 · 馬祖 · 綠島</div>
+        </div>
+      </div>
+      <a href="https://tw.trip.com/flights/?allianceid=123436&sid=123436" target="_blank" style="background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;padding:6px 14px;font-size:11px;font-weight:900;text-decoration:none;border-radius:20px;box-shadow:0 3px 8px rgba(2,132,199,0.25);white-space:nowrap;display:inline-flex;align-items:center;gap:4px;">
+        <span>查機票</span> <span>➔</span>
+      </a>
+    </div>
+
+    <!-- 🏝️ 台灣離島 (左右滑動切換) -->
+    <div style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:8px;">台灣離島：</div>
+    <div style="display:flex;gap:8px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;padding-bottom:8px;margin-bottom:14px;scrollbar-width:none;" class="no-scrollbar">
+      <button class="seg-pill-item ${islandKey==='penghu'?'active':''}" onclick="switchIslandSubTab('penghu')">
+        🏝️ 澎湖群島 (20)
+      </button>
+      <button class="seg-pill-item ${islandKey==='greenisland'?'active':''}" onclick="switchIslandSubTab('greenisland')">
+        🐢 綠島秘境 (20)
+      </button>
+      <button class="seg-pill-item ${islandKey==='orchid'?'active':''}" onclick="switchIslandSubTab('orchid')">
+        🛶 蘭嶼原鄉 (20)
+      </button>
+      <button class="seg-pill-item ${islandKey==='xiaoliuqiu'?'active':''}" onclick="switchIslandSubTab('xiaoliuqiu')">
+        🐢 小琉球 (20)
+      </button>
+      <button class="seg-pill-item ${islandKey==='kinmen'?'active':''}" onclick="switchIslandSubTab('kinmen')">
+        🪖 金門戰地 (20)
+      </button>
+      <button class="seg-pill-item ${islandKey==='matsu'?'active':''}" onclick="switchIslandSubTab('matsu')">
+        ✨ 馬祖石屋 (20)
+      </button>
+      <button class="seg-pill-item ${islandKey==='keelung'?'active':''}" onclick="switchIslandSubTab('keelung')">
+        🚤 基隆嶼包船
+      </button>
+    </div>
+  `;
+
+  return buildThematicSubpageUI({
+    id: "islands",
+    title: "航向湛藍秘境：台灣離島跳島全攻略",
+    subtitle: "碧海、火山玄武岩與星空下的純淨島嶼",
+    location: "澎湖 · 綠島 · 蘭嶼 · 小琉球 · 金門 · 馬祖",
+    img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1000&auto=format&fit=crop",
+    rate: "4.9",
+    reviews: "4.2萬則評價",
+    price: "NT$ 750起",
+    priceDesc: "跳島船票/包車",
+    temp: "26°C",
+    tempDesc: "海島晴朗",
+    about: islandData.desc || "台灣離島擁有世界級柱狀玄武岩火山地貌、罕見朝日海底溫泉與湛藍純淨珊瑚礁海域。無論是七美雙心石滬、綠島大白沙潛水、還是小琉球海龜同游，皆為海島旅人一生必去的天堂。",
+    customWidgets: customWidgets,
+    itineraries: [
+      {
+        title: currentItin.title + " (" + currentItin.duration + ")",
+        days: currentItin.days
+      }
+    ],
+    charterUrl: "https://www.klook.com/zh-TW/city/19-penghu-car-charter/?aid=123436",
+    tourUrl: "https://www.klook.com/zh-TW/city/19-penghu-things-to-do/?aid=123436",
+    spots: spotsList
+  });
+}
+
+// 2. 花東縱谷與太平洋海岸專題頁
+function renderSubpageHuadong(theme) {
+  const currentItinObj = HUADONG_DATA.itineraries.find(i => i.id === currentHuadongItin) || HUADONG_DATA.itineraries[0];
+
+  return buildThematicSubpageUI({
+    id: "huadong",
+    title: "花東縱谷與海岸 Explorer",
+    subtitle: "縱谷的風・太平洋的浪・純淨避風港",
+    location: "花蓮縣 · 台東縣 · 太平洋海岸線",
+    img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=1000&auto=format&fit=crop",
+    rate: "4.95",
+    reviews: "好評榜首",
+    price: "NT$ 800起",
+    priceDesc: "專案包車",
+    temp: "24°C",
+    tempDesc: "山海舒適",
+    about: "花東直面浩瀚太平洋與中央山脈，是全球探險家與自由行旅客的最愛。推薦預約英語/日語專業包車司機導覽，清水斷崖日出 SUP、秀姑巒溪激流泛舟與伯朗大道稻浪一次玩透！",
+    itineraries: [
+      {
+        title: currentItinObj.name,
+        days: currentItinObj.days
+      }
+    ],
+    charterUrl: "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+    tourUrl: "https://www.klook.com/zh-TW/city/19-hualien-things-to-do/?aid=123436",
+    hotelUrl: "https://tw.trip.com/hotels/?allianceid=123436&sid=123436",
+    spots: HUADONG_DATA.spots
+  });
+}
+
+// 17. 🏪 台灣特色 7-11 旗艦地圖專題頁
+function renderSubpageSevenEleven(theme) {
+  return buildThematicSubpageUI({
+    id: "seven_eleven",
+    title: "🏪 台灣特色 7-11 旗艦地圖",
+    subtitle: "史努比 · 樂高積木 · 最高海拔神木門市 · 櫻花主題店",
+    location: "全台各縣市 · 聯名特色門市巡禮",
+    img: "https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=1000&auto=format&fit=crop",
+    rate: "4.9",
+    reviews: "超人氣打卡",
+    price: "NT$ 50起",
+    priceDesc: "咖啡/點心",
+    temp: "24°C",
+    tempDesc: "冷氣開放",
+    about: "台灣的便利商店密度世界第一，7-ELEVEN 更是將特色旗艦店發揮至極致！全台遍布史努比聯名店、樂高積木城堡、卡娜赫拉粉紅店、三麗鷗主題店，更有海拔 2,170 公尺的阿里山神木門市與本島極北富貴角門市。",
+    itineraries: [
+      {
+        title: "【超人氣聯名打卡線】史努比 ➔ 卡娜赫拉 ➔ 西門三麗鷗",
+        days: [
+          { day: 1, route: "中正區紹興史努比旗艦店 ➔ 中山區威克卡娜赫拉粉紅店 ➔ 西門町六門市 Hello Kitty 主題店" }
+        ]
+      },
+      {
+        title: "【極點與高山朝聖線】阿里山最高門市 ➔ 石門極北門市",
+        days: [
+          { day: 1, route: "阿里山國家森林遊樂區 ➔ 海拔 2,170m 阿里山門市溫暖咖啡 ➔ 新北石門富貴角極北門市觀海" }
+        ]
+      }
+    ],
+    charterUrl: "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+    tourUrl: "https://www.klook.com/zh-TW/city/19-taipei-things-to-do/?aid=123436",
+    hotelUrl: "https://tw.trip.com/hotels/?allianceid=123436&sid=123436",
+    spots: SEVEN_ELEVEN_DATA
+  });
+}
+
+// 18. 🎡 全台特色共融公園專題頁
+function renderSubpageInclusiveParks(theme) {
+  return buildThematicSubpageUI({
+    id: "inclusive_parks",
+    title: "🎡 全台特色共融公園地圖",
+    subtitle: "三重熊猴森 · 大佳河濱 · 屏東勝利動物 · 50米滾輪滑梯",
+    location: "全台各縣市 · 免費親子共融遊戲場",
+    img: "https://images.unsplash.com/photo-1519331379826-f10be5486c6f?w=1000&auto=format&fit=crop",
+    rate: "4.9",
+    reviews: "親子放電首選",
+    price: "免費入園",
+    priceDesc: "全齡共融",
+    temp: "25°C",
+    tempDesc: "陽光微風",
+    about: "台灣近年引領亞洲的「共融式遊戲場」風潮，打破傳統罐頭遊具限制！全台打造融入在地生態、地貌與無障礙設計的巨型遊樂天堂，設有全台最長滾輪滑梯、巨型動物溜滑梯、共融沙坑與森林樹屋攀爬網。",
+    itineraries: [
+      {
+        title: "【雙北親子放電一日遊】熊猴森樂園 ➔ 大佳河濱戲水沙坑",
+        days: [
+          { day: 1, route: "三重熊猴森樂園挑戰 31 座堤坡滑梯 ➔ 午餐特色美食 ➔ 大佳河濱公園共融沙坑與鯨魚戲水" }
+        ]
+      },
+      {
+        title: "【南台灣動物探險一日遊】屏東勝利動物公園 ➔ 高雄衛武營",
+        days: [
+          { day: 1, route: "屏東市區勝利動物溜滑梯玩樂 ➔ 勝利星村文創散步 ➔ 衛武營共融藝術樹屋" }
+        ]
+      }
+    ],
+    charterUrl: "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+    tourUrl: "https://www.klook.com/zh-TW/city/19-taipei-things-to-do/?aid=123436",
+    hotelUrl: "https://tw.trip.com/hotels/?allianceid=123436&sid=123436",
+    spots: INCLUSIVE_PARKS_DATA
+  });
+}
+
+
 // 3. 🏮 節慶萬年曆專題頁（Taiwan Traditional & Modern Festivals）
 // ============================================================
 function renderSubpageFestivals(theme) {
   const fest = FESTIVAL_CATEGORIES[currentFestCategoryKey] || FESTIVAL_CATEGORIES.lunar;
 
   return `
-    <div class="thematic-subpage-view active ${fest.themeClass}" style="padding-bottom:0;">
-      <!-- 頂部 50% 滿版實景大圖 -->
-      <div class="detail-hero-stage-img2">
-        <img src="${fest.heroImg}" alt="${fest.name}">
-        <div class="detail-ctrl-floating-bar">
-          <button class="circle-icon-btn-frosted" onclick="closeSubpageToHome()">←</button>
-          <button class="circle-icon-btn-frosted" onclick="toggleCurrentDetailFav()">❤️</button>
-        </div>
-        <div class="detail-hero-info-overlay">
-          <div>
-            <div class="detail-hero-title-main">聚在一起的溫度：台灣四季節慶全覽<br><span style="font-size:12px;font-weight:700;opacity:0.9;">${fest.heroTitle} · ${fest.heroEn}</span></div>
-            <div class="detail-hero-meta-row">
-              <span class="detail-hero-rating">${fest.rating}</span>
-              <div class="avatar-stack-group">
-                <div class="avatar-pill" style="background-image:url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop');"></div>
-                <div class="avatar-pill" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop');"></div>
-                <div class="avatar-pill" style="background-image:url('https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=100&auto=format&fit=crop');"></div>
-                <div class="avatar-more-count">10+</div>
-              </div>
-            </div>
-          </div>
-          <div class="circle-icon-btn-frosted" style="color:#FF6F61;background:#FFF;" onclick="toggleCurrentDetailFav()">
-            ❤️
-          </div>
+    <div class="thematic-subpage-view active ${fest.themeClass || ''}" style="padding-bottom:0;background:#FFFFFF;">
+      <!-- 頂部實景大圖 (~220px 最佳觀看) -->
+      <div style="position:relative;height:220px;background:#0F172A;overflow:hidden;">
+        <img src="${fest.heroImg}" alt="${fest.name}" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <button class="circle-icon-btn-frosted" onclick="closeSubpageToHome()" style="position:absolute;top:14px;left:14px;z-index:20;">
+          ←
+        </button>
+        <button class="circle-icon-btn-frosted" onclick="toggleFav('${fest.name}', '全台慶典', '${fest.heroImg}', event)" style="position:absolute;top:14px;right:14px;z-index:20;">
+          ❤️
+        </button>
+        <!-- 輪播點 -->
+        <div style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10;">
+          <span style="width:8px;height:8px;border-radius:50%;background:#FF2D55;"></span>
+          <span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.65);"></span>
+          <span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.65);"></span>
         </div>
       </div>
 
-      <!-- 下方滑動卡片 (Sliding Sheet) -->
-      <div class="detail-sliding-sheet-img2">
-        <div class="sliding-drag-handle"></div>
+      <!-- 下方滑動白卡 -->
+      <div style="margin-top:-22px;position:relative;background:#FFFFFF;border-top-left-radius:26px;border-top-right-radius:26px;padding:20px 18px 80px;box-shadow:0 -6px 20px rgba(0,0,0,0.06);z-index:15;">
+        
+        <!-- 標題與所在地 -->
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;">
+          <div>
+            <h1 style="font-size:20px;font-weight:900;color:#0F172A;line-height:1.25;margin:0 0 4px;">
+              ${fest.heroTitle || fest.name}
+            </h1>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11.5px;color:#64748B;font-weight:700;">
+              <span style="color:#FF2D55;font-size:13px;">📍</span>
+              <span>全台四季節慶巡禮 · ${fest.heroEn || 'Taiwan Festivals'}</span>
+            </div>
+          </div>
+          <button class="spot-big-heart-btn" onclick="toggleFav('${fest.name}', '節慶大典', '${fest.heroImg}', event)" style="width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg, #FF2D55 0%, #E11D48 100%);border:3px solid #FFF;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(255,45,85,0.35);cursor:pointer;flex-shrink:0;">
+            <span style="font-size:20px;color:#FFF;">❤️</span>
+          </button>
+        </div>
 
-        <!-- 感性故事文案區塊 -->
-        <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:18px;padding:14px;margin-bottom:14px;">
-          <div style="font-size:12px;font-weight:900;color:#B45309;margin-bottom:4px;">🏮 聚在一起的溫度</div>
-          <p style="font-size:12px;color:#78350F;line-height:1.7;margin:0;">
-            「在台灣，節慶從來不只是一個紅字假期，而是一群人聚在一起的理由。從小時候除夕夜圍爐桌下暖烘烘的腳、大街小巷飄散的中秋烤肉香，到跨年夜擠在捷運人潮裡只為倒數那一刻煙火。無論你來自世界的哪裡，只要走進這座島嶼的節慶裡，你就是我們的一份子。」
+        <!-- 3 個數據指標徽章 -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px;">
+          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:16px;padding:10px 6px;text-align:center;">
+            <div style="font-size:16px;margin-bottom:2px;">⭐</div>
+            <div style="font-size:13.5px;font-weight:900;color:#0F172A;">4.9</div>
+            <div style="font-size:9.5px;color:#64748B;font-weight:700;">旅人好評</div>
+          </div>
+          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:16px;padding:10px 6px;text-align:center;">
+            <div style="font-size:16px;margin-bottom:2px;">🏷️</div>
+            <div style="font-size:13.5px;font-weight:900;color:#0284C7;">免費入園</div>
+            <div style="font-size:9.5px;color:#64748B;font-weight:700;">文化走春</div>
+          </div>
+          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:16px;padding:10px 6px;text-align:center;">
+            <div style="font-size:16px;margin-bottom:2px;">🏮</div>
+            <div style="font-size:13.5px;font-weight:900;color:#0F172A;">7大節慶</div>
+            <div style="font-size:9.5px;color:#64748B;font-weight:700;">全年萬年曆</div>
+          </div>
+        </div>
+
+        <!-- 節慶 7 大動態切換膠囊列 (左右滑動) -->
+        <div style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:8px;">🏮 節慶萬年曆分類（左右滑動切換）：</div>
+        <div style="display:flex;gap:8px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;padding-bottom:8px;margin-bottom:14px;scrollbar-width:none;" class="no-scrollbar">
+          <button class="seg-pill-item ${currentFestCategoryKey==='lunar'?'active':''}" onclick="switchFestCategory('lunar')">
+            🧧 過年春節
+          </button>
+          <button class="seg-pill-item ${currentFestCategoryKey==='nye'?'active':''}" onclick="switchFestCategory('nye')">
+            🎆 元旦跨年
+          </button>
+          <button class="seg-pill-item ${currentFestCategoryKey==='bbq'?'active':''}" onclick="switchFestCategory('bbq')">
+            🥮 中秋節
+          </button>
+          <button class="seg-pill-item ${currentFestCategoryKey==='dragon'?'active':''}" onclick="switchFestCategory('dragon')">
+            🛶 端午龍舟
+          </button>
+          <button class="seg-pill-item ${currentFestCategoryKey==='national'?'active':''}" onclick="switchFestCategory('national')">
+            🇹🇼 國慶大典
+          </button>
+          <button class="seg-pill-item ${currentFestCategoryKey==='tomb'?'active':''}" onclick="switchFestCategory('tomb')">
+            🌿 清明兒童
+          </button>
+          <button class="seg-pill-item ${currentFestCategoryKey==='xmas'?'active':''}" onclick="switchFestCategory('xmas')">
+            🎄 耶誕萬聖
+          </button>
+        </div>
+
+        <!-- 節慶介紹文案 -->
+        <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:18px;padding:14px;margin-bottom:16px;">
+          <div style="font-size:13px;font-weight:900;color:#B45309;margin-bottom:4px;">${fest.descTitle || fest.name}</div>
+          <p style="font-size:12px;color:#78350F;line-height:1.65;margin:0;">
+            ${fest.descBody || ''}
           </p>
         </div>
 
-        <!-- 節慶 7 大動態切換膠囊列 -->
-        <div style="font-size:13px;font-weight:900;color:var(--text-heading);margin-bottom:8px;">🏮 節慶萬年曆分類切換：</div>
-        <div class="fest-dynamic-pills-bar" style="margin-bottom:14px;">
-          <div class="fest-dyn-pill-btn tab-lunar ${currentFestCategoryKey==='lunar'?'active':''}" onclick="switchFestCategory('lunar')">
-            🧧 過年春節
-          </div>
-          <div class="fest-dyn-pill-btn tab-nye ${currentFestCategoryKey==='nye'?'active':''}" onclick="switchFestCategory('nye')">
-            🎆 元旦跨年
-          </div>
-          <div class="fest-dyn-pill-btn tab-bbq ${currentFestCategoryKey==='bbq'?'active':''}" onclick="switchFestCategory('bbq')">
-            🌕 中秋烤肉
-          </div>
-          <div class="fest-dyn-pill-btn tab-dragon ${currentFestCategoryKey==='dragon'?'active':''}" onclick="switchFestCategory('dragon')">
-            🛶 端午龍舟
-          </div>
-          <div class="fest-dyn-pill-btn tab-xmas ${currentFestCategoryKey==='xmas'?'active':''}" onclick="switchFestCategory('xmas')">
-            🎄 耶誕萬聖
-          </div>
-        </div>
-
-        <!-- 滿版實景特色橫幅 -->
-        <div class="fest-feature-immersive-banner">
-          <img class="fest-banner-photo-bg" src="${fest.heroImg}" alt="Feature Banner">
-          <div class="fest-banner-content-inner">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-              <span style="font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:1px;color:#FDE047;">✨ FEATURED HIGHLIGHT</span>
-              <span style="font-size:11px;font-weight:800;background:rgba(255,255,255,0.25);padding:2px 8px;border-radius:12px;">${fest.priceTag}</span>
-            </div>
-            <div style="font-size:15px;font-weight:900;margin-bottom:6px;line-height:1.3;">${fest.descTitle}</div>
-            <p style="font-size:12px;opacity:0.92;line-height:1.6;margin:0;">${fest.descBody}</p>
-          </div>
-        </div>
-
-        <!-- 萬家福 OneLink 時令生鮮與禮盒導購模組 -->
-        ${currentFestCategoryKey === 'lunar' ? `
-          <div style="background:linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);border:1.5px solid #FCA5A5;border-radius:18px;padding:14px;margin:12px 0;">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-              <span style="font-size:13px;font-weight:900;color:#DC2626;">🧧 春節年貨走春伴手禮盒線上訂購</span>
-              <span style="font-size:10px;font-weight:800;background:#DC2626;color:#FFF;padding:2px 8px;border-radius:12px;">年菜料理包推薦</span>
-            </div>
-            <p style="font-size:11px;color:#991B1B;line-height:1.5;margin:0 0 10px;">
-              除夕圍爐年菜覆熱料理包、頂級烏魚子走春伴手禮盒，免出門排隊，一鍵直配到府或直送飯店！
-            </p>
-            <a href="https://onelink.one/s/KmfgH" target="_blank" class="btn-solid-cyan" style="display:inline-flex;background:linear-gradient(135deg, #DC2626, #B91C1C);text-decoration:none;font-size:11px;">
-              🧧 立即線上預訂年節禮盒與年菜（萬家福）
-            </a>
-          </div>
-        ` : ''}
-
-        ${currentFestCategoryKey === 'bbq' ? `
-          <div style="background:linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);border:1.5px solid #FCD34D;border-radius:18px;padding:14px;margin:12px 0;">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-              <span style="font-size:13px;font-weight:900;color:#B45309;">🥮 中秋頂級烤肉食材箱直配到府</span>
-              <span style="font-size:10px;font-weight:800;background:#D97706;color:#FFF;padding:2px 8px;border-radius:12px;">海陸雙拼免備料</span>
-            </div>
-            <p style="font-size:11px;color:#92400E;line-height:1.5;margin:0 0 10px;">
-              全台飄香烤肉季！精選日本A5和牛、安格斯黑牛、澎湖巨蝦生蠔，低溫冷藏直配到府、民宿或指定露營區。
-            </p>
-            <a href="https://onelink.one/s/KmfgH" target="_blank" class="btn-solid-cyan" style="display:inline-flex;background:linear-gradient(135deg, #D97706, #B45309);text-decoration:none;font-size:11px;">
-              🥮 預訂中秋烤肉生鮮食材箱（萬家福）
-            </a>
-          </div>
-        ` : ''}
-
-        <!-- 4 大核心推薦服務矩陣 -->
-        <div style="display:flex;justify-content:space-between;align-items:center;margin:14px 0 8px;">
-          <span style="font-size:13px;font-weight:900;color:var(--text-heading);">🚗 專案專車與訂房快選：</span>
-          <span style="font-size:10px;font-weight:800;color:var(--accent-turquoise);">KLOOK & TRIP 保證</span>
-        </div>
-        <div class="four-service-matrix">
-          <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" class="service-box-card">
-            <div class="service-box-icon">🚗</div>
-            <div>
-              <div class="service-box-title">專案包車司機</div>
-              <div class="service-box-desc">8-10小時專車到府，免找車位避開大塞車。</div>
-            </div>
+        <!-- 專屬按鈕列 (包車綠色、行程藍色、訂房橙色、地圖冰藍) -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+          <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436" target="_blank" class="btn-charter-action">
+            <span>🚗</span> 預約包車 ➔
           </a>
-          <a href="https://www.klook.com/zh-TW/airport-transfers/?aid=123436" target="_blank" class="service-box-card">
-            <div class="service-box-icon">🚐</div>
-            <div>
-              <div class="service-box-title">機場接送專車</div>
-              <div class="service-box-desc">桃機/松機直送節慶會場，旅程零接縫。</div>
-            </div>
-          </a>
-          <a href="https://www.klook.com/zh-TW/activity/1659-taipei-101-observation-deck-ticket-taipei/?aid=123436" target="_blank" class="service-box-card">
-            <div class="service-box-icon">🎟️</div>
-            <div>
-              <div class="service-box-title">快速通關套票</div>
-              <div class="service-box-desc">VIP 觀景露台、導覽與活動預售特惠。</div>
-            </div>
-          </a>
-          <a href="https://tw.trip.com/hotels/?allianceid=123436&sid=123436" target="_blank" class="service-box-card">
-            <div class="service-box-icon">🏨</div>
-            <div>
-              <div class="service-box-title">節慶周邊住宿</div>
-              <div class="service-box-desc">煙火景觀房、老街民宿與五星級大餐。</div>
-            </div>
+          <a href="https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436" target="_blank" class="btn-tour-action">
+            <span>🎟️</span> 預訂行程 ➔
           </a>
         </div>
-
-        <!-- 節慶卡牌流 -->
-        <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
-          <div>
-            <span style="font-size:15px;font-weight:900;color:var(--text-heading);">🏆 ${fest.name} · 精選 TOP 10 大排行</span>
-            <div style="font-size:10px;color:var(--text-muted);font-weight:700;">文字與實景大圖對照 · 刺激點閱率</div>
-          </div>
-          <span style="font-size:11px;font-weight:900;color:var(--coral-orange);background:rgba(255,111,97,0.12);padding:3px 10px;border-radius:12px;">TOP 10</span>
+        <div style="margin-bottom:12px;">
+          <a href="https://tw.trip.com/hotels/?allianceid=123436&sid=123436" target="_blank" class="btn-hotel-action" style="width:100%;box-sizing:border-box;">
+            <span>🏨</span> 查詢嚴選旅宿空房 ➔
+          </a>
         </div>
+        <button onclick="showCuteToast('正在開啟地圖導航...','🗺️'); openGoogleMap('台灣', '${fest.name}')" class="btn-map-action" style="width:100%;margin-bottom:20px;">
+          <span>🗺️</span> 地圖導航 ➔
+        </button>
 
-        <div class="top10-visual-stream">
-          ${fest.top10.map(s => `
-            <div class="top10-photo-card" onclick="window.open('${s.aid}', '_blank')">
-              <img class="bg-photo" src="${s.img}" alt="${s.name}" loading="lazy">
-              
-              <div class="card-top-floating-row">
-                <span class="card-rank-badge ${s.rank <= 3 ? 'top-3' : ''}">
-                  ${s.rank <= 3 ? '🔥' : '📍'} TOP ${s.rank}
-                </span>
-                <div class="card-fav-circle" onclick="event.stopPropagation(); toggleFav('${s.name}', '${s.city}', '${s.img}')">
+        <!-- 推薦景點清單 (2 欄緊湊排版) -->
+        <div style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:10px;">
+          📍 ${fest.name} 推薦必訪 TOP 10：
+        </div>
+        <div class="spots-grid-2col" style="margin-bottom:20px;">
+          ${(fest.top10 || []).map((s, idx) => `
+            <div class="compact-subpage-spot-card" onclick="window.open('${s.aid || 'https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436'}', '_blank')">
+              <div class="spot-img-wrap">
+                <img src="${s.img}" alt="${s.name}" loading="lazy">
+                <span class="spot-top-rank-pill">${s.rank <= 3 ? '🔥' : '📍'} TOP ${s.rank || (idx+1)}</span>
+                <button class="spot-top-fav-btn" onclick="toggleFav('${s.name}', '${s.city || ''}', '${s.img}', event)" title="收藏">
                   ❤️
-                </div>
+                </button>
               </div>
-
-              <div class="card-bottom-frosted-glass">
-                <div class="card-meta-chips-row">
-                  <span class="card-meta-chip">📍 ${s.city}</span>
-                  <span class="card-meta-chip">${s.crowd}</span>
-                  <span class="card-meta-chip">⏱️ ${s.time}</span>
+              <div class="spot-card-body">
+                <div class="spot-card-title">${s.name}</div>
+                <div class="spot-card-meta">
+                  <span style="color:#D97706;font-weight:900;">⭐ 4.9</span>
+                  <span style="background:#F1F5F9;padding:1px 6px;border-radius:6px;color:#475569;">${s.tag || '熱門'}</span>
                 </div>
-                <div class="card-spot-title">${s.name}</div>
-                <div class="card-spot-highlight">${s.highlight}</div>
-                <div class="card-bottom-action-bar">
-                  <span class="card-price-display">💰 ${s.price}</span>
-                  <a href="${s.aid}" target="_blank" class="card-book-action-btn" onclick="event.stopPropagation()">
-                    <span>🎟️ 預約行程 / 包車</span>
-                  </a>
+                <div class="spot-card-action-bar" style="margin-top:6px;">
+                  <span class="spot-card-cta-btn" style="background:linear-gradient(135deg, #0EA5E9, #0284C7);color:#FFF;padding:5px 0;border-radius:10px;font-size:10.5px;font-weight:800;display:block;text-align:center;">
+                    預訂行程 ➔
+                  </span>
                 </div>
               </div>
             </div>
-          `).join("")}
-        </div>
-
-        <!-- 吸底按鈕 -->
-        <div class="sticky-book-tour-bar">
-          <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" class="btn-book-tour-orange">
-            <span>Book a tour 🎟️ 立即預約 ${fest.name} 專案行程與包車 (優惠已套用)</span>
-          </a>
+          `).join('')}
         </div>
 
       </div>
@@ -6236,9 +6506,6 @@ function renderSubpageFestivals(theme) {
   `;
 }
 
-// ============================================================
-// 4. ⚾ 台灣棒球賽事頁面（Baseball Fever）
-// ============================================================
 function renderSubpageBaseball(theme) {
   const stadiums = [
     { name: "台北大巨蛋 (Taipei Dome)", cap: "40,000 人", loc: "台北信義區 · 捷運國父紀念館站", highlight: "室內空調頂級場館、B2 美食街直通、狂熱應援天花板" },
@@ -6429,7 +6696,7 @@ function renderSubpageRailway(theme) {
         <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
           <div>
             <span style="font-size:15px;font-weight:900;color:var(--text-heading);">🚂 全台 10 大鐵道巡禮排行榜</span>
-            <div style="font-size:10px;color:var(--text-muted);font-weight:700;">文字與實景大圖對照 · 刺激點閱率</div>
+            
           </div>
           <span style="font-size:11px;font-weight:900;color:var(--accent-turquoise);background:var(--accent-turquoise-light);padding:3px 10px;border-radius:12px;">TOP 10</span>
         </div>
@@ -6562,7 +6829,7 @@ function renderSubpageHotSpring(theme) {
         <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
           <div>
             <span style="font-size:15px;font-weight:900;color:var(--text-heading);">♨️ 由北到南 10 大名湯排行榜</span>
-            <div style="font-size:10px;color:var(--text-muted);font-weight:700;">文字與實景大圖對照 · 刺激點閱率</div>
+            
           </div>
           <span style="font-size:11px;font-weight:900;color:var(--accent-turquoise);background:var(--accent-turquoise-light);padding:3px 10px;border-radius:12px;">TOP 10</span>
         </div>
@@ -6844,7 +7111,7 @@ function renderSubpageNightView(theme) {
         <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
           <div>
             <span style="font-size:15px;font-weight:900;color:var(--text-heading);">🌃 台北夜景與微醺餐酒 Top 5 排行</span>
-            <div style="font-size:10px;color:var(--text-muted);font-weight:700;">文字與實景大圖對照 · 刺激點閱率</div>
+            
           </div>
           <span style="font-size:11px;font-weight:900;color:var(--accent-turquoise);background:var(--accent-turquoise-light);padding:3px 10px;border-radius:12px;">TOP 5</span>
         </div>
@@ -6957,7 +7224,7 @@ function renderSubpageNorthCoast(theme) {
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
           <div>
             <span style="font-size:15px;font-weight:900;color:var(--text-heading);">🚐 熱門包車一日遊 Top 5 排行榜</span>
-            <div style="font-size:10px;color:var(--text-muted);font-weight:700;">串接 KLOOK 直接購買 · 到府接送零負擔</div>
+            <div style="font-size:10px;color:var(--text-muted);font-weight:700;">到府專車接駁 · 行程預訂零負擔</div>
           </div>
           <span style="font-size:11px;font-weight:900;color:var(--coral-orange);background:rgba(255,111,97,0.12);padding:3px 10px;border-radius:12px;">熱銷冠軍</span>
         </div>
@@ -6983,7 +7250,7 @@ function renderSubpageNorthCoast(theme) {
         <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
           <div>
             <span style="font-size:15px;font-weight:900;color:var(--text-heading);">🌊 北海岸精選景點瀑布流</span>
-            <div style="font-size:10px;color:var(--text-muted);font-weight:700;">文字與實景大圖對照 · 刺激點閱率</div>
+            
           </div>
           <span style="font-size:11px;font-weight:900;color:var(--accent-turquoise);background:var(--accent-turquoise-light);padding:3px 10px;border-radius:12px;">必去推薦</span>
         </div>
@@ -7125,7 +7392,7 @@ function renderSubpageCamping(theme) {
         <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
           <div>
             <span style="font-size:15px;font-weight:900;color:var(--text-heading);">⛺ 全台 20 大精選營地排行榜</span>
-            <div style="font-size:10px;color:var(--text-muted);font-weight:700;">文字與實景大圖對照 · 刺激點閱率</div>
+            
           </div>
           <span style="font-size:11px;font-weight:900;color:var(--accent-turquoise);background:var(--accent-turquoise-light);padding:3px 10px;border-radius:12px;">TOP 20</span>
         </div>
@@ -7283,7 +7550,7 @@ function renderSubpageRoundTaiwan(theme) {
         <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
           <div>
             <span style="font-size:15px;font-weight:900;color:var(--text-heading);">🚴 5 大環島代表路線全指南</span>
-            <div style="font-size:10px;color:var(--text-muted);font-weight:700;">文字與實景大圖對照 · 刺激點閱率</div>
+            
           </div>
           <span style="font-size:11px;font-weight:900;color:var(--accent-turquoise);background:var(--accent-turquoise-light);padding:3px 10px;border-radius:12px;">5 大路線</span>
         </div>
@@ -7417,7 +7684,7 @@ function renderSubpageDiving(theme) {
         <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
           <div>
             <span style="font-size:15px;font-weight:900;color:var(--text-heading);">🤿 全台 5 大世界級潛點推薦</span>
-            <div style="font-size:10px;color:var(--text-muted);font-weight:700;">文字與實景大圖對照 · 深度水況數據</div>
+            
           </div>
           <span style="font-size:11px;font-weight:900;color:var(--accent-turquoise);background:var(--accent-turquoise-light);padding:3px 10px;border-radius:12px;">TOP 5</span>
         </div>
@@ -7551,7 +7818,7 @@ function renderSubpageTrekking(theme) {
         <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
           <div>
             <span style="font-size:15px;font-weight:900;color:var(--text-heading);">⛰️ ${currentTrekkingLevel==='beginner'?'入門健行路線':'中階挑戰百岳'}</span>
-            <div style="font-size:10px;color:var(--text-muted);font-weight:700;">文字與實景大圖對照 · 刺激點閱率</div>
+            
           </div>
           <span style="font-size:11px;font-weight:900;color:var(--accent-turquoise);background:var(--accent-turquoise-light);padding:3px 10px;border-radius:12px;">精選</span>
         </div>
@@ -7675,7 +7942,7 @@ function renderSubpageSurfing(theme) {
         <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
           <div>
             <span style="font-size:15px;font-weight:900;color:var(--text-heading);">🏄 全台 4 大衝浪聖地深度指南</span>
-            <div style="font-size:10px;color:var(--text-muted);font-weight:700;">文字與實景大圖對照 · 刺激點閱率</div>
+            
           </div>
           <span style="font-size:11px;font-weight:900;color:var(--accent-turquoise);background:var(--accent-turquoise-light);padding:3px 10px;border-radius:12px;">4 大聖地</span>
         </div>
@@ -7811,7 +8078,7 @@ function renderSubpageTempleFair(theme) {
         <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
           <div>
             <span style="font-size:15px;font-weight:900;color:var(--text-heading);">🪅 全台 4 大民俗盛會深度指南</span>
-            <div style="font-size:10px;color:var(--text-muted);font-weight:700;">文字與實景大圖對照 · 刺激點閱率</div>
+            
           </div>
           <span style="font-size:11px;font-weight:900;color:var(--accent-turquoise);background:var(--accent-turquoise-light);padding:3px 10px;border-radius:12px;">4 大盛典</span>
         </div>
@@ -7936,7 +8203,7 @@ function renderSubpageEvents(theme) {
         <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
           <div>
             <span style="font-size:15px;font-weight:900;color:var(--text-heading);">🎪 全台各季大型活動即時清單</span>
-            <div style="font-size:10px;color:var(--text-muted);font-weight:700;">文字與實景大圖對照 · 刺激點閱率</div>
+            
           </div>
           <span style="font-size:11px;font-weight:900;color:var(--accent-turquoise);background:var(--accent-turquoise-light);padding:3px 10px;border-radius:12px;">熱門盛會</span>
         </div>
@@ -7991,7 +8258,7 @@ function renderSubpageEvents(theme) {
         <!-- 吸底按鈕 -->
         <div class="sticky-book-tour-bar">
           <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" class="btn-book-tour-orange">
-            <span>Book Event Shuttle 🎪 立即預約大型活動接駁包車與住宿 (優惠已套用)</span>
+            <span>🎪 預約專案接駁 ➔</span>
           </a>
         </div>
 
@@ -8003,78 +8270,37 @@ function renderSubpageEvents(theme) {
 // ============================================================
 // 預設兜底子頁面
 // ============================================================
+// 預設與其他專題子頁面統一渲染 (完全依照圖片規格)
 function renderSubpageDefault(theme) {
-  return `
-    <div class="thematic-subpage-view active" style="padding-bottom:0;">
-      <div class="detail-hero-stage-img2">
-        <img src="${theme.img}" alt="${theme.name}">
-        <div class="detail-ctrl-floating-bar">
-          <button class="circle-icon-btn-frosted" onclick="closeSubpageToHome()">←</button>
-          <button class="circle-icon-btn-frosted" onclick="toggleCurrentDetailFav()">❤️</button>
-        </div>
-        <div class="detail-hero-info-overlay">
-          <div>
-            <div class="detail-hero-title-main">${theme.name} · 精選主題攻略<br><span style="font-size:12px;font-weight:700;opacity:0.9;">Curated Taiwan Experiences</span></div>
-            <div class="detail-hero-meta-row">
-              <span class="detail-hero-rating">⭐ 4.9 (嚴選必訪推薦)</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="detail-sliding-sheet-img2">
-        <div class="sliding-drag-handle"></div>
-        <div style="font-size:15px;font-weight:900;color:var(--text-heading);margin-bottom:8px;">${theme.name} 精選體驗</div>
-        <p style="font-size:12px;color:var(--text-body);line-height:1.6;margin-bottom:16px;">
-          更多深度行程與預訂優惠正即時更新中，點擊下方按鈕預約專屬包車與飯店住宿！
-        </p>
-        <div style="display:flex;gap:8px;">
-          <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" class="btn-solid-cyan" style="flex:1;justify-content:center;text-decoration:none;">
-            🚐 預約專用包車
-          </a>
-          <a href="https://tw.trip.com/hotels/?allianceid=123436&sid=123436" target="_blank" class="btn-outline-cyan" style="flex:1;justify-content:center;text-decoration:none;">
-            🏨 查詢沿途住宿
-          </a>
-        </div>
-      </div>
-    </div>
-  `;
+  return buildThematicSubpageUI({
+    id: theme.id,
+    title: theme.name + " 專屬深度攻略",
+    subtitle: "台灣嚴選特色體驗 · 外國旅人好評推薦",
+    location: "全台各縣市精選路線",
+    img: theme.img,
+    rate: "4.9",
+    reviews: "嚴選推薦",
+    price: "NT$ 650起",
+    priceDesc: "推薦行程",
+    temp: "24°C",
+    tempDesc: "晴朗舒適",
+    about: theme.desc || "精心規劃的專題探索路線，融合在地人文風貌與大自然絕景，提供完整交通接駁、住宿建議與行程玩法，讓您的台灣之旅留下最難忘的回憶！",
+    itineraries: [
+      {
+        title: "【經典推薦】" + theme.name + "深度一日探索",
+        days: [
+          { day: 1, route: "出發專屬包車接送 ➔ 核心景點深度體驗 ➔ 在地特色美食 ➔ 傍晚絕美夕陽返程" }
+        ]
+      }
+    ],
+    charterUrl: "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+    tourUrl: "https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436",
+    spots: ALL_SPOTS_DATA.slice(0, 8)
+  });
 }
 
-    function toggleCurrentDetailFav() {
-      if (currentSelectedSpot) toggleSpotFav(currentSelectedSpot.id);
-    }
-
-    function renderFavoritesView() {
-      const body = document.getElementById("fav-view-list");
-      const tag = document.getElementById("fav-count-tag");
-      if (tag) tag.innerText = `${favoritesList.length} 項`;
-      if (!body) return;
-
-      if (favoritesList.length === 0) {
-        body.innerHTML = `
-          <div style="text-align:center;padding:40px 20px;color:var(--text-muted);">
-            <div style="font-size:36px;margin-bottom:8px;">🤍</div>
-            <p style="font-size:13px;font-weight:700;">目前尚未有任何收藏</p>
-            <p style="font-size:11px;margin-top:4px;">點擊景點卡牌右上角愛心即可永久保存於手機！</p>
-          </div>
-        `;
-      } else {
-        body.innerHTML = favoritesList.map(item => `
-          <div style="display:flex;align-items:center;gap:10px;padding:10px;background:#FAF8F5;border:1px solid #F1EDE7;border-radius:16px;margin-bottom:8px;">
-            <img src="${item.img}" style="width:48px;height:48px;border-radius:12px;object-fit:cover;">
-            <div style="flex:1;">
-              <div style="font-size:12px;font-weight:800;color:var(--text-heading);">${item.name}</div>
-              <div style="font-size:10px;color:var(--text-muted);">📍 ${item.city} · ${item.rate}</div>
-            </div>
-            <a href="${item.aid}" target="_blank" style="background:var(--accent-turquoise);color:#FFF;font-size:10px;font-weight:700;padding:6px 10px;border-radius:var(--radius-pill);text-decoration:none;">預訂</a>
-            <button onclick="toggleSpotFav(${item.id});" style="border:none;background:none;color:#94A3B8;cursor:pointer;font-size:14px;padding:4px;">✕</button>
-          </div>
-        `).join("");
-      }
-    }
-
     // =========================================================
-    // 8. 外國旅客交流留言板系統 (互相留言、約伴、即時翻譯)
+    // 8. 外國旅客交流留言板系統 (極簡輕量化頂部 + 活潑互動)
     // =========================================================
     function filterCommunityTopic(topic) {
       currentCommunityFilter = topic;
@@ -8087,9 +8313,11 @@ function renderSubpageDefault(theme) {
       if (thread.isLiked) {
         thread.likes -= 1;
         thread.isLiked = false;
+        showCuteToast('已取消點讚', '🤍');
       } else {
         thread.likes += 1;
         thread.isLiked = true;
+        showCuteToast('感謝旅人鼓勵！❤️', '💖');
       }
       localStorage.setItem("tw_travel_community_v3", JSON.stringify(communityReviews));
       renderCommunityBoard();
@@ -8115,72 +8343,59 @@ function renderSubpageDefault(theme) {
       const authorInput = document.getElementById("reply-author-" + id);
       const textInput = document.getElementById("reply-text-" + id);
       if (!textInput || !textInput.value.trim()) {
-        alert("請輸入回覆內容！");
+        showCuteToast('請輸入回覆內容喔！', '✏️');
         return;
       }
-      const author = (authorInput && authorInput.value.trim()) ? authorInput.value.trim() : "旅行好友";
+      const author = (authorInput && authorInput.value.trim()) ? authorInput.value.trim() : "熱情旅人";
       const text = textInput.value.trim();
       if (!thread.replies) thread.replies = [];
       thread.replies.push({
-        author: author + " 💬",
+        author: author,
         timeAgo: "剛剛",
         text: text
       });
       localStorage.setItem("tw_travel_community_v3", JSON.stringify(communityReviews));
+      showCuteToast('回覆成功！✨', '🎉');
       renderCommunityBoard();
     }
 
     function submitNewCommunityPost() {
       const authorInput = document.getElementById("comm-author-input");
-      const countrySelect = document.getElementById("comm-country-select");
-      const topicSelect = document.getElementById("comm-topic-select");
+      const countryInput = document.getElementById("comm-country-select");
+      const topicInput = document.getElementById("comm-topic-select");
       const spotInput = document.getElementById("comm-spot-input");
       const textInput = document.getElementById("comm-text-input");
 
       if (!textInput || !textInput.value.trim()) {
-        alert("請輸入您的留言、旅行提問或約伴訊息！");
+        showCuteToast('請輸入留言內容喔！', '✏️');
         return;
       }
 
-      const author = (authorInput && authorInput.value.trim()) ? authorInput.value.trim() : "全球旅人";
-      const countryFull = countrySelect ? countrySelect.value : "🇹🇼 台灣";
-      const countryFlag = countryFull.substring(0, 4).trim();
-      const topic = topicSelect ? topicSelect.value : "meetup";
-      const topicNames = {
-        meetup: "🙋‍♂️ 揪團約伴",
-        qna: "💡 旅遊請益",
-        food: "🍜 美食推薦",
-        review: "🎒 踩點分享",
-        transport: "🚗 交通包車"
-      };
-      const spotTag = (spotInput && spotInput.value.trim()) ? spotInput.value.trim() : "全台各地";
-      const text = textInput.value.trim();
-
-      const newThread = {
+      const newPost = {
         id: Date.now(),
-        author: author,
-        country: countryFull,
-        countryFlag: countryFlag,
-        avatarBg: "linear-gradient(135deg, #0284C7, #0369A1)",
-        role: "🌏 國際自由行旅人",
-        timeAgo: "剛剛發布",
-        topic: topic,
-        topicName: topicNames[topic] || "💬 旅人交流",
-        spotTag: spotTag,
+        author: (authorInput && authorInput.value.trim()) ? authorInput.value.trim() : "新旅人",
+        country: countryInput ? countryInput.value : "🇹🇼 台灣",
+        countryFlag: (countryInput ? countryInput.value.split(" ")[0] : "🇹🇼"),
+        avatarBg: "linear-gradient(135deg, #0EA5E9, #0284C7)",
+        role: "🌏 探索者",
+        timeAgo: "剛剛",
+        topic: topicInput ? topicInput.value : "qna",
+        topicName: topicInput ? topicInput.options[topicInput.selectedIndex].text.split(" ")[0] : "旅遊請益",
+        spotTag: spotInput ? spotInput.value.trim() : "",
         rating: "5.0★",
-        text: text,
-        translation: "[即時翻譯] " + text,
+        text: textInput.value.trim(),
+        translation: textInput.value.trim(),
         likes: 1,
         isLiked: true,
         showTranslation: false,
-        showReplyBox: true,
+        showReplyBox: false,
         replies: []
       };
 
-      communityReviews.unshift(newThread);
+      communityReviews.unshift(newPost);
       localStorage.setItem("tw_travel_community_v3", JSON.stringify(communityReviews));
+      showCuteToast('發布成功！全球旅人都能看到囉～ ✨', '🎉');
       renderCommunityBoard();
-      alert("🎉 您的旅人留言已成功發布在世界旅人交流牆！各國旅人現在都可以看到並回覆您！");
     }
 
     function renderCommunityBoard() {
@@ -8192,93 +8407,74 @@ function renderSubpageDefault(theme) {
         : communityReviews.filter(t => t.topic === currentCommunityFilter);
 
       const htmlContent = `
-        <!-- 頂部即時在線橫幅 -->
-        <div class="travelers-hub-banner">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
-            <div style="display:flex;align-items:center;gap:8px;">
-              <span style="font-size:22px;">💬</span>
-              <span style="font-size:16px;font-weight:900;letter-spacing:-0.2px;">外國旅人交流留言板</span>
-            </div>
-            <span style="background:rgba(255,255,255,0.15);font-size:10px;font-weight:800;padding:3px 9px;border-radius:12px;backdrop-filter:blur(4px);">
-              <span class="live-pulse-dot"></span>432 在線交流
+        <!-- 簡約極致頂部 (無厚重黑塊，符合用戶需求：這個感覺太多餘了，簡單就好) -->
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:4px 2px 14px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-size:18px;font-weight:900;color:#0F172A;letter-spacing:-0.3px;">💬 旅人交流留言板</span>
+            <span style="font-size:10.5px;font-weight:800;color:#0284C7;background:#E0F2FE;padding:3px 9px;border-radius:12px;border:1px solid #BAE6FD;display:inline-flex;align-items:center;gap:4px;">
+              <span class="live-pulse-dot"></span>432 在線
             </span>
           </div>
-          <p style="font-size:11px;opacity:0.92;line-height:1.5;margin:0 0 10px;">
-            專為各國旅客設計的台灣即時交流板！互相留言、約伴揪團、私房美食請益，支援各國語言即時翻譯。
-          </p>
-          <div style="display:flex;align-items:center;gap:10px;font-size:10px;color:#94A3B8;border-top:1px solid rgba(255,255,255,0.1);padding-top:8px;">
-            <span>🌍 覆蓋 58+ 國家旅人</span>
-            <span>•</span>
-            <span>🤝 互相留言即時互動</span>
-            <span>•</span>
-            <span>🌐 支援多國語言</span>
-          </div>
+          <span style="font-size:11px;font-weight:700;color:#64748B;">全球即時互助</span>
         </div>
 
         <!-- 類別切換篩選器 -->
-        <div class="community-filters-scroll">
+        <div class="community-filters-scroll" style="margin-bottom:12px;">
           <button class="community-filter-chip ${currentCommunityFilter === 'all' ? 'active' : ''}" onclick="filterCommunityTopic('all')">✨ 全部 (${communityReviews.length})</button>
           <button class="community-filter-chip ${currentCommunityFilter === 'meetup' ? 'active' : ''}" onclick="filterCommunityTopic('meetup')">🙋‍♂️ 揪團約伴</button>
           <button class="community-filter-chip ${currentCommunityFilter === 'qna' ? 'active' : ''}" onclick="filterCommunityTopic('qna')">💡 旅遊請益</button>
           <button class="community-filter-chip ${currentCommunityFilter === 'food' ? 'active' : ''}" onclick="filterCommunityTopic('food')">🍜 美食推薦</button>
           <button class="community-filter-chip ${currentCommunityFilter === 'review' ? 'active' : ''}" onclick="filterCommunityTopic('review')">🎒 踩點分享</button>
-          <button class="community-filter-chip ${currentCommunityFilter === 'transport' ? 'active' : ''}" onclick="filterCommunityTopic('transport')">🚗 交通包車</button>
         </div>
 
-        <!-- 旅人留言發表框 -->
-        <div class="community-post-box-card">
+        <!-- 旅人留言發表框 (乾淨白底、柔和陰影、無黑框) -->
+        <div class="community-post-box-card" style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:18px;padding:14px;box-shadow:0 4px 16px rgba(15,23,42,0.05);margin-bottom:16px;">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-            <span style="font-size:12px;font-weight:900;color:#0F172A;display:flex;align-items:center;gap:6px;">
-              <span>✍️</span> 留下您的旅人訊息 / Post Message
+            <span style="font-size:12.5px;font-weight:900;color:#0F172A;display:flex;align-items:center;gap:6px;">
+              <span>✍️</span> 發布旅人訊息
             </span>
-            <span style="font-size:9px;color:#64748B;font-weight:700;">支援各國語言自由發表</span>
+            <span style="font-size:10px;color:#0284C7;font-weight:800;background:#E0F2FE;padding:2px 8px;border-radius:10px;">支援多國語言</span>
           </div>
-          
+
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
-            <input type="text" id="comm-author-input" placeholder="您的暱稱 (Name / Nickname)" style="padding:8px 11px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;outline:none;background:#F8FAFC;">
+            <input type="text" id="comm-author-input" placeholder="您的暱稱 / 姓名" style="padding:8px 11px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;outline:none;background:#F8FAFC;">
             <select id="comm-country-select" style="padding:8px 10px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;background:#FFF;color:#334155;">
               <option value="🇺🇸 美國 (USA)">🇺🇸 美國 (USA)</option>
               <option value="🇯🇵 日本 (Japan)">🇯🇵 日本 (Japan)</option>
               <option value="🇰🇷 韓國 (Korea)">🇰🇷 韓國 (Korea)</option>
               <option value="🇬🇧 英國 (UK)">🇬🇧 英國 (UK)</option>
-              <option value="🇫🇷 法國 (France)">🇫🇷 法國 (France)</option>
-              <option value="🇩🇪 德國 (Germany)">🇩🇪 德國 (Germany)</option>
-              <option value="🇦🇺 澳洲 (Australia)">🇦🇺 澳洲 (Australia)</option>
               <option value="🇸🇬 新加坡 (Singapore)">🇸🇬 新加坡 (Singapore)</option>
               <option value="🇲🇾 馬來西亞 (Malaysia)">🇲🇾 馬來西亞 (Malaysia)</option>
-              <option value="🇹🇭 泰國 (Thailand)">🇹🇭 泰國 (Thailand)</option>
-              <option value="🇪🇸 西班牙 (Spain)">🇪🇸 西班牙 (Spain)</option>
-              <option value="🇨🇦 加拿大 (Canada)">🇨🇦 加拿大 (Canada)</option>
               <option value="🇭🇰 香港 (Hong Kong)">🇭🇰 香港 (Hong Kong)</option>
-              <option value="🇹🇼 台灣 (Taiwan)">🇹🇼 台灣 (Taiwan)</option>
+              <option value="🇹🇼 台灣 (Taiwan)" selected>🇹🇼 台灣 (Taiwan)</option>
             </select>
           </div>
 
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
             <select id="comm-topic-select" style="padding:8px 10px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;background:#FFF;color:#334155;">
-              <option value="meetup">🙋‍♂️ 揪團約伴 (Meetup)</option>
-              <option value="qna">💡 旅遊請益 (Q&A)</option>
-              <option value="food">🍜 美食推薦 (Food)</option>
-              <option value="review">🎒 踩點分享 (Reviews)</option>
-              <option value="transport">🚗 交通包車 (Transport)</option>
+              <option value="meetup">🙋‍♂️ 揪團約伴</option>
+              <option value="qna">💡 旅遊請益</option>
+              <option value="food">🍜 美食推薦</option>
+              <option value="review">🎒 踩點分享</option>
+              <option value="transport">🚗 交通包車</option>
             </select>
             <input type="text" id="comm-spot-input" placeholder="相關景點 (如: 太魯閣, 九份)" style="padding:8px 11px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;outline:none;background:#F8FAFC;">
           </div>
 
-          <textarea id="comm-text-input" placeholder="分享旅行心得、發起約伴、或是詢問台灣行程建議... (Any languages welcome)" style="width:100%;height:65px;padding:9px 12px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;resize:none;margin-bottom:10px;outline:none;background:#F8FAFC;line-height:1.4;box-sizing:border-box;"></textarea>
+          <textarea id="comm-text-input" placeholder="分享旅行心得、發起約伴、或是詢問台灣行程建議..." style="width:100%;height:65px;padding:9px 12px;border-radius:12px;border:1px solid #CBD5E1;font-size:11px;resize:none;margin-bottom:10px;outline:none;background:#F8FAFC;line-height:1.4;box-sizing:border-box;"></textarea>
 
-          <button onclick="submitNewCommunityPost()" style="width:100%;padding:10px;border-radius:12px;background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;font-size:12px;font-weight:800;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 4px 12px rgba(2,132,199,0.3);">
-            <span>🚀</span> 發布旅人留言 (Post to Global Board)
+          <button onclick="submitNewCommunityPost()" class="btn-tour-action" style="width:100%;padding:10px;font-size:12px;">
+            <span>🚀</span> 發布留言 ➔
           </button>
         </div>
 
-        <!-- 旅人留言串流清單 -->
+        <!-- 旅人留言串流清單 (無黑框、柔和陰影) -->
         <div style="display:flex;flex-direction:column;gap:12px;">
           ${filtered.map(c => `
-            <div class="community-thread-card">
+            <div class="community-thread-card" style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:18px;padding:14px;box-shadow:0 4px 14px rgba(15,23,42,0.04);">
               <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
                 <div style="display:flex;align-items:center;gap:10px;">
-                  <div class="community-avatar-circle" style="background:${c.avatarBg || '#0284C7'};">
+                  <div class="community-avatar-circle" style="background:${c.avatarBg || '#0284C7'};width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;color:#FFF;">
                     ${c.countryFlag || '🌍'}
                   </div>
                   <div>
@@ -8291,7 +8487,7 @@ function renderSubpageDefault(theme) {
                     </div>
                   </div>
                 </div>
-                <span class="community-topic-badge badge-${c.topic}">${c.topicName}</span>
+                <span class="community-topic-badge badge-${c.topic}" style="font-size:10px;font-weight:800;padding:2px 8px;border-radius:10px;background:#F0F9FF;color:#0284C7;">${c.topicName}</span>
               </div>
 
               ${c.spotTag ? `
@@ -8300,36 +8496,33 @@ function renderSubpageDefault(theme) {
                 </div>
               ` : ''}
 
-              <!-- 留言主要內容 (支援原文與中文切換) -->
               <p style="font-size:12px;color:#1E293B;line-height:1.55;margin:0 0 10px;word-break:break-word;">
                 ${c.showTranslation ? `<span style="color:#0284C7;font-weight:800;font-size:10px;display:block;margin-bottom:3px;">🌐 中文翻譯：</span>${c.translation || c.text}` : c.text}
               </p>
 
-              <!-- 操作功能列：翻譯、點讚、互相留言回覆 -->
               <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F1F5F9;padding-top:9px;">
-                <button class="community-translate-btn" onclick="toggleCommunityTranslation(${c.id})">
-                  <span>🌐</span> ${c.showTranslation ? '顯示原文' : '翻譯成中文'}
+                <button class="community-translate-btn" onclick="toggleCommunityTranslation(${c.id})" style="background:none;border:none;color:#0284C7;font-size:11px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:4px;">
+                  <span>🌐</span> ${c.showTranslation ? '顯示原文' : '翻譯'}
                 </button>
 
-                <div style="display:flex;align-items:center;gap:4px;">
-                  <button class="community-action-btn ${c.isLiked ? 'liked' : ''}" onclick="toggleCommunityLike(${c.id})">
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <button class="community-action-btn ${c.isLiked ? 'liked' : ''}" onclick="toggleCommunityLike(${c.id})" style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;padding:4px 10px;font-size:11px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:4px;">
                     <span>${c.isLiked ? '❤️' : '🤍'}</span>
                     <span>${c.likes || 0}</span>
                   </button>
-                  <button class="community-action-btn" onclick="toggleCommunityReplyBox(${c.id})">
-                    <span>💬 互相留言</span>
+                  <button class="community-action-btn" onclick="toggleCommunityReplyBox(${c.id})" style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;padding:4px 10px;font-size:11px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:4px;">
+                    <span>💬 留言</span>
                     <span>(${c.replies ? c.replies.length : 0})</span>
                   </button>
                 </div>
               </div>
 
-              <!-- 互相留言展開區 (外國旅人間的對話回覆) -->
               ${(c.showReplyBox || (c.replies && c.replies.length > 0)) ? `
                 <div style="margin-top:10px;border-top:1px dashed #E2E8F0;padding-top:10px;">
                   ${(c.replies && c.replies.length > 0) ? `
                     <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:10px;">
                       ${c.replies.map(r => `
-                        <div class="community-reply-item">
+                        <div class="community-reply-item" style="background:#F8FAFC;border-radius:10px;padding:7px 10px;font-size:11px;">
                           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px;">
                             <span style="font-weight:800;color:#0F172A;">${r.author}</span>
                             <span style="font-size:9px;color:#94A3B8;">${r.timeAgo}</span>
@@ -8340,12 +8533,11 @@ function renderSubpageDefault(theme) {
                     </div>
                   ` : ''}
 
-                  <!-- 即時回覆輸入框 -->
                   <div style="display:flex;gap:6px;align-items:center;">
-                    <input type="text" id="reply-author-${c.id}" placeholder="您的名字" style="width:75px;padding:6px 8px;border-radius:10px;border:1px solid #CBD5E1;font-size:10px;background:#F8FAFC;outline:none;">
-                    <input type="text" id="reply-text-${c.id}" placeholder="回覆此旅人 (Reply to traveler)..." style="flex:1;padding:6px 10px;border-radius:10px;border:1px solid #CBD5E1;font-size:10px;background:#F8FAFC;outline:none;">
-                    <button onclick="submitCommunityReply(${c.id})" style="padding:6px 10px;background:#0284C7;color:#FFF;border:none;border-radius:10px;font-size:10px;font-weight:800;cursor:pointer;white-space:nowrap;">
-                      送出回覆
+                    <input type="text" id="reply-author-${c.id}" placeholder="暱稱" style="width:65px;padding:6px 8px;border-radius:10px;border:1px solid #CBD5E1;font-size:10px;background:#F8FAFC;outline:none;">
+                    <input type="text" id="reply-text-${c.id}" placeholder="輸入回覆..." style="flex:1;padding:6px 10px;border-radius:10px;border:1px solid #CBD5E1;font-size:10px;background:#F8FAFC;outline:none;">
+                    <button onclick="submitCommunityReply(${c.id})" class="btn-tour-action" style="padding:6px 12px;font-size:10px;">
+                      送出 ➔
                     </button>
                   </div>
                 </div>
@@ -8358,7 +8550,6 @@ function renderSubpageDefault(theme) {
       container.innerHTML = htmlContent;
     }
 
-    // 保留向下相容函式別名
     function renderFeedbackList() {
       renderCommunityBoard();
     }
@@ -8373,6 +8564,148 @@ function renderSubpageDefault(theme) {
         rightPhone.style.display = "flex";
       }
     }
-  </script>
+
+    // 可愛 Toast 通知函式
+    function showCuteToast(msg, icon = '💖') {
+      let toast = document.getElementById('cute-app-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'cute-app-toast';
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = `<span>${icon}</span> <span>${msg}</span>`;
+      toast.classList.add('show');
+      clearTimeout(window.__cuteToastTimer);
+      window.__cuteToastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2200);
+    }
+
+
+    // =========================================================
+    // 💖 愛心加入特效與交互特效 (Heart Particle Burst & Elastic Pop)
+    // =========================================================
+    function createHeartBurst(x, y) {
+      const container = document.createElement('div');
+      container.style.position = 'fixed';
+      container.style.left = x + 'px';
+      container.style.top = y + 'px';
+      container.style.pointerEvents = 'none';
+      container.style.zIndex = '999999';
+      document.body.appendChild(container);
+
+      const icons = ['💖', '✨', '💕', '❤️', '🌸', '✨'];
+      for (let i = 0; i < 6; i++) {
+        const p = document.createElement('span');
+        p.innerText = icons[i % icons.length];
+        p.style.position = 'absolute';
+        p.style.fontSize = (13 + Math.random() * 8) + 'px';
+        p.style.transition = 'all 0.65s cubic-bezier(0.25, 1, 0.5, 1)';
+        p.style.opacity = '1';
+        p.style.transform = 'translate(-50%, -50%) scale(0.6)';
+        container.appendChild(p);
+
+        const angle = (i / 6) * 2 * Math.PI + (Math.random() - 0.5) * 0.5;
+        const dist = 32 + Math.random() * 28;
+        const tx = Math.cos(angle) * dist;
+        const ty = Math.sin(angle) * dist - 25;
+
+        setTimeout(() => {
+          p.style.transform = `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(1.1)`;
+          p.style.opacity = '0';
+        }, 15);
+      }
+
+      setTimeout(() => {
+        container.remove();
+      }, 700);
+    }
+
+    // 全局通用收藏切換 (支援景點、主題、活動)
+    function toggleFav(name, city, img, event) {
+      if (!event && window.event) event = window.event;
+      if (event) {
+        event.stopPropagation();
+        try {
+          const rect = event.currentTarget.getBoundingClientRect();
+          createHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
+          event.currentTarget.style.transform = 'scale(1.4) rotate(-10deg)';
+          setTimeout(() => {
+            if (event.currentTarget) event.currentTarget.style.transform = '';
+          }, 260);
+        } catch(e) {}
+      }
+
+      const idx = favoritesList.findIndex(f => f.name === name);
+      if (idx > -1) {
+        favoritesList.splice(idx, 1);
+        showCuteToast('已從私房收藏清單移除', '🤍');
+      } else {
+        favoritesList.push({
+          id: Date.now(),
+          name: name,
+          city: city || '台灣熱門景點',
+          rate: '4.9★',
+          img: img || 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop',
+          aid: 'https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436'
+        });
+        showCuteToast('已加入私房收藏！眼光真好～ ✨', '💖');
+      }
+
+      localStorage.setItem("tw_travel_favs", JSON.stringify(favoritesList));
+      renderFavoritesView();
+      if (typeof renderAllSpots === 'function') renderAllSpots(ALL_SPOTS_DATA);
+      
+      // 更新詳情頁愛心圖示
+      const detailHeart = document.getElementById("btn-detail-fav");
+      if (detailHeart) {
+        const isFavNow = favoritesList.some(f => f.name === name);
+        detailHeart.innerText = isFavNow ? "❤️" : "🤍";
+      }
+    }
+
+    function toggleSpotFav(id, event) {
+      if (!event && window.event) event = window.event;
+      const spot = ALL_SPOTS_DATA.find(s => s.id === id);
+      if (!spot) return;
+      toggleFav(spot.name, spot.city, spot.img, event);
+    }
+
+    function toggleCurrentDetailFav(event) {
+      if (currentSelectedSpot) {
+        toggleSpotFav(currentSelectedSpot.id, event);
+      }
+    }
+
+    function renderFavoritesView() {
+      const body = document.getElementById("fav-view-list");
+      const tag = document.getElementById("fav-count-tag");
+      if (tag) tag.innerText = `${favoritesList.length} 項`;
+      if (!body) return;
+
+      if (favoritesList.length === 0) {
+        body.innerHTML = `
+          <div style="text-align:center;padding:40px 20px;color:var(--text-muted);">
+            <div style="font-size:36px;margin-bottom:8px;">🤍</div>
+            <p style="font-size:13px;font-weight:700;">目前尚未有任何收藏</p>
+            <p style="font-size:11px;margin-top:4px;">點擊景點卡牌右上角愛心即可永久保存於手機！</p>
+          </div>
+        `;
+      } else {
+        body.innerHTML = favoritesList.map(item => `
+          <div style="display:flex;align-items:center;gap:10px;padding:10px;background:#FAF8F5;border-radius:14px;margin-bottom:8px;border:1px solid #E2E8F0;">
+            <img src="${item.img}" style="width:48px;height:48px;border-radius:12px;object-fit:cover;">
+            <div style="flex:1;">
+              <div style="font-size:12px;font-weight:800;color:var(--text-heading);">${item.name}</div>
+              <div style="font-size:10px;color:var(--text-muted);">📍 ${item.city} · ${item.rate}</div>
+            </div>
+            <a href="${item.aid}" target="_blank" class="btn-tour-action" style="padding:6px 12px;font-size:11px;text-decoration:none;">預訂</a>
+            <button onclick="toggleFav('${item.name}', '', '', event);" style="border:none;background:none;color:#94A3B8;cursor:pointer;font-size:15px;padding:4px;">✕</button>
+          </div>
+        `).join("");
+      }
+    }
+
+</script>
 </body>
 </html>
