@@ -1673,38 +1673,123 @@
       flex-shrink: 0;
     }
 
-    /* 醒目精緻排行榜按鈕 (排行榜 三個字，優雅珊瑚橘漸層，無多餘字元) */
-    .prominent-ranking-cta {
-      padding: 7px 15px;
-      border-radius: var(--radius-pill);
-      background: linear-gradient(135deg, #FF6F61 0%, #FA5A4B 100%);
+    /* 首頁頂部小巧醒目按鈕：排行榜 & 伴手禮 */
+    .compact-header-btn {
+      padding: 5px 10px;
+      border-radius: 20px;
       border: none;
       color: #FFFFFF !important;
-      font-size: 12px;
-      font-weight: 900;
+      font-size: 11px;
+      font-weight: 800;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      box-shadow: 0 6px 16px rgba(255, 111, 97, 0.35);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      gap: 4px;
       white-space: nowrap;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      line-height: 1.2;
     }
-    .prominent-ranking-cta:hover {
+    .compact-header-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 8px 20px rgba(255, 111, 97, 0.45);
     }
-    .prominent-ranking-cta:active {
+    .compact-header-btn:active {
       transform: scale(0.96);
     }
-    .ranking-icon-sparkle {
-      font-size: 13px;
+    .compact-btn-ranking {
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      box-shadow: 0 3px 10px rgba(217, 119, 6, 0.4);
     }
-    .ranking-label-main {
-      font-size: 12px;
+    .compact-btn-ranking:hover {
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.5);
+    }
+    .compact-btn-souvenirs {
+      background: linear-gradient(135deg, #FF4757 0%, #E11D48 100%);
+      box-shadow: 0 3px 10px rgba(225, 29, 72, 0.4);
+    }
+    .compact-btn-souvenirs:hover {
+      box-shadow: 0 4px 14px rgba(225, 29, 72, 0.5);
+    }
+
+    /* 16 大主題 2 欄相片卡網格 (完全比照用戶早晨截圖設計：2個一排、滿版美圖、左上膠囊標籤、左下白字大標+英文字) */
+    .themes-big-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding-bottom: 24px;
+    }
+    .theme-photo-card {
+      height: 165px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      background: #1E293B;
+    }
+    .theme-photo-card:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+    }
+    .theme-photo-card:active {
+      transform: scale(0.97);
+    }
+    .theme-photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .theme-photo-card:hover img {
+      transform: scale(1.08);
+    }
+    .theme-photo-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.04) 40%, rgba(15, 23, 42, 0.88) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 12px 14px;
+      color: #FFFFFF;
+      pointer-events: none;
+    }
+    .theme-photo-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #0F172A;
+      font-size: 9px;
       font-weight: 900;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
+      letter-spacing: 0.8px;
+      padding: 3px 8px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .theme-photo-title {
+      font-size: 17px;
+      font-weight: 900;
+      color: #FFFFFF;
+      line-height: 1.2;
+      letter-spacing: -0.2px;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    }
+    .theme-photo-subtitle {
+      font-size: 9px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.92);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-top: 3px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     }
 
     /* =========================================================
@@ -2380,19 +2465,17 @@
             <h1 class="brand-main-title">台灣吃喝玩樂</h1>
             <span class="brand-sub-title">TAIWAN TRAVEL HUB</span>
           </div>
-          <div class="brand-actions-right" style="display:flex;gap:8px;align-items:center;">
-            <!-- 🏆 人氣排行榜按鈕 (清楚、具月度吸引力，點擊開啟雙榜單彈窗) -->
-            <button class="prominent-ranking-cta" onclick="openRankingsModal('drinks')" style="background:linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);color:#92400E;border:1.5px solid #FCD34D;border-radius:18px;padding:6px 14px;box-shadow:0 4px 12px rgba(217,119,6,0.18);display:flex;align-items:center;gap:6px;cursor:pointer;" title="查看本月全台人氣排行榜">
-              <span style="font-size:16px;">🏆</span>
-              <span style="font-family:'Inter',sans-serif;font-weight:900;font-size:12px;letter-spacing:-0.2px;">排行榜</span>
-              <span style="background:#EF4444;color:#FFF;font-size:8px;font-weight:800;padding:1px 5px;border-radius:8px;">本月HOT</span>
+          <div class="brand-actions-right" style="display:flex;gap:6px;align-items:center;">
+            <!-- 🏆 人氣排行榜按鈕 (小巧、醒目高對比金橘、強烈吸引力) -->
+            <button class="compact-header-btn compact-btn-ranking" onclick="openRankingsModal('drinks')" title="查看本月全台人氣排行榜">
+              <span style="font-size:13px;line-height:1;">🏆</span>
+              <span>排行榜</span>
             </button>
             
-            <!-- 🛍️ 伴手禮按鈕 (購物ICON/圖片，點擊跳轉推薦20大伴手禮產品頁面) -->
-            <button class="prominent-ranking-cta" onclick="switchNavTab('souvenirs')" style="background:linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);color:#9A3412;border:1.5px solid #FDBA74;border-radius:18px;padding:6px 14px;box-shadow:0 4px 12px rgba(234,88,12,0.16);display:flex;align-items:center;gap:6px;cursor:pointer;" title="查看台灣人氣 20 大伴手禮">
-              <span style="font-size:16px;">🛍️</span>
-              <span style="font-family:'Inter',sans-serif;font-weight:900;font-size:12px;letter-spacing:-0.2px;">伴手禮</span>
-              <span style="background:#F97316;color:#FFF;font-size:8px;font-weight:800;padding:1px 5px;border-radius:8px;">20大推薦</span>
+            <!-- 🛍️ 伴手禮按鈕 (小巧、醒目亮麗珊瑚紅、直通20大推薦) -->
+            <button class="compact-header-btn compact-btn-souvenirs" onclick="switchNavTab('souvenirs')" title="查看台灣人氣 20 大伴手禮推薦">
+              <span style="font-size:13px;line-height:1;">🛍️</span>
+              <span>伴手禮</span>
             </button>
           </div>
         </div>
@@ -2470,44 +2553,14 @@
                 <!-- =========================
              B. 精選視圖 (16 大主題專區分頁)
              ========================= -->
-        <div id="view-tab-featured" class="themes-view-container" style="display:none;padding:14px 18px 24px;">
-          <!-- 16 主題專區首頁清單 (預設展示) -->
+        <div id="view-tab-featured" class="themes-view-container" style="display:none;padding:12px 18px 24px;">
+          <!-- 16 主題專區首頁清單 (預設展示 · 2 欄精緻相片卡) -->
           <div id="featured-main-wrap">
-            <div id="featured-header-banner" style="background:linear-gradient(135deg, #2F3E46 0%, #43645C 100%);border-radius:22px;padding:18px;color:#FFF;margin-bottom:16px;box-shadow:0 8px 24px rgba(47,62,70,0.25);">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
-                <div style="display:flex;align-items:center;gap:8px;">
-                  <span style="font-size:20px;">✨</span>
-                  <span style="font-size:17px;font-weight:900;letter-spacing:-0.3px;">全台 16 大主題專區</span>
-                </div>
-                <span style="background:rgba(255,255,255,0.2);font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;">精選特輯</span>
-              </div>
-              <p style="font-size:12px;opacity:0.92;line-height:1.6;margin:0 0 12px;">
-                包含離島全攻略、花東友善探險、四季節慶、職棒應援、經典鐵道與秘境露營等 16 大深度專題，點擊即可開啟專屬行程與導覽！
-              </p>
-              <div style="display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;" class="no-scrollbar">
-                <button onclick="openThemeSubpage('islands')" style="background:#FFF;color:#2F3E46;border:none;border-radius:12px;padding:6px 14px;font-size:11px;font-weight:900;cursor:pointer;flex-shrink:0;">
-                  🏝️ 離島跳島
-                </button>
-                <button onclick="openThemeSubpage('huadong')" style="background:rgba(255,255,255,0.2);color:#FFF;border:1px solid rgba(255,255,255,0.4);border-radius:12px;padding:6px 14px;font-size:11px;font-weight:800;cursor:pointer;flex-shrink:0;">
-                  🏞️ 花東縱谷
-                </button>
-                <button onclick="openThemeSubpage('festivals')" style="background:rgba(255,255,255,0.2);color:#FFF;border:1px solid rgba(255,255,255,0.4);border-radius:12px;padding:6px 14px;font-size:11px;font-weight:800;cursor:pointer;flex-shrink:0;">
-                  🏮 節慶萬年曆
-                </button>
-                <button onclick="openThemeSubpage('baseball')" style="background:rgba(255,255,255,0.2);color:#FFF;border:1px solid rgba(255,255,255,0.4);border-radius:12px;padding:6px 14px;font-size:11px;font-weight:800;cursor:pointer;flex-shrink:0;">
-                  ⚾ 棒球聖地
-                </button>
-                <button onclick="openThemeSubpage('camping')" style="background:rgba(255,255,255,0.2);color:#FFF;border:1px solid rgba(255,255,255,0.4);border-radius:12px;padding:6px 14px;font-size:11px;font-weight:800;cursor:pointer;flex-shrink:0;">
-                  ⛺ 秘境露營
-                </button>
-              </div>
-            </div>
-
-            <div class="eyebrow-label" style="padding:0 0 10px;">
+            <div class="eyebrow-label" style="padding:0 0 12px;">
               <span>全台 16 大主題專區 · 點擊卡片探索完整攻略</span>
-              <span>16 SUBPAGES</span>
+              <span>16 THEMES</span>
             </div>
-            <div class="themes-vertical-stream" id="themes-grid-list"></div>
+            <div class="themes-big-grid" id="themes-grid-list"></div>
           </div>
 
           <!-- 子專題單頁嵌入檢視器 (點擊任一主題後於當前螢幕展開，附返回按鈕) -->
@@ -3667,6 +3720,8 @@ const ALL_ISLANDS_DATA = {
       { 
         id: "islands", 
         name: "🏝️ 離島跳島全攻略", 
+        shortName: "離島",
+        shortEn: "ISLANDS",
         en: "Islands of Taiwan", 
         title: "航向湛藍秘境：台灣離島跳島全攻略",
         location: "澎湖 · 綠島 · 蘭嶼 · 小琉球",
@@ -3680,6 +3735,8 @@ const ALL_ISLANDS_DATA = {
       { 
         id: "huadong", 
         name: "🏞️ 花東外國人友善縱谷", 
+        shortName: "花東",
+        shortEn: "EAST COAST",
         en: "Hualien & Taitung Explorer", 
         title: "縱谷的風、太平洋的浪：世界旅人的避風港",
         location: "花蓮 · 台東 · 太平洋海岸線",
@@ -3693,6 +3750,8 @@ const ALL_ISLANDS_DATA = {
       { 
         id: "festivals", 
         name: "🏮 四季節慶萬年曆", 
+        shortName: "節慶",
+        shortEn: "FESTIVALS",
         en: "Taiwan Seasonal Festivals", 
         title: "聚在一起的溫度：台灣四季節慶全覽",
         location: "全台 · 平溪 · 鹽水 · 跨年",
@@ -3706,6 +3765,8 @@ const ALL_ISLANDS_DATA = {
       { 
         id: "events", 
         name: "🎪 國際年度盛事", 
+        shortName: "活動",
+        shortEn: "EVENTS",
         en: "Annual Mega Events", 
         title: "音樂、藝術與狂歡：台灣年度指標展演",
         location: "台北 · 高雄 · 屏東墾丁",
@@ -3719,6 +3780,8 @@ const ALL_ISLANDS_DATA = {
       { 
         id: "baseball", 
         name: "⚾ 熱血職棒應援文化", 
+        shortName: "棒球",
+        shortEn: "BASEBALL",
         en: "CPBL Baseball Fever", 
         title: "世界十二強王者：台灣棒球聖地巡禮",
         location: "台北大巨蛋 · 台中洲際 · 台南",
@@ -3732,6 +3795,8 @@ const ALL_ISLANDS_DATA = {
       { 
         id: "trekking", 
         name: "⛰️ 台灣百岳與山林古道", 
+        shortName: "登山",
+        shortEn: "TREKKING",
         en: "Alpine Peaks & Trails", 
         title: "漫步雲海之上：台灣山林奇蹟探訪",
         location: "南投 · 嘉義 · 花蓮合歡山",
@@ -3745,6 +3810,8 @@ const ALL_ISLANDS_DATA = {
       { 
         id: "railway", 
         name: "🚂 經典鐵道全景圖鑑", 
+        shortName: "鐵道",
+        shortEn: "RAILWAYS",
         en: "Scenic Scenic Railways", 
         title: "車窗外的移動風景：台灣鐵道風華圖鑑",
         location: "阿里山森鐵 · 平溪線 · 集集",
@@ -3758,6 +3825,8 @@ const ALL_ISLANDS_DATA = {
       { 
         id: "nightmarket", 
         name: "🍢 舌尖上的深夜食堂", 
+        shortName: "夜市",
+        shortEn: "NIGHT MARKETS",
         en: "Famous Night Markets", 
         title: "煙火氣裡的百味：全台夜市美食爭霸",
         location: "台北士林 · 台中逢甲 · 嘉義文化路",
@@ -3771,6 +3840,8 @@ const ALL_ISLANDS_DATA = {
       { 
         id: "nightview", 
         name: "🌃 浪漫百萬夜景私藏", 
+        shortName: "夜景",
+        shortEn: "NIGHT VIEWS",
         en: "Romantic Night Views", 
         title: "星光與城市的低語：全台浪漫夜景地圖",
         location: "台北象山 · 台中望高寮 · 高雄壽山",
@@ -3779,11 +3850,13 @@ const ALL_ISLANDS_DATA = {
         duration: "夜間浪漫",
         desc: "象山六巨石俯瞰台北101璀璨天際線、台中望高寮百萬夜景景觀平台與高雄壽山情人觀景台港都夕照，情侶微醺約會必訪。",
         img: "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=1000&auto=format&fit=crop", 
-        badge: "ROOFTOP" 
+        badge: "ROMANTIC" 
       },
       { 
         id: "hotspring", 
         name: "♨️ 頂級名湯溫泉放鬆", 
+        shortName: "溫泉",
+        shortEn: "HOT SPRINGS",
         en: "Natural Hot Springs", 
         title: "山林氤氳白磺泉：全台四大名湯私房境",
         location: "北投 · 礁溪 · 谷關 · 關子嶺",
@@ -3792,11 +3865,13 @@ const ALL_ISLANDS_DATA = {
         duration: "放鬆療癒",
         desc: "北投百年日式白磺硫磺名湯、礁溪美人湯平原水色、谷關日式溫泉渡假村與關子嶺世界罕見泥漿溫泉，洗滌身心疲憊的暖心之選。",
         img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1000&auto=format&fit=crop", 
-        badge: "SPA" 
+        badge: "RELAX" 
       },
       { 
         id: "camping", 
         name: "⛺ 星空野奢豪華露營", 
+        shortName: "露營",
+        shortEn: "CAMPING",
         en: "Luxury Glamping Sites", 
         title: "躺看滿天星斗：免裝備豪華露營Glamping",
         location: "苗栗泰安 · 新竹尖石 · 宜蘭礁溪",
@@ -3810,6 +3885,8 @@ const ALL_ISLANDS_DATA = {
       { 
         id: "northcoast", 
         name: "🌊 北海岸海蝕地貌秘境", 
+        shortName: "北海岸",
+        shortEn: "NORTH COAST",
         en: "North Coast Sea Cliffs", 
         title: "奇岩怪石與蔚藍灣岬：北海岸秘境巡航",
         location: "基隆嶼 · 萬里野柳 · 鼻頭角步道",
@@ -3818,11 +3895,13 @@ const ALL_ISLANDS_DATA = {
         duration: "1~2 Days",
         desc: "野柳女王頭海蝕地質奇觀、基隆嶼包船繞島登頂燈塔俯瞰台灣龍珠、鼻頭角台版小長城與潮境公園飛天掃帚，絕美蔚藍海景公路。",
         img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1000&auto=format&fit=crop", 
-        badge: "COAST" 
+        badge: "COASTAL" 
       },
       { 
         id: "roundtaiwan", 
         name: "🚴 熱血環島縱橫壯遊", 
+        shortName: "環島",
+        shortEn: "ROUND TAIWAN",
         en: "Round-Taiwan Expedition", 
         title: "一生必走一次的旅程：台灣環島縱橫壯遊",
         location: "台 1 線 · 台 9 線 · 台灣四極點",
@@ -3831,11 +3910,13 @@ const ALL_ISLANDS_DATA = {
         duration: "7~9 Days",
         desc: "打卡四極點燈塔、穿越蘇花公路壯闊海景。機車、公路車或自駕SUV環島，用速度刻寫專屬於你的青春與勇氣故事。",
         img: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=1000&auto=format&fit=crop", 
-        badge: "EXPEDITION" 
+        badge: "ROADTRIP" 
       },
       { 
         id: "diving", 
         name: "🤿 潛入太平洋與珊瑚礁", 
+        shortName: "潛水",
+        shortEn: "DIVING",
         en: "World-Class Diving", 
         title: "遇見海龜與軟珊瑚：台灣世界級潛水聖地",
         location: "小琉球 · 綠島石朗 · 墾丁後壁湖",
@@ -3849,6 +3930,8 @@ const ALL_ISLANDS_DATA = {
       { 
         id: "surfing", 
         name: "🏄 追浪熱血浪人天堂", 
+        shortName: "衝浪",
+        shortEn: "SURFING",
         en: "Surfing Spots & Breaks", 
         title: "等待起浪的瞬間：全台頂級浪點攻略",
         location: "宜蘭烏石港 · 墾丁佳樂水 · 台東東河",
@@ -3862,6 +3945,8 @@ const ALL_ISLANDS_DATA = {
       { 
         id: "templefair", 
         name: "🏮 傳統廟會與民俗藝陣", 
+        shortName: "廟會",
+        shortEn: "TEMPLE FAIRS",
         en: "Traditional Temple Fairs", 
         title: "神明出巡的震撼：台灣民俗信仰文化",
         location: "大甲鎮瀾宮 · 白沙屯 · 東港東隆宮",
@@ -4274,49 +4359,20 @@ const ALL_ISLANDS_DATA = {
     }
 
 
-    // 渲染 16 大主題大圖卡片 (精選分頁)
-    // 渲染 16 大主題大圖卡片 (精選分頁 · 完全符合圖二右上 Style 2：滿版實景大圖 + 懸浮深碳毛玻璃卡片)
+    // 渲染 16 大主題 2 欄精緻相片卡片 (精選分頁 · 依用戶指定：2個一排、滿版實景美圖、左上膠囊標籤、左下白字大標+英文副標)
     function renderThemesBigGrid() {
       const container = document.getElementById("themes-grid-list");
       if (!container) return;
       container.innerHTML = THEMES_DATA.map(t => {
-        const isFav = favoritesList.some(f => f.name === t.title);
+        const shortTitle = t.shortName || t.name.replace(/^[^\s]+\s*/, '');
+        const shortSub = t.shortEn || t.en;
         return `
-          <div class="curated-theme-card" onclick="openThemeSubpage('${t.id}')">
-            <!-- 滿版絕美實景背景大圖 (Style 2: 滿版震撼大圖) -->
-            <img class="curated-bg-photo" src="${t.img}" alt="${t.name}" loading="lazy">
-            
-            <!-- 頂部懸浮極簡圓形毛玻璃控制鍵 (左側分類圖示，右側書籤收藏按鈕) -->
-            <div class="curated-top-floating-bar">
-              <div class="curated-top-circle-btn">${t.name.slice(0, 2)}</div>
-              <button class="curated-top-circle-btn ${isFav ? 'favorited' : ''}" onclick="event.stopPropagation(); toggleFav('${t.title}', '精選主題', '${t.img}')" title="收藏專題">
-                🔖
-              </button>
-            </div>
-
-            <!-- 底部懸浮深碳綠色/深灰青毛玻璃卡片 (Dark Slate Frosted Glass Card) -->
-            <div class="curated-floating-slate-card">
-              <div class="curated-loc-pin">📍 ${t.location}</div>
-              <div class="curated-card-headline">${t.title}</div>
-              
-              <!-- 3 條橫向水平數據指標 -->
-              <div class="curated-metrics-bar">
-                <span>⭐ ${t.rate} 旅人推薦</span>
-                <span class="bar-div">|</span>
-                <span>🌡️ ${t.temp}</span>
-                <span class="bar-div">|</span>
-                <span>⏱️ ${t.duration}</span>
-              </div>
-
-              <!-- 故事性段落介紹 + Read More 天空藍超連結 -->
-              <div class="curated-desc-p">
-                ${t.desc} <span class="curated-read-more" onclick="event.stopPropagation(); openThemeSubpage('${t.id}')">Read More</span>
-              </div>
-
-              <!-- 高對比純白膠囊按鈕：[ Book Now 探索專題 ➔ ] -->
-              <button class="curated-book-now-white-btn" onclick="event.stopPropagation(); openThemeSubpage('${t.id}')">
-                Book Now 探索專題 ➔
-              </button>
+          <div class="theme-photo-card" onclick="openThemeSubpage('${t.id}')">
+            <img src="${t.img}" alt="${shortTitle}" loading="lazy">
+            <span class="theme-photo-badge">${t.badge}</span>
+            <div class="theme-photo-overlay">
+              <div class="theme-photo-title">${shortTitle}</div>
+              <div class="theme-photo-subtitle">${shortSub}</div>
             </div>
           </div>
         `;

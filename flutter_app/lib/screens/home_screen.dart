@@ -770,146 +770,82 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 6),
                     child: Row(
                       children: [
-                        // 排行榜按鈕 (手搖飲與熱門景點雙榜單)
+                        // 排行榜按鈕 (小巧、醒目金橘漸層、強烈吸引力)
                         Expanded(
                           child: InkWell(
                             onTap: () => _showRankingsSheet(context, isDrinks: true),
-                            borderRadius: BorderRadius.circular(16),
+                            borderRadius: BorderRadius.circular(20),
                             child: Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                               decoration: BoxDecoration(
                                 gradient: const LinearGradient(
-                                  colors: [Color(0xFFFFFBEB), Color(0xFFFEF3C7)],
+                                  colors: [Color(0xFFF59E0B), Color(0xFFD97706)],
                                   begin: Alignment.topLeft,
                                   end: Alignment.bottomRight,
                                 ),
-                                borderRadius: BorderRadius.circular(16),
-                                border: Border.all(color: const Color(0xFFFCD34D), width: 1.5),
+                                borderRadius: BorderRadius.circular(20),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: const Color(0xFFF59E0B).withOpacity(0.15),
-                                    blurRadius: 10,
-                                    offset: const Offset(0, 3),
+                                    color: const Color(0xFFD97706).withOpacity(0.35),
+                                    blurRadius: 8,
+                                    offset: const Offset(0, 2),
                                   ),
                                 ],
                               ),
                               child: Row(
-                                children: [
-                                  const Text("🏆", style: TextStyle(fontSize: 20)),
-                                  const SizedBox(width: 8),
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            const Text(
-                                              "排行榜",
-                                              style: TextStyle(
-                                                fontSize: 13,
-                                                fontWeight: FontWeight.w900,
-                                                color: Color(0xFF92400E),
-                                              ),
-                                            ),
-                                            const SizedBox(width: 4),
-                                            Container(
-                                              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
-                                              decoration: BoxDecoration(
-                                                color: const Color(0xFFEF4444),
-                                                borderRadius: BorderRadius.circular(6),
-                                              ),
-                                              child: const Text(
-                                                "HOT",
-                                                style: TextStyle(fontSize: 8, fontWeight: FontWeight.w900, color: Colors.white),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        const Text(
-                                          "飲料 · 景點雙榜",
-                                          style: TextStyle(
-                                            fontSize: 9.5,
-                                            fontWeight: FontWeight.w700,
-                                            color: Color(0xFFB45309),
-                                          ),
-                                        ),
-                                      ],
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Text("🏆", style: TextStyle(fontSize: 14)),
+                                  SizedBox(width: 4),
+                                  Text(
+                                    "排行榜",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w900,
+                                      color: Colors.white,
                                     ),
                                   ),
-                                  const Text("➔", style: TextStyle(fontSize: 11, color: Color(0xFFD97706), fontWeight: FontWeight.w900)),
                                 ],
                               ),
                             ),
                           ),
                         ),
-                        const SizedBox(width: 10),
-                        // 伴手禮按鈕 (購物ICON，跳轉推薦20大名產專區)
+                        const SizedBox(width: 8),
+                        // 伴手禮按鈕 (小巧、醒目珊瑚紅漸層、直通20大推薦)
                         Expanded(
                           child: InkWell(
                             onTap: () => _showSouvenirsSheet(context),
-                            borderRadius: BorderRadius.circular(16),
+                            borderRadius: BorderRadius.circular(20),
                             child: Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                               decoration: BoxDecoration(
                                 gradient: const LinearGradient(
-                                  colors: [Color(0xFFFFF7ED), Color(0xFFFFEDD5)],
+                                  colors: [Color(0xFFFF4757), Color(0xFFE11D48)],
                                   begin: Alignment.topLeft,
                                   end: Alignment.bottomRight,
                                 ),
-                                borderRadius: BorderRadius.circular(16),
-                                border: Border.all(color: const Color(0xFFFDBA74), width: 1.5),
+                                borderRadius: BorderRadius.circular(20),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: const Color(0xFFEA580C).withOpacity(0.14),
-                                    blurRadius: 10,
-                                    offset: const Offset(0, 3),
+                                    color: const Color(0xFFE11D48).withOpacity(0.35),
+                                    blurRadius: 8,
+                                    offset: const Offset(0, 2),
                                   ),
                                 ],
                               ),
                               child: Row(
-                                children: [
-                                  const Text("🛍️", style: TextStyle(fontSize: 20)),
-                                  const SizedBox(width: 8),
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            const Text(
-                                              "伴手禮",
-                                              style: TextStyle(
-                                                fontSize: 13,
-                                                fontWeight: FontWeight.w900,
-                                                color: Color(0xFF9A3412),
-                                              ),
-                                            ),
-                                            const SizedBox(width: 4),
-                                            Container(
-                                              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
-                                              decoration: BoxDecoration(
-                                                color: const Color(0xFFF97316),
-                                                borderRadius: BorderRadius.circular(6),
-                                              ),
-                                              child: const Text(
-                                                "20大",
-                                                style: TextStyle(fontSize: 8, fontWeight: FontWeight.w900, color: Colors.white),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        const Text(
-                                          "萬家福線上直配",
-                                          style: TextStyle(
-                                            fontSize: 9.5,
-                                            fontWeight: FontWeight.w700,
-                                            color: Color(0xFFC2410C),
-                                          ),
-                                        ),
-                                      ],
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Text("🛍️", style: TextStyle(fontSize: 14)),
+                                  SizedBox(width: 4),
+                                  Text(
+                                    "伴手禮",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w900,
+                                      color: Colors.white,
                                     ),
                                   ),
-                                  const Text("➔", style: TextStyle(fontSize: 11, color: Color(0xFFEA580C), fontWeight: FontWeight.w900)),
                                 ],
                               ),
                             ),
