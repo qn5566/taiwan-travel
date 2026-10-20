@@ -3216,12 +3216,12 @@
 
           <!-- 子專題單頁嵌入檢視器 (點擊任一主題後於當前螢幕展開，附返回按鈕) -->
           <div id="subpage-inline-viewer" style="display:none;">
-            <div style="position:sticky;top:0;z-index:90;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:10px 0;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #E2E8F0;">
-              <button onclick="closeInlineSubpage()" style="background:linear-gradient(135deg, #FF2D55 0%, #E11D48 100%);color:#FFFFFF;border:none;border-radius:24px;padding:9px 20px;font-size:13px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 18px rgba(255,45,85,0.42);transition:all 0.2s ease;">
-                <span style="font-size:16px;line-height:1;">←</span>
-                <span>返回 18 大精選專題</span>
+            <div style="position:sticky;top:0;z-index:90;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:10px 0;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #E2E8F0;">
+              <button onclick="closeInlineSubpage()" style="background:#F1F5F9;border:1.5px solid #CBD5E1;color:#1E293B;border-radius:24px;padding:8px 18px;font-size:13px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:7px;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:all 0.2s ease;">
+                <span style="font-size:15px;color:#64748B;font-weight:900;line-height:1;">←</span>
+                <span>返回精選專題</span>
               </button>
-              <span id="subpage-inline-title" style="font-size:13px;font-weight:900;color:#2F3E46;">專題子頁</span>
+              <span id="subpage-inline-title" style="font-size:13px;font-weight:900;color:#64748B;">精選專題</span>
             </div>
             <div id="subpage-inline-content"></div>
           </div>
@@ -5728,16 +5728,11 @@ const ALL_ISLANDS_DATA = {
             <span style="font-size:20px;color:#FFF;">${isFav ? '❤️' : '🤍'}</span>
           </button>
         </div>
-          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:16px;padding:10px 6px;text-align:center;">
-            <div style="font-size:16px;margin-bottom:2px;">🏷️</div>
-            <div style="font-size:13.5px;font-weight:900;color:#0284C7;">${opts.price || 'NT$ 750起'}</div>
-            <div style="font-size:9.5px;color:#64748B;font-weight:700;">${opts.priceDesc || '特惠行程'}</div>
-          </div>
-          <!-- About 專題深度介紹區塊 (附 Show More 展開更多) -->
+
+        <!-- About 專題深度介紹區塊 (直接展示) -->
         <div style="margin-bottom:20px;">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="margin-bottom:6px;">
             <span style="font-size:15px;font-weight:900;color:#0F172A;">About</span>
-            <span style="font-size:11px;font-weight:800;color:#FF2D55;cursor:pointer;" onclick="toggleAboutExpand()">Show More</span>
           </div>
           <p id="detail-about-text" style="font-size:12px;color:#475569;line-height:1.6;margin:0;">
             ${opts.about}
@@ -5749,13 +5744,14 @@ const ALL_ISLANDS_DATA = {
 
         <!-- 經典行程規劃走法 (2天1夜 / 3天2夜) -->
         ${opts.itineraries && opts.itineraries.length > 0 ? `
-          <div style="margin-bottom:20px;">
-            <div style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">
-              <span>跳島行程：</span>
-              <span style="font-size:10px;color:#0284C7;font-weight:800;background:#E0F2FE;padding:2px 8px;border-radius:10px;">自由切換</span>
-            </div>
+          <div id="${opts.id}-itinerary-card-wrap" class="thematic-itinerary-card-wrap" style="margin-bottom:20px;">
+            ${opts.itinSectionTitle ? `
+              <div style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:8px;">
+                ${opts.itinSectionTitle}
+              </div>
+            ` : ''}
             
-            <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:18px;padding:14px;box-shadow:0 4px 14px rgba(2,132,199,0.06);">
+            <div id="${opts.id}-itinerary-card-content" style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:18px;padding:14px;box-shadow:0 4px 14px rgba(2,132,199,0.06);">
               ${opts.itineraries.map((itin, idx) => `
                 <div style="margin-bottom:${idx < opts.itineraries.length - 1 ? '14px' : '0'};padding-bottom:${idx < opts.itineraries.length - 1 ? '14px' : '0'};border-bottom:${idx < opts.itineraries.length - 1 ? '1px dashed #E2E8F0' : 'none'};">
                   <div style="font-size:13.5px;font-weight:900;color:#0369A1;margin-bottom:8px;">${itin.title}</div>
@@ -6150,11 +6146,10 @@ const ALL_ISLANDS_DATA = {
               </button>
             </div>
 
-            <!-- About 景點重要介紹區塊 (附 Show More 展開更多) -->
+            <!-- About 景點重要介紹區塊 (精簡直接展示，無 Show More / 展開全覽) -->
             <div style="margin-bottom:22px;">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <div style="margin-bottom:8px;">
                 <span style="font-size:16px;font-weight:900;color:#0F172A;">About</span>
-                <span style="font-size:11px;font-weight:800;color:#FF2D55;cursor:pointer;" onclick="toggleAboutExpand()">展開全覽</span>
               </div>
               <p id="detail-about-text" style="font-size:12.5px;color:#475569;line-height:1.65;margin:0;">
                 ${spot.desc} 這裡匯聚了全台灣最震撼人心的自然地貌與人文底蘊，無論是清晨微風初起的朝霞、抑或落日餘暉灑落山海之際，皆能為旅人帶來無與倫比的心靈洗滌與視覺享受。
@@ -6934,6 +6929,40 @@ const EVENTS_API_DATA = [{"name": "大港開唱 Megaport Festival", "loc": "高�
 // currentRoundTaiwanMode moved
 // currentTrekkingLevel moved
 
+// 平滑滾動定位至指定錨點，確保切換行程或島嶼時直接呈現下方重點內容，不卡在上方 About / 大圖
+function smoothScrollToAnchor(anchorId) {
+  setTimeout(() => {
+    const el = document.getElementById(anchorId);
+    if (!el) return;
+
+    const candidates = [
+      document.getElementById("left-scroll-body"),
+      document.getElementById("thematic-subpages-wrapper"),
+      el.closest('.screen-body'),
+      el.closest('#thematic-subpages-wrapper'),
+      window
+    ];
+
+    for (const c of candidates) {
+      if (!c) continue;
+      if (c === window) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < 0 || rect.top > window.innerHeight) {
+          window.scrollBy({ top: rect.top - 20, behavior: 'smooth' });
+        }
+      } else if (c.scrollHeight > c.clientHeight) {
+        const cRect = c.getBoundingClientRect();
+        const elRect = el.getBoundingClientRect();
+        const targetScrollTop = c.scrollTop + (elRect.top - cRect.top) - 15;
+        c.scrollTo({
+          top: Math.max(0, targetScrollTop),
+          behavior: 'smooth'
+        });
+      }
+    }
+  }, 45);
+}
+
 function updateSubpageView(themeId) {
   const subHtml = generateSubpageHTML(themeId);
   const wrapper = document.getElementById("thematic-subpages-wrapper");
@@ -6949,6 +6978,7 @@ function updateSubpageView(themeId) {
 function switchIslandSubTab(key) {
   currentIslandTab = key;
   updateSubpageView("islands");
+  smoothScrollToAnchor("islands-tabs-anchor");
 }
 
 function switchIslandItinerary(itinId) {
@@ -7016,6 +7046,7 @@ let currentIslandItinDuration = "3d2n";
 function switchIslandItinDuration(dur) {
   currentIslandItinDuration = dur;
   updateSubpageView("islands");
+  smoothScrollToAnchor("islands-itin-anchor");
 }
 
 function renderSubpageIslands(theme) {
@@ -7028,24 +7059,20 @@ function renderSubpageIslands(theme) {
   const currentItin = ISLAND_ITINERARIES_DATA[itinLookupKey] || ISLAND_ITINERARIES_DATA[`${islandKey}-3d2n`] || ISLAND_ITINERARIES_DATA["penghu-3d2n"];
 
   const customWidgets = `
-    <!-- ✈️ 離島機票查詢快捷卡片 -->
-    <div style="background:#FFFFFF;border:1.5px solid #BAE6FD;border-radius:16px;padding:12px 14px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 14px rgba(2,132,199,0.08);">
-      <div style="display:flex;align-items:center;gap:10px;">
-        <div style="width:36px;height:36px;border-radius:12px;background:#E0F2FE;color:#0284C7;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">
-          ✈️
-        </div>
-        <div>
-          <div style="font-size:13px;font-weight:900;color:#0369A1;letter-spacing:-0.2px;">離島機票查詢</div>
-          <div style="font-size:10px;color:#0284C7;font-weight:700;">直飛澎湖 · 金門 · 馬祖 · 綠島</div>
-        </div>
-      </div>
-      <a href="https://tw.trip.com/flights/?allianceid=123436&sid=123436" target="_blank" style="background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;padding:6px 14px;font-size:11px;font-weight:900;text-decoration:none;border-radius:20px;box-shadow:0 3px 8px rgba(2,132,199,0.25);white-space:nowrap;display:inline-flex;align-items:center;gap:4px;">
-        <span>查機票</span> <span>➔</span>
+    <!-- ✈️ 機票查詢 (藍色) & 🚤 搭船船票 (粉綠色) 左右兩邊顯示 (50/50 分割) -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+      <a href="https://tw.trip.com/flights/?allianceid=123436&sid=123436" target="_blank" style="background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFFFFF;padding:12px 10px;border-radius:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 3px 10px rgba(2,132,199,0.25);transition:transform 0.2s ease;">
+        <span style="font-size:18px;">✈️</span>
+        <span style="font-size:13px;font-weight:900;letter-spacing:-0.2px;">機票查詢</span>
+      </a>
+      <a href="https://www.klook.com/zh-TW/transport-4/ferry-1012-taiwan/?aid=123436" target="_blank" style="background:linear-gradient(135deg, #A7F3D0 0%, #6EE7B7 100%);border:1px solid #34D399;color:#064E3B;padding:12px 10px;border-radius:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 3px 10px rgba(110,231,183,0.3);transition:transform 0.2s ease;">
+        <span style="font-size:18px;">🚤</span>
+        <span style="font-size:13px;font-weight:900;letter-spacing:-0.2px;">搭船船票</span>
       </a>
     </div>
 
     <!-- 🏝️ 台灣離島：可往右滑動切換專屬島嶼 -->
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+    <div id="islands-tabs-anchor" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
       <span style="font-size:13px;font-weight:900;color:#0F172A;">台灣離島：</span>
       <span style="font-size:10.5px;color:#0284C7;font-weight:800;">👈 可左右滑動切換 👉</span>
     </div>
@@ -7074,7 +7101,7 @@ function renderSubpageIslands(theme) {
     </div>
 
     <!-- 天數切換按鈕 (直接做三天兩夜、兩天一夜的按鈕，自由切換不要) -->
-    <div style="display:flex;align-items:center;justify-content:space-between;margin:12px 0 8px;">
+    <div id="islands-itin-anchor" style="display:flex;align-items:center;justify-content:space-between;margin:12px 0 8px;">
       <span style="font-size:13px;font-weight:900;color:#0F172A;">跳島行程推薦：</span>
       <div style="display:flex;gap:6px;">
         <button onclick="switchIslandItinDuration('3d2n')" style="background:${currentIslandItinDuration==='3d2n'?'#0284C7':'#F1F5F9'};color:${currentIslandItinDuration==='3d2n'?'#FFF':'#334155'};border:none;border-radius:12px;padding:4px 10px;font-size:11px;font-weight:800;cursor:pointer;transition:all 0.2s ease;">
@@ -7089,17 +7116,10 @@ function renderSubpageIslands(theme) {
 
   return buildThematicSubpageUI({
     id: "islands",
-    title: "航向湛藍秘境：台灣離島，跳島行程：",
+    title: "航向湛藍秘境：台灣離島",
     subtitle: "碧海、火山玄武岩與星空下的純淨島嶼",
     location: "澎湖 · 綠島 · 蘭嶼 · 小琉球 · 金門 · 馬祖",
     img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1000&auto=format&fit=crop",
-    rate: "4.9",
-    reviews: "好評榜首",
-    price: "NT$ 750起",
-    priceDesc: "跳島船票/包車",
-    priceLink: "https://www.klook.com/zh-TW/transport-4/ferry-1012-taiwan/?aid=123436",
-    temp: "26°C",
-    tempDesc: "海島晴朗",
     about: islandData.desc || "台灣離島擁有世界級柱狀玄武岩火山地貌、罕見朝日海底溫泉與湛藍純淨珊瑚礁海域。無論是七美雙心石滬、綠島大白沙潛水、還是小琉球海龜同游，皆為海島旅人一生必去的天堂。",
     customWidgets: customWidgets,
     itineraries: [
@@ -7148,6 +7168,7 @@ let currentHuadongItinKey = "2d1n";
 function switchHuadongItin(key) {
   currentHuadongItinKey = key;
   updateSubpageView("huadong");
+  smoothScrollToAnchor("huadong-itin-anchor");
 }
 
 function renderSubpageHuadong(theme) {
@@ -7155,7 +7176,7 @@ function renderSubpageHuadong(theme) {
 
   const customWidgets = `
     <!-- 花東行程天數按鈕 (全部直接顯示出來，上下排列一次全見，已刪除切換提示標籤) -->
-    <div style="font-size:13px;font-weight:900;color:#0F172A;margin:12px 0 8px;">花東行程規劃：</div>
+    <div id="huadong-itin-anchor" style="font-size:13px;font-weight:900;color:#0F172A;margin:12px 0 8px;">花東行程規劃：</div>
     <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px;">
       <button onclick="switchHuadongItin('2d1n')" style="display:flex;align-items:center;justify-content:space-between;background:${currentHuadongItinKey==='2d1n'?'#0284C7':'#FFFFFF'};color:${currentHuadongItinKey==='2d1n'?'#FFF':'#334155'};border:1.5px solid ${currentHuadongItinKey==='2d1n'?'#0284C7':'#E2E8F0'};border-radius:12px;padding:9px 14px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.03);transition:all 0.2s ease;">
         <span style="font-size:12px;font-weight:800;">🌿【2天1夜】花蓮山海・峽谷瀑布</span>
@@ -7178,13 +7199,6 @@ function renderSubpageHuadong(theme) {
     subtitle: "縱谷的風・太平洋的浪・純淨避風港",
     location: "花蓮縣 · 台東縣 · 太平洋海岸線",
     img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=1000&auto=format&fit=crop",
-    rate: "4.95",
-    reviews: "好評榜首",
-    price: "NT$ 800起",
-    priceDesc: "專案包車直達",
-    priceLink: "https://www.klook.com/zh-TW/car-rentals/?aid=123436",
-    temp: "24°C",
-    tempDesc: "山海舒適",
     about: "花東直面浩瀚太平洋與中央山脈，是全球探險家與自由行旅客的最愛。推薦預約英語/日語專業包車司機導覽或租借機車暢遊台11線，太魯閣燕子口、白楊瀑布、七星潭聽浪、池上伯朗大道與台東鐵花村一次玩透！",
     customWidgets: customWidgets,
     itineraries: [
@@ -7311,16 +7325,116 @@ function renderSubpageInclusiveParks(theme) {
         bannerImg: "https://images.unsplash.com/photo-1548625361-195fe61a55c3?w=1000&auto=format&fit=crop",
         desc: "年味最濃的時刻！除夕團圓圍爐、大年初一走春祈福，全台年貨大街人聲鼎沸、試吃烏魚子牛軋糖。各大宮廟祈求發財金與平安符，晚間更有鹽水蜂炮與平溪天燈祈福盛典！",
         spots: [
-          { rank: 1, name: "台北迪化街年貨大街", addr: "台北市大同區迪化街一段", desc: "全台年味最濃百年巴洛克老街！烏魚子、干貝、花生糖萬人試吃巡禮與熱鬧燈海。", aid: "https://www.klook.com/zh-TW/activity/1874-jiufen-shifen-day-tour-taipei/?aid=123436" },
-          { rank: 2, name: "台北行天宮走春拜拜", addr: "台北市中山區民權東路二段109號", desc: "恭奉關聖帝君，過年排隊領取平安紅卡與收驚祈福，香火極其鼎盛。", aid: "https://www.klook.com/zh-TW/city/19-taipei-things-to-do/?aid=123436" },
-          { rank: 3, name: "艋舺龍山寺", addr: "台北市萬華區廣州街211號", desc: "國家二級古蹟，過年鑽燈腳保平安，金碧輝煌的藻井與香煙繚繞滿是虔誠力量。", aid: "https://www.klook.com/zh-TW/city/19-taipei-things-to-do/?aid=123436" },
-          { rank: 4, name: "台中天津路年貨街", addr: "台中市北區天津路二段", desc: "中台灣規模最大服飾年貨大街，百攤美味小吃與過年開運新衣一次買齊。", aid: "https://www.klook.com/zh-TW/city/19-taichung-things-to-do/?aid=123436" },
-          { rank: 5, name: "南投竹山紫南宮借發財金", addr: "南投縣竹山鎮大公街40號", desc: "全台最神土地公！過年數十萬信眾排隊借發財金、摸金雞祈求一整年財源廣進。", aid: "https://www.klook.com/zh-TW/activity/2381-sun-moon-lake-shuishe-nantou/?aid=123436" },
-          { rank: 6, name: "雲林北港朝天宮", addr: "雲林縣北港鎮中山路178號", desc: "台灣媽祖信仰核心！過年香客如織、朝拜遶境神轎與美味北港鴨肉羹。", aid: "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436" },
-          { rank: 7, name: "台南普濟殿燈會", addr: "台南市中西區普濟街79號", desc: "台南歷史最悠久燈會！超過千顆繽紛手繪燈籠懸掛廟前古街，夜間璀璨浪漫。", aid: "https://www.klook.com/zh-TW/city/19-tainan-things-to-do/?aid=123436" },
-          { rank: 8, name: "高雄三鳳中街年貨大街", addr: "高雄市三民區三鳳中街", desc: "南台灣最大南北貨集散地，烏魚子、肉乾、香菇、果乾堆積如山，試吃人潮不絕。", aid: "https://www.klook.com/zh-TW/city/19-kaohsiung-things-to-do/?aid=123436" },
-          { rank: 9, name: "宜蘭傳藝中心走春", addr: "宜蘭縣五結鄉五濱路二段201號", desc: "傳統工藝大集合！過年醒獅獻瑞、踩街雜技演出與紅磚老街童玩體驗。", aid: "https://www.klook.com/zh-TW/activity/1089-yehliu-geopark-ticket-taipei/?aid=123436" },
-          { rank: 10, name: "屏東勝利星村燈節", addr: "屏東縣屏東市青島街106號", desc: "全台最大日式眷村文創園區，過年結合巨型可愛燈飾與特色文創咖啡館。", aid: "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436" }
+          {
+            rank: 1,
+            name: "台北迪化街年貨大街",
+            tag: "百年巴洛克老街 · 萬人試吃燈海",
+            addr: "台北市大同區迪化街一段",
+            desc: "全台年味最濃百年巴洛克老街！烏魚子、干貝、花生糖萬人試吃巡禮與熱鬧燈海。",
+            dayItin: "捷運大橋頭站 ➔ 迪化街一段走春試吃南北貨 ➔ 霞海城隍廟參拜月老求良緣 ➔ 永樂市場品嚐旗魚米粉 ➔ 大稻埕碼頭貨櫃市集看淡水河落日",
+            drinks: "【合興壹玖肆柒】古法鬆糕配高山烏龍茶；【南街得意】百年洋樓靜謐茶館；【爐鍋咖啡】老宅手沖精品黑咖啡",
+            souvenir: "【李亭香】金錢龜祈福漢餅、平安龜花生糖；【江記華隆】黑胡椒薄脆肉紙；【合興壹玖肆柒】棗泥鬆糕禮盒",
+            aid: "https://www.klook.com/zh-TW/activity/1874-jiufen-shifen-day-tour-taipei/?aid=123436"
+          },
+          {
+            rank: 2,
+            name: "台北行天宮走春拜拜",
+            tag: "關聖帝君 · 排隊求平安卡收驚",
+            addr: "台北市中山區民權東路二段109號",
+            desc: "恭奉關聖帝君，過年排隊領取平安紅卡與收驚祈福，香火極其鼎盛。",
+            dayItin: "捷運行天宮站 ➔ 行天宮參拜關聖帝君祈福開運 ➔ 排隊受贈平安紅卡 ➔ 地下街算命占卜 ➔ 錦州街小吃街享用午餐 ➔ 漫步榮星花園享受芬多精",
+            drinks: "【填一點】療癒系手作磅蛋糕與手沖拿鐵；【木白甜點咖啡店】日系木質調靜岡抹茶與戚風蛋糕；【春水堂】珍珠奶茶創始經典",
+            souvenir: "【不老客家傳統麻糬】超人氣手工花生芝麻麻糬（行天宮排隊王）；【宏益水晶餃】一甲子古早味手工鹹甜糕餅",
+            aid: "https://www.klook.com/zh-TW/city/19-taipei-things-to-do/?aid=123436"
+          },
+          {
+            rank: 3,
+            name: "艋舺龍山寺",
+            tag: "二級古蹟 · 鑽平安燈祈求安康",
+            addr: "台北市萬華區廣州街211號",
+            desc: "國家二級古蹟，過年鑽燈腳保平安，金碧輝煌的藻井與香煙繚繞滿是虔誠力量。",
+            dayItin: "捷運龍山寺站 ➔ 艋舺龍山寺參拜觀音佛祖與鑽平安燈 ➔ 剝皮寮歷史街區文創漫步 ➔ 青草巷挑選開運草本茶 ➔ 廣州街/華西街夜市古早味",
+            drinks: "【老濟安】青草巷百年療癒青草茶吧；【星巴克艋舺門市】林家古宅三層洋樓特色門市；【太和餅舖】配現泡阿里山清茶",
+            souvenir: "【三六食粑 (三六圓仔店)】傳統紅龜粿、黃金發糕、手工芋粿；【兩喜號】招牌百年魷魚羹真空包；【太和餅舖】冬瓜肉餅",
+            aid: "https://www.klook.com/zh-TW/city/19-taipei-things-to-do/?aid=123436"
+          },
+          {
+            rank: 4,
+            name: "台中天津路年貨街",
+            tag: "中台灣最大 · 新衣採買小吃街",
+            addr: "台中市北區天津路二段",
+            desc: "中台灣規模最大服飾年貨大街，百攤美味小吃與過年開運新衣一次買齊。",
+            dayItin: "天津路商圈逛開運新衣與年貨試吃 ➔ 北平路美食街品嚐牛肉麵與烙餅 ➔ 一中街商圈流行漫步 ➔ 台中公園划船放鬆 ➔ 審計新村文創夜遊",
+            drinks: "【拾沛茶飲】在地台灣純茶與手作奶霜；【Coffee Stopover】台中頂尖職人手沖咖啡；【春水堂創始店】品嚐正宗原創波霸珍奶",
+            souvenir: "【今日蜜麻花】台中排隊傳奇手工蜜麻花；【俊美食品】經典松子酥與鳳梨酥；【坂神本舖長崎蛋糕】金黃現烤長崎蛋糕",
+            aid: "https://www.klook.com/zh-TW/city/19-taichung-things-to-do/?aid=123436"
+          },
+          {
+            rank: 5,
+            name: "南投竹山紫南宮借發財金",
+            tag: "求財神廟 · 摸金雞求財運亨通",
+            addr: "南投縣竹山鎮大公街40號",
+            desc: "全台最神土地公！過年數十萬信眾排隊借發財金、摸金雞祈求一整年財源廣進。",
+            dayItin: "抵達竹山紫南宮參拜祈福 ➔ 擲筊借發財金與過爐發財錢母 ➔ 摸發財金雞各部位開運 ➔ 品嚐竹山甕仔雞與竹筍包 ➔ 順遊集集小鎮綠色隧道騎單車",
+            drinks: "【竹山特產冷泡高山茶】南投在地凍頂烏龍茶；【遊山茶訪】台灣極致精品茶文化館；【二坪冰店】清涼紹興清冰與茶飲",
+            souvenir: "【紫南宮招財金雞】過爐祈福擺件；【竹山日香食品】白胡椒餅、冬筍餅；【阿公阿嬤竹筍包】現蒸蜜番薯與芋頭餅",
+            aid: "https://www.klook.com/zh-TW/activity/2381-sun-moon-lake-shuishe-nantou/?aid=123436"
+          },
+          {
+            rank: 6,
+            name: "雲林北港朝天宮",
+            tag: "媽祖總廟 · 祈福遶境鴨肉羹",
+            addr: "雲林縣北港鎮中山路178號",
+            desc: "台灣媽祖信仰核心！過年香客如織、朝拜遶境神轎與美味北港鴨肉羹。",
+            dayItin: "朝天宮參拜萬年香火黑面媽祖 ➔ 中山路朝聖老街品嚐傳統大餅與鴨肉羹 ➔ 北港水道頭文化園區漫步 ➔ 觀光大橋俯瞰北港溪 ➔ 新港奉天宮雙廟祈福",
+            drinks: "【保生堂漢方咖啡館】百年中藥房改建肉桂拿鐵與漢方養生茶；【北港青草茶老店】現熬清熱解膩青草茶；【老振興茶莊】高山冬茶",
+            souvenir: "【日興堂喜餅】紅豆麻糬狀元餅、古早味肉脯餅；【勝和黑金剛花生】酥脆蒜香帶殼花生；【大復戲院旁手工麻油】純壓冷壓黑麻油",
+            aid: "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436"
+          },
+          {
+            rank: 7,
+            name: "台南普濟殿燈會",
+            tag: "千盞手繪燈海 · 古蹟浪漫巡禮",
+            addr: "台南市中西區普濟街79號",
+            desc: "台南歷史最悠久燈會！超過千顆繽紛手繪燈籠懸掛廟前古街，夜間璀璨浪漫。",
+            dayItin: "國華街/永樂市場品嚐牛肉湯與春捲 ➔ 普濟殿廟埕仰望千盞手繪燈海 ➔ 神農街老宅散步 ➔ 赤崁樓漫遊 ➔ 海安路藝術街品嚐夜間燒烤啤酒",
+            drinks: "【布萊恩紅茶】全發酵高山阿薩姆紅茶；【肥貓咖啡】神農街貓咪陪伴手沖咖啡館；【窄門咖啡】穿過38公分窄巷的傳奇老宅咖啡",
+            souvenir: "【連得堂煎餅】一人限購兩包手工炭火煎餅；【舊來發餅舖】百年黑糖碰餅；【堯平布朗尼】十餘種濃郁生巧克力布朗尼",
+            aid: "https://www.klook.com/zh-TW/city/19-tainan-things-to-do/?aid=123436"
+          },
+          {
+            rank: 8,
+            name: "高雄三鳳中街年貨大街",
+            tag: "南台灣最大南北貨 · 現烤肉乾",
+            addr: "高雄市三民區三鳳中街",
+            desc: "南台灣最大南北貨集散地，烏魚子、肉乾、香菇、果乾堆積如山，試吃人潮不絕。",
+            dayItin: "三鳳中街萬人採辦年貨與試吃現烤肉乾 ➔ 三鳳宮參拜太子爺開運 ➔ 高雄火車站新站綠色穹頂散步 ➔ 鹽埕埔老街小吃巡禮 ➔ 駁二看大港橋夕陽",
+            drinks: "【樺達奶茶創始總店】加鹽紅茶加牛奶的香濃老字號；【双妃奶茶】免費加珍珠的港都招牌；【銀座聚場】七十年老商場隱密木質手沖咖啡",
+            souvenir: "【正美珍肉脯】現烘黑胡椒厚肉乾與原味肉鬆；【全台烏魚子專賣】野生現烤烏魚子禮盒；【百草園】手作養生堅果與果乾",
+            aid: "https://www.klook.com/zh-TW/city/19-kaohsiung-things-to-do/?aid=123436"
+          },
+          {
+            rank: 9,
+            name: "宜蘭傳藝中心走春",
+            tag: "醒獅獻瑞 · 紅磚老街踩街百戲",
+            addr: "宜蘭縣五結鄉五濱路二段201號",
+            desc: "傳統工藝大集合！過年醒獅獻瑞、踩街雜技演出與紅磚老街童玩體驗。",
+            dayItin: "國立傳統藝術中心園區欣賞醒獅迎春與高蹺踩街 ➔ 臨水老街體驗捏麵人、藍染 ➔ 搭乘畫舫遊冬山河 ➔ 羅東夜市品嚐阿灶伯羊肉湯與包心粉圓",
+            drinks: "【冬山河畔咖啡館】欣賞落羽松水景手沖單品；【白水豆花】宜蘭雪山泉水麥芽花生豆花；【北門綠豆沙牛乳】濃郁綿密宜蘭必排飲品",
+            souvenir: "【宜蘭餅發明館】0.1cm超薄超脆牛舌餅；【諾貝爾奶凍捲】經典草莓與芋頭奶凍；【博士鴨】櫻桃鴨肉賞與鴨肉香腸",
+            aid: "https://www.klook.com/zh-TW/activity/1089-yehliu-geopark-ticket-taipei/?aid=123436"
+          },
+          {
+            rank: 10,
+            name: "屏東勝利星村燈節",
+            tag: "日式眷村文創 · 走春繁星光影",
+            addr: "屏東縣屏東市青島街106號",
+            desc: "全台最大日式眷村文創園區，過年結合巨型可愛燈飾與特色文創咖啡館。",
+            dayItin: "勝利星村文意創意園區穿梭日式黑瓦眷舍 ➔ 欣賞眷村過年光影藝術裝置 ➔ 獨立書店與陶藝小舖尋寶 ➔ 屏東夜市品嚐肉圓與旗魚黑輪",
+            drinks: "【繫。本屋】眷村獨立書店內的日式烘焙咖啡；【日初出。茶所】屏東在地港口茶與冷泡茶；【美濃客家擂茶】勝利星村現磨擂茶香",
+            souvenir: "【黎記眷村醬鴨】古法老滷冰鎮醬鴨與鴨翅；【玉珍香烘焙坊】屏東特產洋蔥蛋捲；【小雨果巧克力】屏東在地可可得獎生巧克力",
+            aid: "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436"
+          }
         ]
       },
       {
@@ -7424,7 +7538,7 @@ function renderSubpageInclusiveParks(theme) {
       }
     ];
 
-    // 點擊節慶卡片開啟詳細介紹 Modal (含地址、MAP、包車、預定行程、機場接送、找房間)
+    // 點擊節慶卡片開啟詳細介紹 Modal (含景點介紹、一日遊攻略、必喝茶/咖啡、必買伴手禮、Google Map、專案直達)
     function openFestSpotModal(spot) {
       let modal = document.getElementById("fest-spot-detail-modal");
       if (!modal) {
@@ -7435,8 +7549,9 @@ function renderSubpageInclusiveParks(theme) {
         modal.style.left = "0";
         modal.style.width = "100%";
         modal.style.height = "100%";
-        modal.style.background = "rgba(15,23,42,0.6)";
+        modal.style.background = "rgba(15,23,42,0.65)";
         modal.style.backdropFilter = "blur(8px)";
+        modal.style.webkitBackdropFilter = "blur(8px)";
         modal.style.zIndex = "9999999";
         modal.style.display = "flex";
         modal.style.alignItems = "flex-end";
@@ -7445,44 +7560,81 @@ function renderSubpageInclusiveParks(theme) {
       }
       
       modal.innerHTML = `
-        <div style="background:#FFF;width:100%;max-width:540px;border-top-left-radius:26px;border-top-right-radius:26px;padding:24px 20px 30px;box-shadow:0 -10px 30px rgba(0,0,0,0.18);position:relative;max-height:85vh;overflow-y:auto;">
+        <div style="background:#FFF;width:100%;max-width:540px;border-top-left-radius:26px;border-top-right-radius:26px;padding:24px 20px 36px;box-shadow:0 -10px 30px rgba(0,0,0,0.18);position:relative;max-height:88vh;overflow-y:auto;">
+          
+          <!-- 頂部標題與關閉按鈕 -->
           <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
-            <div>
-              <span style="font-size:11px;font-weight:800;color:#0284C7;background:#E0F2FE;padding:2px 8px;border-radius:10px;">🏮 春節必訪精選</span>
-              <h2 style="font-size:18px;font-weight:900;color:#0F172A;margin:6px 0 4px;">${spot.name}</h2>
+            <div style="flex:1;min-width:0;padding-right:12px;">
+              <span style="font-size:11px;font-weight:900;color:#DC2626;background:#FEE2E2;padding:2px 10px;border-radius:12px;">🏮 春節過年走春 TOP ${spot.rank || 1}</span>
+              <h2 style="font-size:19px;font-weight:900;color:#0F172A;margin:6px 0 3px;">${spot.name}</h2>
               <div style="font-size:12px;color:#64748B;display:flex;align-items:center;gap:4px;">
-                <span>📍</span> <span>${spot.addr || '全台知名節慶景點'}</span>
+                <span>📍</span> <span>${spot.addr || '全台知名景點'}</span>
               </div>
             </div>
-            <button onclick="document.getElementById('fest-spot-detail-modal').style.display='none'" style="width:32px;height:32px;border-radius:50%;background:#F1F5F9;border:none;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#64748B;">✕</button>
+            <button onclick="document.getElementById('fest-spot-detail-modal').style.display='none'" style="width:34px;height:34px;border-radius:50%;background:#F1F5F9;border:none;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#64748B;flex-shrink:0;">✕</button>
           </div>
-          
-          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:16px;padding:14px;margin-bottom:16px;font-size:12.5px;color:#334155;line-height:1.65;">
+
+          <!-- 景點核心精華介紹 -->
+          <div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:16px;padding:12px 14px;margin-bottom:14px;font-size:12.5px;color:#991B1B;line-height:1.65;">
             ${spot.desc || '台灣極具代表性的傳統年味聖地，香火鼎盛、人潮熱絡，走春必訪！'}
           </div>
 
-          <!-- 5 大核心功能按鈕 (包車、預定行程、機場接送、找房間、MAP) -->
-          <div style="font-size:12.5px;font-weight:900;color:#0F172A;margin-bottom:8px;">🚗 推薦專案直達服務：</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
-            <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436" target="_blank" class="btn-charter-action" style="padding:8px 6px;font-size:11px;justify-content:center;">
-              <span>🚗</span> 預約包車
+          <!-- 1. 🗺️ 一日行程攻略 -->
+          <div style="margin-bottom:14px;">
+            <div style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+              <span>🗺️</span> <span>春節走春一日遊攻略</span>
+            </div>
+            <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:12px 14px;font-size:12px;color:#334155;line-height:1.65;">
+              ${spot.dayItin || '景點周邊漫步 ➔ 參拜祈福求好運 ➔ 老街特色小吃尋訪 ➔ 傍晚欣賞燈海夜景'}
+            </div>
+          </div>
+
+          <!-- 2. ☕ 必喝的茶或咖啡店推薦 -->
+          <div style="margin-bottom:14px;">
+            <div style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+              <span>☕</span> <span>必喝在地好茶與特色咖啡店</span>
+            </div>
+            <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:14px;padding:12px 14px;font-size:12px;color:#92400E;line-height:1.65;">
+              ${spot.drinks || '在地老字號高山清茶、清熱解膩青草茶與特色老宅精品手沖咖啡'}
+            </div>
+          </div>
+
+          <!-- 3. 🎁 必買人氣伴手禮名產店 -->
+          <div style="margin-bottom:14px;">
+            <div style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+              <span>🎁</span> <span>必買排隊人氣伴手禮</span>
+            </div>
+            <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:14px;padding:12px 14px;font-size:12px;color:#166534;line-height:1.65;">
+              ${spot.souvenir || '在地招牌糕餅禮盒、手工麻糬、蜜麻花與開運平安伴手禮'}
+            </div>
+          </div>
+
+          <!-- 4. 📍 開啟 Google Maps 地圖導航按鈕 -->
+          <div style="margin-bottom:16px;">
+            <button onclick="openGoogleMap('${spot.addr || ''}', '${spot.name}')" style="width:100%;padding:12px;border-radius:14px;background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;border:none;font-size:13px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 3px 12px rgba(2,132,199,0.25);">
+              <span>📍</span> <span>開啟 Google Maps 地圖導航</span> <span>➔</span>
+            </button>
+          </div>
+
+          <!-- 5. 🚗 專案直達服務 -->
+          <div style="font-size:12px;font-weight:800;color:#64748B;margin-bottom:8px;">🚗 專屬交通與旅遊直達：</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+            <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436" target="_blank" class="btn-charter-action" style="padding:9px 6px;font-size:11px;justify-content:center;border-radius:12px;text-decoration:none;">
+              <span>🚗</span> 預約包車直達
             </a>
-            <a href="${spot.aid || 'https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436'}" target="_blank" class="btn-tour-action" style="padding:8px 6px;font-size:11px;justify-content:center;">
-              <span>🎟️</span> 預定行程
+            <a href="${spot.aid || 'https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436'}" target="_blank" class="btn-tour-action" style="padding:9px 6px;font-size:11px;justify-content:center;border-radius:12px;text-decoration:none;">
+              <span>🎟️</span> 預訂景點行程
             </a>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
-            <a href="https://www.klook.com/zh-TW/airport-transfers/?aid=123436" target="_blank" style="background:linear-gradient(135deg, #8B5CF6, #7C3AED);color:#FFF;padding:8px 6px;font-size:11px;font-weight:800;border-radius:12px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:4px;box-shadow:0 2px 6px rgba(139,92,246,0.2);">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <a href="https://www.klook.com/zh-TW/airport-transfers/?aid=123436" target="_blank" style="background:#F5F3FF;border:1px solid #DDD6FE;color:#6D28D9;padding:9px 6px;font-size:11px;font-weight:800;border-radius:12px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:4px;">
               <span>🚐</span> 機場接送
             </a>
-            <a href="https://tw.trip.com/hotels/?allianceid=123436&sid=123436" target="_blank" class="btn-hotel-action" style="padding:8px 6px;font-size:11px;justify-content:center;">
-              <span>🏨</span> 尋找房間
+            <a href="https://tw.trip.com/hotels/?allianceid=123436&sid=123436" target="_blank" class="btn-hotel-action" style="padding:9px 6px;font-size:11px;justify-content:center;border-radius:12px;text-decoration:none;">
+              <span>🏨</span> 查詢附近空房
             </a>
           </div>
-          
-          <button onclick="openGoogleMap('${spot.addr || ''}', '${spot.name}')" class="btn-map-action" style="width:100%;margin-top:4px;">
-            <span>🗺️</span> 開啟 MAP 導航前往
-          </button>
+
         </div>
       `;
       modal.style.display = "flex";
@@ -7707,25 +7859,29 @@ function renderSubpageFestivals(theme) {
           </div>
         ` : ''}
 
-        <!-- 推薦景點清單 (點開景點展示：景點介紹、地址與 MAP、包車、預定行程、機場接送、找房間) -->
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-          <span style="font-size:13px;font-weight:900;color:#0F172A;">📍 ${currentFest.name} 推薦必訪 TOP 清單（點卡片看詳情）：</span>
+        <!-- 推薦景點清單 (點開景點展示：景點介紹、一日遊攻略、必喝茶/咖啡、必買伴手禮、Google Map) -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+          <span style="font-size:14px;font-weight:900;color:#0F172A;">
+            ${currentFest.id === 'lunar' ? '🏮 春節過年 TOP 推薦' : '📍 ' + currentFest.name + ' TOP 推薦'}
+          </span>
         </div>
         
         <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
           ${(currentFest.spots || []).map((s, idx) => `
-            <div onclick='openFestSpotModal(${JSON.stringify(s)})' style="background:${currentFest.cardBg};border:1px solid ${currentFest.cardBorder};border-radius:16px;padding:12px 14px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:all 0.2s ease;">
+            <div onclick='openFestSpotModal(${JSON.stringify(s)})' style="background:${currentFest.cardBg};border:1.5px solid ${currentFest.cardBorder};border-radius:16px;padding:12px 14px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:all 0.2s ease;">
               <div style="flex:1;min-width:0;">
-                <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
-                  <span style="font-size:10px;font-weight:900;background:#0284C7;color:#FFF;padding:1px 6px;border-radius:6px;">#${s.rank || (idx+1)}</span>
-                  <span style="font-size:13px;font-weight:900;color:#0F172A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${s.name}</span>
+                <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+                  <span style="font-size:10px;font-weight:900;background:linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);color:#FFF;padding:1px 7px;border-radius:6px;letter-spacing:-0.2px;">TOP ${s.rank || (idx+1)}</span>
+                  <span style="font-size:13.5px;font-weight:900;color:#0F172A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${s.name}</span>
                 </div>
-                <div style="font-size:11px;color:#64748B;margin-bottom:2px;">📍 ${s.addr || '全台名勝'}</div>
-                <div style="font-size:11px;color:#334155;line-height:1.4;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;">${s.desc}</div>
+                <div style="font-size:11px;color:#64748B;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:4px;">
+                  <span>📍</span>
+                  <span>${s.tag || s.addr}</span>
+                </div>
               </div>
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;">
-                <button style="background:transparent;border:1.5px solid #0284C7;color:#0284C7;border-radius:10px;padding:4px 8px;font-size:10px;font-weight:900;cursor:pointer;">
-                  詳情 ➔
+              <div style="display:flex;align-items:center;flex-shrink:0;">
+                <button style="background:#FEF2F2;border:1.5px solid #FECACA;color:#DC2626;border-radius:12px;padding:6px 12px;font-size:11px;font-weight:900;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:3px;box-shadow:0 1px 4px rgba(220,38,38,0.08);">
+                  <span>攻略</span> <span>❯</span>
                 </button>
               </div>
             </div>
