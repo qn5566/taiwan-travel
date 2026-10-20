@@ -3069,90 +3069,35 @@
       <!-- 滾動內容容器 -->
       <div class="screen-body" id="left-scroll-body">
 
-        <!-- 2. 品牌 LOGO 主要專區 + 旁邊小圖快捷按鈕 (🏆 雙榜, ❤️ 收藏, 💬 留言) -->
-        <div class="brand-hero-row">
-          <div class="brand-logo-left">
-            <h1 class="brand-main-title">台灣吃喝玩樂</h1>
-            <span class="brand-sub-title">TAIWAN TRAVEL HUB</span>
-          </div>
-          <div class="brand-actions-right" style="display:flex;gap:6px;align-items:center;">
-            <!-- 🏆 人氣排行榜按鈕 (小巧、醒目高對比金橘、強烈吸引力) -->
-            <button class="compact-header-btn compact-btn-ranking" onclick="openRankingsPage('drinks')" title="查看本月全台人氣排行榜">
-              <span style="font-size:13px;line-height:1;">🏆</span>
-              <span>排行榜</span>
-            </button>
-            
-            <!-- 🛍️ 伴手禮按鈕 (小巧、醒目亮麗珊瑚紅、直通20大推薦) -->
-            <button class="compact-header-btn compact-btn-souvenirs" onclick="switchNavTab('souvenirs')" title="查看台灣人氣 20 大伴手禮推薦">
-              <span style="font-size:13px;line-height:1;">🛍️</span>
-              <span>伴手禮</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 4 大正方形金流服務卡片 (精準四個，正方形，美觀整齊) -->
-        <div style="padding:10px 18px 6px;">
-          <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:10px;">
-            <a href="https://tw.trip.com/flights/?allianceid=123436&sid=123436" target="_blank" style="aspect-ratio:1;background:linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);border:1px solid #BAE6FD;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 12px rgba(2,132,199,0.08);transition:all 0.2s ease;">
-              <span style="font-size:24px;margin-bottom:4px;">✈️</span>
-              <span style="font-size:11px;font-weight:900;color:#0369A1;">搜機票</span>
-            </a>
-            <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" style="aspect-ratio:1;background:linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);border:1px solid #BBF7D0;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 12px rgba(22,163,74,0.08);transition:all 0.2s ease;">
-              <span style="font-size:24px;margin-bottom:4px;">🚗</span>
-              <span style="font-size:11px;font-weight:900;color:#15803D;">包車預約</span>
-            </a>
-            <a href="https://www.klook.com/zh-TW/airport-transfers/?aid=123436" target="_blank" style="aspect-ratio:1;background:linear-gradient(135deg, #FAF5FF 0%, #F3E8FF 100%);border:1px solid #E9D5FF;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 12px rgba(147,51,234,0.08);transition:all 0.2s ease;">
-              <span style="font-size:24px;margin-bottom:4px;">🚐</span>
-              <span style="font-size:11px;font-weight:900;color:#7E22CE;">機場接送</span>
-            </a>
-            <a href="https://www.klook.com/zh-TW/rails-32/1012-taiwan/?aid=123436" target="_blank" style="aspect-ratio:1;background:linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);border:1px solid #FED7AA;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 12px rgba(194,65,12,0.08);transition:all 0.2s ease;">
-              <span style="font-size:24px;margin-bottom:4px;">🚄</span>
-              <span style="font-size:11px;font-weight:900;color:#C2410C;">台灣高鐵</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="search-strip-clean">
-          <div class="clean-search-box">
-            <span>🔍</span>
-            <input type="text" id="spot-search-input" placeholder="搜尋台灣景點，飲料，餐廳，花東離島..." oninput="handleSearch(this.value)">
-          </div>
-        </div>
-
-        <!-- =========================
-             A. 首頁視圖 (Home View)
-             ========================= -->
-        <div id="inline-spot-detail-container" style="display:none;position:absolute;top:0;left:0;right:0;bottom:0;background:#FFF;z-index:95;overflow-y:auto;"></div>
-        
         <!-- ==========================================
-             🏆 台灣超人氣排行全頁視圖 (點擊排行榜按鈕才展開顯示，絕無彈窗！)
+             🏆 台灣超人氣排行全頁視圖 (獨立圓角淡淡橘子色底色頁面，無首頁搜尋與車票雜訊)
              ========================================== -->
-        <div id="rankings-inline-fullview" style="display:none;padding:12px 18px 80px;background:#FFFFFF;min-height:100%;">
+        <div id="rankings-inline-fullview" style="display:none;background:#FFF7ED;border-radius:24px;border:1.5px solid #FED7AA;margin:10px 12px 30px;padding:12px 14px 40px;box-shadow:0 6px 24px rgba(234,88,12,0.08);min-height:calc(100% - 20px);">
           
           <!-- 置頂快捷關閉導航列 (Sticky Top Bar，捲動隨行，隨時一鍵返回) -->
-          <div style="position:sticky;top:0;z-index:90;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:10px 0;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #F1F5F9;">
-            <button onclick="closeRankingsPage()" style="background:#F1F5F9;border:1.5px solid #CBD5E1;color:#0F172A;border-radius:24px;padding:8px 18px;font-size:13px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:all 0.2s ease;">
-              <span style="font-size:16px;color:#DC2626;font-weight:900;">✕</span>
+          <div style="position:sticky;top:0;z-index:90;background:rgba(255,247,237,0.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:10px 4px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #FED7AA;">
+            <button onclick="closeRankingsPage()" style="background:#FFFFFF;border:1.5px solid #FDBA74;color:#9A3412;border-radius:24px;padding:8px 18px;font-size:13px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(234,88,12,0.12);transition:all 0.2s ease;">
+              <span style="font-size:15px;color:#EA580C;font-weight:900;">✕</span>
               <span>關閉排行榜</span>
             </button>
             <div style="display:flex;align-items:center;gap:6px;">
-              <span style="font-size:12px;font-weight:900;color:#0F172A;">🏆 TOP 10 榜單</span>
-              <span style="font-size:10px;font-weight:800;color:#0284C7;background:#E0F2FE;padding:2px 8px;border-radius:10px;">實時熱門</span>
+              <span style="font-size:13px;font-weight:900;color:#9A3412;">🏆 台灣人氣 TOP 10</span>
+              <span style="font-size:10px;font-weight:800;color:#FFF;background:linear-gradient(135deg, #EA580C, #C2410C);padding:2px 8px;border-radius:10px;">實時榜單</span>
             </div>
           </div>
 
-          <!-- 4 大榜單按鈕 -->
-          <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:6px;margin-bottom:16px;background:#F1F5F9;padding:4px;border-radius:14px;">
-            <button class="rank-full-tab-btn" id="rank-full-tab-drinks" onclick="switchRankingsInlineTab('drinks')" style="border:none;background:#0284C7;color:#FFF;padding:9px 2px;border-radius:10px;font-size:11.5px;font-weight:800;cursor:pointer;transition:all 0.2s ease;">
+          <!-- 4 大榜單按鈕 (暖金橘雅緻配色) -->
+          <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:6px;margin-bottom:16px;background:#FFEDD5;padding:4px;border-radius:14px;">
+            <button class="rank-full-tab-btn" id="rank-full-tab-drinks" onclick="switchRankingsInlineTab('drinks')" style="border:none;background:linear-gradient(135deg, #EA580C 0%, #C2410C 100%);color:#FFF;padding:9px 2px;border-radius:10px;font-size:11.5px;font-weight:800;cursor:pointer;transition:all 0.2s ease;box-shadow:0 2px 8px rgba(234,88,12,0.25);">
               🧋 必喝手搖
             </button>
-            <button class="rank-full-tab-btn" id="rank-full-tab-spots" onclick="switchRankingsInlineTab('spots')" style="border:none;background:transparent;color:#475569;padding:9px 2px;border-radius:10px;font-size:11.5px;font-weight:800;cursor:pointer;transition:all 0.2s ease;">
+            <button class="rank-full-tab-btn" id="rank-full-tab-spots" onclick="switchRankingsInlineTab('spots')" style="border:none;background:transparent;color:#7C2D12;padding:9px 2px;border-radius:10px;font-size:11.5px;font-weight:800;cursor:pointer;transition:all 0.2s ease;">
               🏆 景點人次
             </button>
-            <button class="rank-full-tab-btn" id="rank-full-tab-charter" onclick="switchRankingsInlineTab('charter')" style="border:none;background:transparent;color:#475569;padding:9px 2px;border-radius:10px;font-size:11.5px;font-weight:800;cursor:pointer;transition:all 0.2s ease;">
+            <button class="rank-full-tab-btn" id="rank-full-tab-charter" onclick="switchRankingsInlineTab('charter')" style="border:none;background:transparent;color:#7C2D12;padding:9px 2px;border-radius:10px;font-size:11.5px;font-weight:800;cursor:pointer;transition:all 0.2s ease;">
               🚗 包車旅遊
             </button>
-            <button class="rank-full-tab-btn" id="rank-full-tab-massage" onclick="switchRankingsInlineTab('massage')" style="border:none;background:transparent;color:#475569;padding:9px 2px;border-radius:10px;font-size:11.5px;font-weight:800;cursor:pointer;transition:all 0.2s ease;">
+            <button class="rank-full-tab-btn" id="rank-full-tab-massage" onclick="switchRankingsInlineTab('massage')" style="border:none;background:transparent;color:#7C2D12;padding:9px 2px;border-radius:10px;font-size:11.5px;font-weight:800;cursor:pointer;transition:all 0.2s ease;">
               💆 按摩推薦
             </button>
           </div>
@@ -3162,15 +3107,69 @@
           </div>
 
           <!-- 底部顯著關閉按鈕 -->
-          <div style="margin-top:20px;padding-top:16px;border-top:1px dashed #E2E8F0;text-align:center;">
-            <button onclick="closeRankingsPage()" style="width:100%;padding:13px;background:#F8FAFC;border:1.5px solid #CBD5E1;border-radius:16px;color:#1E293B;font-size:13px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 2px 8px rgba(0,0,0,0.03);transition:all 0.2s ease;">
-              <span style="font-size:15px;color:#DC2626;">✕</span>
-              <span>關閉排行榜 · 返回首頁精選</span>
+          <div style="margin-top:20px;padding-top:16px;border-top:1px dashed #FDBA74;text-align:center;">
+            <button onclick="closeRankingsPage()" style="width:100%;padding:13px;background:#FFFFFF;border:1.5px solid #FDBA74;border-radius:16px;color:#9A3412;font-size:13px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 2px 8px rgba(234,88,12,0.1);transition:all 0.2s ease;">
+              <span style="font-size:15px;color:#EA580C;">✕</span>
+              <span>看完關閉排行榜 · 返回首頁</span>
             </button>
           </div>
         </div>
 
+        <!-- =========================
+             A. 首頁視圖 (Home View)
+             ========================= -->
+        <div id="inline-spot-detail-container" style="display:none;position:absolute;top:0;left:0;right:0;bottom:0;background:#FFF;z-index:95;overflow-y:auto;"></div>
+
         <div id="view-tab-home">
+          <!-- 2. 品牌 LOGO 主要專區 + 旁邊小圖快捷按鈕 (🏆 雙榜, 🛍️ 伴手禮) -->
+          <div class="brand-hero-row">
+            <div class="brand-logo-left">
+              <h1 class="brand-main-title">台灣吃喝玩樂</h1>
+              <span class="brand-sub-title">TAIWAN TRAVEL HUB</span>
+            </div>
+            <div class="brand-actions-right" style="display:flex;gap:6px;align-items:center;">
+              <!-- 🏆 人氣排行榜按鈕 (小巧、醒目高對比金橘、強烈吸引力) -->
+              <button class="compact-header-btn compact-btn-ranking" onclick="openRankingsPage('drinks')" title="查看本月全台人氣排行榜">
+                <span style="font-size:13px;line-height:1;">🏆</span>
+                <span>排行榜</span>
+              </button>
+              
+              <!-- 🛍️ 伴手禮按鈕 (小巧、醒目亮麗珊瑚紅、直通20大推薦) -->
+              <button class="compact-header-btn compact-btn-souvenirs" onclick="switchNavTab('souvenirs')" title="查看台灣人氣 20 大伴手禮推薦">
+                <span style="font-size:13px;line-height:1;">🛍️</span>
+                <span>伴手禮</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 4 大正方形金流服務卡片 (精準四個，正方形，美觀整齊) -->
+          <div style="padding:10px 18px 6px;">
+            <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:10px;">
+              <a href="https://tw.trip.com/flights/?allianceid=123436&sid=123436" target="_blank" style="aspect-ratio:1;background:linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);border:1px solid #BAE6FD;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 12px rgba(2,132,199,0.08);transition:all 0.2s ease;">
+                <span style="font-size:24px;margin-bottom:4px;">✈️</span>
+                <span style="font-size:11px;font-weight:900;color:#0369A1;">搜機票</span>
+              </a>
+              <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" style="aspect-ratio:1;background:linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);border:1px solid #BBF7D0;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 12px rgba(22,163,74,0.08);transition:all 0.2s ease;">
+                <span style="font-size:24px;margin-bottom:4px;">🚗</span>
+                <span style="font-size:11px;font-weight:900;color:#15803D;">包車預約</span>
+              </a>
+              <a href="https://www.klook.com/zh-TW/airport-transfers/?aid=123436" target="_blank" style="aspect-ratio:1;background:linear-gradient(135deg, #FAF5FF 0%, #F3E8FF 100%);border:1px solid #E9D5FF;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 12px rgba(147,51,234,0.08);transition:all 0.2s ease;">
+                <span style="font-size:24px;margin-bottom:4px;">🚐</span>
+                <span style="font-size:11px;font-weight:900;color:#7E22CE;">機場接送</span>
+              </a>
+              <a href="https://www.klook.com/zh-TW/rails-32/1012-taiwan/?aid=123436" target="_blank" style="aspect-ratio:1;background:linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);border:1px solid #FED7AA;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 12px rgba(194,65,12,0.08);transition:all 0.2s ease;">
+                <span style="font-size:24px;margin-bottom:4px;">🚄</span>
+                <span style="font-size:11px;font-weight:900;color:#C2410C;">台灣高鐵</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="search-strip-clean">
+            <div class="clean-search-box">
+              <span>🔍</span>
+              <input type="text" id="spot-search-input" placeholder="搜尋台灣景點，飲料，餐廳，花東離島..." oninput="handleSearch(this.value)">
+            </div>
+          </div>
           <!-- 縣市快選 (台北市、桃園市、花蓮縣、台南市優先) -->
 
           <div class="region-filter-bar">
@@ -3266,18 +3265,21 @@
         <div id="view-tab-community" style="display:none;padding:14px 18px 24px;">
           <div id="travelers-community-container"></div>
         </div>
-      </div>
 
-              <!-- =========================
-             F. 台灣 20 大必買伴手禮專區 (Souvenirs View)
+        <!-- =========================
+             F. 台灣 20 大必買伴手禮專區 (Souvenirs View - 獨立整頁，支援流暢向下捲動)
              ========================= -->
-                <div id="view-tab-souvenirs" style="display:none;padding:14px 18px 24px;">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-            <button onclick="switchNavTab('home')" style="background:#F1F5F9;border:1px solid #E2E8F0;border-radius:14px;padding:6px 14px;font-size:12px;font-weight:700;color:#334155;cursor:pointer;display:inline-flex;align-items:center;gap:4px;">
-              ← 返回首頁
+        <div id="view-tab-souvenirs" style="display:none;padding:12px 16px 24px;">
+          
+          <!-- 置頂隨行返回列 (Sticky Top Bar) -->
+          <div style="position:sticky;top:0;z-index:90;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:10px 0;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #F1F5F9;">
+            <button onclick="switchNavTab('home')" style="background:#F1F5F9;border:1.5px solid #CBD5E1;color:#0F172A;border-radius:24px;padding:8px 18px;font-size:13px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:all 0.2s ease;">
+              <span style="font-size:15px;color:#64748B;">←</span>
+              <span>返回首頁</span>
             </button>
-            <span style="font-size:11px;font-weight:800;color:#64748B;">🛍️ 伴手禮專屬推薦</span>
+            <span style="font-size:11.5px;font-weight:900;color:#C2410C;background:#FFF7ED;padding:3px 10px;border-radius:12px;border:1px solid #FED7AA;">🛍️ 台灣 20 大人氣伴手禮</span>
           </div>
+
           <!-- 頂部萬家福線上點餐 / 生鮮電商 (OneLink 專屬直配入口) -->
           <div style="background:linear-gradient(135deg, #EA580C 0%, #C2410C 100%);border-radius:22px;padding:18px;color:#FFF;margin-bottom:18px;box-shadow:0 8px 24px rgba(234,88,12,0.3);">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
@@ -3295,14 +3297,16 @@
             </a>
           </div>
 
-          <div class="eyebrow-label" style="padding:0 0 10px;">
-            <span>全台 20 大必買人氣伴手禮排行榜</span>
-            <span>TOP 20 SOUVENIRS</span>
+          <div class="eyebrow-label" style="padding:0 0 12px;display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:13px;font-weight:900;color:#0F172A;">全台 20 大必買人氣伴手禮推薦</span>
+            <span style="font-size:10px;font-weight:800;color:#EA580C;background:#FFF7ED;padding:2px 7px;border-radius:8px;">兩個一排 · 全覽 20 選</span>
           </div>
           
-          <!-- 20 款伴手禮清單容器 -->
-          <div id="souvenirs-list-container" style="display:flex;flex-direction:column;gap:16px;"></div>
+          <!-- 20 款伴手禮清單容器 (兩個一排 2-Column Grid) -->
+          <div id="souvenirs-list-container" style="display:grid;grid-template-columns:repeat(2, 1fr);gap:12px;padding-bottom:90px;"></div>
         </div>
+
+      </div>
 
       <!-- 5. 底部 5 大核心選單分類：首頁 ｜ 精選 (18大主題) ｜ 伴手禮 (20大名產) ｜ 地區 ｜ 收藏 -->
       <div class="phone-bottom-nav">
@@ -5423,19 +5427,34 @@ const ALL_ISLANDS_DATA = {
       const container = document.getElementById("souvenirs-list-container");
       if (!container) return;
       container.innerHTML = TAIWAN_SOUVENIRS_DATA.map(p => `
-        <div style="background:#FFFFFF;border-radius:20px;border:1px solid #F1F5F9;padding:14px;box-shadow:0 8px 24px rgba(47,62,70,0.06);display:flex;gap:14px;align-items:center;">
-          <img src="${p.img}" alt="${p.name}" style="width:90px;height:90px;border-radius:16px;object-fit:cover;flex-shrink:0;">
-          <div style="flex:1;min-width:0;">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px;">
-              <span style="font-size:10px;font-weight:800;background:#FFF7ED;color:#C2410C;padding:2px 8px;border-radius:8px;">TOP ${p.rank} · ${p.tag}</span>
-              <span style="font-size:12px;font-weight:900;color:#EA580C;">${p.price}</span>
+        <div style="background:#FFFFFF;border-radius:18px;border:1px solid #F1F5F9;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,0.05);display:flex;flex-direction:column;transition:all 0.2s ease;">
+          <div style="position:relative;height:120px;overflow:hidden;">
+            <img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+            <span style="position:absolute;top:8px;left:8px;background:linear-gradient(135deg, #EA580C 0%, #C2410C 100%);color:#FFF;font-size:10px;font-weight:900;padding:2px 8px;border-radius:8px;box-shadow:0 2px 6px rgba(234,88,12,0.3);">
+              TOP ${p.rank}
+            </span>
+            <span style="position:absolute;bottom:6px;left:6px;background:rgba(15,23,42,0.72);backdrop-filter:blur(4px);color:#FFF;font-size:9.5px;font-weight:700;padding:2px 6px;border-radius:6px;">
+              📍 ${p.city}
+            </span>
+          </div>
+          <div style="padding:10px 10px 12px;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
+            <div>
+              <div style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:3px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;">
+                ${p.name}
+              </div>
+              <div style="font-size:10px;color:#C2410C;font-weight:800;background:#FFF7ED;padding:1px 6px;border-radius:6px;display:inline-block;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;">
+                ${p.tag}
+              </div>
+              <div style="font-size:10px;color:#64748B;line-height:1.45;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">
+                ${p.highlight}
+              </div>
             </div>
-            <div style="font-size:14px;font-weight:900;color:#2F3E46;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${p.name}</div>
-            <div style="font-size:10.5px;color:#64748B;line-height:1.45;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${p.highlight}</div>
-            <div style="display:flex;align-items:center;justify-content:space-between;">
-              <span style="font-size:10px;color:#94A3B8;font-weight:700;">📍 ${p.city}</span>
-              <a href="${p.buyUrl}" target="_blank" style="background:linear-gradient(135deg, #5E887E 0%, #43645C 100%);color:#FFF;font-size:10px;font-weight:900;padding:5px 12px;border-radius:12px;text-decoration:none;box-shadow:0 3px 8px rgba(94,136,126,0.25);">
-                🛒 萬家福線上訂購 ➔
+            <div>
+              <div style="font-size:12px;font-weight:900;color:#EA580C;margin-bottom:6px;">
+                ${p.price}
+              </div>
+              <a href="${p.buyUrl}" target="_blank" style="background:linear-gradient(135deg, #EA580C 0%, #C2410C 100%);color:#FFF;font-size:10.5px;font-weight:900;padding:7px 0;border-radius:10px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:4px;box-shadow:0 2px 8px rgba(234,88,12,0.25);">
+                <span>🛒 飯店直送 ➔</span>
               </a>
             </div>
           </div>
@@ -5903,11 +5922,13 @@ const ALL_ISLANDS_DATA = {
         const btn = document.getElementById('rank-full-tab-' + t);
         if (btn) {
           if (t === type) {
-            btn.style.background = '#0284C7';
+            btn.style.background = 'linear-gradient(135deg, #EA580C 0%, #C2410C 100%)';
             btn.style.color = '#FFFFFF';
+            btn.style.boxShadow = '0 2px 8px rgba(234,88,12,0.25)';
           } else {
             btn.style.background = 'transparent';
-            btn.style.color = '#475569';
+            btn.style.color = '#7C2D12';
+            btn.style.boxShadow = 'none';
           }
         }
       });
