@@ -5506,8 +5506,480 @@ const ALL_ISLANDS_DATA = {
       const container = document.getElementById("modal-duel-content");
       if (container) container.innerHTML = renderRankingsListHTML(type);
     }
-    
-    function openThemeSubpage(themeId) {
+
+    function buildThematicSubpageUI(opts) {
+  const isFav = favoritesList.some(f => f.name === opts.title);
+  
+  return `
+    <div class="thematic-subpage-view active" style="padding-bottom:0;background:#FFFFFF;">
+      <!-- 1. 頂部最佳觀看風景照 (~220px，絕不超大遮擋) + 左上白圓形返回鈕 + 底部 3 顆輪播點 -->
+      <div style="position:relative;height:220px;background:#0F172A;overflow:hidden;">
+        <img src="${opts.img}" style="width:100%;height:100%;object-fit:cover;display:block;" alt="${opts.title}">
+        
+        <!-- 左上角圓形毛玻璃返回鈕 (依照用戶圖片) -->
+        <button class="circle-icon-btn-frosted" onclick="closeSubpageToHome()" style="position:absolute;top:14px;left:14px;z-index:20;" title="返回上一頁">
+          ←
+        </button>
+
+        <!-- 底部 3 顆輪播指示點 (Carousel Dots • • •) -->
+        <div style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10;">
+          <span style="width:8px;height:8px;border-radius:50%;background:#FF2D55;"></span>
+          <span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.65);"></span>
+          <span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.65);"></span>
+        </div>
+      </div>
+
+      <!-- 2. 下方白底圓角懸浮卡片 (向上覆蓋大圖 -22px) -->
+      <div style="margin-top:-22px;position:relative;background:#FFFFFF;border-top-left-radius:26px;border-top-right-radius:26px;padding:20px 18px 80px;box-shadow:0 -6px 20px rgba(0,0,0,0.06);z-index:15;">
+        
+        <!-- 標題與大顆粉紅收藏愛心鈕 (完全吻合圖片右側桃紅大愛心) -->
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px;">
+          <div>
+            <h1 style="font-size:20px;font-weight:900;color:#0F172A;line-height:1.25;margin:0 0 4px;">
+              ${opts.title}
+            </h1>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11.5px;color:#64748B;font-weight:700;">
+              <span style="color:#FF2D55;font-size:13px;">📍</span>
+              <span>${opts.location}</span>
+            </div>
+          </div>
+
+          <!-- 桃紅圓形大愛心收藏按鈕 -->
+          <button class="spot-big-heart-btn" onclick="toggleFav('${opts.title}', '${opts.location.split('·')[0].trim()}', '${opts.img}')" style="width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg, #FF2D55 0%, #E11D48 100%);border:3px solid #FFF;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(255,45,85,0.35);cursor:pointer;flex-shrink:0;">
+            <span style="font-size:20px;color:#FFF;">${isFav ? '❤️' : '🤍'}</span>
+          </button>
+        </div>
+
+        <!-- 3 個圓角數據指標徽章 (⭐ 4.95 Reviews | 🏷️ NT$800起 | 🌤️ 24°C Sunny) -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:16px 0 18px;">
+          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:16px;padding:10px 6px;text-align:center;">
+            <div style="font-size:16px;margin-bottom:2px;">⭐</div>
+            <div style="font-size:13.5px;font-weight:900;color:#0F172A;">${opts.rate || '4.9'}</div>
+            <div style="font-size:9.5px;color:#64748B;font-weight:700;">${opts.reviews || '好評榜首'}</div>
+          </div>
+          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:16px;padding:10px 6px;text-align:center;">
+            <div style="font-size:16px;margin-bottom:2px;">🏷️</div>
+            <div style="font-size:13.5px;font-weight:900;color:#0284C7;">${opts.price || 'NT$ 750起'}</div>
+            <div style="font-size:9.5px;color:#64748B;font-weight:700;">${opts.priceDesc || '特惠行程'}</div>
+          </div>
+          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:16px;padding:10px 6px;text-align:center;">
+            <div style="font-size:16px;margin-bottom:2px;">🌤️</div>
+            <div style="font-size:13.5px;font-weight:900;color:#0F172A;">${opts.temp || '24°C'}</div>
+            <div style="font-size:9.5px;color:#64748B;font-weight:700;">${opts.tempDesc || '舒適晴朗'}</div>
+          </div>
+        </div>
+
+        <!-- About 專題深度介紹區塊 (附 Show More 展開更多) -->
+        <div style="margin-bottom:20px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+            <span style="font-size:15px;font-weight:900;color:#0F172A;">About</span>
+            <span style="font-size:11px;font-weight:800;color:#FF2D55;cursor:pointer;" onclick="toggleAboutExpand()">Show More</span>
+          </div>
+          <p id="detail-about-text" style="font-size:12px;color:#475569;line-height:1.6;margin:0;">
+            ${opts.about}
+          </p>
+        </div>
+
+        <!-- 自訂額外切換或導引卡 (如離島機票、分類切換等) -->
+        ${opts.customWidgets || ''}
+
+        <!-- 經典行程規劃走法 (2天1夜 / 3天2夜) -->
+        ${opts.itineraries && opts.itineraries.length > 0 ? `
+          <div style="margin-bottom:20px;">
+            <div style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">
+              <span>跳島行程：</span>
+              <span style="font-size:10px;color:#0284C7;font-weight:800;background:#E0F2FE;padding:2px 8px;border-radius:10px;">自由切換</span>
+            </div>
+            
+            <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:18px;padding:14px;box-shadow:0 4px 14px rgba(2,132,199,0.06);">
+              ${opts.itineraries.map((itin, idx) => `
+                <div style="margin-bottom:${idx < opts.itineraries.length - 1 ? '14px' : '0'};padding-bottom:${idx < opts.itineraries.length - 1 ? '14px' : '0'};border-bottom:${idx < opts.itineraries.length - 1 ? '1px dashed #E2E8F0' : 'none'};">
+                  <div style="font-size:13.5px;font-weight:900;color:#0369A1;margin-bottom:8px;">${itin.title}</div>
+                  <div style="display:flex;flex-direction:column;gap:8px;">
+                    ${itin.days.map(d => `
+                      <div style="display:flex;gap:8px;align-items:flex-start;">
+                        <span style="background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;font-size:9.5px;font-weight:900;padding:2px 7px;border-radius:8px;flex-shrink:0;margin-top:2px;">
+                          Day ${d.day}
+                        </span>
+                        <span style="font-size:11px;color:#334155;line-height:1.55;font-weight:600;">
+                          ${d.route}
+                        </span>
+                      </div>
+                    `).join('')}
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''}
+
+        <!-- 核心服務快速按鈕列 (包車綠色、行程藍色、訂房橙色、地圖冰藍，配色舒適分明) -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+          <a href="${opts.charterUrl || 'https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436'}" target="_blank" class="btn-charter-action">
+            <span>🚗</span> 預約包車 ➔
+          </a>
+          <a href="${opts.tourUrl || 'https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436'}" target="_blank" class="btn-tour-action">
+            <span>🎟️</span> 預訂行程 ➔
+          </a>
+        </div>
+        <div style="margin-bottom:12px;">
+          <a href="${opts.hotelUrl || 'https://tw.trip.com/hotels/?allianceid=123436&sid=123436'}" target="_blank" class="btn-hotel-action" style="width:100%;box-sizing:border-box;">
+            <span>🏨</span> 查詢嚴選旅宿空房 ➔
+          </a>
+        </div>
+
+        <!-- 開啟 Google Maps 導航按鈕 -->
+        <button onclick="showCuteToast('正在開啟地圖導航...','🗺️'); openGoogleMap('${opts.location.split('·')[0].trim()}', '${opts.title}')" class="btn-map-action" style="width:100%;margin-bottom:22px;">
+          <span>🗺️</span> 地圖導航 ➔
+        </button>
+
+        <!-- 2 欄精緻緊湊景點推薦清單 (2 cards per row) -->
+        ${opts.spots && opts.spots.length > 0 ? `
+          <div style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:10px;">
+            📍 推薦必訪景點排行榜：
+          </div>
+          <div class="spots-grid-2col" style="margin-bottom:20px;">
+            ${opts.spots.map(s => {
+              const isFavSpot = favoritesList.some(f => f.name === s.name);
+              const bookingUrl = s.actUrl || "https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436";
+              return `
+                <div class="compact-subpage-spot-card" onclick="selectSpot(${s.id || 1})">
+                  <div class="spot-img-wrap">
+                    <img src="${s.img}" alt="${s.name}" loading="lazy">
+                    <span class="spot-top-rank-pill">${s.rank <= 3 ? '🔥' : '📍'} TOP ${s.rank}</span>
+                    <button class="spot-top-fav-btn" onclick="event.stopPropagation(); toggleFav('${s.name}', '${s.tag || ''}', '${s.img}')" title="收藏">
+                      ${isFavSpot ? '❤️' : '🤍'}
+                    </button>
+                  </div>
+                  <div class="spot-card-body">
+                    <div class="spot-card-title">${s.name}</div>
+                    <div class="spot-card-meta">
+                      <span style="color:#D97706;font-weight:900;">${s.rate}</span>
+                      <span style="background:#F1F5F9;padding:1px 6px;border-radius:6px;color:#475569;">${s.tag || '熱門'}</span>
+                    </div>
+                    <div class="spot-card-action-bar">
+                      <a href="${bookingUrl}" target="_blank" class="spot-card-cta-btn" onclick="event.stopPropagation()">
+                        <span>預訂行程</span>
+                        <span>➔</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        ` : ''}
+
+      </div>
+    </div>
+  `;
+}
+
+// 1. 🏝️ 離島專題頁（Islands of Taiwan）
+
+    function openRankingsModal() {
+      document.getElementById("ranking-modal-overlay").classList.add("active");
+      switchModalDuelTab("drinks");
+    }
+
+    function closeRankingsModal() {
+      document.getElementById("ranking-modal-overlay").classList.remove("active");
+    }
+
+    // 點擊飲料店直接開啟 Google 地圖導航找尋附近分店
+
+    function openDrinkMapNavigation(brandName) {
+      const cleanBrand = brandName.split(' ')[0].trim();
+      const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(cleanBrand + ' 飲料店')}`;
+      window.open(mapUrl, '_blank');
+    }
+
+    function openRankingsSubpage(type = "drinks") {
+      document.getElementById("detail-view-container").style.display = "none";
+      document.getElementById("thematic-subpages-wrapper").style.display = "none";
+      const rankWrapper = document.getElementById("rankings-subpage-wrapper");
+      if (rankWrapper) {
+        rankWrapper.style.display = "block";
+        document.getElementById("right-island-text").innerText = (type === "drinks") ? "🧋 台灣手搖飲必喝榜" : "🏆 台灣景點人次榜";
+        switchSubpageDuelTab(type);
+      } else {
+        openRankingsModal(type);
+      }
+      if (openInline && window.innerWidth <= 860) {
+        document.getElementById("right-phone-screen").classList.add("mobile-active");
+      }
+    }
+
+    function closeRankingsSubpage() {
+      const rankWrapper = document.getElementById("rankings-subpage-wrapper");
+      if (rankWrapper) rankWrapper.style.display = "none";
+      document.getElementById("detail-view-container").style.display = "block";
+    }
+
+        const DRINK_BRAND_PROFILES = {
+      "50嵐": { twoChar: "50嵐", gradient: "linear-gradient(135deg, #F59E0B, #D97706)" },
+      "吃茶三千": { twoChar: "吃茶", gradient: "linear-gradient(135deg, #059669, #047857)" },
+      "得正": { twoChar: "得正", gradient: "linear-gradient(135deg, #2563EB, #1E40AF)" },
+      "辻利茶舗": { twoChar: "辻利", gradient: "linear-gradient(135deg, #16A34A, #15803D)" },
+      "SOMA": { twoChar: "SOMA", gradient: "linear-gradient(135deg, #EC4899, #BE185D)" },
+      "可不可熟成紅茶": { twoChar: "可不", gradient: "linear-gradient(135deg, #881337, #4C0519)" },
+      "麻古茶坊": { twoChar: "麻古", gradient: "linear-gradient(135deg, #EA580C, #C2410C)" },
+      "一沐日": { twoChar: "一沐", gradient: "linear-gradient(135deg, #65A30D, #4D7C0F)" },
+      "迷客夏": { twoChar: "迷客", gradient: "linear-gradient(135deg, #0284C7, #0369A1)" },
+      "八曜和茶": { twoChar: "八曜", gradient: "linear-gradient(135deg, #D97706, #B45309)" },
+      "龜記茗品": { twoChar: "龜記", gradient: "linear-gradient(135deg, #4D7C0F, #365314)" },
+      "五桐號": { twoChar: "五桐", gradient: "linear-gradient(135deg, #78350F, #451A03)" },
+      "約翰紅茶公司": { twoChar: "約翰", gradient: "linear-gradient(135deg, #4338CA, #312E81)" },
+      "春水堂": { twoChar: "春水", gradient: "linear-gradient(135deg, #B45309, #78350F)" },
+      "珍煮丹": { twoChar: "珍煮", gradient: "linear-gradient(135deg, #7C2D12, #431407)" },
+      "清心福全": { twoChar: "清心", gradient: "linear-gradient(135deg, #0284C7, #075985)" },
+      "茶湯會": { twoChar: "茶湯", gradient: "linear-gradient(135deg, #B45309, #92400E)" },
+      "大苑子": { twoChar: "苑子", gradient: "linear-gradient(135deg, #15803D, #166534)" },
+      "再睡5分鐘": { twoChar: "再睡", gradient: "linear-gradient(135deg, #8B5CF6, #6D28D9)" },
+      "萬波島嶼紅茶": { twoChar: "萬波", gradient: "linear-gradient(135deg, #C2410C, #9A3412)" }
+    };
+
+    function getDrinkBrandProfile(fullName) {
+      const brandKey = fullName.split(' ')[0].trim();
+      return DRINK_BRAND_PROFILES[brandKey] || {
+        twoChar: brandKey.substring(0, 2),
+        gradient: "linear-gradient(135deg, #F59E0B, #EA580C)"
+      };
+    }
+
+    // 渲染手搖飲排行榜單張卡片 (超乾淨、圓形漸層店名2字、2款推薦、俐落MAP按鈕)
+
+    function renderCleanDrinkCard(d) {
+      const cleanBrand = d.name.split(' ')[0].trim();
+      const prof = getDrinkBrandProfile(d.name);
+      return `
+        <div class="drink-rank-card" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#FFFFFF;border:1px solid #F1F5F9;border-radius:18px;margin-bottom:10px;box-shadow:0 3px 10px rgba(0,0,0,0.03);cursor:pointer;transition:all 0.2s ease;" onclick="openDrinkMapNavigation('${cleanBrand}')">
+          <!-- 排名 -->
+          <span style="font-size:13px;font-weight:900;color:#F59E0B;width:24px;text-align:center;">#${d.rank}</span>
+
+          <!-- 圓型漸層色 + 中間店名兩個字 -->
+          <div style="width:42px;height:42px;border-radius:50%;background:${prof.gradient};display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-weight:900;font-size:13px;flex-shrink:0;box-shadow:0 3px 8px rgba(0,0,0,0.15);letter-spacing:-0.2px;">
+            ${prof.twoChar}
+          </div>
+
+          <!-- 店名與必喝推薦 2 選 -->
+          <div style="flex:1;min-width:0;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+              <span style="font-size:14px;font-weight:900;color:#0F172A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${d.name}</span>
+              <span style="font-size:11px;font-weight:900;color:#F59E0B;flex-shrink:0;">⭐ ${d.rate.replace('★','')}</span>
+            </div>
+            <!-- 必喝推薦兩個就好 -->
+            <div style="display:flex;gap:5px;flex-wrap:wrap;">
+              ${d.drinks.slice(0, 2).map(item => `
+                <span style="background:#F8FAFC;border:1px solid #E2E8F0;font-size:10.5px;padding:2px 7px;border-radius:8px;color:#334155;font-weight:700;">
+                  🧋 ${item}
+                </span>
+              `).join("")}
+            </div>
+          </div>
+
+          <!-- 俐落乾淨 MAP 按鈕 -->
+          <button style="background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;border:none;border-radius:12px;padding:7px 11px;font-size:11px;font-weight:800;display:inline-flex;align-items:center;gap:3px;cursor:pointer;flex-shrink:0;box-shadow:0 3px 8px rgba(2,132,199,0.3);" onclick="event.stopPropagation(); openDrinkMapNavigation('${cleanBrand}')">
+            <span>🗺️</span> MAP
+          </button>
+        </div>
+      `;
+    }
+
+    // =========================================================
+    // 景點詳情頁面渲染 (Request 1: 參照用戶圖片設計)
+    // 滿版大圖 + 輪播圓點 + 標題 + 右側大粉紅愛心收藏 + 3數據徽章 + About + 包車/行程 + Google Map
+    // =========================================================
+
+    function generateSpotDetailHTML(spot, isInline = false) {
+      const isFav = favoritesList.some(f => f.id === spot.id || f.name === spot.name);
+      const closeAction = isInline ? "closeSpotDetailView()" : "closeMobileRightScreen()";
+      
+      return `
+        <div class="spot-detail-page-container" style="background:#FFF;min-height:100%;">
+          <!-- 頂部滿版大圖與控制鈕 -->
+          <div style="position:relative;height:340px;background:#000;overflow:hidden;">
+            <img src="${spot.img}" style="width:100%;height:100%;object-fit:cover;" alt="${spot.name}">
+            
+            <!-- 左上角圓形毛玻璃返回鈕 (如同圖片左上角白圓圈箭頭) -->
+            <button class="circle-icon-btn-frosted" onclick="${closeAction}" style="position:absolute;top:14px;left:14px;z-index:20;" title="返回上一頁">
+              ←
+            </button>
+
+            <!-- 底部 3 顆輪播指示點 (Carousel Dots 如同圖片中下方 ...) -->
+            <div style="position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10;">
+              <span style="width:8px;height:8px;border-radius:50%;background:#FF2D55;"></span>
+              <span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.6);"></span>
+              <span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.6);"></span>
+            </div>
+          </div>
+
+          <!-- 下方白底圓角懸浮卡牌 (向上覆蓋大圖) -->
+          <div style="margin-top:-20px;position:relative;background:#FFFFFF;border-top-left-radius:26px;border-top-right-radius:26px;padding:20px 18px 80px;box-shadow:0 -6px 20px rgba(0,0,0,0.06);z-index:15;">
+            
+            <!-- 標題與大顆粉紅收藏愛心鈕 (完全吻合圖片右側桃紅大愛心) -->
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px;">
+              <div>
+                <h1 style="font-size:22px;font-weight:900;color:#0F172A;line-height:1.25;margin:0 0 6px;">
+                  ${spot.name}
+                </h1>
+                <div style="display:flex;align-items:center;gap:4px;font-size:12px;color:#64748B;font-weight:700;">
+                  <span style="color:#FF2D55;font-size:14px;">📍</span>
+                  <span>${spot.city} · 台灣熱門精選勝地</span>
+                </div>
+              </div>
+
+              <!-- 桃紅圓形大愛心收藏按鈕 -->
+              <button class="spot-big-heart-btn" onclick="toggleSpotFav(${spot.id})" style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg, #FF2D55 0%, #E11D48 100%);border:3px solid #FFF;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(255,45,85,0.4);cursor:pointer;flex-shrink:0;transition:transform 0.2s ease;">
+                <span style="font-size:22px;color:#FFF;">${isFav ? '❤️' : '🤍'}</span>
+              </button>
+            </div>
+
+            <!-- 3 個圓角數據指標徽章 (⭐ 4.9 Reviews | 🏷️ NT$650起 | 🌤️ 25°C Sunny) -->
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:16px 0 20px;">
+              <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:12px 8px;text-align:center;">
+                <div style="font-size:18px;margin-bottom:2px;">⭐</div>
+                <div style="font-size:14px;font-weight:900;color:#0F172A;">${spot.rate.replace('★','')}</div>
+                <div style="font-size:9.5px;color:#64748B;font-weight:700;">1.2萬則評價</div>
+              </div>
+              <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:12px 8px;text-align:center;">
+                <div style="font-size:18px;margin-bottom:2px;">🏷️</div>
+                <div style="font-size:14px;font-weight:900;color:#0284C7;">NT$ 650起</div>
+                <div style="font-size:9.5px;color:#64748B;font-weight:700;">超值特惠</div>
+              </div>
+              <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:12px 8px;text-align:center;">
+                <div style="font-size:18px;margin-bottom:2px;">🌤️</div>
+                <div style="font-size:14px;font-weight:900;color:#0F172A;">${spot.temp || '24°C'}</div>
+                <div style="font-size:9.5px;color:#64748B;font-weight:700;">晴朗舒適</div>
+              </div>
+            </div>
+
+            <!-- About 景點重要介紹區塊 (附 Show More 展開更多) -->
+            <div style="margin-bottom:22px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                <span style="font-size:16px;font-weight:900;color:#0F172A;">About</span>
+                <span style="font-size:11px;font-weight:800;color:#FF2D55;cursor:pointer;" onclick="toggleAboutExpand()">展開全覽</span>
+              </div>
+              <p id="detail-about-text" style="font-size:12.5px;color:#475569;line-height:1.65;margin:0;">
+                ${spot.desc} 這裡匯聚了全台灣最震撼人心的自然地貌與人文底蘊，無論是清晨微風初起的朝霞、抑或落日餘暉灑落山海之際，皆能為旅人帶來無與倫比的心靈洗滌與視覺享受。
+              </p>
+            </div>
+
+            <!-- 景點包車與推薦行程預約卡牌 (直連預定，絕不出現 KLOOK 字樣) -->
+            <div style="margin-bottom:20px;">
+              <div style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
+                <span>🔥</span> 推薦預約與專屬交通直通車
+              </div>
+
+              <!-- 包車直達 -->
+              <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);border:1px solid #BBF7D0;border-radius:16px;text-decoration:none;margin-bottom:10px;box-shadow:0 2px 8px rgba(34,197,94,0.12);">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <span style="font-size:24px;">🚗</span>
+                  <div>
+                    <div style="font-size:13px;font-weight:900;color:#166534;">預約景點專屬包車直達</div>
+                    <div style="font-size:10px;color:#15803D;font-weight:700;">專業司機導覽・飯店直達門口・免轉車煩惱</div>
+                  </div>
+                </div>
+                <span style="background:#16A34A;color:#FFF;font-size:11px;font-weight:800;padding:6px 12px;border-radius:12px;white-space:nowrap;">
+                  預約包車 ➔
+                </span>
+              </a>
+
+              <!-- 推薦行程體驗 (無 KLOOK 字眼) -->
+              <a href="${spot.aid || 'https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436'}" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);border:1px solid #BFDBFE;border-radius:16px;text-decoration:none;margin-bottom:10px;box-shadow:0 2px 8px rgba(59,130,246,0.12);">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <span style="font-size:24px;">🎟️</span>
+                  <div>
+                    <div style="font-size:13px;font-weight:900;color:#1E40AF;">推薦深度特色行程與體驗</div>
+                    <div style="font-size:10px;color:#1D4ED8;font-weight:700;">免排隊即買即用・專屬導覽與戶外冒險活動</div>
+                  </div>
+                </div>
+                <span style="background:#2563EB;color:#FFF;font-size:11px;font-weight:800;padding:6px 12px;border-radius:12px;white-space:nowrap;">
+                  預約行程 ➔
+                </span>
+              </a>
+            </div>
+
+            <!-- 最後可以點開 MAP 導航 (符合用戶需求) -->
+            <div>
+              <div style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+                <span>🗺️</span> 景點位置與地圖導航
+              </div>
+              <button onclick="openGoogleMap('${spot.city}', '${spot.name}')" style="width:100%;padding:14px;border-radius:16px;background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFFFFF;border:none;font-size:13px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 6px 20px rgba(2,132,199,0.35);">
+                <span>🗺️</span> 開啟地圖導航
+              </button>
+            </div>
+
+          </div>
+        </div>
+      `;
+    }
+
+    function openGoogleMap(city, name) {
+      const query = encodeURIComponent(city + " " + name);
+      window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, "_blank");
+    }
+
+    function closeSpotDetailView() {
+      const inlineContainer = document.getElementById("inline-spot-detail-container");
+      if (inlineContainer) inlineContainer.style.display = "none";
+    }
+
+    function toggleAboutExpand() {
+      const el = document.getElementById("detail-about-text");
+      if (!el) return;
+      if (el.dataset.expanded === "true") {
+        el.style.display = "-webkit-box";
+        el.style.webkitLineClamp = "3";
+        el.style.webkitBoxOrient = "vertical";
+        el.dataset.expanded = "false";
+      } else {
+        el.style.display = "block";
+        el.dataset.expanded = "true";
+      }
+    }
+
+    function selectSpot(id, openInline = true) {
+      const spot = ALL_SPOTS_DATA.find(s => s.id === id);
+      if (!spot) return;
+      currentSelectedSpot = spot;
+
+      document.querySelectorAll(".feed-spot-card-immersive").forEach(c => c.classList.remove("selected"));
+      const card = document.getElementById(`feed-card-${id}`);
+      if (card) card.classList.add("selected");
+
+      // 1. 在左手機視圖內嵌展示 (如同圖片跳轉展示，附返回鈕)
+      const inlineContainer = document.getElementById("inline-spot-detail-container");
+      if (openInline && inlineContainer) {
+        inlineContainer.innerHTML = generateSpotDetailHTML(spot, true);
+        inlineContainer.style.display = "block";
+        inlineContainer.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // 2. 同步更新右手機螢幕視圖
+      const detailContainer = document.getElementById("detail-view-container");
+      if (detailContainer) {
+        detailContainer.innerHTML = generateSpotDetailHTML(spot, false);
+        detailContainer.style.display = "block";
+        const thematicWrap = document.getElementById("thematic-subpages-wrapper");
+        if (thematicWrap) thematicWrap.style.display = "none";
+      }
+
+      const islandText = document.getElementById("right-island-text");
+      if (islandText) islandText.innerText = `📍 ${spot.city} 景點導覽`;
+
+      if (window.innerWidth <= 860) {
+        document.getElementById("right-phone-screen").classList.add("mobile-active");
+      }
+    }
+
+    function closeMobileRightScreen() {
+      document.getElementById("right-phone-screen").classList.remove("mobile-active");
+    }
+
+    // 16 大主題專屬獨立子頁面
+
+function openThemeSubpage(themeId) {
       const theme = THEMES_DATA.find(t => t.id === themeId) || THEMES_DATA[0];
       const subHtml = generateSubpageHTML(themeId);
 
