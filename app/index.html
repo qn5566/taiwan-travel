@@ -3663,6 +3663,35 @@
     </div>
   </div>
 
+    <!-- ==========================================
+       ♨️ 溫泉雜誌風深度彈窗 (一日遊行程、四五星飯店跳 Booking、大眾池跳 Klook、周邊懷石/日料/下午茶)
+       ========================================== -->
+  <div id="hotspring-magazine-modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,0.72);backdrop-filter:blur(10px);z-index:99999;align-items:center;justify-content:center;padding:14px;" onclick="closeHotSpringModal()">
+    <div id="hotspring-magazine-modal-card" style="background:#FFFDFB;border-radius:24px;max-width:440px;width:100%;max-height:88vh;overflow-y:auto;box-shadow:0 25px 60px rgba(0,0,0,0.35);border:1.5px solid #FED7AA;position:relative;" onclick="event.stopPropagation()">
+      <div id="hotspring-magazine-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       🎨 9:16 IG 限動台灣手帳彈窗 (文青風、5大收藏景點、造訪城市、手搖飲打卡印章、專屬 QR Code、Canvas PNG 下載)
+       ========================================== -->
+  <div id="journal-modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,0.85);backdrop-filter:blur(12px);z-index:99999;align-items:center;justify-content:center;padding:12px;" onclick="closeJournalModal()">
+    <div id="journal-modal-container" style="background:transparent;max-width:380px;width:100%;max-height:94vh;display:flex;flex-direction:column;align-items:center;" onclick="event.stopPropagation()">
+      <div id="journal-card-preview-wrapper" style="width:100%;overflow-y:auto;max-height:80vh;border-radius:22px;box-shadow:0 20px 50px rgba(0,0,0,0.5);">
+        <div id="journal-card-content"></div>
+      </div>
+      <!-- 操作控制列 -->
+      <div style="display:flex;gap:8px;width:100%;margin-top:12px;">
+        <button onclick="downloadJournalImage()" style="flex:1;background:linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);color:#FFF;border:none;border-radius:14px;padding:11px 0;font-size:12.5px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 4px 14px rgba(37,99,235,0.35);">
+          <span>📥 下載 9:16 IG限動圖片</span>
+        </button>
+        <button onclick="closeJournalModal()" style="background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);color:#FFF;border:1px solid rgba(255,255,255,0.4);border-radius:14px;padding:11px 16px;font-size:12.5px;font-weight:900;cursor:pointer;">
+          ✕ 關閉
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- ==========================================
        🎬 影視景點劇照與深度介紹彈窗 (點進去可以看到偶像劇拍攝畫面與景點介紹)
        ========================================== -->
@@ -6472,7 +6501,66 @@ const BIB_GOURMAND_DATA = [
     ];
 
     // 狀態持久化
+    // 預設 5 大私房經典景點 (供手帳與收藏庫即時預覽)
+    const DEFAULT_FAV_SPOTS = [
+      {
+        id: 101,
+        name: "花蓮 ｜ 太魯閣燕子口峽谷",
+        city: "花蓮縣秀林鄉",
+        rate: "4.9★",
+        tag: "世界級奇景",
+        note: "大理石峽谷與碧綠溪水，世界級震撼奇景。",
+        img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=600&auto=format&fit=crop",
+        aid: "https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436"
+      },
+      {
+        id: 102,
+        name: "九份山城 ｜ 阿妹茶樓老街",
+        city: "新北市瑞芳區",
+        rate: "4.9★",
+        tag: "老街燈火",
+        note: "山嵐與紅燈籠石階交融，宛若神隱少女幻境。",
+        img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop",
+        aid: "https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436"
+      },
+      {
+        id: 103,
+        name: "南投 ｜ 日月潭水社碼頭",
+        city: "南投縣魚池鄉",
+        rate: "4.8★",
+        tag: "晨曦湖畔",
+        note: "晨霧縹緲的山中明珠，全球最美自行車道。",
+        img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop",
+        aid: "https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436"
+      },
+      {
+        id: 104,
+        name: "嘉義 ｜ 阿里山巨木群棧道",
+        city: "嘉義縣阿里山鄉",
+        rate: "4.9★",
+        tag: "千年神木",
+        note: "高山森鐵小火車、千年紅檜與澎湃翻騰雲海。",
+        img: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&auto=format&fit=crop",
+        aid: "https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436"
+      },
+      {
+        id: 105,
+        name: "台南 ｜ 安平古堡與老街",
+        city: "台南市安平區",
+        rate: "4.8★",
+        tag: "府城風華",
+        note: "台灣四百年歷史起點，紅磚瓦巷與牛肉湯香。",
+        img: "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=600&auto=format&fit=crop",
+        aid: "https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436"
+      }
+    ];
+
+    // 狀態持久化 (若無收藏則預先以 5 大經典景點展示，手帳與收藏庫可立即預覽)
     let favoritesList = JSON.parse(localStorage.getItem("tw_travel_favs") || "[]");
+    if (!favoritesList || favoritesList.length === 0) {
+      favoritesList = [...DEFAULT_FAV_SPOTS];
+      try { localStorage.setItem("tw_travel_favs", JSON.stringify(favoritesList)); } catch(e) {}
+    }
 
     // 全域狀態管理變數 (置頂以防 TDZ ReferenceError)
     let currentSelectedSpot = null;
@@ -8638,78 +8726,425 @@ const RAILWAY_TOP10 = [
     }
   }
 ];
-const HOTSPRING_TOP10 = [
+
+// ============================================================
+// ♨️ 台灣十大名湯 · 溫泉生活誌 (Editorial Hot Springs Magazine)
+// ============================================================
+const HOTSPRING_MAGAZINE_DATA = [
   {
     rank: 1,
     name: "台北北投溫泉",
-    type: "白磺泉 / 青磺泉",
-    desc: "捷運新北投站直達，日治時期起便是全台溫泉龍頭，富含微量鐳元素的青磺泉更是全球僅兩處的名湯。",
-    img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&auto=format&fit=crop"
+    en: "Beitou Hot Spring",
+    type: "白磺泉 · 青磺泉",
+    temp: "42°C - 55°C",
+    city: "台北市北投區",
+    mrt: "捷運新北投站出站即達",
+    tag: "百年和風浴場文化",
+    desc: "全台名湯之首！坐落於大屯火山山腳，日治時期起便是全台名湯龍頭。擁有全球唯二富含微量鐳元素的青磺泉，以及如牛奶般柔潤的白磺泉，洗滌身心疲憊的近郊名湯之首。",
+    img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1000&auto=format&fit=crop",
+    klookUrl: "https://www.klook.com/zh-TW/activity/1329-beitou-hot-spring-taipei/?aid=123436",
+    bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E5%8C%97%E6%8A%95%E6%BA%AB%E6%B3%89%E9%A3%AF%E5%BA%97",
+    itinerary: {
+      title: "【北投名湯雜誌一日遊】日式和風美學與百年泉香慢旅",
+      morning: "09:30 捷運新北投站出發 ➔ 漫步全球最美綠建築「北投圖書館」拍照打卡 ➔ 參訪「北投溫泉博物館」羅馬式大浴場與和室榻榻米古蹟。",
+      afternoon: "12:00 漫步「地熱谷」青磺仙境，欣賞如仙境般白煙蒸騰泉水湧動 ➔ 午餐品嚐排隊名店「滿來溫泉拉麵」與現煮溫泉蛋、溫泉豆腐。",
+      sunset: "15:00 尋訪百年老宅咖啡館「水月文旅」品嚐手沖精品咖啡與抹茶生乳酪 ➔ 前往北投親水公園露天足湯舒緩雙足。",
+      evening: "17:30 入住加賀屋或麗禧溫泉酒店，享受露天白磺檜木大眾風呂與雙人湯屋 ➔ 晚間享用季節旬味「日式精緻懷石會席料理」。"
+    },
+    hotels: [
+      {
+        name: "日勝生加賀屋國際溫泉飯店",
+        stars: "5★ 頂級純日式和風溫泉會館",
+        desc: "日本加賀屋海外唯一分館！正統日式管家茶道接待、榻榻米和室與純白磺原湯露天風呂。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E6%97%A5%E5%8B%9D%E7%94%9F%E5%8A%A0%E8%B3%80%E5%B1%8B%E5%9C%8B%E9%9A%9B%E6%BA%AB%E6%B3%89%E9%A3%AF%E5%BA%97"
+      },
+      {
+        name: "北投麗禧溫泉酒店 Grand View Resort",
+        stars: "5★ 奢華山林景觀原湯渡假酒店",
+        desc: "座落北投制高點，引流白磺第一口天然原湯！群山環抱之露天風呂、獨立湯屋與法式頂級料理。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E5%8C%97%E6%8A%95%E9%BA%97%E7%A6%A7%E6%BA%AB%E6%B3%89%E9%85%92%E5%BA%97"
+      }
+    ],
+    dining: [
+      { name: "天翔餐廳 (Tensho)", style: "日式懷石料理", desc: "加賀屋御用旬味懷石會席，當令食材精緻擺盤。" },
+      { name: "滿來溫泉拉麵", style: "日料拉麵", desc: "濃郁白湯豚骨拉麵、招牌溫泉豆腐、現炸排骨。" },
+      { name: "水月文旅日式老宅", style: "下午茶與手沖咖啡", desc: "榻榻米日式庭園，手沖高山咖啡與抹茶甜點。" },
+      { name: "少帥禪園・小六食堂", style: "張學良古蹟茶席", desc: "居高臨下俯瞰觀音山日落，品味禪意養生下午茶。" }
+    ]
   },
   {
     rank: 2,
-    name: "新北烏來溫泉",
-    type: "碳酸氫鈉美人湯",
-    desc: "隱身於南勢溪翠綠山谷中，水質清澈無味，泡後肌膚柔嫩光滑，可順訪烏來老街與烏來瀑布。",
-    img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&auto=format&fit=crop"
+    name: "宜蘭礁溪溫泉",
+    en: "Jiaoxi Hot Spring",
+    type: "平原碳酸泉 · 美人湯",
+    temp: "45°C - 52°C",
+    city: "宜蘭縣礁溪鄉",
+    mrt: "礁溪火車站 / 客運轉運站直達",
+    tag: "清澈柔潤無色無味",
+    desc: "全台灣極罕見的平原湧泉，泉質清澈無色無臭，富含豐富礦物質，洗後肌膚柔滑細緻如絲緞，更有全鎮隨處可見的免費足湯公園與美味溫泉蔬果。",
+    img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1000&auto=format&fit=crop",
+    klookUrl: "https://www.klook.com/zh-TW/activity/4113-hotel-royal-chiao-hsi-spa-yilan/?aid=123436",
+    bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E7%A4%81%E6%BA%AA%E6%BA%AB%E6%B3%89%E9%A3%AF%E5%BA%97",
+    itinerary: {
+      title: "【礁溪名湯雜誌一日遊】平原美人湯與蘭陽森林芬多精漫步",
+      morning: "09:30 礁溪火車站出發 ➔ 漫步「湯圍溝溫泉公園」體驗親親溫泉魚足湯 ➔ 健行「五峰旗瀑布」三層奔騰溪谷。",
+      afternoon: "12:30 品嚐在地名物「礁溪八寶冬粉」與清甜脆口的現炒溫泉空心菜 ➔ 順訪「林美石磐步道」漫步亞熱帶峽谷溪流。",
+      sunset: "15:30 尋訪田野老宅「定邦咖啡」享用當季新鮮水蜜桃戚風蛋糕與冰滴冷萃咖啡。",
+      evening: "17:30 入住寒沐酒店或老爺酒店，享受野天活水露天溫泉風呂 ➔ 晚間品嚐蘭陽在地「三燔礁溪頂級日式壽喜燒懷石」。"
+    },
+    hotels: [
+      {
+        name: "礁溪寒沐酒店 MU JIAO XI HOTEL",
+        stars: "5★ 寒舍旗下極簡雅緻溫泉旗艦",
+        desc: "藝術美學自然共生，客房專屬原湯浴池、露天溫泉綜合游泳池與戶外碳酸溫泉風呂。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E7%A4%81%E6%BA%AA%E5%AF%92%E6%B2%90%E9%85%92%E5%BA%97"
+      },
+      {
+        name: "礁溪老爺酒店 Hotel Royal Chiaohsi",
+        stars: "5★ 幽靜山丘五星奢華度假村",
+        desc: "俯瞰蘭陽平原百萬夜景！野天活水露天風呂、洞天男女風呂與無微不至的日式管家服務。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E7%A4%81%E6%BA%AA%E8%80%81%E7%88%BA%E9%85%92%E5%BA%97"
+      }
+    ],
+    dining: [
+      { name: "三燔礁溪 (晶泉丰旅)", style: "日式壽喜燒懷石", desc: "宜蘭櫻桃鴨、頂級美國牛與當令海鮮極品鍋物。" },
+      { name: "礁溪老爺・雲天自助餐廳", style: "日料海鮮百匯", desc: "落地窗俯瞰無邊際泳池，當季現流生魚片與海鮮。" },
+      { name: "定邦咖啡", style: "三合院老宅下午茶", desc: "古樸農莊三合院，招牌巨無霸水果戚風蛋糕。" },
+      { name: "合鴨米灶腳", style: "蘭陽在地旬料理", desc: "自然農法合鴨米飯、生飲級鴨肉與溫泉時蔬。" }
+    ]
   },
   {
     rank: 3,
-    name: "宜蘭礁溪溫泉",
-    type: "平原碳酸泉",
-    desc: "全台罕見的平原平地溫泉，無色無味清澈甘純，鎮內到處是免費足湯公園，特產溫泉蔬菜與空心菜。",
-    img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop"
+    name: "新北烏來溫泉",
+    en: "Wulai Hot Spring",
+    type: "碳酸氫鈉泉 · 美人湯",
+    temp: "48°C - 54°C",
+    city: "新北市烏來區",
+    mrt: "新店客運 849 直達烏來老街",
+    tag: "南勢溪峽谷泰雅秘湯",
+    desc: "隱匿於南勢溪青翠峽谷間，弱鹼性美人湯讓肌膚宛如絲緞般滑嫩，伴隨泰雅原鄉歷史風情、奔騰烏來瀑布與懷舊台車，是台北近郊最放鬆的山林秘境。",
+    img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1000&auto=format&fit=crop",
+    klookUrl: "https://www.klook.com/zh-TW/activity/1330-wulai-volando-spring-spa-taipei/?aid=123436",
+    bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E7%83%8F%E4%BE%86%E6%BA%AB%E6%B3%89%E9%A3%AF%E5%BA%97",
+    itinerary: {
+      title: "【烏來峽谷雜誌一日遊】山嵐台車、泰雅旬味與溪畔原湯享受",
+      morning: "10:00 抵達烏來老街 ➔ 搭乘黃色懷舊「烏來台車」穿梭翠綠林道 ➔ 欣賞烏來瀑布磅礡水花與勇士廣場原民雕塑。",
+      afternoon: "12:30 老街品嚐炭烤「馬告山豬肉香腸」、現蒸竹筒飯與鮮嫩山蘇 ➔ 參訪「泰雅民族博物館」欣賞百年織布工藝。",
+      sunset: "15:30 沿南勢溪畔景觀咖啡館「瀑布3號」品嚐手沖高山咖啡與馬告磅蛋糕，直面壯麗瀑布。",
+      evening: "17:30 入住馥蘭朵或璞石麗緻溫泉會館，享受溪畔露天大眾風呂與冷熱原湯 ➔ 晚間品嚐「法式與日式融合湖畔晚宴」。"
+    },
+    hotels: [
+      {
+        name: "馥蘭朵烏來渡假酒店 Volando Urai",
+        stars: "5★ 羅萊夏朵世界頂級精品酒店",
+        desc: "極致私密藝術美學！南勢溪畔無邊際原湯風呂、日式棋不語表演與米其林星級水岸法式晚宴。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E9%A6%A5%E8%98%AD%E6%9C%B5%E7%83%8F%E4%BE%86%E6%B8%A1%E5%81%87%E9%85%92%E5%BA%97"
+      },
+      {
+        name: "烏來璞石麗緻溫泉會館 Pause Landis",
+        stars: "4★ 依山傍水日式禪風名宿",
+        desc: "沉穩低調極簡清水模設計，石作與檜木主題湯屋，飽覽南勢溪峭壁山色與潺潺流水。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E7%92%9E%E7%9F%B3%E9%BA%97%E7%A5%B7%E6%BA%AB%E6%B3%89%E6%9C%83%E9%A4%A8"
+      }
+    ],
+    dining: [
+      { name: "馥蘭朵首漾 (Soyan)", style: "湖畔法日料理", desc: "溪畔落地窗景致，法式烹飪技藝融合在地山產旬味。" },
+      { name: "瀑布3號景觀咖啡", style: "景觀下午茶", desc: "玻璃屋景觀露台，直面烏來瀑布手沖咖啡與甜點。" },
+      { name: "阿春美食", style: "泰雅原鄉旬料理", desc: "現炒野生山蘇、涼拌檳榔花、香菇竹筒飯。" },
+      { name: "于烤魚創意家常料理", style: "南勢溪活魚料理", desc: "以馬告與鮮花椒特調香烤活水鱘龍魚、山泉鯛魚。" }
+    ]
   },
   {
     rank: 4,
-    name: "宜蘭太平山鳩之澤",
-    type: "寶藍色弱鹼碳酸泉",
-    desc: "隱匿於高山原始檜木林間，泉水呈現如夢似幻的土耳其藍，並設有天然地熱火山溫泉煮蛋槽。",
-    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop"
+    name: "苗栗泰安溫泉",
+    en: "Taian Hot Spring",
+    type: "碳酸氫鈉泉 · 清澈柔滑",
+    temp: "47°C - 50°C",
+    city: "苗栗縣泰安鄉",
+    mrt: "苗栗火車站轉搭包車或公車",
+    tag: "汶水溪谷山嵐秘境",
+    desc: "座落於汶水溪上游狹長峽谷，群山繚繞水氣氤氳，水質溫潤細緻被譽為『神水』，遠離都會喧囂，是深秋入冬享受頂級靜謐度假的不二之選。",
+    img: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=1000&auto=format&fit=crop",
+    klookUrl: "https://www.klook.com/zh-TW/activity/4347-papawaqa-hot-spring-resort-miaoli/?aid=123436",
+    bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E6%B3%B0%E5%AE%89%E6%BA%AB%E6%B3%89%E9%A3%AF%E5%BA%97",
+    itinerary: {
+      title: "【泰安山林雜誌一日遊】洗水坑豆腐街、峽谷清水模與野溪原湯",
+      morning: "10:00 漫步苗栗「清安豆腐街」品嚐三色現炸黑豆腐與竹筍湯 ➔ 健行「汶水溪峽谷吊橋」飽覽巨石峽谷風光。",
+      afternoon: "13:00 參訪「泰雅文物館」體驗泰雅族打獵與織布文化 ➔ 漫步「洗水坑溪畔步道」享受溪水潺潺。",
+      sunset: "15:30 尋訪泰安「山吻泉咖啡」露台，享用在地手炒客家擂茶與現烤麻糬下午茶。",
+      evening: "17:30 入住「泰安觀止溫泉會館」，沉浸於溪畔無邊際冷熱泉水療池 ➔ 晚間享用主廚特製「客家與日式融合星級晚宴」。"
+    },
+    hotels: [
+      {
+        name: "泰安觀止溫泉會館 Onsen Papawaqa",
+        stars: "5★ 清水模與鐵木共生頂級建築",
+        desc: "全台建築美學地標！依傍汶水溪畔，無邊際鏡面山泉池、露天大眾風呂與肖楠木質客房香氣。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E6%B3%B0%E5%AE%89%E8%A7%80%E6%AD%A2%E6%BA%AB%E6%B3%89%E6%9C%83%E9%A4%A8"
+      },
+      {
+        name: "日出溫泉渡假飯店 Sunrise Resort",
+        stars: "4★ 峇里島南島風情溫泉會館",
+        desc: "南洋棕櫚樹與茅草屋頂造景，露天原湯水療池、兒童戲水池與獨立景觀檜木湯屋。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E6%97%A5%E5%87%BA%E6%BA%AB%E6%B3%89%E6%B8%A1%E5%81%87%E9%85%92%E5%BA%97"
+      }
+    ],
+    dining: [
+      { name: "行水餐廳 (泰安觀止)", style: "日式會席旬味", desc: "當季時令食材入饌，精緻法日擺盤與溪畔絕美窗景。" },
+      { name: "山吻泉景觀餐廳", style: "下午茶與原民火鍋", desc: "臨溪景觀平台，香濃南瓜火鍋與現烤山豬肉披薩。" },
+      { name: "清安黑皮臭豆腐", style: "老街排隊名店", desc: "中藥發酵黑色臭豆腐、現炸皮蛋與清甜竹筍湯。" },
+      { name: "洗水坑客家餐館", style: "客家傳統料理", desc: "道地客家小炒、薑絲炒大腸、酸甜梅干扣肉。" }
+    ]
   },
   {
     rank: 5,
-    name: "苗栗泰安溫泉",
-    type: "高山山嵐名湯",
-    desc: "座落於汶水溪上游峽谷，群山繚繞水氣氤氳，水質溫潤細緻，是冬季遠離塵囂的渡假勝地。",
-    img: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&auto=format&fit=crop"
+    name: "台中谷關溫泉",
+    en: "Guguan Hot Spring",
+    type: "弱鹼性碳酸泉 · 明治古湯",
+    temp: "48°C - 60°C",
+    city: "台中市和平區",
+    mrt: "台中高鐵站搭乘 153 公車直達",
+    tag: "中橫大甲溪畔名湯",
+    desc: "中橫公路大甲溪畔名湯，日治時期明治天皇曾親自沐浴並讚不絕口！泉質柔潤甘純，群山環抱，周邊有古木參天的捎來吊橋步道與全台最奢華的星野溫泉渡假村。",
+    img: "https://images.unsplash.com/photo-1528164344705-475426879c0d?w=1000&auto=format&fit=crop",
+    klookUrl: "https://www.klook.com/zh-TW/activity/1331-guguan-hot-spring-taichung/?aid=123436",
+    bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E8%B0%B7%E9%97%9C%E6%BA%AB%E6%B3%89%E9%A3%AF%E5%BA%97",
+    itinerary: {
+      title: "【谷關山谷雜誌一日遊】捎來吊橋健行、活水鱘龍魚與星野水庭園",
+      morning: "09:30 抵達谷關 ➔ 漫步「捎來吊橋」挑戰森林步道登頂千歲黑松觀景台 ➔ 谷關溫泉公園親親溫泉魚足湯。",
+      afternoon: "12:30 品嚐在地特產「五葉松白冷冰棒」與大甲溪現撈活水「鱘龍魚一魚多吃」海陸盛宴 ➔ 參訪谷關遊客中心入船亭日式造景。",
+      sunset: "15:30 溪畔木棧道享用高山蜜香紅茶與原住民手作麻糬下午茶。",
+      evening: "17:30 入住虹夕諾雅或惠來谷關，享受露天竹林深山原湯風呂 ➔ 晚間品嚐星級主廚操刀「高級會席懷石晚宴」。"
+    },
+    hotels: [
+      {
+        name: "虹夕諾雅 谷關 HOSHINOYA Guguan",
+        stars: "5★ 星野集團日本境外首間奢華溫泉旗艦",
+        desc: "世界級度假天花板！露天深山水之庭園原湯、日式榻榻米樓中樓客房與無懈可擊之宴席料理。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E8%99%B9%E5%A4%95%E8%AB%BE%E9%9B%85%E8%B0%B7%E9%97%9C"
+      },
+      {
+        name: "惠來谷關溫泉會館 Villa Spa Guguan",
+        stars: "4★ 峇里島原始熱帶南洋風會館",
+        desc: "巨石沉木露天風呂、日式與峇里島雙重休閒造景，客房均配有超大天然花崗石溫泉原湯池。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E6%83%A0%E4%BE%86%E8%B0%B7%E9%97%9C%E6%BA%AB%E6%B3%89%E6%9C%83%E9%A4%A8"
+      }
+    ],
+    dining: [
+      { name: "虹夕諾雅・日式宴會廳", style: "高級懷石料理", desc: "融合台灣在地五葉松、鱘龍魚與日式正統懷石高湯。" },
+      { name: "魚之鄉鱘龍魚料理", style: "活水鱘龍魚宴", desc: "大甲溪純淨活水養殖，軟骨脆口、魚肉細緻清甜。" },
+      { name: "白冷客家肉包", style: "在地排隊古早味", desc: "手工手水筍丁豬肉包，沾特製甜辣醬一口爆汁。" },
+      { name: "谷關山谷咖啡露台", style: "下午茶與手沖咖啡", desc: "五葉松特調氣泡飲、高山冷泡蜜香紅茶與鬆餅。" }
+    ]
   },
   {
     rank: 6,
-    name: "台中谷關溫泉",
-    type: "弱鹼性碳酸泉",
-    desc: "中橫公路大甲溪畔名湯，日治時期明治天皇曾親自造訪，泉質柔潤，周邊有捎來吊橋步道。",
-    img: "https://images.unsplash.com/photo-1528164344705-475426879c0d?w=800&auto=format&fit=crop"
+    name: "台南關子嶺溫泉",
+    en: "Guanziling Hot Spring",
+    type: "世界三大黑泥漿泉",
+    temp: "75°C - 80°C",
+    city: "台南市白河區",
+    mrt: "嘉義/新營火車站轉搭黃12公車",
+    tag: "天然礦泥美膚滑潤",
+    desc: "全台灣唯一的黑泥漿溫泉！與義大利西西里島、日本鹿兒島並列世界三大泥漿名湯。泉水夾帶豐富地下天然礦物泥，呈灰黑色微濁，具極佳保濕舒緩與養顏效果。",
+    img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1000&auto=format&fit=crop",
+    klookUrl: "https://www.klook.com/zh-TW/activity/4348-guanziling-mud-spring-tainan/?aid=123436",
+    bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E9%97%9C%E5%AD%90%E5%B6%BA%E6%BA%AB%E6%B3%89%E9%A3%AF%E5%BA%97",
+    itinerary: {
+      title: "【關子嶺泥漿名湯一日遊】水火同源奇景、火山泥敷臉與脆皮甕仔雞",
+      morning: "10:00 抵達白河 ➔ 參訪名列台灣七大奇景的「水火同源」天然氣水共生噴發 ➔ 碧雲寺俯瞰嘉南平原萬里晴空。",
+      afternoon: "12:30 品嚐關子嶺聞名全台的「柴燒脆皮甕仔雞」與山採過貓野菜 ➔ 漫步日治時期好漢坡步道。",
+      sunset: "15:30 尋訪嶺頂公園「山裏咖啡」品嚐東山在地精品藝妓咖啡與手作焦糖布丁下午茶。",
+      evening: "17:30 入住統茂或景大渡假莊園，享受世界罕見天然黑礦泥敷臉與露天泥漿水療池 ➔ 晚間享用在地養生何首烏土雞鍋。"
+    },
+    hotels: [
+      {
+        name: "台南關子嶺統茂溫泉會館",
+        stars: "4★ 知名大型泥漿水療渡假會館",
+        desc: "全台最具規模之露天泥漿風呂！精油SPA、泥漿護膚面膜區與三溫暖水療設備齊全。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E9%97%9C%E5%AD%90%E5%B6%BA%E7%B5%B1%E8%8C%82%E6%BA%AB%E6%B3%89%E6%9C%83%E9%A4%A8"
+      },
+      {
+        name: "景大渡假莊園 King's Garden Villa",
+        stars: "4★ 歐式都鐸莊園風格溫泉會館",
+        desc: "座落綠意盎然山坡，百坪歐風露天礦泥溫泉池、多功能水療SPA池與獨立隱密木屋湯屋。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E6%99%AF%E5%A4%A7%E6%B8%A1%E5%81%87%E8%8E%8A%E5%9C%92"
+      }
+    ],
+    dining: [
+      { name: "原味山產甕仔雞", style: "脆皮甕仔雞", desc: "柴火現烤皮脆多汁土雞、雞油拌飯與脆筍湯。" },
+      { name: "嶺景景觀餐廳", style: "日料養生鍋物", desc: "俯瞰山林夜景，東山咖啡入菜創意料理與土雞鍋。" },
+      { name: "山裏咖啡", style: "東山精品咖啡", desc: "東山在地小農手沖咖啡、法式千層蛋糕下午茶。" },
+      { name: "仙草國小手作豆腐腦", style: "古法甜點", desc: "純天然山泉水古法製作，淋上黑糖薑汁滑嫩清甜。" }
+    ]
   },
   {
     rank: 7,
-    name: "台南關子嶺溫泉",
-    type: "世界三大黑泥漿溫泉",
-    desc: "全台唯一泥漿溫泉，泉水夾帶豐富地下天然礦物泥，呈灰黑色微濁，具極佳美膚與舒緩效果。",
-    img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop"
+    name: "台東知本溫泉",
+    en: "Zhiben Hot Spring",
+    type: "鹼性碳酸氫鈉泉 · 東台第一",
+    temp: "45°C - 56°C",
+    city: "台東縣卑南鄉",
+    mrt: "知本火車站轉乘計程車或專車",
+    tag: "知本溪峽谷原始森林名湯",
+    desc: "東台灣最富盛名的溫泉勝地！發源於知本溪峽谷，泉質無色無味，富含重碳酸鈉，沐浴後通體舒暢。周圍環抱知本國家森林遊樂區的百年白榕巨木，身心極度療癒。",
+    img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1000&auto=format&fit=crop",
+    klookUrl: "https://www.klook.com/zh-TW/activity/4349-hotel-royal-chihpen-hot-spring-taitung/?aid=123436",
+    bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E7%9F%A5%E6%9C%AC%E6%BA%AB%E6%B3%89%E9%A3%AF%E5%BA%97",
+    itinerary: {
+      title: "【知本峽谷雜誌一日遊】森林巨木健行、原民石板烤肉與星空露天湯",
+      morning: "09:30 進入「知本國家森林遊樂區」健行 ➔ 漫步榕蔭步道仰望百年白榕千根氣根巨網 ➔ 登上好漢坡眺望太平洋海景。",
+      afternoon: "12:30 品嚐在地部落名店「大頭目野食館」石板烤山豬肉、香烤小米阿粨與山產野味 ➔ 參訪知本天主堂祈福。",
+      sunset: "15:30 尋訪知本溪畔「山嵐咖啡露台」享用鹿野紅烏龍冷泡茶與初鹿牧場鮮奶酪下午茶。",
+      evening: "17:30 入住知本老爺酒店，享受星空露天風呂與心采風呂 ➔ 晚間欣賞原住民族嘹亮歌舞晚會並品嚐五星鐵板懷石。"
+    },
+    hotels: [
+      {
+        name: "知本老爺酒店 Hotel Royal Chihpen",
+        stars: "5★ 東台灣五星溫泉度假村指標",
+        desc: "隱身峽谷森林，天幕露天風呂、心采室內原湯、星空原民歌舞晚會與射箭高爾夫休閒設施。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E7%9F%A5%E6%9C%AC%E8%80%81%E7%88%BA%E9%85%92%E5%BA%97"
+      },
+      {
+        name: "知本金聯世紀酒店 Century Hotel",
+        stars: "5★ 挑高純白簡約日式溫泉酒店",
+        desc: "挑高水晶天井設計，頂樓露天四季美人湯，俯瞰知本溪蜿蜒山景，客房均配有超大天然溫泉浴池。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E7%9F%A5%E6%9C%AC%E9%87%91%E8%81%AF%E4%B8%96%E7%B4%80%E9%85%92%E5%BA%97"
+      }
+    ],
+    dining: [
+      { name: "知本老爺・酋長鐵板燒", style: "日料鐵板懷石", desc: "富岡漁港當日直送活龍蝦、海魚與台東在地時令蔬菜。" },
+      { name: "大頭目野食館", style: "原住民料理", desc: "炭火石板烤山豬肉、刺蔥煎蛋、現煮野菜山雞湯。" },
+      { name: "黑松羊肉爐", style: "在地當歸藥膳", desc: "知本街上排隊名店，溫補藥膳羊肉湯與羊肉炒麵。" },
+      { name: "溪畔山嵐茶席", style: "紅烏龍下午茶", desc: "鹿野冠軍蜜香紅烏龍茶、初鹿鮮乳泡芙與手作司康。" }
+    ]
   },
   {
     rank: 8,
-    name: "台東知本溫泉",
-    type: "鹼性碳酸氫鈉泉",
-    desc: "東台灣最富盛名的溫泉名勝，知本溪峽谷兩岸溫泉飯店林立，鄰近知本國家森林遊樂區。",
-    img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&auto=format&fit=crop"
+    name: "花蓮瑞穗溫泉",
+    en: "Ruisui Hot Spring",
+    type: "弱鹼性碳酸鹽含鐵黃金泉",
+    temp: "48°C - 50°C",
+    city: "花蓮縣瑞穗鄉",
+    mrt: "瑞穗火車站轉乘免費接駁或租車",
+    tag: "花東縱谷帝王生男名湯",
+    desc: "全台灣唯一的黃金溫泉！泉水富含鐵、鋇等礦物質，接觸空氣氧化後呈現微黃金色澤，水面更會漂浮一層珍貴的『溫泉花』結晶，相傳常泡能生男嬰，又稱生男之泉。",
+    img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=1000&auto=format&fit=crop",
+    klookUrl: "https://www.klook.com/zh-TW/activity/4350-grand-cosmos-resort-ruisui-hualien/?aid=123436",
+    bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E7%91%9E%E7%A9%97%E6%BA%AB%E6%B3%89%E9%A3%AF%E5%BA%97",
+    itinerary: {
+      title: "【瑞穗黃金名湯一日遊】舞鶴蜜香紅茶、牧場鮮奶與歐風古堡水樂園",
+      morning: "09:30 漫步瑞穗「舞鶴台地」參訪吉林茶園，體驗親手採摘一心二葉有機蜜香紅茶 ➔ 掃叭石柱古蹟巡禮。",
+      afternoon: "12:30 品嚐在地極致「綠精靈純鮮奶火鍋」現擠純鮮乳湯底 ➔ 前往「瑞穗牧場」餵食乳牛鴕鳥。",
+      sunset: "15:30 牧場露天座享用新鮮熱鮮奶、金黃現炸鮮奶饅頭與濃郁重乳酪蛋糕下午茶。",
+      evening: "17:30 入住瑞穗天合國際觀光酒店，暢玩黃金水樂園與露天黃金溫泉池 ➔ 晚間品嚐 PRIME ONE 星級牛排懷石饗宴。"
+    },
+    hotels: [
+      {
+        name: "瑞穗天合國際觀光酒店 Grand Cosmos",
+        stars: "5★ 南歐莊園城堡奢華渡假村",
+        desc: "全台最夢幻城堡飯店！2300坪金色水樂園、戶外露天黃金原湯風呂、滑水道與兒童專屬賽車場。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E7%91%9E%E7%A9%97%E5%A4%A9%E5%90%88%E5%9C%8B%E9%9A%9B%E8%A7%80%E5%85%89%E9%85%92%E5%BA%97"
+      },
+      {
+        name: "松邑莊園 The Silence Manor",
+        stars: "4★ 縱谷梯田極簡清水模奢華名宿",
+        desc: "坐落山嵐與稻浪之間，私密冷熱黃金雙湯池、群山環繞的戶外無邊際水池與法式星級主廚料理。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E6%9D%BE%E9%82%91%E8%8E%8A%E5%9C%92"
+      }
+    ],
+    dining: [
+      { name: "PRIME ONE 牛排館", style: "美陸頂級美饌", desc: "乾式熟成牛排、花蓮當令農產與精緻餐酒搭配。" },
+      { name: "綠精靈鮮奶鍋", style: "瑞穗鮮奶火鍋", desc: "瑞穗鮮乳熬製濃純白湯、花蓮時令生鮮野菜。" },
+      { name: "瑞穗牧場露天咖啡", style: "鮮奶下午茶", desc: "現熱純鮮奶、現炸金黃饅頭、生乳酪蛋糕。" },
+      { name: "吉林茶園品茗茶席", style: "冠軍蜜香紅茶", desc: "慢焙甘甜蜜香紅茶、茶香餅乾手作茶點。" }
+    ]
   },
   {
     rank: 9,
-    name: "花蓮瑞穗溫泉",
-    type: "氯化物碳酸鹽泉 (生男黃金泉)",
-    desc: "含豐富鐵質，泉水接觸空氣後氧化呈金黃色，與日本有馬溫泉齊名，被稱為全台黃金名湯。",
-    img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=800&auto=format&fit=crop"
+    name: "宜蘭太平山鳩之澤溫泉",
+    en: "Jiuzhize Hot Spring",
+    type: "弱鹼性碳酸泉 · 土耳其藍",
+    temp: "55°C - 65°C",
+    city: "宜蘭縣大同鄉",
+    mrt: "宜蘭火車站搭乘國光客運太平山專車",
+    tag: "原始檜木林高山夢幻藍泉",
+    desc: "隱匿於太平山國家森林遊樂區幽谷深處，泉水呈現如夢似幻的寶石級土耳其淡藍色！設有天然地熱火山溫泉煮蛋槽，泡在檜木桶風呂中遠眺群山雲海，宛如置身仙境。",
+    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1000&auto=format&fit=crop",
+    klookUrl: "https://www.klook.com/zh-TW/activity/4351-jiuzhize-hot-spring-yilan/?aid=123436",
+    bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E5%A4%AA%E5%B9%B3%E5%B1%B1%E8%8E%8A",
+    itinerary: {
+      title: "【鳩之澤藍泉一日遊】蹦蹦車、地熱煮溫泉蛋與雲海檜木風呂",
+      morning: "09:30 抵達太平山 ➔ 搭乘黃色「太平山蹦蹦車」穿梭原始高山檜木林道 ➔ 漫步「見晴懷古步道」舊鐵道賞翻騰雲海。",
+      afternoon: "12:30 下山抵達「鳩之澤溫泉」體驗天然地熱火山溫泉槽煮黃金溫泉蛋與香甜水果玉米。",
+      sunset: "15:00 漫步鳩之澤自然步道欣賞闊葉林生態 ➔ 雲海咖啡館品嚐高山手沖黑咖啡與堅果派。",
+      evening: "16:30 進入鳩之澤露天溫泉SPA大浴池與獨立檜木桶泡湯，飽覽幽谷溪流 ➔ 晚間入住太平山莊或棲蘭山莊。"
+    },
+    hotels: [
+      {
+        name: "太平山莊 Taipingshan Villa",
+        stars: "4★ 原始檜木森林中唯一官方山莊",
+        desc: "坐擁標高千米壯麗雲海！全木質溫馨客房、紅葉步道起點與近距離仰望純淨銀河星空。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E5%A4%AA%E5%B9%B3%E5%B1%B1%E8%8E%8A"
+      },
+      {
+        name: "棲蘭山莊 Qilan Villa",
+        stars: "4★ 棲蘭神木園區渡假山莊",
+        desc: "俯瞰蘭陽溪谷，環抱千年紅檜扁柏神木群，漫步蔣公行館與峽谷櫻花森林步道。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E6%A3%B2%E8%98%AD%E5%B1%B1%E8%8E%8A"
+      }
+    ],
+    dining: [
+      { name: "鳩之澤天然地熱溫泉槽", style: "溫泉地熱熟食", desc: "溫泉蛋、溫泉甜玉米、茭白筍，泉水甘甜天然原味。" },
+      { name: "太平山莊景觀餐廳", style: "高山時旬合菜", desc: "高山時令甘甜高麗菜、香煎山溪鱒魚、山當歸土雞湯。" },
+      { name: "雲海咖啡館", style: "標高千米下午茶", desc: "在雲霧翻騰露台品嚐熱可可、美式咖啡與核桃磅蛋糕。" },
+      { name: "英仕山莊水力旋轉餐廳", style: "溪谷景觀料理", desc: "全球唯一水力推動旋轉餐廳，飽覽蘭陽溪與雪山山脈。" }
+    ]
   },
   {
     rank: 10,
-    name: "屏東四重溪溫泉",
-    type: "南國落山風名湯",
-    desc: "恆春半島避寒名湯，日治時期日本皇太子蜜月之地，冬季溫泉季點亮整座山谷浪漫燈海。",
-    img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&auto=format&fit=crop"
+    name: "新北金山萬里溫泉",
+    en: "Jinshan & Wanli Hot Spring",
+    type: "海底溫泉 · 硫磺泉 · 鐵泉",
+    temp: "45°C - 58°C",
+    city: "新北市金山區",
+    mrt: "台北國道客運 1815 直達金山萬里",
+    tag: "北海岸罕見海景海底溫泉",
+    desc: "全台灣唯一同時擁有海底溫泉、碳酸泉、硫磺泉與鐵泉四大泉質的溫泉聚落！一邊泡著帶有微鹹海風氣息的海底溫泉，一邊眺望蔚藍太平洋燭台雙嶼海景，極具特色。",
+    img: "https://images.unsplash.com/photo-1519331379826-f10be5486c6f?w=1000&auto=format&fit=crop",
+    klookUrl: "https://www.klook.com/zh-TW/activity/4352-tien-lai-resort-hot-spring-new-taipei/?aid=123436",
+    bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E9%87%91%E5%B1%B1%E6%BA%AB%E6%B3%89%E9%A3%AF%E5%BA%97",
+    itinerary: {
+      title: "【金山萬里海風溫泉一日遊】神秘海岸燭台雙嶼、金山鴨肉與海底海景湯",
+      morning: "09:30 抵達金山 ➔ 漫步水尾漁港穿越海蝕巨洞抵達「神秘海岸」➔ 眺望海上奇景「燭台雙嶼」。",
+      afternoon: "12:00 前往三百年歷史「金山老街 (金包里老街)」自己端盤享用現切金山廟口鴨肉、芋圓與拔絲地瓜。",
+      sunset: "15:00 尋訪北海岸跳石海邊「靠北過日子」藍色小屋享用海味手沖咖啡與日式烏龍麵下午茶。",
+      evening: "17:30 入住陽明山天籟渡假酒店，享受2000坪露天溫泉水療樂園與白磺山嵐原湯 ➔ 晚間品嚐精緻和風海鮮盛宴。"
+    },
+    hotels: [
+      {
+        name: "陽明山天籟渡假酒店 Tien Lai Resort",
+        stars: "4★ 全台最大2000坪露天溫泉水療樂園",
+        desc: "背倚陽明山國家公園，純淨白磺溫泉池、水療SPA按摩池、獨立日式和風客房與森林步道。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E9%99%BD%E6%98%8E%E5%B1%B1%E5%A4%A9%E7%B1%A4%E6%B8%A1%E5%81%87%E9%85%92%E5%BA%97"
+      },
+      {
+        name: "金山八煙溫泉會館 Bayen Hotspring",
+        stars: "4★ 陽明山腳下日式幽靜湯屋名所",
+        desc: "隱匿於磺溪與綠竹林間，露天野溪原湯池、冷泉芬多精水療與獨立景觀檜木雙人湯屋。",
+        bookingUrl: "https://www.booking.com/searchresults.zh-tw.html?ss=%E5%85%AB%E7%85%99%E6%BA%AB%E6%B3%89%E6%9C%83%E9%A4%A8"
+      }
+    ],
+    dining: [
+      { name: "金山廟口鴨肉", style: "百年老街排隊名店", desc: "老街廟口自助端盤，招牌鹹香鴨肉、炸鰻魚、炒下水。" },
+      { name: "靠北過日子 (Quiet B.Days)", style: "海景日式雜貨咖啡", desc: "藍色臨海老宅，手沖精品咖啡、日式野菜烏龍麵與烤餅。" },
+      { name: "洋荳子咖啡館", style: "希臘藍白風地中海下午茶", desc: "無敵太平洋海景窗座，檸檬天使蛋糕與冰拿鐵。" },
+      { name: "福緣火鍋", style: "超人氣排隊石頭火鍋", desc: "加油站旁隱藏版石頭火鍋，香氣爆炒湯頭鮮美無比。" }
+    ]
   }
 ];
+
+const HOTSPRING_TOP10 = HOTSPRING_MAGAZINE_DATA;
+
 const NIGHTMARKET_TOP10 = [
   {
     rank: 1,
@@ -9765,12 +10200,89 @@ function closeFilmSpotModal() {
   if (modalOverlay) modalOverlay.style.display = "none";
 }
 
-// 🎬 影視朝聖攻略景點 (依使用者需求：卡片景點名稱居上、下寫電影介紹、底圖為電影照片、直接點 MAP 觀看、一個一排)
+// 🎬 影視朝聖攻略景點 (平滑滾動選看、景點名稱居上、下寫電影介紹、底圖為電影照片、直點 MAP、一個一排)
 let currentSelectedFilmFilter = 0; // 0 表示全部，1~20 為單部電影
 
-function switchFilmSpotFilter(filmId) {
+function switchFilmSpotFilter(filmId, btnEl) {
   currentSelectedFilmFilter = filmId;
-  updateSubpageView("film_pilgrimage");
+  
+  // 1. 更新按鈕選中樣式並平滑滾動置中 (不重刷整頁，絕不回彈最前面)
+  const container = document.getElementById("film-chips-scroll-container");
+  if (container) {
+    container.querySelectorAll(".film-filter-chip").forEach(btn => {
+      btn.style.background = "rgba(30,41,59,0.85)";
+      btn.style.color = "#CBD5E1";
+      btn.style.border = "1px solid rgba(255,255,255,0.1)";
+      btn.style.boxShadow = "none";
+    });
+  }
+  if (btnEl) {
+    btnEl.style.background = "#E11D48";
+    btnEl.style.color = "#FFF";
+    btnEl.style.border = "1px solid #E11D48";
+    btnEl.style.boxShadow = "0 2px 8px rgba(225,29,72,0.4)";
+    btnEl.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  }
+
+  // 2. 只動態替換卡片區域
+  const listContainer = document.getElementById("film-spots-list-container");
+  const countSpan = document.getElementById("film-spots-count-badge");
+  const filteredSpots = currentSelectedFilmFilter === 0
+    ? FILM_SPOTS_20_DATA
+    : FILM_SPOTS_20_DATA.filter(s => s.filmId === currentSelectedFilmFilter);
+
+  if (countSpan) countSpan.innerText = `共 ${filteredSpots.length} 個取景地`;
+  if (listContainer) {
+    listContainer.innerHTML = renderFilmSpotCardsHTML(filteredSpots);
+  }
+}
+
+function renderFilmSpotCardsHTML(spots) {
+  return spots.map((spot) => `
+    <div style="position:relative;border-radius:20px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.12);background:#1E293B;">
+      <!-- 底圖：電影實景相片 -->
+      <div style="position:relative;height:160px;overflow:hidden;">
+        <img src="${spot.bgImg}" alt="${spot.spotName}" style="width:100%;height:100%;object-fit:cover;">
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(15,23,42,0.2) 0%, rgba(15,23,42,0.92) 100%);"></div>
+        
+        <!-- 左上電影名標籤 -->
+        <div style="position:absolute;top:12px;left:12px;background:rgba(225,29,72,0.95);backdrop-filter:blur(6px);color:#FFF;padding:3.5px 11px;border-radius:8px;font-size:11px;font-weight:900;box-shadow:0 2px 6px rgba(0,0,0,0.3);">
+          ${spot.filmTitle}
+        </div>
+
+        <!-- 右上城市標籤 -->
+        <div style="position:absolute;top:12px;right:12px;background:rgba(0,0,0,0.65);backdrop-filter:blur(6px);color:#F8FAFC;padding:2.5px 9px;border-radius:8px;font-size:10.5px;font-weight:800;border:1px solid rgba(255,255,255,0.2);">
+          📍 ${spot.city}
+        </div>
+
+        <!-- 景點名稱 (卡片上方清楚呈現) -->
+        <div style="position:absolute;bottom:12px;left:14px;right:14px;color:#FFF;">
+          <h3 style="font-size:17px;font-weight:900;margin:0;line-height:1.25;text-shadow:0 2px 8px rgba(0,0,0,0.8);letter-spacing:-0.2px;">
+            ${spot.spotName}
+          </h3>
+        </div>
+      </div>
+
+      <!-- 卡片內容：電影經典介紹 ＆ 快速 MAP 按鈕 -->
+      <div style="padding:14px;background:#1E293B;">
+        <p style="font-size:12.5px;color:#CBD5E1;line-height:1.6;margin:0 0 12px;font-weight:500;">
+          ${spot.desc}
+        </p>
+
+        <!-- 雙功能按鈕：寫 MAP 就好 ＆ 預約包車 -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <button onclick="window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('${spot.mapQuery}'), '_blank')" style="padding:10px;background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;border:none;border-radius:12px;font-size:12.5px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 2px 8px rgba(2,132,199,0.3);">
+            <span>🗺️</span>
+            <span>MAP</span>
+          </button>
+          <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436" target="_blank" style="padding:10px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);color:#F8FAFC;border-radius:12px;font-size:12px;font-weight:800;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:5px;text-align:center;">
+            <span>🚗</span>
+            <span>包車直達</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  `).join("");
 }
 
 function renderSubpageFilmPilgrimage(theme) {
@@ -9804,28 +10316,33 @@ function renderSubpageFilmPilgrimage(theme) {
 
   return `
     <div class="thematic-subpage" style="background:#0F172A;min-height:100%;color:#FFF;padding-bottom:90px;">
-      
-      <!-- 置頂 Hero 滿版大圖 -->
-      <div style="position:relative;height:220px;overflow:hidden;">
-        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1000&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;" alt="影視朝聖攻略景點">
-        <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(15,23,42,0.2) 0%, rgba(15,23,42,0.95) 100%);"></div>
+      <!-- 置頂 Hero 滿版大圖 (劇院黑膠電影氛圍) -->
+      <div style="position:relative;height:240px;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1000&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;" alt="影視朝聖攻略景點">
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(15,23,42,0.2) 0%, rgba(15,23,42,0.92) 100%);"></div>
+        
         <button class="circle-icon-btn-frosted" onclick="toggleFav('影視朝聖攻略景點', '', '', event)" style="position:absolute;top:14px;right:14px;z-index:20;">❤️</button>
-        <div style="position:absolute;bottom:16px;left:16px;right:16px;z-index:10;">
-          <div style="display:inline-block;background:#E11D48;color:#FFF;font-size:10px;font-weight:900;padding:2px 8px;border-radius:6px;margin-bottom:6px;">🎬 國際名導 · 實地取景</div>
-          <h1 style="font-size:21px;font-weight:900;margin:0 0 4px;line-height:1.2;">影視朝聖攻略景點</h1>
+        
+        <div style="position:absolute;bottom:14px;left:16px;right:16px;">
+          <div style="display:inline-block;background:linear-gradient(135deg, #E11D48 0%, #BE123C 100%);color:#FFF;font-size:10.5px;font-weight:900;padding:2.5px 8px;border-radius:6px;margin-bottom:6px;letter-spacing:0.5px;">
+            🎬 CINEMATIC PILGRIMAGE
+          </div>
+          <h1 style="font-size:22px;font-weight:900;margin:0 0 4px;color:#FFF;letter-spacing:-0.3px;">
+            影視朝聖攻略景點
+          </h1>
           <div style="font-size:11.5px;opacity:0.85;">20 部曾來台取景的國際影視名作 · 實景朝聖巡禮</div>
         </div>
       </div>
 
-      <!-- 快速電影分類按鈕 (橫向滾動膠囊，支援點選任一部電影或看全部) -->
+      <!-- 快速電影分類按鈕 (橫向滾動膠囊，支援點選任一部電影順暢平滑滾動，絕不回彈) -->
       <div style="padding:14px 16px 8px;">
         <div style="font-size:12px;font-weight:900;color:#94A3B8;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">
           <span>🎞️ 篩選電影作品：</span>
-          <span style="font-size:11px;color:#38BDF8;font-weight:800;">共 ${filteredSpots.length} 個取景地</span>
+          <span id="film-spots-count-badge" style="font-size:11px;color:#38BDF8;font-weight:800;">共 ${filteredSpots.length} 個取景地</span>
         </div>
-        <div style="display:flex;gap:6px;overflow-x:auto;white-space:nowrap;padding-bottom:8px;scrollbar-width:none;" class="no-scrollbar">
+        <div id="film-chips-scroll-container" style="display:flex;gap:6px;overflow-x:auto;white-space:nowrap;padding-bottom:8px;scrollbar-width:none;-webkit-overflow-scrolling:touch;" class="no-scrollbar">
           ${movieChips.map(c => `
-            <button onclick="switchFilmSpotFilter(${c.id})" style="border:none;padding:6px 12px;border-radius:12px;font-size:11.5px;font-weight:800;cursor:pointer;background:${currentSelectedFilmFilter === c.id ? '#E11D48' : 'rgba(30,41,59,0.85)'};color:${currentSelectedFilmFilter === c.id ? '#FFF' : '#CBD5E1'};border:1px solid ${currentSelectedFilmFilter === c.id ? '#E11D48' : 'rgba(255,255,255,0.1)'};box-shadow:${currentSelectedFilmFilter === c.id ? '0 2px 8px rgba(225,29,72,0.4)' : 'none'};transition:all 0.15s ease;">
+            <button class="film-filter-chip" onclick="switchFilmSpotFilter(${c.id}, this)" style="border:none;padding:7px 13px;border-radius:12px;font-size:11.5px;font-weight:800;cursor:pointer;flex-shrink:0;background:${currentSelectedFilmFilter === c.id ? '#E11D48' : 'rgba(30,41,59,0.85)'};color:${currentSelectedFilmFilter === c.id ? '#FFF' : '#CBD5E1'};border:1px solid ${currentSelectedFilmFilter === c.id ? '#E11D48' : 'rgba(255,255,255,0.1)'};box-shadow:${currentSelectedFilmFilter === c.id ? '0 2px 8px rgba(225,29,72,0.4)' : 'none'};transition:all 0.15s ease;">
               ${c.title}
             </button>
           `).join("")}
@@ -9833,53 +10350,8 @@ function renderSubpageFilmPilgrimage(theme) {
       </div>
 
       <!-- 景點卡牌清單 (一個一排 Full-Width，底圖為電影照片，景點名稱居上，下寫電影介紹，直點 MAP) -->
-      <div style="padding:4px 16px 20px;display:flex;flex-direction:column;gap:14px;">
-        ${filteredSpots.map((spot, idx) => `
-          <div style="position:relative;border-radius:20px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.12);background:#1E293B;">
-            
-            <!-- 底圖：電影實景相片 -->
-            <div style="position:relative;height:160px;overflow:hidden;">
-              <img src="${spot.bgImg}" alt="${spot.spotName}" style="width:100%;height:100%;object-fit:cover;">
-              <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.92) 100%);"></div>
-              
-              <!-- 左上電影名標籤 -->
-              <div style="position:absolute;top:12px;left:12px;background:rgba(225,29,72,0.95);backdrop-filter:blur(6px);color:#FFF;padding:3px 10px;border-radius:8px;font-size:11px;font-weight:900;box-shadow:0 2px 6px rgba(0,0,0,0.3);">
-                ${spot.filmTitle}
-              </div>
-
-              <!-- 右上城市標籤 -->
-              <div style="position:absolute;top:12px;right:12px;background:rgba(0,0,0,0.65);backdrop-filter:blur(6px);color:#F8FAFC;padding:2px 8px;border-radius:8px;font-size:10px;font-weight:800;border:1px solid rgba(255,255,255,0.2);">
-                📍 ${spot.city}
-              </div>
-
-              <!-- 景點名稱 (先於卡片上方清楚呈現) -->
-              <div style="position:absolute;bottom:12px;left:14px;right:14px;color:#FFF;">
-                <h3 style="font-size:17px;font-weight:900;margin:0;line-height:1.25;text-shadow:0 2px 8px rgba(0,0,0,0.8);letter-spacing:-0.2px;">
-                  ${spot.spotName}
-                </h3>
-              </div>
-            </div>
-
-            <!-- 卡片內容：電影經典介紹 ＆ 快速按鈕 -->
-            <div style="padding:14px;background:#1E293B;">
-              <p style="font-size:12.5px;color:#CBD5E1;line-height:1.6;margin:0 0 12px;font-weight:500;">
-                ${spot.desc}
-              </p>
-
-              <!-- 雙功能按鈕：直接點 MAP 觀看 ＆ 預約包車 -->
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-                <button onclick="window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('${spot.mapQuery}'), '_blank')" style="padding:10px;background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;border:none;border-radius:12px;font-size:12px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;box-shadow:0 2px 8px rgba(2,132,199,0.3);">
-                  <span>map</span>
-                </button>
-                <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436" target="_blank" style="padding:10px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);color:#F8FAFC;border-radius:12px;font-size:12px;font-weight:800;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:5px;text-align:center;">
-                  <span>🚗</span>
-                  <span>包車朝聖直達</span>
-                </a>
-              </div>
-            </div>
-
-          </div>
-        `).join("")}
+      <div id="film-spots-list-container" style="padding:4px 16px 20px;display:flex;flex-direction:column;gap:14px;">
+        ${renderFilmSpotCardsHTML(filteredSpots)}
       </div>
 
     </div>
@@ -10228,112 +10700,366 @@ function renderSubpageBaseball(theme) {
 }
 
 
+
+// ============================================================
+// ♨️ 溫泉雜誌風獨立子頁面 (淡淡溫暖橘子色、單排卡片流、雜誌封面感、點進去完整一日遊與飯店餐廳彈窗)
+// ============================================================
+
 function renderSubpageHotSpring(theme) {
   return `
-    <div class="thematic-subpage-view active" style="padding-bottom:24px;background:#FAFAFA;">
-      <!-- 上半部熱帶溫泉渡假實景大圖 (~280px，比照圖片) -->
-      <div style="position:relative;height:280px;background:#0F172A;overflow:hidden;">
-        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1000&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Hot Spring Retreat">
+    <div class="thematic-subpage" style="background:#FFF9F5;min-height:100%;color:#431407;padding-bottom:90px;">
+      
+      <!-- 雜誌封面 Hero 滿版大圖 (溫暖橘光日和氛圍) -->
+      <div style="position:relative;height:240px;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1000&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;" alt="全台名湯">
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(234,88,12,0.15) 0%, rgba(124,45,18,0.85) 100%);"></div>
         
-        <!-- 左上毛玻璃返回圓鈕 + 右上毛玻璃愛心圓鈕 -->
+        <button class="circle-icon-btn-frosted" onclick="toggleFav('頂級名湯溫泉放鬆', '', '', event)" style="position:absolute;top:14px;right:14px;z-index:20;">❤️</button>
         
-        <button class="circle-icon-btn-frosted" onclick="toggleCurrentDetailFav()" style="position:absolute;top:14px;right:14px;z-index:20;width:38px;height:38px;background:rgba(255,255,255,0.25);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.6);color:#FFF;border-radius:50%;cursor:pointer;font-size:16px;">
-          ❤️
-        </button>
+        <div style="position:absolute;bottom:16px;left:18px;right:18px;color:#FFF;">
+          <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(234,88,12,0.95);backdrop-filter:blur(6px);color:#FFF;font-size:10.5px;font-weight:900;padding:3px 10px;border-radius:20px;margin-bottom:6px;letter-spacing:0.8px;">
+            <span>♨️</span>
+            <span>TAIWAN ON-SEN</span>
+          </div>
+          <h1 style="font-size:24px;font-weight:900;margin:0 0 4px;color:#FFF;letter-spacing:-0.4px;line-height:1.25;">
+            全台名湯
+          </h1>
+          <div style="font-size:12px;opacity:0.92;line-height:1.5;font-weight:500;">
+            全台 10 大指標名湯 · 白磺、青磺、泥漿與高山土耳其藍泉深度評選
+          </div>
+        </div>
       </div>
 
-      <!-- 下方半透毛玻璃浮層遮罩 (向上覆蓋大圖 -42px，純粹歐美溫泉渡假奢旅風) -->
-      <div style="margin-top:-42px;position:relative;background:linear-gradient(180deg, rgba(254, 243, 240, 0.88) 0%, rgba(255, 255, 255, 0.97) 22%, #FFFFFF 100%);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border-top-left-radius:36px;border-top-right-radius:36px;padding:16px 20px 80px;box-shadow:0 -12px 36px rgba(15,23,42,0.12);border-top:1.5px solid rgba(255,255,255,0.9);z-index:15;">
-        
-        <!-- 頂部正中央平滑滑塊膠囊 (比照圖片設計) -->
-        <div style="width:48px;height:5px;border-radius:3px;background:rgba(234,88,12,0.5);margin:0 auto 16px;"></div>
-
-        <!-- 歐美風大標題 (Large Bold Western Typography) -->
-        <h1 style="font-size:23px;font-weight:900;color:#0F172A;letter-spacing:-0.4px;margin:0 0 6px;line-height:1.25;">
-          Taiwan Hot Springs Retreat
-        </h1>
-        
-        <!-- 地點提示 -->
-        <div style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#475569;margin-bottom:8px;">
-          <span style="font-size:14px;">📍</span>
-          <span>台北北投 · 宜蘭礁溪 · 新北烏來 · 苗栗泰安</span>
+      <!-- 區塊標題精簡為：全台名湯 -->
+      <div style="padding:14px 16px 4px;display:flex;align-items:center;justify-content:space-between;">
+        <div style="font-size:16px;font-weight:900;color:#9A3412;display:flex;align-items:center;gap:6px;">
+          <span>🍊</span> <span>全台名湯</span>
         </div>
+        <span style="font-size:11px;font-weight:800;color:#EA580C;background:#FFF7ED;border:1px solid #FED7AA;padding:2px 8px;border-radius:10px;">
+          共 10 處名湯
+        </span>
+      </div>
 
-        <!-- 金黃五星評分列 (完全吻合圖片：★★★★★ 4.9 (4.8k reviews)) -->
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:16px;">
-          <span style="color:#F59E0B;letter-spacing:2px;font-size:13px;">★★★★★</span>
-          <span style="font-size:13.5px;font-weight:900;color:#0F172A;">4.9</span>
-          <span style="font-size:11px;color:#94A3B8;font-weight:700;">(4.8k reviews)</span>
-        </div>
-
-        <!-- 北投溫泉特別推薦卡片 (含一日遊/兩日遊行程切換、Booking 5星飯店、Klook 大眾池、包車) -->
-        <div style="background:linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);border:1.5px solid #FED7AA;border-radius:20px;padding:14px 16px;margin-bottom:18px;box-shadow:0 3px 10px rgba(234,88,12,0.06);">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-            <span style="font-size:13px;font-weight:900;color:#9A3412;">♨️ 北投溫泉周邊景點 · 深度慢活特企</span>
-            <span style="font-size:10.5px;font-weight:800;background:#EA580C;color:#FFF;padding:2px 8px;border-radius:8px;">2日遊首選</span>
-          </div>
-          <p style="font-size:11.5px;color:#7C2D12;line-height:1.6;margin:0 0 10px;">
-            捷運直達！地熱谷青磺仙境、加賀屋日式白磺湯屋與全球最美綠建築北投圖書館，非常適合規劃兩天一夜溫泉度假。
-          </p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
-            <a href="https://www.klook.com/zh-TW/activity/1329-beitou-hot-spring-taipei/?aid=123436" target="_blank" style="background:#EA580C;color:#FFF;border-radius:10px;padding:8px 0;text-align:center;font-size:11.5px;font-weight:800;text-decoration:none;">
-              ♨️ 大眾池/湯屋預約
-            </a>
-            <a href="https://www.booking.com/searchresults.zh-tw.html?ss=%E5%8C%97%E6%8A%95%E6%BA%AB%E6%B3%89%E9%A3%AF%E5%BA%97" target="_blank" style="background:#FFF;border:1.5px solid #EA580C;color:#EA580C;border-radius:10px;padding:8px 0;text-align:center;font-size:11.5px;font-weight:800;text-decoration:none;">
-              🏨 預訂溫泉飯店
-            </a>
-          </div>
-          <button onclick="openHotSpringModal(1, '2d')" style="width:100%;background:#FFF;border:1px solid #FDBA74;color:#9A3412;padding:7px 0;border-radius:10px;font-size:11.5px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;">
-            <span>📖 展開北投兩日遊/一日遊行程與五星住宿 ❯</span>
-          </button>
-        </div>
-
-        <!-- 歐美相片卡片流 (比照圖片 Nearby Destinations 雙欄雅緻排版，展示全台名湯) -->
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-          <span style="font-size:15px;font-weight:900;color:#0F172A;">Top 10 Hot Springs / 十大名湯推薦</span>
-          <span style="font-size:11px;font-weight:800;color:#EA580C;cursor:pointer;">See all ❯</span>
-        </div>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
-          ${HOTSPRING_TOP10.map((s, idx) => {
-            const springPhotos = [
-              "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&auto=format&fit=crop",
-              "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&auto=format&fit=crop",
-              "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop",
-              "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop",
-              "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop"
-            ];
-            const pImg = s.img || springPhotos[idx % springPhotos.length];
-            return `
-              <div style="background:#FFFFFF;border-radius:18px;overflow:hidden;border:1px solid #F1F5F9;box-shadow:0 3px 12px rgba(15,23,42,0.04);cursor:pointer;transition:all 0.2s ease;" onclick="openHotSpringModal(${s.rank}, '1d')">
-                <div style="position:relative;height:105px;overflow:hidden;">
-                  <img src="${pImg}" style="width:100%;height:100%;object-fit:cover;" alt="${s.name}" loading="lazy">
-                  <span style="position:absolute;top:8px;left:8px;background:rgba(15,23,42,0.7);backdrop-filter:blur(6px);color:#FFF;font-size:9.5px;font-weight:900;padding:2px 7px;border-radius:8px;">
-                    TOP ${s.rank}
-                  </span>
-                </div>
-                <div style="padding:10px 10px 12px;">
-                  <div style="font-size:13px;font-weight:900;color:#0F172A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:3px;">
-                    ${s.name}
-                  </div>
-                  <div style="display:flex;align-items:center;gap:4px;font-size:10.5px;color:#F59E0B;font-weight:800;margin-bottom:4px;">
-                    <span>★</span> <span>4.9</span>
-                    <span style="color:#94A3B8;font-weight:600;">· ${s.type.split('/')[0]}</span>
-                  </div>
-                  <button onclick="event.stopPropagation(); openHotSpringModal(${s.rank}, '1d')" style="width:100%;background:#FFF7ED;border:1px solid #FED7AA;color:#C2410C;padding:5px 0;border-radius:8px;font-size:11px;font-weight:800;cursor:pointer;">
-                    行程規劃 ▾
-                  </button>
-                </div>
+      <!-- 核心景點清單：一個景點一個卡牌一排 (雜誌風單排大卡) -->
+      <div style="padding:8px 16px 24px;display:flex;flex-direction:column;gap:16px;">
+        ${HOTSPRING_MAGAZINE_DATA.map((item) => `
+          <div onclick="openHotSpringModal(${item.rank})" style="background:#FFFFFF;border-radius:20px;overflow:hidden;border:1.5px solid #FED7AA;box-shadow:0 4px 18px rgba(234,88,12,0.06);cursor:pointer;transition:transform 0.2s ease;">
+            
+            <!-- 1. 雜誌實景相片 (~160px) -->
+            <div style="position:relative;height:160px;overflow:hidden;background:#FFEDD5;">
+              <img src="${item.img}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+              <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(67,20,7,0.85) 100%);"></div>
+              
+              <!-- 左上編號 -->
+              <div style="position:absolute;top:12px;left:12px;display:flex;gap:6px;align-items:center;">
+                <span style="background:#EA580C;color:#FFF;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:900;">
+                  TOP ${item.rank}
+                </span>
+                <span style="background:rgba(255,255,255,0.92);backdrop-filter:blur(6px);color:#9A3412;padding:2.5px 8px;border-radius:8px;font-size:10.5px;font-weight:800;">
+                  ♨️ ${item.type.split('·')[0]}
+                </span>
               </div>
-            `;
-          }).join('')}
-        </div>
 
+              <!-- 右上愛心 -->
+              <button onclick="event.stopPropagation(); toggleFav('${item.name}', '${item.city}', '${item.img}', event)" style="position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.9);backdrop-filter:blur(6px);border:1px solid #FED7AA;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+                <span style="font-size:14px;">❤️</span>
+              </button>
+
+              <!-- 景點名稱 -->
+              <div style="position:absolute;bottom:10px;left:14px;right:14px;color:#FFF;">
+                <div style="font-size:10.5px;opacity:0.9;font-weight:700;margin-bottom:2px;">📍 ${item.city} · 泉溫 ${item.temp}</div>
+                <h3 style="font-size:17.5px;font-weight:900;margin:0;line-height:1.25;text-shadow:0 2px 6px rgba(0,0,0,0.8);">
+                  ${item.name}
+                </h3>
+              </div>
+            </div>
+
+            <!-- 2. 下半部：介紹文字與簡明按鈕 (訂房 / 預定去) -->
+            <div style="padding:14px;background:#FFFDFB;">
+              <p style="font-size:12px;color:#78350F;line-height:1.6;margin:0 0 12px;font-weight:500;">
+                ${item.desc}
+              </p>
+
+              <!-- 按鈕區：依需求精簡文字 (行程寫『預定去』、飯店寫『訂房』、大眾池) -->
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <button onclick="event.stopPropagation(); openHotSpringModal(${item.rank})" style="padding:10px 0;background:linear-gradient(135deg, #EA580C 0%, #C2410C 100%);color:#FFF;border:none;border-radius:10px;font-size:12px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;box-shadow:0 2px 8px rgba(234,88,12,0.25);">
+                  <span>預定去 ❯</span>
+                </button>
+                <a href="${item.bookingUrl}" target="_blank" onclick="event.stopPropagation()" style="background:#FFF;border:1.5px solid #003580;color:#003580;padding:9px 0;border-radius:10px;text-align:center;font-size:12px;font-weight:900;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:4px;">
+                  <span>🏨</span> <span>訂房</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        `).join("")}
       </div>
+
     </div>
   `;
 }
 
+// 溫泉雜誌風深度彈窗交互 (一日遊規劃、兩間四五星飯店跳Booking、Klook大眾池、周邊懷石/日料/下午茶)
+function openHotSpringModal(rank) {
+  const item = HOTSPRING_MAGAZINE_DATA.find(s => s.rank === rank) || HOTSPRING_MAGAZINE_DATA[0];
+  const overlay = document.getElementById("hotspring-magazine-modal-overlay");
+  const body = document.getElementById("hotspring-magazine-modal-body");
+  if (!overlay || !body) return;
+
+  body.innerHTML = `
+    <!-- 頂部相片與返回按鈕 -->
+    <div style="position:relative;height:180px;overflow:hidden;background:#FFEDD5;">
+      <img src="${item.img}" style="width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(67,20,7,0.85) 100%);"></div>
+      
+      <button onclick="closeHotSpringModal()" style="position:absolute;top:12px;right:12px;padding:5px 12px;border-radius:20px;background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);color:#FFF;border:none;font-size:12px;font-weight:900;cursor:pointer;display:flex;align-items:center;gap:4px;z-index:10;">
+        <span>✕</span> <span>關閉</span>
+      </button>
+
+      <div style="position:absolute;top:12px;left:14px;background:#EA580C;color:#FFF;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:900;">
+        TOP ${item.rank}
+      </div>
+
+      <div style="position:absolute;bottom:12px;left:16px;right:16px;color:#FFF;">
+        <div style="font-size:11px;opacity:0.9;font-weight:800;">📍 ${item.city} · 泉溫 ${item.temp}</div>
+        <h2 style="font-size:20px;font-weight:900;margin:0;line-height:1.25;">${item.name}</h2>
+      </div>
+    </div>
+
+    <!-- 內容滾動區 -->
+    <div style="padding:16px 16px 20px;overflow-y:auto;max-height:calc(88vh - 180px);background:#FFFDFB;">
+      
+      <!-- 1. 規劃一日遊行程 -->
+      <div style="margin-bottom:16px;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:900;color:#9A3412;margin-bottom:8px;">
+          <span>🗓️</span> <span>${item.itinerary.title}</span>
+        </div>
+        <div style="background:#FFF7ED;border:1.5px solid #FED7AA;border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:9px;">
+          <div style="display:flex;gap:8px;align-items:flex-start;">
+            <span style="background:#EA580C;color:#FFF;font-size:10px;font-weight:900;padding:2px 6px;border-radius:6px;white-space:nowrap;margin-top:1px;">上午</span>
+            <div style="font-size:12px;color:#7C2D12;line-height:1.55;">${item.itinerary.morning}</div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;">
+            <span style="background:#EA580C;color:#FFF;font-size:10px;font-weight:900;padding:2px 6px;border-radius:6px;white-space:nowrap;margin-top:1px;">午間</span>
+            <div style="font-size:12px;color:#7C2D12;line-height:1.55;">${item.itinerary.afternoon}</div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;">
+            <span style="background:#EA580C;color:#FFF;font-size:10px;font-weight:900;padding:2px 6px;border-radius:6px;white-space:nowrap;margin-top:1px;">黃昏</span>
+            <div style="font-size:12px;color:#7C2D12;line-height:1.55;">${item.itinerary.sunset}</div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;">
+            <span style="background:#EA580C;color:#FFF;font-size:10px;font-weight:900;padding:2px 6px;border-radius:6px;white-space:nowrap;margin-top:1px;">晚間</span>
+            <div style="font-size:12px;color:#7C2D12;line-height:1.55;">${item.itinerary.evening}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. 推薦四星或五星飯店兩間 (跳 Booking，寫『訂房』) -->
+      <div style="margin-bottom:16px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+          <div style="display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:900;color:#0F172A;">
+            <span>🏨</span> <span>推薦五星／四星名湯飯店</span>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          ${item.hotels.map((h) => `
+            <a href="${h.bookingUrl}" target="_blank" style="display:block;background:#F8FAFC;border:1.5px solid #CBD5E1;border-radius:12px;padding:10px 12px;text-decoration:none;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px;">
+                <span style="font-size:13px;font-weight:900;color:#0F172A;">${h.name}</span>
+                <span style="background:#003580;color:#FFF;font-size:11px;font-weight:900;padding:3px 9px;border-radius:6px;">訂房 ↗</span>
+              </div>
+              <div style="font-size:11px;font-weight:800;color:#D97706;margin-bottom:3px;">${h.stars}</div>
+              <div style="font-size:11.5px;color:#475569;line-height:1.45;">${h.desc}</div>
+            </a>
+          `).join("")}
+        </div>
+      </div>
+
+      <!-- 3. 大眾池買票 (跳 Klook 按鈕) -->
+      <div style="margin-bottom:16px;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:900;color:#9A3412;margin-bottom:8px;">
+          <span>♨️</span> <span>大眾池門票</span>
+        </div>
+        <a href="${item.klookUrl}" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;background:linear-gradient(135deg, #EA580C 0%, #C2410C 100%);color:#FFF;padding:10px 0;border-radius:10px;font-size:12.5px;font-weight:900;text-decoration:none;box-shadow:0 2px 8px rgba(234,88,12,0.25);">
+          <span>🎟️</span>
+          <span>預定去 (Klook 大眾池票券) ➔</span>
+        </a>
+      </div>
+
+      <!-- 4. 周邊餐廳與咖啡推薦 (懷石料理、日料、下午茶) -->
+      <div style="margin-bottom:16px;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:900;color:#0F172A;margin-bottom:8px;">
+          <span>🍵</span> <span>周邊餐廳與咖啡：懷石料理 · 日料 · 下午茶</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          ${item.dining.map(d => `
+            <div style="background:#FFF;border:1px solid #FED7AA;border-radius:10px;padding:8px 10px;">
+              <div style="font-size:12px;font-weight:900;color:#0F172A;margin-bottom:2px;">${d.name}</div>
+              <div style="display:inline-block;background:#FFF7ED;color:#C2410C;font-size:9.5px;font-weight:800;padding:1px 5px;border-radius:4px;margin-bottom:3px;">${d.style}</div>
+              <div style="font-size:10.5px;color:#64748B;line-height:1.4;">${d.desc}</div>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+
+      <!-- 關閉 / 返回按鈕 (寫『關閉』就好) -->
+      <button onclick="closeHotSpringModal()" style="width:100%;padding:10px 0;background:#F1F5F9;border:1px solid #CBD5E1;border-radius:10px;font-size:12.5px;font-weight:800;color:#475569;cursor:pointer;">
+        關閉
+      </button>
+
+    </div>
+  `;
+
+  overlay.style.display = "flex";
+}
+
+function closeHotSpringModal() {
+  const overlay = document.getElementById("hotspring-magazine-modal-overlay");
+  if (overlay) overlay.style.display = "none";
+}
+
+
+// ============================================================
+// ♨️ 點進去展開：溫泉雜誌風完整一日遊、四五星飯店跳 Booking、大眾池跳 Klook、周邊懷石/日料/下午茶
+// ============================================================
+function openHotSpringModal(rank) {
+  const sp = HOTSPRING_MAGAZINE_DATA.find(s => s.rank === rank) || HOTSPRING_MAGAZINE_DATA[0];
+  const overlay = document.getElementById("hotspring-magazine-modal-overlay");
+  const body = document.getElementById("hotspring-magazine-modal-body");
+  if (!overlay || !body) return;
+
+  body.innerHTML = `
+    <!-- 頂部大圖封面與關閉按鈕 -->
+    <div style="position:relative;height:180px;background:#431407;overflow:hidden;">
+      <img src="${sp.img}" alt="${sp.name}" style="width:100%;height:100%;object-fit:cover;display:block;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(67,20,7,0.2) 0%, rgba(67,20,7,0.85) 100%);"></div>
+      
+      <!-- 關閉按鈕 -->
+      <button onclick="closeHotSpringModal()" style="position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,0.5);color:#FFF;border:none;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);z-index:10;">
+        ✕
+      </button>
+
+      <div style="position:absolute;bottom:12px;left:16px;right:16px;color:#FFF;">
+        <span style="background:#EA580C;color:#FFF;font-size:10px;font-weight:900;padding:2px 8px;border-radius:6px;display:inline-block;margin-bottom:4px;">
+          NO.${sp.rank} 溫泉誌特刊
+        </span>
+        <h2 style="font-size:20px;font-weight:900;margin:0 0 2px;line-height:1.25;">
+          ${sp.name}
+        </h2>
+        <div style="font-size:11.5px;color:#FED7AA;font-weight:700;">
+          📍 ${sp.city} · 泉質：${sp.type} (水溫 ${sp.temp})
+        </div>
+      </div>
+    </div>
+
+    <!-- 彈窗內容本體 (淡淡溫暖橘子色 #FFF9F5 雜誌排版) -->
+    <div style="padding:18px 18px 24px;background:#FFFDFB;">
+      
+      <!-- 1. 幫我規劃一日遊行程 (4 個時段排程) -->
+      <div style="margin-bottom:20px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px;">
+          <span style="font-size:18px;">🗓️</span>
+          <span style="font-size:14.5px;font-weight:900;color:#9A3412;">
+            ${sp.itinerary.title}
+          </span>
+        </div>
+        
+        <div style="background:#FFF7ED;border:1.5px solid #FED7AA;border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;gap:10px;">
+            <span style="background:#EA580C;color:#FFF;font-size:10px;font-weight:900;padding:2px 6px;border-radius:6px;height:fit-content;white-space:nowrap;">上午</span>
+            <div style="font-size:12px;color:#7C2D12;line-height:1.6;font-weight:600;">${sp.itinerary.morning}</div>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <span style="background:#D97706;color:#FFF;font-size:10px;font-weight:900;padding:2px 6px;border-radius:6px;height:fit-content;white-space:nowrap;">午後</span>
+            <div style="font-size:12px;color:#7C2D12;line-height:1.6;font-weight:600;">${sp.itinerary.afternoon}</div>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <span style="background:#B45309;color:#FFF;font-size:10px;font-weight:900;padding:2px 6px;border-radius:6px;height:fit-content;white-space:nowrap;">黃昏</span>
+            <div style="font-size:12px;color:#7C2D12;line-height:1.6;font-weight:600;">${sp.itinerary.sunset}</div>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <span style="background:#7C2D12;color:#FFF;font-size:10px;font-weight:900;padding:2px 6px;border-radius:6px;height:fit-content;white-space:nowrap;">入夜</span>
+            <div style="font-size:12px;color:#7C2D12;line-height:1.6;font-weight:600;">${sp.itinerary.evening}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. 大眾池買票按鈕 (跳到 Klook) -->
+      <div style="margin-bottom:20px;">
+        <div style="font-size:13.5px;font-weight:900;color:#9A3412;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+          <span>🎟️</span> <span>大眾池 / 獨立湯屋門票預訂</span>
+        </div>
+        <a href="${sp.klookUrl}" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:linear-gradient(135deg, #EA580C 0%, #C2410C 100%);color:#FFF;border-radius:14px;text-decoration:none;box-shadow:0 3px 12px rgba(234,88,12,0.3);transition:transform 0.15s ease;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-size:18px;">♨️</span>
+            <div>
+              <div style="font-size:12.5px;font-weight:900;">${sp.name} · 大眾露天風呂 ＆ 景觀湯屋券</div>
+              <div style="font-size:11px;opacity:0.9;">Klook 即買即用 · 享獨家優惠折扣</div>
+            </div>
+          </div>
+          <span style="font-size:12px;font-weight:900;background:rgba(255,255,255,0.25);padding:3px 8px;border-radius:8px;">
+            購票 ❯
+          </span>
+        </a>
+      </div>
+
+      <!-- 3. 推薦的五星或是四星飯店兩間 (跳到 Booking) -->
+      <div style="margin-bottom:20px;">
+        <div style="font-size:13.5px;font-weight:900;color:#9A3412;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+          <span>🏨</span> <span>推薦五星／四星溫泉名宿 (兩間推薦 · 跳 Booking)</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          ${sp.hotels.map(h => `
+            <div style="background:#FFFFFF;border:1.5px solid #FED7AA;border-radius:14px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;">
+                <div style="font-size:13.5px;font-weight:900;color:#0F172A;">${h.name}</div>
+                <span style="background:#FFF7ED;color:#C2410C;border:1px solid #FDBA74;font-size:10.5px;font-weight:900;padding:1px 6px;border-radius:6px;white-space:nowrap;">
+                  ${h.stars}
+                </span>
+              </div>
+              <p style="font-size:11.5px;color:#64748B;line-height:1.55;margin:0 0 10px;">
+                ${h.desc}
+              </p>
+              <a href="${h.bookingUrl}" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;gap:5px;width:100%;padding:8px 0;background:#003580;color:#FFF;border-radius:10px;font-size:12px;font-weight:800;text-decoration:none;">
+                <span>🏨 前往 Booking.com 查看房型與即時空房 ❯</span>
+              </a>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+
+      <!-- 4. 周邊美食與咖啡推薦 (懷石料理、日料、老宅下午茶、旬味) -->
+      <div style="margin-bottom:16px;">
+        <div style="font-size:13.5px;font-weight:900;color:#9A3412;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+          <span>🍵</span> <span>周邊餐廳與咖啡推薦 (懷石 / 日料 / 下午茶)</span>
+        </div>
+        <div style="background:#FFF7ED;border:1.5px solid #FED7AA;border-radius:14px;padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          ${sp.dining.map(d => `
+            <div style="background:#FFF;border-radius:10px;padding:9px;border:1px solid #FED7AA;">
+              <div style="font-size:12.5px;font-weight:900;color:#431407;margin-bottom:2px;">${d.name}</div>
+              <div style="font-size:10.5px;color:#EA580C;font-weight:800;margin-bottom:3px;">🥢 ${d.style}</div>
+              <div style="font-size:11px;color:#78350F;line-height:1.4;">${d.desc}</div>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+
+      <!-- 底部關閉按鈕 -->
+      <button onclick="closeHotSpringModal()" style="width:100%;padding:10px;background:#F1F5F9;border:1px solid #CBD5E1;color:#475569;border-radius:12px;font-size:13px;font-weight:900;cursor:pointer;">
+        ✕ 關閉雜誌視窗
+      </button>
+
+    </div>
+  `;
+
+  overlay.style.display = "flex";
+}
+
+function closeHotSpringModal() {
+  const overlay = document.getElementById("hotspring-magazine-modal-overlay");
+  if (overlay) overlay.style.display = "none";
+}
 
 // ============================================================
 function renderSubpageNightMarket(theme) {
@@ -10368,7 +11094,7 @@ function renderSubpageNightMarket(theme) {
 
         <!-- 標題：全台夜市 -->
         <div style="font-size:14px;font-weight:900;color:#F8FAFC;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
-          <span>🍢</span> <span>全台指標夜市 (暗黑專題)</span>
+          <span>🍢</span> <span>全台夜市</span>
         </div>
 
         <!-- 黑色系切換按鈕區 -->
@@ -10417,7 +11143,7 @@ function renderSubpageNightMarket(theme) {
         <div style="display:flex;flex-direction:column;gap:16px;">
           ${currentList.map((m) => {
             return `
-              <div style="background:#181E29;border-radius:20px;border:1.5px solid #283344;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.35);transition:transform 0.2s ease;">
+              <div style="background:#1E293B;border-radius:20px;border:1.5px solid #334155;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.35);transition:transform 0.2s ease;">
                 <!-- 1. 上半部：實景大圖 -->
                 <div style="position:relative;height:175px;overflow:hidden;background:#0F172A;">
                   <img src="${m.img}" alt="${m.name}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
@@ -10437,8 +11163,7 @@ function renderSubpageNightMarket(theme) {
                 </div>
 
                 <!-- 2. 下半部：黑色質感深色內容區 -->
-                <div style="padding:16px 18px 18px;background:#181E29;">
-                  <!-- 標題與評分 -->
+                <div style="padding:16px 18px 18px;background:#1E293B;">
                   <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;">
                     <h3 style="font-size:16.5px;font-weight:900;color:#FFFFFF;margin:0;line-height:1.3;letter-spacing:-0.2px;">
                       ${m.name}
@@ -10448,7 +11173,6 @@ function renderSubpageNightMarket(theme) {
                     </div>
                   </div>
 
-                  <!-- 捷運 / 交通指引 -->
                   ${m.mrt ? `
                     <div style="display:flex;align-items:center;gap:5px;font-size:11.5px;color:#38BDF8;font-weight:700;margin-bottom:10px;">
                       <span style="font-size:12px;">🚇</span>
@@ -10456,27 +11180,24 @@ function renderSubpageNightMarket(theme) {
                     </div>
                   ` : ''}
 
-                  <!-- 必吃精選 (暗夜霓虹琥珀框) -->
                   ${m.must_eat ? `
-                    <div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.25);border-left:3.5px solid #F59E0B;border-radius:10px;padding:8px 12px;margin-bottom:12px;">
+                    <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.3);border-left:3.5px solid #F59E0B;border-radius:10px;padding:8px 12px;margin-bottom:12px;">
                       <div style="font-size:11.5px;color:#FDE68A;font-weight:800;line-height:1.45;">
                         😋 必吃：${m.must_eat}
                       </div>
                     </div>
                   ` : ''}
 
-                  <!-- 介紹文字 -->
                   <p style="font-size:12px;color:#94A3B8;line-height:1.6;margin:0 0 16px;">
                     ${m.desc}
                   </p>
 
-                  <!-- 雙按鈕：預約包車 ＆ Google MAP 導航 -->
-                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-top:12px;border-top:1px solid #283344;">
-                    <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436" target="_blank" onclick="event.stopPropagation()" style="background:#1E293B;border:1.5px solid #334155;color:#38BDF8;font-size:12px;font-weight:800;padding:9px 0;border-radius:12px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all 0.2s ease;">
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-top:12px;border-top:1px solid #334155;">
+                    <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436" target="_blank" onclick="event.stopPropagation()" style="background:#0F172A;border:1.5px solid #334155;color:#38BDF8;font-size:12px;font-weight:800;padding:9px 0;border-radius:12px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:5px;">
                       <span>🚐</span> <span>夜市專案包車</span>
                     </a>
                     <button onclick="event.stopPropagation(); window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('${m.name}'), '_blank')" style="background:linear-gradient(135deg, #F59E0B 0%, #D97706 100%);color:#0F172A;font-size:12px;font-weight:900;padding:9px 0;border-radius:12px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;box-shadow:0 3px 10px rgba(245,158,11,0.25);">
-                      <span>🗺️</span> <span>地圖導航</span>
+                      <span>🗺️</span> <span>MAP</span>
                     </button>
                   </div>
                 </div>
@@ -10485,123 +11206,196 @@ function renderSubpageNightMarket(theme) {
           }).join('')}
         </div>
 
+        <!-- 底部夜市溫馨指南卡片 (消除突兀黑底斷層) -->
+        <div style="margin-top:20px;padding:14px;background:#1E293B;border:1px solid #334155;border-radius:16px;text-align:center;">
+          <div style="font-size:12px;font-weight:800;color:#FDE68A;margin-bottom:4px;">🌙 台灣夜市深夜慢行叮嚀</div>
+          <p style="font-size:11px;color:#94A3B8;line-height:1.5;margin:0;">各大夜市一般營業至深夜 24:00～01:00，建議善用捷運直達或預約專案包車接駁，安心享受美食！</p>
+        </div>
+
       </div>
     </div>
   `;
 }
 
+
 function renderSubpageNightView(theme) {
   const top5Spots = [
-    { rank: 1, name: "草山夜未眠／八卦夜未眠", loc: "陽明山文化大學後山", highlight: "俯瞰整座大台北百萬璀璨夜景景觀餐廳、旋轉木馬與情人抱抱座", price: "低消 NT$ 350 起" },
-    { rank: 2, name: "象山六巨石觀景台", loc: "台北信義區 · 象山步道", highlight: "步行 20 分鐘近距離直擊 101 大樓璀璨夜景，世界級攝影天花板", price: "免費入場 · 24H 開放" },
-    { rank: 3, name: "貓空茶坊夜景", loc: "台北文山區 · 貓空纜車站", highlight: "搭乘貓空纜車上山品茶、俯瞰台北盆地與星空，文青情侶約會名所", price: "品茶低消約 NT$ 200" },
-    { rank: 4, name: "內湖碧山巖開漳聖王廟", loc: "台北內湖區 · 碧山路", highlight: "廟前觀景平台俯瞰松山機場飛機起降與台北市區全景，靜謐震撼", price: "免費入場 · 設停車場" },
-    { rank: 5, name: "劍南山夜景 (我可能不會愛你)", loc: "台北中山區 · 劍南路", highlight: "經典偶像劇取景秘境，近距離平視美麗華巨型彩色摩天輪光影", price: "免費探訪 · 建議包車" }
+    { rank: 1, name: "陽明山草山夜未眠 · 八卦夜未眠", loc: "陽明山文化大學後山", highlight: "俯瞰整座大台北百萬璀璨天際線夜景、旋轉木馬與情人抱抱座", price: "低消 NT$ 350 起", hours: "16:00 - 03:00" },
+    { rank: 2, name: "象山六巨石超廣角觀景台", loc: "台北信義區 · 象山步道", highlight: "近距離直擊台北 101 大樓璀璨夜景，世界級城市夜景攝影天花板", price: "免費入場 · 24H 開放", hours: "黃昏至深夜首選" },
+    { rank: 3, name: "貓空山城景觀茶坊夜景", loc: "台北文山區 · 貓空纜車站", highlight: "搭乘貓空纜車上山品茗焙茶、俯瞰台北盆地與星空，情侶約會名所", price: "品茶低消約 NT$ 200", hours: "營業至凌晨 02:00" },
+    { rank: 4, name: "內湖碧山巖開漳聖王廟夜景", loc: "台北內湖區 · 碧山路", highlight: "高聳廟前觀景平台俯瞰松山機場飛機起降與大直台北市區全景", price: "免費入場 · 設停車場", hours: "開放至 22:00" },
+    { rank: 5, name: "劍南山夜景 (我可能不會愛你)", loc: "台北中山區 · 劍南路", highlight: "經典偶像劇取景秘境，近距離平視美麗華巨型彩色摩天輪光影", price: "免費探訪 · 建議包車", hours: "24H 浪漫私房秘境" }
   ];
 
   const top5Clubs = [
-    { rank: 1, name: "OMNI Nightclub", loc: "台北大安區忠孝東路四段", tag: "亞洲首座 iF 設計大獎夜店", desc: "殿堂級奢華夜店！榮獲多項國際設計大獎，世界百大頂尖 DJ 巡迴指定舞台，震撼聲光與頂級香檳派對體驗。" },
-    { rank: 2, name: "AI Nightclub Taipei", loc: "台北信義區 ATT 4 FUN 7F", tag: "信義指標高空旗艦派對", desc: "信義區派對心臟地帶！極具未來感的巨型 LED 穹頂與極限雷射燈光秀，全台派對潮男潮女每週末必朝聖。" },
-    { rank: 3, name: "WAVE CLUB Taipei", loc: "台北信義區 ATT 4 FUN 1F", tag: "全台最狂暢飲熱舞首選", desc: "超高人氣排隊夜店！豐富調酒暢飲、狂野熱力舞池，外籍觀光客與學生族群夜生活狂歡熱門聚點。" },
-    { rank: 4, name: "KOR Taipei", loc: "台北大安區忠孝東路四段", tag: "亞洲首間米其林級奢華沙龍", desc: "獲獎無數的頂級黑膠音響系統，尊爵奢華階梯式包廂，融合專業職人精釀調酒與頂級威士忌品飲文化。" },
-    { rank: 5, name: "RUFF Taipei", loc: "台北信義區松壽路", tag: "時尚地下嘻哈潮流基地", desc: "信義商圈潮流新勢力！純正 Hip-Hop / R&B 音樂主場，深受時尚網紅、饒舌歌手與街頭潮人喜愛的微醺夜場。" }
+    { rank: 1, name: "OMNI Nightclub", loc: "台北大安區忠孝東路四段", tag: "亞洲首座 iF 設計大獎夜店", desc: "殿堂級奢華夜店！世界百大頂尖 DJ 巡演御用舞台，震撼聲光與香檳熱舞派對狂歡。", genre: "EDM · Progressive House", dress: "時尚雅痞 · 嚴禁拖鞋" },
+    { rank: 2, name: "AI Nightclub Taipei", loc: "台北信義區 ATT 4 FUN 7F", tag: "信義高空旗艦派對心臟", desc: "極具未來感的巨型 LED 穹頂與雷射燈光秀，全台派對潮男潮女週末必朝聖之地！", genre: "Top 40 · EDM · Hip-Hop", dress: "潮流俐落 · 著正裝尤佳" },
+    { rank: 3, name: "WAVE CLUB Taipei", loc: "台北信義區 ATT 4 FUN 1F", tag: "全台最狂暢飲熱舞首選", desc: "超高人氣排隊名店！豐富調酒暢飲、狂野熱力舞池，外籍旅人狂歡熱門聚點。", genre: "Open Format · Commercial EDM", dress: "派對休閒 · 攜帶護照證件" },
+    { rank: 4, name: "KOR Taipei", loc: "台北大安區忠孝東路四段", tag: "米其林級奢華黑膠沙龍", desc: "獲獎無數的頂級黑膠劇院音響系統，尊爵奢華階梯包廂，職人級調酒與頂級威士忌。", genre: "Deep House · R&B · Soul", dress: "都會商務休閒 · 時尚正裝" },
+    { rank: 5, name: "RUFF Taipei", loc: "台北信義區松壽路", tag: "地下嘻哈潮流秘密基地", desc: "信義商圈潮流新勢力！純正 Hip-Hop / R&B 主場，饒舌歌手與街頭潮人最愛聚集。", genre: "Hip-Hop · Trap · R&B", dress: "街頭潮流 · 嘻哈穿搭" }
   ];
 
   return `
-    <div class="thematic-subpage-view active" style="padding-bottom:24px;">
-      <div class="detail-hero-stage-img2">
-        <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=1000&auto=format&fit=crop" alt="Night Views">
+    <div class="thematic-subpage-view active" style="padding-bottom:90px;background:#070B19;color:#F8FAFC;min-height:100%;">
+      <!-- 頂部滿版大圖 (深色藍黑 + 台北101百萬夜景與霓虹派對光芒) -->
+      <div class="detail-hero-stage-img2" style="background:#070B19;">
+        <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=1000&auto=format&fit=crop" alt="Night Views & Clubs" style="filter:brightness(0.92);">
         <div class="detail-ctrl-floating-bar">
-          
-          <button class="circle-icon-btn-frosted" onclick="toggleCurrentDetailFav()">❤️</button>
+          <button class="circle-icon-btn-frosted" onclick="toggleFav('台北璀璨夜生活', '台北夜景', '', event)">❤️</button>
         </div>
-        <div class="detail-hero-info-overlay">
+        <div class="detail-hero-info-overlay" style="background:linear-gradient(to top, rgba(7,11,25,0.95) 0%, rgba(7,11,25,0.4) 65%, transparent 100%);">
           <div>
-            <div class="detail-hero-title-main">台北璀璨夜生活：百萬夜景與指標夜店狂歡<br><span style="font-size:12px;font-weight:700;opacity:0.9;">象山101 · 陽明山景觀餐廳 · OMNI · AI Nightclub</span></div>
-            <div class="detail-hero-meta-row">
-              <span class="detail-hero-rating">⭐ 4.95 (浪漫與微醺之夜)</span>
+            <div style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);color:#FFF;font-size:10.5px;font-weight:900;padding:3px 10px;border-radius:20px;margin-bottom:6px;box-shadow:0 2px 10px rgba(59,130,246,0.4);">
+              <span>🌃</span>
+              <span>MIDNIGHT GLOW · 台北璀璨夜生活</span>
+            </div>
+            <div class="detail-hero-title-main" style="color:#FFF;letter-spacing:-0.2px;">
+              台北璀璨夜生活：百萬夜景與指標夜店狂歡
+            </div>
+            <div style="font-size:11.5px;color:#93C5FD;font-weight:700;margin-top:2px;">
+              象山101 · 陽明山景觀餐廳 · OMNI · AI Nightclub 派對
             </div>
           </div>
         </div>
       </div>
 
-      <div class="detail-sliding-sheet-img2">
-        <div class="sliding-drag-handle"></div>
+      <!-- 下方深藍霓虹質感滑動卡片 -->
+      <div class="detail-sliding-sheet-img2" style="background:#0A1128;border-top:1.5px solid rgba(59,130,246,0.3);color:#F8FAFC;">
+        <div class="sliding-drag-handle" style="background:#1E293B;"></div>
 
-        <!-- 頂部兩顆切換按鈕 -->
-        <div style="font-size:13px;font-weight:900;color:var(--text-heading);margin-bottom:8px;">🌃 夜生活主題分類：</div>
-        <div class="segmented-blue-pill-bar" style="margin-bottom:14px;">
-          <button class="seg-pill-item ${currentNightViewTab === 'view' ? 'active' : ''}" onclick="switchNightViewTab('view')">
-            🌃 台北百萬夜景
+        <!-- 頂部兩顆切換按鈕 (深藍配霓虹藍紫) -->
+        <div style="font-size:13px;font-weight:900;color:#93C5FD;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+          <span>🔥</span> <span>選擇夜生活分類：</span>
+        </div>
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px;">
+          <button class="seg-pill-item ${currentNightViewTab === 'view' ? 'active' : ''}" onclick="switchNightViewTab('view')" style="padding:10px 0;font-size:12.5px;font-weight:900;border-radius:12px;text-align:center;background:${currentNightViewTab === 'view' ? 'linear-gradient(135deg, #2563EB 0%, #7C3AED 100%)' : '#131D38'};border:1.5px solid ${currentNightViewTab === 'view' ? '#60A5FA' : '#1E293B'};color:${currentNightViewTab === 'view' ? '#FFF' : '#94A3B8'};box-shadow:${currentNightViewTab === 'view' ? '0 4px 14px rgba(37,99,235,0.4)' : 'none'};">
+            🌃 台北百萬夜景 (${top5Spots.length})
           </button>
-          <button class="seg-pill-item ${currentNightViewTab === 'club' ? 'active' : ''}" onclick="switchNightViewTab('club')">
-            🪩 夜店狂歡
+          <button class="seg-pill-item ${currentNightViewTab === 'club' ? 'active' : ''}" onclick="switchNightViewTab('club')" style="padding:10px 0;font-size:12.5px;font-weight:900;border-radius:12px;text-align:center;background:${currentNightViewTab === 'club' ? 'linear-gradient(135deg, #EC4899 0%, #8B5CF6 100%)' : '#131D38'};border:1.5px solid ${currentNightViewTab === 'club' ? '#F472B6' : '#1E293B'};color:${currentNightViewTab === 'club' ? '#FFF' : '#94A3B8'};box-shadow:${currentNightViewTab === 'club' ? '0 4px 14px rgba(236,72,153,0.4)' : 'none'};">
+            🪩 夜店狂歡派對 (${top5Clubs.length})
           </button>
         </div>
 
         ${currentNightViewTab === 'view' ? `
-          <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
+          <!-- 百萬夜景專題清單 -->
+          <div style="display:flex;justify-content:space-between;align-items:center;margin:8px 0 14px;">
             <div>
-              <span style="font-size:15px;font-weight:900;color:var(--text-heading);">🌃 台北夜景與微醺餐酒 Top 5 排行</span>
+              <span style="font-size:15px;font-weight:900;color:#F8FAFC;">🌃 台北夜景與微醺餐酒 Top 5 排行</span>
+              <div style="font-size:10.5px;color:#94A3B8;font-weight:700;">俯瞰 101 大樓 · 浪漫約會聖地</div>
             </div>
-            <span style="font-size:11px;font-weight:900;color:var(--accent-turquoise);background:var(--accent-turquoise-light);padding:3px 10px;border-radius:12px;">百萬絕景</span>
+            <span style="font-size:11px;font-weight:900;color:#38BDF8;background:rgba(56,189,248,0.15);border:1px solid rgba(56,189,248,0.3);padding:3px 10px;border-radius:12px;">百萬絕景</span>
           </div>
 
-          <div class="top10-visual-stream">
+          <div style="display:flex;flex-direction:column;gap:16px;">
             ${top5Spots.map((s) => `
-              <div class="top10-photo-card" style="cursor:pointer;" onclick="window.open('https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name)}', '_blank')">
-                <img class="bg-photo" src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&auto=format&fit=crop" alt="${s.name}" loading="lazy">
-                <div class="card-top-floating-row">
-                  <span class="card-rank-badge ${s.rank <= 3 ? 'top-3' : ''}">TOP ${s.rank}</span>
-                  <div class="card-fav-circle" onclick="event.stopPropagation(); toggleFav('${s.name}', '台北夜景', '')">❤️</div>
-                </div>
-                <div class="card-bottom-frosted-glass" style="padding:14px 16px;">
-                  <div class="card-meta-chips-row">
-                    <span class="card-meta-chip">📍 ${s.loc}</span>
-                    <span class="card-meta-chip">⭐ 4.9★</span>
+              <div style="background:#131D38;border-radius:20px;border:1.5px solid rgba(59,130,246,0.3);overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.4);transition:transform 0.2s ease;">
+                
+                <div style="position:relative;height:160px;overflow:hidden;background:#070B19;">
+                  <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&auto=format&fit=crop" alt="${s.name}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+                  <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(7,11,25,0.2) 0%, rgba(7,11,25,0.92) 100%);"></div>
+
+                  <div style="position:absolute;top:12px;left:12px;display:flex;gap:6px;align-items:center;">
+                    <span style="background:${s.rank <= 3 ? 'linear-gradient(135deg, #EF4444, #DC2626)' : 'linear-gradient(135deg, #3B82F6, #1D4ED8)'};color:#FFF;font-size:11px;font-weight:900;padding:3px 10px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+                      TOP ${s.rank}
+                    </span>
+                    <span style="background:rgba(7,11,25,0.85);backdrop-filter:blur(6px);color:#38BDF8;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:10px;border:1px solid rgba(56,189,248,0.3);">
+                      📍 ${s.loc.split('·')[0]}
+                    </span>
                   </div>
-                  <div class="card-spot-title" style="margin-top:4px;">${s.name}</div>
-                  <div class="card-spot-highlight" style="margin:4px 0 8px;">${s.highlight}</div>
-                  <div style="display:flex;justify-content:space-between;align-items:center;padding-top:6px;border-top:1px dashed rgba(255,255,255,0.3);">
-                    <span style="font-size:11.5px;color:#38BDF8;font-weight:800;">${s.price}</span>
-                    <div style="display:flex;gap:6px;">
-                      <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" onclick="event.stopPropagation()" style="background:#EEF2FF;border:1px solid #C7D2FE;color:#3730A3;font-size:11px;font-weight:700;padding:5px 9px;border-radius:7px;text-decoration:none;">🚗 預約包車直達</a>
-                      <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name)}" target="_blank" onclick="event.stopPropagation()" style="background:transparent;border:1.5px solid #0284C7;color:#0284C7;font-size:11px;font-weight:700;padding:4px 9px;border-radius:7px;text-decoration:none;">🗺️ 導航</a>
-                    </div>
+
+                  <button onclick="event.stopPropagation(); toggleFav('${s.name}', '台北夜景', '', event)" style="position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(7,11,25,0.8);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.2);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,0.3);">
+                    <span style="font-size:15px;">❤️</span>
+                  </button>
+
+                  <div style="position:absolute;bottom:10px;left:14px;right:14px;color:#FFF;">
+                    <h3 style="font-size:16.5px;font-weight:900;margin:0;line-height:1.25;letter-spacing:-0.2px;text-shadow:0 2px 6px rgba(0,0,0,0.8);">
+                      ${s.name}
+                    </h3>
                   </div>
                 </div>
+
+                <div style="padding:14px 16px 16px;background:#131D38;">
+                  <p style="font-size:12px;color:#94A3B8;line-height:1.6;margin:0 0 10px;">
+                    ${s.highlight}
+                  </p>
+                  
+                  <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;margin-bottom:10px;border-top:1px dashed rgba(255,255,255,0.15);border-bottom:1px dashed rgba(255,255,255,0.15);font-size:11.5px;font-weight:800;">
+                    <span style="color:#38BDF8;">💰 ${s.price}</span>
+                    <span style="color:#A7F3D0;">⏰ ${s.hours}</span>
+                  </div>
+
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                    <button onclick="window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('${s.name}'), '_blank')" style="padding:9px 0;background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;border:none;border-radius:10px;font-size:12px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;box-shadow:0 2px 8px rgba(2,132,199,0.3);">
+                      <span>🗺️</span> <span>MAP</span>
+                    </button>
+                    <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" onclick="event.stopPropagation()" style="background:#1E293B;border:1.5px solid #334155;color:#38BDF8;font-size:12px;font-weight:800;padding:9px 0;border-radius:10px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:5px;">
+                      <span>🚗</span> <span>夜景包車</span>
+                    </a>
+                  </div>
+                </div>
+
               </div>
             `).join("")}
           </div>
         ` : `
-          <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
+          <!-- 台北指標夜店狂歡清單 (夜店感歡火熱力風格) -->
+          <div style="display:flex;justify-content:space-between;align-items:center;margin:8px 0 14px;">
             <div>
-              <span style="font-size:15px;font-weight:900;color:var(--text-heading);">🪩 台北 5 大人氣夜店排行榜</span>
+              <span style="font-size:15px;font-weight:900;color:#F8FAFC;">🪩 台北 5 大人氣夜店排行榜</span>
+              <div style="font-size:10.5px;color:#F472B6;font-weight:700;">百大 DJ 舞台 · 奢華包廂 · 派對狂歡</div>
             </div>
-            <span style="font-size:11px;font-weight:900;color:#F43F5E;background:#FFE4E6;padding:3px 10px;border-radius:12px;">狂歡派對</span>
+            <span style="font-size:11px;font-weight:900;color:#F43F5E;background:rgba(244,63,94,0.15);border:1px solid rgba(244,63,94,0.3);padding:3px 10px;border-radius:12px;">🔥 派對狂歡</span>
           </div>
 
-          <div class="top10-visual-stream">
+          <div style="display:flex;flex-direction:column;gap:16px;">
             ${top5Clubs.map((c) => `
-              <div class="top10-photo-card" style="cursor:pointer;" onclick="window.open('https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.name)}', '_blank')">
-                <img class="bg-photo" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&auto=format&fit=crop" alt="${c.name}" loading="lazy">
-                <div class="card-top-floating-row">
-                  <span class="card-rank-badge top-3">🔥 TOP ${c.rank}</span>
-                  <div class="card-fav-circle" onclick="event.stopPropagation(); toggleFav('${c.name}', '台北夜店', '')">❤️</div>
-                </div>
-                <div class="card-bottom-frosted-glass" style="padding:14px 16px;">
-                  <div class="card-meta-chips-row">
-                    <span class="card-meta-chip">📍 ${c.loc}</span>
-                    <span class="card-meta-chip">⭐ 4.9★</span>
-                    <span class="card-meta-chip">🍸 ${c.tag}</span>
+              <div style="background:#131D38;border-radius:20px;border:1.5px solid rgba(236,72,153,0.35);overflow:hidden;box-shadow:0 6px 20px rgba(236,72,153,0.12);transition:transform 0.2s ease;">
+                
+                <div style="position:relative;height:160px;overflow:hidden;background:#070B19;">
+                  <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&auto=format&fit=crop" alt="${c.name}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+                  <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(7,11,25,0.2) 0%, rgba(7,11,25,0.92) 100%);"></div>
+
+                  <div style="position:absolute;top:12px;left:12px;display:flex;gap:6px;align-items:center;">
+                    <span style="background:linear-gradient(135deg, #EC4899 0%, #BE185D 100%);color:#FFF;font-size:11px;font-weight:900;padding:3px 10px;border-radius:10px;box-shadow:0 2px 8px rgba(236,72,153,0.4);">
+                      🔥 TOP ${c.rank}
+                    </span>
+                    <span style="background:rgba(7,11,25,0.85);backdrop-filter:blur(6px);color:#F472B6;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:10px;border:1px solid rgba(244,114,182,0.3);">
+                      🍸 ${c.tag}
+                    </span>
                   </div>
-                  <div class="card-spot-title" style="margin-top:4px;">${c.name}</div>
-                  <p style="font-size:11.5px;color:#F1F5F9;margin:4px 0 10px;line-height:1.5;">${c.desc}</p>
-                  <div style="display:flex;justify-content:flex-end;gap:6px;padding-top:6px;border-top:1px dashed rgba(255,255,255,0.3);">
-                    <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" onclick="event.stopPropagation()" style="background:#F43F5E;color:#FFF;font-size:11px;font-weight:800;padding:5px 10px;border-radius:7px;text-decoration:none;">🚗 預約深夜散場包車直達</a>
-                    <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.name)}" target="_blank" onclick="event.stopPropagation()" style="background:transparent;border:1.5px solid #0284C7;color:#0284C7;font-size:11px;font-weight:700;padding:4px 9px;border-radius:7px;text-decoration:none;">🗺️ 導航</a>
+
+                  <button onclick="event.stopPropagation(); toggleFav('${c.name}', '台北夜店', '', event)" style="position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(7,11,25,0.8);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.2);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,0.3);">
+                    <span style="font-size:15px;">❤️</span>
+                  </button>
+
+                  <div style="position:absolute;bottom:10px;left:14px;right:14px;color:#FFF;">
+                    <h3 style="font-size:17px;font-weight:900;margin:0;line-height:1.25;letter-spacing:-0.2px;text-shadow:0 2px 6px rgba(0,0,0,0.8);">
+                      ${c.name}
+                    </h3>
                   </div>
                 </div>
+
+                <div style="padding:14px 16px 16px;background:#131D38;">
+                  <p style="font-size:12px;color:#CBD5E1;line-height:1.6;margin:0 0 10px;">
+                    ${c.desc}
+                  </p>
+                  
+                  <div style="background:rgba(236,72,153,0.08);border:1px solid rgba(236,72,153,0.25);border-radius:10px;padding:8px 12px;margin-bottom:12px;font-size:11.5px;">
+                    <div style="color:#F472B6;font-weight:800;margin-bottom:2px;">🎵 曲風：${c.genre}</div>
+                    <div style="color:#E2E8F0;font-weight:600;">👔 著裝指引：${c.dress}</div>
+                  </div>
+
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                    <button onclick="window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('${c.name}'), '_blank')" style="padding:9px 0;background:linear-gradient(135deg, #EC4899 0%, #BE185D 100%);color:#FFF;border:none;border-radius:10px;font-size:12px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;box-shadow:0 2px 8px rgba(236,72,153,0.3);">
+                      <span>🗺️</span> <span>MAP</span>
+                    </button>
+                    <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" onclick="event.stopPropagation()" style="background:#1E293B;border:1.5px solid #334155;color:#F472B6;font-size:12px;font-weight:800;padding:9px 0;border-radius:10px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:5px;">
+                      <span>🚗</span> <span>深夜包車接送</span>
+                    </a>
+                  </div>
+                </div>
+
               </div>
             `).join("")}
           </div>
@@ -10611,6 +11405,7 @@ function renderSubpageNightView(theme) {
     </div>
   `;
 }
+
 
 
 // ============================================================
@@ -10863,9 +11658,8 @@ function renderSubpageRailway(theme) {
       <!-- 核心內容區 (景點卡牌一個一排，上圖下景點火車路線、預訂車票飯店、完整1-2遊行程) -->
       <div style="padding:16px 14px 20px;display:flex;flex-direction:column;gap:16px;">
         
-        <div style="font-size:13.5px;font-weight:900;color:#0F172A;display:flex;align-items:center;justify-content:space-between;">
-          <span>📍 全台 10 大特色鐵道路線全覽：</span>
-          <span style="font-size:11px;color:#0284C7;font-weight:800;">一個一排 · 完整行程</span>
+        <div style="font-size:14px;font-weight:900;color:#0F172A;display:flex;align-items:center;justify-content:space-between;">
+          <span>📍 全台 10 大特色鐵道路</span>
         </div>
 
         ${RAILWAYS_10_DATA.map(rail => `
@@ -12573,7 +13367,331 @@ function renderSubpageDefault(theme) {
       }
     }
 
-    function renderFavoritesView() {
+    
+// ==========================================
+// 🎨 9:16 IG 限動台灣手帳 (文青風、5大收藏景點、造訪城市、手搖飲打卡印章、專屬 QR Code)
+// ==========================================
+function openJournalModal() {
+  const overlay = document.getElementById("journal-modal-overlay");
+  const content = document.getElementById("journal-card-content");
+  if (!overlay || !content) return;
+
+  // 取得收藏景點，若不足 5 個則自動以 5 大經典景點補充，確保手帳展示 5 個景點
+  let spots = [...favoritesList];
+  if (spots.length < 5) {
+    DEFAULT_FAV_SPOTS.forEach(ds => {
+      if (!spots.some(s => s.name === ds.name)) {
+        spots.push(ds);
+      }
+    });
+  }
+  spots = spots.slice(0, 5);
+
+  // 提取造訪城市
+  const cities = Array.from(new Set(spots.map(s => {
+    const c = s.city || "";
+    if (c.includes("台北") || c.includes("新北")) return "台北/新北";
+    if (c.includes("花蓮")) return "花蓮";
+    if (c.includes("南投")) return "南投";
+    if (c.includes("嘉義")) return "嘉義";
+    if (c.includes("台南")) return "台南";
+    if (c.includes("宜蘭")) return "宜蘭";
+    if (c.includes("台東")) return "台東";
+    return c.substring(0, 2);
+  }))).filter(Boolean);
+
+  content.innerHTML = `
+    <!-- 9:16 直式手帳卡片容器 (文青牛皮紙/米白和風) -->
+    <div id="journal-export-card" style="width:100%;max-width:360px;min-height:640px;background:#FAF6EE;border:2px solid #E6D8C3;border-radius:24px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,0.35);font-family:-apple-system, BlinkMacSystemFont, 'Noto Serif TC', serif;display:flex;flex-direction:column;position:relative;">
+      
+      <!-- 頂部航空信封彩條 (紅白藍復古齒孔感) -->
+      <div style="height:6px;width:100%;background:repeating-linear-gradient(45deg, #EF4444 0, #EF4444 12px, #FFFFFF 12px, #FFFFFF 20px, #2563EB 20px, #2563EB 32px, #FFFFFF 32px, #FFFFFF 40px);"></div>
+
+      <!-- 頂部手帳刊頭 (Journal Masthead) -->
+      <div style="padding:14px 18px 8px;border-bottom:1px dashed #D6C7B2;display:flex;justify-content:space-between;align-items:flex-end;">
+        <div>
+          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;color:#92785C;text-transform:uppercase;">TAIWAN TRAVEL JOURNAL · 2026 PASS</div>
+          <div style="font-size:18px;font-weight:900;color:#382716;letter-spacing:-0.4px;margin-top:2px;">🇹🇼 台灣吃喝玩樂 · 私房旅行手帳</div>
+        </div>
+        <div style="text-align:right;">
+          <span style="border:1.5px solid #C4A47C;color:#875C36;font-size:9.5px;font-weight:900;padding:2px 7px;border-radius:6px;background:#FFF9F0;">特裝版</span>
+        </div>
+      </div>
+
+      <!-- 手帳座右銘 -->
+      <div style="padding:8px 18px;background:#F4EBD9;font-size:11px;color:#6B533E;font-style:italic;display:flex;align-items:center;justify-content:space-between;">
+        <span>「山海相擁，巷弄有光。步履不停，皆是風景。」</span>
+        <span style="font-size:10px;font-weight:800;color:#A8825B;">ISSUE NO.26</span>
+      </div>
+
+      <!-- 造訪城市印記 (Passport Entry Chips) -->
+      <div style="padding:10px 18px 6px;">
+        <div style="font-size:10.5px;font-weight:900;color:#785A3E;margin-bottom:6px;display:flex;align-items:center;gap:4px;">
+          <span>📍</span> <span>造訪城市巡禮印記：</span>
+        </div>
+        <div style="display:flex;gap:5px;flex-wrap:wrap;">
+          ${cities.map(c => `
+            <span style="background:#FFF;border:1px solid #D9CBB7;color:#59402B;font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+              ✦ ${c}
+            </span>
+          `).join("")}
+        </div>
+      </div>
+
+      <!-- 5 大收藏景點 (拍立得文青風格卡片) -->
+      <div style="padding:8px 18px;flex:1;display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:10.5px;font-weight:900;color:#785A3E;display:flex;align-items:center;justify-content:space-between;">
+          <span>❤️ 5 大私房典藏景點 (Curated Top 5)</span>
+          <span style="font-size:9.5px;color:#A08060;">永久珍藏</span>
+        </div>
+
+        ${spots.map((s, idx) => `
+          <div style="background:#FFFFFF;border:1px solid #E4D7C5;border-radius:12px;padding:8px 10px;display:flex;align-items:center;gap:10px;box-shadow:0 2px 6px rgba(0,0,0,0.03);">
+            <!-- 拍立得相片 -->
+            <div style="position:relative;width:44px;height:44px;border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid #E2D5C3;">
+              <img src="${s.img}" style="width:100%;height:100%;object-fit:cover;">
+              <span style="position:absolute;top:0;left:0;background:#2563EB;color:#FFF;font-size:8px;font-weight:900;padding:1px 4px;border-bottom-right-radius:4px;">0${idx+1}</span>
+            </div>
+            <!-- 景點名稱與標記 -->
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:12.5px;font-weight:900;color:#2C1E11;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                ${s.name}
+              </div>
+              <div style="font-size:10px;color:#785A3E;margin-top:1px;">
+                📍 ${s.city} · <span style="color:#D97706;font-weight:800;">${s.rate || '4.9★'}</span>
+              </div>
+              <div style="font-size:9.5px;color:#94785E;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                ${s.note || '私房必訪，極致療癒體驗。'}
+              </div>
+            </div>
+          </div>
+        `).join("")}
+      </div>
+
+      <!-- 珍奶打卡印章 ＆ 夜市百味印章 (文青朱印戳記) -->
+      <div style="padding:10px 18px;border-top:1px dashed #D6C7B2;display:flex;align-items:center;justify-content:space-between;background:#FAF3E6;">
+        <!-- 珍奶認證章 -->
+        <div style="border:2px dashed #DC2626;color:#DC2626;padding:4px 8px;border-radius:10px;text-align:center;transform:rotate(-3deg);background:rgba(220,38,38,0.04);">
+          <div style="font-size:9px;font-weight:900;letter-spacing:0.5px;">🧋 台灣手搖文化認證章</div>
+          <div style="font-size:11px;font-weight:900;">珍珠奶茶 · 半糖微冰</div>
+          <div style="font-size:8px;opacity:0.8;">2026 打卡済 · 100% 甜度</div>
+        </div>
+
+        <!-- 夜市美食認證章 -->
+        <div style="border:2px dashed #D97706;color:#D97706;padding:4px 8px;border-radius:10px;text-align:center;transform:rotate(2deg);background:rgba(217,119,6,0.04);">
+          <div style="font-size:9px;font-weight:900;letter-spacing:0.5px;">🥢 台灣夜市百味行</div>
+          <div style="font-size:11px;font-weight:900;">道地小吃 · 吃貨認證</div>
+          <div style="font-size:8px;opacity:0.8;">米其林必比登 · 滿分合格</div>
+        </div>
+      </div>
+
+      <!-- 底部 QR Code ＆ HiMyDream STUDIO 銘印 -->
+      <div style="padding:10px 18px 12px;background:#EDE3D1;border-top:1px solid #DFD0BC;display:flex;align-items:center;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <!-- 向量 QR Code -->
+          <div style="background:#FFF;padding:4px;border-radius:6px;border:1px solid #D5C4AE;display:flex;align-items:center;justify-content:center;">
+            <svg width="38" height="38" viewBox="0 0 100 100" fill="#2C1E11">
+              <rect x="0" y="0" width="30" height="30" rx="4"/>
+              <rect x="5" y="5" width="20" height="20" fill="#FFF"/>
+              <rect x="9" y="9" width="12" height="12"/>
+              <rect x="70" y="0" width="30" height="30" rx="4"/>
+              <rect x="75" y="5" width="20" height="20" fill="#FFF"/>
+              <rect x="79" y="9" width="12" height="12"/>
+              <rect x="0" y="70" width="30" height="30" rx="4"/>
+              <rect x="5" y="75" width="20" height="20" fill="#FFF"/>
+              <rect x="9" y="79" width="12" height="12"/>
+              <rect x="40" y="10" width="10" height="20"/>
+              <rect x="10" y="40" width="20" height="10"/>
+              <rect x="40" y="40" width="20" height="20"/>
+              <rect x="70" y="40" width="20" height="10"/>
+              <rect x="40" y="70" width="10" height="20"/>
+              <rect x="70" y="70" width="20" height="20"/>
+            </svg>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:900;color:#4A3525;">掃描探索台灣吃喝玩樂 ↗</div>
+            <div style="font-size:8.5px;color:#856B54;letter-spacing:0.5px;">PRODUCED BY HiMyDream STUDIO</div>
+          </div>
+        </div>
+        <div style="font-size:9px;font-weight:900;color:#785A3E;text-align:right;">
+          <div>NO. TW-2026</div>
+          <div style="color:#2563EB;">9:16 IG STORY</div>
+        </div>
+      </div>
+
+    </div>
+  `;
+
+  overlay.style.display = "flex";
+}
+
+function closeJournalModal() {
+  const overlay = document.getElementById("journal-modal-overlay");
+  if (overlay) overlay.style.display = "none";
+}
+
+// 動態繪製 1080×1920 高解析度 Canvas 並下載
+function downloadJournalImage() {
+  const canvas = document.createElement("canvas");
+  canvas.width = 1080;
+  canvas.height = 1920;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  // 1. 底色：柔和文青米紙漸層
+  const bgGrad = ctx.createLinearGradient(0, 0, 0, 1920);
+  bgGrad.addColorStop(0, "#FBF7EF");
+  bgGrad.addColorStop(1, "#F3E9D7");
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, 1080, 1920);
+
+  // 2. 邊框裝飾
+  ctx.strokeStyle = "#D9CBB7";
+  ctx.lineWidth = 12;
+  ctx.strokeRect(36, 36, 1008, 1848);
+
+  // 3. 航空彩條
+  for (let x = 36; x < 1044; x += 40) {
+    ctx.fillStyle = (x % 80 === 0) ? "#EF4444" : "#2563EB";
+    ctx.fillRect(x, 48, 24, 14);
+  }
+
+  // 4. 刊頭文字
+  ctx.fillStyle = "#8D6E63";
+  ctx.font = "bold 26px sans-serif";
+  ctx.letterSpacing = "4px";
+  ctx.fillText("TAIWAN TRAVEL JOURNAL · 2026 PASS", 70, 130);
+
+  ctx.fillStyle = "#2D1D10";
+  ctx.font = "bold 56px serif";
+  ctx.fillText("🇹🇼 台灣吃喝玩樂 · 私房旅行手帳", 70, 205);
+
+  ctx.fillStyle = "#6D4C41";
+  ctx.font = "italic 30px serif";
+  ctx.fillText("「山海相擁，巷弄有光。步履不停，皆是風景。」", 70, 265);
+
+  // 橫隔線
+  ctx.strokeStyle = "#CDBAA2";
+  ctx.lineWidth = 3;
+  ctx.setLineDash([8, 8]);
+  ctx.beginPath();
+  ctx.moveTo(70, 310);
+  ctx.lineTo(1010, 310);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // 5. 5大景點卡片繪製
+  let spots = [...favoritesList];
+  if (spots.length < 5) {
+    DEFAULT_FAV_SPOTS.forEach(ds => {
+      if (!spots.some(s => s.name === ds.name)) spots.push(ds);
+    });
+  }
+  spots = spots.slice(0, 5);
+
+  ctx.fillStyle = "#5D4037";
+  ctx.font = "bold 32px sans-serif";
+  ctx.fillText("❤️ 5 大私房典藏景點清單", 70, 375);
+
+  let startY = 410;
+  spots.forEach((s, idx) => {
+    // 卡片背景
+    ctx.fillStyle = "#FFFFFF";
+    ctx.shadowColor = "rgba(0,0,0,0.06)";
+    ctx.shadowBlur = 10;
+    ctx.shadowOffsetY = 4;
+    ctx.beginPath();
+    ctx.roundRect(70, startY, 940, 175, 18);
+    ctx.fill();
+    ctx.shadowColor = "transparent";
+
+    // 邊框
+    ctx.strokeStyle = "#E6D7C3";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // 序號
+    ctx.fillStyle = "#2563EB";
+    ctx.beginPath();
+    ctx.roundRect(95, startY + 25, 45, 45, 10);
+    ctx.fill();
+    ctx.fillStyle = "#FFF";
+    ctx.font = "bold 22px sans-serif";
+    ctx.fillText(`0${idx+1}`, 103, startY + 56);
+
+    // 景點名稱
+    ctx.fillStyle = "#1E293B";
+    ctx.font = "bold 38px sans-serif";
+    ctx.fillText(s.name, 165, startY + 60);
+
+    // 城市與評分
+    ctx.fillStyle = "#64748B";
+    ctx.font = "bold 26px sans-serif";
+    ctx.fillText(`📍 ${s.city}   ·   ⭐ ${s.rate || '4.9★'} 經典推薦`, 165, startY + 105);
+
+    // 備註小語
+    ctx.fillStyle = "#8D6E63";
+    ctx.font = "24px serif";
+    ctx.fillText(s.note || "台灣私房美景，值得細細探尋品味。", 165, startY + 145);
+
+    startY += 205;
+  });
+
+  // 6. 珍奶與美食認證章
+  const stampY = 1480;
+  // 珍奶章
+  ctx.strokeStyle = "#DC2626";
+  ctx.lineWidth = 6;
+  ctx.setLineDash([6, 6]);
+  ctx.beginPath();
+  ctx.roundRect(80, stampY, 430, 180, 20);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = "#DC2626";
+  ctx.font = "bold 26px sans-serif";
+  ctx.fillText("🧋 台灣手搖飲文化認證章", 110, stampY + 55);
+  ctx.font = "bold 38px sans-serif";
+  ctx.fillText("珍珠奶茶 · 半糖微冰", 110, stampY + 110);
+  ctx.font = "24px sans-serif";
+  ctx.fillText("100% 甜度幸福感 · 打卡合格済", 110, stampY + 150);
+
+  // 夜市章
+  ctx.strokeStyle = "#D97706";
+  ctx.lineWidth = 6;
+  ctx.setLineDash([6, 6]);
+  ctx.beginPath();
+  ctx.roundRect(570, stampY, 430, 180, 20);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = "#D97706";
+  ctx.font = "bold 26px sans-serif";
+  ctx.fillText("🥢 台灣夜市百味巡禮章", 600, stampY + 55);
+  ctx.font = "bold 38px sans-serif";
+  ctx.fillText("道地小吃 · 必吃推介", 600, stampY + 110);
+  ctx.font = "24px sans-serif";
+  ctx.fillText("米其林必比登 · 美食吃貨認證", 600, stampY + 150);
+
+  // 7. 底部資訊
+  ctx.fillStyle = "#4E342E";
+  ctx.font = "bold 30px sans-serif";
+  ctx.fillText("🇹🇼 探索最純粹的島嶼冒險 · HiMyDream STUDIO", 80, 1750);
+  ctx.fillStyle = "#8D6E63";
+  ctx.font = "24px sans-serif";
+  ctx.fillText("Curating Taiwan’s Authentic Travel Aesthetics & Island Stories", 80, 1795);
+  ctx.fillText("https://himydream.me/studio/", 80, 1835);
+
+  // 觸發 PNG 下載
+  const link = document.createElement("a");
+  link.download = `taiwan-travel-journal-9-16.png`;
+  link.href = canvas.toDataURL("image/png");
+  link.click();
+
+  if (typeof showCuteToast === "function") {
+    showCuteToast("🎉 已為您成功生成 9:16 IG 限動高畫質圖卡！", "📸");
+  }
+}
+
+function renderFavoritesView() {
       const body = document.getElementById("fav-view-list");
       const tag = document.getElementById("fav-count-tag");
       if (tag) tag.innerText = `${favoritesList.length} 項`;
