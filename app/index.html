@@ -3127,18 +3127,18 @@
         <!-- ==========================================
              🏆 台灣超人氣排行全頁視圖 (點擊排行榜按鈕才展開顯示，絕無彈窗！)
              ========================================== -->
-        <div id="rankings-inline-fullview" style="display:none;padding:16px 18px 80px;background:#FFFFFF;min-height:100%;">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
-            <div style="display:flex;align-items:center;gap:10px;">
-              <button onclick="closeRankingsPage()" style="width:36px;height:36px;font-size:16px;font-weight:900;background:#F1F5F9;border:1px solid #E2E8F0;color:#0F172A;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;">
-                ←
-              </button>
-              <div>
-                <h2 style="font-size:18px;font-weight:900;color:#0F172A;margin:0;">🏆 台灣超人氣排行 TOP 10</h2>
-                <div style="font-size:11px;color:#64748B;">實時精選十大排行 · 點擊切換榜單</div>
-              </div>
+        <div id="rankings-inline-fullview" style="display:none;padding:12px 18px 80px;background:#FFFFFF;min-height:100%;">
+          
+          <!-- 置頂快捷關閉導航列 (Sticky Top Bar，捲動隨行，隨時一鍵返回) -->
+          <div style="position:sticky;top:0;z-index:90;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:10px 0;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #F1F5F9;">
+            <button onclick="closeRankingsPage()" style="background:#F1F5F9;border:1.5px solid #CBD5E1;color:#0F172A;border-radius:24px;padding:8px 18px;font-size:13px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:all 0.2s ease;">
+              <span style="font-size:16px;color:#DC2626;font-weight:900;">✕</span>
+              <span>關閉排行榜</span>
+            </button>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span style="font-size:12px;font-weight:900;color:#0F172A;">🏆 TOP 10 榜單</span>
+              <span style="font-size:10px;font-weight:800;color:#0284C7;background:#E0F2FE;padding:2px 8px;border-radius:10px;">實時熱門</span>
             </div>
-            <span style="font-size:11px;font-weight:800;color:#0284C7;background:#E0F2FE;padding:3px 10px;border-radius:12px;">實時熱門</span>
           </div>
 
           <!-- 4 大榜單按鈕 -->
@@ -3159,6 +3159,14 @@
 
           <!-- 排行榜 10 大項目直接展開排列清單 -->
           <div id="rankings-inline-items-container" style="display:flex;flex-direction:column;gap:10px;">
+          </div>
+
+          <!-- 底部顯著關閉按鈕 -->
+          <div style="margin-top:20px;padding-top:16px;border-top:1px dashed #E2E8F0;text-align:center;">
+            <button onclick="closeRankingsPage()" style="width:100%;padding:13px;background:#F8FAFC;border:1.5px solid #CBD5E1;border-radius:16px;color:#1E293B;font-size:13px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 2px 8px rgba(0,0,0,0.03);transition:all 0.2s ease;">
+              <span style="font-size:15px;color:#DC2626;">✕</span>
+              <span>關閉排行榜 · 返回首頁精選</span>
+            </button>
           </div>
         </div>
 
@@ -5166,6 +5174,10 @@ const ALL_ISLANDS_DATA = {
       const btn = document.getElementById(`tab-btn-${tab}`);
       if (btn) btn.classList.add("active");
 
+      // 關閉排行榜全頁視圖，確保切換精選、地區、收藏等按鈕能順暢呈現目標畫面
+      const fullRankView = document.getElementById("rankings-inline-fullview");
+      if (fullRankView) fullRankView.style.display = "none";
+
       document.getElementById("view-tab-home").style.display = (tab === "home") ? "block" : "none";
       document.getElementById("view-tab-featured").style.display = (tab === "featured") ? "block" : "none";
       
@@ -5876,10 +5888,9 @@ const ALL_ISLANDS_DATA = {
     function closeRankingsPage() {
       const homeView = document.getElementById("view-tab-home");
       const fullView = document.getElementById("rankings-inline-fullview");
-      if (homeView && fullView) {
-        fullView.style.display = "none";
-        homeView.style.display = "block";
-      }
+      if (fullView) fullView.style.display = "none";
+      if (homeView) homeView.style.display = "block";
+      switchNavTab('home');
       const scrollBody = document.getElementById("left-scroll-body");
       if (scrollBody) scrollBody.scrollTo({ top: 0, behavior: "smooth" });
     }
