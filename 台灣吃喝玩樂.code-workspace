@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "name": "🇹🇼 台灣吃喝玩樂 (景點地圖旗艦專案)",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": false,
+      "**/.DS_Store": true
+    }
+  }
+}
