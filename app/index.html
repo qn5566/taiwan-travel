@@ -3047,6 +3047,15 @@
       transform: scale(1.02);
     }
 
+  
+    /* 專題大圖左上角嚴格刪除返回箭頭，避免破壞風景體感，頂部已有「← 返回精選專題」導航列 */
+    .circle-icon-btn-frosted:not([onclick*="Fav"]):not([onclick*="fav"]),
+    #subpage-inline-content button[onclick*="close"],
+    .thematic-subpage-view button[onclick*="close"],
+    .thematic-subpage button[onclick*="close"] {
+      display: none !important;
+    }
+
   </style>
 
   <style>
@@ -3068,6 +3077,15 @@
     .boba-anim-1 { animation: bobaWiggle1 2.8s ease-in-out infinite; }
     .boba-anim-2 { animation: bobaWiggle2 3.2s ease-in-out infinite; }
     .boba-anim-3 { animation: bobaWiggle3 2.5s ease-in-out infinite; }
+  
+    /* 專題大圖左上角嚴格刪除返回箭頭，避免破壞風景體感，頂部已有「← 返回精選專題」導航列 */
+    .circle-icon-btn-frosted:not([onclick*="Fav"]):not([onclick*="fav"]),
+    #subpage-inline-content button[onclick*="close"],
+    .thematic-subpage-view button[onclick*="close"],
+    .thematic-subpage button[onclick*="close"] {
+      display: none !important;
+    }
+
   </style>
 
 </head>
