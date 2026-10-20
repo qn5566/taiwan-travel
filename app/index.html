@@ -3077,7 +3077,7 @@
           </div>
           <div class="brand-actions-right" style="display:flex;gap:6px;align-items:center;">
             <!-- 🏆 人氣排行榜按鈕 (小巧、醒目高對比金橘、強烈吸引力) -->
-            <button class="compact-header-btn compact-btn-ranking" onclick="scrollToHomeRankings()" title="查看本月全台人氣排行榜">
+            <button class="compact-header-btn compact-btn-ranking" onclick="openRankingsPage('drinks')" title="查看本月全台人氣排行榜">
               <span style="font-size:13px;line-height:1;">🏆</span>
               <span>排行榜</span>
             </button>
@@ -3123,42 +3123,47 @@
              A. 首頁視圖 (Home View)
              ========================= -->
         <div id="inline-spot-detail-container" style="display:none;position:absolute;top:0;left:0;right:0;bottom:0;background:#FFF;z-index:95;overflow-y:auto;"></div>
-        <div id="view-tab-home">
-          <!-- 縣市快選 (台北市、桃園市、花蓮縣、台南市優先) -->
-          
+        
         <!-- ==========================================
-             🏆 台灣超人氣排行 (首頁直接原本頁顯示，絕不跳視窗！)
+             🏆 台灣超人氣排行全頁視圖 (點擊排行榜按鈕才展開顯示，絕無彈窗！)
              ========================================== -->
-        <div id="home-rankings-section" style="padding:16px 18px 12px;background:#FFFFFF;border-bottom:8px solid #F8FAFC;">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-            <div style="display:flex;align-items:center;gap:6px;">
-              <span style="font-size:18px;">🏆</span>
-              <span id="home-rankings-title-text" style="font-size:15px;font-weight:900;color:#0F172A;letter-spacing:-0.2px;">台灣超人氣排行 TOP 10</span>
+        <div id="rankings-inline-fullview" style="display:none;padding:16px 18px 80px;background:#FFFFFF;min-height:100%;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <button onclick="closeRankingsPage()" style="width:36px;height:36px;font-size:16px;font-weight:900;background:#F1F5F9;border:1px solid #E2E8F0;color:#0F172A;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;">
+                ←
+              </button>
+              <div>
+                <h2 style="font-size:18px;font-weight:900;color:#0F172A;margin:0;">🏆 台灣超人氣排行 TOP 10</h2>
+                <div style="font-size:11px;color:#64748B;">實時精選十大排行 · 點擊切換榜單</div>
+              </div>
             </div>
-            <span style="font-size:11px;font-weight:800;color:#0284C7;background:#E0F2FE;padding:3px 10px;border-radius:12px;">本月實時熱門榜</span>
+            <span style="font-size:11px;font-weight:800;color:#0284C7;background:#E0F2FE;padding:3px 10px;border-radius:12px;">實時熱門</span>
           </div>
 
-          <!-- 4 大榜單切換分頁 (必喝手搖、景點人次、包車旅遊、按摩推薦) -->
-          <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:6px;margin-bottom:14px;background:#F1F5F9;padding:4px;border-radius:14px;">
-            <button class="home-rank-tab-btn active" id="home-rank-tab-drinks" onclick="switchHomeRankingsTab('drinks')" style="border:none;background:#0284C7;color:#FFF;padding:8px 2px;border-radius:10px;font-size:11px;font-weight:800;cursor:pointer;transition:all 0.2s ease;">
+          <!-- 4 大榜單按鈕 -->
+          <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:6px;margin-bottom:16px;background:#F1F5F9;padding:4px;border-radius:14px;">
+            <button class="rank-full-tab-btn" id="rank-full-tab-drinks" onclick="switchRankingsInlineTab('drinks')" style="border:none;background:#0284C7;color:#FFF;padding:9px 2px;border-radius:10px;font-size:11.5px;font-weight:800;cursor:pointer;transition:all 0.2s ease;">
               🧋 必喝手搖
             </button>
-            <button class="home-rank-tab-btn" id="home-rank-tab-spots" onclick="switchHomeRankingsTab('spots')" style="border:none;background:transparent;color:#475569;padding:8px 2px;border-radius:10px;font-size:11px;font-weight:800;cursor:pointer;transition:all 0.2s ease;">
+            <button class="rank-full-tab-btn" id="rank-full-tab-spots" onclick="switchRankingsInlineTab('spots')" style="border:none;background:transparent;color:#475569;padding:9px 2px;border-radius:10px;font-size:11.5px;font-weight:800;cursor:pointer;transition:all 0.2s ease;">
               🏆 景點人次
             </button>
-            <button class="home-rank-tab-btn" id="home-rank-tab-charter" onclick="switchHomeRankingsTab('charter')" style="border:none;background:transparent;color:#475569;padding:8px 2px;border-radius:10px;font-size:11px;font-weight:800;cursor:pointer;transition:all 0.2s ease;">
+            <button class="rank-full-tab-btn" id="rank-full-tab-charter" onclick="switchRankingsInlineTab('charter')" style="border:none;background:transparent;color:#475569;padding:9px 2px;border-radius:10px;font-size:11.5px;font-weight:800;cursor:pointer;transition:all 0.2s ease;">
               🚗 包車旅遊
             </button>
-            <button class="home-rank-tab-btn" id="home-rank-tab-massage" onclick="switchHomeRankingsTab('massage')" style="border:none;background:transparent;color:#475569;padding:8px 2px;border-radius:10px;font-size:11px;font-weight:800;cursor:pointer;transition:all 0.2s ease;">
+            <button class="rank-full-tab-btn" id="rank-full-tab-massage" onclick="switchRankingsInlineTab('massage')" style="border:none;background:transparent;color:#475569;padding:9px 2px;border-radius:10px;font-size:11.5px;font-weight:800;cursor:pointer;transition:all 0.2s ease;">
               💆 按摩推薦
             </button>
           </div>
 
-          <!-- 排行榜 10 大項目直接原本頁顯示清單 -->
-          <div id="home-rankings-items-container" style="display:flex;flex-direction:column;gap:8px;">
-            <!-- 由 JS switchHomeRankingsTab 自動動態渲染 -->
+          <!-- 排行榜 10 大項目直接展開排列清單 -->
+          <div id="rankings-inline-items-container" style="display:flex;flex-direction:column;gap:10px;">
           </div>
         </div>
+
+        <div id="view-tab-home">
+          <!-- 縣市快選 (台北市、桃園市、花蓮縣、台南市優先) -->
 
           <div class="region-filter-bar">
             <div class="eyebrow-label">
@@ -5148,7 +5153,7 @@ const ALL_ISLANDS_DATA = {
       renderRegionsCloud();
       renderCommunityBoard();
       renderFavoritesView();
-      switchHomeRankingsTab("drinks");
+      
       selectSpot(1, false);
     });
 
@@ -5174,7 +5179,7 @@ const ALL_ISLANDS_DATA = {
       }
 
       if (tab === "favorites") renderFavoritesView();
-      switchHomeRankingsTab("drinks");
+      
       if (tab === "community") renderCommunityBoard();
       if (tab === "souvenirs") renderSouvenirsView();
       
@@ -5837,16 +5842,58 @@ const ALL_ISLANDS_DATA = {
 // 1. 🏝️ 離島專題頁（Islands of Taiwan）
 
     
-    // ==========================================
-    // 🏆 首頁原頁即時切換超人氣排行 (不彈窗、直接原本頁顯示完整 10 大)
-    // ==========================================
-    let currentHomeRankingsTab = 'drinks';
 
-    function switchHomeRankingsTab(type) {
-      currentHomeRankingsTab = type;
+
+    
+    // ==========================================
+    // 🏆 排行榜全頁視圖切換 (點擊才打開，頁面直接展開排列十個，絕不彈出浮動視窗！)
+    // ==========================================
+    let currentInlineRankingsType = 'drinks';
+
+    function openRankingsPage(type = 'drinks') {
+      currentInlineRankingsType = type;
+      switchNavTab('home');
+
+      // 1. 在左側手機當前頁面直接展開排行榜全頁視圖 (隱藏一般首頁視圖，無彈窗)
+      const homeView = document.getElementById("view-tab-home");
+      const fullView = document.getElementById("rankings-inline-fullview");
+      if (homeView && fullView) {
+        homeView.style.display = "none";
+        fullView.style.display = "block";
+        switchRankingsInlineTab(type);
+      }
+
+      // 2. 雙機連動：右側手機螢幕也同步展示排行榜
+      const rightWrapper = document.getElementById("rankings-subpage-wrapper");
+      if (rightWrapper) {
+        document.getElementById("detail-view-container").style.display = "none";
+        const themeWrap = document.getElementById("thematic-subpages-wrapper");
+        if (themeWrap) themeWrap.style.display = "none";
+        rightWrapper.style.display = "block";
+        switchSubpageDuelTab(type);
+      }
+
+      const scrollBody = document.getElementById("left-scroll-body");
+      if (scrollBody) scrollBody.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function closeRankingsPage() {
+      const homeView = document.getElementById("view-tab-home");
+      const fullView = document.getElementById("rankings-inline-fullview");
+      if (homeView && fullView) {
+        fullView.style.display = "none";
+        homeView.style.display = "block";
+      }
+      const scrollBody = document.getElementById("left-scroll-body");
+      if (scrollBody) scrollBody.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    const switchHomeRankingsTab = function(t){ switchRankingsInlineTab(t); };
+    function switchRankingsInlineTab(type) {
+      currentInlineRankingsType = type;
       const tabs = ['drinks', 'spots', 'charter', 'massage'];
       tabs.forEach(t => {
-        const btn = document.getElementById('home-rank-tab-' + t);
+        const btn = document.getElementById('rank-full-tab-' + t);
         if (btn) {
           if (t === type) {
             btn.style.background = '#0284C7';
@@ -5858,15 +5905,15 @@ const ALL_ISLANDS_DATA = {
         }
       });
 
-      const container = document.getElementById('home-rankings-items-container');
+      const container = document.getElementById('rankings-inline-items-container');
       if (!container) return;
 
       if (type === 'drinks') {
-        // 渲染 TOP 10 手搖飲 (使用極簡圓形漸層 ICON)
+        // TOP 10 必喝手搖飲
         const top10Drinks = DRINKS_DATA.slice(0, 10);
         container.innerHTML = top10Drinks.map(d => renderCleanDrinkCard(d)).join('');
       } else if (type === 'spots') {
-        // 渲染 TOP 10 景點人次
+        // TOP 10 景點人次
         const top10Spots = SPOTS_TOP20_DATA.slice(0, 10);
         const scenicImages = [
           "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=600&auto=format&fit=crop",
@@ -5878,23 +5925,23 @@ const ALL_ISLANDS_DATA = {
         container.innerHTML = top10Spots.map((s, idx) => {
           const bgImg = scenicImages[idx % scenicImages.length];
           return `
-            <div style="position:relative;height:100px;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(15,23,42,0.1);border:1px solid rgba(255,255,255,0.4);">
+            <div style="position:relative;height:108px;border-radius:16px;overflow:hidden;box-shadow:0 4px 14px rgba(15,23,42,0.1);border:1px solid rgba(255,255,255,0.4);">
               <img src="${bgImg}" alt="${s.name}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
-              <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.35) 100%);"></div>
+              <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(15,23,42,0.88) 0%, rgba(15,23,42,0.4) 100%);"></div>
               <div style="position:relative;z-index:2;height:100%;display:flex;justify-content:space-between;align-items:center;padding:0 16px;color:#FFF;">
                 <div>
                   <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
-                    <span style="font-size:10px;font-weight:900;background:#0284C7;padding:1px 7px;border-radius:8px;">TOP ${s.rank}</span>
+                    <span style="font-size:10px;font-weight:900;background:#0284C7;padding:2px 7px;border-radius:8px;">TOP ${s.rank}</span>
                     <span style="font-size:11px;font-weight:700;opacity:0.9;">📍 ${s.city}</span>
                   </div>
                   <div style="font-size:15px;font-weight:900;letter-spacing:0.2px;">${s.name}</div>
-                  <div style="font-size:11px;color:#38BDF8;font-weight:700;margin-top:2px;">👥 參訪人次：${s.visitors}</div>
+                  <div style="font-size:11px;color:#38BDF8;font-weight:700;margin-top:2px;">👥 年度參訪人次：${s.visitors}</div>
                 </div>
                 <div style="display:flex;gap:6px;">
-                  <button onclick="event.stopPropagation(); window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('${s.name} ${s.city}'), '_blank')" style="background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);color:#FFF;border:1px solid rgba(255,255,255,0.6);border-radius:8px;padding:5px 9px;font-size:11px;font-weight:800;cursor:pointer;">
+                  <button onclick="event.stopPropagation(); window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('${s.name} ${s.city}'), '_blank')" style="background:rgba(255,255,255,0.22);backdrop-filter:blur(6px);color:#FFF;border:1px solid rgba(255,255,255,0.6);border-radius:8px;padding:6px 10px;font-size:11px;font-weight:800;cursor:pointer;">
                     📍 地圖
                   </button>
-                  <a href="${s.aid}" target="_blank" onclick="event.stopPropagation()" style="background:#0284C7;color:#FFF;border-radius:8px;padding:5px 12px;font-size:11px;font-weight:900;text-decoration:none;">
+                  <a href="${s.aid}" target="_blank" onclick="event.stopPropagation()" style="background:#0284C7;color:#FFF;border-radius:8px;padding:6px 12px;font-size:11px;font-weight:900;text-decoration:none;">
                     預約 ❯
                   </a>
                 </div>
@@ -5903,7 +5950,7 @@ const ALL_ISLANDS_DATA = {
           `;
         }).join('');
       } else if (type === 'charter') {
-        // 渲染 TOP 10 包車旅遊
+        // TOP 10 包車旅遊
         container.innerHTML = CHARTER_TOP10_DATA.map(c => `
           <div style="background:#FFFFFF;border-radius:14px;padding:12px 14px;border:1px solid #E2E8F0;box-shadow:0 2px 8px rgba(0,0,0,0.03);">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
@@ -5923,7 +5970,7 @@ const ALL_ISLANDS_DATA = {
           </div>
         `).join('');
       } else if (type === 'massage') {
-        // 渲染 TOP 10 按摩推薦
+        // TOP 10 按摩推薦
         container.innerHTML = MASSAGE_TOP10_DATA.slice(0, 10).map(m => `
           <div style="background:#FFFFFF;border-radius:14px;padding:12px 14px;border:1px solid #E2E8F0;box-shadow:0 2px 8px rgba(0,0,0,0.03);">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
@@ -5943,15 +5990,6 @@ const ALL_ISLANDS_DATA = {
           </div>
         `).join('');
       }
-    }
-
-    // 點擊頂部排行榜按鈕：平滑滾動至本頁排行榜
-    function scrollToHomeRankings() {
-      switchNavTab('home');
-      setTimeout(() => {
-        const sec = document.getElementById('home-rankings-section');
-        if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 50);
     }
 
     function openRankingsModal() {
@@ -8105,64 +8143,105 @@ function openHotSpringModal(rank, dayKey) {
 
 function renderSubpageHotSpring(theme) {
   return `
-    <div class="thematic-subpage-view active" style="padding-bottom:24px;">
-      <div class="detail-hero-stage-img2">
-        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1000&auto=format&fit=crop" alt="Hot Springs">
-        <div class="detail-ctrl-floating-bar">
-          <button class="circle-icon-btn-frosted" onclick="closeSubpageToHome()">←</button>
-          <button class="circle-icon-btn-frosted" onclick="toggleCurrentDetailFav()">❤️</button>
-        </div>
-        <div class="detail-hero-info-overlay">
-          <div>
-            <div class="detail-hero-title-main">洗滌心靈名湯：台灣溫泉地圖全指南<br><span style="font-size:12px;font-weight:700;opacity:0.9;">北投白磺 · 礁溪美人湯 · 關子嶺黑泥漿</span></div>
-            <div class="detail-hero-meta-row">
-              <span class="detail-hero-rating">⭐ 4.9 (42k 泉客推薦)</span>
-            </div>
-          </div>
-        </div>
+    <div class="thematic-subpage-view active" style="padding-bottom:24px;background:#FAFAFA;">
+      <!-- 上半部熱帶溫泉渡假實景大圖 (~280px，比照圖片) -->
+      <div style="position:relative;height:280px;background:#0F172A;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1000&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Hot Spring Retreat">
+        
+        <!-- 左上毛玻璃返回圓鈕 + 右上毛玻璃愛心圓鈕 -->
+        <button class="circle-icon-btn-frosted" onclick="closeSubpageToHome()" style="position:absolute;top:14px;left:14px;z-index:20;width:38px;height:38px;background:rgba(255,255,255,0.25);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.6);color:#FFF;border-radius:50%;cursor:pointer;font-size:16px;">
+          ←
+        </button>
+        <button class="circle-icon-btn-frosted" onclick="toggleCurrentDetailFav()" style="position:absolute;top:14px;right:14px;z-index:20;width:38px;height:38px;background:rgba(255,255,255,0.25);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.6);color:#FFF;border-radius:50%;cursor:pointer;font-size:16px;">
+          ❤️
+        </button>
       </div>
 
-      <div class="detail-sliding-sheet-img2">
-        <div class="sliding-drag-handle"></div>
+      <!-- 下方半透毛玻璃浮層遮罩 (向上覆蓋大圖 -42px，純粹歐美溫泉渡假奢旅風) -->
+      <div style="margin-top:-42px;position:relative;background:linear-gradient(180deg, rgba(254, 243, 240, 0.88) 0%, rgba(255, 255, 255, 0.97) 22%, #FFFFFF 100%);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border-top-left-radius:36px;border-top-right-radius:36px;padding:16px 20px 80px;box-shadow:0 -12px 36px rgba(15,23,42,0.12);border-top:1.5px solid rgba(255,255,255,0.9);z-index:15;">
+        
+        <!-- 頂部正中央平滑滑塊膠囊 (比照圖片設計) -->
+        <div style="width:48px;height:5px;border-radius:3px;background:rgba(234,88,12,0.5);margin:0 auto 16px;"></div>
 
-        <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
-          <div>
-            <span style="font-size:15px;font-weight:900;color:var(--text-heading);">♨️ 全台 10 大名湯排行榜</span>
-            <div style="font-size:10px;color:var(--text-muted);font-weight:700;">點擊卡片查看 1日/2日行程規劃與星級住宿</div>
-          </div>
-          <span style="font-size:11px;font-weight:900;color:var(--accent-turquoise);background:var(--accent-turquoise-light);padding:3px 10px;border-radius:12px;">TOP 10</span>
+        <!-- 歐美風大標題 (Large Bold Western Typography) -->
+        <h1 style="font-size:23px;font-weight:900;color:#0F172A;letter-spacing:-0.4px;margin:0 0 6px;line-height:1.25;">
+          Taiwan Hot Springs Retreat
+        </h1>
+        
+        <!-- 地點提示 -->
+        <div style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#475569;margin-bottom:8px;">
+          <span style="font-size:14px;">📍</span>
+          <span>台北北投 · 宜蘭礁溪 · 新北烏來 · 苗栗泰安</span>
         </div>
 
-        <div class="top10-visual-stream">
-          ${HOTSPRING_TOP10.map((s) => `
-            <div class="top10-photo-card" style="cursor:pointer;" onclick="openHotSpringModal(${s.rank}, '1d')">
-              <img class="bg-photo" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&auto=format&fit=crop" alt="${s.name}" loading="lazy">
-              <div class="card-top-floating-row">
-                <span class="card-rank-badge ${s.rank <= 3 ? 'top-3' : ''}">TOP ${s.rank}</span>
-                <div class="card-fav-circle" onclick="event.stopPropagation(); toggleFav('${s.name}', '台灣溫泉', '')">❤️</div>
-              </div>
-              <div class="card-bottom-frosted-glass" style="padding:14px 16px;">
-                <div class="card-meta-chips-row">
-                  <span class="card-meta-chip">♨️ ${s.type}</span>
-                  <span class="card-meta-chip">⭐ 4.9★</span>
+        <!-- 金黃五星評分列 (完全吻合圖片：★★★★★ 4.9 (4.8k reviews)) -->
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:16px;">
+          <span style="color:#F59E0B;letter-spacing:2px;font-size:13px;">★★★★★</span>
+          <span style="font-size:13.5px;font-weight:900;color:#0F172A;">4.9</span>
+          <span style="font-size:11px;color:#94A3B8;font-weight:700;">(4.8k reviews)</span>
+        </div>
+
+        <!-- 北投溫泉特別推薦卡片 (含一日遊/兩日遊行程切換、Booking 5星飯店、Klook 大眾池、包車) -->
+        <div style="background:linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);border:1.5px solid #FED7AA;border-radius:20px;padding:14px 16px;margin-bottom:18px;box-shadow:0 3px 10px rgba(234,88,12,0.06);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span style="font-size:13px;font-weight:900;color:#9A3412;">♨️ 北投溫泉周邊景點 · 深度慢活特企</span>
+            <span style="font-size:10.5px;font-weight:800;background:#EA580C;color:#FFF;padding:2px 8px;border-radius:8px;">2日遊首選</span>
+          </div>
+          <p style="font-size:11.5px;color:#7C2D12;line-height:1.6;margin:0 0 10px;">
+            捷運直達！地熱谷青磺仙境、加賀屋日式白磺湯屋與全球最美綠建築北投圖書館，非常適合規劃兩天一夜溫泉度假。
+          </p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+            <a href="https://www.klook.com/zh-TW/activity/1329-beitou-hot-spring-taipei/?aid=123436" target="_blank" style="background:#EA580C;color:#FFF;border-radius:10px;padding:8px 0;text-align:center;font-size:11.5px;font-weight:800;text-decoration:none;">
+              ♨️ 大眾池/湯屋預約
+            </a>
+            <a href="https://www.booking.com/searchresults.zh-tw.html?ss=%E5%8C%97%E6%8A%95%E6%BA%AB%E6%B3%89%E9%A3%AF%E5%BA%97" target="_blank" style="background:#FFF;border:1.5px solid #EA580C;color:#EA580C;border-radius:10px;padding:8px 0;text-align:center;font-size:11.5px;font-weight:800;text-decoration:none;">
+              🏨 預訂溫泉飯店
+            </a>
+          </div>
+          <button onclick="openHotSpringModal(1, '2d')" style="width:100%;background:#FFF;border:1px solid #FDBA74;color:#9A3412;padding:7px 0;border-radius:10px;font-size:11.5px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;">
+            <span>📖 展開北投兩日遊/一日遊行程與五星住宿 ❯</span>
+          </button>
+        </div>
+
+        <!-- 歐美相片卡片流 (比照圖片 Nearby Destinations 雙欄雅緻排版，展示全台名湯) -->
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <span style="font-size:15px;font-weight:900;color:#0F172A;">Top 10 Hot Springs / 十大名湯推薦</span>
+          <span style="font-size:11px;font-weight:800;color:#EA580C;cursor:pointer;">See all ❯</span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+          ${HOTSPRING_TOP10.map((s, idx) => {
+            const springPhotos = [
+              "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&auto=format&fit=crop",
+              "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&auto=format&fit=crop",
+              "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop",
+              "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop",
+              "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop"
+            ];
+            const pImg = springPhotos[idx % springPhotos.length];
+            return `
+              <div style="background:#FFFFFF;border-radius:18px;overflow:hidden;border:1px solid #F1F5F9;box-shadow:0 3px 12px rgba(15,23,42,0.04);cursor:pointer;transition:all 0.2s ease;" onclick="openHotSpringModal(${s.rank}, '1d')">
+                <div style="position:relative;height:105px;overflow:hidden;">
+                  <img src="${pImg}" style="width:100%;height:100%;object-fit:cover;" alt="${s.name}" loading="lazy">
+                  <span style="position:absolute;top:8px;left:8px;background:rgba(15,23,42,0.7);backdrop-filter:blur(6px);color:#FFF;font-size:9.5px;font-weight:900;padding:2px 7px;border-radius:8px;">
+                    TOP ${s.rank}
+                  </span>
                 </div>
-                <div class="card-spot-title" style="margin-top:4px;">${s.name}</div>
-                <p style="font-size:11.5px;color:#F1F5F9;margin:4px 0 10px;line-height:1.5;">${s.desc}</p>
-                
-                <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding-top:4px;border-top:1px dashed rgba(255,255,255,0.3);">
-                  <a href="https://www.klook.com/zh-TW/search/result/?query=${encodeURIComponent(s.name + ' 溫泉泡湯')}&aid=123436" target="_blank" onclick="event.stopPropagation()" style="background:#FEF3C7;border:1px solid #FDE68A;color:#92400E;font-size:11px;font-weight:700;padding:5px 9px;border-radius:7px;text-decoration:none;">
-                    ♨️ 大眾池 (Klook)
-                  </a>
-                  <a href="https://www.booking.com/searchresults.zh-tw.html?ss=${encodeURIComponent(s.name + ' 溫泉飯店')}" target="_blank" onclick="event.stopPropagation()" style="background:#EFF6FF;border:1px solid #BFDBFE;color:#1E40AF;font-size:11px;font-weight:700;padding:5px 9px;border-radius:7px;text-decoration:none;">
-                    🏨 溫泉飯店 (Booking)
-                  </a>
-                  <button onclick="event.stopPropagation(); openHotSpringModal(${s.rank}, '1d')" style="background:#F8FAFC;border:1px solid #CBD5E1;color:#334155;font-size:11px;font-weight:700;padding:5px 9px;border-radius:7px;cursor:pointer;">
-                    📖 查看行程 ▾
+                <div style="padding:10px 10px 12px;">
+                  <div style="font-size:13px;font-weight:900;color:#0F172A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:3px;">
+                    ${s.name}
+                  </div>
+                  <div style="display:flex;align-items:center;gap:4px;font-size:10.5px;color:#F59E0B;font-weight:800;margin-bottom:4px;">
+                    <span>★</span> <span>4.9</span>
+                    <span style="color:#94A3B8;font-weight:600;">· ${s.type.split('/')[0]}</span>
+                  </div>
+                  <button onclick="event.stopPropagation(); openHotSpringModal(${s.rank}, '1d')" style="width:100%;background:#FFF7ED;border:1px solid #FED7AA;color:#C2410C;padding:5px 0;border-radius:8px;font-size:11px;font-weight:800;cursor:pointer;">
+                    行程規劃 ▾
                   </button>
                 </div>
               </div>
-            </div>
-          `).join("")}
+            `;
+          }).join('')}
         </div>
 
       </div>
@@ -8566,64 +8645,146 @@ function switchNorthCoastItinDuration(dur) {
 
 
 function renderSubpageNorthCoast(theme) {
-  const charteredTours = [
-    { rank: 1, name: "北海岸 · 野柳女王頭 · 金山老街包車一日遊", trips: "已預約 18,200 次", driver: "專屬司機隨行", desc: "世界級地質奇觀女王頭、金山老街廟口鴨肉、石門洞海蝕拱門。" },
-    { rank: 2, name: "東北角 · 九份老街 · 陰陽海黃金瀑布包車一日遊", trips: "已預約 26,500 次", driver: "專業雙語司機", desc: "神隱少女山城九份、黃金瀑布壯麗奇景、水湳洞陰陽海雙色奇觀。" },
-    { rank: 3, name: "基隆嶼登島繞島 · 潮境公園 · 彩色屋海景一日遊", trips: "已預約 12,300 次", driver: "專車接送碼頭", desc: "搭快艇登基隆嶼頂燈塔、正濱漁港彩色屋拍美照、潮境飛天掃帚。" },
-    { rank: 4, name: "鼻頭角稜谷步道 · 南雅奇石 · 水湳洞包車一日遊", trips: "已預約 9,800 次", driver: "專屬司機直達", desc: "台版萬里長城稜線絕美海景、冰淇淋岩風化奇石、遠眺基隆山。" },
-    { rank: 5, name: "深澳鐵道自行車 · 八斗子海天一線包車一日遊", trips: "已預約 14,100 次", driver: "專屬司機接送", desc: "騎乘河豚造型電動鐵道車穿梭光影隧道、八斗子臨海車站看海。" }
-  ];
+  const coastKey = (currentNorthCoastTab in ALL_NORTHCOAST_DATA) ? currentNorthCoastTab : "yehliu";
+  const coastData = ALL_NORTHCOAST_DATA[coastKey];
+  const spotsList = coastData.spots;
+  
+  const itinLookupKey = `${coastKey}-${currentNorthCoastItinDuration}`;
+  const currentItin = NORTHCOAST_ITINERARIES_DATA[itinLookupKey] || NORTHCOAST_ITINERARIES_DATA[`${coastKey}-1d`] || NORTHCOAST_ITINERARIES_DATA["yehliu-1d"];
 
   return `
-    <div class="thematic-subpage-view active" style="padding-bottom:24px;">
-      <div class="detail-hero-stage-img2">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1000&auto=format&fit=crop" alt="North Coast">
-        <div class="detail-ctrl-floating-bar">
-          <button class="circle-icon-btn-frosted" onclick="closeSubpageToHome()">←</button>
-          <button class="circle-icon-btn-frosted" onclick="toggleCurrentDetailFav()">❤️</button>
-        </div>
-        <div class="detail-hero-info-overlay">
-          <div>
-            <div class="detail-hero-title-main">山海交會的蔚藍公路：北海岸與東北角全攻略<br><span style="font-size:12px;font-weight:700;opacity:0.9;">野柳 · 九份 · 鼻頭角 · 基隆嶼 · 正濱漁港</span></div>
-            <div class="detail-hero-meta-row">
-              <span class="detail-hero-rating">⭐ 4.9 (46k 旅人熱評)</span>
-            </div>
-          </div>
-        </div>
+    <div class="thematic-subpage-view active" style="padding-bottom:24px;background:#FAFAFA;">
+      <!-- 上半部高解析渡假實景大圖 (~280px) -->
+      <div style="position:relative;height:280px;background:#0F172A;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1000&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;display:block;" alt="North Coast">
+        
+        <!-- 左上毛玻璃返回圓鈕 + 右上毛玻璃愛心圓鈕 -->
+        <button class="circle-icon-btn-frosted" onclick="closeSubpageToHome()" style="position:absolute;top:14px;left:14px;z-index:20;width:38px;height:38px;background:rgba(255,255,255,0.25);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.6);color:#FFF;border-radius:50%;cursor:pointer;font-size:16px;">
+          ←
+        </button>
+        <button class="circle-icon-btn-frosted" onclick="toggleCurrentDetailFav()" style="position:absolute;top:14px;right:14px;z-index:20;width:38px;height:38px;background:rgba(255,255,255,0.25);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.6);color:#FFF;border-radius:50%;cursor:pointer;font-size:16px;">
+          ❤️
+        </button>
       </div>
 
-      <div class="detail-sliding-sheet-img2">
-        <div class="sliding-drag-handle"></div>
+      <!-- 下方半透毛玻璃浮層遮罩 (向上覆蓋大圖 -42px，純粹歐美海島渡假風) -->
+      <div style="margin-top:-42px;position:relative;background:linear-gradient(180deg, rgba(235, 248, 255, 0.86) 0%, rgba(255, 255, 255, 0.97) 22%, #FFFFFF 100%);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border-top-left-radius:36px;border-top-right-radius:36px;padding:16px 20px 80px;box-shadow:0 -12px 36px rgba(15,23,42,0.12);border-top:1.5px solid rgba(255,255,255,0.9);z-index:15;">
+        
+        <!-- 頂部正中央平滑滑塊膠囊 (比照圖片設計) -->
+        <div style="width:48px;height:5px;border-radius:3px;background:rgba(56,189,248,0.55);margin:0 auto 16px;"></div>
 
-        <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
-          <div>
-            <span style="font-size:15px;font-weight:900;color:var(--text-heading);">🚗 熱門包車一日遊 Top 5 排行榜</span>
-          </div>
-          <span style="font-size:11px;font-weight:900;color:var(--accent-turquoise);background:var(--accent-turquoise-light);padding:3px 10px;border-radius:12px;">專車直達</span>
+        <!-- 歐美風大標題 (Large Bold Western Typography) -->
+        <h1 style="font-size:23px;font-weight:900;color:#0F172A;letter-spacing:-0.4px;margin:0 0 6px;line-height:1.25;">
+          North Coast & Keelung
+        </h1>
+        
+        <!-- 地點提示 -->
+        <div style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#475569;margin-bottom:8px;">
+          <span style="font-size:14px;">📍</span>
+          <span>新北萬里 · 金山 · 瑞芳 · 基隆海岸</span>
         </div>
 
-        <div class="top10-visual-stream">
-          ${charteredTours.map((t) => `
-            <div class="top10-photo-card">
-              <img class="bg-photo" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop" alt="${t.name}" loading="lazy">
-              <div class="card-top-floating-row">
-                <span class="card-rank-badge ${t.rank <= 3 ? 'top-3' : ''}">TOP ${t.rank}</span>
+        <!-- 金黃五星評分列 (完全吻合圖片：★★★★★ 4.9 (4.6k reviews)) -->
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:16px;">
+          <span style="color:#F59E0B;letter-spacing:2px;font-size:13px;">★★★★★</span>
+          <span style="font-size:13.5px;font-weight:900;color:#0F172A;">4.9</span>
+          <span style="font-size:11px;color:#94A3B8;font-weight:700;">(4.6k reviews)</span>
+        </div>
+
+        <!-- 分區橫向膠囊切換列 -->
+        <div style="display:flex;gap:8px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;padding-bottom:6px;margin-bottom:14px;scrollbar-width:none;" class="no-scrollbar">
+          <button class="seg-pill-item ${coastKey==='yehliu'?'active':''}" onclick="switchNorthCoastSubTab('yehliu')">
+            🌊 野柳金山
+          </button>
+          <button class="seg-pill-item ${coastKey==='jiufen'?'active':''}" onclick="switchNorthCoastSubTab('jiufen')">
+            🏮 九份金瓜石
+          </button>
+          <button class="seg-pill-item ${coastKey==='bitou'?'active':''}" onclick="switchNorthCoastSubTab('bitou')">
+            🪨 鼻頭角東北角
+          </button>
+          <button class="seg-pill-item ${coastKey==='keelung'?'active':''}" onclick="switchNorthCoastSubTab('keelung')">
+            🚤 基隆港嶼
+          </button>
+          <button class="seg-pill-item ${coastKey==='shenao'?'active':''}" onclick="switchNorthCoastSubTab('shenao')">
+            🚴 深澳八斗子
+          </button>
+          <button class="seg-pill-item ${coastKey==='shimen'?'active':''}" onclick="switchNorthCoastSubTab('shimen')">
+            🏖️ 白沙灣石門
+          </button>
+        </div>
+
+        <!-- 一日遊 / 兩日遊 / 三日遊 自由切換 -->
+        <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:12px 14px;margin-bottom:16px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-size:12.5px;font-weight:900;color:#0F172A;">🗺️ 行程規劃路線：</span>
+            <div style="display:flex;gap:4px;">
+              <button onclick="switchNorthCoastItinDuration('1d')" style="background:${currentNorthCoastItinDuration==='1d'?'#0284C7':'#FFFFFF'};color:${currentNorthCoastItinDuration==='1d'?'#FFF':'#475569'};border:1px solid ${currentNorthCoastItinDuration==='1d'?'#0284C7':'#CBD5E1'};border-radius:10px;padding:3px 9px;font-size:11px;font-weight:800;cursor:pointer;">
+                一日遊
+              </button>
+              <button onclick="switchNorthCoastItinDuration('2d1n')" style="background:${currentNorthCoastItinDuration==='2d1n'?'#0284C7':'#FFFFFF'};color:${currentNorthCoastItinDuration==='2d1n'?'#FFF':'#475569'};border:1px solid ${currentNorthCoastItinDuration==='2d1n'?'#0284C7':'#CBD5E1'};border-radius:10px;padding:3px 9px;font-size:11px;font-weight:800;cursor:pointer;">
+                兩天一夜
+              </button>
+              <button onclick="switchNorthCoastItinDuration('3d2n')" style="background:${currentNorthCoastItinDuration==='3d2n'?'#0284C7':'#FFFFFF'};color:${currentNorthCoastItinDuration==='3d2n'?'#FFF':'#475569'};border:1px solid ${currentNorthCoastItinDuration==='3d2n'?'#0284C7':'#CBD5E1'};border-radius:10px;padding:3px 9px;font-size:11px;font-weight:800;cursor:pointer;">
+                三天兩夜
+              </button>
+            </div>
+          </div>
+          <div style="font-size:12px;font-weight:800;color:#0369A1;margin-bottom:6px;">${currentItin.title}</div>
+          ${currentItin.days.map(d => `
+            <div style="font-size:11.5px;color:#334155;line-height:1.55;display:flex;gap:6px;align-items:flex-start;margin-bottom:4px;">
+              <span style="background:#0284C7;color:#FFF;padding:1px 6px;border-radius:6px;font-size:9.5px;font-weight:900;flex-shrink:0;margin-top:2px;">D${d.day}</span>
+              <span>${d.route}</span>
+            </div>
+          `).join('')}
+        </div>
+
+        <!-- 歐美精選快捷按鈕 (包車、預定行程、找住宿、地圖) -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+          <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" style="background:#0284C7;color:#FFF;border-radius:12px;padding:10px;text-align:center;font-size:12px;font-weight:800;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:4px;box-shadow:0 3px 10px rgba(2,132,199,0.3);">
+            <span>🚗</span> 預約包車直達
+          </a>
+          <a href="https://www.klook.com/zh-TW/city/19-taipei-things-to-do/?aid=123436" target="_blank" style="background:rgba(2,132,199,0.1);color:#0284C7;border:1.5px solid #BAE6FD;border-radius:12px;padding:10px;text-align:center;font-size:12px;font-weight:800;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:4px;">
+            <span>🎟️</span> 預訂精選行程
+          </a>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px;">
+          <a href="https://tw.trip.com/hotels/?allianceid=123436&sid=123436" target="_blank" style="background:#FFF;border:1.5px solid #FED7AA;color:#C2410C;border-radius:12px;padding:10px;text-align:center;font-size:12px;font-weight:800;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:4px;">
+            <span>🏨</span> 查詢海景旅宿
+          </a>
+          <button onclick="openGoogleMap('新北市萬里區', '北海岸風景區')" style="background:#FFF;border:1.5px solid #CBD5E1;color:#334155;border-radius:12px;padding:10px;text-align:center;font-size:12px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;">
+            <span>🗺️</span> 地圖導航
+          </button>
+        </div>
+
+        <!-- 歐美相片卡片流 (比照圖片 Nearby Destinations 雙欄雅緻排版) -->
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <span style="font-size:15px;font-weight:900;color:#0F172A;">Featured Attractions / 精選景點</span>
+          <span style="font-size:11px;font-weight:800;color:#0284C7;cursor:pointer;">See all ❯</span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+          ${spotsList.map(s => `
+            <div style="background:#FFFFFF;border-radius:18px;overflow:hidden;border:1px solid #F1F5F9;box-shadow:0 3px 12px rgba(15,23,42,0.04);cursor:pointer;transition:all 0.2s ease;" onclick="openGoogleMap('北海岸', '${s.name}')">
+              <div style="position:relative;height:105px;overflow:hidden;">
+                <img src="${s.img}" style="width:100%;height:100%;object-fit:cover;" alt="${s.name}" loading="lazy">
+                <span style="position:absolute;top:8px;left:8px;background:rgba(15,23,42,0.7);backdrop-filter:blur(6px);color:#FFF;font-size:9.5px;font-weight:900;padding:2px 7px;border-radius:8px;">
+                  TOP ${s.rank}
+                </span>
               </div>
-              <div class="card-bottom-frosted-glass" style="padding:14px 16px;">
-                <div class="card-meta-chips-row">
-                  <span class="card-meta-chip">👥 ${t.trips}</span>
-                  <span class="card-meta-chip">🚗 ${t.driver}</span>
+              <div style="padding:10px 10px 12px;">
+                <div style="font-size:13px;font-weight:900;color:#0F172A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:3px;">
+                  ${s.name}
                 </div>
-                <div class="card-spot-title" style="margin-top:4px;">${t.name}</div>
-                <p style="font-size:11.5px;color:#F1F5F9;margin:4px 0 10px;line-height:1.5;">${t.desc}</p>
-                <div style="display:flex;justify-content:flex-end;padding-top:4px;border-top:1px dashed rgba(255,255,255,0.3);">
-                  <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" style="background:#0284C7;color:#FFF;font-size:11px;font-weight:800;padding:6px 14px;border-radius:8px;text-decoration:none;">
-                    預定去 ❯
-                  </a>
+                <div style="display:flex;align-items:center;gap:4px;font-size:10.5px;color:#F59E0B;font-weight:800;margin-bottom:4px;">
+                  <span>★</span> <span>${s.rate || '4.8'}</span>
+                  <span style="color:#94A3B8;font-weight:600;">· 1.2 km away</span>
                 </div>
+                <a href="${s.actUrl || 'https://www.klook.com/zh-TW/city/19-taipei-things-to-do/?aid=123436'}" target="_blank" onclick="event.stopPropagation()" style="display:block;text-align:center;background:#F8FAFC;border:1px solid #E2E8F0;color:#0284C7;padding:5px 0;border-radius:8px;font-size:11px;font-weight:800;text-decoration:none;">
+                  預定行程 ❯
+                </a>
               </div>
             </div>
-          `).join("")}
+          `).join('')}
         </div>
 
       </div>
@@ -9865,7 +10026,7 @@ function renderSubpageDefault(theme) {
 
       localStorage.setItem("tw_travel_favs", JSON.stringify(favoritesList));
       renderFavoritesView();
-      switchHomeRankingsTab("drinks");
+      
       if (typeof renderAllSpots === 'function') renderAllSpots(ALL_SPOTS_DATA);
       
       // 更新詳情頁愛心圖示
