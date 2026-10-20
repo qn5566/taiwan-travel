@@ -9562,34 +9562,46 @@ function renderSubpageHuadong(theme) {
           <span>🗺️</span> 地圖導航 ➔
         </button>
 
-        <!-- 推薦必訪景點排行榜 -->
+        <!-- 推薦必訪景點排行榜 (重新設計：字體精緻平衡、預定按鈕質感重塑、導航簡潔標為 MAP) -->
         <div style="font-size:13.5px;font-weight:900;color:#0F172A;margin-bottom:10px;">
           📍 花東推薦必訪景點排行榜：
         </div>
         <div class="spots-grid-2col" style="margin-bottom:20px;">
           ${(HUADONG_DATA.spots || []).map(s => {
             const isFavSpot = favoritesList.some(f => f.name === s.name);
+            const spotShortName = s.name.replace(/^[^\s]+｜\s*/, '');
             return `
-              <div class="compact-subpage-spot-card" onclick="selectSpot(${s.id || 1})">
-                <div class="spot-img-wrap">
-                  <img src="${s.img}" alt="${s.name}" loading="lazy">
-                  <span class="spot-top-rank-pill">${s.rank <= 3 ? '🔥' : '📍'} TOP ${s.rank}</span>
-                  <button class="spot-top-fav-btn" onclick="event.stopPropagation(); toggleFav('${s.name}', '${s.tag || ''}', '${s.img}')" title="收藏">
-                    ${isFavSpot ? '❤️' : '🤍'}
-                  </button>
-                </div>
-                <div class="spot-card-body">
-                  <div class="spot-card-title">${s.name}</div>
-                  <div class="spot-card-meta">
-                    <span style="color:#D97706;font-weight:900;">${s.rate}</span>
-                    <span style="background:#F1F5F9;padding:1px 6px;border-radius:6px;color:#475569;">${s.tag || '熱門'}</span>
+              <div class="compact-subpage-spot-card" onclick="window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('${s.name} ${s.city}'), '_blank')" style="background:#FFFFFF;border-radius:18px;overflow:hidden;border:1px solid #E2E8F0;box-shadow:0 3px 12px rgba(0,0,0,0.04);cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;">
+                <div>
+                  <div class="spot-img-wrap" style="position:relative;height:120px;overflow:hidden;">
+                    <img src="${s.img}" alt="${s.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+                    <span class="spot-top-rank-pill" style="position:absolute;top:8px;left:8px;background:rgba(15,23,42,0.78);backdrop-filter:blur(4px);color:#FFF;padding:2px 7px;border-radius:7px;font-size:9.5px;font-weight:900;">
+                      ${s.rank <= 3 ? '🔥' : '📍'} TOP ${s.rank}
+                    </span>
+                    <button class="spot-top-fav-btn" onclick="event.stopPropagation(); toggleFav('${s.name}', '${s.tag || ''}', '${s.img}')" title="收藏" style="position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.9);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+                      <span style="font-size:13px;">${isFavSpot ? '❤️' : '🤍'}</span>
+                    </button>
                   </div>
-                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:6px;">
-                    <a href="https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436" target="_blank" onclick="event.stopPropagation()" style="background:#0284C7;color:#FFF;padding:5px 0;border-radius:8px;font-size:10.5px;font-weight:800;text-align:center;text-decoration:none;display:block;">
-                      預約
+                  <div style="padding:10px 10px 6px;">
+                    <div style="font-size:10px;color:#0284C7;font-weight:800;margin-bottom:2px;">📍 ${s.city}</div>
+                    <div style="font-size:13px;font-weight:900;color:#0F172A;line-height:1.3;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="${s.name}">
+                      ${spotShortName}
+                    </div>
+                    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+                      <span style="color:#D97706;font-size:11px;font-weight:900;">★ ${s.rate}</span>
+                      <span style="background:#F1F5F9;font-size:9.5px;padding:1px 6px;border-radius:6px;color:#475569;font-weight:700;">${s.tag || '熱門'}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="padding:0 10px 10px;">
+                  <!-- 重新設計按鈕：預定 ＆ MAP -->
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+                    <a href="https://www.klook.com/zh-TW/city/19-taiwan-things-to-do/?aid=123436" target="_blank" onclick="event.stopPropagation()" style="background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFFFFF;padding:6.5px 0;border-radius:9px;font-size:11px;font-weight:900;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:3px;box-shadow:0 2px 6px rgba(2,132,199,0.25);">
+                      <span>預定</span>
                     </a>
-                    <button onclick="event.stopPropagation(); openGoogleMap('${s.city}', '${s.name}')" style="background:#F0F9FF;border:1px solid #BAE6FD;color:#0284C7;padding:5px 0;border-radius:8px;font-size:10.5px;font-weight:800;cursor:pointer;">
-                      MAP
+                    <button onclick="event.stopPropagation(); window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('${s.name} ${s.city}'), '_blank')" style="background:#F0F9FF;border:1px solid #BAE6FD;color:#0284C7;padding:6.5px 0;border-radius:9px;font-size:11px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:3px;">
+                      <span>MAP</span>
                     </button>
                   </div>
                 </div>
@@ -9857,8 +9869,7 @@ function renderSubpageFilmPilgrimage(theme) {
               <!-- 雙功能按鈕：直接點 MAP 觀看 ＆ 預約包車 -->
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
                 <button onclick="window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('${spot.mapQuery}'), '_blank')" style="padding:10px;background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);color:#FFF;border:none;border-radius:12px;font-size:12px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;box-shadow:0 2px 8px rgba(2,132,199,0.3);">
-                  <span>🗺️</span>
-                  <span>Google MAP 導航</span>
+                  <span>map</span>
                 </button>
                 <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436" target="_blank" style="padding:10px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);color:#F8FAFC;border-radius:12px;font-size:12px;font-weight:800;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:5px;text-align:center;">
                   <span>🚗</span>
