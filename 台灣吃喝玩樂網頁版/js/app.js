@@ -17,14 +17,19 @@ let userFavorites = JSON.parse(localStorage.getItem("tw_roam_web_favs") || '["�
 
 // 頁面加載完成後初始化
 document.addEventListener("DOMContentLoaded", () => {
-  renderTrendingSection();
-  renderThemesSection();
-  renderWaterfallSection();
-  renderRankingsSection();
-  renderBlogSection();
-  setupSearchHub();
-  setupEventListeners();
-  updateFavBadge();
+  const savedLang = localStorage.getItem("taiwan_travel_lang") || "zh-TW";
+  if (savedLang === "en" && typeof switchLanguage === "function") {
+    switchLanguage("en");
+  } else {
+    renderTrendingSection();
+    renderThemesSection();
+    renderWaterfallSection();
+    renderRankingsSection();
+    renderBlogSection();
+    setupSearchHub();
+    setupEventListeners();
+    updateFavBadge();
+  }
 });
 
 /* =========================================================
@@ -34,17 +39,21 @@ function renderTrendingSection() {
   const container = document.getElementById("trending-capsule-row");
   if (!container || typeof TOP_ACTIVITIES_6 === "undefined") return;
 
+  const isEn = (currentLang === "en");
+
   container.innerHTML = TOP_ACTIVITIES_6.map(item => {
     const klookUrl = AFFILIATE_HUB.getTourUrl(item.activityId);
+    const title = (isEn && item.enName) ? item.enName : item.name;
+    const ctaText = isEn ? "Book ➔" : "預定去 ➔";
     return `
-      <div class="pill-card-item" onclick="window.open('${klookUrl}', '_blank')" title="前往預約 ${item.name}" style="cursor: pointer;">
+      <div class="pill-card-item" onclick="window.open('${klookUrl}', '_blank')" title="${title}" style="cursor: pointer;">
         <div class="pill-window">
-          <img src="${item.img}" alt="${item.name}" loading="lazy">
+          <img src="${item.img}" alt="${title}" loading="lazy">
           <div class="pill-window-overlay"></div>
         </div>
         <div class="pill-info-block">
-          <div class="pill-title" style="cursor: pointer; margin-bottom: 8px;">${item.name}</div>
-          <span class="pill-klook-cta" style="cursor: pointer;">預定去 ➔</span>
+          <div class="pill-title" style="cursor: pointer; margin-bottom: 8px;">${title}</div>
+          <span class="pill-klook-cta" style="cursor: pointer;">${ctaText}</span>
         </div>
       </div>
     `;
@@ -94,37 +103,149 @@ function filterByTheme(themeId) {
 }
 
 /* =========================================================
-   3. 第三區塊：全部景點 ＋ 全部縣市瀑布流 (Masonry Waterfall)
+   3. 第三區塊：全部景點 ＋ 可愛兩段式分區與縣市瀑布流 (Cute Two-tier Regional Navigation)
    ========================================================= */
-const TAIWAN_CITIES_LIST = [
-  "全部", "台北市", "新北市", "基隆市", "桃園市", "新竹縣", "苗栗縣", 
-  "台中市", "彰化縣", "南投縣", "雲林縣", "嘉義縣", "台南市", 
-  "高雄市", "屏東縣", "宜蘭縣", "花蓮縣", "台東縣", "澎湖縣", "金門縣", "連江縣"
+let currentRegion = "all";
+
+const TAIWAN_REGIONS_CONFIG = [
+  {
+    id: "all",
+    name: "全部景點",
+    nameEn: "All Spots",
+    icon: "🌟",
+    cities: [
+      { name: "全部景點 (All)", en: "All Spots", key: "全部" }
+    ]
+  },
+  {
+    id: "north",
+    name: "北部地區",
+    nameEn: "North Taiwan",
+    icon: "🏙️",
+    cities: [
+      { name: "全部北部", en: "All North", key: "全部北部" },
+      { name: "台北市", en: "Taipei", key: "台北" },
+      { name: "新北市", en: "New Taipei", key: "新北" },
+      { name: "基隆市", en: "Keelung", key: "基隆" },
+      { name: "桃園市", en: "Taoyuan", key: "桃園" },
+      { name: "新竹縣", en: "Hsinchu County", key: "新竹縣" },
+      { name: "新竹市", en: "Hsinchu City", key: "新竹市" }
+    ]
+  },
+  {
+    id: "central",
+    name: "中部地區",
+    nameEn: "Central Taiwan",
+    icon: "🌳",
+    cities: [
+      { name: "全部中部", en: "All Central", key: "全部中部" },
+      { name: "台中市", en: "Taichung", key: "台中" },
+      { name: "苗栗縣", en: "Miaoli", key: "苗栗" },
+      { name: "彰化縣", en: "Changhua", key: "彰化" },
+      { name: "南投縣", en: "Nantou", key: "南投" },
+      { name: "雲林縣", en: "Yunlin", key: "雲林" }
+    ]
+  },
+  {
+    id: "south",
+    name: "南部地區",
+    nameEn: "South Taiwan",
+    icon: "🏛️",
+    cities: [
+      { name: "全部南部", en: "All South", key: "全部南部" },
+      { name: "台南市", en: "Tainan", key: "台南" },
+      { name: "高雄市", en: "Kaohsiung", key: "高雄" },
+      { name: "嘉義縣", en: "Chiayi County", key: "嘉義縣" },
+      { name: "嘉義市", en: "Chiayi City", key: "嘉義市" },
+      { name: "屏東縣", en: "Pingtung", key: "屏東" }
+    ]
+  },
+  {
+    id: "east",
+    name: "東部地區",
+    nameEn: "East Taiwan",
+    icon: "🌊",
+    cities: [
+      { name: "全部東部", en: "All East", key: "全部東部" },
+      { name: "宜蘭縣", en: "Yilan", key: "宜蘭" },
+      { name: "花蓮縣", en: "Hualien", key: "花蓮" },
+      { name: "台東縣", en: "Taitung", key: "台東" }
+    ]
+  },
+  {
+    id: "islands",
+    name: "離島地區",
+    nameEn: "Offshore Islands",
+    icon: "🏝️",
+    cities: [
+      { name: "全部離島", en: "All Islands", key: "全部離島" },
+      { name: "澎湖縣", en: "Penghu", key: "澎湖" },
+      { name: "金門縣", en: "Kinmen", key: "金門" },
+      { name: "連江縣", en: "Matsu", key: "連江" }
+    ]
+  }
 ];
 
 function renderWaterfallSection() {
-  renderCityFilterButtons();
+  renderCityRegionTabs();
+  renderCitySubChips();
   renderWaterfallCards();
 }
 
-function renderCityFilterButtons() {
-  const btnContainer = document.getElementById("city-filter-buttons");
-  if (!btnContainer) return;
+function renderCityRegionTabs() {
+  const tabsContainer = document.getElementById("city-region-tabs");
+  if (!tabsContainer) return;
 
-  btnContainer.innerHTML = TAIWAN_CITIES_LIST.map(city => {
-    const isActive = currentCityFilter === city ? "active" : "";
-    const label = city === "全部" ? "全部景點 (All)" : city;
+  const isEn = (currentLang === "en");
+
+  tabsContainer.innerHTML = TAIWAN_REGIONS_CONFIG.map(reg => {
+    const isActive = currentRegion === reg.id ? "active" : "";
+    const label = isEn ? reg.nameEn : reg.name;
     return `
-      <button class="city-pill-btn ${isActive}" onclick="setCityFilter('${city}')">
+      <button type="button" class="region-tab-btn ${isActive}" onclick="selectRegion('${reg.id}')">
+        <span>${reg.icon}</span>
+        <span>${label}</span>
+      </button>
+    `;
+  }).join("");
+}
+
+function selectRegion(regionId) {
+  currentRegion = regionId;
+  const regObj = TAIWAN_REGIONS_CONFIG.find(r => r.id === regionId);
+  if (regObj && regObj.cities.length > 0) {
+    currentCityFilter = regObj.cities[0].key;
+  } else {
+    currentCityFilter = "全部";
+  }
+  renderCityRegionTabs();
+  renderCitySubChips();
+  renderWaterfallCards();
+}
+
+function renderCitySubChips() {
+  const chipsContainer = document.getElementById("city-subchips-container");
+  if (!chipsContainer) return;
+
+  const regObj = TAIWAN_REGIONS_CONFIG.find(r => r.id === currentRegion);
+  if (!regObj) return;
+
+  const isEn = (currentLang === "en");
+
+  chipsContainer.innerHTML = regObj.cities.map(city => {
+    const isActive = currentCityFilter === city.key ? "active" : "";
+    const label = isEn ? city.en : city.name;
+    return `
+      <button type="button" class="city-chip-btn ${isActive}" onclick="selectSubCity('${city.key}')">
         ${label}
       </button>
     `;
   }).join("");
 }
 
-function setCityFilter(city) {
-  currentCityFilter = city;
-  renderCityFilterButtons();
+function selectSubCity(cityKey) {
+  currentCityFilter = cityKey;
+  renderCitySubChips();
   renderWaterfallCards();
 }
 
@@ -132,11 +253,28 @@ function renderWaterfallCards() {
   const container = document.getElementById("waterfall-cards-container");
   if (!container || typeof ALL_SPOTS_DATA === "undefined") return;
 
-  // 使用圖三的三欄現代精緻網格
+  // 使用三欄現代精緻網格
   container.className = "spots-img3-grid";
 
+  const isEn = (currentLang === "en");
+
   const filteredSpots = ALL_SPOTS_DATA.filter(item => {
-    if (currentCityFilter === "全部") return true;
+    if (currentCityFilter === "全部" || currentCityFilter === "全部景點") return true;
+    if (currentCityFilter === "全部北部") {
+      return ["台北", "新北", "基隆", "桃園", "新竹"].some(c => item.city.includes(c));
+    }
+    if (currentCityFilter === "全部中部") {
+      return ["台中", "苗栗", "彰化", "南投", "雲林"].some(c => item.city.includes(c));
+    }
+    if (currentCityFilter === "全部南部") {
+      return ["台南", "高雄", "嘉義", "屏東"].some(c => item.city.includes(c));
+    }
+    if (currentCityFilter === "全部東部") {
+      return ["宜蘭", "花蓮", "台東"].some(c => item.city.includes(c));
+    }
+    if (currentCityFilter === "全部離島") {
+      return ["澎湖", "金門", "連江", "馬祖"].some(c => item.city.includes(c));
+    }
     return item.city.includes(currentCityFilter.replace("縣", "").replace("市", ""));
   });
 
@@ -144,8 +282,8 @@ function renderWaterfallCards() {
     container.innerHTML = `
       <div style="grid-column: 1/-1; padding: 60px 20px; text-align: center; color: var(--text-muted);">
         <div style="font-size: 40px; margin-bottom: 12px;">🔍</div>
-        <div style="font-size: 18px; font-weight: 700;">該縣市目前尚無特選景點</div>
-        <p style="margin-top: 6px; font-size: 14px;">歡迎點選其他縣市或切換至「全部景點」探索！</p>
+        <div style="font-size: 18px; font-weight: 700;">${isEn ? "No featured spots in this region yet" : "該縣市目前尚無特選景點"}</div>
+        <p style="margin-top: 6px; font-size: 14px;">${isEn ? "Feel free to select other cities or explore All Spots!" : "歡迎點選其他縣市或切換至「全部景點」探索！"}</p>
       </div>
     `;
     return;
@@ -156,33 +294,39 @@ function renderWaterfallCards() {
     const tourUrl = AFFILIATE_HUB.getTourUrl(item.activityId || "1874-jiufen-shifen-day-tour-taipei");
     const hotelUrl = AFFILIATE_HUB.getHotelUrl(item.name);
 
-    // 依縣市自動賦予多彩分類膠囊 (對照圖三頂部藥丸)
+    // 依縣市自動賦予多彩分類膠囊
     let catClass = "cat-nature";
-    let catPillText = "自然絕景 · Nature";
+    let catPillText = isEn ? "Nature & Views" : "自然絕景 · Nature";
     if (item.city.includes("台北") || item.city.includes("新北")) {
       catClass = "cat-culture";
-      catPillText = "都會經典 · Taipei Iconic";
+      catPillText = isEn ? "Taipei Iconic" : "都會經典 · Taipei Iconic";
     } else if (item.city.includes("台南") || item.city.includes("高雄")) {
       catClass = "cat-food";
-      catPillText = "府城散策 · Heritage";
+      catPillText = isEn ? "Heritage & Eats" : "府城散策 · Heritage";
     } else if (item.city.includes("花蓮") || item.city.includes("台東")) {
       catClass = "cat-nature";
-      catPillText = "太平洋秘境 · Ocean Blue";
+      catPillText = isEn ? "Pacific Coast" : "太平洋秘境 · Ocean Blue";
     } else if (item.city.includes("台中") || item.city.includes("南投")) {
       catClass = "";
-      catPillText = "山水勝景 · Scenic Wonder";
+      catPillText = isEn ? "Scenic Wonder" : "山水勝景 · Scenic Wonder";
     }
 
     const reviewerAvatars = ["🧑‍💼", "👩‍🎨", "🧳", "✈️", "📸", "☕", "🚴", "🎒"];
     const avatar = reviewerAvatars[idx % reviewerAvatars.length];
     const views = (8.5 + (idx % 12) * 1.3).toFixed(1) + "k";
 
+    const stayLabel = isEn ? "⏱️ Stay 2-3h" : "⏱️ 建議停留 2-3h";
+    const authorLabel = isEn ? "Editor's Pick" : "精選打卡推薦";
+    const viewsLabel = isEn ? `🔥 ${views} visited` : `🔥 ${views} 旅人探訪`;
+    const hotelLabel = isEn ? "🏨 Hotels" : "🏨 查訂房";
+    const bookLabel = isEn ? "Book ➔" : "預訂 ➔";
+
     return `
       <div class="spot-img3-card">
         <div class="spot-img3-media-wrap">
           <img src="${item.img}" alt="${item.name}" loading="lazy">
           <span class="spot-img3-category-pill ${catClass}">${catPillText}</span>
-          <button class="waterfall-fav-btn ${isFav ? "active" : ""}" onclick="toggleFavorite('${item.name}')" title="收藏景點" style="position: absolute; bottom: 12px; right: 12px; z-index: 3;">
+          <button class="waterfall-fav-btn ${isFav ? "active" : ""}" onclick="toggleFavorite('${item.name}')" title="${isEn ? 'Save' : '收藏景點'}" style="position: absolute; bottom: 12px; right: 12px; z-index: 3;">
             ${isFav ? "❤️" : "🤍"}
           </button>
         </div>
@@ -191,7 +335,7 @@ function renderWaterfallCards() {
             <div class="spot-img3-date-line">
               <span>📍 ${item.city}</span>
               <span>·</span>
-              <span>⏱️ 建議停留 2-3h</span>
+              <span>${stayLabel}</span>
               <span>·</span>
               <span style="color: #F59E0B; font-weight: 800;">★ ${item.rate || "4.9"}</span>
             </div>
@@ -202,16 +346,16 @@ function renderWaterfallCards() {
             <div class="spot-img3-author-wrap">
               <div class="spot-img3-avatar">${avatar}</div>
               <div>
-                <div class="spot-img3-author-name">精選打卡推薦</div>
-                <div style="font-size: 11px; color: #94A3B8;">🔥 ${views} 旅人探訪</div>
+                <div class="spot-img3-author-name">${authorLabel}</div>
+                <div style="font-size: 11px; color: #94A3B8;">${viewsLabel}</div>
               </div>
             </div>
             <div style="display: flex; gap: 8px;">
               <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" style="font-size: 11.5px; font-weight: 700; color: #64748B; text-decoration: none; padding: 6px 10px; border-radius: 9999px; background: #F1F5F9;">
-                🏨 查訂房
+                ${hotelLabel}
               </a>
               <a href="${tourUrl}" target="_blank" rel="noopener noreferrer" class="spot-img3-cta-btn">
-                預訂 ➔
+                ${bookLabel}
               </a>
             </div>
           </div>

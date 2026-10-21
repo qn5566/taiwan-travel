@@ -1763,6 +1763,18 @@ a {
 
 
 /* =========================================================
+   🌐 區塊通用留白與間距規範 (Section Padding & Spacing)
+   ========================================================= */
+.section-padding {
+  padding: 85px 0;
+}
+
+.section-header-block {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+/* =========================================================
    🌐 12. 白色覆蓋搜尋樞紐：超出底圖邊界 (Overhanging Hero Hub)
    ========================================================= */
 .hero-stage-section {
@@ -1777,14 +1789,14 @@ a {
   min-height: 480px;
   background-size: cover;
   background-position: center center;
-  border-radius: 0 0 40px 40px; /* 底圖下方優雅大圓角，如參考圖 */
+  border-radius: 0 !important; /* 直角無圓角 */
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: 60px 0 0 0;
-  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12);
+  box-shadow: none;
 }
 
 .hero-content-center {
@@ -2182,6 +2194,114 @@ a {
 /* =========================================================
    🧱 13. 瀑布流排列 (Masonry Waterfall) & 縣市篩選
    ========================================================= */
+/* =========================================================
+   🧱 13. 可愛兩段式城市分區導航 (Cute Two-tier Regional Navigation)
+   ========================================================= */
+.city-nav-hub-wrap {
+  max-width: 960px;
+  margin: 0 auto 36px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.city-region-tabs-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.region-tab-btn {
+  padding: 10px 22px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.04);
+}
+
+.region-tab-btn:hover {
+  border-color: #38BDF8;
+  color: #0284C7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.15);
+}
+
+.region-tab-btn.active {
+  background: linear-gradient(135deg, #0284C7 0%, #01879C 100%);
+  color: #FFFFFF;
+  border-color: #0284C7;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.32);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.city-subchips-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 14px 20px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1.5px solid #E2E8F0;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  width: 100%;
+  animation: fadeInPop 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes fadeInPop {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.city-chip-btn {
+  padding: 7px 15px;
+  border-radius: 12px;
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.city-chip-btn:hover {
+  background: #EFF6FF;
+  color: #0284C7;
+  border-color: #93C5FD;
+}
+
+.city-chip-btn.active {
+  background: #FEF3C7;
+  color: #92400E;
+  border-color: #F59E0B;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.25);
+  transform: scale(1.02);
+}
+
 .city-filter-container {
   display: flex;
   align-items: center;
@@ -2685,7 +2805,7 @@ a {
   .hero-bg-cover {
     min-height: 420px;
     padding-top: 40px;
-    border-radius: 0 0 28px 28px;
+    border-radius: 0 !important;
   }
   .hero-glass-container {
     padding: 18px 16px;

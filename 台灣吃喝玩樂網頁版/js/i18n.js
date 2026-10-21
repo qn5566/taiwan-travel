@@ -299,3 +299,215 @@ const WEB_I18N = {
     favEmpty: "ยังไม่มีสถานที่ที่บันทึกไว้ สำรวจและแตะหัวใจเพื่อบันทึก!"
   }
 };
+
+/**
+ * 台灣吃喝玩樂網頁版 - 國際化語系切換執行函數 (Bilingual Engine)
+ */
+function switchLanguage(lang) {
+  if (!lang) lang = "zh-TW";
+  if (typeof currentLang !== "undefined") {
+    currentLang = lang;
+  }
+  try {
+    localStorage.setItem("taiwan_travel_lang", lang);
+  } catch (e) {}
+
+  // 1. 頂部語言列按鈕狀態更新
+  document.querySelectorAll(".lang-pill").forEach(btn => {
+    const onclickStr = btn.getAttribute("onclick") || "";
+    if (onclickStr.includes(`'${lang}'`)) {
+      btn.classList.add("active");
+    } else {
+      btn.classList.remove("active");
+    }
+  });
+
+  const isEn = (lang === "en");
+
+  // 2. 品牌與導航
+  const brandNameEl = document.querySelector(".brand-name");
+  if (brandNameEl) {
+    brandNameEl.innerHTML = isEn
+      ? `Taiwan Roam <span class="brand-badge">Official Guide</span>`
+      : `台灣吃喝玩樂 <span class="brand-badge">官方網頁版</span>`;
+  }
+  const brandSubtextEl = document.querySelector(".brand-subtext");
+  if (brandSubtextEl) {
+    brandSubtextEl.textContent = "TAIWAN ROAM";
+  }
+
+  const navItems = document.querySelectorAll(".nav-menu .nav-item a");
+  const navEn = ["Home", "Themes", "City Spots", "Rankings", "Souvenirs", "Cafe Map", "Michelin Guide", "Community"];
+  const navZh = ["首頁", "精選主題", "城市景點", "排行榜", "伴手禮直送", "全台咖啡地圖", "米其林指南", "留言討論"];
+  if (navItems.length >= 8) {
+    navItems.forEach((item, idx) => {
+      item.textContent = isEn ? navEn[idx] : navZh[idx];
+    });
+  }
+
+  const ctaBtn = document.querySelector(".header-right-tools .btn-cta-primary");
+  if (ctaBtn) {
+    ctaBtn.textContent = isEn ? "🛍️ Souvenirs Delivery" : "🛍️ 伴手禮直送";
+  }
+
+  // 3. Hero 英雄區塊
+  const heroPill = document.querySelector(".hero-sub-pill");
+  if (heroPill) {
+    heroPill.textContent = isEn ? "🇹🇼 TAIWAN ROAM ｜ Island Roam Guide" : "🇹🇼 TAIWAN ROAM ｜ 島嶼漫遊指南";
+  }
+  const heroTitle = document.querySelector(".hero-main-title");
+  if (heroTitle) {
+    heroTitle.textContent = isEn ? "Roam Across Taiwan: Authentic Sights, Sips & Stories" : "山海相擁，漫遊島嶼時光";
+  }
+  const heroSubTitle = document.querySelector(".hero-headline-wrap div[style*='font-size: 15px']");
+  if (heroSubTitle) {
+    heroSubTitle.textContent = isEn 
+      ? "AUTHENTIC SIGHTS, SIPS & STORIES" 
+      : "Roam Across Taiwan: Authentic Sights, Sips & Stories";
+  }
+  const heroDesc = document.querySelector(".hero-main-subtitle");
+  if (heroDesc) {
+    heroDesc.innerHTML = isEn
+      ? `From misty ridge lines to midnight alleys — your curated guide to Taiwan's finest eats, stays, and adventures.<br><span style="font-size: 13.5px; color: rgba(255, 255, 255, 0.96); font-weight: 600;">(Authentic Local Living & Global Traveler Inspirations)</span>`
+      : `從 101 高空天際線、山城石階到隱密浪點，穿梭於在地老宅與夜市煙火之間，為全球旅人收錄最純粹的台灣生活靈感。<br><span style="font-size: 13.5px; color: rgba(255, 255, 255, 0.96); font-weight: 600; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);">(From misty ridge lines to midnight alleys — your curated guide to Taiwan's finest eats, stays, and adventures.)</span>`;
+  }
+
+  // Hero Service Tabs
+  const serviceTabs = document.querySelectorAll(".hero-service-tab");
+  const tabEn = ["✈️ Flights", "🚗 Private Charter", "🚐 Airport Transfer", "📶 Taiwan eSIM", "🏆 Rankings", "🛍️ Souvenirs"];
+  const tabZh = ["✈️ 搜機票 Flights", "🚗 預約包車 Private Charter", "🚐 機場接送 Airport Transfer", "📶 台灣網卡 eSIM", "🏆 熱門榜單 Rankings", "🛍️ 伴手禮直送 Souvenirs"];
+  if (serviceTabs.length >= 6) {
+    serviceTabs.forEach((tab, idx) => {
+      tab.textContent = isEn ? tabEn[idx] : tabZh[idx];
+    });
+  }
+
+  // 搜尋列
+  const searchInput = document.getElementById("hero-main-search");
+  if (searchInput) {
+    searchInput.placeholder = isEn 
+      ? "Search top attractions, cities, boba, cafes, hot springs (e.g. Taipei 101, Jiufen)..."
+      : "搜尋全台熱門景點、城市、美食或主題（如：台北 101、九份、咖啡廳、溫泉）...";
+  }
+  const searchBtn = document.getElementById("hero-search-btn");
+  if (searchBtn) {
+    searchBtn.textContent = isEn ? "Search Taiwan" : "探索台灣 Search";
+  }
+
+  // Hero 3 分格 (米其林 ‧ 咖啡 ‧ 外國人)
+  const michelinCol = document.querySelector(".michelin-col");
+  if (michelinCol) {
+    const t = michelinCol.querySelector(".featured-col-title");
+    const s = michelinCol.querySelector(".featured-col-subtitle");
+    if (t) t.textContent = isEn ? "Michelin Star & Bib Gourmand" : "米其林指南名店";
+    if (s) s.textContent = isEn ? "Starred fine dining & local street food" : "星級名饌與全台必比登推薦";
+  }
+  const cafeCol = document.querySelector(".cafe-col");
+  if (cafeCol) {
+    const t = cafeCol.querySelector(".featured-col-title");
+    const s = cafeCol.querySelector(".featured-col-subtitle");
+    if (t) t.textContent = isEn ? "Taiwan Curated Cafe Atlas" : "全台風格咖啡圖鑑";
+    if (s) s.textContent = isEn ? "330 historic hideouts & sea views" : "330間巷弄老宅與手沖海景";
+  }
+  const forCol = document.querySelector(".foreigners-col");
+  if (forCol) {
+    const t = forCol.querySelector(".featured-col-title");
+    const s = forCol.querySelector(".featured-col-subtitle");
+    if (t) t.textContent = isEn ? "Foreign Travelers Guide" : "外國人必看專區";
+    if (s) s.textContent = isEn ? "Taxi flashcards · Souvenirs delivery" : "司機大字卡 ‧ 伴手禮直寄";
+  }
+
+  // 4. 第一區塊：Top 6
+  const trendingTitle = document.querySelector("#trending-top6 h2");
+  if (trendingTitle) {
+    trendingTitle.textContent = isEn ? "Taiwan Day Tours & Charters" : "台灣一日遊行程推薦";
+  }
+  const trendingSub = document.querySelector("#trending-top6 .trending-title-wrap div");
+  if (trendingSub) {
+    trendingSub.textContent = isEn ? "TOP 6 BESTSELLING DAY TRIPS & CHARTERS" : "TAIWAN DAY TOURS & CHARTERS";
+  }
+  const trendingDesc = document.querySelector("#trending-top6 .trending-title-wrap p");
+  if (trendingDesc) {
+    trendingDesc.textContent = isEn
+      ? "Most popular chartered & guided day trips loved by international travelers"
+      : "人氣排行行程，外國人最愛台灣的跟團包車";
+  }
+
+  // 5. 第二區塊：精選旅行主題
+  const themesTitle = document.querySelector("#themes h2");
+  if (themesTitle) {
+    themesTitle.textContent = isEn ? "Curated Travel Themes" : "精選旅行主題";
+  }
+  const themeCards = document.querySelectorAll("#themes .theme-card");
+  const themeDataEn = [
+    { title: "CPBL Baseball", desc: "Taipei Dome, Intercontinental & Xinzhuang! Passionate cheering squads.", tag: "6 Stadiums ➔" },
+    { title: "Glamping & BBQ Fresh", desc: "Luxury starry tents & wagyu seafood foodboxes delivered directly to your campsite.", tag: "Direct Delivery ➔" },
+    { title: "Curated Cafes", desc: "330 curated cafes across 22 cities! Outlets, pour-overs, heritage & coastal views.", tag: "330 Top Cafes ➔" },
+    { title: "Michelin Guide", desc: "Le Palais 3-Stars, Taïrroir 2-Stars, logy, plus nationwide Bib Gourmand street delicacies.", tag: "Stars & Bib ➔" },
+    { title: "Thermal Springs & Spa", desc: "Beitou white sulfur springs, Jiaoxi beauty baths, Zhiben Royal & Asahi saltwater.", tag: "Springs Guide ➔" },
+    { title: "Night Market Foodies", desc: "Ningxia banquet, Fengjia egg crepes, and Tainan Garden Night Market braised specialties.", tag: "Street Legends ➔" }
+  ];
+  const themeDataZh = [
+    { title: "職棒經典應援", desc: "台北大巨蛋、洲際、新莊！全球最狂啦啦隊熱血應援。", tag: "6 大主場館 ➔" },
+    { title: "露營生鮮野炊", desc: "免搭帳奢華星空帳篷，和牛海陸食材箱一鍵直配營位。", tag: "免備料直配 ➔" },
+    { title: "全台風格咖啡", desc: "全台 22 縣市 330 間名店！插頭、手沖、老宅與海景景觀。", tag: "330 間名店 ➔" },
+    { title: "米其林指南", desc: "頤宮三星、態芮二星、logy 與全台必比登排隊街頭小吃。", tag: "摘星與必比登 ➔" },
+    { title: "極致溫泉舒活", desc: "北投加賀屋白磺、礁溪美人湯、知本老爺與朝日海底溫泉。", tag: "全台名湯巡禮 ➔" },
+    { title: "夜市老饕圖鑑", desc: "寧夏夜市千歲宴、逢甲明倫蛋餅、台南花園夜市大鍋滷味。", tag: "夜市排隊王 ➔" }
+  ];
+  themeCards.forEach((card, idx) => {
+    const data = isEn ? themeDataEn[idx] : themeDataZh[idx];
+    if (data) {
+      const h3 = card.querySelector("h3");
+      const p = card.querySelector("p");
+      const chip = card.querySelector(".theme-tag-chip");
+      if (h3) h3.textContent = data.title;
+      if (p) p.textContent = data.desc;
+      if (chip) chip.textContent = data.tag;
+    }
+  });
+
+  // 6. 第三區塊：全台城市與景點探索
+  const citySpotsTitle = document.querySelector("#city-spots h2");
+  if (citySpotsTitle) {
+    citySpotsTitle.textContent = isEn ? "Explore Taiwan Cities & Attractions" : "全台城市與景點探索";
+  }
+
+  // 7. 頁尾翻譯
+  const footerBrand = document.querySelector(".footer-brand-col div div div:first-child");
+  if (footerBrand) {
+    footerBrand.textContent = isEn ? "Taiwan Roam" : "台灣吃喝玩樂";
+  }
+  const footerDesc = document.querySelector(".footer-brand-col p");
+  if (footerDesc) {
+    footerDesc.textContent = isEn
+      ? "Official travel portal by HiMyDream Studio. The curated one-stop Taiwan independent travel guide for international travelers."
+      : "HiMyDream Studio 官方維護旗艦入口網。專為歐美、日韓、東南亞及全球旅人打造的一站式台灣旅遊自由行指南。";
+  }
+  const footerContact = document.querySelector(".footer-brand-col div[style*='font-size: 12px']");
+  if (footerContact) {
+    footerContact.innerHTML = isEn
+      ? `Business Partnership / Contact Email:<br><a href="mailto:himydream.studio0220@gmail.com" style="color: var(--cyan-primary); font-weight: 700;">himydream.studio0220@gmail.com</a>`
+      : `商務異業合作 / 資料勘誤信箱：<br><a href="mailto:himydream.studio0220@gmail.com" style="color: var(--cyan-primary); font-weight: 700;">himydream.studio0220@gmail.com</a>`;
+  }
+  const colTitles = document.querySelectorAll(".footer-links-col .footer-col-title");
+  if (colTitles.length >= 3) {
+    colTitles[0].textContent = isEn ? "Curated Portals" : "專題導覽";
+    colTitles[1].textContent = isEn ? "Travel Hub" : "旅遊服務樞紐";
+    colTitles[2].textContent = isEn ? "Languages" : "國際化語系";
+  }
+  const footerBottom = document.querySelector(".footer-bottom-bar div:first-child");
+  if (footerBottom) {
+    footerBottom.textContent = isEn
+      ? "© 2026 Taiwan Roam. All Rights Reserved. Powered by HiMyDream Studio."
+      : "© 2026 台灣吃喝玩樂 TAIWAN ROAM. All Rights Reserved. Powered by HiMyDream Studio.";
+  }
+
+  // 8. 重新執行 JS 渲染邏輯
+  if (typeof renderTrendingSection === "function") {
+    renderTrendingSection();
+  }
+  if (typeof renderWaterfallSection === "function") {
+    renderWaterfallSection();
+  }
+}

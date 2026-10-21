@@ -51,13 +51,13 @@
     <div class="container header-inner">
       <!-- 品牌 Logo -->
       <a href="index.html" class="brand-logo-wrap">
-        <div class="brand-logo-icon">🇹🇼</div>
+        <img src="assets/taiwan_roam_logo.png" alt="台灣吃喝玩樂 TAIWAN ROAM" class="brand-logo-img" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 8px rgba(0,0,0,0.18);">
         <div class="brand-text-block">
           <div class="brand-name">
             台灣吃喝玩樂
             <span class="brand-badge">官方網頁版</span>
           </div>
-          <span class="brand-subtext">TAIWAN WANDERLUST PORTAL</span>
+          <span class="brand-subtext">TAIWAN ROAM</span>
         </div>
       </a>
 
@@ -91,14 +91,18 @@
        ✨ 2. 全寬英雄首頁視覺 (Hero Stage & Overhanging White Search Hub)
        ========================================================= -->
   <section id="hero" class="hero-stage-section">
-    <div class="hero-bg-cover" style="background-image: linear-gradient(180deg, rgba(14, 41, 56, 0.28) 0%, rgba(14, 41, 56, 0.58) 100%), url('assets/hero_bg_island.png');">
+    <div class="hero-bg-cover" style="background-image: url('assets/hero_bg_island.png'); border-radius: 0;">
       <div class="container hero-content-center">
         <!-- 核心標語 (底圖上方區域) -->
         <div class="hero-headline-wrap">
-          <span class="hero-sub-pill">🇹🇼 TAIWAN OFFICIAL TRAVEL HUB</span>
-          <h1 class="hero-main-title">Explore Taiwan and enjoy its beauty</h1>
-          <p class="hero-main-subtitle">
-            遇見最美的台灣 ‧ 國際旅人首選指南 ‧ 涵蓋 101 高空天際線、山城九份、太魯閣峽谷、米其林美饌與全台特色咖啡散策
+          <span class="hero-sub-pill" style="background: rgba(0, 0, 0, 0.38); border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 4px 12px rgba(0,0,0,0.2);">🇹🇼 TAIWAN ROAM ｜ 島嶼漫遊指南</span>
+          <h1 class="hero-main-title" style="margin-bottom: 6px; text-shadow: 0 3px 14px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.9);">山海相擁，漫遊島嶼時光</h1>
+          <div style="font-size: 15px; font-weight: 800; letter-spacing: 2px; color: var(--c-sunshine-yellow); text-transform: uppercase; margin-bottom: 12px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85), 0 1px 2px rgba(0, 0, 0, 0.9);">
+            Roam Across Taiwan: Authentic Sights, Sips & Stories
+          </div>
+          <p class="hero-main-subtitle" style="text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.95); font-weight: 500;">
+            從 101 高空天際線、山城石階到隱密浪點，穿梭於在地老宅與夜市煙火之間，為全球旅人收錄最純粹的台灣生活靈感。<br>
+            <span style="font-size: 13.5px; color: rgba(255, 255, 255, 0.96); font-weight: 600; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);">(From misty ridge lines to midnight alleys — your curated guide to Taiwan's finest eats, stays, and adventures.)</span>
           </p>
         </div>
 
@@ -211,7 +215,7 @@
   <!-- =========================================================
        🗺️ 4. 第二區塊：6 大精選特色主題卡片 (精選旅行主題 ‧ Curated Themes)
        ========================================================= -->
-  <section id="themes" class="section-padding" style="background: #FFFFFF;">
+  <section id="themes" class="section-padding" style="background: #FFFFFF; padding: 80px 0 70px 0;">
     <div class="container">
       <div class="section-header-block" style="text-align: center; margin-bottom: 30px;">
         <h2 style="font-size: 30px; font-weight: 900; letter-spacing: -0.5px; color: var(--text-heading); margin-bottom: 4px;">
@@ -278,10 +282,10 @@
   <!-- =========================================================
        🧱 5. 第三區塊：全部景點 ＋ 全部縣市篩選 ＋ 瀑布流 (Masonry Waterfall)
        ========================================================= -->
-  <section id="city-spots" class="section-padding" style="background: #F8FAFC;">
+  <section id="city-spots" class="section-padding" style="background: #F8FAFC; padding: 90px 0 100px 0; border-top: 1.5px solid #E2E8F0;">
     <div class="container">
-      <div class="section-header-block" style="text-align: center; margin-bottom: 30px;">
-        <h2 style="font-size: 30px; font-weight: 900; letter-spacing: -0.5px; color: var(--text-heading); margin-bottom: 4px;">
+      <div class="section-header-block" style="text-align: center; margin-bottom: 36px;">
+        <h2 style="font-size: 32px; font-weight: 900; letter-spacing: -0.5px; color: var(--text-heading); margin-bottom: 6px;">
           全台城市與景點探索
         </h2>
         <div style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: #0284C7; text-transform: uppercase;">
@@ -289,9 +293,13 @@
         </div>
       </div>
 
-      <!-- 縣市切換按鈕條 -->
-      <div id="city-filter-buttons" class="city-filter-container">
-        <!-- 由 app.js 動態渲染 TAIWAN_CITIES_LIST -->
+      <!-- 可愛兩段式分區與縣市切換菜單 (北中南東離島點擊展開) -->
+      <div class="city-nav-hub-wrap">
+        <!-- 第一段：北中南東離島大分區可愛按鈕 (Main Region Tabs) -->
+        <div id="city-region-tabs" class="city-region-tabs-row"></div>
+
+        <!-- 第二段：點擊後彈出的小按鈕縣市列 (Sub City Chips) -->
+        <div id="city-subchips-container" class="city-subchips-row"></div>
       </div>
 
       <!-- 瀑布流景點卡片排列容器 -->
@@ -315,9 +323,12 @@
     <div class="container footer-inner">
       <div class="footer-top-grid">
         <div class="footer-brand-col">
-          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
-            <span style="font-size: 28px;">🇹🇼</span>
-            <span style="font-size: 20px; font-weight: 900; color: #FFFFFF;">台灣吃喝玩樂</span>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+            <img src="assets/taiwan_roam_logo.png" alt="台灣吃喝玩樂 TAIWAN ROAM" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
+            <div>
+              <div style="font-size: 20px; font-weight: 900; color: #FFFFFF;">台灣吃喝玩樂</div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: var(--c-sunshine-yellow);">TAIWAN ROAM</div>
+            </div>
           </div>
           <p style="font-size: 13px; color: #94A3B8; line-height: 1.7; margin-bottom: 16px;">
             HiMyDream Studio 官方維護旗艦入口網。專為歐美、日韓、東南亞及全球旅人打造的一站式台灣旅遊自由行指南。
@@ -370,7 +381,7 @@
       </div>
 
       <div class="footer-bottom-bar">
-        <div>© 2026 台灣吃喝玩樂 Taiwan Wanderlust. All Rights Reserved. Powered by HiMyDream Studio.</div>
+        <div>© 2026 台灣吃喝玩樂 TAIWAN ROAM. All Rights Reserved. Powered by HiMyDream Studio.</div>
         <div style="font-size: 12px; color: #64748B;">Official Affiliate Partners: Klook · Booking.com · Trip.com · SimOptions · Wanjiafu</div>
       </div>
     </div>
