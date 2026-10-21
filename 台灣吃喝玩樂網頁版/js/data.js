@@ -89,7 +89,7 @@ const TOP_ACTIVITIES_6 = [
     "origPrice": "NT$ 1,600",
     "tag": "台灣袖珍亞馬遜 · 府城美食散策",
     "desc": "乘膠筏穿梭絕美紅樹林綠色隧道，探訪安平古堡、赤崁樓與國華街排隊牛肉湯美食之旅。",
-    "img": "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop",
+    "img": "assets/tainan_sicao_tour.jpg",
     "activityId": "12423-tainan-day-tour-kaohsiung",
     "badge": "TOP 5 CULTURE"
   },
@@ -105,7 +105,7 @@ const TOP_ACTIVITIES_6 = [
     "origPrice": "NT$ 1,400",
     "tag": "熱帶國境之南 · 珊瑚礁海岸奇景",
     "desc": "高雄直達國境之南！遊歷船帆石、砂島貝殼砂、鵝鑾鼻純白燈塔與龍磐公園浩瀚太平洋大草原。",
-    "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop",
+    "img": "assets/kenting_coastal_tour.jpg",
     "activityId": "2112-kenting-day-tour-kaohsiung",
     "badge": "TOP 6 COASTAL"
   }
