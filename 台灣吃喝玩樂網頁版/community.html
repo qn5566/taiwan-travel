@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>旅人交流與留言討論專區 ｜ 台灣吃喝玩樂 Taiwan Wanderlust</title>
+  
+  <meta name="description" content="全台旅行者自由討論交流牆！分享私房秘境、行程健檢、美食排隊與咖啡店心得，全球旅人即時互動。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .comment-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 18px;
+      padding: 22px 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      transition: all 0.2s ease;
+    }
+    .comment-card:hover {
+      border-color: #CBD5E1;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+    .comment-tag-btn {
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid #E2E8F0;
+      background: #FFFFFF;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .comment-tag-btn.active, .comment-tag-btn:hover {
+      background: #0284C7;
+      color: #FFFFFF;
+      border-color: #0284C7;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 置頂導航列 -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <div class="brand-logo-icon">🇹🇼</div>
+        <div class="brand-text-block">
+          <div class="brand-name">
+            台灣吃喝玩樂
+            <span class="brand-badge">官方網頁版</span>
+          </div>
+          <span class="brand-subtext">TAIWAN WANDERLUST PORTAL</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html">首頁</a></li>
+          <li class="nav-item"><a href="themes.html">精選主題</a></li>
+          <li class="nav-item"><a href="spots.html">城市景點</a></li>
+          <li class="nav-item"><a href="ranking.html">排行榜</a></li>
+          <li class="nav-item"><a href="cafe.html">全台咖啡地圖</a></li>
+          <li class="nav-item"><a href="michelin.html">米其林指南</a></li>
+          <li class="nav-item"><a href="blog.html">週末探店</a></li>
+          <li class="nav-item active"><a href="community.html">留言討論</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right-tools">
+        <a href="index.html" class="city-pill-btn" style="padding: 8px 16px;">
+          ← 返回首頁
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 社群 Hero Banner -->
+  <section class="section-padding" style="background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%); color: #FFFFFF; text-align: center; padding: 70px 0 50px 0;">
+    <div class="container">
+      <span class="section-badge-pill" style="background: rgba(14, 165, 233, 0.25); color: #7DD3FC; border-color: rgba(14, 165, 233, 0.45);">
+        TRAVELERS EXCHANGE & Q&A FORUM
+      </span>
+      <h1 style="font-size: 38px; font-weight: 900; margin-top: 14px; letter-spacing: -0.5px;">
+        旅人交流與留言討論專區
+      </h1>
+      <p style="color: #E2E8F0; max-width: 780px; margin: 12px auto 0 auto; font-size: 15px; line-height: 1.7;">
+        與來自香港、日本、韓國、新加坡及歐美全球旅人，即時交流台灣在地行程推薦、排隊美食、包車經驗與探店心得！
+      </p>
+
+      <!-- 話題標籤切換 -->
+      <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 28px;">
+        <button class="comment-tag-btn active" data-topic="全部" onclick="filterTopic('全部')">全部話題 (All)</button>
+        <button class="comment-tag-btn" data-topic="行程健檢" onclick="filterTopic('行程健檢')">🗺️ 行程健檢 Q&A</button>
+        <button class="comment-tag-btn" data-topic="美食推薦" onclick="filterTopic('美食推薦')">🧋 排隊美食推薦</button>
+        <button class="comment-tag-btn" data-topic="咖啡探店" onclick="filterTopic('咖啡探店')">☕ 咖啡店真實心得</button>
+        <button class="comment-tag-btn" data-topic="交通包車" onclick="filterTopic('交通包車')">🚗 交通包車指南</button>
+        <button class="comment-tag-btn" data-topic="住宿體驗" onclick="filterTopic('住宿體驗')">🏨 旅宿體驗分享</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 留言牆主體 -->
+  <section class="section-padding" style="background: #F8FAFC; padding: 50px 0 100px 0;">
+    <div class="container" style="max-width: 920px;">
+      
+      <!-- 留言發布表單 -->
+      <div style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 22px; padding: 30px; box-shadow: 0 8px 24px rgba(0,0,0,0.04); margin-bottom: 40px;">
+        <h3 style="font-size: 18px; font-weight: 800; color: #0F172A; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+          <span>✍️</span> 發表新討論或分享你的旅途心得
+        </h3>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+          <input type="text" id="comm-name" placeholder="您的暱稱 (例: Kevin)" style="padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 12px; font-size: 14px; outline: none;">
+          <input type="text" id="comm-location" placeholder="居住地 (例: 香港 / 東京)" style="padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 12px; font-size: 14px; outline: none;">
+          <select id="comm-topic" style="padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 12px; font-size: 14px; outline: none; background: #FFF; font-weight: 600;">
+            <option value="行程健檢">🗺️ 行程健檢 Q&A</option>
+            <option value="美食推薦" selected>🧋 排隊美食推薦</option>
+            <option value="咖啡探店">☕ 咖啡店真實心得</option>
+            <option value="交通包車">🚗 交通包車指南</option>
+            <option value="住宿體驗">🏨 旅宿體驗分享</option>
+          </select>
+        </div>
+
+        <textarea id="comm-content" rows="3" placeholder="請分享您的旅行體驗、給其他旅人的建議或提出您的行程疑問..." style="width: 100%; padding: 14px 16px; border: 1px solid #CBD5E1; border-radius: 14px; font-size: 14px; font-family: inherit; outline: none; margin-bottom: 14px; resize: vertical;"></textarea>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 12px; color: #94A3B8;">文明交流，歡迎真實分享台灣在地美好時光</span>
+          <button onclick="postComment()" class="btn-action btn-klook-book" style="padding: 10px 24px; font-size: 13px; font-weight: 800;">
+            發布留言 🚀
+          </button>
+        </div>
+      </div>
+
+      <!-- 留言列表展示區 -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3 id="comments-header-title" style="font-size: 18px; font-weight: 900; color: #0F172A;">
+          💬 最新交流動態 (<span id="comments-count">0</span>)
+        </h3>
+        <span style="font-size: 12px; color: #64748B;">即時在地回饋 · 已驗證旅人</span>
+      </div>
+
+      <div id="comments-list-box" style="display: flex; flex-direction: column; gap: 16px;">
+        <!-- 由 JS 動態渲染留言清單 -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand-row">
+        <div class="brand-logo-wrap">
+          <div class="brand-logo-icon">🇹🇼</div>
+          <div class="brand-text-block">
+            <div class="brand-name">台灣吃喝玩樂 Taiwan Wanderlust</div>
+            <span class="brand-subtext">全球旅人互動社群 ‧ 官方留言討論牆</span>
+          </div>
+        </div>
+        <div class="footer-contact">
+          官方商務／資料聯繫：<a href="mailto:himydream.studio0220@gmail.com">himydream.studio0220@gmail.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <div>© 2026 台灣吃喝玩樂 HiMyDream Studio. All Rights Reserved.</div>
+        <div>全方位旅人交流平台 · 支援即時發布與歷史對話儲存</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/affiliate.js"></script>
+  <script src="js/data.js"></script>
+  <script>
+    let activeTopic = "全部";
+
+    const DEFAULT_COMMENTS = [
+      {
+        id: "c_1",
+        name: "Sophie Chen",
+        location: "Singapore",
+        topic: "行程健檢",
+        time: "10分鐘前",
+        likes: 18,
+        content: "這次照著網頁推薦的『台北-九份-花蓮』包車路線走，司機大哥服務超級專業！尤其是興波咖啡的旗艦店手沖，真的讓人驚艷，建議早上 10 點前就去排隊！"
+      },
+      {
+        id: "c_2",
+        name: "Kenji Sato",
+        location: "Tokyo, Japan",
+        topic: "咖啡探店",
+        time: "1小時前",
+        likes: 24,
+        content: "台南の窄門珈琲と神農街散策は最高でした！古い街並みとカフェの雰囲気がとても素晴らしいです。台湾吃喝玩樂のサイトで Google Maps をそのまま開けてすごく便利でした。"
+      },
+      {
+        id: "c_3",
+        name: "David Miller",
+        location: "Seattle, USA",
+        topic: "交通包車",
+        time: "3小時前",
+        likes: 12,
+        content: "The Taroko Gorge private charter booked through this site was flawless! Smooth communication, clean van, and our driver showed us spots that regular tour buses couldn't reach."
+      },
+      {
+        id: "c_4",
+        name: "阿寶",
+        location: "香港",
+        topic: "美食推薦",
+        time: "5小時前",
+        likes: 31,
+        content: "大推排行榜第一名的得正手搖飲！春烏龍加茶凍真的神級好喝，每天在台北走兩萬步一定要喝一杯解渴。米其林頁面的必比登推薦也很準確，雙月食品社的雞湯超正！"
+      },
+      {
+        id: "c_5",
+        name: "林小姐",
+        location: "台中",
+        topic: "住宿體驗",
+        time: "昨天",
+        likes: 15,
+        content: "週末帶毛小孩去宜蘭礁溪泡溫泉＋海景咖啡館，網站上的寵物友善標籤幫了大忙，直接查到可以帶狗的咖啡廳，不用一家一家打電話問，超貼心！"
+      }
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadComments();
+    });
+
+    function getStoredComments() {
+      const stored = localStorage.getItem("tw_community_comments");
+      if (stored) {
+        try {
+          return JSON.parse(stored);
+        } catch(e) {}
+      }
+      return DEFAULT_COMMENTS;
+    }
+
+    function filterTopic(topic) {
+      activeTopic = topic;
+      document.querySelectorAll(".comment-tag-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.topic === topic);
+      });
+      loadComments();
+    }
+
+    function loadComments() {
+      const container = document.getElementById("comments-list-box");
+      const countEl = document.getElementById("comments-count");
+      if (!container) return;
+
+      const comments = getStoredComments();
+      const filtered = comments.filter(c => {
+        return activeTopic === "全部" || c.topic === activeTopic;
+      });
+
+      if (countEl) countEl.textContent = filtered.length;
+
+      container.innerHTML = filtered.map(c => {
+        return `
+          <div class="comment-card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 38px; height: 38px; border-radius: 50%; background: #E0F2FE; color: #0284C7; font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center;">
+                  ${c.name.charAt(0)}
+                </div>
+                <div>
+                  <div style="font-weight: 800; font-size: 14px; color: #0F172A;">${c.name}</div>
+                  <div style="font-size: 11px; color: #64748B;">📍 ${c.location} ‧ ${c.time || '剛剛'}</div>
+                </div>
+              </div>
+              <span style="font-size: 11px; font-weight: 700; color: #0284C7; background: #F0F9FF; border: 1px solid #BAE6FD; padding: 3px 8px; border-radius: 6px;">
+                ${c.topic}
+              </span>
+            </div>
+
+            <p style="font-size: 14px; color: #334155; line-height: 1.6; margin-bottom: 12px;">
+              ${c.content}
+            </p>
+
+            <div style="display: flex; justify-content: flex-end; align-items: center; gap: 14px; font-size: 12px; color: #64748B;">
+              <button onclick="likeComment('${c.id}')" style="background: none; border: none; cursor: pointer; color: #64748B; font-size: 12px; display: flex; align-items: center; gap: 4px;">
+                ❤️ 實用 (${c.likes || 0})
+              </button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function postComment() {
+      const nameInput = document.getElementById("comm-name");
+      const locInput = document.getElementById("comm-location");
+      const topicSelect = document.getElementById("comm-topic");
+      const contentInput = document.getElementById("comm-content");
+
+      const name = nameInput.value.trim();
+      const loc = locInput.value.trim();
+      const topic = topicSelect.value;
+      const content = contentInput.value.trim();
+
+      if (!name || !content) {
+        alert("請填寫您的稱呼與留言內容！");
+        return;
+      }
+
+      const newComm = {
+        id: "c_" + Date.now(),
+        name: name,
+        location: loc || "全球旅人",
+        topic: topic,
+        time: "剛剛",
+        likes: 1,
+        content: content
+      };
+
+      const currentList = getStoredComments();
+      currentList.unshift(newComm);
+      localStorage.setItem("tw_community_comments", JSON.stringify(currentList));
+
+      nameInput.value = "";
+      locInput.value = "";
+      contentInput.value = "";
+
+      alert("🎉 留言發布成功！感謝您的分享！");
+      loadComments();
+    }
+
+    function likeComment(id) {
+      const currentList = getStoredComments();
+      const target = currentList.find(c => c.id === id);
+      if (target) {
+        target.likes = (target.likes || 0) + 1;
+        localStorage.setItem("tw_community_comments", JSON.stringify(currentList));
+        loadComments();
+      }
+    }
+  </script>
+</body>
+</html>

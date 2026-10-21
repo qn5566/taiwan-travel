@@ -3,13 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>週末探店 ‧ 深度慢活散策 - 台灣吃喝玩樂 Taiwan Wanderlust</title>
+  <title>週末探店 ‧ 8 大風格主題散策圖鑑 - 台灣吃喝玩樂 Taiwan Wanderlust</title>
   
-  <meta name="description" content="台灣吃喝玩樂【週末探店】深度專欄。每週更新台北赤峰街老洋樓、金瓜石山城散散步、台南原木老印刷廠、恆春半島紅柴坑懸崖看落日，附景點詳細資訊盒與預訂導航。">
+  <meta name="description" content="台灣吃喝玩樂【週末探店】8 大主題深度專欄。涵蓋台灣茶空間、深夜食堂與酒吧、台式早餐、文青選物書店、夜市必吃、極致甜點、打卡秘境與雨天展館，每張卡片附中英雙語、複製地址給司機、Google導航與預訂分潤。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* 週末探店專屬單列寬幅雜誌卡排版 (Single-Column Editorial Row) */
+    .hop-editorial-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 24px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-bottom: 32px;
+    }
+    .hop-editorial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+      border-color: #CBD5E1;
+    }
+    @media (max-width: 960px) {
+      .hop-editorial-card {
+        grid-template-columns: 1fr;
+      }
+      .hop-card-img-wrap {
+        min-height: 260px;
+      }
+    }
+    .hop-card-img-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #0F172A;
+    }
+    .hop-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .hop-editorial-card:hover .hop-card-img-wrap img {
+      transform: scale(1.05);
+    }
+    .hop-card-content {
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .theme-summary-banner {
+      background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+      border: 1.5px solid #86EFAC;
+      border-radius: 20px;
+      padding: 22px 28px;
+      margin-bottom: 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 8px;
+      background: #F1F5F9;
+      border: 1px solid #CBD5E1;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .copy-btn:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+    }
+    /* Toast 提示浮窗 */
+    #copy-toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      z-index: 9999;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+      opacity: 0;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    #copy-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
 
@@ -29,12 +132,14 @@
 
       <nav>
         <ul class="nav-menu">
-          <li class="nav-item"><a href="index.html#hero">首頁</a></li>
-          <li class="nav-item"><a href="index.html#themes">精選主題</a></li>
-          <li class="nav-item"><a href="index.html#city-spots">城市景點</a></li>
+          <li class="nav-item"><a href="index.html">首頁</a></li>
+          <li class="nav-item"><a href="themes.html">精選主題</a></li>
+          <li class="nav-item"><a href="spots.html">城市景點</a></li>
+          <li class="nav-item"><a href="ranking.html">排行榜</a></li>
           <li class="nav-item"><a href="cafe.html">全台咖啡地圖</a></li>
           <li class="nav-item"><a href="michelin.html">米其林指南</a></li>
           <li class="nav-item active"><a href="blog.html">週末探店</a></li>
+          <li class="nav-item"><a href="community.html">留言討論</a></li>
         </ul>
       </nav>
 
@@ -46,103 +151,274 @@
     </div>
   </header>
 
-  <!-- 部落格主題橫幅 Hero -->
-  <section class="section-padding" style="background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%); color: #FFFFFF; text-align: center; padding: 70px 0 50px 0;">
+  <!-- 週末探店主題橫幅 Hero -->
+  <section class="section-padding" style="background: linear-gradient(180deg, #1C1917 0%, #0C0A09 100%); color: #FFFFFF; text-align: center; padding: 75px 0 50px 0;">
     <div class="container">
-      <span class="section-badge-pill" style="background: rgba(56, 189, 248, 0.2); color: #7DD3FC; border-color: rgba(56, 189, 248, 0.4);">
-        WEEKEND HOP EDITORIAL
+      <span class="section-badge-pill" style="background: rgba(245, 158, 11, 0.25); color: #FCD34D; border-color: rgba(245, 158, 11, 0.45);">
+        WEEKEND HOP ‧ 8 大風格主題散策圖鑑
       </span>
       <h1 style="font-size: 38px; font-weight: 900; margin-top: 14px; letter-spacing: -0.5px;">
-        週末探店 ‧ 深度慢活散策誌
+        週末探店 ‧ 深度生活美學慢活誌
       </h1>
-      <p style="color: #94A3B8; max-width: 720px; margin: 12px auto 0 auto; font-size: 15px; line-height: 1.7;">
-        慢活步調、職人手沖與老宅時光。由 HiMyDream 編輯部實地走訪撰寫，一排一個文章呈現，包含大圖、故事短評與景點詳細資訊盒，SEO 友善靜態架構。
+      <p style="color: #E2E8F0; max-width: 820px; margin: 12px auto 0 auto; font-size: 15px; line-height: 1.7;">
+        專為歐美、日韓與在地深度行者打造的 8 大專欄！每張卡片一排一個展示，涵蓋中英雙語店名、營業時間、中英地址、一鍵複製中文地址給司機、Google 地圖導航與專屬預付訂位分潤。
       </p>
+
+      <!-- 8 大主題切換標籤 (Theme Selector Pills) -->
+      <div id="hop-themes-nav" style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 30px; max-width: 1060px; margin-left: auto; margin-right: auto;">
+        <!-- 由 JS 動態生成 8 大主題按鈕 -->
+      </div>
     </div>
   </section>
 
-  <!-- 部落格文章列表 (一排一個文章顯示) -->
-  <main class="section-padding" style="background: #F8FAFC;">
+  <!-- 探店卡片主體專區 (一排一個文章顯示) -->
+  <main class="section-padding" style="background: #F8FAFC; padding: 50px 0 100px 0;">
     <div class="container">
-      <div id="blog-articles-full-list" class="blog-editorial-container">
-        <!-- 由 JS 動態渲染 BLOG_ARTICLES_DATA -->
+      
+      <!-- 當前主題核心客群與專屬分潤資訊橫幅 -->
+      <div id="theme-banner-box" class="theme-summary-banner">
+        <div>
+          <div id="banner-theme-title" style="font-size: 20px; font-weight: 900; color: #166534; margin-bottom: 6px;"></div>
+          <div id="banner-theme-audience" style="font-size: 13px; color: #14532D; margin-bottom: 4px;"></div>
+          <div id="banner-theme-affiliate" style="font-size: 12px; color: #15803D; font-weight: 700;"></div>
+        </div>
+        <div id="banner-theme-tags" style="display: flex; gap: 6px; flex-wrap: wrap;"></div>
       </div>
+
+      <!-- 卡片列表容器 (一排一個文章顯示) -->
+      <div id="weekend-hop-cards-container">
+        <!-- 由 JS 動態渲染每張卡牌 -->
+      </div>
+
     </div>
   </main>
 
+  <!-- 複製成功的 Toast 提示浮窗 -->
+  <div id="copy-toast">
+    <span>✅</span>
+    <span id="copy-toast-text">已複製中文地址！可直接出示給計程車/Uber司機</span>
+  </div>
+
   <!-- 頁尾 -->
   <footer class="site-footer">
-    <div class="container footer-bottom-bar" style="border: none;">
-      <div>© 2026 台灣吃喝玩樂 Taiwan Wanderlust ‧ 週末探店專欄. All Rights Reserved.</div>
-      <div>文章投稿與商務合作信箱：himydream.studio0220@gmail.com</div>
+    <div class="container">
+      <div class="footer-brand-row">
+        <div class="brand-logo-wrap">
+          <div class="brand-logo-icon">🇹🇼</div>
+          <div class="brand-text-block">
+            <div class="brand-name">台灣吃喝玩樂 Taiwan Wanderlust</div>
+            <span class="brand-subtext">週末探店專欄 ‧ 8 大風格主題深度散策</span>
+          </div>
+        </div>
+        <div class="footer-contact">
+          官方商務／資料聯繫：<a href="mailto:himydream.studio0220@gmail.com">himydream.studio0220@gmail.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <div>© 2026 台灣吃喝玩樂 HiMyDream Studio. All Rights Reserved.</div>
+        <div>全台 8 大主題 40 間嚴選名店 · 外國人友善中英雙語對照</div>
+      </div>
     </div>
   </footer>
 
   <script src="js/affiliate.js"></script>
   <script src="js/data.js"></script>
   <script>
+    let activeThemeId = "all";
+
     document.addEventListener("DOMContentLoaded", () => {
-      const container = document.getElementById("blog-articles-full-list");
-      if (!container || typeof BLOG_ARTICLES_DATA === "undefined") return;
+      renderThemeNav();
+      renderHopCards();
+    });
 
-      container.innerHTML = BLOG_ARTICLES_DATA.map(art => {
-        const spot = art.spotInfo;
+    function renderThemeNav() {
+      const navContainer = document.getElementById("hop-themes-nav");
+      if (!navContainer || typeof WEEKEND_HOP_8_THEMES === "undefined") return;
+
+      let navHtml = `
+        <button class="city-pill-btn ${activeThemeId === 'all' ? 'active' : ''}" onclick="switchHopTheme('all')">
+          🌟 全部 8 大主題 (40 間名店)
+        </button>
+      `;
+
+      navHtml += WEEKEND_HOP_8_THEMES.map(th => {
+        const isAct = activeThemeId === th.id ? "active" : "";
         return `
-          <article class="blog-editorial-row">
-            <div class="blog-hero-wrap">
-              <img src="${art.heroImg}" alt="${art.title}" loading="lazy">
-              <span class="blog-category-badge">${art.category}</span>
-            </div>
-            <div class="blog-body">
-              <div class="blog-meta-line">
-                <span>📅 ${art.date}</span>
-                <span>·</span>
-                <span>✍️ ${art.author}</span>
-                <span>·</span>
-                <span>⏱️ ${art.readTime}</span>
-              </div>
-              <h2 class="blog-title">${art.title}</h2>
-              <div class="blog-subtitle">${art.subtitle}</div>
-              <div class="blog-excerpt">${art.content.replace(/\n\n/g, '<br><br>')}</div>
-
-              <!-- 景點詳細資訊盒 (Spot Info Box) -->
-              <div class="spot-info-box">
-                <div class="spot-info-header">
-                  <span>🏠 ${spot.name}</span>
-                </div>
-                <div class="spot-info-list">
-                  <div class="spot-info-item">
-                    <span class="spot-info-label">📍 詳細地址</span>
-                    <span>${spot.address}</span>
-                  </div>
-                  <div class="spot-info-item">
-                    <span class="spot-info-label">⏰ 營業時間</span>
-                    <span>${spot.hours}</span>
-                  </div>
-                  <div class="spot-info-item">
-                    <span class="spot-info-label">💡 推薦必點</span>
-                    <span>${spot.signature}</span>
-                  </div>
-                  <div class="spot-info-item">
-                    <span class="spot-info-label">🚇 交通指南</span>
-                    <span>${spot.transport}</span>
-                  </div>
-                </div>
-                <div class="spot-info-actions">
-                  <a href="${AFFILIATE_HUB.getMapUrl(spot.mapQuery)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding: 8px 16px; font-size: 12px;">
-                    🧭 Google 地圖導航
-                  </a>
-                  <a href="${spot.bookingUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding: 8px 16px; font-size: 12px;">
-                    🎟️ 線上預約 / 官方地圖
-                  </a>
-                </div>
-              </div>
-            </div>
-          </article>
+          <button class="city-pill-btn ${isAct}" onclick="switchHopTheme('${th.id}')">
+            ${th.name}
+          </button>
         `;
       }).join("");
-    });
+
+      navContainer.innerHTML = navHtml;
+    }
+
+    function switchHopTheme(themeId) {
+      activeThemeId = themeId;
+      renderThemeNav();
+      renderHopCards();
+    }
+
+    function renderHopCards() {
+      const container = document.getElementById("weekend-hop-cards-container");
+      const bannerBox = document.getElementById("theme-banner-box");
+      const titleEl = document.getElementById("banner-theme-title");
+      const audEl = document.getElementById("banner-theme-audience");
+      const affEl = document.getElementById("banner-theme-affiliate");
+      const tagsEl = document.getElementById("banner-theme-tags");
+
+      if (!container || typeof WEEKEND_HOP_8_THEMES === "undefined") return;
+
+      let currentThemes = [];
+      if (activeThemeId === "all") {
+        currentThemes = WEEKEND_HOP_8_THEMES;
+        if (bannerBox) {
+          titleEl.textContent = "🌟 週末探店全覽：8 大深度主題 40 間名店全圖鑑";
+          audEl.textContent = "核心客群：歐美、日韓旅客、在地質感生活者、自由行吃貨與探店達人";
+          affEl.textContent = "內嵌專屬分潤：線上訂位預付 ＋ Klook 門票與包車 ＋ 55688 叫車直達 ＋ 萬家福伴手禮";
+          tagsEl.innerHTML = `<span class="theme-tag-chip" style="background: #BBF7D0; color: #14532D;">8 大主題完整收錄</span>`;
+        }
+      } else {
+        const th = WEEKEND_HOP_8_THEMES.find(t => t.id === activeThemeId);
+        if (th) {
+          currentThemes = [th];
+          if (bannerBox) {
+            titleEl.textContent = `${th.name} ｜ ${th.nameEn}`;
+            audEl.textContent = `🎯 核心客群與場景：${th.audience}`;
+            affEl.textContent = `💰 內嵌專屬分潤入口：${th.affiliateIntro}`;
+            tagsEl.innerHTML = th.tags.map(t => `<span class="theme-tag-chip" style="background: #BBF7D0; color: #14532D;">${t}</span>`).join("");
+          }
+        }
+      }
+
+      // Collect places
+      let html = "";
+      currentThemes.forEach(theme => {
+        if (activeThemeId === "all") {
+          html += `
+            <div style="margin: 36px 0 20px 0; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #E2E8F0; padding-bottom: 10px;">
+              <div>
+                <span style="font-size: 12px; font-weight: 800; color: #D97706; letter-spacing: 1px;">THEME ${theme.number}</span>
+                <h2 style="font-size: 24px; font-weight: 900; color: #0F172A; margin-top: 2px;">${theme.name}</h2>
+              </div>
+              <span style="font-size: 13px; color: #64748B;">${theme.nameEn}</span>
+            </div>
+          `;
+        }
+
+        theme.places.forEach(item => {
+          const tagsHtml = (item.tags || []).map(t => `<span class="cafe-tag-chip" style="background: #FEF3C7; color: #92400E;">${t}</span>`).join("");
+
+          html += `
+            <article class="hop-editorial-card">
+              <!-- 左側大圖 -->
+              <div class="hop-card-img-wrap">
+                <img src="${item.img}" alt="${item.nameZh}" loading="lazy">
+                <span style="position: absolute; top: 16px; left: 16px; background: rgba(15,23,42,0.85); backdrop-filter: blur(6px); color: #fff; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 8px;">
+                  ${item.city} · ${item.district}
+                </span>
+                <span style="position: absolute; bottom: 14px; left: 16px; background: #0284C7; color: #fff; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 6px;">
+                  ${theme.name.split(" ")[1] || "特色名店"}
+                </span>
+              </div>
+
+              <!-- 右側豐富圖文與功能資訊 -->
+              <div class="hop-card-content">
+                <div>
+                  <!-- 評分與營業時間 -->
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <span style="font-size: 14px; font-weight: 900; color: #D97706;">${item.rating}</span>
+                      <span style="font-size: 12px; color: #64748B;">(${item.reviews})</span>
+                    </div>
+                    <span style="font-size: 12px; font-weight: 700; color: #16A34A; background: #DCFCE7; padding: 3px 8px; border-radius: 6px;">
+                      ⏰ ${item.hours}
+                    </span>
+                  </div>
+
+                  <!-- 中英雙語店名 -->
+                  <h2 style="font-size: 22px; font-weight: 900; color: #0F172A; line-height: 1.3; margin-bottom: 4px;">
+                    ${item.nameZh}
+                    <span style="font-size: 15px; font-weight: 700; color: #64748B; margin-left: 8px; font-family: 'DM Sans', sans-serif;">
+                      ｜ ${item.nameEn}
+                    </span>
+                  </h2>
+
+                  <!-- 核心風格標籤 -->
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap; margin: 10px 0 14px 0;">
+                    ${tagsHtml}
+                  </div>
+
+                  <!-- 特色描寫 -->
+                  <p style="font-size: 14px; color: #334155; line-height: 1.65; margin-bottom: 18px;">
+                    ${item.features}
+                  </p>
+                </div>
+
+                <!-- 底部中英對照地址與外國人友善按鈕 -->
+                <div style="border-top: 1px dashed #E2E8F0; padding-top: 16px; margin-top: auto;">
+                  <div style="margin-bottom: 12px;">
+                    <div style="font-size: 13px; font-weight: 700; color: #0F172A; display: flex; align-items: center; gap: 6px;">
+                      <span>📍</span> ${item.addressZh}
+                    </div>
+                    <div style="font-size: 11px; color: #64748B; font-family: 'DM Sans', sans-serif; margin-top: 2px;">
+                      ${item.addressEn}
+                    </div>
+                  </div>
+
+                  <!-- 互動按鈕列 -->
+                  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <!-- 外國人友善雙按鈕 -->
+                    <div style="display: flex; gap: 8px;">
+                      <button onclick="copyAddress('${item.addressZh.replace(/'/g, "\\'")}')" class="copy-btn" title="複製中文地址">
+                        📋 複製中文地址給司機看
+                      </button>
+                      <a href="${item.mapUrl}" target="_blank" rel="noopener noreferrer" class="copy-btn" style="text-decoration: none;">
+                        🗺️ Google Maps 導航
+                      </a>
+                    </div>
+
+                    <!-- 右下角專屬分潤轉化按鈕 -->
+                    <a href="${item.affiliateUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding: 9px 18px; font-size: 13px; font-weight: 800; text-decoration: none;">
+                      ${item.affiliateLabel}
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </article>
+          `;
+        });
+      });
+
+      container.innerHTML = html;
+    }
+
+    function copyAddress(address) {
+      navigator.clipboard.writeText(address).then(() => {
+        showToast("已複製中文地址！可直接出示給計程車 / Uber 司機看 🚕");
+      }).catch(() => {
+        // Fallback for older browsers
+        const textarea = document.createElement("textarea");
+        textarea.value = address;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        showToast("已複製中文地址！可直接出示給司機看 🚕");
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("copy-toast");
+      const text = document.getElementById("copy-toast-text");
+      if (!toast || !text) return;
+      text.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
   </script>
 </body>
 </html>
-

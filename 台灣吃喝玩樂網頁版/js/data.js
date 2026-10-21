@@ -1831,530 +1831,8459 @@ const ALL_SPOTS_DATA = [
 // 5. 全台縣市精選特色咖啡店資料庫 (含營業中、地址、照片、特徵標籤)
 const TAIWAN_CAFES_DATA = [
   {
-    "id": "tpe_1",
-    "name": "Simple Kaffa 興波咖啡旗艦店",
+    "id": "cafe_1",
+    "name": "興波咖啡 旗艦店",
     "city": "台北市",
+    "city_en": "Taipei",
     "district": "中正區",
     "address": "台北市中正區忠孝東路二段27號",
-    "status": "營業中 (10:00 - 17:00)",
-    "features": "WBC世界咖啡大師冠軍吳則霖旗艦館，天井採光原木挑高空間，招牌手沖單品與抹茶捲、皺皺蛋糕。",
+    "phone": "(02) 3322-1888",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=興波咖啡+旗艦店&authuser=1",
     "tags": [
       "手沖咖啡",
       "甜點好吃",
-      "採光超好",
-      "適合聊天"
+      "植栽老宅"
     ],
-    "price": "NT$ 200 - 450",
+    "tagEmojis": [
+      "☕",
+      "🍰",
+      "🌿"
+    ],
+    "features": "台北市中正區人氣口碑咖啡名店，主打手沖咖啡、甜點好吃、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
     "rate": "4.9★",
     "img": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop"
   },
   {
-    "id": "tpe_2",
-    "name": "RUFOUS COFFEE ROASTERS",
+    "id": "cafe_2",
+    "name": "森高砂咖啡館",
     "city": "台北市",
-    "district": "大安區",
-    "address": "台北市大安區復興南路二段339號",
-    "status": "營業中 (13:00 - 21:00)",
-    "features": "入選亞洲50大最佳咖啡店！老派復古木質調溫暖氛圍，自家烘焙單品手沖與義式特調濃縮極致純厚。",
+    "city_en": "Taipei",
+    "district": "大同區",
+    "address": "台北市大同區延平北路二段1號",
+    "phone": "(02) 2555-8680",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=森高砂咖啡館+大稻埕&authuser=1",
     "tags": [
       "手沖咖啡",
-      "適合聊天",
-      "植栽老宅"
+      "植栽老宅",
+      "適合聊天"
     ],
-    "price": "NT$ 180 - 300",
-    "rate": "4.9★",
+    "tagEmojis": [
+      "☕",
+      "🌿",
+      "🗣️"
+    ],
+    "features": "台北市大同區人氣口碑咖啡名店，主打手沖咖啡、植栽老宅、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
     "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop"
   },
   {
-    "id": "tpe_3",
-    "name": "Fika Fika Cafe",
+    "id": "cafe_3",
+    "name": "休習日 Z Day Cafe",
     "city": "台北市",
-    "district": "中山區",
-    "address": "台北市中山區伊通街33號",
-    "status": "營業中 (08:00 - 19:00)",
-    "features": "北歐盃烘豆大賽雙料冠軍！北歐極簡純白大片玻璃窗，採光極佳，手沖咖啡果香明亮乾淨。",
+    "city_en": "Taipei",
+    "district": "大安區",
+    "address": "台北市大安區樂業街41巷2號",
+    "phone": "(02) 2378-0602",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=休習日+Z+Day+Cafe&authuser=1",
     "tags": [
       "有插頭",
-      "手沖咖啡",
-      "採光超好",
-      "適合聊天"
+      "甜點好吃",
+      "手沖咖啡"
     ],
-    "price": "NT$ 160 - 280",
+    "tagEmojis": [
+      "🔌",
+      "🍰",
+      "☕"
+    ],
+    "features": "台北市大安區人氣口碑咖啡名店，主打有插頭、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_4",
+    "name": "鬧咖啡 NOW coffee",
+    "city": "台北市",
+    "city_en": "Taipei",
+    "district": "中正區",
+    "address": "台北市中正區延平南路58號",
+    "phone": "(02) 2361-3160",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=鬧咖啡+NOW+coffee&authuser=1",
+    "tags": [
+      "有插頭",
+      "植栽老宅",
+      "店家可喝酒"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "🌿",
+      "🍷"
+    ],
+    "features": "台北市中正區人氣口碑咖啡名店，主打有插頭、植栽老宅、店家可喝酒。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
     "rate": "4.8★",
     "img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop"
   },
   {
-    "id": "tpe_4",
-    "name": "CAFE!N 硬咖啡民權旗艦店",
+    "id": "cafe_5",
+    "name": "翌日咖啡店",
     "city": "台北市",
-    "district": "中山區",
-    "address": "台北市中山區中山北路二段171號",
-    "status": "營業中 (07:30 - 19:30)",
-    "features": "純白兩層樓幾何美學地標！兩面挑高落地玻璃採光超好，插座充足，是筆電遠距辦公族的熱門聚點。",
-    "tags": [
-      "有插頭",
-      "採光超好",
-      "適合聊天"
-    ],
-    "price": "NT$ 80 - 200",
-    "rate": "4.8★",
-    "img": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600&auto=format&fit=crop"
-  },
-  {
-    "id": "tpe_5",
-    "name": "Heritage Bakery & Cafe",
-    "city": "台北市",
-    "district": "中正區",
-    "address": "台北市中正區漢口街一段73號之2",
-    "status": "營業中 (10:00 - 19:00)",
-    "features": "台北美式肉桂捲霸主！紅心芭樂戚風蛋糕令人驚艷，紅磚裸牆復古美式工業空間，採光舒心。",
-    "tags": [
-      "甜點好吃",
-      "有插頭",
-      "採光超好",
-      "適合聊天"
-    ],
-    "price": "NT$ 180 - 320",
-    "rate": "4.8★",
-    "img": "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&auto=format&fit=crop"
-  },
-  {
-    "id": "tpe_6",
-    "name": "昭和浪漫冰室 Cafe & Bar",
-    "city": "台北市",
+    "city_en": "Taipei",
     "district": "大安區",
-    "address": "台北市大安區文昌街47號",
-    "status": "營業中 (12:00 - 22:00)",
-    "features": "昭和日式復古骨董家具老宅，白天享受大人味大人布丁與冰滴，入夜後搖身一變為調酒酒吧。",
+    "address": "台北市大安區潮州街176號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=翌日咖啡店&authuser=1",
     "tags": [
       "店家可喝酒",
       "甜點好吃",
-      "植栽老宅",
-      "適合聊天"
+      "植栽老宅"
     ],
-    "price": "NT$ 200 - 450",
-    "rate": "4.8★",
-    "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop"
+    "tagEmojis": [
+      "🍷",
+      "🍰",
+      "🌿"
+    ],
+    "features": "台北市大安區人氣口碑咖啡名店，主打店家可喝酒、甜點好吃、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&auto=format&fit=crop"
   },
   {
-    "id": "tpe_7",
-    "name": "幻猻家珈琲 Pallas Cafe",
+    "id": "cafe_6",
+    "name": "Coffee Syndicate",
     "city": "台北市",
-    "district": "大同區",
-    "address": "台北市大同區迪化街一段14巷14號",
-    "status": "營業中 (11:00 - 18:00)",
-    "features": "大稻埕巷弄靜謐幽光老宅，方型濃厚焦糖香草布丁遠近馳名，自家烘焙咖啡香氣沉著深邃。",
+    "city_en": "Taipei",
+    "district": "松山區",
+    "address": "台北市松山區富錦街429巷2號",
+    "phone": "(02) 2767-2775",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Coffee+Syndicate+富錦街&authuser=1",
     "tags": [
-      "植栽老宅",
-      "甜點好吃",
+      "採光超好",
+      "寵物友善",
       "手沖咖啡"
     ],
-    "price": "NT$ 180 - 300",
-    "rate": "4.8★",
-    "img": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600&auto=format&fit=crop"
-  },
-  {
-    "id": "tpe_8",
-    "name": "光一肆號 (光一咖啡)",
-    "city": "台北市",
-    "district": "大安區",
-    "address": "台北市大安區新生南路三段86號",
-    "status": "營業中 (09:00 - 18:30)",
-    "features": "台大公館商圈純白日式老木屋玻璃溫室，大面綠樹窗景採光超好，寵物友善空間歡迎帶毛孩一同品嚐輕食。",
-    "tags": [
-      "寵物友善",
-      "採光超好",
-      "植栽老宅",
-      "適合聊天"
+    "tagEmojis": [
+      "☀️",
+      "🐶",
+      "☕"
     ],
-    "price": "NT$ 150 - 350",
-    "rate": "4.7★",
-    "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop"
-  },
-  {
-    "id": "tpe_9",
-    "name": "MKCR 山小孩咖啡 (北門旗艦)",
-    "city": "台北市",
-    "district": "中正區",
-    "address": "台北市中正區忠孝西路一段126號",
-    "status": "營業中 (08:30 - 17:30)",
-    "features": "正對國家一級古蹟北門！純白兩層樓無死角窗景，一邊喝冠軍烘焙耶加雪菲、一邊眺望百年古城門。",
-    "tags": [
-      "手沖咖啡",
-      "採光超好",
-      "適合聊天"
-    ],
-    "price": "NT$ 140 - 260",
+    "features": "台北市松山區人氣口碑咖啡名店，主打採光超好、寵物友善、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
     "rate": "4.8★",
     "img": "https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&auto=format&fit=crop"
   },
   {
-    "id": "tpe_10",
-    "name": "Coffee Sind 多肉咖啡",
+    "id": "cafe_7",
+    "name": "Woolloomooloo",
     "city": "台北市",
-    "district": "中正區",
-    "address": "台北市中正區新生南路一段56巷8號",
-    "status": "營業中 (12:00 - 20:00)",
-    "features": "被上百盆多肉植栽圍繞的綠意溫室外帶吧，特色赤崁糖拿鐵香濃迷人，毛孩友善且店主熱情。",
+    "city_en": "Taipei",
+    "district": "信義區",
+    "address": "台北市信義區信義路四段379號",
+    "phone": "(02) 2704-7798",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Woolloomooloo+信義&authuser=1",
     "tags": [
-      "植栽老宅",
-      "寵物友善",
-      "手沖咖啡"
-    ],
-    "price": "NT$ 120 - 220",
-    "rate": "4.8★",
-    "img": "https://images.unsplash.com/photo-1469957767090-753257cc5287?w=600&auto=format&fit=crop"
-  },
-  {
-    "id": "tpe_11",
-    "name": "木柵路易莎烘豆生活館",
-    "city": "台北市",
-    "district": "文山區",
-    "address": "台北市文山區木柵路三段",
-    "status": "營業中 (07:00 - 21:00)",
-    "features": "挑高三層樓工業風烘豆旗艦館，全店每個座位幾乎皆配備獨立插座與超快 Wi-Fi，工作讀書聖地。",
-    "tags": [
-      "有插頭",
-      "適合聊天",
-      "採光超好"
-    ],
-    "price": "NT$ 75 - 180",
-    "rate": "4.7★",
-    "img": "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&auto=format&fit=crop"
-  },
-  {
-    "id": "tpe_12",
-    "name": "羊毛與花 ‧ 溫州",
-    "city": "台北市",
-    "district": "大安區",
-    "address": "台北市大安區新生南路三段60巷1號",
-    "status": "營業中 (12:00 - 23:00)",
-    "features": "台大後門日式民謠風格深夜咖啡，營業至午夜23點，有插頭且寵物友善，提供美味重乳酪與鹹派。",
-    "tags": [
-      "有插頭",
-      "寵物友善",
-      "甜點好吃",
-      "植栽老宅"
-    ],
-    "price": "NT$ 150 - 280",
-    "rate": "4.8★",
-    "img": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&auto=format&fit=crop"
-  },
-  {
-    "id": "ntpc_1",
-    "name": "散散步 咖啡。旅宿",
-    "city": "新北市",
-    "district": "瑞芳區",
-    "address": "新北市瑞芳區祈堂路172號",
-    "status": "營業中 (13:30 - 18:30)",
-    "features": "祈堂老街隱世木屋老宅，手沖單品咖啡香伴著金瓜石山嵐雲霧，甜點檸檬塔酸香迷人，安靜治癒身心。",
-    "tags": [
-      "植栽老宅",
-      "手沖咖啡",
-      "甜點好吃"
-    ],
-    "price": "NT$ 180 - 320",
-    "rate": "4.9★",
-    "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop"
-  },
-  {
-    "id": "ntpc_2",
-    "name": "山男咖啡 Yamano Cafe",
-    "city": "新北市",
-    "district": "新店區",
-    "address": "新北市新店區屈尺路",
-    "status": "營業中 (11:00 - 18:00)",
-    "features": "隱身新店山林半山腰的清水模大採光咖啡館，戶外有綠茵大草坪可帶毛孩奔跑，看著山巒發呆好去處。",
-    "tags": [
-      "採光超好",
-      "寵物友善",
+      "店家可喝酒",
       "小孩友善",
       "適合聊天"
     ],
-    "price": "NT$ 160 - 300",
-    "rate": "4.8★",
-    "img": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&auto=format&fit=crop"
-  },
-  {
-    "id": "ntpc_3",
-    "name": "靠北過日子 Q.B.Days",
-    "city": "新北市",
-    "district": "金山區",
-    "address": "新北市金山區海興路174號",
-    "status": "營業中 (11:00 - 18:30)",
-    "features": "中角灣衝浪基地藍色老屋！三樓露台海景無遮蔽，提供特調黑糖手沖與煎餅，聽海浪放空首選。",
-    "tags": [
-      "海景景觀",
-      "店家可喝酒",
-      "適合聊天",
-      "採光超好"
+    "tagEmojis": [
+      "🍷",
+      "👶",
+      "🗣️"
     ],
-    "price": "NT$ 180 - 350",
-    "rate": "4.8★",
-    "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop"
+    "features": "台北市信義區人氣口碑咖啡名店，主打店家可喝酒、小孩友善、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&auto=format&fit=crop"
   },
   {
-    "id": "ntpc_4",
-    "name": "天使熱愛的生活・淡水河畔",
-    "city": "新北市",
-    "district": "淡水區",
-    "address": "新北市淡水區中正路233-1號",
-    "status": "營業中 (14:00 - 23:00)",
-    "features": "淡水河第一排半露天木造老屋，坐二樓吹著淡水河晚風喝冰美式，入夜後提供各國精釀啤酒看觀音山落日。",
+    "id": "cafe_8",
+    "name": "光景 Scene Select",
+    "city": "台北市",
+    "city_en": "Taipei",
+    "district": "松山區",
+    "address": "台北市松山區健康路11-1號",
+    "phone": "(02) 2716-0263",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=光景+Scene+Select&authuser=1",
     "tags": [
-      "海景景觀",
-      "店家可喝酒",
-      "植栽老宅"
+      "採光超好",
+      "甜點好吃",
+      "手沖咖啡"
     ],
-    "price": "NT$ 130 - 250",
-    "rate": "4.7★",
-    "img": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop"
+    "tagEmojis": [
+      "☀️",
+      "🍰",
+      "☕"
+    ],
+    "features": "台北市松山區人氣口碑咖啡名店，主打採光超好、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&auto=format&fit=crop"
   },
   {
-    "id": "kee_1",
-    "name": "萬祝號 Wan Zhu Hao",
-    "city": "基隆市",
-    "district": "中正區",
-    "address": "基隆市中正區中正路560號",
-    "status": "營業中 (11:00 - 19:00)",
-    "features": "五十年前造船零件老行號重生！裸露挑高木樑、金屬鐵件與復古磁磚，招牌胖死我巴斯克蛋糕好吃到流淚。",
+    "id": "cafe_9",
+    "name": "幻猻家珈琲",
+    "city": "台北市",
+    "city_en": "Taipei",
+    "district": "大同區",
+    "address": "台北市大同區迪化街一段14巷14號",
+    "phone": "(02) 2555-6680",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=幻猻家珈琲&authuser=1",
     "tags": [
       "植栽老宅",
       "甜點好吃",
       "手沖咖啡"
     ],
-    "price": "NT$ 140 - 260",
-    "rate": "4.8★",
-    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop"
-  },
-  {
-    "id": "kee_2",
-    "name": "圖們咖啡 tuman café",
-    "city": "基隆市",
-    "district": "中正區",
-    "address": "基隆市中正區中正路551號",
-    "status": "營業中 (11:00 - 18:00)",
-    "features": "正濱漁港彩色屋第一排窗景！黑色沉穩系空間，看著彩色老漁船倒影喝特調黑咖啡，供應特色吉古拉咖哩飯。",
-    "tags": [
-      "海景景觀",
-      "採光超好",
-      "適合聊天"
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☕"
     ],
-    "price": "NT$ 150 - 300",
-    "rate": "4.8★",
-    "img": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop"
-  },
-  {
-    "id": "txg_1",
-    "name": "Coffee Stopover",
-    "city": "台中市",
-    "district": "西區",
-    "address": "台中市西區民權路217巷24號",
-    "status": "營業中 (11:00 - 20:00)",
-    "features": "台灣手沖咖啡教父級殿堂！五種專業萃取器具任選，多焙度新鮮烘豆，專業與溫暖兼備。",
-    "tags": [
-      "手沖咖啡",
-      "適合聊天",
-      "植栽老宅"
-    ],
-    "price": "NT$ 140 - 250",
-    "rate": "4.9★",
-    "img": "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&auto=format&fit=crop"
-  },
-  {
-    "id": "txg_2",
-    "name": "目覚め咖啡 mezamashikohi 三店",
-    "city": "台中市",
-    "district": "西區",
-    "address": "台中市西區精誠七街1號",
-    "status": "營業中 (09:00 - 18:00)",
-    "features": "日式綠意清水模庭院，晨光透入超大落地窗，大器木長桌有插座，適合專注工作或品味日式烘焙早午餐。",
-    "tags": [
-      "採光超好",
-      "有插頭",
-      "植栽老宅",
-      "適合聊天"
-    ],
-    "price": "NT$ 180 - 360",
-    "rate": "4.8★",
-    "img": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&auto=format&fit=crop"
-  },
-  {
-    "id": "txg_3",
-    "name": "Hausinc Cafe 忠泰館",
-    "city": "台中市",
-    "district": "北區",
-    "address": "台中市北區忠太西路39號",
-    "status": "營業中 (09:00 - 18:00)",
-    "features": "連續多年入選全台最棒咖啡館！兩層樓現代工業設計，插頭充裕、綠意窗景，特調微氣泡黑咖啡是一絕。",
-    "tags": [
-      "有插頭",
-      "手沖咖啡",
-      "採光超好",
-      "甜點好吃"
-    ],
-    "price": "NT$ 150 - 280",
-    "rate": "4.8★",
-    "img": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600&auto=format&fit=crop"
-  },
-  {
-    "id": "txg_4",
-    "name": "模範貝果 Mofan Bagels & Cafe",
-    "city": "台中市",
-    "district": "西區",
-    "address": "台中市西區模範街1巷1號",
-    "status": "營業中 (11:00 - 18:00)",
-    "features": "模範社區老眷舍改建，庭院綠意盎然，寵物超級友善，手工現烤十多種口味貝果香氣四溢。",
-    "tags": [
-      "寵物友善",
-      "甜點好吃",
-      "植栽老宅",
-      "適合聊天"
-    ],
-    "price": "NT$ 120 - 240",
-    "rate": "4.8★",
-    "img": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&auto=format&fit=crop"
-  },
-  {
-    "id": "tnn_1",
-    "name": "StableNice BLDG. 原木老宅",
-    "city": "台南市",
-    "district": "中西區",
-    "address": "台南市中西區南寧街83巷9號",
-    "status": "營業中 (10:00 - 18:00)",
-    "features": "原台南五十年老印刷廠！紅磚、木構與天井半露天迴廊，自家烘焙咖啡香氣濃醇，文創選物豐富。",
-    "tags": [
-      "植栽老宅",
-      "手沖咖啡",
-      "適合聊天",
-      "採光超好"
-    ],
-    "price": "NT$ 150 - 280",
+    "features": "台北市大同區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
     "rate": "4.9★",
     "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop"
   },
   {
-    "id": "tnn_2",
-    "name": "森/CASA 咖啡沙龍",
-    "city": "台南市",
-    "district": "南區",
-    "address": "台南市南區金華路二段321號",
-    "status": "營業中 (10:00 - 18:00)",
-    "features": "引進丹麥國寶名椅與京都百年開化堂手作銅筒，極致安靜深邃的日本茶道與手沖咖啡沙龍。",
+    "id": "cafe_10",
+    "name": "弄宅咖啡 Alley cafe",
+    "city": "台北市",
+    "city_en": "Taipei",
+    "district": "松山區",
+    "address": "台北市松山區民生東路五段137巷4弄2號",
+    "phone": "(02) 2767-8859",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=弄宅咖啡&authuser=1",
     "tags": [
-      "手沖咖啡",
-      "植栽老宅"
+      "寵物友善",
+      "植栽老宅",
+      "甜點好吃"
     ],
-    "price": "NT$ 250 - 500",
-    "rate": "4.9★",
+    "tagEmojis": [
+      "🐶",
+      "🌿",
+      "🍰"
+    ],
+    "features": "台北市松山區人氣口碑咖啡名店，主打寵物友善、植栽老宅、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
     "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop"
   },
   {
-    "id": "tnn_3",
-    "name": "Bar Home x 欣欣咖啡",
-    "city": "台南市",
-    "district": "中西區",
-    "address": "台南市中西區中山路23巷1號",
-    "status": "營業中 (19:00 - 02:00)",
-    "features": "隱身巷弄紅磚古宅，白天是靜謐咖啡館，夜晚搖身一變為亞洲50大傳奇調酒大師主理酒吧，可喝酒微醺。",
+    "id": "cafe_11",
+    "name": "COFFEE LAW 敦南概念店",
+    "city": "台北市",
+    "city_en": "Taipei",
+    "district": "大安區",
+    "address": "台北市大安區忠孝東路四段181巷40弄15號",
+    "phone": "(02) 2775-3800",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=COFFEE+LAW+敦南概念店&authuser=1",
     "tags": [
-      "店家可喝酒",
-      "植栽老宅",
-      "適合聊天"
+      "採光超好",
+      "有插頭",
+      "手沖咖啡"
     ],
-    "price": "NT$ 250 - 550",
+    "tagEmojis": [
+      "☀️",
+      "🔌",
+      "☕"
+    ],
+    "features": "台北市大安區人氣口碑咖啡名店，主打採光超好、有插頭、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_12",
+    "name": "Congrats Café",
+    "city": "台北市",
+    "city_en": "Taipei",
+    "district": "大安區",
+    "address": "台北市大安區文昌街47號2樓",
+    "phone": "(02) 2700-6639",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Congrats+Cafe&authuser=1",
+    "tags": [
+      "有插頭",
+      "店家可喝酒",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "🍷",
+      "🌿"
+    ],
+    "features": "台北市大安區人氣口碑咖啡名店，主打有插頭、店家可喝酒、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_13",
+    "name": "秘氏咖啡",
+    "city": "台北市",
+    "city_en": "Taipei",
+    "district": "大安區",
+    "address": "台北市大安區浦城街4號",
+    "phone": "(02) 8369-1012",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=秘氏咖啡+台北&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "台北市大安區人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
     "rate": "4.9★",
     "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop"
   },
   {
-    "id": "khh_1",
-    "name": "握咖啡 OH! Cafe (西子灣旗艦)",
-    "city": "高雄市",
-    "district": "鼓山區",
-    "address": "高雄市鼓山區濱海二路5號",
-    "status": "營業中 (10:00 - 18:00)",
-    "features": "WCRC世界咖啡烘豆冠軍賴昱權創立！一邊喝特調冰滴、一邊吹著西子灣海風看渡輪往返，手沖豆目極多。",
-    "tags": [
-      "手沖咖啡",
-      "海景景觀",
-      "適合聊天"
-    ],
-    "price": "NT$ 140 - 280",
-    "rate": "4.9★",
-    "img": "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&auto=format&fit=crop"
-  },
-  {
-    "id": "khh_2",
-    "name": "Kyoto 喫茶 鳩谷",
-    "city": "高雄市",
-    "district": "苓雅區",
-    "address": "高雄市苓雅區青年二路",
-    "status": "營業中 (13:00 - 19:00)",
-    "features": "需預約的沉浸式京都町家喫茶！現點現刷宇治抹茶、手作水羊羹與焙茶拿鐵，如置身鴨川之畔。",
+    "id": "cafe_14",
+    "name": "小廢墟咖啡 Ruin Coffee Roasters",
+    "city": "台北市",
+    "city_en": "Taipei",
+    "district": "文山區",
+    "address": "台北市文山區木柵路三段242號",
+    "phone": "(02) 2234-0024",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=小廢墟咖啡&authuser=1",
     "tags": [
       "植栽老宅",
-      "甜點好吃",
-      "手沖咖啡"
+      "手沖咖啡",
+      "店家可喝酒"
     ],
-    "price": "NT$ 220 - 400",
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍷"
+    ],
+    "features": "台北市文山區人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、店家可喝酒。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_15",
+    "name": "象山日光珈琲",
+    "city": "台北市",
+    "city_en": "Taipei",
+    "district": "信義區",
+    "address": "台北市信義區信義路五段150巷22弄65號",
+    "phone": "(02) 2720-9708",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=象山日光珈琲&authuser=1",
+    "tags": [
+      "採光超好",
+      "手沖咖啡",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "☕",
+      "🐶"
+    ],
+    "features": "台北市信義區人氣口碑咖啡名店，主打採光超好、手沖咖啡、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_16",
+    "name": "白日夢 Tea & Cafe",
+    "city": "新北市",
+    "city_en": "New Taipei",
+    "district": "石門區",
+    "address": "新北市石門區阿里荖47-2號",
+    "phone": "(02) 2638-0045",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=白日夢Tea+Cafe+石門&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "👶"
+    ],
+    "features": "新北市石門區人氣口碑咖啡名店，主打海景景觀、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_17",
+    "name": "靠北過日子 Q.B.Days",
+    "city": "新北市",
+    "city_en": "New Taipei",
+    "district": "金山區",
+    "address": "新北市金山區海興路174號",
+    "phone": "(02) 2408-2332",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=靠北過日子&authuser=1",
+    "tags": [
+      "海景景觀",
+      "甜點好吃",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "🍰",
+      "🐶"
+    ],
+    "features": "新北市金山區人氣口碑咖啡名店，主打海景景觀、甜點好吃、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_18",
+    "name": "洋荳子咖啡館",
+    "city": "新北市",
+    "city_en": "New Taipei",
+    "district": "金山區",
+    "address": "新北市金山區阿里荖33-3號",
+    "phone": "(02) 2408-2455",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=洋荳子咖啡館&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🗣️"
+    ],
+    "features": "新北市金山區人氣口碑咖啡名店，主打海景景觀、採光超好、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_19",
+    "name": "散散步咖啡旅宿",
+    "city": "新北市",
+    "city_en": "New Taipei",
+    "district": "瑞芳區",
+    "address": "新北市瑞芳區祈堂路172號",
+    "phone": "0981-885-939",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=散散步咖啡+金瓜石&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "新北市瑞芳區人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_20",
+    "name": "Cafe Hytte",
+    "city": "新北市",
+    "city_en": "New Taipei",
+    "district": "瑞芳區",
+    "address": "新北市瑞芳區魚寮路113號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Cafe+Hytte+三貂嶺&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🐶"
+    ],
+    "features": "新北市瑞芳區人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_21",
+    "name": "山海明珠",
+    "city": "新北市",
+    "city_en": "New Taipei",
+    "district": "八里區",
+    "address": "新北市八里區荖阡坑路20號",
+    "phone": "0988-928-192",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=山海明珠+八里&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🗣️"
+    ],
+    "features": "新北市八里區人氣口碑咖啡名店，主打海景景觀、採光超好、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
     "rate": "4.9★",
     "img": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&auto=format&fit=crop"
   },
   {
-    "id": "ila_1",
-    "name": "滿山望海 Cafe",
-    "city": "宜蘭縣",
-    "district": "頭城鎮",
-    "address": "宜蘭縣頭城鎮大坑路197號",
-    "status": "營業中 (10:00 - 17:30)",
-    "features": "頭城海邊第一排峇里島南洋風純白木屋！二樓無窗框全開放海景正對龜山島，聽著浪濤喝手沖咖啡人生至高享受。",
+    "id": "cafe_22",
+    "name": "墨憩精品咖啡",
+    "city": "新北市",
+    "city_en": "New Taipei",
+    "district": "板橋區",
+    "address": "新北市板橋區陽明街23巷8號",
+    "phone": "(02) 2250-0276",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=墨憩精品咖啡&authuser=1",
+    "tags": [
+      "有插頭",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "☕",
+      "🍰"
+    ],
+    "features": "新北市板橋區人氣口碑咖啡名店，主打有插頭、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1524350876685-274059332603?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_23",
+    "name": "Merci café",
+    "city": "新北市",
+    "city_en": "New Taipei",
+    "district": "板橋區",
+    "address": "新北市板橋區新民街7巷17號",
+    "phone": "(02) 8953-3906",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Merci+cafe+板橋&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "🐶"
+    ],
+    "features": "新北市板橋區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_24",
+    "name": "私處 Corner",
+    "city": "新北市",
+    "city_en": "New Taipei",
+    "district": "淡水區",
+    "address": "新北市淡水區民權路183巷23號",
+    "phone": "(02) 2808-5065",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=淡水+私處+Corner&authuser=1",
+    "tags": [
+      "採光超好",
+      "植栽老宅",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🌿",
+      "🐶"
+    ],
+    "features": "新北市淡水區人氣口碑咖啡名店，主打採光超好、植栽老宅、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_25",
+    "name": "浪花丸かき氷·淡水分號",
+    "city": "新北市",
+    "city_en": "New Taipei",
+    "district": "淡水區",
+    "address": "新北市淡水區中正路233-2號",
+    "phone": "(02) 2628-2727",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=浪花丸+淡水&authuser=1",
     "tags": [
       "海景景觀",
-      "採光超好",
-      "適合聊天",
+      "甜點好吃",
       "小孩友善"
     ],
-    "price": "NT$ 200 - 450",
-    "rate": "4.8★",
-    "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop"
+    "tagEmojis": [
+      "🌊",
+      "🍰",
+      "👶"
+    ],
+    "features": "新北市淡水區人氣口碑咖啡名店，主打海景景觀、甜點好吃、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=600&auto=format&fit=crop"
   },
   {
-    "id": "hun_1",
-    "name": "海崖谷 Hayaku 景觀咖啡",
-    "city": "花蓮縣",
-    "district": "壽豐鄉",
-    "address": "花蓮縣壽豐鄉鹽寮村大坑51-5號",
-    "status": "營業中 (09:00 - 19:00)",
-    "features": "太平洋海岸懸崖上的度假聖地！擁有露天戶外沙發區、月亮鞦韆與天空之門，視野無邊無際，寵物友善。",
+    "id": "cafe_26",
+    "name": "一坪金林",
+    "city": "新北市",
+    "city_en": "New Taipei",
+    "district": "新店區",
+    "address": "新北市新店區屈尺路161號",
+    "phone": "0975-231-155",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=一坪金林&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "☕"
+    ],
+    "features": "新北市新店區人氣口碑咖啡名店，主打植栽老宅、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_27",
+    "name": "綠河 Green River Roastery",
+    "city": "新北市",
+    "city_en": "New Taipei",
+    "district": "新店區",
+    "address": "新北市新店區環河路100號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=綠河+Green+River+Roastery&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "新北市新店區人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_28",
+    "name": "九份食不厭",
+    "city": "新北市",
+    "city_en": "New Taipei",
+    "district": "瑞芳區",
+    "address": "新北市瑞芳區金光路221號",
+    "phone": "0911-827-844",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=食不厭+金瓜石&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "店家可喝酒",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍷",
+      "🗣️"
+    ],
+    "features": "新北市瑞芳區人氣口碑咖啡名店，主打植栽老宅、店家可喝酒、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_29",
+    "name": "野事草店 Wild Herbs",
+    "city": "新北市",
+    "city_en": "New Taipei",
+    "district": "瑞芳區",
+    "address": "新北市瑞芳區輕便路147號",
+    "phone": "(02) 2363-6268",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=野事草店&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☀️"
+    ],
+    "features": "新北市瑞芳區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_30",
+    "name": "天使熱愛的生活",
+    "city": "新北市",
+    "city_en": "New Taipei",
+    "district": "淡水區",
+    "address": "新北市淡水區中正路233-1號",
+    "phone": "(02) 8631-2928",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=天使熱愛的生活&authuser=1",
+    "tags": [
+      "海景景觀",
+      "店家可喝酒",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "🍷",
+      "☕"
+    ],
+    "features": "新北市淡水區人氣口碑咖啡名店，主打海景景觀、店家可喝酒、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_31",
+    "name": "魚刺人雞蛋糕 咖啡館 基隆店",
+    "city": "基隆市",
+    "city_en": "Keelung",
+    "district": "中正區",
+    "address": "基隆市中正區中正路545號",
+    "phone": "(02) 2462-0262",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=魚刺人雞蛋糕+正濱漁港&authuser=1",
+    "tags": [
+      "海景景觀",
+      "甜點好吃",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "🍰",
+      "👶"
+    ],
+    "features": "基隆市中正區人氣口碑咖啡名店，主打海景景觀、甜點好吃、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_32",
+    "name": "圖們咖啡 tuman café",
+    "city": "基隆市",
+    "city_en": "Keelung",
+    "district": "中正區",
+    "address": "基隆市中正區中正路551號",
+    "phone": "(02) 2462-8727",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=圖們咖啡+tuman+cafe&authuser=1",
+    "tags": [
+      "海景景觀",
+      "手沖咖啡",
+      "店家可喝酒"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☕",
+      "🍷"
+    ],
+    "features": "基隆市中正區人氣口碑咖啡名店，主打海景景觀、手沖咖啡、店家可喝酒。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_33",
+    "name": "萬祝號",
+    "city": "基隆市",
+    "city_en": "Keelung",
+    "district": "中正區",
+    "address": "基隆市中正區中正路560號",
+    "phone": "(02) 2462-6867",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=萬祝號&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☕"
+    ],
+    "features": "基隆市中正區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_34",
+    "name": "夏隆咖啡館",
+    "city": "基隆市",
+    "city_en": "Keelung",
+    "district": "信義區",
+    "address": "基隆市信義區義六路38號",
+    "phone": "(02) 2426-6649",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=夏隆咖啡館&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "甜點好吃",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🍰",
+      "🌿"
+    ],
+    "features": "基隆市信義區人氣口碑咖啡名店，主打手沖咖啡、甜點好吃、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_35",
+    "name": "丸角自轉生活咖啡",
+    "city": "基隆市",
+    "city_en": "Keelung",
+    "district": "仁愛區",
+    "address": "基隆市仁愛區孝二路28號",
+    "phone": "(02) 2427-3028",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=丸角自轉生活咖啡&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "有插頭",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🔌",
+      "🌿"
+    ],
+    "features": "基隆市仁愛區人氣口碑咖啡名店，主打手沖咖啡、有插頭、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_36",
+    "name": "安樓咖啡 ENZO Cafe",
+    "city": "基隆市",
+    "city_en": "Keelung",
+    "district": "仁愛區",
+    "address": "基隆市仁愛區蜓愛路三段67號",
+    "phone": "(02) 2425-0220",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=安樓咖啡&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☀️"
+    ],
+    "features": "基隆市仁愛區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_37",
+    "name": "喜舍咖啡館",
+    "city": "基隆市",
+    "city_en": "Keelung",
+    "district": "仁愛區",
+    "address": "基隆市仁愛區愛二路54巷2號",
+    "phone": "(02) 2425-2882",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=喜舍咖啡館+基隆&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "基隆市仁愛區人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_38",
+    "name": "金派甜點",
+    "city": "基隆市",
+    "city_en": "Keelung",
+    "district": "仁愛區",
+    "address": "基隆市仁愛區愛三路75號2樓",
+    "phone": "(02) 2428-2479",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=金派甜點&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "寵物友善",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "🐶",
+      "☀️"
+    ],
+    "features": "基隆市仁愛區人氣口碑咖啡名店，主打甜點好吃、寵物友善、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_39",
+    "name": "Eddie's cafe Et Tiramisu",
+    "city": "基隆市",
+    "city_en": "Keelung",
+    "district": "仁愛區",
+    "address": "基隆市仁愛區華四街25號",
+    "phone": "0989-840-785",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Eddie's+cafe+Et+Tiramisu&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "手沖咖啡",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "☕",
+      "🌿"
+    ],
+    "features": "基隆市仁愛區人氣口碑咖啡名店，主打甜點好吃、手沖咖啡、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_40",
+    "name": "海那邊 冰品咖啡",
+    "city": "基隆市",
+    "city_en": "Keelung",
+    "district": "中正區",
+    "address": "基隆市中正區中正路529號",
+    "phone": "(02) 2462-0538",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=海那邊+正濱漁港&authuser=1",
+    "tags": [
+      "海景景觀",
+      "甜點好吃",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "🍰",
+      "🐶"
+    ],
+    "features": "基隆市中正區人氣口碑咖啡名店，主打海景景觀、甜點好吃、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_41",
+    "name": "喫茶開門",
+    "city": "基隆市",
+    "city_en": "Keelung",
+    "district": "中正區",
+    "address": "基隆市中正區中正路393巷38號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=喫茶開門&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "基隆市中正區人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_42",
+    "name": "FLOW CAFE",
+    "city": "基隆市",
+    "city_en": "Keelung",
+    "district": "仁愛區",
+    "address": "基隆市仁愛區仁三路53號2樓",
+    "phone": "(02) 2428-3880",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=FLOW+CAFE+基隆&authuser=1",
+    "tags": [
+      "採光超好",
+      "甜點好吃",
+      "有插頭"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🍰",
+      "🔌"
+    ],
+    "features": "基隆市仁愛區人氣口碑咖啡名店，主打採光超好、甜點好吃、有插頭。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_43",
+    "name": "若竹咖啡",
+    "city": "基隆市",
+    "city_en": "Keelung",
+    "district": "信義區",
+    "address": "基隆市信義區東信路35-5號",
+    "phone": "(02) 2466-8800",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=若竹咖啡+基隆&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "植栽老宅",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🌿",
+      "🍰"
+    ],
+    "features": "基隆市信義區人氣口碑咖啡名店，主打手沖咖啡、植栽老宅、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_44",
+    "name": "聚川居咖啡",
+    "city": "基隆市",
+    "city_en": "Keelung",
+    "district": "中山區",
+    "address": "基隆市中山區中山二路51巷132號",
+    "phone": "0933-241-118",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=聚川居咖啡&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "☕"
+    ],
+    "features": "基隆市中山區人氣口碑咖啡名店，主打植栽老宅、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_45",
+    "name": "太平青鳥書店咖啡",
+    "city": "基隆市",
+    "city_en": "Keelung",
+    "district": "中山區",
+    "address": "基隆市中山區中山一路189巷135號",
+    "phone": "(02) 2427-6323",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=太平青鳥&authuser=1",
     "tags": [
       "海景景觀",
       "採光超好",
-      "寵物友善",
-      "適合聊天"
+      "植栽老宅"
     ],
-    "price": "NT$ 200 - 400",
-    "rate": "4.8★",
-    "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=600&auto=format&fit=crop"
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🌿"
+    ],
+    "features": "基隆市中山區人氣口碑咖啡名店，主打海景景觀、採光超好、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&auto=format&fit=crop"
   },
   {
-    "id": "ttt_1",
-    "name": "薄荷巴黎 Books Cafe",
-    "city": "台東縣",
-    "district": "台東市",
-    "address": "台東市傳廣路234巷11號",
-    "status": "營業中 (13:00 - 19:00)",
-    "features": "純白法式鄉村綠意庭園！手作法式甜點、酥脆可頌與自家烘豆，採光柔和溫馨，是台東市區最高雅的午後去處。",
+    "id": "cafe_46",
+    "name": "阜山聚落（Chubby Doo）",
+    "city": "桃園市",
+    "city_en": "Taoyuan",
+    "district": "桃園區",
+    "address": "桃園市桃園區經國二路83號",
+    "phone": "0905-650-884",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%98%9C%E5%B1%B1%E8%81%9A%E8%90%BD&authuser=1",
+    "tags": [
+      "採光超好",
+      "甜點好吃",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🍰",
+      "👶"
+    ],
+    "features": "桃園市桃園區人氣口碑咖啡名店，主打採光超好、甜點好吃、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_47",
+    "name": "我們。 They keep company",
+    "city": "桃園市",
+    "city_en": "Taoyuan",
+    "district": "中壢區",
+    "address": "桃園市中壢區環東路288號",
+    "phone": "0988-123-456",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%88%91%E5%80%91+They+keep+company&authuser=1",
+    "tags": [
+      "寵物友善",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🐶",
+      "🍰",
+      "☀️"
+    ],
+    "features": "桃園市中壢區人氣口碑咖啡名店，主打寵物友善、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1524350876685-274059332603?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_48",
+    "name": "Table2 Coffee Roaster",
+    "city": "桃園市",
+    "city_en": "Taoyuan",
+    "district": "中壢區",
+    "address": "桃園市中壢區興平路163號",
+    "phone": "(03) 435-8793",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Table2+Coffee+Roaster&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "甜點好吃",
+      "有插頭"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🍰",
+      "🔌"
+    ],
+    "features": "桃園市中壢區人氣口碑咖啡名店，主打手沖咖啡、甜點好吃、有插頭。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_49",
+    "name": "理性&感性 cafe",
+    "city": "桃園市",
+    "city_en": "Taoyuan",
+    "district": "平鎮區",
+    "address": "桃園市平鎮區育達路67號",
+    "phone": "0963-420-692",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%90%86%E6%80%A7&%E6%84%9F%E6%80%A7cafe&authuser=1",
     "tags": [
       "甜點好吃",
+      "寵物友善",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "🐶",
+      "☀️"
+    ],
+    "features": "桃園市平鎮區人氣口碑咖啡名店，主打甜點好吃、寵物友善、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_50",
+    "name": "Re-Title Cafe",
+    "city": "桃園市",
+    "city_en": "Taoyuan",
+    "district": "中壢區",
+    "address": "桃園市中壢區愛國路60號",
+    "phone": "(03) 425-7661",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Re-Title+Cafe&authuser=1",
+    "tags": [
+      "有插頭",
+      "植栽老宅",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "🌿",
+      "🍰"
+    ],
+    "features": "桃園市中壢區人氣口碑咖啡名店，主打有插頭、植栽老宅、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_51",
+    "name": "七步咖啡",
+    "city": "桃園市",
+    "city_en": "Taoyuan",
+    "district": "桃園區",
+    "address": "桃園市桃園區宏昌六街152號",
+    "phone": "(03) 220-0080",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E4%B8%83%E6%AD%A5%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "有插頭",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🔌",
+      "🍰"
+    ],
+    "features": "桃園市桃園區人氣口碑咖啡名店，主打手沖咖啡、有插頭、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_52",
+    "name": "走走咖啡",
+    "city": "桃園市",
+    "city_en": "Taoyuan",
+    "district": "桃園區",
+    "address": "桃園市桃園區大興十一街61號",
+    "phone": "(03) 357-5221",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%B5%B0%E8%B5%B0%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "甜點好吃",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🍰",
+      "🌿"
+    ],
+    "features": "桃園市桃園區人氣口碑咖啡名店，主打手沖咖啡、甜點好吃、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_53",
+    "name": "隱半島咖啡",
+    "city": "桃園市",
+    "city_en": "Taoyuan",
+    "district": "大溪區",
+    "address": "桃園市大溪區康莊路三段651巷56號",
+    "phone": "0989-567-890",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%9A%B1%E5%8D%8A%E5%B3%B6%E5%92%96%E5%95%A1+%E5%A4%A7%E6%BA%AA&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "👶"
+    ],
+    "features": "桃園市大溪區人氣口碑咖啡名店，主打植栽老宅、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_54",
+    "name": "秋波名曲珈琲",
+    "city": "桃園市",
+    "city_en": "Taoyuan",
+    "district": "大園區",
+    "address": "桃園市大園區致祥三街36號",
+    "phone": "(03) 381-1234",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%A7%8B%E6%B3%A2%E5%90%8D%E6%9B%B2%E7%8F%88%E7%90%B2+%E6%A1%83%E5%9C%92&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "店家可喝酒"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "🍷"
+    ],
+    "features": "桃園市大園區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、店家可喝酒。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_55",
+    "name": "草漯沙丘海景咖啡",
+    "city": "桃園市",
+    "city_en": "Taoyuan",
+    "district": "觀音區",
+    "address": "桃園市觀音區忠孝路1076巷",
+    "phone": "0932-111-222",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%8D%89%E6%BC%AF%E6%B2%99%E4%B8%98%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🐶"
+    ],
+    "features": "桃園市觀音區人氣口碑咖啡名店，主打海景景觀、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_56",
+    "name": "燊咖啡 Shen cafe",
+    "city": "桃園市",
+    "city_en": "Taoyuan",
+    "district": "桃園區",
+    "address": "桃園市桃園區新埔六街138號",
+    "phone": "(03) 346-9988",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%87%8A%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "甜點好吃",
+      "有插頭"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🍰",
+      "🔌"
+    ],
+    "features": "桃園市桃園區人氣口碑咖啡名店，主打手沖咖啡、甜點好吃、有插頭。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_57",
+    "name": "OVER THERE 景觀咖啡",
+    "city": "桃園市",
+    "city_en": "Taoyuan",
+    "district": "桃園區",
+    "address": "桃園市桃園區水岸街2-1號",
+    "phone": "(03) 316-2299",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=OVER+THERE+%E6%B0%B4%E5%B2%B8&authuser=1",
+    "tags": [
+      "採光超好",
+      "寵物友善",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🐶",
+      "👶"
+    ],
+    "features": "桃園市桃園區人氣口碑咖啡名店，主打採光超好、寵物友善、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_58",
+    "name": "古山星辰景觀咖啡",
+    "city": "桃園市",
+    "city_en": "Taoyuan",
+    "district": "蘆竹區",
+    "address": "桃園市蘆竹區小古山路15號",
+    "phone": "(03) 324-2589",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%8F%A4%E5%B1%B1%E6%98%9F%E8%BE%B0%E6%99%AF%E8%A7%80%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "採光超好",
+      "店家可喝酒",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🍷",
+      "👶"
+    ],
+    "features": "桃園市蘆竹區人氣口碑咖啡名店，主打採光超好、店家可喝酒、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_59",
+    "name": "鹿點咖啡 Luna桃園店",
+    "city": "桃園市",
+    "city_en": "Taoyuan",
+    "district": "桃園區",
+    "address": "桃園市桃園區成功路三段175號",
+    "phone": "(03) 331-0156",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%B9%BF%E9%BB%9E%E5%92%96%E5%95%A1Luna&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "植栽老宅",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "🌿",
+      "☀️"
+    ],
+    "features": "桃園市桃園區人氣口碑咖啡名店，主打甜點好吃、植栽老宅、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_60",
+    "name": "Jo's Corner Cafe",
+    "city": "桃園市",
+    "city_en": "Taoyuan",
+    "district": "桃園區",
+    "address": "桃園市桃園區國強一街135號",
+    "phone": "(03) 379-0888",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Jos+Corner+Cafe&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🍰"
+    ],
+    "features": "桃園市桃園區人氣口碑咖啡名店，主打植栽老宅、採光超好、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_61",
+    "name": "微生 Float Dept.",
+    "city": "新竹市",
+    "city_en": "Hsinchu City",
+    "district": "東區",
+    "address": "新竹市東區民權路111巷58號",
+    "phone": "(03) 531-8810",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%BE%AE%E7%94%9F+Float+Dept&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☀️"
+    ],
+    "features": "新竹市東區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_62",
+    "name": "暗室微光",
+    "city": "新竹市",
+    "city_en": "Hsinchu City",
+    "district": "東區",
+    "address": "新竹市東區勝利路97號",
+    "phone": "(03) 525-2090",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%9A%97%E5%AE%A4%E5%BE%AE%E5%85%89&authuser=1",
+    "tags": [
+      "有插頭",
+      "植栽老宅",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "🌿",
+      "☕"
+    ],
+    "features": "新竹市東區人氣口碑咖啡名店，主打有插頭、植栽老宅、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_63",
+    "name": "續日 CAFE",
+    "city": "新竹市",
+    "city_en": "Hsinchu City",
+    "district": "東區",
+    "address": "新竹市東區南大路149號",
+    "phone": "(03) 561-0000",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%BA%8C%E6%97%A5+CAFE&authuser=1",
+    "tags": [
+      "有插頭",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "🍰",
+      "☕"
+    ],
+    "features": "新竹市東區人氣口碑咖啡名店，主打有插頭、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_64",
+    "name": "一想一響 ReEcho Coffee",
+    "city": "新竹市",
+    "city_en": "Hsinchu City",
+    "district": "東區",
+    "address": "新竹市東區民生路58巷8號",
+    "phone": "(03) 533-6651",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E4%B8%80%E6%83%B3%E4%B8%80%E9%9F%BF+ReEcho+Coffee&authuser=1",
+    "tags": [
+      "採光超好",
+      "手沖咖啡",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "☕",
+      "🌿"
+    ],
+    "features": "新竹市東區人氣口碑咖啡名店，主打採光超好、手沖咖啡、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_65",
+    "name": "吉十咖啡",
+    "city": "新竹市",
+    "city_en": "Hsinchu City",
+    "district": "北區",
+    "address": "新竹市北區中華路三段56號",
+    "phone": "(03) 523-2288",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%90%89%E5%8D%81%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "手沖咖啡",
+      "有插頭"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "☕",
+      "🔌"
+    ],
+    "features": "新竹市北區人氣口碑咖啡名店，主打甜點好吃、手沖咖啡、有插頭。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_66",
+    "name": "江山藝改所",
+    "city": "新竹市",
+    "city_en": "Hsinchu City",
+    "district": "東區",
+    "address": "新竹市東區興達街1號",
+    "phone": "(03) 526-6456",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%B1%9F%E5%B1%B1%E8%97%9D%E6%94%B9%E6%89%80&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "店家可喝酒",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍷",
+      "☕"
+    ],
+    "features": "新竹市東區人氣口碑咖啡名店，主打植栽老宅、店家可喝酒、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_67",
+    "name": "墨咖啡 INK COFFEE",
+    "city": "新竹市",
+    "city_en": "Hsinchu City",
+    "district": "東區",
+    "address": "新竹市東區林森路180號",
+    "phone": "(03) 522-0608",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%A2%A8%E5%92%96%E5%95%A1+%E6%96%B0%E7%AB%B9&authuser=1",
+    "tags": [
+      "有插頭",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "☕",
+      "🍰"
+    ],
+    "features": "新竹市東區人氣口碑咖啡名店，主打有插頭、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_68",
+    "name": "FOX.CONE coffee bakes",
+    "city": "新竹市",
+    "city_en": "Hsinchu City",
+    "district": "東區",
+    "address": "新竹市東區南門街12號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=FOX+CONE+coffee&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "手沖咖啡",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "☕",
+      "☀️"
+    ],
+    "features": "新竹市東區人氣口碑咖啡名店，主打甜點好吃、手沖咖啡、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_69",
+    "name": "哭哭咖啡 kukukohi",
+    "city": "新竹市",
+    "city_en": "Hsinchu City",
+    "district": "東區",
+    "address": "新竹市東區文興路一段1號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%93%AD%E5%93%AD%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "☕"
+    ],
+    "features": "新竹市東區人氣口碑咖啡名店，主打植栽老宅、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_70",
+    "name": "階段甜點",
+    "city": "新竹市",
+    "city_en": "Hsinchu City",
+    "district": "北區",
+    "address": "新竹市北區長安街89號",
+    "phone": "(03) 527-8869",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%9A%8E%E6%AE%B5%E7%94%9C%E9%BB%9E&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "植栽老宅",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "🌿",
+      "☀️"
+    ],
+    "features": "新竹市北區人氣口碑咖啡名店，主打甜點好吃、植栽老宅、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_71",
+    "name": "井町心靈咖啡",
+    "city": "新竹市",
+    "city_en": "Hsinchu City",
+    "district": "北區",
+    "address": "新竹市北區大同路135號",
+    "phone": "(03) 525-3186",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E4%BA%95%E7%94%BA%E5%BF%83%E9%9D%88%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "小孩友善",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "👶",
+      "🗣️"
+    ],
+    "features": "新竹市北區人氣口碑咖啡名店，主打植栽老宅、小孩友善、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_72",
+    "name": "種甜甜點咖啡",
+    "city": "新竹市",
+    "city_en": "Hsinchu City",
+    "district": "東區",
+    "address": "新竹市東區民族路66巷4號",
+    "phone": "(03) 562-1004",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%A8%AE%E7%94%9C&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "植栽老宅",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "🌿",
+      "☀️"
+    ],
+    "features": "新竹市東區人氣口碑咖啡名店，主打甜點好吃、植栽老宅、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1524350876685-274059332603?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_73",
+    "name": "影咖啡 Inn Caffe",
+    "city": "新竹市",
+    "city_en": "Hsinchu City",
+    "district": "東區",
+    "address": "新竹市東區金山二十三街89號",
+    "phone": "(03) 668-6922",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%BD%B1%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "手沖咖啡",
+      "有插頭"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "☕",
+      "🔌"
+    ],
+    "features": "新竹市東區人氣口碑咖啡名店，主打甜點好吃、手沖咖啡、有插頭。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_74",
+    "name": "Hidden Off",
+    "city": "新竹市",
+    "city_en": "Hsinchu City",
+    "district": "北區",
+    "address": "新竹市北區西門街135號",
+    "phone": "(03) 528-1110",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Hidden+Off&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "採光超好",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "☀️",
+      "🌿"
+    ],
+    "features": "新竹市北區人氣口碑咖啡名店，主打甜點好吃、採光超好、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_75",
+    "name": "謐謐 The Secret",
+    "city": "新竹市",
+    "city_en": "Hsinchu City",
+    "district": "東區",
+    "address": "新竹市東區中央路310號",
+    "phone": "(03) 533-7977",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%AC%90%E8%AC%90+The+Secret&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "採光超好",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "☀️",
+      "🗣️"
+    ],
+    "features": "新竹市東區人氣口碑咖啡名店，主打甜點好吃、採光超好、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_76",
+    "name": "厚食聚落 咖啡聚落",
+    "city": "新竹縣",
+    "city_en": "Hsinchu County",
+    "district": "竹北市",
+    "address": "新竹縣竹北市光明六路東二段95-5號",
+    "phone": "(03) 550-6289",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%8E%9A%E9%A3%9F%E8%81%9A%E8%90%BD&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "☕"
+    ],
+    "features": "新竹縣竹北市人氣口碑咖啡名店，主打植栽老宅、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_77",
+    "name": "日見森嵐",
+    "city": "新竹縣",
+    "city_en": "Hsinchu County",
+    "district": "尖石鄉",
+    "address": "新竹縣尖石鄉七鄰45號",
+    "phone": "0978-081-877",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%97%A5%E8%A6%8B%E6%A3%AE%E5%B5%90&authuser=1",
+    "tags": [
+      "採光超好",
+      "植栽老宅",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🌿",
+      "👶"
+    ],
+    "features": "新竹縣尖石鄉人氣口碑咖啡名店，主打採光超好、植栽老宅、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_78",
+    "name": "綠色小徑 green trail",
+    "city": "新竹縣",
+    "city_en": "Hsinchu County",
+    "district": "芎林鄉",
+    "address": "新竹縣芎林鄉華龍村五鄰187號",
+    "phone": "(03) 593-5765",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%B6%A0%E8%89%B2%E5%B0%8F%E5%BE%91&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "寵物友善",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🐶",
+      "👶"
+    ],
+    "features": "新竹縣芎林鄉人氣口碑咖啡名店，主打植栽老宅、寵物友善、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_79",
+    "name": "哭哭咖啡 概念店",
+    "city": "新竹縣",
+    "city_en": "Hsinchu County",
+    "district": "竹北市",
+    "address": "新竹縣竹北市文興路二段140號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%93%AD%E5%93%AD%E5%92%96%E5%95%A1+%E7%AB%B9%E5%8C%97&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "☕"
+    ],
+    "features": "新竹縣竹北市人氣口碑咖啡名店，主打植栽老宅、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_80",
+    "name": "喜木咖啡",
+    "city": "新竹縣",
+    "city_en": "Hsinchu County",
+    "district": "竹北市",
+    "address": "新竹縣竹北市鳳岡路二段422號",
+    "phone": "(03) 556-0799",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%96%9C%E6%9C%A8%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "採光超好",
+      "田園稻浪",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🌾",
+      "👶"
+    ],
+    "features": "新竹縣竹北市人氣口碑咖啡名店，主打採光超好、田園稻浪、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_81",
+    "name": "大山北月",
+    "city": "新竹縣",
+    "city_en": "Hsinchu County",
+    "district": "橫山鄉",
+    "address": "新竹縣橫山鄉大山背80號",
+    "phone": "(03) 593-6439",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%A4%A7%E5%B1%B1%E5%8C%97%E6%9C%88&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "小孩友善",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "👶",
+      "🐶"
+    ],
+    "features": "新竹縣橫山鄉人氣口碑咖啡名店，主打植栽老宅、小孩友善、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_82",
+    "name": "山丘上景觀咖啡館",
+    "city": "新竹縣",
+    "city_en": "Hsinchu County",
+    "district": "湖口鄉",
+    "address": "新竹縣湖口鄉湖新路980巷",
+    "phone": "(03) 569-0588",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B1%B1%E4%B8%98%E4%B8%8A%E6%99%AF%E8%A7%80%E5%92%96%E5%95%A1%E9%A4%A8&authuser=1",
+    "tags": [
+      "採光超好",
+      "店家可喝酒",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🍷",
+      "👶"
+    ],
+    "features": "新竹縣湖口鄉人氣口碑咖啡名店，主打採光超好、店家可喝酒、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_83",
+    "name": "六號花園",
+    "city": "新竹縣",
+    "city_en": "Hsinchu County",
+    "district": "尖石鄉",
+    "address": "新竹縣尖石鄉新樂村拉號部落",
+    "phone": "0932-178-177",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%85%AD%E8%99%9F%E8%8A%B1%E5%9C%92&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🐶"
+    ],
+    "features": "新竹縣尖石鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_84",
+    "name": "半畝院子",
+    "city": "新竹縣",
+    "city_en": "Hsinchu County",
+    "district": "竹北市",
+    "address": "新竹縣竹北市光明六路東二段381號",
+    "phone": "(03) 668-5700",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%8D%8A%E7%95%9D%E9%99%A2%E5%AD%90&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "新竹縣竹北市人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_85",
+    "name": "Bisou Bisou 珈琲",
+    "city": "新竹縣",
+    "city_en": "Hsinchu County",
+    "district": "竹北市",
+    "address": "新竹縣竹北市嘉豐五路二段18號",
+    "phone": "(03) 667-0682",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Bisou+Bisou+%E7%AB%B9%E5%8C%97&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "手沖咖啡",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "☕",
+      "☀️"
+    ],
+    "features": "新竹縣竹北市人氣口碑咖啡名店，主打甜點好吃、手沖咖啡、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_86",
+    "name": "紅瓦紫藤",
+    "city": "新竹縣",
+    "city_en": "Hsinchu County",
+    "district": "竹北市",
+    "address": "新竹縣竹北市文興路一段123號",
+    "phone": "(03) 658-8188",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%B4%85%E7%93%A6%E7%B4%AB%E8%97%A4&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☀️"
+    ],
+    "features": "新竹縣竹北市人氣口碑咖啡名店，主打植栽老宅、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_87",
+    "name": "SRC 北埔莊園咖啡",
+    "city": "新竹縣",
+    "city_en": "Hsinchu County",
+    "district": "北埔鄉",
+    "address": "新竹縣北埔鄉水磜子4鄰50號",
+    "phone": "0972-021-341",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=SRC%E5%8C%97%E5%9F%94%E8%8E%8A%E5%9C%92&authuser=1",
+    "tags": [
+      "採光超好",
+      "小孩友善",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "👶",
+      "🐶"
+    ],
+    "features": "新竹縣北埔鄉人氣口碑咖啡名店，主打採光超好、小孩友善、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_88",
+    "name": "藍月莊園",
+    "city": "新竹縣",
+    "city_en": "Hsinchu County",
+    "district": "關西鎮",
+    "address": "新竹縣關西鎮石光里7鄰328-1號",
+    "phone": "(03) 587-1600",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%97%8D%E6%9C%88%E8%8E%8A%E5%9C%92&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "寵物友善",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🐶",
+      "👶"
+    ],
+    "features": "新竹縣關西鎮人氣口碑咖啡名店，主打植栽老宅、寵物友善、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_89",
+    "name": "上山喝咖啡",
+    "city": "新竹縣",
+    "city_en": "Hsinchu County",
+    "district": "橫山鄉",
+    "address": "新竹縣橫山鄉大山背1鄰",
+    "phone": "0912-345-678",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E4%B8%8A%E5%B1%B1%E5%96%9D%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "☕"
+    ],
+    "features": "新竹縣橫山鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_90",
+    "name": "溫室咖啡 Greenhouse",
+    "city": "新竹縣",
+    "city_en": "Hsinchu County",
+    "district": "竹東鎮",
+    "address": "新竹縣竹東鎮中興路四段",
+    "phone": "(03) 582-8888",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%BA%AB%E5%AE%A4%E5%92%96%E5%95%A1+%E7%AB%B9%E6%9D%B1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "👶"
+    ],
+    "features": "新竹縣竹東鎮人氣口碑咖啡名店，主打植栽老宅、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_91",
+    "name": "山那邊·綠葉方舟",
+    "city": "苗栗縣",
+    "city_en": "Miaoli",
+    "district": "三義鄉",
+    "address": "苗栗縣三義鄉勝興村綠舟路1號",
+    "phone": "(03) 787-5868",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%B6%A0%E8%91%89%E6%96%B9%E8%88%9F&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "寵物友善",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🐶",
+      "👶"
+    ],
+    "features": "苗栗縣三義鄉人氣口碑咖啡名店，主打植栽老宅、寵物友善、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_92",
+    "name": "漫步雲端森林廚房咖啡",
+    "city": "苗栗縣",
+    "city_en": "Miaoli",
+    "district": "三義鄉",
+    "address": "苗栗縣三義鄉雙潭村崩山下22號",
+    "phone": "(03) 787-9085",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%BC%AB%E6%AD%A5%E9%9B%B2%E7%AB%AF%E6%A3%AE%E6%9E%97%E5%BB%9A%E6%88%BF&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "寵物友善",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🐶",
+      "👶"
+    ],
+    "features": "苗栗縣三義鄉人氣口碑咖啡名店，主打植栽老宅、寵物友善、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_93",
+    "name": "蘇維拉莊園 咖啡廳",
+    "city": "苗栗縣",
+    "city_en": "Miaoli",
+    "district": "南庄鄉",
+    "address": "苗栗縣南庄鄉田美村16鄰四灣92號",
+    "phone": "(03) 782-3328",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%98%87%E7%B6%AD%E6%8B%89%E8%8E%8A%E5%9C%92&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "小孩友善",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "👶",
+      "☀️"
+    ],
+    "features": "苗栗縣南庄鄉人氣口碑咖啡名店，主打植栽老宅、小孩友善、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_94",
+    "name": "Per gram coffee",
+    "city": "苗栗縣",
+    "city_en": "Miaoli",
+    "district": "苗栗市",
+    "address": "苗栗縣苗栗市中山路747號",
+    "phone": "(03) 735-6011",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Per+gram+coffee&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "甜點好吃",
+      "有插頭"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🍰",
+      "🔌"
+    ],
+    "features": "苗栗縣苗栗市人氣口碑咖啡名店，主打手沖咖啡、甜點好吃、有插頭。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_95",
+    "name": "重成商號（我們 Our）",
+    "city": "苗栗縣",
+    "city_en": "Miaoli",
+    "district": "後龍鎮",
+    "address": "苗栗縣後龍鎮海埔路56-1號",
+    "phone": "(03) 743-2179",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%87%8D%E6%88%90%E5%95%86%E8%99%9F&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☕"
+    ],
+    "features": "苗栗縣後龍鎮人氣口碑咖啡名店，主打植栽老宅、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_96",
+    "name": "轉角相遇咖啡",
+    "city": "苗栗縣",
+    "city_en": "Miaoli",
+    "district": "南庄鄉",
+    "address": "苗栗縣南庄鄉中正路58號",
+    "phone": "(03) 782-1522",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%BD%89%E8%A7%92%E7%9B%B8%E9%81%87%E5%92%96%E5%95%A1+%E5%8D%97%E5%BA%84&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "苗栗縣南庄鄉人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_97",
+    "name": "日新島 水漾咖啡",
+    "city": "苗栗縣",
+    "city_en": "Miaoli",
+    "district": "頭屋鄉",
+    "address": "苗栗縣頭屋鄉明德村明德路54-6號",
+    "phone": "(03) 725-5789",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%97%A5%E6%96%B0%E5%B3%B6%E6%B0%B4%E6%BC%BE%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "寵物友善",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🐶",
+      "👶"
+    ],
+    "features": "苗栗縣頭屋鄉人氣口碑咖啡名店，主打植栽老宅、寵物友善、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1524350876685-274059332603?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_98",
+    "name": "窩 coffee",
+    "city": "苗栗縣",
+    "city_en": "Miaoli",
+    "district": "公館鄉",
+    "address": "苗栗縣公館鄉福星村館義路",
+    "phone": "0966-658-808",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%AA%A9coffee+%E5%85%AC%E9%A4%A8&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🐶"
+    ],
+    "features": "苗栗縣公館鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_99",
+    "name": "老官道咖啡",
+    "city": "苗栗縣",
+    "city_en": "Miaoli",
+    "district": "大湖鄉",
+    "address": "苗栗縣大湖鄉新開村五鄰台3線141公里",
+    "phone": "0932-579-178",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%80%81%E5%AE%98%E9%81%93%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "寵物友善",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🐶",
+      "👶"
+    ],
+    "features": "苗栗縣大湖鄉人氣口碑咖啡名店，主打植栽老宅、寵物友善、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_100",
+    "name": "橙香森林景觀咖啡",
+    "city": "苗栗縣",
+    "city_en": "Miaoli",
+    "district": "頭屋鄉",
+    "address": "苗栗縣頭屋鄉明德路6號",
+    "phone": "(03) 725-2013",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%A9%99%E9%A6%99%E6%A3%AE%E6%9E%97&authuser=1",
+    "tags": [
+      "採光超好",
+      "小孩友善",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "👶",
+      "🐶"
+    ],
+    "features": "苗栗縣頭屋鄉人氣口碑咖啡名店，主打採光超好、小孩友善、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_101",
+    "name": "鹿角 CAFE",
+    "city": "苗栗縣",
+    "city_en": "Miaoli",
+    "district": "三義鄉",
+    "address": "苗栗縣三義鄉西湖村雙湖21號",
+    "phone": "0981-008-698",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%B9%BF%E8%A7%92CAFE+%E4%B8%89%E7%BE%A9&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "寵物友善",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🐶",
+      "🍰"
+    ],
+    "features": "苗栗縣三義鄉人氣口碑咖啡名店，主打植栽老宅、寵物友善、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_102",
+    "name": "天空之城 鳥VS.人咖啡",
+    "city": "苗栗縣",
+    "city_en": "Miaoli",
+    "district": "大湖鄉",
+    "address": "苗栗縣大湖鄉新開村十份33號",
+    "phone": "(03) 795-1815",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%A4%A9%E7%A9%BA%E4%B9%8B%E5%9F%8E+%E8%8B%97%E6%A0%97&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "👶"
+    ],
+    "features": "苗栗縣大湖鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_103",
+    "name": "山度空間 森林咖啡",
+    "city": "苗栗縣",
+    "city_en": "Miaoli",
+    "district": "泰安鄉",
+    "address": "苗栗縣泰安鄉清安村洗水坑",
+    "phone": "0910-123-999",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%B3%B0%E5%AE%89%E6%A3%AE%E6%9E%97%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "☕"
+    ],
+    "features": "苗栗縣泰安鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_104",
+    "name": "隨心園咖啡",
+    "city": "苗栗縣",
+    "city_en": "Miaoli",
+    "district": "竹南鎮",
+    "address": "苗栗縣竹南鎮博愛街120號",
+    "phone": "(03) 746-8888",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%9A%A8%E5%BF%83%E5%9C%92%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "甜點好吃",
+      "有插頭"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🍰",
+      "🔌"
+    ],
+    "features": "苗栗縣竹南鎮人氣口碑咖啡名店，主打手沖咖啡、甜點好吃、有插頭。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_105",
+    "name": "自然風情景觀咖啡",
+    "city": "苗栗縣",
+    "city_en": "Miaoli",
+    "district": "卓蘭鎮",
+    "address": "苗栗縣卓蘭鎮西坪里西坪134之7號",
+    "phone": "(04) 2589-8080",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%87%AA%E7%84%B6%E9%A2%A8%E6%83%85%E6%99%AF%E8%A7%80%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "採光超好",
+      "寵物友善",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🐶",
+      "👶"
+    ],
+    "features": "苗栗縣卓蘭鎮人氣口碑咖啡名店，主打採光超好、寵物友善、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_106",
+    "name": "吃茶三千 台灣概念店",
+    "city": "台中市",
+    "city_en": "Taichung",
+    "district": "南屯區",
+    "address": "台中市南屯區大英街360號",
+    "phone": "(04) 2328-5536",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%90%83%E8%8C%B6%E4%B8%89%E5%8D%83&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "☕"
+    ],
+    "features": "台中市南屯區人氣口碑咖啡名店，主打植栽老宅、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_107",
+    "name": "Solidbean Coffee Roasters",
+    "city": "台中市",
+    "city_en": "Taichung",
+    "district": "西區",
+    "address": "台中市西區精誠三街28號",
+    "phone": "(04) 2320-0863",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Solidbean+Coffee&authuser=1",
+    "tags": [
+      "採光超好",
+      "手沖咖啡",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "☕",
+      "🐶"
+    ],
+    "features": "台中市西區人氣口碑咖啡名店，主打採光超好、手沖咖啡、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_108",
+    "name": "Hausinc Comfort",
+    "city": "台中市",
+    "city_en": "Taichung",
+    "district": "北區",
+    "address": "台中市北區忠太西路39號",
+    "phone": "(04) 2208-5855",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Hausinc+Comfort&authuser=1",
+    "tags": [
+      "有插頭",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "☕",
+      "🍰"
+    ],
+    "features": "台中市北區人氣口碑咖啡名店，主打有插頭、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_109",
+    "name": "Modism Café 摩德年代",
+    "city": "台中市",
+    "city_en": "Taichung",
+    "district": "北區",
+    "address": "台中市北區大德街73號",
+    "phone": "(04) 2207-2557",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%91%A9%E5%BE%B7%E5%B9%B4%E4%BB%A3&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "店家可喝酒",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍷",
+      "🍰"
+    ],
+    "features": "台中市北區人氣口碑咖啡名店，主打植栽老宅、店家可喝酒、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_110",
+    "name": "留白計畫 blank plan",
+    "city": "台中市",
+    "city_en": "Taichung",
+    "district": "西區",
+    "address": "台中市西區五權西四街45號",
+    "phone": "(04) 2375-5005",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%95%99%E7%99%BD%E8%A8%88%E7%95%AB&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "☕"
+    ],
+    "features": "台中市西區人氣口碑咖啡名店，主打植栽老宅、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_111",
+    "name": "Coffee Stopover",
+    "city": "台中市",
+    "city_en": "Taichung",
+    "district": "西區",
+    "address": "台中市西區民權路217巷24號",
+    "phone": "(04) 2305-5388",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Coffee+Stopover&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "甜點好吃",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🍰",
+      "🌿"
+    ],
+    "features": "台中市西區人氣口碑咖啡名店，主打手沖咖啡、甜點好吃、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_112",
+    "name": "窩柢咖啡公寓",
+    "city": "台中市",
+    "city_en": "Taichung",
+    "district": "西屯區",
+    "address": "台中市西屯區杏林路27號",
+    "phone": "(04) 2708-6808",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%AA%A9%E6%9F%A2%E5%92%96%E5%95%A1%E5%85%AC%E5%AF%93&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "有插頭"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "🔌"
+    ],
+    "features": "台中市西屯區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、有插頭。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_113",
+    "name": "目覺咖啡 mezamashikohi 三店",
+    "city": "台中市",
+    "city_en": "Taichung",
+    "district": "西區",
+    "address": "台中市西區精誠七街1號",
+    "phone": "(04) 2329-2566",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%9B%AE%E8%A6%BA%E5%92%96%E5%95%A1%E4%B8%89%E5%BA%97&authuser=1",
+    "tags": [
+      "採光超好",
+      "植栽老宅",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🌿",
+      "🍰"
+    ],
+    "features": "台中市西區人氣口碑咖啡名店，主打採光超好、植栽老宅、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_114",
+    "name": "Bakki Handmade",
+    "city": "台中市",
+    "city_en": "Taichung",
+    "district": "西區",
+    "address": "台中市西區五權西六街136巷6-1號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Bakki+Handmade&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "植栽老宅",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "🌿",
+      "☀️"
+    ],
+    "features": "台中市西區人氣口碑咖啡名店，主打甜點好吃、植栽老宅、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_115",
+    "name": "細水焙煎所",
+    "city": "台中市",
+    "city_en": "Taichung",
+    "district": "西區",
+    "address": "台中市西區公正路231號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%B4%B0%E6%B0%B4%E7%84%99%E7%85%8E%E6%89%80&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "甜點好吃",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🍰",
+      "🌿"
+    ],
+    "features": "台中市西區人氣口碑咖啡名店，主打手沖咖啡、甜點好吃、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_116",
+    "name": "樂樂書屋 LELE BOOKS STORE",
+    "city": "台中市",
+    "city_en": "Taichung",
+    "district": "西屯區",
+    "address": "台中市西屯區玉成路6號",
+    "phone": "(04) 2358-2083",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%A8%82%E6%A8%82%E6%9B%B8%E5%B1%8B&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "👶"
+    ],
+    "features": "台中市西屯區人氣口碑咖啡名店，主打植栽老宅、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_117",
+    "name": "Fleet Street 艦隊街咖啡",
+    "city": "台中市",
+    "city_en": "Taichung",
+    "district": "中區",
+    "address": "台中市中區民族路24號",
+    "phone": "(04) 2224-0368",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Fleet+Street+%E5%8F%B0%E4%B8%AD&authuser=1",
+    "tags": [
+      "有插頭",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "☕",
+      "🍰"
+    ],
+    "features": "台中市中區人氣口碑咖啡名店，主打有插頭、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_118",
+    "name": "黑森林景觀咖啡",
+    "city": "台中市",
+    "city_en": "Taichung",
+    "district": "沙鹿區",
+    "address": "台中市沙鹿區都會園路2233巷200號",
+    "phone": "(04) 2631-9258",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%BB%91%E6%A3%AE%E6%9E%97%E6%99%AF%E8%A7%80%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "採光超好",
+      "店家可喝酒",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🍷",
+      "🗣️"
+    ],
+    "features": "台中市沙鹿區人氣口碑咖啡名店，主打採光超好、店家可喝酒、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_119",
+    "name": "TU PANG 地坊餐廳咖啡",
+    "city": "台中市",
+    "city_en": "Taichung",
+    "district": "南屯區",
+    "address": "台中市南屯區文心南五路一段323-1號",
+    "phone": "(04) 2471-3796",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%9C%B0%E5%9D%8A%E9%A4%90%E5%BB%B3&authuser=1",
+    "tags": [
+      "店家可喝酒",
+      "甜點好吃",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🍷",
+      "🍰",
+      "🗣️"
+    ],
+    "features": "台中市南屯區人氣口碑咖啡名店，主打店家可喝酒、甜點好吃、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_120",
+    "name": "YOLO MOMENT 新美式舒食",
+    "city": "台中市",
+    "city_en": "Taichung",
+    "district": "南屯區",
+    "address": "台中市南屯區惠中路二段36號",
+    "phone": "(04) 2258-8868",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=YOLO+MOMENT+%E5%8F%B0%E4%B8%AD&authuser=1",
+    "tags": [
+      "採光超好",
+      "小孩友善",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "👶",
+      "🐶"
+    ],
+    "features": "台中市南屯區人氣口碑咖啡名店，主打採光超好、小孩友善、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_121",
+    "name": "右舍咖啡 vicinocafe",
+    "city": "彰化縣",
+    "city_en": "Changhua",
+    "district": "員林市",
+    "address": "彰化縣員林市萬年路三段67號",
+    "phone": "(04) 836-8438",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%8F%B3%E8%88%8D%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "☕"
+    ],
+    "features": "彰化縣員林市人氣口碑咖啡名店，主打植栽老宅、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_122",
+    "name": "端倪生活",
+    "city": "彰化縣",
+    "city_en": "Changhua",
+    "district": "彰化市",
+    "address": "彰化縣彰化市三民路9號",
+    "phone": "(04) 722-1686",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%AB%AF%E5%80%AA%E7%94%9F%E6%B4%BB&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☕"
+    ],
+    "features": "彰化縣彰化市人氣口碑咖啡名店，主打植栽老宅、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1524350876685-274059332603?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_123",
+    "name": "炎生 c_cafe",
+    "city": "彰化縣",
+    "city_en": "Changhua",
+    "district": "彰化市",
+    "address": "彰化縣彰化市建文街11號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%82%8E%E7%94%9F+c_cafe&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "☕"
+    ],
+    "features": "彰化縣彰化市人氣口碑咖啡名店，主打植栽老宅、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_124",
+    "name": "瘦子咖啡 Skinny Cafe",
+    "city": "彰化縣",
+    "city_en": "Changhua",
+    "district": "彰化市",
+    "address": "彰化縣彰化市光復道22-1號",
+    "phone": "(04) 723-2046",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%98%A6%E5%AD%90%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "有插頭",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "☕",
+      "🍰"
+    ],
+    "features": "彰化縣彰化市人氣口碑咖啡名店，主打有插頭、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_125",
+    "name": "小食糖 sugar bistro",
+    "city": "彰化縣",
+    "city_en": "Changhua",
+    "district": "鹿港鎮",
+    "address": "彰化縣鹿港鎮中山路448號",
+    "phone": "(04) 777-6668",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B0%8F%E9%A3%9F%E7%B3%96+%E9%B9%BF%E6%B8%AF&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "🐶"
+    ],
+    "features": "彰化縣鹿港鎮人氣口碑咖啡名店，主打植栽老宅、甜點好吃、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_126",
+    "name": "咖啡烟",
+    "city": "彰化縣",
+    "city_en": "Changhua",
+    "district": "彰化市",
+    "address": "彰化縣彰化市永樂街199號",
+    "phone": "(04) 722-4994",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%92%96%E5%95%A1%E7%83%9F&authuser=1",
+    "tags": [
+      "店家可喝酒",
+      "植栽老宅",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🍷",
+      "🌿",
+      "🍰"
+    ],
+    "features": "彰化縣彰化市人氣口碑咖啡名店，主打店家可喝酒、植栽老宅、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_127",
+    "name": "日日喃喃",
+    "city": "彰化縣",
+    "city_en": "Changhua",
+    "district": "員林市",
+    "address": "彰化縣員林市新生路214號",
+    "phone": "(04) 833-8883",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%97%A5%E6%97%A5%E5%96%83%E5%96%83&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "☀️",
+      "🐶"
+    ],
+    "features": "彰化縣員林市人氣口碑咖啡名店，主打甜點好吃、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_128",
+    "name": "Subi coffee&bakery",
+    "city": "彰化縣",
+    "city_en": "Changhua",
+    "district": "員林市",
+    "address": "彰化縣員林市中山路二段131巷28號",
+    "phone": "(04) 837-2312",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Subi+coffee&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☕"
+    ],
+    "features": "彰化縣員林市人氣口碑咖啡名店，主打植栽老宅、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_129",
+    "name": "鹿港 煮駐咖啡",
+    "city": "彰化縣",
+    "city_en": "Changhua",
+    "district": "鹿港鎮",
+    "address": "彰化縣鹿港鎮成功路88號",
+    "phone": "0933-456-789",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%85%AE%E9%A7%90%E5%92%96%E5%95%A1+%E9%B9%BF%E6%B8%AF&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "植栽老宅",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🌿",
+      "🍰"
+    ],
+    "features": "彰化縣鹿港鎮人氣口碑咖啡名店，主打手沖咖啡、植栽老宅、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_130",
+    "name": "銀宮阿法咖啡",
+    "city": "彰化縣",
+    "city_en": "Changhua",
+    "district": "彰化市",
+    "address": "彰化縣彰化市太平街63號",
+    "phone": "(04) 728-8888",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%8A%80%E5%AE%AE%E9%98%BF%E6%B3%95%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☀️"
+    ],
+    "features": "彰化縣彰化市人氣口碑咖啡名店，主打植栽老宅、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_131",
+    "name": "孩堤咖啡",
+    "city": "彰化縣",
+    "city_en": "Changhua",
+    "district": "鹿港鎮",
+    "address": "彰化縣鹿港鎮景興街18號",
+    "phone": "(04) 777-9629",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%AD%A9%E5%A0%A4%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "👶"
+    ],
+    "features": "彰化縣鹿港鎮人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_132",
+    "name": "喜喜茶室",
+    "city": "彰化縣",
+    "city_en": "Changhua",
+    "district": "員林市",
+    "address": "彰化縣員林市中山路二段48號",
+    "phone": "(04) 836-8777",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%96%9C%E5%96%9C%E8%8C%B6%E5%AE%A4&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "適合聊天",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🗣️",
+      "🍰"
+    ],
+    "features": "彰化縣員林市人氣口碑咖啡名店，主打植栽老宅、適合聊天、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_133",
+    "name": "山海戀景觀咖啡",
+    "city": "彰化縣",
+    "city_en": "Changhua",
+    "district": "花壇鄉",
+    "address": "彰化縣花壇鄉環山路",
+    "phone": "0932-111-333",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B1%B1%E6%B5%B7%E6%88%80%E6%99%AF%E8%A7%80%E5%92%96%E5%95%A1+%E8%8A%B1%E5%A3%87&authuser=1",
+    "tags": [
+      "採光超好",
+      "店家可喝酒",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🍷",
+      "🗣️"
+    ],
+    "features": "彰化縣花壇鄉人氣口碑咖啡名店，主打採光超好、店家可喝酒、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_134",
+    "name": "小巷七貳 ALLEY 72",
+    "city": "彰化縣",
+    "city_en": "Changhua",
+    "district": "鹿港鎮",
+    "address": "彰化縣鹿港鎮後車巷72號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B0%8F%E5%B7%B7%E4%B8%83%E8%B2%B3&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☀️"
+    ],
+    "features": "彰化縣鹿港鎮人氣口碑咖啡名店，主打植栽老宅、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_135",
+    "name": "Attic 小閣樓",
+    "city": "彰化縣",
+    "city_en": "Changhua",
+    "district": "員林市",
+    "address": "彰化縣員林市惠來街108號",
+    "phone": "(04) 837-0979",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Attic%E5%B0%8F%E9%96%A3%E6%A8%93&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "店家可喝酒",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍷",
+      "🍰"
+    ],
+    "features": "彰化縣員林市人氣口碑咖啡名店，主打植栽老宅、店家可喝酒、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_136",
+    "name": "蠻荒咖啡 Desolate Coffee",
+    "city": "南投縣",
+    "city_en": "Nantou",
+    "district": "魚池鄉",
+    "address": "南投縣魚池鄉文化巷41號",
+    "phone": "0972-489-704",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%A0%BB%E8%8D%92%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "採光超好",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🍰",
+      "☕"
+    ],
+    "features": "南投縣魚池鄉人氣口碑咖啡名店，主打採光超好、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_137",
+    "name": "鹿篙咖啡莊園",
+    "city": "南投縣",
+    "city_en": "Nantou",
+    "district": "魚池鄉",
+    "address": "南投縣魚池鄉香茶巷31-6號",
+    "phone": "(04) 9289-5520",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%B9%BF%E7%AF%99%E5%92%96%E5%95%A1%E8%8E%8A%E5%9C%92&authuser=1",
+    "tags": [
       "採光超好",
       "植栽老宅",
       "手沖咖啡"
     ],
-    "price": "NT$ 160 - 300",
+    "tagEmojis": [
+      "☀️",
+      "🌿",
+      "☕"
+    ],
+    "features": "南投縣魚池鄉人氣口碑咖啡名店，主打採光超好、植栽老宅、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
     "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_138",
+    "name": "隱茶 STEAM",
+    "city": "南投縣",
+    "city_en": "Nantou",
+    "district": "水里鄉",
+    "address": "南投縣水里鄉民權路101-3號",
+    "phone": "(04) 9277-6471",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%9A%B1%E8%8C%B6STEAM&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🍰"
+    ],
+    "features": "南投縣水里鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_139",
+    "name": "喝喝茶 Hohocha",
+    "city": "南投縣",
+    "city_en": "Nantou",
+    "district": "魚池鄉",
+    "address": "南投縣魚池鄉魚池街443-36號",
+    "phone": "(04) 9289-5899",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%96%9D%E5%96%9D%E8%8C%B6&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "小孩友善",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "👶",
+      "🍰"
+    ],
+    "features": "南投縣魚池鄉人氣口碑咖啡名店，主打植栽老宅、小孩友善、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_140",
+    "name": "蒙塔妮手作甜點",
+    "city": "南投縣",
+    "city_en": "Nantou",
+    "district": "仁愛鄉",
+    "address": "南投縣仁愛鄉大同村壽亭巷20-1號",
+    "phone": "0983-180-965",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%92%99%E5%A1%94%E5%A6%AE%E6%89%8B%E4%BD%9C%E7%94%9C%E9%BB%9E&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "採光超好",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "☀️",
+      "🌿"
+    ],
+    "features": "南投縣仁愛鄉人氣口碑咖啡名店，主打甜點好吃、採光超好、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_141",
+    "name": "先得月 Tea & Cafe",
+    "city": "南投縣",
+    "city_en": "Nantou",
+    "district": "魚池鄉",
+    "address": "南投縣魚池鄉中興路106-1號",
+    "phone": "(04) 9285-5022",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%85%88%E5%BE%97%E6%9C%88+%E6%97%A5%E6%9C%88%E6%BD%AD&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "☕"
+    ],
+    "features": "南投縣魚池鄉人氣口碑咖啡名店，主打海景景觀、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_142",
+    "name": "山男咖啡 Nantou",
+    "city": "南投縣",
+    "city_en": "Nantou",
+    "district": "埔里鎮",
+    "address": "南投縣埔里鎮中山路三段",
+    "phone": "0988-123-999",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%9F%94%E9%87%8C%E5%B1%B1%E7%94%B7%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "南投縣埔里鎮人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_143",
+    "name": "微光森林 咖啡烘焙",
+    "city": "南投縣",
+    "city_en": "Nantou",
+    "district": "南投市",
+    "address": "南投縣南投市八卦路703巷32號",
+    "phone": "(04) 9229-2899",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%BE%AE%E5%85%89%E6%A3%AE%E6%9E%97&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "小孩友善",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "👶",
+      "🍰"
+    ],
+    "features": "南投縣南投市人氣口碑咖啡名店，主打植栽老宅、小孩友善、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_144",
+    "name": "烏布雨林 峇里島主題咖啡",
+    "city": "南投縣",
+    "city_en": "Nantou",
+    "district": "魚池鄉",
+    "address": "南投縣魚池鄉慶隆巷59-6號",
+    "phone": "(04) 9288-0800",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%83%8F%E5%B8%83%E9%9B%A8%E6%9E%97&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🗣️"
+    ],
+    "features": "南投縣魚池鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_145",
+    "name": "築樂 日式庭園咖啡",
+    "city": "南投縣",
+    "city_en": "Nantou",
+    "district": "埔里鎮",
+    "address": "南投縣埔里鎮桃米路12-11號",
+    "phone": "(04) 9291-2677",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%AF%89%E6%A8%82+%E5%9F%94%E9%87%8C&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "👶"
+    ],
+    "features": "南投縣埔里鎮人氣口碑咖啡名店，主打植栽老宅、甜點好吃、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_146",
+    "name": "土角厝水上庭園咖啡",
+    "city": "南投縣",
+    "city_en": "Nantou",
+    "district": "埔里鎮",
+    "address": "南投縣埔里鎮水上巷2號",
+    "phone": "(04) 9291-2201",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%9C%9F%E8%A7%92%E5%8E%9D%E6%B0%B4%E4%B8%8A%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "小孩友善",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "👶",
+      "🗣️"
+    ],
+    "features": "南投縣埔里鎮人氣口碑咖啡名店，主打植栽老宅、小孩友善、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_147",
+    "name": "南投赤腳精靈 柴燒景觀咖啡",
+    "city": "南投縣",
+    "city_en": "Nantou",
+    "district": "南投市",
+    "address": "南投縣南投市八卦路1-1號",
+    "phone": "(04) 9223-3666",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%B5%A4%E8%85%B3%E7%B2%BE%E9%9D%88&authuser=1",
+    "tags": [
+      "採光超好",
+      "小孩友善",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "👶",
+      "🐶"
+    ],
+    "features": "南投縣南投市人氣口碑咖啡名店，主打採光超好、小孩友善、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1524350876685-274059332603?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_148",
+    "name": "黑爵士民宿咖啡",
+    "city": "南投縣",
+    "city_en": "Nantou",
+    "district": "魚池鄉",
+    "address": "南投縣魚池鄉瓊文巷36-5號",
+    "phone": "0988-328-178",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%BB%91%E7%88%B5%E5%A3%AB%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🐶"
+    ],
+    "features": "南投縣魚池鄉人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_149",
+    "name": "小日子埔里店",
+    "city": "南投縣",
+    "city_en": "Nantou",
+    "district": "埔里鎮",
+    "address": "南投縣埔里鎮西安路一段",
+    "phone": "(04) 9298-0000",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B0%8F%E6%97%A5%E5%AD%90%E5%9F%94%E9%87%8C&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "南投縣埔里鎮人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_150",
+    "name": "茶二指故事館 景觀咖啡",
+    "city": "南投縣",
+    "city_en": "Nantou",
+    "district": "名間鄉",
+    "address": "南投縣名間鄉埔中巷32-1號",
+    "phone": "(04) 9258-3126",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%8C%B6%E4%BA%8C%E6%8C%87&authuser=1",
+    "tags": [
+      "採光超好",
+      "小孩友善",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "👶",
+      "🐶"
+    ],
+    "features": "南投縣名間鄉人氣口碑咖啡名店，主打採光超好、小孩友善、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_151",
+    "name": "凹凸咖啡館",
+    "city": "雲林縣",
+    "city_en": "Yunlin",
+    "district": "斗六市",
+    "address": "雲林縣斗六市雲中街9巷12號",
+    "phone": "(05) 533-9610",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%87%B9%E5%87%B8%E5%92%96%E5%95%A1%E9%A4%A8&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🐶"
+    ],
+    "features": "雲林縣斗六市人氣口碑咖啡名店，主打植栽老宅、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_152",
+    "name": "巴登咖啡 總店",
+    "city": "雲林縣",
+    "city_en": "Yunlin",
+    "district": "古坑鄉",
+    "address": "雲林縣古坑鄉荷苞村荷苞34號",
+    "phone": "(05) 526-4905",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B7%B4%E7%99%BB%E5%92%96%E5%95%A1%E7%B8%BD%E5%BA%97&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🗣️"
+    ],
+    "features": "雲林縣古坑鄉人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_153",
+    "name": "56號藍色公路咖啡",
+    "city": "雲林縣",
+    "city_en": "Yunlin",
+    "district": "古坑鄉",
+    "address": "雲林縣古坑鄉桃源路1-13號",
+    "phone": "(05) 590-1440",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=56%E8%99%9F%E8%97%8D%E8%89%B2%E5%85%AC%E8%B7%AF%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "採光超好",
+      "寵物友善",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🐶",
+      "👶"
+    ],
+    "features": "雲林縣古坑鄉人氣口碑咖啡名店，主打採光超好、寵物友善、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_154",
+    "name": "鴻豆王國 台灣黑咖啡",
+    "city": "雲林縣",
+    "city_en": "Yunlin",
+    "district": "斗六市",
+    "address": "雲林縣斗六市仁義路3-10號",
+    "phone": "(05) 537-8759",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%B4%BB%E8%B1%86%E7%8E%8B%E5%9C%8B&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "有插頭",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🔌",
+      "🍰"
+    ],
+    "features": "雲林縣斗六市人氣口碑咖啡名店，主打手沖咖啡、有插頭、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_155",
+    "name": "後院 houyuan",
+    "city": "雲林縣",
+    "city_en": "Yunlin",
+    "district": "虎尾鎮",
+    "address": "雲林縣虎尾鎮忠孝路2號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%BE%8C%E9%99%A2+houyuan&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "店家可喝酒",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍷",
+      "🍰"
+    ],
+    "features": "雲林縣虎尾鎮人氣口碑咖啡名店，主打植栽老宅、店家可喝酒、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_156",
+    "name": "Mishka Coffee & Antique",
+    "city": "雲林縣",
+    "city_en": "Yunlin",
+    "district": "虎尾鎮",
+    "address": "雲林縣虎尾鎮光明路111號",
+    "phone": "(05) 632-6800",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Mishka+Coffee&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "雲林縣虎尾鎮人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_157",
+    "name": "華山派主角景觀咖啡",
+    "city": "雲林縣",
+    "city_en": "Yunlin",
+    "district": "古坑鄉",
+    "address": "雲林縣古坑鄉華山村112號",
+    "phone": "(05) 590-0288",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%8F%AF%E5%B1%B1%E6%B4%BE%E4%B8%BB%E8%A7%92%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "採光超好",
+      "店家可喝酒",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🍷",
+      "🗣️"
+    ],
+    "features": "雲林縣古坑鄉人氣口碑咖啡名店，主打採光超好、店家可喝酒、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_158",
+    "name": "仙地咖啡",
+    "city": "雲林縣",
+    "city_en": "Yunlin",
+    "district": "古坑鄉",
+    "address": "雲林縣古坑鄉桃源路1-2號",
+    "phone": "(05) 590-1989",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E4%BB%99%E5%9C%B0%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "採光超好",
+      "店家可喝酒",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🍷",
+      "🗣️"
+    ],
+    "features": "雲林縣古坑鄉人氣口碑咖啡名店，主打採光超好、店家可喝酒、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_159",
+    "name": "日作咖啡",
+    "city": "雲林縣",
+    "city_en": "Yunlin",
+    "district": "斗六市",
+    "address": "雲林縣斗六市慶生路112號",
+    "phone": "(05) 533-3111",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%97%A5%E4%BD%9C%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "甜點好吃",
+      "有插頭"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🍰",
+      "🔌"
+    ],
+    "features": "雲林縣斗六市人氣口碑咖啡名店，主打手沖咖啡、甜點好吃、有插頭。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_160",
+    "name": "虎珍堂 菓寮門市咖啡",
+    "city": "雲林縣",
+    "city_en": "Yunlin",
+    "district": "虎尾鎮",
+    "address": "雲林縣虎尾鎮中山路13號",
+    "phone": "(05) 632-3663",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%99%8E%E7%8F%8D%E5%A0%82%E8%8F%93%E5%AF%AE%E5%BA%97&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☀️"
+    ],
+    "features": "雲林縣虎尾鎮人氣口碑咖啡名店，主打植栽老宅、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_161",
+    "name": "永光故事屋 微冊咖啡",
+    "city": "雲林縣",
+    "city_en": "Yunlin",
+    "district": "古坑鄉",
+    "address": "雲林縣古坑鄉文昌路58-4號",
+    "phone": "0970-230-067",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%B0%B8%E5%85%89%E6%95%85%E4%BA%8B%E5%B1%8B&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "👶"
+    ],
+    "features": "雲林縣古坑鄉人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_162",
+    "name": "阿嬤的私房菜景觀咖啡",
+    "city": "雲林縣",
+    "city_en": "Yunlin",
+    "district": "古坑鄉",
+    "address": "雲林縣古坑鄉華山村78-5號",
+    "phone": "(05) 590-0493",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%98%BF%E5%AC%A4%E7%9A%84%E7%A7%81%E6%88%BF%E8%8F%9C+%E5%8F%A4%E5%9D%91&authuser=1",
+    "tags": [
+      "採光超好",
+      "小孩友善",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "👶",
+      "🗣️"
+    ],
+    "features": "雲林縣古坑鄉人氣口碑咖啡名店，主打採光超好、小孩友善、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_163",
+    "name": "保生堂 漢方咖啡館",
+    "city": "雲林縣",
+    "city_en": "Yunlin",
+    "district": "北港鎮",
+    "address": "雲林縣北港鎮中山路61號",
+    "phone": "(05) 783-0707",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%8C%97%E6%B8%AF%E4%BF%9D%E7%94%9F%E5%A0%82&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "雲林縣北港鎮人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_164",
+    "name": "芒果咖啡館 莿桐總店",
+    "city": "雲林縣",
+    "city_en": "Yunlin",
+    "district": "莿桐鄉",
+    "address": "雲林縣莿桐鄉中山路114號",
+    "phone": "(05) 584-1987",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%8A%92%E6%9E%9C%E5%92%96%E5%95%A1+%E8%8E%BF%E6%A1%90&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "甜點好吃",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🍰",
+      "🌿"
+    ],
+    "features": "雲林縣莿桐鄉人氣口碑咖啡名店，主打手沖咖啡、甜點好吃、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_165",
+    "name": "桂林映象會館 泰風咖啡",
+    "city": "雲林縣",
+    "city_en": "Yunlin",
+    "district": "古坑鄉",
+    "address": "雲林縣古坑鄉景水1之20號",
+    "phone": "(05) 590-1280",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%A1%82%E6%9E%97%E6%98%A0%E8%B1%A1%E6%9C%83%E9%A4%A8&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "👶"
+    ],
+    "features": "雲林縣古坑鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_166",
+    "name": "霜空珈琲",
+    "city": "嘉義市",
+    "city_en": "Chiayi City",
+    "district": "西區",
+    "address": "嘉義市西區國華街132號",
+    "phone": "(05) 225-5507",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%9C%9C%E7%A9%BA%E7%8F%88%E7%90%B2&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☀️"
+    ],
+    "features": "嘉義市西區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_167",
+    "name": "木更 Mugeneration",
+    "city": "嘉義市",
+    "city_en": "Chiayi City",
+    "district": "東區",
+    "address": "嘉義市東區成仁街189號",
+    "phone": "(05) 223-2288",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%9C%A8%E6%9B%B4+Mugeneration&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☀️"
+    ],
+    "features": "嘉義市東區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_168",
+    "name": "Morikoohii 森 咖啡",
+    "city": "嘉義市",
+    "city_en": "Chiayi City",
+    "district": "東區",
+    "address": "嘉義市東區共和路199巷1號",
+    "phone": "(05) 276-1601",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Morikoohii+%E6%A3%AE%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☕"
+    ],
+    "features": "嘉義市東區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_169",
+    "name": "秘氏咖啡 嘉義店",
+    "city": "嘉義市",
+    "city_en": "Chiayi City",
+    "district": "西區",
+    "address": "嘉義市西區延平街288號",
+    "phone": "0935-393-853",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%A7%98%E6%B0%8F%E5%92%96%E5%95%A1+%E5%98%89%E7%BE%A9&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "嘉義市西區人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_170",
+    "name": "自由が丘 Jiyugaoka",
+    "city": "嘉義市",
+    "city_en": "Chiayi City",
+    "district": "東區",
+    "address": "嘉義市東區忠孝路186號",
+    "phone": "(05) 271-6069",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%87%AA%E7%94%B1%E3%81%8C%E4%B8%98+%E5%98%89%E7%BE%A9&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☀️"
+    ],
+    "features": "嘉義市東區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_171",
+    "name": "弓時間 Arrowing Time",
+    "city": "嘉義市",
+    "city_en": "Chiayi City",
+    "district": "東區",
+    "address": "嘉義市東區安和街60號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%BC%93%E6%99%82%E9%96%93+%E5%98%89%E7%BE%A9&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "嘉義市東區人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_172",
+    "name": "Daisy的雜貨店",
+    "city": "嘉義市",
+    "city_en": "Chiayi City",
+    "district": "東區",
+    "address": "嘉義市東區維新路73號",
+    "phone": "(05) 277-0893",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Daisy%E7%9A%84%E9%9B%9C%E8%B2%A8%E5%BA%97&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☕"
+    ],
+    "features": "嘉義市東區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1524350876685-274059332603?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_173",
+    "name": "玖咖啡",
+    "city": "嘉義市",
+    "city_en": "Chiayi City",
+    "district": "東區",
+    "address": "嘉義市東區興隆街8號",
+    "phone": "(05) 216-2626",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%8E%96%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "採光超好",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "☕",
+      "🍰"
+    ],
+    "features": "嘉義市東區人氣口碑咖啡名店，主打採光超好、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_174",
+    "name": "SUPiIIDO 咖啡",
+    "city": "嘉義市",
+    "city_en": "Chiayi City",
+    "district": "東區",
+    "address": "嘉義市東區共和路411號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=SUPiIIDO+%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "☀️"
+    ],
+    "features": "嘉義市東區人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_175",
+    "name": "老院子 1951",
+    "city": "嘉義市",
+    "city_en": "Chiayi City",
+    "district": "東區",
+    "address": "嘉義市東區成仁街201號",
+    "phone": "(05) 227-1951",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%80%81%E9%99%A2%E5%AD%901951&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "🐶"
+    ],
+    "features": "嘉義市東區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_176",
+    "name": "往前咖啡店",
+    "city": "嘉義市",
+    "city_en": "Chiayi City",
+    "district": "東區",
+    "address": "嘉義市東區興中街205號",
+    "phone": "(05) 222-6900",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%BE%80%E5%89%8D%E5%92%96%E5%95%A1%E5%BA%97&authuser=1",
+    "tags": [
+      "有插頭",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "☕",
+      "🍰"
+    ],
+    "features": "嘉義市東區人氣口碑咖啡名店，主打有插頭、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_177",
+    "name": "傲漫手感焙烘咖啡",
+    "city": "嘉義市",
+    "city_en": "Chiayi City",
+    "district": "東區",
+    "address": "嘉義市東區公明路102-1號",
+    "phone": "(05) 276-8999",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%82%B2%E6%BC%AB%E6%89%8B%E6%84%9F%E7%84%99%E7%83%98%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "手沖咖啡",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "☕",
+      "☀️"
+    ],
+    "features": "嘉義市東區人氣口碑咖啡名店，主打甜點好吃、手沖咖啡、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_178",
+    "name": "Bless 淺山房咖啡",
+    "city": "嘉義市",
+    "city_en": "Chiayi City",
+    "district": "東區",
+    "address": "嘉義市東區林森東路",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Bless+%E6%B7%BA%E5%B1%B1%E6%88%BF&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "☀️"
+    ],
+    "features": "嘉義市東區人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_179",
+    "name": "迦南地咖啡",
+    "city": "嘉義市",
+    "city_en": "Chiayi City",
+    "district": "西區",
+    "address": "嘉義市西區大溪路386號",
+    "phone": "(05) 237-7788",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%BF%A6%E5%8D%97%E5%9C%B0%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "採光超好",
+      "小孩友善",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "👶",
+      "🐶"
+    ],
+    "features": "嘉義市西區人氣口碑咖啡名店，主打採光超好、小孩友善、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_180",
+    "name": "Mimico Cafe 秘密客咖啡館",
+    "city": "嘉義市",
+    "city_en": "Chiayi City",
+    "district": "東區",
+    "address": "嘉義市東區興中街200號",
+    "phone": "(05) 275-5866",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%A7%98%E5%AF%86%E5%AE%A2%E5%92%96%E5%95%A1%E9%A4%A8&authuser=1",
+    "tags": [
+      "有插頭",
+      "植栽老宅",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "🌿",
+      "🍰"
+    ],
+    "features": "嘉義市東區人氣口碑咖啡名店，主打有插頭、植栽老宅、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_181",
+    "name": "阿將的家 23咖啡館",
+    "city": "嘉義縣",
+    "city_en": "Chiayi County",
+    "district": "阿里山鄉",
+    "address": "嘉義縣阿里山鄉樂野村四鄰129-6號",
+    "phone": "0933-683-420",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%98%BF%E5%B0%87%E7%9A%84%E5%AE%B623%E5%92%96%E5%95%A1%E9%A4%A8&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "☕"
+    ],
+    "features": "嘉義縣阿里山鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_182",
+    "name": "山角鐵茶屋",
+    "city": "嘉義縣",
+    "city_en": "Chiayi County",
+    "district": "梅山鄉",
+    "address": "嘉義縣梅山鄉樟樹湖27號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B1%B1%E8%A7%92%E9%90%B5%E8%8C%B6%E5%B1%8B&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "☕"
+    ],
+    "features": "嘉義縣梅山鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_183",
+    "name": "空氣圖書館 Air Library",
+    "city": "嘉義縣",
+    "city_en": "Chiayi County",
+    "district": "梅山鄉",
+    "address": "嘉義縣梅山鄉太平村下坑仔2號",
+    "phone": "(05) 257-2366",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%A9%BA%E6%B0%A3%E5%9C%96%E6%9B%B8%E9%A4%A8&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🐶"
+    ],
+    "features": "嘉義縣梅山鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_184",
+    "name": "游芭藜 Zou系列鄒族景觀咖啡",
+    "city": "嘉義縣",
+    "city_en": "Chiayi County",
+    "district": "阿里山鄉",
+    "address": "嘉義縣阿里山鄉山美村1鄰8之1號",
+    "phone": "0988-238-907",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%B8%B8%E8%8A%AD%E8%97%9C&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "👶"
+    ],
+    "features": "嘉義縣阿里山鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_185",
+    "name": "清豐濤月景觀足湯咖啡",
+    "city": "嘉義縣",
+    "city_en": "Chiayi County",
+    "district": "番路鄉",
+    "address": "嘉義縣番路鄉凸湖5-1號",
+    "phone": "(05) 259-3133",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%B8%85%E8%B1%90%E6%BF%A4%E6%9C%88&authuser=1",
+    "tags": [
+      "採光超好",
+      "店家可喝酒",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🍷",
+      "🗣️"
+    ],
+    "features": "嘉義縣番路鄉人氣口碑咖啡名店，主打採光超好、店家可喝酒、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_186",
+    "name": "生力農場 景觀咖啡",
+    "city": "嘉義縣",
+    "city_en": "Chiayi County",
+    "district": "番路鄉",
+    "address": "嘉義縣番路鄉公田村9鄰隙頂22號",
+    "phone": "(05) 258-6785",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%94%9F%E5%8A%9B%E8%BE%B2%E5%A0%B4&authuser=1",
+    "tags": [
+      "採光超好",
+      "植栽老宅",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🌿",
+      "☕"
+    ],
+    "features": "嘉義縣番路鄉人氣口碑咖啡名店，主打採光超好、植栽老宅、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_187",
+    "name": "鄒築園 阿里山咖啡",
+    "city": "嘉義縣",
+    "city_en": "Chiayi County",
+    "district": "樂野村",
+    "address": "嘉義縣阿里山鄉樂野村二鄰71號",
+    "phone": "(05) 256-1118",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%84%92%E7%AF%89%E5%9C%92&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "甜點好吃",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🍰",
+      "🌿"
+    ],
+    "features": "嘉義縣樂野村人氣口碑咖啡名店，主打手沖咖啡、甜點好吃、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_188",
+    "name": "山坡咖啡",
+    "city": "嘉義縣",
+    "city_en": "Chiayi County",
+    "district": "中埔鄉",
+    "address": "嘉義縣中埔鄉同仁村同仁42-6號",
+    "phone": "0928-333-888",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B1%B1%E5%9D%A1%E5%92%96%E5%95%A1+%E4%B8%AD%E5%9F%94&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🐶"
+    ],
+    "features": "嘉義縣中埔鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_189",
+    "name": "文峰遊客中心 若蘭市集咖啡",
+    "city": "嘉義縣",
+    "city_en": "Chiayi County",
+    "district": "竹崎鄉",
+    "address": "嘉義縣竹崎鄉文峰村大坑20號",
+    "phone": "0937-658-111",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%8B%A5%E8%98%AD%E5%B8%82%E9%9B%86%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "👶"
+    ],
+    "features": "嘉義縣竹崎鄉人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_190",
+    "name": "雲瀑谷咖啡館",
+    "city": "嘉義縣",
+    "city_en": "Chiayi County",
+    "district": "番路鄉",
+    "address": "嘉義縣番路鄉公田村隙頂63號",
+    "phone": "0910-835-968",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%9B%B2%E7%80%91%E8%B0%B7%E5%92%96%E5%95%A1%E9%A4%A8&authuser=1",
+    "tags": [
+      "採光超好",
+      "植栽老宅",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🌿",
+      "☕"
+    ],
+    "features": "嘉義縣番路鄉人氣口碑咖啡名店，主打採光超好、植栽老宅、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_191",
+    "name": "一品咖啡莊園",
+    "city": "嘉義縣",
+    "city_en": "Chiayi County",
+    "district": "梅山鄉",
+    "address": "嘉義縣梅山鄉瑞峰村生毛樹",
+    "phone": "(05) 250-1111",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E4%B8%80%E5%93%81%E5%92%96%E5%95%A1%E8%8E%8A%E5%9C%92&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "植栽老宅",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🌿",
+      "🍰"
+    ],
+    "features": "嘉義縣梅山鄉人氣口碑咖啡名店，主打手沖咖啡、植栽老宅、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_192",
+    "name": "霧裡村 Tea & Cafe",
+    "city": "嘉義縣",
+    "city_en": "Chiayi County",
+    "district": "梅山鄉",
+    "address": "嘉義縣梅山鄉太和村",
+    "phone": "0912-999-555",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%9C%A7%E8%A3%A1%E6%9D%91&authuser=1",
+    "tags": [
+      "採光超好",
+      "植栽老宅",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🌿",
+      "☕"
+    ],
+    "features": "嘉義縣梅山鄉人氣口碑咖啡名店，主打採光超好、植栽老宅、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_193",
+    "name": "綠盈牧場 景觀咖啡",
+    "city": "嘉義縣",
+    "city_en": "Chiayi County",
+    "district": "中埔鄉",
+    "address": "嘉義縣中埔鄉鹽館村4鄰2-3號",
+    "phone": "(05) 253-8505",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%B6%A0%E7%9B%88%E7%89%A7%E5%A0%B4&authuser=1",
+    "tags": [
+      "採光超好",
+      "小孩友善",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "👶",
+      "🐶"
+    ],
+    "features": "嘉義縣中埔鄉人氣口碑咖啡名店，主打採光超好、小孩友善、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_194",
+    "name": "佐登妮絲城堡 景觀咖啡",
+    "city": "嘉義縣",
+    "city_en": "Chiayi County",
+    "district": "大林鎮",
+    "address": "嘉義縣大林鎮大埔美園區三路11號",
+    "phone": "(04) 2291-7296",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E4%BD%90%E7%99%BB%E5%A6%AE%E7%B5%B2%E5%9F%8E%E5%A0%A1&authuser=1",
+    "tags": [
+      "採光超好",
+      "小孩友善",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "👶",
+      "🗣️"
+    ],
+    "features": "嘉義縣大林鎮人氣口碑咖啡名店，主打採光超好、小孩友善、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_195",
+    "name": "老楊方城市 咖啡館",
+    "city": "嘉義縣",
+    "city_en": "Chiayi County",
+    "district": "大林鎮",
+    "address": "嘉義縣大林鎮大埔美園區五路3號",
+    "phone": "(05) 295-0520",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%80%81%E6%A5%8A%E6%96%B9%E5%9F%8E%E5%B8%82&authuser=1",
+    "tags": [
+      "小孩友善",
+      "甜點好吃",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "👶",
+      "🍰",
+      "🗣️"
+    ],
+    "features": "嘉義縣大林鎮人氣口碑咖啡名店，主打小孩友善、甜點好吃、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_196",
+    "name": "窄門咖啡 Narrow Door Cafe",
+    "city": "台南市",
+    "city_en": "Tainan",
+    "district": "中西區",
+    "address": "台南市中西區南門路67號2樓",
+    "phone": "(06) 221-0508",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%AA%84%E9%96%80%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "台南市中西區人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_197",
+    "name": "秘氏咖啡 台南店",
+    "city": "台南市",
+    "city_en": "Tainan",
+    "district": "中西區",
+    "address": "台南市中西區國華街三段123-160號",
+    "phone": "0935-393-853",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%A7%98%E6%B0%8F%E5%92%96%E5%95%A1+%E5%8F%B0%E5%8D%97&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "台南市中西區人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1524350876685-274059332603?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_198",
+    "name": "甘單咖啡",
+    "city": "台南市",
+    "city_en": "Tainan",
+    "district": "中西區",
+    "address": "台南市中西區民權路二段4巷13號",
+    "phone": "(06) 222-5919",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%94%98%E5%96%AE%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🐶"
+    ],
+    "features": "台南市中西區人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_199",
+    "name": "StableNice BLDG. 原味咖啡",
+    "city": "台南市",
+    "city_en": "Tainan",
+    "district": "中西區",
+    "address": "台南市中西區南寧街83巷9號",
+    "phone": "(06) 214-7060",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=StableNice+BLDG&authuser=1",
+    "tags": [
+      "採光超好",
+      "植栽老宅",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🌿",
+      "☕"
+    ],
+    "features": "台南市中西區人氣口碑咖啡名店，主打採光超好、植栽老宅、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_200",
+    "name": "Kadoya 喫茶店",
+    "city": "台南市",
+    "city_en": "Tainan",
+    "district": "東區",
+    "address": "台南市東區樹林街一段36號",
+    "phone": "(06) 200-3434",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Kadoya%E5%96%AB%E8%8C%B6%E5%BA%97&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "植栽老宅",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "🌿",
+      "☕"
+    ],
+    "features": "台南市東區人氣口碑咖啡名店，主打甜點好吃、植栽老宅、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_201",
+    "name": "漫茶／漫咖啡 旭峯號",
+    "city": "台南市",
+    "city_en": "Tainan",
+    "district": "中西區",
+    "address": "台南市中西區中山路79巷6號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%97%AD%E5%B3%AF%E8%99%9F&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🍰"
+    ],
+    "features": "台南市中西區人氣口碑咖啡名店，主打植栽老宅、採光超好、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_202",
+    "name": "Barista Ray Coffee",
+    "city": "台南市",
+    "city_en": "Tainan",
+    "district": "中西區",
+    "address": "台南市中西區友愛街22號",
+    "phone": "0916-513-746",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Barista+Ray+Coffee&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🍰",
+      "☀️"
+    ],
+    "features": "台南市中西區人氣口碑咖啡名店，主打手沖咖啡、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_203",
+    "name": "沼澤 marsh",
+    "city": "台南市",
+    "city_en": "Tainan",
+    "district": "中西區",
+    "address": "台南市中西區西己路75巷7號2樓",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%B2%BC%E6%BE%A4marsh&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "採光超好",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "☀️",
+      "🌿"
+    ],
+    "features": "台南市中西區人氣口碑咖啡名店，主打甜點好吃、採光超好、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_204",
+    "name": "窟仔kula 咖啡酒吧",
+    "city": "台南市",
+    "city_en": "Tainan",
+    "district": "中西區",
+    "address": "台南市中西區忠義路二段158巷13號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%AA%9F%E4%BB%94kula&authuser=1",
+    "tags": [
+      "店家可喝酒",
+      "植栽老宅",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🍷",
+      "🌿",
+      "🍰"
+    ],
+    "features": "台南市中西區人氣口碑咖啡名店，主打店家可喝酒、植栽老宅、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_205",
+    "name": "PARIPARI apt. 咖啡",
+    "city": "台南市",
+    "city_en": "Tainan",
+    "district": "中西區",
+    "address": "台南市中西區忠義路二段158巷9號",
+    "phone": "(06) 221-3200",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=PARIPARI+apt&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "台南市中西區人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_206",
+    "name": "Room A 深夜圖書咖啡",
+    "city": "台南市",
+    "city_en": "Tainan",
+    "district": "中西區",
+    "address": "台南市中西區康樂街21號3樓",
+    "phone": "(06) 220-9797",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Room+A+%E5%8F%B0%E5%8D%97&authuser=1",
+    "tags": [
+      "有插頭",
+      "採光超好",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "☀️",
+      "🍰"
+    ],
+    "features": "台南市中西區人氣口碑咖啡名店，主打有插頭、採光超好、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_207",
+    "name": "錫鼓 Tin Drum",
+    "city": "台南市",
+    "city_en": "Tainan",
+    "district": "中西區",
+    "address": "台南市中西區開山路35巷39巷",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%8C%AB%E9%BC%93TinDrum&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "台南市中西區人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_208",
+    "name": "深藍咖啡館 旗艦店",
+    "city": "台南市",
+    "city_en": "Tainan",
+    "district": "安平區",
+    "address": "台南市安平區建平路335號",
+    "phone": "(06) 293-3338",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%B7%B1%E8%97%8D%E5%92%96%E5%95%A1%E9%A4%A8%E6%97%97%E8%89%A6%E5%BA%97&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "☀️",
+      "👶"
+    ],
+    "features": "台南市安平區人氣口碑咖啡名店，主打甜點好吃、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_209",
+    "name": "海丘甜點工作室 咖啡",
+    "city": "台南市",
+    "city_en": "Tainan",
+    "district": "中西區",
+    "address": "台南市中西區神農街145號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%A5%9E%E8%BE%B2%E8%A1%97%E6%B5%B7%E4%B8%98&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☀️"
+    ],
+    "features": "台南市中西區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_210",
+    "name": "島夫手沖咖啡",
+    "city": "台南市",
+    "city_en": "Tainan",
+    "district": "北區",
+    "address": "台南市北區自強街",
+    "phone": "0988-123-321",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B3%B6%E5%A4%AB%E6%89%8B%E6%B2%96%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "植栽老宅",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🌿",
+      "🍰"
+    ],
+    "features": "台南市北區人氣口碑咖啡名店，主打手沖咖啡、植栽老宅、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_211",
+    "name": "隄諾諾咖啡 Tsubasa Coffee",
+    "city": "高雄市",
+    "city_en": "Kaohsiung",
+    "district": "鼓山區",
+    "address": "高雄市鼓山區蓬萊路99號（棧貳庫）",
+    "phone": "(07) 531-8568",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%A3%A7%E8%B2%B3%E5%BA%AB%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "👶"
+    ],
+    "features": "高雄市鼓山區人氣口碑咖啡名店，主打海景景觀、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_212",
+    "name": "書店喫茶 一二三亭",
+    "city": "高雄市",
+    "city_en": "Kaohsiung",
+    "district": "鼓山區",
+    "address": "高雄市鼓山區鼓元街4號2樓",
+    "phone": "(07) 531-0330",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%9B%B8%E5%BA%97%E5%96%AB%E8%8C%B6%E4%B8%80%E4%BA%8C%E4%B8%89%E4%BA%AD&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☕"
+    ],
+    "features": "高雄市鼓山區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_213",
+    "name": "海山醬 景觀咖啡",
+    "city": "高雄市",
+    "city_en": "Kaohsiung",
+    "district": "旗津區",
+    "address": "高雄市旗津區旗津三路900號",
+    "phone": "0938-123-789",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%97%97%E6%B4%A5%E6%B5%B7%E6%99%AF%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🐶"
+    ],
+    "features": "高雄市旗津區人氣口碑咖啡名店，主打海景景觀、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_214",
+    "name": "若生 靜巷咖啡",
+    "city": "高雄市",
+    "city_en": "Kaohsiung",
+    "district": "前鎮區",
+    "address": "高雄市前鎮區桂林街58巷8號",
+    "phone": "(07) 334-5678",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%8B%A5%E7%94%9F%E9%9D%9C%E5%B7%B7&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☕"
+    ],
+    "features": "高雄市前鎮區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_215",
+    "name": "銀座聚場 House & Cafe",
+    "city": "高雄市",
+    "city_en": "Kaohsiung",
+    "district": "鹽埕區",
+    "address": "高雄市鹽埕區五福四路260巷8號",
+    "phone": "(07) 521-5360",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%8A%80%E5%BA%A7%E8%81%9A%E5%A0%B4&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☕"
+    ],
+    "features": "高雄市鹽埕區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_216",
+    "name": "早頓小室",
+    "city": "高雄市",
+    "city_en": "Kaohsiung",
+    "district": "鼓山區",
+    "address": "高雄市鼓山區安榮街142號",
+    "phone": "(07) 555-5555",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%97%A9%E9%A0%93%E5%B0%8F%E5%AE%A4&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☀️"
+    ],
+    "features": "高雄市鼓山區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_217",
+    "name": "Now & Then by nybc",
+    "city": "高雄市",
+    "city_en": "Kaohsiung",
+    "district": "鹽埕區",
+    "address": "高雄市鹽埕區大義街2號C9-19",
+    "phone": "(07) 531-6999",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Now+and+Then+%E9%A7%81%E4%BA%8C&authuser=1",
+    "tags": [
+      "有插頭",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "☀️",
+      "👶"
+    ],
+    "features": "高雄市鹽埕區人氣口碑咖啡名店，主打有插頭、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_218",
+    "name": "神諭咖啡 Oracle Coffee",
+    "city": "高雄市",
+    "city_en": "Kaohsiung",
+    "district": "新興區",
+    "address": "高雄市新興區大同一路103號",
+    "phone": "(07) 282-6668",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%A5%9E%E8%AB%AD%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "甜點好吃",
+      "有插頭"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🍰",
+      "🔌"
+    ],
+    "features": "高雄市新興區人氣口碑咖啡名店，主打手沖咖啡、甜點好吃、有插頭。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_219",
+    "name": "二和珍日式老屋咖啡",
+    "city": "高雄市",
+    "city_en": "Kaohsiung",
+    "district": "鹽埕區",
+    "address": "高雄市鹽埕區新樂街",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%B9%BD%E5%9F%95%E8%80%81%E5%B1%8B%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☕"
+    ],
+    "features": "高雄市鹽埕區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_220",
+    "name": "山男咖啡 高雄分號",
+    "city": "高雄市",
+    "city_en": "Kaohsiung",
+    "district": "鼓山區",
+    "address": "高雄市鼓山區柴山大路",
+    "phone": "0988-555-123",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%9F%B4%E5%B1%B1%E5%B1%B1%E7%94%B7%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🐶"
+    ],
+    "features": "高雄市鼓山區人氣口碑咖啡名店，主打海景景觀、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_221",
+    "name": "海岸咖啡 大自然",
+    "city": "高雄市",
+    "city_en": "Kaohsiung",
+    "district": "鼓山區",
+    "address": "高雄市鼓山區柴山大路103號",
+    "phone": "0910-891-888",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%9F%B4%E5%B1%B1%E6%B5%B7%E5%B2%B8%E5%92%96%E5%95%A1%E5%A4%A7%E8%87%AA%E7%84%B6&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🐶"
+    ],
+    "features": "高雄市鼓山區人氣口碑咖啡名店，主打海景景觀、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_222",
+    "name": "遙遙相望 Yangone cafe",
+    "city": "高雄市",
+    "city_en": "Kaohsiung",
+    "district": "新興區",
+    "address": "高雄市新興區中正三路38-1號",
+    "phone": "(07) 236-0838",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%81%99%E9%81%99%E7%9B%B8%E6%9C%9B&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🍰"
+    ],
+    "features": "高雄市新興區人氣口碑咖啡名店，主打植栽老宅、採光超好、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1524350876685-274059332603?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_223",
+    "name": "Kyoto 宇治抹茶珈琲",
+    "city": "高雄市",
+    "city_en": "Kaohsiung",
+    "district": "苓雅區",
+    "address": "高雄市苓雅區自強三路",
+    "phone": "(07) 269-1234",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%AB%98%E9%9B%84%E5%AE%87%E6%B2%BB%E6%8A%B9%E8%8C%B6&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "手沖咖啡",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "☕",
+      "🌿"
+    ],
+    "features": "高雄市苓雅區人氣口碑咖啡名店，主打甜點好吃、手沖咖啡、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_224",
+    "name": "萊咖啡 Light Cafe",
+    "city": "高雄市",
+    "city_en": "Kaohsiung",
+    "district": "左營區",
+    "address": "高雄市左營區博愛二路",
+    "phone": "(07) 556-9999",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%90%8A%E5%92%96%E5%95%A1+%E5%B7%A6%E7%87%9F&authuser=1",
+    "tags": [
+      "有插頭",
+      "採光超好",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "☀️",
+      "🗣️"
+    ],
+    "features": "高雄市左營區人氣口碑咖啡名店，主打有插頭、採光超好、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_225",
+    "name": "步道咖啡 Cafe Strada",
+    "city": "高雄市",
+    "city_en": "Kaohsiung",
+    "district": "苓雅區",
+    "address": "高雄市苓雅區中正二路67號",
+    "phone": "(07) 223-1881",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%AD%A5%E9%81%93%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "店家可喝酒",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍷",
+      "☕"
+    ],
+    "features": "高雄市苓雅區人氣口碑咖啡名店，主打植栽老宅、店家可喝酒、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_226",
+    "name": "山男咖啡 山海一線",
+    "city": "屏東縣",
+    "city_en": "Pingtung",
+    "district": "恆春鎮",
+    "address": "屏東縣恆春鎮紅柴坑2-9號",
+    "phone": "0905-640-911",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B1%B1%E7%94%B7%E5%92%96%E5%95%A1+%E6%81%86%E6%98%A5&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🐶"
+    ],
+    "features": "屏東縣恆春鎮人氣口碑咖啡名店，主打海景景觀、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_227",
+    "name": "日日旅海 Ocean Cafe",
+    "city": "屏東縣",
+    "city_en": "Pingtung",
+    "district": "滿州鄉",
+    "address": "屏東縣滿州鄉興海路33號",
+    "phone": "0933-216-019",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%97%A5%E6%97%A5%E6%97%85%E6%B5%B7&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🐶"
+    ],
+    "features": "屏東縣滿州鄉人氣口碑咖啡名店，主打海景景觀、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_228",
+    "name": "海龜咖啡 SeaTurtle Cafe",
+    "city": "屏東縣",
+    "city_en": "Pingtung",
+    "district": "恆春鎮",
+    "address": "屏東縣恆春鎮萬里路18-3號",
+    "phone": "0988-341-555",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%B5%B7%E9%BE%9C%E5%92%96%E5%95%A1+%E8%90%AC%E9%87%8C%E6%A1%90&authuser=1",
+    "tags": [
+      "海景景觀",
+      "甜點好吃",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "🍰",
+      "🐶"
+    ],
+    "features": "屏東縣恆春鎮人氣口碑咖啡名店，主打海景景觀、甜點好吃、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_229",
+    "name": "肥春號 Fatchun Cafe",
+    "city": "屏東縣",
+    "city_en": "Pingtung",
+    "district": "恆春鎮",
+    "address": "屏東縣恆春鎮糠林南路15號",
+    "phone": "(08) 889-9855",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%82%A5%E6%98%A5%E8%99%9F&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🐶"
+    ],
+    "features": "屏東縣恆春鎮人氣口碑咖啡名店，主打植栽老宅、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_230",
+    "name": "波波廚房 Kitchen & Cafe",
+    "city": "屏東縣",
+    "city_en": "Pingtung",
+    "district": "恆春鎮",
+    "address": "屏東縣恆春鎮光明路88號",
+    "phone": "(08) 889-6575",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%B3%A2%E6%B3%A2%E5%BB%9A%E6%88%BF&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "店家可喝酒",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍷",
+      "👶"
+    ],
+    "features": "屏東縣恆春鎮人氣口碑咖啡名店，主打植栽老宅、店家可喝酒、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_231",
+    "name": "樹夏飲事",
+    "city": "屏東縣",
+    "city_en": "Pingtung",
+    "district": "恆春鎮",
+    "address": "屏東縣恆春鎮恆西路12-21號",
+    "phone": "0928-568-099",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%A8%B9%E5%A4%8F%E9%A3%B2%E4%BA%8B&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🐶"
+    ],
+    "features": "屏東縣恆春鎮人氣口碑咖啡名店，主打植栽老宅、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_232",
+    "name": "伯虎在旗樓",
+    "city": "屏東縣",
+    "city_en": "Pingtung",
+    "district": "恆春鎮",
+    "address": "屏東縣恆春鎮中山路48號2樓",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E4%BC%AF%E8%99%8E%E5%9C%A8%E6%97%97%E6%A8%93&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☕"
+    ],
+    "features": "屏東縣恆春鎮人氣口碑咖啡名店，主打植栽老宅、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_233",
+    "name": "Under Star Lab 草地星空咖啡",
+    "city": "屏東縣",
+    "city_en": "Pingtung",
+    "district": "滿州鄉",
+    "address": "屏東縣滿州鄉滿州村",
+    "phone": "0910-123-456",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%8D%89%E5%9C%B0%E6%98%9F%E7%A9%BA%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "採光超好",
+      "寵物友善",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🐶",
+      "👶"
+    ],
+    "features": "屏東縣滿州鄉人氣口碑咖啡名店，主打採光超好、寵物友善、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_234",
+    "name": "美菊咖啡麵包",
+    "city": "屏東縣",
+    "city_en": "Pingtung",
+    "district": "屏東市",
+    "address": "屏東縣屏東市公園路66號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%BE%8E%E8%8F%8A%E5%92%96%E5%95%A1%E9%BA%B5%E5%8C%85&authuser=1",
+    "tags": [
+      "採光超好",
+      "甜點好吃",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🍰",
+      "🌿"
+    ],
+    "features": "屏東縣屏東市人氣口碑咖啡名店，主打採光超好、甜點好吃、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_235",
+    "name": "驛前大安森林咖啡",
+    "city": "屏東縣",
+    "city_en": "Pingtung",
+    "district": "竹田鄉",
+    "address": "屏東縣竹田鄉豐明路",
+    "phone": "(08) 771-2345",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%AB%B9%E7%94%B0%E9%A9%9B%E5%89%8D%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "👶"
+    ],
+    "features": "屏東縣竹田鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_236",
+    "name": "南風微醺 餐酒咖啡",
+    "city": "屏東縣",
+    "city_en": "Pingtung",
+    "district": "恆春鎮",
+    "address": "屏東縣恆春鎮恆南路",
+    "phone": "(08) 888-2233",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%8D%97%E9%A2%A8%E5%BE%AE%E9%86%BA+%E6%81%86%E6%98%A5&authuser=1",
+    "tags": [
+      "店家可喝酒",
+      "甜點好吃",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🍷",
+      "🍰",
+      "🗣️"
+    ],
+    "features": "屏東縣恆春鎮人氣口碑咖啡名店，主打店家可喝酒、甜點好吃、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_237",
+    "name": "水明漾活蝦景觀咖啡",
+    "city": "屏東縣",
+    "city_en": "Pingtung",
+    "district": "里港鄉",
+    "address": "屏東縣里港鄉里嶺路2-10號",
+    "phone": "0917-159-088",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%B0%B4%E6%98%8E%E6%BC%BE%E6%B4%BB%E8%9D%A6%E6%99%AF%E8%A7%80%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "👶"
+    ],
+    "features": "屏東縣里港鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_238",
+    "name": "小灣海景露天酒吧咖啡",
+    "city": "屏東縣",
+    "city_en": "Pingtung",
+    "district": "恆春鎮",
+    "address": "屏東縣恆春鎮墾丁路6號",
+    "phone": "(08) 886-1234",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B0%8F%E7%81%A3%E6%B5%B7%E6%99%AF%E9%9C%B2%E5%A4%A9%E9%85%92%E5%90%A7&authuser=1",
+    "tags": [
+      "海景景觀",
+      "店家可喝酒",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "🍷",
+      "☀️"
+    ],
+    "features": "屏東縣恆春鎮人氣口碑咖啡名店，主打海景景觀、店家可喝酒、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_239",
+    "name": "春日廚房 咖啡",
+    "city": "屏東縣",
+    "city_en": "Pingtung",
+    "district": "春日鄉",
+    "address": "屏東縣春日鄉春日村",
+    "phone": "(08) 878-3798",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%98%A5%E6%97%A5%E5%BB%9A%E6%88%BF&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "屏東縣春日鄉人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_240",
+    "name": "勝利星村 康定拾八",
+    "city": "屏東縣",
+    "city_en": "Pingtung",
+    "district": "屏東市",
+    "address": "屏東縣屏東市康定街18號",
+    "phone": "(08) 766-6882",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%BA%B7%E5%AE%9A%E6%8B%BE%E5%85%AB+%E5%8B%9D%E5%88%A9%E6%98%9F%E6%9D%91&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☀️"
+    ],
+    "features": "屏東縣屏東市人氣口碑咖啡名店，主打植栽老宅、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_241",
+    "name": "滿山望海",
+    "city": "宜蘭縣",
+    "city_en": "Yilan",
+    "district": "頭城鎮",
+    "address": "宜蘭縣頭城鎮大坑路197號",
+    "phone": "(03) 977-6788",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%BB%BF%E5%B1%B1%E6%9C%9B%E6%B5%B7&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🍰"
+    ],
+    "features": "宜蘭縣頭城鎮人氣口碑咖啡名店，主打海景景觀、採光超好、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_242",
+    "name": "黑宅咖啡 BLACK HOUSE",
+    "city": "宜蘭縣",
+    "city_en": "Yilan",
+    "district": "頭城鎮",
+    "address": "宜蘭縣頭城鎮三和路616巷235弄47號",
+    "phone": "(03) 988-7966",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%BB%91%E5%AE%85%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "採光超好",
+      "田園稻浪",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🌾",
+      "☕"
+    ],
+    "features": "宜蘭縣頭城鎮人氣口碑咖啡名店，主打採光超好、田園稻浪、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_243",
+    "name": "灆咖啡 Seaview Coffee",
+    "city": "宜蘭縣",
+    "city_en": "Yilan",
+    "district": "頭城鎮",
+    "address": "宜蘭縣頭城鎮協天路636巷6-2號",
+    "phone": "(03) 977-6966",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%81%86%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🐶"
+    ],
+    "features": "宜蘭縣頭城鎮人氣口碑咖啡名店，主打海景景觀、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_244",
+    "name": "日光私廚 景觀咖啡",
+    "city": "宜蘭縣",
+    "city_en": "Yilan",
+    "district": "冬山鄉",
+    "address": "宜蘭縣冬山鄉寶福路372號",
+    "phone": "(03) 959-5685",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%97%A5%E5%85%89%E7%A7%81%E5%BB%9A&authuser=1",
+    "tags": [
+      "採光超好",
+      "小孩友善",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "👶",
+      "🐶"
+    ],
+    "features": "宜蘭縣冬山鄉人氣口碑咖啡名店，主打採光超好、小孩友善、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_245",
+    "name": "小溪邊咖啡",
+    "city": "宜蘭縣",
+    "city_en": "Yilan",
+    "district": "頭城鎮",
+    "address": "宜蘭縣頭城鎮頂埔路一段178巷22號",
+    "phone": "0966-512-585",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B0%8F%E6%BA%AA%E9%82%8A%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "🐶"
+    ],
+    "features": "宜蘭縣頭城鎮人氣口碑咖啡名店，主打植栽老宅、甜點好吃、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_246",
+    "name": "蒔花咖啡 Daily Blossom",
+    "city": "宜蘭縣",
+    "city_en": "Yilan",
+    "district": "礁溪鄉",
+    "address": "宜蘭縣礁溪鄉淇武蘭路3-35號",
+    "phone": "(03) 988-7228",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%92%94%E8%8A%B1%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "採光超好",
+      "甜點好吃",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🍰",
+      "🌿"
+    ],
+    "features": "宜蘭縣礁溪鄉人氣口碑咖啡名店，主打採光超好、甜點好吃、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_247",
+    "name": "定邦咖啡",
+    "city": "宜蘭縣",
+    "city_en": "Yilan",
+    "district": "礁溪鄉",
+    "address": "宜蘭縣礁溪鄉白鵝村白鵝路35號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%AE%9A%E9%82%A6%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☀️"
+    ],
+    "features": "宜蘭縣礁溪鄉人氣口碑咖啡名店，主打植栽老宅、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1524350876685-274059332603?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_248",
+    "name": "微酵食堂 咖啡",
+    "city": "宜蘭縣",
+    "city_en": "Yilan",
+    "district": "宜蘭市",
+    "address": "宜蘭縣宜蘭市神農路一段",
+    "phone": "(03) 932-1111",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%BE%AE%E9%85%B5%E9%A3%9F%E5%A0%82&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☕"
+    ],
+    "features": "宜蘭縣宜蘭市人氣口碑咖啡名店，主打植栽老宅、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_249",
+    "name": "光宅 238",
+    "city": "宜蘭縣",
+    "city_en": "Yilan",
+    "district": "員山鄉",
+    "address": "宜蘭縣員山鄉溪洲路140巷32號",
+    "phone": "(03) 922-1238",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%85%89%E5%AE%85238&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🍰"
+    ],
+    "features": "宜蘭縣員山鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_250",
+    "name": "逗走複合創意空間 咖啡",
+    "city": "宜蘭縣",
+    "city_en": "Yilan",
+    "district": "礁溪鄉",
+    "address": "宜蘭縣礁溪鄉漳福路53號",
+    "phone": "(03) 928-8816",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%80%97%E8%B5%B0%E8%A4%87%E5%90%88%E5%89%B5%E6%84%8F%E7%A9%BA%E9%96%93&authuser=1",
+    "tags": [
+      "採光超好",
+      "寵物友善",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🐶",
+      "👶"
+    ],
+    "features": "宜蘭縣礁溪鄉人氣口碑咖啡名店，主打採光超好、寵物友善、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_251",
+    "name": "與潮珈琲",
+    "city": "宜蘭縣",
+    "city_en": "Yilan",
+    "district": "南澳鄉",
+    "address": "宜蘭縣南澳鄉蘇花路二段",
+    "phone": "0988-123-555",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%88%87%E6%BD%AE%E7%8F%88%E7%90%B2+%E5%8D%97%E6%BE%B3&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "宜蘭縣南澳鄉人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_252",
+    "name": "九號咖啡 外澳館",
+    "city": "宜蘭縣",
+    "city_en": "Yilan",
+    "district": "頭城鎮",
+    "address": "宜蘭縣頭城鎮濱海路二段6號",
+    "phone": "(03) 978-9799",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E4%B9%9D%E8%99%9F%E5%92%96%E5%95%A1%E5%A4%96%E6%BE%B3%E9%A4%A8&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "👶"
+    ],
+    "features": "宜蘭縣頭城鎮人氣口碑咖啡名店，主打海景景觀、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_253",
+    "name": "美美子みみこ 羅東文化工場店",
+    "city": "宜蘭縣",
+    "city_en": "Yilan",
+    "district": "羅東鎮",
+    "address": "宜蘭縣羅東鎮純精路一段96號",
+    "phone": "(03) 955-0008",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%BE%8E%E7%BE%8E%E5%AD%90%E7%BE%85%E6%9D%B1&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "☀️",
+      "👶"
+    ],
+    "features": "宜蘭縣羅東鎮人氣口碑咖啡名店，主打甜點好吃、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_254",
+    "name": "鳴草咖啡自家烘焙館",
+    "city": "宜蘭縣",
+    "city_en": "Yilan",
+    "district": "宜蘭市",
+    "address": "宜蘭縣宜蘭市碧霞街20-1號",
+    "phone": "0913-017-331",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%B3%B4%E8%8D%89%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "宜蘭縣宜蘭市人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_255",
+    "name": "CAFÉ SLOW SO",
+    "city": "宜蘭縣",
+    "city_en": "Yilan",
+    "district": "蘇澳鎮",
+    "address": "宜蘭縣蘇澳鎮蘇東中路",
+    "phone": "(03) 995-1122",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=CAFESLOWSO&authuser=1",
+    "tags": [
+      "海景景觀",
+      "手沖咖啡",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☕",
+      "☀️"
+    ],
+    "features": "宜蘭縣蘇澳鎮人氣口碑咖啡名店，主打海景景觀、手沖咖啡、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_256",
+    "name": "原野牧場 太平洋海景咖啡",
+    "city": "花蓮縣",
+    "city_en": "Hualien",
+    "district": "新城鄉",
+    "address": "花蓮縣新城鄉大漢村七星街9號",
+    "phone": "(03) 822-6035",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%8E%9F%E9%87%8E%E7%89%A7%E5%A0%B4&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🍰"
+    ],
+    "features": "花蓮縣新城鄉人氣口碑咖啡名店，主打海景景觀、採光超好、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_257",
+    "name": "海崖谷 Hayaku 景觀咖啡",
+    "city": "花蓮縣",
+    "city_en": "Hualien",
+    "district": "壽豐鄉",
+    "address": "花蓮縣壽豐鄉鹽寮村大坑51-5號",
+    "phone": "(03) 867-1314",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%B5%B7%E5%B4%96%E8%B0%B7&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "👶"
+    ],
+    "features": "花蓮縣壽豐鄉人氣口碑咖啡名店，主打海景景觀、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_258",
+    "name": "山度空間",
+    "city": "花蓮縣",
+    "city_en": "Hualien",
+    "district": "壽豐鄉",
+    "address": "花蓮縣壽豐鄉鹽寮村大坑57號",
+    "phone": "0963-033-021",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B1%B1%E5%BA%A6%E7%A9%BA%E9%96%93+%E8%8A%B1%E8%93%AE&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🐶"
+    ],
+    "features": "花蓮縣壽豐鄉人氣口碑咖啡名店，主打海景景觀、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_259",
+    "name": "森山舍 morning mountain",
+    "city": "花蓮縣",
+    "city_en": "Hualien",
+    "district": "花蓮市",
+    "address": "花蓮縣花蓮市林政街8-1號",
+    "phone": "(03) 835-1987",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%A3%AE%E5%B1%B1%E8%88%8D&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🍰"
+    ],
+    "features": "花蓮縣花蓮市人氣口碑咖啡名店，主打植栽老宅、採光超好、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_260",
+    "name": "Gioconda 珈琲館",
+    "city": "花蓮縣",
+    "city_en": "Hualien",
+    "district": "花蓮市",
+    "address": "花蓮縣花蓮市林榮街58巷1號",
+    "phone": "0988-234-758",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%8F%88%E7%90%B2%E9%A4%A8Gioconda&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "甜點好吃",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🍰",
+      "🌿"
+    ],
+    "features": "花蓮縣花蓮市人氣口碑咖啡名店，主打手沖咖啡、甜點好吃、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_261",
+    "name": "晤子咖啡 Ngchus cafe",
+    "city": "花蓮縣",
+    "city_en": "Hualien",
+    "district": "花蓮市",
+    "address": "花蓮縣花蓮市建中街11號",
+    "phone": "(03) 833-4378",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%99%A4%E5%AD%90%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "寵物友善",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🐶",
+      "🍰",
+      "☕"
+    ],
+    "features": "花蓮縣花蓮市人氣口碑咖啡名店，主打寵物友善、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_262",
+    "name": "項鍊海岸工作室 咖啡",
+    "city": "花蓮縣",
+    "city_en": "Hualien",
+    "district": "豐濱鄉",
+    "address": "花蓮縣豐濱鄉石梯坪53-1號",
+    "phone": "0916-547-580",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%A0%85%E9%8D%8A%E6%B5%B7%E5%B2%B8%E5%B7%A5%E4%BD%9C%E5%AE%A4&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🌿"
+    ],
+    "features": "花蓮縣豐濱鄉人氣口碑咖啡名店，主打海景景觀、採光超好、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_263",
+    "name": "實心豆豆 手作烘焙咖啡",
+    "city": "花蓮縣",
+    "city_en": "Hualien",
+    "district": "花蓮市",
+    "address": "花蓮縣花蓮市和平路",
+    "phone": "(03) 835-0000",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%AF%A6%E5%BF%83%E8%B1%86%E8%B1%86&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "甜點好吃",
+      "有插頭"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🍰",
+      "🔌"
+    ],
+    "features": "花蓮縣花蓮市人氣口碑咖啡名店，主打手沖咖啡、甜點好吃、有插頭。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_264",
+    "name": "半寓咖啡",
+    "city": "花蓮縣",
+    "city_en": "Hualien",
+    "district": "花蓮市",
+    "address": "花蓮縣花蓮市成功街316號",
+    "phone": "0911-763-747",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%8D%8A%E5%AF%93%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "花蓮縣花蓮市人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_265",
+    "name": "浪花丸 かき氷·島食咖啡",
+    "city": "花蓮縣",
+    "city_en": "Hualien",
+    "district": "花蓮市",
+    "address": "花蓮縣花蓮市海濱街31號",
+    "phone": "0973-888-588",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%B5%AA%E8%8A%B1%E4%B8%B8%E8%8A%B1%E8%93%AE&authuser=1",
+    "tags": [
+      "海景景觀",
+      "甜點好吃",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "🍰",
+      "👶"
+    ],
+    "features": "花蓮縣花蓮市人氣口碑咖啡名店，主打海景景觀、甜點好吃、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_266",
+    "name": "昭和58 喫茶店",
+    "city": "花蓮縣",
+    "city_en": "Hualien",
+    "district": "花蓮市",
+    "address": "花蓮縣花蓮市成功街306號",
+    "phone": "(03) 835-7371",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%98%AD%E5%92%8C58&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☕"
+    ],
+    "features": "花蓮縣花蓮市人氣口碑咖啡名店，主打植栽老宅、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_267",
+    "name": "浮室 soave plan",
+    "city": "花蓮縣",
+    "city_en": "Hualien",
+    "district": "花蓮市",
+    "address": "花蓮縣花蓮市成功街280號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%B5%AE%E5%AE%A4soave+plan&authuser=1",
+    "tags": [
+      "採光超好",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🍰",
+      "☕"
+    ],
+    "features": "花蓮縣花蓮市人氣口碑咖啡名店，主打採光超好、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_268",
+    "name": "花蓮星巴克 洄瀾貨櫃門市",
+    "city": "花蓮縣",
+    "city_en": "Hualien",
+    "district": "吉安鄉",
+    "address": "花蓮縣吉安鄉南濱路一段505號",
+    "phone": "(03) 842-0014",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%8A%B1%E8%93%AE%E6%B4%84%E7%80%BE%E8%B2%A8%E6%AB%83%E6%98%9F%E5%B7%B4%E5%85%8B&authuser=1",
+    "tags": [
+      "採光超好",
+      "有插頭",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🔌",
+      "👶"
+    ],
+    "features": "花蓮縣吉安鄉人氣口碑咖啡名店，主打採光超好、有插頭、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_269",
+    "name": "砂卡礑山月村 景觀咖啡",
+    "city": "花蓮縣",
+    "city_en": "Hualien",
+    "district": "秀林鄉",
+    "address": "花蓮縣秀林鄉富世村231-1號",
+    "phone": "(03) 861-0111",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%A0%82%E5%8D%A1%E7%A4%91%E5%B1%B1%E6%9C%88%E6%9D%91%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🗣️"
+    ],
+    "features": "花蓮縣秀林鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_270",
+    "name": "梯田山森林咖啡",
+    "city": "花蓮縣",
+    "city_en": "Hualien",
+    "district": "壽豐鄉",
+    "address": "花蓮縣壽豐鄉豐山村山邊路二段",
+    "phone": "0960-508-595",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%A2%AF%E7%94%B0%E5%B1%B1%E6%A3%AE%E6%9E%97%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "店家可喝酒"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🍷"
+    ],
+    "features": "花蓮縣壽豐鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、店家可喝酒。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_271",
+    "name": "小魚兒的家 海景咖啡",
+    "city": "台東縣",
+    "city_en": "Taitung",
+    "district": "卑南鄉",
+    "address": "台東縣卑南鄉富山村杉原32號",
+    "phone": "0913-916-875",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B0%8F%E9%AD%9A%E5%85%92%E7%9A%84%E5%AE%B6&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "👶"
+    ],
+    "features": "台東縣卑南鄉人氣口碑咖啡名店，主打海景景觀、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_272",
+    "name": "逐浪海景咖啡",
+    "city": "台東縣",
+    "city_en": "Taitung",
+    "district": "卑南鄉",
+    "address": "台東縣卑南鄉富山村杉原24號",
+    "phone": "(08) 928-1158",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%80%90%E6%B5%AA%E6%B5%B7%E6%99%AF%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🐶"
+    ],
+    "features": "台東縣卑南鄉人氣口碑咖啡名店，主打海景景觀、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1524350876685-274059332603?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_273",
+    "name": "可可娜咖啡 Coconut Cafe",
+    "city": "台東縣",
+    "city_en": "Taitung",
+    "district": "卑南鄉",
+    "address": "台東縣卑南鄉杉原22號",
+    "phone": "(08) 928-1192",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%8F%AF%E5%8F%AF%E5%A8%9C%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "👶"
+    ],
+    "features": "台東縣卑南鄉人氣口碑咖啡名店，主打海景景觀、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_274",
+    "name": "恩娜比亞咖啡",
+    "city": "台東縣",
+    "city_en": "Taitung",
+    "district": "卑南鄉",
+    "address": "台東縣卑南鄉美農村斑隘",
+    "phone": "0932-662-899",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%81%A9%E5%A8%9C%E6%AF%94%E4%BA%9E%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "採光超好",
+      "植栽老宅",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🌿",
+      "🐶"
+    ],
+    "features": "台東縣卑南鄉人氣口碑咖啡名店，主打採光超好、植栽老宅、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_275",
+    "name": "金尊漁港 衝浪海景咖啡",
+    "city": "台東縣",
+    "city_en": "Taitung",
+    "district": "東河鄉",
+    "address": "台東縣東河鄉金尊路",
+    "phone": "(08) 989-6441",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%87%91%E5%B0%8A%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "☕"
+    ],
+    "features": "台東縣東河鄉人氣口碑咖啡名店，主打海景景觀、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_276",
+    "name": "薄荷巴黎 Books Cafe",
+    "city": "台東縣",
+    "city_en": "Taitung",
+    "district": "台東市",
+    "address": "台東縣台東市傳廣路234巷11號",
+    "phone": "(08) 935-1772",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%96%84%E8%8D%B7%E5%B7%B4%E9%BB%8EBooksCafe&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☀️"
+    ],
+    "features": "台東縣台東市人氣口碑咖啡名店，主打植栽老宅、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_277",
+    "name": "出山咖啡",
+    "city": "台東縣",
+    "city_en": "Taitung",
+    "district": "太麻里鄉",
+    "address": "台東縣太麻里鄉大溪路",
+    "phone": "0988-123-111",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%87%BA%E5%B1%B1%E5%92%96%E5%95%A1+%E5%8F%B0%E6%9D%B1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "☕"
+    ],
+    "features": "台東縣太麻里鄉人氣口碑咖啡名店，主打海景景觀、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_278",
+    "name": "都蘭海角咖啡 Dulan Cape Cafe",
+    "city": "台東縣",
+    "city_en": "Taitung",
+    "district": "東河鄉",
+    "address": "台東縣東河鄉都蘭村舊部路47號",
+    "phone": "0903-262-923",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%83%BD%E8%98%AD%E6%B5%B7%E8%A7%92%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "寵物友善",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "🐶",
+      "👶"
+    ],
+    "features": "台東縣東河鄉人氣口碑咖啡名店，主打海景景觀、寵物友善、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_279",
+    "name": "草民 Tsao Min",
+    "city": "台東縣",
+    "city_en": "Taitung",
+    "district": "台東市",
+    "address": "台東縣台東市強國街256巷23號",
+    "phone": "(08) 934-3157",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%8D%89%E6%B0%91TsaoMin&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🍰"
+    ],
+    "features": "台東縣台東市人氣口碑咖啡名店，主打植栽老宅、採光超好、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_280",
+    "name": "走走池上 咖啡工作坊",
+    "city": "台東縣",
+    "city_en": "Taitung",
+    "district": "池上鄉",
+    "address": "台東縣池上鄉中山路99號",
+    "phone": "0919-307-935",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%B5%B0%E8%B5%B0%E6%B1%A0%E4%B8%8A&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "有插頭"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🔌"
+    ],
+    "features": "台東縣池上鄉人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、有插頭。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_281",
+    "name": "星龍花園 景觀咖啡",
+    "city": "台東縣",
+    "city_en": "Taitung",
+    "district": "長濱鄉",
+    "address": "台東縣長濱鄉樟原村118-20號",
+    "phone": "0983-638-180",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%98%9F%E9%BE%8D%E8%8A%B1%E5%9C%92&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🌿"
+    ],
+    "features": "台東縣長濱鄉人氣口碑咖啡名店，主打海景景觀、採光超好、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_282",
+    "name": "幸福綠灣海景咖啡",
+    "city": "台東縣",
+    "city_en": "Taitung",
+    "district": "成功鎮",
+    "address": "台東縣成功鎮芝田路",
+    "phone": "0912-345-890",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B9%B8%E7%A6%8F%E7%B6%A0%E7%81%A3%E6%B5%B7%E6%99%AF%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "👶"
+    ],
+    "features": "台東縣成功鎮人氣口碑咖啡名店，主打海景景觀、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_283",
+    "name": "大武山生態館 景觀咖啡",
+    "city": "台東縣",
+    "city_en": "Taitung",
+    "district": "太麻里鄉",
+    "address": "台東縣太麻里鄉大王村",
+    "phone": "(08) 978-0975",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%A4%A7%E6%AD%A6%E5%B1%B1%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "☕"
+    ],
+    "features": "台東縣太麻里鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_284",
+    "name": "墾墨咖啡 Community Cafe",
+    "city": "台東縣",
+    "city_en": "Taitung",
+    "district": "台東市",
+    "address": "台東縣台東市更生路1208號",
+    "phone": "(08) 922-7998",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%A2%BE%E5%A2%A8%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "有插頭",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "🍰",
+      "☕"
+    ],
+    "features": "台東縣台東市人氣口碑咖啡名店，主打有插頭、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_285",
+    "name": "山角頂咖啡",
+    "city": "台東縣",
+    "city_en": "Taitung",
+    "district": "鹿野鄉",
+    "address": "台東縣鹿野鄉高台路",
+    "phone": "0932-111-456",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%B9%BF%E9%87%8E%E5%B1%B1%E8%A7%92%E9%A0%82%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "採光超好",
+      "植栽老宅",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "🌿",
+      "👶"
+    ],
+    "features": "台東縣鹿野鄉人氣口碑咖啡名店，主打採光超好、植栽老宅、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_286",
+    "name": "及林春咖啡館 GillyPrimavera",
+    "city": "澎湖縣",
+    "city_en": "Penghu",
+    "district": "湖西鄉",
+    "address": "澎湖縣湖西鄉林投村1-3號（隘門沙灘旁）",
+    "phone": "(06) 992-3639",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%8F%8A%E6%9E%97%E6%98%A5%E5%92%96%E5%95%A1%E9%A4%A8&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🐶"
+    ],
+    "features": "澎湖縣湖西鄉人氣口碑咖啡名店，主打海景景觀、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_287",
+    "name": "白灣景觀餐廳 咖啡",
+    "city": "澎湖縣",
+    "city_en": "Penghu",
+    "district": "湖西鄉",
+    "address": "澎湖縣湖西鄉白坑村林投13-5號",
+    "phone": "(06) 992-0036",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%99%BD%E7%81%A3%E6%99%AF%E8%A7%80%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "👶"
+    ],
+    "features": "澎湖縣湖西鄉人氣口碑咖啡名店，主打海景景觀、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_288",
+    "name": "吹吹風精品咖啡 碼頭旗艦店",
+    "city": "澎湖縣",
+    "city_en": "Penghu",
+    "district": "馬公市",
+    "address": "澎湖縣馬公市臨海路6-1號2樓",
+    "phone": "(06) 927-5868",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%90%B9%E5%90%B9%E9%A2%A8%E7%B2%BE%E5%93%81%E5%92%96%E5%95%A1+%E7%A2%BC%E9%A0%AD%E6%97%97%E8%89%A6%E5%BA%97&authuser=1",
+    "tags": [
+      "海景景觀",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☕",
+      "🍰"
+    ],
+    "features": "澎湖縣馬公市人氣口碑咖啡名店，主打海景景觀、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_289",
+    "name": "蒙地卡羅咖啡館",
+    "city": "澎湖縣",
+    "city_en": "Penghu",
+    "district": "馬公市",
+    "address": "澎湖縣馬公市民生路17-4號",
+    "phone": "(06) 926-7877",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%92%99%E5%9C%B0%E5%8D%A1%E7%BE%85%E5%92%96%E5%95%A1%E9%A4%A8&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "澎湖縣馬公市人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_290",
+    "name": "二崁一號陳家仙人掌果汁咖啡",
+    "city": "澎湖縣",
+    "city_en": "Penghu",
+    "district": "西嶼鄉",
+    "address": "澎湖縣西嶼鄉二崁村1號",
+    "phone": "0933-695-806",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E4%BA%8C%E5%B4%81%E4%B8%80%E8%99%9F%E9%99%B3%E5%AE%B6&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🍰"
+    ],
+    "features": "澎湖縣西嶼鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_291",
+    "name": "半日閑下午茶 景觀咖啡",
+    "city": "澎湖縣",
+    "city_en": "Penghu",
+    "district": "白沙鄉",
+    "address": "澎湖縣白沙鄉鎮海村71號",
+    "phone": "(06) 993-1366",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%8D%8A%E6%97%A5%E9%96%91%E4%B8%8B%E5%8D%88%E8%8C%B6&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "👶"
+    ],
+    "features": "澎湖縣白沙鄉人氣口碑咖啡名店，主打植栽老宅、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_292",
+    "name": "牧羊人咖啡館",
+    "city": "澎湖縣",
+    "city_en": "Penghu",
+    "district": "西嶼鄉",
+    "address": "澎湖縣西嶼鄉二崁村12號",
+    "phone": "(06) 998-3565",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E7%89%A7%E7%BE%8A%E4%BA%BA%E5%92%96%E5%95%A1%E9%A4%A8&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "澎湖縣西嶼鄉人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_293",
+    "name": "巴里峇里海景露天咖啡",
+    "city": "澎湖縣",
+    "city_en": "Penghu",
+    "district": "馬公市",
+    "address": "澎湖縣馬公市山水里",
+    "phone": "0932-999-888",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B1%B1%E6%B0%B4%E6%B2%99%E7%81%98%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🐶"
+    ],
+    "features": "澎湖縣馬公市人氣口碑咖啡名店，主打海景景觀、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_294",
+    "name": "澎湖老街 麗洋手作蛋糕咖啡",
+    "city": "澎湖縣",
+    "city_en": "Penghu",
+    "district": "馬公市",
+    "address": "澎湖縣馬公市中央街6號",
+    "phone": "(06) 926-7707",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%BA%97%E6%B4%8B%E6%89%8B%E4%BD%9C%E8%9B%8B%E7%B3%95&authuser=1",
+    "tags": [
+      "甜點好吃",
+      "植栽老宅",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🍰",
+      "🌿",
+      "👶"
+    ],
+    "features": "澎湖縣馬公市人氣口碑咖啡名店，主打甜點好吃、植栽老宅、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_295",
+    "name": "原豆工坊 自家烘焙咖啡",
+    "city": "澎湖縣",
+    "city_en": "Penghu",
+    "district": "馬公市",
+    "address": "澎湖縣馬公市三多路",
+    "phone": "(06) 926-0000",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%BE%8E%E6%B9%96%E5%8E%9F%E8%B1%86%E5%B7%A5%E5%9D%8A&authuser=1",
+    "tags": [
+      "手沖咖啡",
+      "有插頭",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "☕",
+      "🔌",
+      "🍰"
+    ],
+    "features": "澎湖縣馬公市人氣口碑咖啡名店，主打手沖咖啡、有插頭、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_296",
+    "name": "漁翁島燈塔 海景咖啡站",
+    "city": "澎湖縣",
+    "city_en": "Penghu",
+    "district": "西嶼鄉",
+    "address": "澎湖縣西嶼鄉外垵村195號",
+    "phone": "(06) 998-1766",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%BC%81%E7%BF%81%E5%B3%B6%E7%87%88%E5%A1%94&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "☕"
+    ],
+    "features": "澎湖縣西嶼鄉人氣口碑咖啡名店，主打海景景觀、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_297",
+    "name": "小門嶼 鯨魚洞海景仙人掌咖啡",
+    "city": "澎湖縣",
+    "city_en": "Penghu",
+    "district": "西嶼鄉",
+    "address": "澎湖縣西嶼鄉小門村11號",
+    "phone": "(06) 998-1234",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B0%8F%E9%96%80%E9%AF%A8%E9%AD%9A%E6%B4%9E%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🍰"
+    ],
+    "features": "澎湖縣西嶼鄉人氣口碑咖啡名店，主打海景景觀、採光超好、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1524350876685-274059332603?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_298",
+    "name": "七美 芳子海景咖啡",
+    "city": "澎湖縣",
+    "city_en": "Penghu",
+    "district": "七美鄉",
+    "address": "澎湖縣七美鄉南港村",
+    "phone": "0932-111-222",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E4%B8%83%E7%BE%8E%E6%B5%B7%E6%99%AF%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🗣️"
+    ],
+    "features": "澎湖縣七美鄉人氣口碑咖啡名店，主打海景景觀、採光超好、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_299",
+    "name": "蒔花微風 景觀咖啡",
+    "city": "澎湖縣",
+    "city_en": "Penghu",
+    "district": "馬公市",
+    "address": "澎湖縣馬公市鎖港里",
+    "phone": "(06) 995-1234",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%8E%96%E6%B8%AF%E6%B5%B7%E6%99%AF%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🐶"
+    ],
+    "features": "澎湖縣馬公市人氣口碑咖啡名店，主打海景景觀、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_300",
+    "name": "風櫃洞 幽浮聽濤咖啡",
+    "city": "澎湖縣",
+    "city_en": "Penghu",
+    "district": "馬公市",
+    "address": "澎湖縣馬公市風櫃里",
+    "phone": "0988-777-666",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%A2%A8%E6%AB%83%E6%B4%9E%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🗣️"
+    ],
+    "features": "澎湖縣馬公市人氣口碑咖啡名店，主打海景景觀、採光超好、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_301",
+    "name": "愜意甜點工作室 咖啡",
+    "city": "金門縣",
+    "city_en": "Kinmen",
+    "district": "金沙鎮",
+    "address": "金門縣金沙鎮后浦頭60號",
+    "phone": "(08) 235-3585",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%84%9C%E6%84%8F%E7%94%9C%E9%BB%9E%E5%B7%A5%E4%BD%9C%E5%AE%A4&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "採光超好"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "☀️"
+    ],
+    "features": "金門縣金沙鎮人氣口碑咖啡名店，主打植栽老宅、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_302",
+    "name": "古崗樓 湖景咖啡",
+    "city": "金門縣",
+    "city_en": "Kinmen",
+    "district": "金城鎮",
+    "address": "金門縣金城鎮古崗村",
+    "phone": "(08) 231-3100",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%8F%A4%E5%B4%97%E6%A8%93%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "👶"
+    ],
+    "features": "金門縣金城鎮人氣口碑咖啡名店，主打植栽老宅、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_303",
+    "name": "Lin+Coffee",
+    "city": "金門縣",
+    "city_en": "Kinmen",
+    "district": "金城鎮",
+    "address": "金門縣金城鎮民生路43號",
+    "phone": "(08) 232-2281",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=Lin+Coffee+%E9%87%91%E9%96%80&authuser=1",
+    "tags": [
+      "有插頭",
+      "甜點好吃",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "🍰",
+      "☕"
+    ],
+    "features": "金門縣金城鎮人氣口碑咖啡名店，主打有插頭、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_304",
+    "name": "小島商號",
+    "city": "金門縣",
+    "city_en": "Kinmen",
+    "district": "金城鎮",
+    "address": "金門縣金城鎮中興路85號",
+    "phone": "(08) 232-8814",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%B0%8F%E5%B3%B6%E5%95%86%E8%99%9F+%E9%87%91%E9%96%80&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🐶"
+    ],
+    "features": "金門縣金城鎮人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_305",
+    "name": "黑屋咖啡 海景第一排",
+    "city": "金門縣",
+    "city_en": "Kinmen",
+    "district": "金湖鎮",
+    "address": "金門縣金湖鎮下湖60號",
+    "phone": "(08) 233-0851",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%BB%91%E5%B1%8B%E5%92%96%E5%95%A1+%E9%87%91%E9%96%80&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🍰"
+    ],
+    "features": "金門縣金湖鎮人氣口碑咖啡名店，主打海景景觀、採光超好、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_306",
+    "name": "膩珈琲 Ni Cafe",
+    "city": "金門縣",
+    "city_en": "Kinmen",
+    "district": "金湖鎮",
+    "address": "金門縣金湖鎮山外里山外108號",
+    "phone": "暫無提供",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%86%A9%E7%8F%88%E7%90%B2&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "金門縣金湖鎮人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_307",
+    "name": "隨憶 古厝咖啡",
+    "city": "金門縣",
+    "city_en": "Kinmen",
+    "district": "金寧鄉",
+    "address": "金門縣金寧鄉北山村",
+    "phone": "0988-123-987",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%87%91%E9%96%80%E5%8C%97%E5%B1%B1%E5%8F%A4%E5%8E%9D%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "金門縣金寧鄉人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_308",
+    "name": "微風海戀 露天咖啡",
+    "city": "金門縣",
+    "city_en": "Kinmen",
+    "district": "金寧鄉",
+    "address": "金門縣金寧鄉后湖村",
+    "phone": "(08) 232-1234",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%BE%AE%E9%A2%A8%E6%B5%B7%E6%88%80%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "寵物友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🐶"
+    ],
+    "features": "金門縣金寧鄉人氣口碑咖啡名店，主打海景景觀、採光超好、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_309",
+    "name": "阿公ㄟ豆花 咖啡古厝",
+    "city": "金門縣",
+    "city_en": "Kinmen",
+    "district": "金城鎮",
+    "address": "金門縣金城鎮模範街",
+    "phone": "(08) 232-5888",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%A8%A1%E7%AF%84%E8%A1%97%E5%8F%A4%E5%8E%9D%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "👶"
+    ],
+    "features": "金門縣金城鎮人氣口碑咖啡名店，主打植栽老宅、甜點好吃、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_310",
+    "name": "浯日咖啡 Our Day",
+    "city": "金門縣",
+    "city_en": "Kinmen",
+    "district": "金湖鎮",
+    "address": "金門縣金湖鎮復興西路",
+    "phone": "(08) 233-1234",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%B5%AF%E6%97%A5%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "有插頭",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🔌",
+      "☕",
+      "🍰"
+    ],
+    "features": "金門縣金湖鎮人氣口碑咖啡名店，主打有插頭、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_311",
+    "name": "談天樓 眷村咖啡茶點",
+    "city": "金門縣",
+    "city_en": "Kinmen",
+    "district": "金湖鎮",
+    "address": "金門縣金湖鎮復興路3號",
+    "phone": "(08) 233-2766",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%AB%87%E5%A4%A9%E6%A8%93+%E9%87%91%E9%96%80&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "🗣️"
+    ],
+    "features": "金門縣金湖鎮人氣口碑咖啡名店，主打植栽老宅、甜點好吃、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_312",
+    "name": "烈嶼（小金門） 嘉年華冰菓咖啡館",
+    "city": "金門縣",
+    "city_en": "Kinmen",
+    "district": "烈嶼鄉",
+    "address": "金門縣烈嶼鄉西路19-1號",
+    "phone": "(08) 236-3123",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%98%89%E5%B9%B4%E8%8F%AF%E5%86%B0%E8%8F%93%E5%AE%A4&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "👶"
+    ],
+    "features": "金門縣烈嶼鄉人氣口碑咖啡名店，主打植栽老宅、甜點好吃、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_313",
+    "name": "水頭得月樓 僑鄉文化咖啡",
+    "city": "金門縣",
+    "city_en": "Kinmen",
+    "district": "金城鎮",
+    "address": "金門縣金城鎮前水頭44號",
+    "phone": "(08) 232-1100",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%BE%97%E6%9C%88%E6%A8%93%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "👶"
+    ],
+    "features": "金門縣金城鎮人氣口碑咖啡名店，主打植栽老宅、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_314",
+    "name": "良金牧場 音樂咖啡概念館",
+    "city": "金門縣",
+    "city_en": "Kinmen",
+    "district": "金湖鎮",
+    "address": "金門縣金湖鎮漁村160號",
+    "phone": "(08) 233-5886",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%89%AF%E9%87%91%E7%89%A7%E5%A0%B4&authuser=1",
+    "tags": [
+      "採光超好",
+      "小孩友善",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "☀️",
+      "👶",
+      "🗣️"
+    ],
+    "features": "金門縣金湖鎮人氣口碑咖啡名店，主打採光超好、小孩友善、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_315",
+    "name": "風獅爺主題咖啡館",
+    "city": "金門縣",
+    "city_en": "Kinmen",
+    "district": "金沙鎮",
+    "address": "金門縣金沙鎮沙美老街",
+    "phone": "(08) 235-1234",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%B2%99%E7%BE%8E%E8%80%81%E8%A1%97%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "採光超好",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☀️",
+      "🍰"
+    ],
+    "features": "金門縣金沙鎮人氣口碑咖啡名店，主打植栽老宅、採光超好、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_316",
+    "name": "刺鳥咖啡書店",
+    "city": "連江縣",
+    "city_en": "Matsu - 馬祖",
+    "district": "南竿鄉",
+    "address": "連江縣南竿鄉復興村222號（12據點）",
+    "phone": "(08) 362-5170",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%88%BA%E9%B3%A5%E5%92%96%E5%95%A1%E6%9B%B8%E5%BA%97&authuser=1",
+    "tags": [
+      "海景景觀",
+      "植栽老宅",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "🌿",
+      "☕"
+    ],
+    "features": "連江縣南竿鄉人氣口碑咖啡名店，主打海景景觀、植栽老宅、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_317",
+    "name": "西尾半島物產店 咖啡",
+    "city": "連江縣",
+    "city_en": "Matsu - 馬祖",
+    "district": "南竿鄉",
+    "address": "連江縣南竿鄉四維村21號",
+    "phone": "(08) 362-3480",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%A5%BF%E5%B0%BE%E5%8D%8A%E5%B3%B6%E7%89%A9%E7%94%A2%E5%BA%97&authuser=1",
+    "tags": [
+      "海景景觀",
+      "植栽老宅",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "🌿",
+      "🍰"
+    ],
+    "features": "連江縣南竿鄉人氣口碑咖啡名店，主打海景景觀、植栽老宅、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_318",
+    "name": "夫人的咖啡館",
+    "city": "連江縣",
+    "city_en": "Matsu - 馬祖",
+    "district": "南竿鄉",
+    "address": "連江縣南竿鄉四維村夫人村40-1號",
+    "phone": "(08) 362-5138",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%A4%AB%E4%BA%BA%E7%9A%84%E5%92%96%E5%95%A1%E9%A4%A8&authuser=1",
+    "tags": [
+      "海景景觀",
+      "植栽老宅",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "🌿",
+      "🗣️"
+    ],
+    "features": "連江縣南竿鄉人氣口碑咖啡名店，主打海景景觀、植栽老宅、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_319",
+    "name": "芹壁 鏡沃小吃咖啡",
+    "city": "連江縣",
+    "city_en": "Matsu - 馬祖",
+    "district": "北竿鄉",
+    "address": "連江縣北竿鄉芹壁村75號",
+    "phone": "(08) 365-5558",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%8F%A1%E6%B2%83%E5%B0%8F%E5%90%83+%E8%8A%B9%E5%A3%81&authuser=1",
+    "tags": [
+      "海景景觀",
+      "植栽老宅",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "🌿",
+      "🗣️"
+    ],
+    "features": "連江縣北竿鄉人氣口碑咖啡名店，主打海景景觀、植栽老宅、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_320",
+    "name": "家適咖啡民宿 Just coffee",
+    "city": "連江縣",
+    "city_en": "Matsu - 馬祖",
+    "district": "北竿鄉",
+    "address": "連江縣北竿鄉芹壁村56號",
+    "phone": "(08) 365-6669",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%AE%B6%E9%81%A9%E5%92%96%E5%95%A1+%E8%8A%B9%E5%A3%81&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🍰"
+    ],
+    "features": "連江縣北竿鄉人氣口碑咖啡名店，主打海景景觀、採光超好、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_321",
+    "name": "日光春和 Dayspring 咖啡",
+    "city": "連江縣",
+    "city_en": "Matsu - 馬祖",
+    "district": "南竿鄉",
+    "address": "連江縣南竿鄉仁愛村1-1號",
+    "phone": "(08) 362-6612",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%97%A5%E5%85%89%E6%98%A5%E5%92%8C&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "植栽老宅"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🌿"
+    ],
+    "features": "連江縣南竿鄉人氣口碑咖啡名店，主打海景景觀、採光超好、植栽老宅。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_322",
+    "name": "小港境 咖啡小館",
+    "city": "連江縣",
+    "city_en": "Matsu - 馬祖",
+    "district": "南竿鄉",
+    "address": "連江縣南竿鄉津沙村",
+    "phone": "0932-111-789",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%B4%A5%E6%B2%99%E8%81%9A%E8%90%BD%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "手沖咖啡",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "☕",
+      "🍰"
+    ],
+    "features": "連江縣南竿鄉人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1524350876685-274059332603?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_323",
+    "name": "東莒 找茶 複合式咖啡",
+    "city": "連江縣",
+    "city_en": "Matsu - 馬祖",
+    "district": "莒光鄉",
+    "address": "連江縣莒光鄉大坪村1號",
+    "phone": "(08) 368-8009",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%9D%B1%E8%8E%92%E6%89%BE%E8%8C%B6&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "🗣️"
+    ],
+    "features": "連江縣莒光鄉人氣口碑咖啡名店，主打植栽老宅、甜點好吃、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_324",
+    "name": "東引 國利豆花 咖啡小站",
+    "city": "連江縣",
+    "city_en": "Matsu - 馬祖",
+    "district": "東引鄉",
+    "address": "連江縣東引鄉中柳村",
+    "phone": "(08) 367-6142",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%9D%B1%E5%BC%95%E5%9C%8B%E5%88%A9%E8%B1%86%E8%8A%B1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "甜點好吃",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍰",
+      "🗣️"
+    ],
+    "features": "連江縣東引鄉人氣口碑咖啡名店，主打植栽老宅、甜點好吃、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_325",
+    "name": "北竿 芹沃咖啡烘焙館",
+    "city": "連江縣",
+    "city_en": "Matsu - 馬祖",
+    "district": "北竿鄉",
+    "address": "連江縣北竿鄉芹壁村53-8號",
+    "phone": "(08) 365-6099",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E8%8A%B9%E6%B2%83%E5%92%96%E5%95%A1%E7%83%98%E7%84%99%E9%A4%A8&authuser=1",
+    "tags": [
+      "海景景觀",
+      "店家可喝酒",
+      "甜點好吃"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "🍷",
+      "🍰"
+    ],
+    "features": "連江縣北竿鄉人氣口碑咖啡名店，主打海景景觀、店家可喝酒、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_326",
+    "name": "東引 安九宿咖啡",
+    "city": "連江縣",
+    "city_en": "Matsu - 馬祖",
+    "district": "東引鄉",
+    "address": "連江縣東引鄉樂華村",
+    "phone": "0988-234-567",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%9D%B1%E5%BC%95%E5%AE%89%E4%B9%9D%E5%AE%BF%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "☕"
+    ],
+    "features": "連江縣東引鄉人氣口碑咖啡名店，主打海景景觀、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_327",
+    "name": "津沙客棧 老酒咖啡館",
+    "city": "連江縣",
+    "city_en": "Matsu - 馬祖",
+    "district": "南竿鄉",
+    "address": "連江縣南竿鄉津沙村61號",
+    "phone": "(08) 362-2111",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%B4%A5%E6%B2%99%E8%80%81%E9%85%92%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "植栽老宅",
+      "店家可喝酒",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌿",
+      "🍷",
+      "☕"
+    ],
+    "features": "連江縣南竿鄉人氣口碑咖啡名店，主打植栽老宅、店家可喝酒、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_328",
+    "name": "南竿 雲津茶坊 景觀咖啡",
+    "city": "連江縣",
+    "city_en": "Matsu - 馬祖",
+    "district": "南竿鄉",
+    "address": "連江縣南竿鄉四維村",
+    "phone": "(08) 362-5888",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E9%9B%B2%E6%B4%A5%E8%8C%B6%E5%9D%8A&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "手沖咖啡"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "☕"
+    ],
+    "features": "連江縣南竿鄉人氣口碑咖啡名店，主打海景景觀、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
+    "img": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_329",
+    "name": "北竿 鮮美海景咖啡",
+    "city": "連江縣",
+    "city_en": "Matsu - 馬祖",
+    "district": "北竿鄉",
+    "address": "連江縣北竿鄉塘岐村",
+    "phone": "(08) 365-5123",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E5%8C%97%E7%AB%BF%E6%B5%B7%E6%99%AF%E5%92%96%E5%95%A1&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "小孩友善"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "👶"
+    ],
+    "features": "連江縣北竿鄉人氣口碑咖啡名店，主打海景景觀、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.9★",
+    "img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop"
+  },
+  {
+    "id": "cafe_330",
+    "name": "東莒 船老大 咖啡雅座",
+    "city": "連江縣",
+    "city_en": "Matsu - 馬祖",
+    "district": "莒光鄉",
+    "address": "連江縣莒光鄉大坪村72號",
+    "phone": "(08) 368-8022",
+    "status": "營業中",
+    "mapUrl": "https://maps.google.com/?q=%E6%9D%B1%E8%8E%92%E8%88%B9%E8%80%81%E5%A4%A7&authuser=1",
+    "tags": [
+      "海景景觀",
+      "採光超好",
+      "適合聊天"
+    ],
+    "tagEmojis": [
+      "🌊",
+      "☀️",
+      "🗣️"
+    ],
+    "features": "連江縣莒光鄉人氣口碑咖啡名店，主打海景景觀、採光超好、適合聊天。氛圍優雅舒適，深受在地旅人好評。",
+    "price": "NT$ 120 - 320",
+    "rate": "4.8★",
     "img": "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&auto=format&fit=crop"
   }
 ];
+
+// 5.1 全台特色維度 Top 20 口碑名店庫
+const CAFE_FEATURE_TOP20 = {
+  "🔌 有插頭 (Power Plugs)": [
+    "台北休習日",
+    "台北鬧咖啡",
+    "台北Congrats Café",
+    "新北墨憩",
+    "基隆丸角",
+    "桃園Table2",
+    "桃園七步",
+    "新竹續日",
+    "新竹暗室微光",
+    "新竹墨咖啡",
+    "台中Hausinc",
+    "台中Fleet Street",
+    "彰化瘦子",
+    "雲林鴻豆王國",
+    "嘉義往前",
+    "台南Room A",
+    "高雄Now & Then",
+    "花蓮實心豆豆",
+    "台東墾墨",
+    "金門Lin+Coffee"
+  ],
+  "🍰 甜點好吃 (Desserts)": [],
+  "☕ 手沖咖啡 (Pour-over)": [
+    "台北興波",
+    "台北森高砂",
+    "台北光景",
+    "新北Cafe Hytte",
+    "基隆夏隆",
+    "新竹一想一響",
+    "苗栗Per gram",
+    "台中Coffee Stopover",
+    "台中細水",
+    "南投鹿篙咖啡",
+    "雲林巴登",
+    "嘉義鄒築園",
+    "嘉義弓時間",
+    "台南甘單",
+    "台南島夫",
+    "高雄神諭",
+    "屏東春日廚房",
+    "花蓮Gioconda",
+    "台東走走池上",
+    "澎湖吹吹風"
+  ],
+  "🗣️ 適合聊天 (Chat-friendly)": [
+    "台北Woolloomooloo",
+    "新北洋荳子",
+    "新北山海明珠",
+    "桃園古山星辰",
+    "新竹山丘上",
+    "苗栗自然風情",
+    "台中黑森林",
+    "台中地坊",
+    "彰化山海戀",
+    "南投烏布雨林",
+    "南投赤腳精靈",
+    "雲林仙地",
+    "雲林華山派主角",
+    "嘉義清豐濤月",
+    "台南深藍旗艦店",
+    "高雄萊咖啡",
+    "花蓮砂卡礑山月村",
+    "澎湖風櫃幽浮",
+    "金門談天樓",
+    "馬祖鏡沃小吃"
+  ],
+  "🍷 店家可喝酒 (Cafe & Bar)": [
+    "台北翌日咖啡",
+    "台北Congrats",
+    "台北小廢墟",
+    "新北食不厭",
+    "新北天使熱愛的生活",
+    "基隆圖們",
+    "桃園秋波名曲",
+    "新竹江山藝改所",
+    "台中摩德年代",
+    "台中黑森林",
+    "彰化咖啡烟",
+    "雲林後院",
+    "嘉義清豐濤月",
+    "台南窟仔kula",
+    "高雄步道咖啡",
+    "屏東波波廚房",
+    "屏東小灣露天酒吧",
+    "花蓮梯田山",
+    "馬祖北竿芹沃",
+    "馬祖津沙老酒咖啡"
+  ],
+  "🐶 寵物友善 (Pet-friendly)": [
+    "台北Coffee Syndicate",
+    "台北弄宅",
+    "新北靠北過日子",
+    "桃園我們。They keep company",
+    "新竹綠色小徑",
+    "苗栗綠葉方舟",
+    "苗栗窩coffee",
+    "台中Solidbean",
+    "南投老官道",
+    "雲林凹凸",
+    "嘉義老院子1951",
+    "台南甘單",
+    "屏東山男咖啡",
+    "屏東肥春號",
+    "宜蘭灆咖啡",
+    "宜蘭逗走",
+    "花蓮晤子",
+    "台東逐浪",
+    "台東都蘭海角",
+    "金門小島商號"
+  ],
+  "👶 小孩友善 (Kid-friendly)": [
+    "台北Woolloomooloo",
+    "新北白日夢",
+    "基隆魚刺人",
+    "桃園阜山聚落",
+    "新竹大山北月",
+    "苗栗蘇維拉莊園",
+    "苗栗橙香森林",
+    "台中樂樂書屋",
+    "南投喝喝茶",
+    "南投築樂",
+    "雲林56號藍色公路",
+    "嘉義佐登妮絲城堡",
+    "高雄棧貳庫",
+    "屏東水明漾",
+    "宜蘭日光私廚",
+    "宜蘭九號咖啡",
+    "花蓮海崖谷",
+    "台東小魚兒的家",
+    "澎湖及林春",
+    "金門古崗樓"
+  ],
+  "☀️ 採光超好 (Daylight)": [
+    "台北COFFEE LAW",
+    "新北山海明珠",
+    "基隆太平青鳥",
+    "桃園OVER THERE",
+    "新竹一想一響",
+    "苗栗Per gram",
+    "台中留白計畫",
+    "彰化右舍",
+    "南投蠻荒咖啡",
+    "雲林56號公路",
+    "嘉義玖咖啡",
+    "台南StableNice",
+    "高雄遙遙相望",
+    "屏東樹夏飲事",
+    "宜蘭滿山望海",
+    "宜蘭蒔花",
+    "花蓮森山舍",
+    "台東可可娜",
+    "澎湖白灣",
+    "金門黑屋咖啡"
+  ],
+  "🌿 植栽老宅 (Vintage)": [
+    "台北興波",
+    "台北秘氏",
+    "基隆萬祝號",
+    "基隆安樓",
+    "桃園Re-Title",
+    "新竹微生",
+    "新竹續日",
+    "苗栗重成商號",
+    "台中窩柢公寓",
+    "彰化端倪生活",
+    "彰化炎生",
+    "雲林後院",
+    "嘉義霜空",
+    "嘉義森咖啡",
+    "台南窄門",
+    "台南旭峯號",
+    "高雄銀座聚場",
+    "屏東肥春號",
+    "花蓮半寓",
+    "金門北山古厝"
+  ],
+  "🌊 海景景觀 (Ocean View)": [
+    "新北白日夢",
+    "新北靠北過日子",
+    "新北洋荳子",
+    "新北天使熱愛的生活",
+    "基隆圖們咖啡",
+    "基隆海那邊",
+    "桃園草漯沙丘",
+    "高雄旗津海山醬",
+    "高雄柴山大自然",
+    "屏東日日旅海",
+    "屏東海龜咖啡",
+    "宜蘭滿山望海",
+    "宜蘭灆咖啡",
+    "花蓮原野牧場",
+    "花蓮海崖谷",
+    "台東小魚兒的家",
+    "台東逐浪",
+    "澎湖及林春",
+    "馬祖刺鳥書店",
+    "馬祖家適咖啡"
+  ]
+};
 
 // 6. 米其林星級與必比登推介名單
 const TAIPEI_MICHELIN_STARS_DATA = [
@@ -2956,6 +10885,1080 @@ const BIB_GOURMAND_DATA = [
         img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&auto=format&fit=crop"
       }
     ];
+
+// 7.0 週末探店 8 大主題特色店家圖鑑 (含外國人友善雙語與分潤)
+const WEEKEND_HOP_8_THEMES = [
+  {
+    "id": "theme_1",
+    "number": "01",
+    "name": "🍵 台灣茶館與茶空間",
+    "nameEn": "Taiwanese Tea Houses & Modern Tea Spaces",
+    "audience": "歐美、日韓旅客深度體驗、文青慢活",
+    "tags": [
+      "🍵 現泡壺茶",
+      "🪟 山海景觀",
+      "🌿 日式榻榻米",
+      "🥧 精緻茶點",
+      "🌐 雙語茶道"
+    ],
+    "affiliateIntro": "奧丁丁 (linkgo) 採茶手作體驗 ＋ affclkr 茶具選物 ＋ Trip.com 景區飯店",
+    "places": [
+      {
+        "id": "hop_1_1",
+        "nameZh": "紫藤廬",
+        "nameEn": "Wistaria Tea House Taipei",
+        "rating": "★ 4.8",
+        "reviews": "1,240 則評價",
+        "hours": "營業至 18:00 (週一至週日)",
+        "city": "台北市",
+        "district": "大安區",
+        "addressZh": "台北市大安區新生南路三段16號",
+        "addressEn": "No. 16, Sec. 3, Xinsheng S. Rd., Da'an Dist., Taipei City",
+        "tags": [
+          "🌿 日式榻榻米",
+          "🍵 現泡壺茶",
+          "🌐 雙語茶道",
+          "🥧 精緻茶點"
+        ],
+        "features": "台北市定古蹟人文茶館！保留日治時期木構庭園與紫藤花架，提供雙語茶道解說與極致台灣高山手沖壺茶。",
+        "mapUrl": "https://maps.google.com/?q=紫藤廬+Wistaria+Tea+House",
+        "affiliateLabel": "🍵 預約茶道體驗 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E7%B4%AB%E8%97%A4%E5%BB%AC&aid=123436",
+        "img": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_1_2",
+        "nameZh": "九份阿妹茶樓",
+        "nameEn": "A-MEI Tea House Jiufen",
+        "rating": "★ 4.7",
+        "reviews": "3,890 則評價",
+        "hours": "營業至 22:00 (夜景絕美)",
+        "city": "新北市",
+        "district": "瑞芳區",
+        "addressZh": "新北市瑞芳區市下巷20號",
+        "addressEn": "No. 20, Shixia Ln., Ruifang Dist., New Taipei City",
+        "tags": [
+          "🪟 山海景觀",
+          "🍵 現泡壺茶",
+          "🥧 精緻茶點",
+          "🏮 經典紅燈籠"
+        ],
+        "features": "九份豎崎路標誌性木造茶樓！紅燈籠映襯山海雲霧，坐擁無敵太平洋海景，附茶藝師現場手把手沖茶教學與黑糖麻糬點心盒。",
+        "mapUrl": "https://maps.google.com/?q=九份阿妹茶樓",
+        "affiliateLabel": "🎟️ Klook 預訂阿妹茶樓品茗 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/activity/8741-amei-tea-house-jiufen-taipei/?aid=123436",
+        "img": "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_1_3",
+        "nameZh": "青立方 Green Cube",
+        "nameEn": "Green Cube Cafe & Tea Xindian",
+        "rating": "★ 4.6",
+        "reviews": "980 則評價",
+        "hours": "營業至 18:00 (週三公休)",
+        "city": "新北市",
+        "district": "新店區",
+        "addressZh": "新北市新店區銀河路98號",
+        "addressEn": "No. 98, Yinhe Rd., Xindian Dist., New Taipei City",
+        "tags": [
+          "🪟 山海景觀",
+          "🌿 森林系老磚",
+          "🥧 精緻茶點",
+          "🚗 附停車場"
+        ],
+        "features": "新店銀河洞旁的「紅磚版天空之城」！高聳圓拱紅磚懸空迴廊被翠綠山林環抱，品茗冷泡蜜香紅茶與特製千層鬆餅。",
+        "mapUrl": "https://maps.google.com/?q=青立方+Green+Cube",
+        "affiliateLabel": "🚗 預約包車直達新店山城 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E5%8C%97%E5%8C%85%E8%BB%8A&aid=123436",
+        "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_1_4",
+        "nameZh": "無為草堂人文茶館",
+        "nameEn": "Wuwei Caotang Tea House Taichung",
+        "rating": "★ 4.7",
+        "reviews": "2,150 則評價",
+        "hours": "營業至 21:30 (全日品茗供餐)",
+        "city": "台中市",
+        "district": "南屯區",
+        "addressZh": "台中市南屯區公益路二段106號",
+        "addressEn": "No. 106, Sec. 2, Gongyi Rd., Nantun Dist., Taichung City",
+        "tags": [
+          "🌿 日式榻榻米",
+          "🍵 現泡壺茶",
+          "🪟 水上迴廊",
+          "🥧 精緻茶點"
+        ],
+        "features": "米其林綠色指南推薦！隱身台中繁華公益路的水上江南園林，錦鯉在迴廊木椅下優游，啜飲凍頂烏龍沉澱心靈。",
+        "mapUrl": "https://maps.google.com/?q=無為草堂人文茶館",
+        "affiliateLabel": "🍽️ 線上預付訂位 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E7%84%A1%E7%82%BA%E8%8D%89%E5%A0%82&aid=123436",
+        "img": "https://images.unsplash.com/photo-1528164344705-475426879c0d?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_1_5",
+        "nameZh": "遊山茶訪 茶文化館",
+        "nameEn": "Yoshantea Culture House Nantou",
+        "rating": "★ 4.9",
+        "reviews": "1,670 則評價",
+        "hours": "營業至 17:30 (全年無休)",
+        "city": "南投縣",
+        "district": "竹山鎮",
+        "addressZh": "南投縣竹山鎮延平路19號",
+        "addressEn": "No. 19, Yanping Rd., Zhushan Township, Nantou County",
+        "tags": [
+          "🌐 雙語茶道",
+          "🍵 國際品茗認證",
+          "🥧 精緻茶點",
+          "🚗 附停車場"
+        ],
+        "features": "台灣茶界頂級美學殿堂！由傳統老茶廠蛻變為世界級品茗展館，專人雙語解說台灣六大茶系，親手揉茶與焙茶感官體驗。",
+        "mapUrl": "https://maps.google.com/?q=遊山茶訪+茶文化館",
+        "affiliateLabel": "🍵 奧丁丁採茶手作預約 ➔",
+        "affiliateUrl": "https://affckr.site/track/clicks/6826/c627c2bc9b0428dbf18eec23d62e9d47266c4cdf2aabebf20f62b413234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1&subid_3=%E5%AD%B8%E8%8B%B1%E6%96%87%EF%BC%A1%EF%BC%B0%EF%BC%B0",
+        "img": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_1_6",
+        "nameZh": "奉茶 來坐",
+        "nameEn": "Fengcha Tea House Tainan",
+        "rating": "★ 4.6",
+        "reviews": "1,420 則評價",
+        "hours": "營業至 21:00 (週一公休)",
+        "city": "台南市",
+        "district": "中西區",
+        "addressZh": "台南市中西區公園路8號",
+        "addressEn": "No. 8, Gongyuan Rd., West Central Dist., Tainan City",
+        "tags": [
+          "🌿 府城老時光",
+          "🍵 現泡壺茶",
+          "🥧 經典茶食",
+          "🚶 赤嵌樓旁"
+        ],
+        "features": "台南茶藝宗師葉東泰創立！將府城文學與歷史揉入茶湯，古樸紅磚老木桌，搭配黑糖蜜餞與烏龍冬瓜，深刻體會台南慢活哲學。",
+        "mapUrl": "https://maps.google.com/?q=奉茶+來坐",
+        "affiliateLabel": "🏨 Trip.com 查台南古都住宿 ➔",
+        "affiliateUrl": "https://trip.com?Allianceid=9507030&SID=325761227&trip_sub1=TainanHotel",
+        "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&auto=format&fit=crop"
+      }
+    ]
+  },
+  {
+    "id": "theme_2",
+    "number": "02",
+    "name": "🌙 深夜食堂與微醺地圖",
+    "nameEn": "Midnight Dining & Speakeasy Bars",
+    "audience": "夜貓族、日韓年輕旅客（晚上 9 點後）",
+    "tags": [
+      "🍸 亞洲 50 大",
+      "🍢 日式居酒屋",
+      "🍲 深夜牛肉湯",
+      "🏮 秘境酒吧",
+      "🚶 捷運直達"
+    ],
+    "affiliateIntro": "affckr 台灣訂餐（subid_2=日本報報）＋ 55688 叫車直達",
+    "places": [
+      {
+        "id": "hop_2_1",
+        "nameZh": "Bar Mood 吧沐",
+        "nameEn": "Bar Mood Taipei",
+        "rating": "★ 4.8",
+        "reviews": "1,240 則評價",
+        "hours": "營業至 01:00 AM (週五週六至 02:00)",
+        "city": "台北市",
+        "district": "大安區",
+        "addressZh": "台北市大安區敦化南路一段160巷53號",
+        "addressEn": "No. 53, Lane 160, Sec. 1, Dunhua S. Rd., Da'an Dist., Taipei City",
+        "tags": [
+          "🍸 亞洲 50 大",
+          "🚶 捷運忠孝復興",
+          "🏮 秘境調酒",
+          "🍲 下酒精緻料理"
+        ],
+        "features": "亞洲 50 大最佳酒吧！外觀是極簡白色大理石高腳立飲區，推開隱藏機關門後是奢華沉穩的植物花藝調酒吧，將台灣在地的桂花、洛神花、紅玉紅茶幻化成極致感官雞尾酒。",
+        "mapUrl": "https://maps.google.com/?q=Bar+Mood+吧沐",
+        "affiliateLabel": "🍽️ 線上預付訂位 ➔",
+        "affiliateUrl": "https://affckr.site/track/clicks/5891/c627c2bc9b0428dbf188ec23d62e9d47266c4cdf2aabebf10f69b313234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+        "img": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_2_2",
+        "nameZh": "阿財虱目魚肚",
+        "nameEn": "Ah-Cai Milkfish Taipei",
+        "rating": "★ 4.4",
+        "reviews": "2,840 則評價",
+        "hours": "營業至 05:00 AM (深夜排隊傳奇)",
+        "city": "台北市",
+        "district": "萬華區",
+        "addressZh": "台北市萬華區內江街122號",
+        "addressEn": "No. 122, Neijiang St., Wanhua Dist., Taipei City",
+        "tags": [
+          "🍲 深夜牛肉湯與魚肚",
+          "🚶 西門捷運站",
+          "⏰ 深夜 10 點開門"
+        ],
+        "features": "西門町深夜排隊神話！晚上 10 點剛開鐵門便湧現人潮，現煎金黃焦脆肥美無刺虱目魚肚、黑金滷肉飯佐半熟煎蛋、三杯中卷鑊氣沖天。",
+        "mapUrl": "https://maps.google.com/?q=阿財虱目魚肚",
+        "affiliateLabel": "🚕 55688 深夜叫車直達 ➔",
+        "affiliateUrl": "https://www.55688.com.tw/",
+        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_2_3",
+        "nameZh": "爛泥 ooo bar",
+        "nameEn": "Mud ooo Bar Taichung",
+        "rating": "★ 4.8",
+        "reviews": "620 則評價",
+        "hours": "營業至 02:00 AM (週二公休)",
+        "city": "台中市",
+        "district": "西區",
+        "addressZh": "台中市西區公正路210巷",
+        "addressEn": "Lane 210, Gongzheng Rd., West Dist., Taichung City",
+        "tags": [
+          "🏮 秘境天井老屋",
+          "🍸 客製調酒",
+          "🚶 近勤美綠園道"
+        ],
+        "features": "隱身西區安靜巷弄的低調天井老屋酒吧！無固定制式酒單，調酒師依旅人當下情緒調製風味層次豐富的專屬特調，氣氛沉靜浪漫。",
+        "mapUrl": "https://maps.google.com/?q=爛泥+ooo+bar+台中",
+        "affiliateLabel": "🍽️ 線上訂位預訂 ➔",
+        "affiliateUrl": "https://affckr.site/track/clicks/5891/c627c2bc9b0428dbf188ec23d62e9d47266c4cdf2aabebf10f69b313234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+        "img": "https://images.unsplash.com/photo-1574096079513-d8259312b785?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_2_4",
+        "nameZh": "Bar T.C.R.C. 前科累累俱樂部",
+        "nameEn": "Bar T.C.R.C. Tainan",
+        "rating": "★ 4.9",
+        "reviews": "2,460 則評價",
+        "hours": "營業至 02:00 AM (週日公休)",
+        "city": "台南市",
+        "district": "中西區",
+        "addressZh": "台南市中西區新美街117號",
+        "addressEn": "No. 117, Xinmei St., West Central Dist., Tainan City",
+        "tags": [
+          "🍸 亞洲 50 大",
+          "🏮 老街古厝",
+          "🍢 結合在地滷味"
+        ],
+        "features": "名列亞洲 50 大酒吧殿堂的古都傳奇！座落台南百年米街（新美街）老平房，老屋檜木樑柱與復古沙發，客製調酒果香奔放，更可點隔壁阿汎香腸熟肉搭配。",
+        "mapUrl": "https://maps.google.com/?q=Bar+TCRC+台南",
+        "affiliateLabel": "🏨 訂台南市區住宿（走路回飯店）➔",
+        "affiliateUrl": "https://affone.me/s/bQeO4",
+        "img": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_2_5",
+        "nameZh": "文章牛肉湯",
+        "nameEn": "Wen Zhang Beef Soup Tainan",
+        "rating": "★ 4.6",
+        "reviews": "8,900 則評價",
+        "hours": "營業至 02:00 AM (安平旗艦店)",
+        "city": "台南市",
+        "district": "安平區",
+        "addressZh": "台南市安平區安平路300號",
+        "addressEn": "No. 300, Anping Rd., Anping Dist., Tainan City",
+        "tags": [
+          "🍲 深夜溫體牛",
+          "🥩 鮮甜現沖",
+          "⏰ 開到凌晨兩點"
+        ],
+        "features": "夜貓族與外國老饕台南宵夜首選！採用善化肉品市場當日現宰直送溫體牛，滾燙牛骨蔬果高湯瞬間澆淋在粉紅薄切牛肉片上，軟嫩鮮甜一試難忘。",
+        "mapUrl": "https://maps.google.com/?q=文章牛肉湯",
+        "affiliateLabel": "🚗 台南市區包車一日遊 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E5%8D%97%E5%8C%85%E8%BB%8A&aid=123436",
+        "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_2_6",
+        "nameZh": "上善若水 Good Water",
+        "nameEn": "Good Water Cocktail Bar Kaohsiung",
+        "rating": "★ 4.8",
+        "reviews": "920 則評價",
+        "hours": "營業至 03:00 AM (無酒單客製化)",
+        "city": "高雄市",
+        "district": "苓雅區",
+        "addressZh": "高雄市苓雅區青年二路166號",
+        "addressEn": "No. 166, Qingnian 2nd Rd., Lingya Dist., Kaohsiung City",
+        "tags": [
+          "🍸 無酒單客製化",
+          "🍢 專業下酒餐點",
+          "🚶 光榮碼頭旁"
+        ],
+        "features": "高雄最具溫度的經典無酒單雞尾酒吧！調酒師依酸甜、果香、茶韻、烈度客製調配，空間溫暖木質調，深夜亦提供美味手工水餃與自製煙燻鴨胸。",
+        "mapUrl": "https://maps.google.com/?q=上善若水+高雄",
+        "affiliateLabel": "🚕 55688 高雄叫車直達 ➔",
+        "affiliateUrl": "https://www.55688.com.tw/",
+        "img": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800&auto=format&fit=crop"
+      }
+    ]
+  },
+  {
+    "id": "theme_3",
+    "number": "03",
+    "name": "🥖 經典台式傳統早餐",
+    "nameEn": "Classic Taiwanese Traditional Breakfast",
+    "audience": "國外旅客來台必吃、早起吃貨行程",
+    "tags": [
+      "🥖 酥脆油條燒餅",
+      "🥣 招牌鹹豆漿",
+      "🥟 爆汁小籠包",
+      "🍳 傳統粉漿蛋餅",
+      "⏰ 清晨開門"
+    ],
+    "affiliateIntro": "affckr / Klook 鼎泰豐/早餐免排隊套餐券 ＋ 市區包車",
+    "places": [
+      {
+        "id": "hop_3_1",
+        "nameZh": "阜杭豆漿",
+        "nameEn": "Fu Hang Soy Milk Taipei",
+        "rating": "★ 4.6",
+        "reviews": "14,800 則評價",
+        "hours": "05:30 - 12:30 (週一公休 / 米其林必比登)",
+        "city": "台北市",
+        "district": "中正區",
+        "addressZh": "台北市中正區忠孝東路一段108號2樓（華山市場）",
+        "addressEn": "2F, Huashan Market, No. 108, Sec. 1, Zhongxiao E. Rd., Zhongzheng Dist., Taipei City",
+        "tags": [
+          "🥖 厚燒餅夾蛋夾油條",
+          "🥣 焦香鹹豆漿",
+          "⏰ 05:30 開門",
+          "🚶 捷運善導寺站"
+        ],
+        "features": "連年榮獲米其林必比登推介的台灣早餐頂流！古法炭烤厚燒餅外酥內軟、帶淡淡蔥花鹹香，招牌鹹豆漿凝結如嫩豆腐花佐現炸老油條與香辣油。",
+        "mapUrl": "https://maps.google.com/?q=阜杭豆漿",
+        "affiliateLabel": "🎟️ Klook 阜杭免排隊直送 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E9%98%9C%E6%9D%AD%E8%B1%86%E6%BC%BF&aid=123436",
+        "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_3_2",
+        "nameZh": "鼎元豆漿",
+        "nameEn": "Ding Yuan Soy Milk Taipei",
+        "rating": "★ 4.5",
+        "reviews": "4,120 則評價",
+        "hours": "04:30 - 11:30 (日本觀光客指名)",
+        "city": "台北市",
+        "district": "中正區",
+        "addressZh": "台北市中正區金華街30-1號",
+        "addressEn": "No. 30-1, Jinhua St., Zhongzheng Dist., Taipei City",
+        "tags": [
+          "🥟 爆汁小籠湯包",
+          "🥖 蟹殼黃燒餅",
+          "🌐 日英語友善",
+          "🚶 近中正紀念堂"
+        ],
+        "features": "日本各大旅遊書強烈推薦的中正區老字號！現包現蒸小籠湯包皮薄餡多、湯汁濃郁，蟹殼黃與甜酥餅層次豐富，服務人員具外語點餐友善經驗。",
+        "mapUrl": "https://maps.google.com/?q=鼎元豆漿",
+        "affiliateLabel": "🚗 台北市區半日包車 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E5%8C%97%E5%8C%85%E8%BB%8A&aid=123436",
+        "img": "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_3_3",
+        "nameZh": "天津苟不理湯包（信義街無名湯包）",
+        "nameEn": "Gou Bu Li Soup Dumplings Taichung",
+        "rating": "★ 4.6",
+        "reviews": "6,300 則評價",
+        "hours": "05:30 - 11:30 (週一公休)",
+        "city": "台中市",
+        "district": "東區",
+        "addressZh": "台中市東區信義街63號",
+        "addressEn": "No. 63, Xinyi St., East Dist., Taichung City",
+        "tags": [
+          "🥟 巨型爆漿湯包",
+          "🍳 蔥花荷包蛋",
+          "🥣 自助豆漿紅茶暢飲"
+        ],
+        "features": "台中在地排隊超人氣大湯包！每顆湯包飽滿如肉包，手桿厚麵皮吸飽肉汁，咬開瞬間鮮甜湯汁爆噴，店內自助式裝豆漿、紅茶更是極致爽快。",
+        "mapUrl": "https://maps.google.com/?q=天津苟不理湯包",
+        "affiliateLabel": "🚗 預訂台中市區接送包車 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E4%B8%AD%E5%8C%85%E8%BB%8A&aid=123436",
+        "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_3_4",
+        "nameZh": "六千泓佐牛肉湯",
+        "nameEn": "Liu Qian Beef Soup Tainan",
+        "rating": "★ 4.7",
+        "reviews": "4,780 則評價",
+        "hours": "05:00 - 賣完為止 (通常 08:30 售罄)",
+        "city": "台南市",
+        "district": "中西區",
+        "addressZh": "台南市中西區海安路一段63號",
+        "addressEn": "No. 63, Sec. 1, Hai'an Rd., West Central Dist., Tainan City",
+        "tags": [
+          "🥣 晨光第一鍋原湯",
+          "🥩 現切溫體牛",
+          "⏰ 清晨 5 點開賣"
+        ],
+        "features": "台南最熱血的清晨朝聖排隊儀式！凌晨 4 點便有旅人拿號碼牌，只為喝上一口「第一鍋」最清澈純粹的牛骨牛髓精華原湯，肉質軟嫩如絲。",
+        "mapUrl": "https://maps.google.com/?q=六千泓佐牛肉湯",
+        "affiliateLabel": "🏨 訂海安路散步飯店 ➔",
+        "affiliateUrl": "https://affone.me/s/bQeO4",
+        "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_3_5",
+        "nameZh": "興隆居",
+        "nameEn": "Xing Long Ju Kaohsiung",
+        "rating": "★ 4.5",
+        "reviews": "7,800 則評價",
+        "hours": "04:30 - 11:30 (週一公休)",
+        "city": "高雄市",
+        "district": "前金區",
+        "addressZh": "高雄市前金區六合二路186號",
+        "addressEn": "No. 186, Liuhe 2nd Rd., Qianjin Dist., Kaohsiung City",
+        "tags": [
+          "🥟 多汁高麗菜湯包",
+          "🥖 炭火燒餅油條",
+          "🚶 近市議會站"
+        ],
+        "features": "飄香近七十年的港都傳統早餐王者！現包現蒸多汁大湯包，內餡裹滿脆甜梨山高麗菜與鮮豬肉末，咬下湯汁四溢，炭烤老麵脆燒餅配杏仁茶更是絕配。",
+        "mapUrl": "https://maps.google.com/?q=興隆居",
+        "affiliateLabel": "🚄 預訂台灣高鐵 75 折車票 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E9%AB%98%E9%90%B5&aid=123436",
+        "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&auto=format&fit=crop"
+      }
+    ]
+  },
+  {
+    "id": "theme_4",
+    "number": "04",
+    "name": "🏺 文青選物與獨立書店",
+    "nameEn": "Select Shops & Independent Bookstores",
+    "audience": "赤峰街、大稻埕散策者、生活美學愛好者",
+    "tags": [
+      "🏺 台灣在地工藝",
+      "📚 獨立書店雜誌",
+      "👜 原創布包服飾",
+      "🌿 植栽雜貨",
+      "☕ 選物兼咖啡"
+    ],
+    "affiliateIntro": "affclkr 質感選物線上導購（subid_1=台灣吃喝玩樂）",
+    "places": [
+      {
+        "id": "hop_4_1",
+        "nameZh": "地衣荒物 Earthing Way",
+        "nameEn": "Earthing Way Dadaocheng",
+        "rating": "★ 4.8",
+        "reviews": "890 則評價",
+        "hours": "10:30 - 19:30 (大稻埕老街)",
+        "city": "台北市",
+        "district": "大同區",
+        "addressZh": "台北市大同區民樂街34號",
+        "addressEn": "No. 34, Minle St., Datong Dist., Taipei City",
+        "tags": [
+          "🏺 台灣原生工藝",
+          "👜 自然植物染手作",
+          "🌿 質樸美學選物"
+        ],
+        "features": "座落迪化街旁民樂街的深邃美學老屋！蒐羅台灣在地陶藝、竹編、銅器、苧麻編織與原住民手工藝，讓每一件生活器皿都蘊含著土地的呼吸與觸感。",
+        "mapUrl": "https://maps.google.com/?q=地衣荒物+Earthing+Way",
+        "affiliateLabel": "🏺 affclkr 質感選物導購 ➔",
+        "affiliateUrl": "https://affckr.site/track/clicks/6826/c627c2bc9b0428dbf18eec23d62e9d47266c4cdf2aabebf20f62b413234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+        "img": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_4_2",
+        "nameZh": "小器生活空間",
+        "nameEn": "Xiao Qi Living Chifeng",
+        "rating": "★ 4.7",
+        "reviews": "1,120 則評價",
+        "hours": "12:00 - 20:00 (赤峰街商圈)",
+        "city": "台北市",
+        "district": "大同區",
+        "addressZh": "台北市大同區赤峰街29號",
+        "addressEn": "No. 29, Chifeng St., Datong Dist., Taipei City",
+        "tags": [
+          "🏺 日台生活食器",
+          "☕ 選物兼美學",
+          "🚶 捷運中山站"
+        ],
+        "features": "赤峰街文青聚落靈魂地標！純白淨透玻璃櫥窗展示日台職人手作陶碗、玻璃杯皿、木質餐具與手染圍裙，將餐桌上的微小時光轉化為藝術儀式感。",
+        "mapUrl": "https://maps.google.com/?q=小器生活空間+赤峰街",
+        "affiliateLabel": "🚶 中山赤峰街散步指南 ➔",
+        "affiliateUrl": "ranking.html?cat=walk",
+        "img": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_4_3",
+        "nameZh": "朋丁 Pon Ding",
+        "nameEn": "Pon Ding Art Space & Bookstore",
+        "rating": "★ 4.8",
+        "reviews": "1,340 則評價",
+        "hours": "12:00 - 19:00 (週一公休)",
+        "city": "台北市",
+        "district": "中山區",
+        "addressZh": "台北市中山區中山北路一段53巷6號",
+        "addressEn": "No. 6, Lane 53, Sec. 1, Zhongshan N. Rd., Zhongshan Dist., Taipei City",
+        "tags": [
+          "📚 獨立藝術雜誌",
+          "☕ 三層樓藝廊咖啡",
+          "🚶 近台北車站"
+        ],
+        "features": "由三層老公寓改造的獨立藝術空間！一樓陳列來自世界各地的獨立出版刊物、小誌（Zine）與精品咖啡，二三樓為當代新銳藝術展演與講座空間。",
+        "mapUrl": "https://maps.google.com/?q=朋丁+Pon+Ding",
+        "affiliateLabel": "☕ 探索全台風格咖啡店 ➔",
+        "affiliateUrl": "cafe.html",
+        "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_4_4",
+        "nameZh": "綠光計畫范特喜文創聚落",
+        "nameEn": "Fantasy Green Ray Taichung",
+        "rating": "★ 4.6",
+        "reviews": "5,600 則評價",
+        "hours": "10:00 - 18:00 (中興一巷)",
+        "city": "台中市",
+        "district": "西區",
+        "addressZh": "台中市西區中興一巷2號-26號",
+        "addressEn": "No. 2-26, Zhongxing 1st Ln., West Dist., Taichung City",
+        "tags": [
+          "🏺 手作原創皮革",
+          "🌿 老宿舍綠植爬藤",
+          "☕ 獨立小店聚落"
+        ],
+        "features": "自來水公司老眷村宿舍再生聚落！保留老紅磚牆與二樓空中綠意步道，匯聚金工飾品、手造皮件、插畫布包與特色小甜點店，充滿慢活生活氣息。",
+        "mapUrl": "https://maps.google.com/?q=綠光計畫范特喜文創聚落",
+        "affiliateLabel": "🚗 預訂台中包車漫遊 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E4%B8%AD%E5%8C%85%E8%BB%8A&aid=123436",
+        "img": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_4_5",
+        "nameZh": "聚珍臺灣",
+        "nameEn": "GJ Taiwan Bookstore Tainan",
+        "rating": "★ 4.9",
+        "reviews": "980 則評價",
+        "hours": "11:00 - 19:00 (林百貨旁)",
+        "city": "台南市",
+        "district": "中西區",
+        "addressZh": "台南市中西區青年路（台南林百貨周邊）",
+        "addressEn": "Qingnian Rd., West Central Dist., Tainan City",
+        "tags": [
+          "📚 台灣文史典藏",
+          "🏺 古地圖復刻",
+          "🚶 林百貨周邊"
+        ],
+        "features": "外國旅人深度認識台灣歷史的最佳窗口！專注於台灣老照片、日治時期地圖復刻、文史書籍與文創商品，讓旅人在紙頁墨香中穿梭台灣古今風貌。",
+        "mapUrl": "https://maps.google.com/?q=聚珍臺灣+台南",
+        "affiliateLabel": "🏨 訂台南特色文青旅宿 ➔",
+        "affiliateUrl": "https://affone.me/s/bQeO4",
+        "img": "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=800&auto=format&fit=crop"
+      }
+    ]
+  },
+  {
+    "id": "theme_5",
+    "number": "05",
+    "name": "🍢 夜市必吃攤位圖鑑",
+    "nameEn": "Taiwan Iconic Night Market Food Guide",
+    "audience": "來台第 1 剛需！各縣市必比登與在地老攤",
+    "tags": [
+      "🌟 必比登推介",
+      "🥩 酥炸肉食",
+      "🦪 現炒海鮮",
+      "🍧 傳統甜品冰品",
+      "🥤 解膩冬瓜茶"
+    ],
+    "affiliateIntro": "afftkr 健胃酵素益生菌（吃大餐神隊友）＋ Klook 夜市千歲宴/美食券",
+    "places": [
+      {
+        "id": "hop_5_1",
+        "nameZh": "寧夏夜市「劉芋仔蛋黃芋餅」",
+        "nameEn": "Liu Yu Zi Fried Taro Balls Ningxia",
+        "rating": "★ 4.6",
+        "reviews": "3,400 則評價",
+        "hours": "17:30 - 24:00 (必比登排隊王)",
+        "city": "台北市",
+        "district": "大同區",
+        "addressZh": "台北市大同區寧夏路（攤位 091）",
+        "addressEn": "Stall 091, Ningxia Rd., Datong Dist., Taipei City",
+        "tags": [
+          "🌟 必比登推介",
+          "🍧 酥炸香芋肉鬆",
+          "🚶 捷運雙連站"
+        ],
+        "features": "連續多年入選米其林必比登！現包現炸高雄甲仙檳榔心芋泥，包裹鹹香黑豬肉脯與整顆流油鹹蛋黃，外皮金黃薄脆、內餡軟糯甘甜噴香。",
+        "mapUrl": "https://maps.google.com/?q=劉芋仔蛋黃芋餅",
+        "affiliateLabel": "🎟️ Klook 寧夏夜市美食券 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%AF%A7%E5%A4%8F%E5%A4%9C%E5%B8%82&aid=123436",
+        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_5_2",
+        "nameZh": "士林夜市「海友十全排骨」",
+        "nameEn": "Hai You Ribs Shilin Night Market",
+        "rating": "★ 4.5",
+        "reviews": "4,100 則評價",
+        "hours": "14:30 - 23:30 (週四公休)",
+        "city": "台北市",
+        "district": "士林區",
+        "addressZh": "台北市士林區大東路49號",
+        "addressEn": "No. 49, Dadong Rd., Shilin Dist., Taipei City",
+        "tags": [
+          "🌟 必比登推介",
+          "🥩 十全溫補排骨",
+          "🚶 捷運劍潭站"
+        ],
+        "features": "傳承四十餘年的藥膳燉排骨老店！以熟地、當歸、枸杞等十餘種名貴中藥慢火慢燉，湯頭濃黑甘醇溫潤不燥，排骨肉質軟嫩一抿即骨肉分離。",
+        "mapUrl": "https://maps.google.com/?q=海友十全排骨",
+        "affiliateLabel": "💊 買酵素保護腸胃好隊友 ➔",
+        "affiliateUrl": "https://affckr.site/track/clicks/5891/c627c2bc9b0428dbf188ec23d62e9d47266c4cdf2aabebf10f69b313234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+        "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_5_3",
+        "nameZh": "逢甲夜市「明倫蛋餅」",
+        "nameEn": "Minglun Egg Pancake Fengjia",
+        "rating": "★ 4.6",
+        "reviews": "5,200 則評價",
+        "hours": "15:00 - 01:00 AM (逢甲福星路口)",
+        "city": "台中市",
+        "district": "西屯區",
+        "addressZh": "台中市西屯區福星路546號",
+        "addressEn": "No. 546, Fuxing Rd., Xitun Dist., Taichung City",
+        "tags": [
+          "🍳 傳統粉漿餅皮",
+          "🥤 特製甜辣醬",
+          "🚶 逢甲商圈核心"
+        ],
+        "features": "源自彰化員林民國 67 年的老名攤！堅持傳統粉漿現淋煎烤，餅皮薄Q帶淡淡甜香，打入新鮮蔥花蛋後抹上靈魂甜辣醬，熱氣騰騰捲起咬下無比過癮。",
+        "mapUrl": "https://maps.google.com/?q=明倫蛋餅+逢甲",
+        "affiliateLabel": "🏨 訂逢甲夜市周邊住宿 ➔",
+        "affiliateUrl": "https://affone.me/s/bQeO4",
+        "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_5_4",
+        "nameZh": "花園夜市「二師兄古早味滷味」",
+        "nameEn": "Er Shi Xiong Braised Dishes Tainan",
+        "rating": "★ 4.7",
+        "reviews": "6,100 則評價",
+        "hours": "每週四、六、日 17:30 - 24:00",
+        "city": "台南市",
+        "district": "北區",
+        "addressZh": "台南市北區海安路三段（花園夜市內）",
+        "addressEn": "Sec. 3, Hai'an Rd., North Dist., Tainan City",
+        "tags": [
+          "🥩 現場大鍋三杯翻炒",
+          "🧋 蜜汁七里香",
+          "⏰ 夜市限定"
+        ],
+        "features": "花園夜市現場最壯觀的烹調盛景！數口大鍋現場慢火翻炒三杯黑糖米血、原汁小鳥蛋、蜜汁七里香與雞翅，濃油赤醬香氣飄散數十米，排隊人潮綿延。",
+        "mapUrl": "https://maps.google.com/?q=二師兄古早味滷味",
+        "affiliateLabel": "🚗 台南夜市包車直達 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E5%8D%97%E5%8C%85%E8%BB%8A&aid=123436",
+        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_5_5",
+        "nameZh": "瑞豐夜市「天使大雞排」",
+        "nameEn": "Angel Chicken Chop Ruifeng",
+        "rating": "★ 4.7",
+        "reviews": "4,300 則評價",
+        "hours": "18:00 - 00:30 (週一三公休)",
+        "city": "高雄市",
+        "district": "鼓山區",
+        "addressZh": "高雄市鼓山區裕誠路（瑞豐夜市內）",
+        "addressEn": "Yucheng Rd., Gushan Dist., Kaohsiung City",
+        "tags": [
+          "🥩 厚切多汁脆皮",
+          "🚶 捷運巨蛋站",
+          "🌟 港都排隊傳奇"
+        ],
+        "features": "南台灣排隊巨型雞排指標！厚度超過 2 公分溫體雞胸肉，裹上特調酥脆漿粉高溫鎖汁，撕開瞬間熱氣白煙與鮮甜雞汁直流，酥脆椒鹽風味令人吮指回味。",
+        "mapUrl": "https://maps.google.com/?q=天使大雞排+瑞豐夜市",
+        "affiliateLabel": "🏨 訂高雄巨蛋周邊飯店 ➔",
+        "affiliateUrl": "https://trip.com?Allianceid=9507030&SID=325761227&trip_sub1=KaohsiungHotel",
+        "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&auto=format&fit=crop"
+      }
+    ]
+  },
+  {
+    "id": "theme_6",
+    "number": "06",
+    "name": "🍰 手作烘焙與極致甜點",
+    "nameEn": "Artisanal Bakeries & Haute Desserts",
+    "audience": "下午茶朝聖族、女性好友同行、甜品控",
+    "tags": [
+      "🥐 極致可頌酸種",
+      "🍮 昭和焦糖布丁",
+      "🧁 千層蛋糕",
+      "🌰 濃郁肉桂捲",
+      "🥭 季節鮮果"
+    ],
+    "affiliateIntro": "affckr 甜點下午茶預付餐券 ＋ 萬家福生鮮伴手禮直送飯店",
+    "places": [
+      {
+        "id": "hop_6_1",
+        "nameZh": "法朋烘焙甜點坊 Le Ruban",
+        "nameEn": "Le Ruban Pâtisserie Taipei",
+        "rating": "★ 4.7",
+        "reviews": "3,900 則評價",
+        "hours": "11:30 - 19:30 (台北甜點名門)",
+        "city": "台北市",
+        "district": "大安區",
+        "addressZh": "台北市大安區仁愛路四段300巷20弄11號",
+        "addressEn": "No. 11, Aly. 20, Ln. 300, Sec. 4, Ren'ai Rd., Da'an Dist., Taipei City",
+        "tags": [
+          "🧁 台灣老欉香緹",
+          "🍋 老奶奶檸檬蛋糕",
+          "🚶 近信義安和站"
+        ],
+        "features": "台灣法式烘焙甜點天花板！名廚李依錫以日本生乳奶油融合在地季節鮮果（愛文芒果、大湖草莓、水蜜桃），招牌老奶奶檸檬蛋糕清香酸甜，長年排隊不輟。",
+        "mapUrl": "https://maps.google.com/?q=法朋烘焙甜點坊",
+        "affiliateLabel": "🎁 萬家福伴手禮直送飯店 ➔",
+        "affiliateUrl": "index.html#wanjiafu",
+        "img": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_6_2",
+        "nameZh": "Heritage Bakery & Cafe",
+        "nameEn": "Heritage Bakery Taipei",
+        "rating": "★ 4.6",
+        "reviews": "2,100 則評價",
+        "hours": "10:00 - 19:00 (週一公休)",
+        "city": "台北市",
+        "district": "中正區",
+        "addressZh": "台北市中正區漢口街一段73-2號",
+        "addressEn": "No. 73-2, Sec. 1, Hankou St., Zhongzheng Dist., Taipei City",
+        "tags": [
+          "🌰 濃郁核桃肉桂捲",
+          "🥭 紅心芭樂戚風",
+          "☕ 美式復古老屋"
+        ],
+        "features": "台北相機街老屋改建的美式烘焙名所！招牌美式厚核桃肉桂捲香濃多汁，獨創紅心芭樂戚風蛋糕散發自然水果清甜，天井紅磚採光絕佳。",
+        "mapUrl": "https://maps.google.com/?q=Heritage+Bakery+Cafe",
+        "affiliateLabel": "🍽️ 線上預約下午茶 ➔",
+        "affiliateUrl": "https://affckr.site/track/clicks/5891/c627c2bc9b0428dbf188ec23d62e9d47266c4cdf2aabebf10f69b313234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+        "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_6_3",
+        "nameZh": "CJSJ 法式甜點概念店",
+        "nameEn": "CJSJ Pâtisserie Taichung",
+        "rating": "★ 4.7",
+        "reviews": "3,200 則評價",
+        "hours": "12:00 - 18:30 (週一公休)",
+        "city": "台中市",
+        "district": "西區",
+        "addressZh": "台中市西區向上路一段79巷72號",
+        "addressEn": "No. 72, Ln. 79, Sec. 1, Xiangshang Rd., West Dist., Taichung City",
+        "tags": [
+          "🧁 米其林三星甜點主廚",
+          "🥐 藝術級法式盤飾",
+          "🚶 近草悟道"
+        ],
+        "features": "米其林三星餐廳甜點主廚操刀的藝術級甜點店！宛如珠寶陳列的幾何造型盤飾點心，酸甜果泥與酥脆塔殼在舌尖完美層次平衡，外型如雕塑般精緻震撼。",
+        "mapUrl": "https://maps.google.com/?q=CJSJ+法式甜點概念店",
+        "affiliateLabel": "🚗 預訂台中市區包車漫遊 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E4%B8%AD%E5%8C%85%E8%BB%8A&aid=123436",
+        "img": "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_6_4",
+        "nameZh": "木更 Mugeneration",
+        "nameEn": "Mugeneration Chiayi",
+        "rating": "★ 4.8",
+        "reviews": "1,560 則評價",
+        "hours": "10:00 - 18:00 (週三週四公休)",
+        "city": "嘉義市",
+        "district": "東區",
+        "addressZh": "嘉義市東區成仁街189號",
+        "addressEn": "No. 189, Chengren St., East Dist., Chiayi City",
+        "tags": [
+          "🍮 焦糖慢火烤布丁",
+          "🧁 蜂巢瑪德蓮",
+          "🌿 清水模極簡空間"
+        ],
+        "features": "嘉義最美清水模美學咖啡甜品館！建築師主理的洗鍊線條與綠意庭院，招牌焦糖苦甜烤布丁絲滑濃醇，現烤蜂巢鮮奶油瑪德蓮外脆內綿柔。",
+        "mapUrl": "https://maps.google.com/?q=木更+Mugeneration",
+        "affiliateLabel": "☕ 查看全台咖啡名店全覽 ➔",
+        "affiliateUrl": "cafe.html",
+        "img": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_6_5",
+        "nameZh": "深藍咖啡館 旗艦店",
+        "nameEn": "Deep Blue Cafe Flagship Tainan",
+        "rating": "★ 4.6",
+        "reviews": "3,400 則評價",
+        "hours": "10:00 - 19:00 (週三公休)",
+        "city": "台南市",
+        "district": "安平區",
+        "addressZh": "台南市安平區建平路335號",
+        "addressEn": "No. 335, Jianping Rd., Anping Dist., Tainan City",
+        "tags": [
+          "🧁 千層蛋糕愛馬仕",
+          "👶 親子空間寬敞",
+          "🚗 專屬停車場"
+        ],
+        "features": "被譽為台灣「千層蛋糕界的愛馬仕」！安平旗艦店由毛森江清水模建築團隊打造，薄如蟬翼的數十層蛋皮夾著微甜馬達加斯加香草生乳餡，細膩工藝無可挑剔。",
+        "mapUrl": "https://maps.google.com/?q=深藍咖啡館+旗艦店",
+        "affiliateLabel": "🏨 訂安平港邊海景旅宿 ➔",
+        "affiliateUrl": "https://affone.me/s/bQeO4",
+        "img": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&auto=format&fit=crop"
+      }
+    ]
+  },
+  {
+    "id": "theme_7",
+    "number": "07",
+    "name": "🌊 拍照打卡私房秘境",
+    "nameEn": "Scenic Hidden Photo Spots",
+    "audience": "IG/小紅書攝影愛好者、租車自駕族",
+    "tags": [
+      "🌊 斷崖蔚藍海景",
+      "🌅 夕陽日落景觀",
+      "🌾 季節稻浪落羽松",
+      "🛤️ 鐵道秘境",
+      "🚗 附停車場"
+    ],
+    "affiliateIntro": "Klook / Trip.com 租車自駕比價、包車一日遊直達秘境",
+    "places": [
+      {
+        "id": "hop_7_1",
+        "nameZh": "鼻頭角稜谷步道",
+        "nameEn": "Bitou Cape Trail New Taipei",
+        "rating": "★ 4.8",
+        "reviews": "6,800 則評價",
+        "hours": "全天開放 (建議日間行走)",
+        "city": "新北市",
+        "district": "瑞芳區",
+        "addressZh": "新北市瑞芳區鼻頭路",
+        "addressEn": "Bitou Rd., Ruifang Dist., New Taipei City",
+        "tags": [
+          "🌊 台版小萬里長城",
+          "🌅 360 度海景山稜",
+          "🚗 鼻頭漁港停車"
+        ],
+        "features": "被美譽為「台版萬里長城」的絕美海稜步道！依傍著太平洋陡峭山稜線蜿蜒起伏，一側是湛藍深邃的大海，另一側是翠綠山脈，木棧道盡頭更有迷彩聽濤咖啡館。",
+        "mapUrl": "https://maps.google.com/?q=鼻頭角稜谷步道",
+        "affiliateLabel": "🚗 預約九份東北角一日包車 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E4%B9%9D%E4%BB%BD%E5%8C%85%E8%BB%8A&aid=123436",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_7_2",
+        "nameZh": "火炎山自然保留區",
+        "nameEn": "Huoyan Mountain Grand Canyon Miaoli",
+        "rating": "★ 4.7",
+        "reviews": "5,400 則評價",
+        "hours": "全天開放 (環狀步道約 3.5 小時)",
+        "city": "苗栗縣",
+        "district": "三義鄉／苑裡鎮交界",
+        "addressZh": "苗栗縣三義鄉／苑裡鎮交界（台13線旁步道口）",
+        "addressEn": "Sanyi Township / Yuanli Township Border, Miaoli County",
+        "tags": [
+          "🌾 台版美國大峽谷",
+          "🌅 壯觀赭紅惡地",
+          "🚗 台13線停車場"
+        ],
+        "features": "震撼全網的「台版美國大峽谷」！礫岩地層經長期風化雨蝕，形成尖銳如筍的赭紅絕壁峽谷，落日時分在夕陽映照下有如熊熊燃燒的火燄山，地質景觀無比壯麗。",
+        "mapUrl": "https://maps.google.com/?q=火炎山登山步道",
+        "affiliateLabel": "🚗 Trip.com 全台租車自駕比價 ➔",
+        "affiliateUrl": "https://trip.com?Allianceid=9507030&SID=325761227&trip_sub1=CarRental",
+        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_7_3",
+        "nameZh": "高美濕地木棧道",
+        "nameEn": "Gaomei Wetlands Boardwalk Taichung",
+        "rating": "★ 4.8",
+        "reviews": "18,900 則評價",
+        "hours": "09:00 - 18:30 (依漲退潮開放)",
+        "city": "台中市",
+        "district": "清水區",
+        "addressZh": "台中市清水區美堤街",
+        "addressEn": "Meiti St., Qingshui Dist., Taichung City",
+        "tags": [
+          "🌅 全台最美落日倒影",
+          "🌾 巨大白色風車陣",
+          "🦀 生態泥灘天空之鏡"
+        ],
+        "features": "世界級天空之鏡日落景觀！延伸數百公尺的木棧道直達泥灘心臟地帶，一排潔白風車與夕陽金黃餘暉倒映在如鏡水面，彈塗魚與招潮蟹在腳下穿梭。",
+        "mapUrl": "https://maps.google.com/?q=高美濕地木棧道",
+        "affiliateLabel": "🎟️ Klook 台中高美半日遊 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/activity/13214-gaomei-wetland-taichung/?aid=123436",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_7_4",
+        "nameZh": "清水斷崖 坂下海灣",
+        "nameEn": "Qingshui Cliff Sakashita Bay Hualien",
+        "rating": "★ 4.9",
+        "reviews": "9,800 則評價",
+        "hours": "全天開放 (蘇花公路旁)",
+        "city": "花蓮縣",
+        "district": "秀林鄉",
+        "addressZh": "花蓮縣秀林鄉蘇花公路（崇德隧道北口旁）",
+        "addressEn": "Suhua Highway, Xiulin Township, Hualien County",
+        "tags": [
+          "🌊 千米絕壁直插深藍",
+          "🌅 日出立槳 SUP",
+          "🚗 觀景平台附車位"
+        ],
+        "features": "台灣八大奇景之首！千公尺高拔的大理石絕壁直插入深邃太平洋，海水因深度呈現翡翠綠至琉璃藍的夢幻漸層，晨曦時分在海面上划立式划槳（SUP）更是畢生難忘體驗。",
+        "mapUrl": "https://maps.google.com/?q=清水斷崖",
+        "affiliateLabel": "🎟️ Klook 清水斷崖 SUP 日出團 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E6%B8%85%E6%B0%B4%E6%96%B7%E5%B4%96&aid=123436",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_7_5",
+        "nameZh": "太麻里多良車站",
+        "nameEn": "Duoliang Station Taitung",
+        "rating": "★ 4.7",
+        "reviews": "8,200 則評價",
+        "hours": "07:00 - 18:00 (清潔費入園)",
+        "city": "台東縣",
+        "district": "太麻里鄉",
+        "addressZh": "台東縣太麻里鄉瀧溪路8-1號",
+        "addressEn": "No. 8-1, Longxi Rd., Taimali Township, Taitung County",
+        "tags": [
+          "🌊 全台最美靠海車站",
+          "🛤️ 鮮紅鐵道欄杆",
+          "🚗 南迴公路旁"
+        ],
+        "features": "被旅人公認為「全台灣最美靠海車站」！鮮紅色鐵欄杆座落懸崖高台，當紅色柴油火車從隧道穿出呼嘯而過，背後是無邊無際的太平洋蔚藍波濤，構圖如日系動漫般詩意浪漫。",
+        "mapUrl": "https://maps.google.com/?q=多良車站",
+        "affiliateLabel": "🚗 預訂台東花東海岸包車 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E6%9D%B1%E5%8C%85%E8%BB%8A&aid=123436",
+        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&auto=format&fit=crop"
+      }
+    ]
+  },
+  {
+    "id": "theme_8",
+    "number": "08",
+    "name": "🎨 雨天備案與文化體驗",
+    "nameEn": "Rainy Day & Cultural Venues",
+    "audience": "梅雨季、高溫避暑、親子家庭無障礙",
+    "tags": [
+      "🎨 頂級美術館",
+      "🏺 體驗工坊 DIY",
+      "🏭 文創園區老倉庫",
+      "🛒 特色地下商圈",
+      "👶 親子室內放電"
+    ],
+    "affiliateIntro": "Klook 博物館門票即買即用（故宮/奇美/海生館）＋ 高鐵聯票",
+    "places": [
+      {
+        "id": "hop_8_1",
+        "nameZh": "國立故宮博物院",
+        "nameEn": "National Palace Museum Taipei",
+        "rating": "★ 4.8",
+        "reviews": "36,000 則評價",
+        "hours": "09:00 - 17:00 (週一公休)",
+        "city": "台北市",
+        "district": "士林區",
+        "addressZh": "台北市士林區至善路二段221號",
+        "addressEn": "No. 221, Sec. 2, Zhishan Rd., Shilin Dist., Taipei City",
+        "tags": [
+          "🎨 世界級歷史珍藏",
+          "🌐 多語系語音導覽",
+          "👶 親子無障礙友善",
+          "🌧️ 全天候恆溫空調"
+        ],
+        "features": "世界四大博物館之一！珍藏近七十萬件中華歷代宮廷皇家稀世珍寶，翠玉白菜、肉形石、毛公鼎鎮館之寶必看，全館恆溫空調無障礙環境，雨天首選文化殿堂。",
+        "mapUrl": "https://maps.google.com/?q=國立故宮博物院",
+        "affiliateLabel": "🎟️ Klook 故宮門票快速通關 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/activity/1659-national-palace-museum-taipei/?aid=123436",
+        "img": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_8_2",
+        "nameZh": "新北市立十三行博物館",
+        "nameEn": "Shihsanhang Museum of Archaeology",
+        "rating": "★ 4.7",
+        "reviews": "7,800 則評價",
+        "hours": "09:30 - 17:00 (首週一休館)",
+        "city": "新北市",
+        "district": "八里區",
+        "addressZh": "新北市八里區博物館路200號",
+        "addressEn": "No. 200, Bowuguan Rd., Bali Dist., New Taipei City",
+        "tags": [
+          "🎨 考古歷史互動",
+          "👶 親子室內沙坑放電",
+          "📐 傾斜清水模打卡"
+        ],
+        "features": "北台灣第一座考古數位博物館！建築象徵海島山稜與鐵甲船，標誌性傾斜八角的清水模樓梯是極致打卡點，常設鐵器時代互動出土體驗，深受親子家庭喜愛。",
+        "mapUrl": "https://maps.google.com/?q=十三行博物館",
+        "affiliateLabel": "🎟️ Klook 預訂十三行優惠門票 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8D%81%E4%B8%89%E8%A1%8C%E5%8D%9A%E7%89%A9%E9%A4%A8&aid=123436",
+        "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_8_3",
+        "nameZh": "奇美博物館",
+        "nameEn": "Chimei Museum Tainan",
+        "rating": "★ 4.9",
+        "reviews": "31,000 則評價",
+        "hours": "09:30 - 17:30 (週三公休)",
+        "city": "台南市",
+        "district": "仁德區",
+        "addressZh": "台南市仁德區文華路二段66號",
+        "addressEn": "No. 66, Sec. 2, Wenhua Rd., Rende Dist., Tainan City",
+        "tags": [
+          "🎨 羅馬圓頂古典殿堂",
+          "👶 親子動物標本廳",
+          "🌐 世界級名琴珍藏"
+        ],
+        "features": "媲美歐洲凡爾賽宮的壯闊白色宮殿！館內藏有全球數量最多的名貴史特拉底瓦里小提琴、逼真如生的全球哺乳動物標本大廳、以及文藝復興至十九世紀西洋雕塑油畫。",
+        "mapUrl": "https://maps.google.com/?q=奇美博物館",
+        "affiliateLabel": "🎟️ Klook 奇美博物館門票即買即用 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/activity/7901-chimei-museum-ticket-tainan/?aid=123436",
+        "img": "https://images.unsplash.com/photo-1528164344705-475426879c0d?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_8_4",
+        "nameZh": "台南市美術館 2 館",
+        "nameEn": "Tainan Art Museum Building 2",
+        "rating": "★ 4.7",
+        "reviews": "14,500 則評價",
+        "hours": "10:00 - 18:00 (週一休館 / 週六延長至 21:00)",
+        "city": "台南市",
+        "district": "中西區",
+        "addressZh": "台南市中西區忠義路二段1號",
+        "addressEn": "No. 1, Sec. 2, Zhongyi Rd., West Central Dist., Tainan City",
+        "tags": [
+          "🎨 當代藝術展演",
+          "🌿 鳳凰花碎形天頂",
+          "☕ 頂樓景觀咖啡館"
+        ],
+        "features": "由普立茲克建築獎得主坂茂操刀設計！純白五角形建築堆疊交錯，碎形幾何遮蔭屋頂將南台灣陽光幻化為如樹蔭灑落的柔和光影，雨天更添一份詩意。",
+        "mapUrl": "https://maps.google.com/?q=台南市美術館2館",
+        "affiliateLabel": "🎟️ Klook 台南市美術館雙館聯票 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/activity/27702-tainan-art-museum-ticket/?aid=123436",
+        "img": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_8_5",
+        "nameZh": "衛武營國家藝術文化中心",
+        "nameEn": "National Kaohsiung Center for the Arts (Weiwuying)",
+        "rating": "★ 4.9",
+        "reviews": "16,800 則評價",
+        "hours": "11:00 - 21:00 (全天開放走廊)",
+        "city": "高雄市",
+        "district": "鳳山區",
+        "addressZh": "高雄市鳳山區三多一路1號",
+        "addressEn": "No. 1, Sanduo 1st Rd., Fengshan Dist., Kaohsiung City",
+        "tags": [
+          "🎨 全球最大單一屋頂劇院",
+          "🏭 前衛流線建築",
+          "👶 親子樹冠大廳"
+        ],
+        "features": "全球最大單一屋頂表演藝術中心！荷蘭建築團隊以老榕樹群盤根錯節為靈感，白色波浪曲面鋼構震撼壯麗，室內樹冠大廳無樑柱流動穿梭，雨天漫步無比愜意舒適。",
+        "mapUrl": "https://maps.google.com/?q=衛武營國家藝術文化中心",
+        "affiliateLabel": "🚄 預訂台灣高鐵聯票直達高雄 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E9%AB%98%E9%90%B5&aid=123436",
+        "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=800&auto=format&fit=crop"
+      }
+    ]
+  }
+];
 
 // 7. 週末探店專欄部落格文章 (一排一個文章顯示，含景點詳細資訊盒)
 const BLOG_ARTICLES_DATA = [

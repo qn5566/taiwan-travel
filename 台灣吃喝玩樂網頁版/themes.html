@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>台灣 18 大精選主題專題全覽 ｜ 台灣吃喝玩樂 Taiwan Wanderlust</title>
+  
+  <meta name="description" content="全方位探索台灣 18 大深度旅遊主題：露營生鮮食材直送、親子研習、自由行英語、藥妝保健、親子飯店渡假村、高鐵自由行、風格咖啡與米其林星級指南。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 置頂導航列 -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <div class="brand-logo-icon">🇹🇼</div>
+        <div class="brand-text-block">
+          <div class="brand-name">
+            台灣吃喝玩樂
+            <span class="brand-badge">官方網頁版</span>
+          </div>
+          <span class="brand-subtext">TAIWAN WANDERLUST PORTAL</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html">首頁</a></li>
+          <li class="nav-item active"><a href="themes.html">精選主題</a></li>
+          <li class="nav-item"><a href="spots.html">城市景點</a></li>
+          <li class="nav-item"><a href="ranking.html">排行榜</a></li>
+          <li class="nav-item"><a href="cafe.html">全台咖啡地圖</a></li>
+          <li class="nav-item"><a href="michelin.html">米其林指南</a></li>
+          <li class="nav-item"><a href="blog.html">週末探店</a></li>
+          <li class="nav-item"><a href="community.html">留言討論</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right-tools">
+        <a href="index.html" class="city-pill-btn" style="padding: 8px 16px;">
+          ← 返回首頁
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 精選主題 Hero Banner -->
+  <section class="section-padding" style="background: linear-gradient(180deg, #1E1B4B 0%, #0F172A 100%); color: #FFFFFF; text-align: center; padding: 70px 0 50px 0;">
+    <div class="container">
+      <span class="section-badge-pill" style="background: rgba(129, 140, 248, 0.25); color: #C7D2FE; border-color: rgba(129, 140, 248, 0.45);">
+        CURATED THEMES & EXPERIENCES
+      </span>
+      <h1 style="font-size: 38px; font-weight: 900; margin-top: 14px; letter-spacing: -0.5px;">
+        台灣 18 大深度精選旅行主題
+      </h1>
+      <p style="color: #E2E8F0; max-width: 800px; margin: 12px auto 0 auto; font-size: 15px; line-height: 1.7;">
+        從山林露營食材箱直送、親子渡假村、高鐵自由行票券、上網 eSIM，到米其林星級摘星與風格咖啡館漫遊。為每一位旅人量身打造的極致主題散策。
+      </p>
+
+      <!-- 關鍵字過濾框 -->
+      <div style="max-width: 500px; margin: 26px auto 0 auto;">
+        <input type="text" id="theme-search-input" placeholder="🔍 搜尋主題關鍵字 (例: 露營、咖啡、米其林、親子、飯店)..." 
+          style="width: 100%; padding: 13px 22px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.12); color: #FFFFFF; font-size: 14px; backdrop-filter: blur(10px); outline: none;">
+      </div>
+    </div>
+  </section>
+
+  <!-- 主題卡片網格 -->
+  <section class="section-padding" style="background: #FCFDFE; padding: 60px 0 100px 0;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; flex-wrap: wrap; gap: 12px;">
+        <h2 style="font-size: 22px; font-weight: 900; color: #0F172A;">
+          18 大特色主題深度專欄（6-8 個展示）
+        </h2>
+        <span id="themes-count-badge" style="font-size: 13px; color: #64748B; font-weight: 700;">
+          共收錄 18 個完整主題
+        </span>
+      </div>
+
+      <div id="themes-18-grid" class="themes-grid-container">
+        <!-- 由 JS 動態注入 18 個精選主題 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand-row">
+        <div class="brand-logo-wrap">
+          <div class="brand-logo-icon">🇹🇼</div>
+          <div class="brand-text-block">
+            <div class="brand-name">台灣吃喝玩樂 Taiwan Wanderlust</div>
+            <span class="brand-subtext">全台 18 大深度旅遊主題 ‧ 官方主題指南</span>
+          </div>
+        </div>
+        <div class="footer-contact">
+          官方商務／資料聯繫：<a href="mailto:himydream.studio0220@gmail.com">himydream.studio0220@gmail.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <div>© 2026 台灣吃喝玩樂 HiMyDream Studio. All Rights Reserved.</div>
+        <div>全方位串聯 14 大分潤合作夥伴 · 深度在地旅遊體驗</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/affiliate.js"></script>
+  <script src="js/data.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      renderThemes();
+      setupThemeSearch();
+    });
+
+    function setupThemeSearch() {
+      const input = document.getElementById("theme-search-input");
+      if (!input) return;
+      input.addEventListener("input", (e) => {
+        renderThemes(e.target.value.trim().toLowerCase());
+      });
+    }
+
+    function renderThemes(keyword = "") {
+      const container = document.getElementById("themes-18-grid");
+      const countEl = document.getElementById("themes-count-badge");
+      if (!container || typeof THEMES_18_DATA === "undefined") return;
+
+      const filtered = THEMES_18_DATA.filter(item => {
+        if (!keyword) return true;
+        return item.title.toLowerCase().includes(keyword) || 
+               item.desc.toLowerCase().includes(keyword) ||
+               (item.tag && item.tag.toLowerCase().includes(keyword));
+      });
+
+      if (countEl) {
+        countEl.textContent = `共符合 ${filtered.length} / 18 個精選主題`;
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1/-1; padding: 60px 20px; text-align: center; color: #64748B;">
+            <div style="font-size: 40px; margin-bottom: 10px;">🏷️</div>
+            <div style="font-size: 18px; font-weight: 800;">找不到符合關鍵字的主題</div>
+            <p style="margin-top: 6px; font-size: 13px;">歡迎換個關鍵字搜尋！</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(item => {
+        let actionBtnText = "探索主題 →";
+        let targetUrl = item.link || "spots.html";
+
+        // Specialized theme links
+        if (item.id === "thm_1") {
+          targetUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getPartnerUrl("MODULE_AFFILIATE_CAMPING_FRESH_FOOD_AFTCK") : "#";
+          actionBtnText = "⛺ 訂食材箱直送營區";
+        } else if (item.id === "thm_2") {
+          targetUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getPartnerUrl("MODULE_AFFILIATE_EDUCATION_LEARNING") : "#";
+          actionBtnText = "🎓 研習學習平台";
+        } else if (item.id === "thm_3") {
+          targetUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getPartnerUrl("MODULE_AFFILIATE_ENGLISH_LEARNING_APP") : "#";
+          actionBtnText = "🗣️ 線上一對一家教";
+        } else if (item.id === "thm_4") {
+          targetUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getPartnerUrl("MODULE_AFFILIATE_DRUGSTORE_TAIWAN") : "#";
+          actionBtnText = "💊 台灣藥妝直送";
+        } else if (item.id === "thm_5") {
+          targetUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getHotelUrl("台灣 親子飯店 渡假村") : "#";
+          actionBtnText = "🏨 訂親子度假飯店";
+        } else if (item.id === "thm_6") {
+          targetUrl = "index.html#wanjiafu";
+          actionBtnText = "🎁 伴手禮直送飯店";
+        } else if (item.id === "thm_8") {
+          targetUrl = "cafe.html";
+          actionBtnText = "☕ 全台咖啡地圖";
+        } else if (item.id === "thm_10" || item.id === "thm_11") {
+          targetUrl = "michelin.html";
+          actionBtnText = "🌟 米其林摘星指南";
+        } else if (item.id === "thm_7") {
+          targetUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSearchUrl("台灣高鐵 自由行") : "#";
+          actionBtnText = "🚄 高鐵聯票 75 折";
+        } else if (item.id === "thm_9") {
+          targetUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSearchUrl("台灣 網卡 eSIM") : "#";
+          actionBtnText = "📶 預定 5G 上網卡";
+        }
+
+        return `
+          <div class="theme-card" onclick="window.location.href='${targetUrl}'" style="cursor: pointer;">
+            <div class="theme-icon-box">
+              ${item.icon}
+            </div>
+            <h3 class="theme-card-title">${item.title}</h3>
+            <p class="theme-card-desc">${item.desc}</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 14px; border-top: 1px dashed #E2E8F0;">
+              <span class="theme-tag-chip">${item.tag || "熱門專題"}</span>
+              <span style="font-size: 12px; font-weight: 700; color: #0284C7;">${actionBtnText}</span>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+  </script>
+</body>
+</html>

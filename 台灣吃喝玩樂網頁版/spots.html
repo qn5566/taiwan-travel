@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>台灣城市景點全覽 - 22 縣市瀑布流探索 ｜ 台灣吃喝玩樂 Taiwan Wanderlust</title>
+  
+  <meta name="description" content="全台 22 縣市熱門與私房景點全覽！不規則瀑布流活潑排版、滑過 3D 微交互動態特效，提供 Klook 預訂行程、包車客製與 Booking 住宿一鍵比價。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 置頂導航列 -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <div class="brand-logo-icon">🇹🇼</div>
+        <div class="brand-text-block">
+          <div class="brand-name">
+            台灣吃喝玩樂
+            <span class="brand-badge">官方網頁版</span>
+          </div>
+          <span class="brand-subtext">TAIWAN WANDERLUST PORTAL</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html">首頁</a></li>
+          <li class="nav-item"><a href="themes.html">精選主題</a></li>
+          <li class="nav-item active"><a href="spots.html">城市景點</a></li>
+          <li class="nav-item"><a href="ranking.html">排行榜</a></li>
+          <li class="nav-item"><a href="cafe.html">全台咖啡地圖</a></li>
+          <li class="nav-item"><a href="michelin.html">米其林指南</a></li>
+          <li class="nav-item"><a href="blog.html">週末探店</a></li>
+          <li class="nav-item"><a href="community.html">留言討論</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right-tools">
+        <a href="index.html" class="city-pill-btn" style="padding: 8px 16px;">
+          ← 返回首頁
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 城市景點 Hero Banner -->
+  <section class="section-padding" style="background: linear-gradient(180deg, #064E3B 0%, #065F46 60%, #0F172A 100%); color: #FFFFFF; text-align: center; padding: 70px 0 50px 0;">
+    <div class="container">
+      <span class="section-badge-pill" style="background: rgba(52, 211, 153, 0.25); color: #A7F3D0; border-color: rgba(52, 211, 153, 0.45);">
+        DISCOVER ALL 22 CITIES & HIDDEN GEMS
+      </span>
+      <h1 style="font-size: 38px; font-weight: 900; margin-top: 14px; letter-spacing: -0.5px;">
+        全台 22 縣市景點精選 ‧ 瀑布流互動漫遊
+      </h1>
+      <p style="color: #E2E8F0; max-width: 800px; margin: 12px auto 0 auto; font-size: 15px; line-height: 1.7;">
+        打破傳統整齊格子排版！採用國際化瀑布流（Masonry Waterfall）高低錯落展示，滑過微動態浮起，隨時一鍵預訂 Klook 門票行程、包車出遊與 Booking 訂房。
+      </p>
+
+      <!-- 即時關鍵字搜尋框 -->
+      <div style="max-width: 560px; margin: 26px auto 0 auto;">
+        <input type="text" id="spots-search-input" placeholder="🔍 搜尋景點名稱、縣市名、必玩特色或標籤..." 
+          style="width: 100%; padding: 13px 22px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.12); color: #FFFFFF; font-size: 14px; backdrop-filter: blur(10px); outline: none;">
+      </div>
+
+      <!-- 22 縣市切換藥丸列 -->
+      <div style="margin-top: 28px;">
+        <div style="font-size: 12px; color: #A7F3D0; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.5px;">
+          📍 選擇探索縣市：
+        </div>
+        <div id="spots-city-pills" style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; max-width: 1140px; margin: 0 auto;">
+          <!-- 由 JS 動態生成 22 縣市按鈕 -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 景點瀑布流列表 -->
+  <section class="section-padding" style="background: #F8FAFC; padding: 50px 0 100px 0;">
+    <div class="container">
+      
+      <!-- 篩選列與計數 -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <span id="spots-count-text" style="font-size: 15px; font-weight: 800; color: #0F172A;">
+            共找到 32 處熱門與秘境景點
+          </span>
+          <span id="spots-current-city" style="font-size: 13px; color: #64748B; margin-left: 8px;">
+            [當前：全部縣市]
+          </span>
+        </div>
+
+        <button onclick="resetCityFilter()" class="city-pill-btn" style="font-size: 12px; padding: 6px 14px;">
+          🔄 檢視全部景點
+        </button>
+      </div>
+
+      <!-- 瀑布流網格容器 -->
+      <div id="waterfall-grid" class="waterfall-masonry-container">
+        <!-- 由 JS 動態渲染瀑布流卡片 -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand-row">
+        <div class="brand-logo-wrap">
+          <div class="brand-logo-icon">🇹🇼</div>
+          <div class="brand-text-block">
+            <div class="brand-name">台灣吃喝玩樂 Taiwan Wanderlust</div>
+            <span class="brand-subtext">全台 22 縣市城市景點 ‧ 官方互動指南</span>
+          </div>
+        </div>
+        <div class="footer-contact">
+          官方商務／資料聯繫：<a href="mailto:himydream.studio0220@gmail.com">himydream.studio0220@gmail.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <div>© 2026 台灣吃喝玩樂 HiMyDream Studio. All Rights Reserved.</div>
+        <div>支援 Klook 門票預定 · 私人包車客製 · Booking 住宿一鍵比價</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/affiliate.js"></script>
+  <script src="js/data.js"></script>
+  <script>
+    let activeCity = "全部";
+    let searchKeyword = "";
+
+    const ALL_CITIES = [
+      "全部", "台北市", "新北市", "基隆市", "桃園市", 
+      "新竹市", "新竹縣", "苗栗縣", "台中市", "彰化縣", 
+      "南投縣", "雲林縣", "嘉義市", "嘉義縣", "台南市", 
+      "高雄市", "屏東縣", "宜蘭縣", "花蓮縣", "台東縣", 
+      "澎湖縣", "金門縣", "連江縣"
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCityPills();
+      setupSearch();
+      renderSpots();
+    });
+
+    function setupSearch() {
+      const input = document.getElementById("spots-search-input");
+      if (!input) return;
+      input.addEventListener("input", (e) => {
+        searchKeyword = e.target.value.trim().toLowerCase();
+        renderSpots();
+      });
+    }
+
+    function renderCityPills() {
+      const container = document.getElementById("spots-city-pills");
+      if (!container) return;
+      container.innerHTML = ALL_CITIES.map(c => {
+        const isAct = activeCity === c ? "active" : "";
+        const label = c === "全部" ? "全部縣市" : c;
+        return `
+          <button class="city-pill-btn ${isAct}" style="font-size: 12px; padding: 5px 12px;" onclick="selectCity('${c}')">
+            ${label}
+          </button>
+        `;
+      }).join("");
+    }
+
+    function selectCity(city) {
+      activeCity = city;
+      renderCityPills();
+      renderSpots();
+    }
+
+    function resetCityFilter() {
+      activeCity = "全部";
+      searchKeyword = "";
+      const input = document.getElementById("spots-search-input");
+      if (input) input.value = "";
+      renderCityPills();
+      renderSpots();
+    }
+
+    function renderSpots() {
+      const container = document.getElementById("waterfall-grid");
+      const countEl = document.getElementById("spots-count-text");
+      const cityEl = document.getElementById("spots-current-city");
+      if (!container || typeof ALL_SPOTS_DATA === "undefined") return;
+
+      const filtered = ALL_SPOTS_DATA.filter(item => {
+        const matchCity = activeCity === "全部" || item.city.includes(activeCity.replace("市", "").replace("縣", ""));
+        const matchKeyword = !searchKeyword || 
+          item.name.toLowerCase().includes(searchKeyword) ||
+          item.city.toLowerCase().includes(searchKeyword) ||
+          item.desc.toLowerCase().includes(searchKeyword) ||
+          (item.tag && item.tag.toLowerCase().includes(searchKeyword));
+        return matchCity && matchKeyword;
+      });
+
+      if (countEl) {
+        countEl.textContent = `共找到 ${filtered.length} 處熱門與秘境景點`;
+      }
+      if (cityEl) {
+        cityEl.textContent = activeCity === "全部" ? "[全台景點模式]" : `[當前：${activeCity}]`;
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1/-1; padding: 60px 20px; text-align: center; color: #64748B;">
+            <div style="font-size: 40px; margin-bottom: 10px;">🏞️</div>
+            <div style="font-size: 18px; font-weight: 800;">暫無符合條件的景點</div>
+            <p style="margin-top: 6px; font-size: 13px;">歡迎切換其他縣市或清除搜尋條件！</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(item => {
+        const klookUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSearchUrl(item.name) : "#";
+        const charterUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getCharterUrl(item.city) : "#";
+        const hotelUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getHotelUrl(item.city + " 住宿") : "#";
+
+        return `
+          <div class="waterfall-card">
+            <div class="waterfall-img-wrap">
+              <img src="${item.img}" alt="${item.name}" loading="lazy">
+              <span class="waterfall-badge-city">${item.city}</span>
+              <span class="waterfall-badge-tag">${item.tag || "熱門景點"}</span>
+            </div>
+            <div class="waterfall-content">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <span class="waterfall-rate">${item.rate || "4.9★"}</span>
+                <span style="font-size: 12px; font-weight: 800; color: #0284C7;">${item.price || "免費參觀"}</span>
+              </div>
+              <h3 class="waterfall-title">${item.name}</h3>
+              <p class="waterfall-desc">${item.desc}</p>
+              
+              <div class="waterfall-actions" style="margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px;">
+                <a href="${klookUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="text-align: center; padding: 6px 2px; font-size: 11px; text-decoration: none;">
+                  預定行程
+                </a>
+                <a href="${charterUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-charter-car" style="text-align: center; padding: 6px 2px; font-size: 11px; text-decoration: none;">
+                  包車接送
+                </a>
+                <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room" style="text-align: center; padding: 6px 2px; font-size: 11px; text-decoration: none;">
+                  訂房去
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+  </script>
+</body>
+</html>
