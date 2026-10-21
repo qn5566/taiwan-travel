@@ -1480,3 +1480,969 @@ a {
   from { opacity: 0; transform: translateY(-6px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+
+/* =========================================================
+   ✨ 11. 國際化升級：圖四風格橢圓膠囊卡牌 (Capsule Arch Cards)
+   ========================================================= */
+
+/* Section 1: Trending Top 6 (圖四風格) */
+.trending-section {
+  padding: 60px 0 70px 0;
+  background: #FCFDFE;
+  position: relative;
+}
+
+.trending-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.trending-title-wrap h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-heading);
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.trending-title-wrap p {
+  color: var(--text-muted);
+  font-size: 15px;
+  margin-top: 6px;
+  max-width: 650px;
+  line-height: 1.6;
+}
+
+.trending-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.carousel-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-surface);
+  color: var(--text-heading);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.carousel-nav-btn:hover {
+  background: var(--cyan-gradient);
+  color: #FFFFFF;
+  border-color: transparent;
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px var(--cyan-glow);
+}
+
+/* 6 個橢圓膠囊卡牌排列列 */
+.pill-capsule-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+  align-items: flex-start;
+  overflow-x: auto;
+  padding: 10px 4px 20px 4px;
+  scrollbar-width: none;
+}
+
+.pill-capsule-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* 膠囊卡片本體 (圖四風格：拱門頂底藥丸型) */
+.pill-card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pill-window {
+  width: 100%;
+  aspect-ratio: 1 / 1.68;
+  max-width: 210px;
+  border-radius: 9999px; /* 完美拱門橢圓膠囊型 */
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.10);
+  background: #E2E8F0;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 3px solid #FFFFFF;
+}
+
+.pill-window img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 浮動微光漸層 */
+.pill-window-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* 膠囊中央白色圓形箭頭探索鈕 (圖四精髓) */
+.pill-explore-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  color: var(--text-heading);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.22);
+  opacity: 0.92;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* 排名標籤 */
+.pill-rank-badge {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(6px);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.pill-card-item:hover .pill-window {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(2, 132, 199, 0.28);
+  border-color: var(--cyan-primary);
+}
+
+.pill-card-item:hover .pill-window img {
+  transform: scale(1.10);
+}
+
+.pill-card-item:hover .pill-explore-btn {
+  transform: translate(-50%, -50%) scale(1.12);
+  background: var(--cyan-gradient);
+  color: #FFFFFF;
+  box-shadow: 0 10px 24px var(--cyan-glow);
+}
+
+/* 膠囊下方資訊 */
+.pill-info-block {
+  margin-top: 16px;
+  text-align: center;
+  width: 100%;
+}
+
+.pill-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-heading);
+  line-height: 1.35;
+  transition: color 0.2s ease;
+}
+
+.pill-card-item:hover .pill-title {
+  color: var(--cyan-deep);
+}
+
+.pill-en-title {
+  font-size: 12px;
+  color: var(--text-light);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.pill-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.pill-rate-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: #D97706;
+}
+
+.pill-price-tag {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--cyan-deep);
+}
+
+.pill-klook-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  padding: 5px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 9999px;
+  background: var(--cyan-light);
+  color: var(--cyan-deep);
+  border: 1px solid var(--cyan-border);
+  transition: all 0.25s ease;
+}
+
+.pill-card-item:hover .pill-klook-cta {
+  background: var(--cyan-gradient);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 4px 12px var(--cyan-glow);
+}
+
+
+/* =========================================================
+   🌐 12. 白色透明玻璃擬態搜尋樞紐 (Glassmorphic Hero Hub)
+   ========================================================= */
+.hero-glass-container {
+  max-width: 980px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
+  border-radius: 28px;
+  padding: 28px 36px;
+  text-align: left;
+}
+
+/* 主搜尋輸入列 */
+.hero-search-input-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  border-radius: 18px;
+  padding: 6px 8px 6px 18px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+}
+
+.hero-search-input-row:focus-within {
+  border-color: var(--cyan-primary);
+  box-shadow: 0 0 0 4px var(--cyan-glow);
+}
+
+.hero-search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-family: inherit;
+  color: var(--text-heading);
+}
+
+.hero-search-input::placeholder {
+  color: var(--text-light);
+}
+
+.hero-search-submit-btn {
+  background: var(--cyan-gradient);
+  color: #FFFFFF;
+  border: none;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 12px 28px;
+  border-radius: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px var(--cyan-glow);
+}
+
+.hero-search-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px var(--cyan-glow);
+}
+
+/* 快速服務按鈕列 (散搜尋按鈕區) */
+.hero-service-pills-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-service-pill {
+  flex: 1;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-body);
+  transition: all 0.25s ease;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+.hero-service-pill:hover {
+  background: var(--cyan-light);
+  border-color: var(--cyan-primary);
+  color: var(--cyan-deep);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(2, 132, 199, 0.14);
+}
+
+/* 兩個小專欄按鈕區塊 (Featured Column Pills) */
+.hero-columns-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px dashed rgba(148, 163, 184, 0.35);
+}
+
+.featured-col-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+  border: 1.5px solid var(--border-color);
+  border-radius: 18px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-col-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--cyan-gradient);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.featured-col-card.michelin-col::before {
+  background: linear-gradient(180deg, #E11D48 0%, #BE123C 100%);
+}
+
+.featured-col-card.cafe-col::before {
+  background: linear-gradient(180deg, #D97706 0%, #B45309 100%);
+}
+
+.featured-col-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--cyan-primary);
+  box-shadow: 0 10px 24px rgba(2, 132, 199, 0.15);
+}
+
+.featured-col-card:hover::before {
+  opacity: 1;
+}
+
+.featured-col-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  background: #F1F5F9;
+}
+
+.michelin-col .featured-col-icon {
+  background: #FFE4E6;
+}
+
+.cafe-col .featured-col-icon {
+  background: #FEF3C7;
+}
+
+.featured-col-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-heading);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.featured-col-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.featured-col-arrow {
+  margin-left: auto;
+  font-size: 14px;
+  color: var(--cyan-deep);
+  font-weight: 700;
+  transition: transform 0.25s ease;
+}
+
+.featured-col-card:hover .featured-col-arrow {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   🧱 13. 瀑布流排列 (Masonry Waterfall) & 縣市篩選
+   ========================================================= */
+.city-filter-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 8px 4px 20px 4px;
+  scrollbar-width: none;
+  flex-wrap: wrap;
+}
+
+.city-filter-container::-webkit-scrollbar {
+  display: none;
+}
+
+.city-pill-btn {
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.city-pill-btn:hover {
+  background: var(--cyan-light);
+  color: var(--cyan-deep);
+  border-color: var(--cyan-primary);
+}
+
+.city-pill-btn.active {
+  background: var(--cyan-gradient);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 4px 14px var(--cyan-glow);
+}
+
+/* 真正的多欄瀑布流 (CSS Columns) */
+.waterfall-masonry-grid {
+  column-count: 3;
+  column-gap: 26px;
+  padding-top: 10px;
+}
+
+@media (min-width: 1500px) {
+  .waterfall-masonry-grid {
+    column-count: 4;
+  }
+}
+
+@media (max-width: 1080px) {
+  .waterfall-masonry-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .waterfall-masonry-grid {
+    column-count: 1;
+  }
+}
+
+.waterfall-card {
+  break-inside: avoid;
+  margin-bottom: 26px;
+  background: var(--bg-surface);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.waterfall-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 20px 40px rgba(2, 132, 199, 0.20);
+  border-color: var(--cyan-primary);
+}
+
+.waterfall-media-wrap {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #F1F5F9;
+}
+
+.waterfall-card.aspect-tall .waterfall-media-wrap {
+  aspect-ratio: 3 / 4;
+}
+
+.waterfall-card.aspect-wide .waterfall-media-wrap {
+  aspect-ratio: 16 / 10;
+}
+
+.waterfall-card.aspect-square .waterfall-media-wrap {
+  aspect-ratio: 1 / 1;
+}
+
+.waterfall-media-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.waterfall-card:hover .waterfall-media-wrap img {
+  transform: scale(1.08);
+}
+
+.waterfall-badge-top {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.waterfall-fav-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(6px);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.waterfall-fav-btn:hover {
+  transform: scale(1.15);
+}
+
+.waterfall-fav-btn.active {
+  color: #E11D48;
+}
+
+.waterfall-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.waterfall-meta-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.waterfall-city-tag {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--cyan-deep);
+  background: var(--cyan-light);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.waterfall-rate {
+  font-size: 12px;
+  font-weight: 800;
+  color: #D97706;
+}
+
+.waterfall-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-heading);
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.waterfall-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.waterfall-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
+.btn-waterfall {
+  flex: 1;
+  min-width: 90px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-wf-tour {
+  background: var(--cyan-gradient);
+  color: #FFFFFF;
+}
+
+.btn-wf-tour:hover {
+  box-shadow: 0 6px 16px var(--cyan-glow);
+  transform: translateY(-2px);
+}
+
+.btn-wf-hotel {
+  background: #EEF2FF;
+  color: #4F46E5;
+  border: 1px solid #C7D2FE;
+}
+
+.btn-wf-hotel:hover {
+  background: #4F46E5;
+  color: #FFFFFF;
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+
+.btn-wf-map {
+  background: #F1F5F9;
+  color: var(--text-body);
+  border: 1px solid var(--border-color);
+  padding: 8px 10px;
+  flex: 0;
+}
+
+.btn-wf-map:hover {
+  background: #E2E8F0;
+  color: var(--text-heading);
+}
+
+
+/* =========================================================
+   ☕ 14. 咖啡店 4 欄卡牌網格 (4 Columns Cafe Grid)
+   ========================================================= */
+.cafe-grid-4col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+@media (max-width: 1200px) {
+  .cafe-grid-4col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .cafe-grid-4col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .cafe-grid-4col {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cafe-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-sm);
+}
+
+.cafe-card:hover {
+  transform: translateY(-6px);
+  border-color: #D97706;
+  box-shadow: 0 16px 32px rgba(217, 119, 6, 0.16);
+}
+
+.cafe-img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  position: relative;
+  overflow: hidden;
+}
+
+.cafe-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.cafe-card:hover .cafe-img-wrap img {
+  transform: scale(1.08);
+}
+
+.cafe-tag-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.cafe-tag-chip {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+
+/* =========================================================
+   📰 15. 週末探店單列文章排版 (Single-Column Editorial)
+   ========================================================= */
+.blog-editorial-container {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.blog-editorial-row {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 36px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blog-editorial-row:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--cyan-primary);
+}
+
+.blog-hero-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  min-height: 380px;
+}
+
+.blog-hero-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.blog-editorial-row:hover .blog-hero-wrap img {
+  transform: scale(1.06);
+}
+
+.blog-category-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 9999px;
+}
+
+.blog-body {
+  padding: 36px 36px 36px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-meta-line {
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.blog-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-heading);
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.blog-subtitle {
+  font-size: 15px;
+  color: var(--cyan-deep);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.blog-excerpt {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+/* 景點詳細資訊盒 */
+.spot-info-box {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-top: auto;
+}
+
+.spot-info-header {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-heading);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  border-bottom: 1px dashed #CBD5E1;
+  padding-bottom: 8px;
+}
+
+.spot-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-body);
+}
+
+.spot-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.spot-info-label {
+  font-weight: 700;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  width: 72px;
+}
+
+.spot-info-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+@media (max-width: 960px) {
+  .blog-editorial-row {
+    grid-template-columns: 1fr;
+  }
+  .blog-hero-wrap {
+    min-height: 240px;
+  }
+  .blog-body {
+    padding: 24px;
+  }
+  .pill-capsule-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .pill-capsule-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-columns-row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,217 +1,196 @@
 /**
- * 台灣吃喝玩樂網頁版 - 核心應用互動邏輯 (app.js)
- * 涵蓋：雙人氣排行榜（手搖 TOP20 + 景點 TOP20）、16大主題、多國語言、收藏抽屜與詳情彈窗
+ * 台灣吃喝玩樂網頁版 - 旗艦應用核心邏輯 (app.js)
+ * 涵蓋：
+ * 1. 圖四風格 Top 1-6 橢圓膠囊卡牌 (Trending Top 6 Pill Carousel)
+ * 2. 18 大精選主題網格 (Themes 18 Grid)
+ * 3. 全部景點 ＋ 全部縣市瀑布流 (Masonry Waterfall & City Filter)
+ * 4. 7 大排行榜切換 (Rankings Hub: 手搖20、景點20、包車10、活動10、雨天10、咖啡20、文青20)
+ * 5. 週末探店單列專欄文章 (Weekend Hop Editorial with Spot Info Box)
+ * 6. 白色透明玻璃擬態搜尋樞紐 (Glassmorphic Search Hub)
+ * 7. 收藏清單抽屜、社群留言討論區與多語系切換
  */
 
 let currentLang = "zh-TW";
-let currentDrinksFilter = "全部";
-let currentSpotsFilter = "全部";
-let currentThemesFilter = "全部";
-let currentRankingView = "dual";
-let userFavorites = JSON.parse(localStorage.getItem("tw_roam_web_favs") || '["花蓮清水斷崖", "北投日勝生加賀屋", "澎湖七美雙心石滬"]');
+let currentCityFilter = "全部";
+let currentRankingTab = "drinks";
+let userFavorites = JSON.parse(localStorage.getItem("tw_roam_web_favs") || '["台北 101 高空觀景台", "九份老街與阿妹茶樓", "Simple Kaffa 興波咖啡旗艦店"]');
 
-// 初始化頁面
+// 頁面加載完成後初始化
 document.addEventListener("DOMContentLoaded", () => {
-  renderDualRankings();
-  renderThemesGrid();
-  updateFavBadge();
+  renderTrendingSection();
+  renderThemesSection();
+  renderWaterfallSection();
+  renderRankingsSection();
+  renderBlogSection();
+  setupSearchHub();
   setupEventListeners();
+  updateFavBadge();
 });
 
-/**
- * 1. 渲染雙人氣排行榜（手搖飲料 TOP 20 + 景點 TOP 20）
- */
-function renderDualRankings() {
-  renderDrinksList();
-  renderSpotsList();
-}
+/* =========================================================
+   1. 第一區塊：圖四風格橢圓膠囊卡牌 (Trending Top 6 Pill Carousel)
+   ========================================================= */
+function renderTrendingSection() {
+  const container = document.getElementById("trending-capsule-row");
+  if (!container || typeof TOP_ACTIVITIES_6 === "undefined") return;
 
-/**
- * 1-1. 渲染手搖飲料列表
- */
-function renderDrinksList() {
-  const drinksContainer = document.getElementById("drinks-ranking-list");
-  if (!drinksContainer || typeof DRINKS_DATA === "undefined") return;
-
-  const filteredDrinks = DRINKS_DATA.filter(item => {
-    return currentDrinksFilter === "全部" || item.category === currentDrinksFilter;
-  });
-
-  drinksContainer.innerHTML = filteredDrinks.map(item => {
-    const rankClass = item.rank === 1 ? "top1" : item.rank === 2 ? "top2" : item.rank === 3 ? "top3" : "";
-    const mapUrl = AFFILIATE_HUB.getMapUrl(item.name.split(" ")[0]);
-    
+  container.innerHTML = TOP_ACTIVITIES_6.map(item => {
+    const klookUrl = AFFILIATE_HUB.getTourUrl(item.activityId);
     return `
-      <div class="ranking-row-card" onclick="openDrinkDetail(${item.rank})">
-        <div class="rank-number ${rankClass}">${item.rank}</div>
-        <div style="font-size:24px; flex-shrink:0;">${item.logo}</div>
-        <div class="rank-info">
-          <div class="rank-name-row">
-            <span class="rank-name">${item.name}</span>
-            <span class="rank-tag-badge">${item.category}</span>
-            <span style="font-size:11px; color:#D97706; font-weight:700;">${item.rate}</span>
-          </div>
-          <div class="rank-desc">招牌必點：${item.drinks.slice(0, 2).join("、")}</div>
-          <div style="display:flex; align-items:center; gap:6px; margin-top:2px;">
-            <span class="sugar-ice-badge">🍯 ${item.sugarIce}</span>
+      <div class="pill-card-item" onclick="window.open('${klookUrl}', '_blank')" title="預約 ${item.name}">
+        <div class="pill-window">
+          <img src="${item.img}" alt="${item.name}" loading="lazy">
+          <div class="pill-window-overlay"></div>
+          <span class="pill-rank-badge">#${item.rank}</span>
+          <div class="pill-explore-btn">
+            <span>↗</span>
           </div>
         </div>
-        <div style="display:flex; flex-direction:column; gap:4px; align-items:flex-end; flex-shrink:0;" onclick="event.stopPropagation()">
-          <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding:5px 10px; font-size:11px;" title="找附近門市">
-            📍 地圖導航
-          </a>
+        <div class="pill-info-block">
+          <div class="pill-title">${item.name.split(" ")[0]}</div>
+          <div class="pill-en-title">${item.enName || item.city}</div>
+          <div class="pill-meta-row">
+            <span class="pill-rate-badge">${item.rate}</span>
+            <span style="color:#CBD5E1;">·</span>
+            <span class="pill-price-tag">${item.price}</span>
+          </div>
+          <span class="pill-klook-cta">🎟️ 預定行程</span>
         </div>
       </div>
     `;
   }).join("");
 }
 
-/**
- * 1-2. 渲染人氣景點列表
- */
-function renderSpotsList() {
-  const spotsContainer = document.getElementById("spots-ranking-list");
-  if (!spotsContainer || typeof SPOTS_TOP20_DATA === "undefined") return;
-
-  const filteredSpots = SPOTS_TOP20_DATA.filter(item => {
-    return currentSpotsFilter === "全部" || item.category === currentSpotsFilter;
+function scrollTrending(direction) {
+  const container = document.getElementById("trending-capsule-row");
+  if (!container) return;
+  const scrollAmount = 320;
+  container.scrollBy({
+    left: direction === "next" ? scrollAmount : -scrollAmount,
+    behavior: "smooth"
   });
-
-  spotsContainer.innerHTML = filteredSpots.map(item => {
-    const rankClass = item.rank === 1 ? "top1" : item.rank === 2 ? "top2" : item.rank === 3 ? "top3" : "";
-    const tourUrl = AFFILIATE_HUB.getTourUrl(item.activityId);
-    const hotelUrl = AFFILIATE_HUB.getHotelUrl(item.city);
-    const charterUrl = AFFILIATE_HUB.getCharterUrl(item.city);
-    const mapUrl = AFFILIATE_HUB.getMapUrl(item.name);
-
-    return `
-      <div class="ranking-row-card" onclick="openSpotDetail(${item.rank})">
-        <div class="rank-number ${rankClass}">${item.rank}</div>
-        <div class="rank-info">
-          <div class="rank-name-row">
-            <span class="rank-name">${item.name}</span>
-            <span class="rank-tag-badge">${item.city}</span>
-            <span style="font-size:11px; color:#D97706; font-weight:700;">${item.rate}</span>
-          </div>
-          <div class="rank-desc">${item.highlight}</div>
-          <div style="font-size:11px; color:var(--text-muted);">👥 ${item.visitors} · ${item.category}</div>
-        </div>
-        <div style="display:flex; flex-direction:column; gap:5px; flex-shrink:0;" onclick="event.stopPropagation()">
-          <div style="display:flex; gap:4px;">
-            <a href="${tourUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-tour" style="padding:4px 9px; font-size:11px;">
-              🎟️ 預定行程
-            </a>
-            <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-hotel" style="padding:4px 9px; font-size:11px;">
-              🏨 訂房去
-            </a>
-          </div>
-          <div style="display:flex; gap:4px;">
-            <a href="${charterUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-charter" style="padding:3px 8px; font-size:10px;">
-              🚗 包車
-            </a>
-            <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding:3px 8px; font-size:10px;">
-              📍 導航
-            </a>
-          </div>
-        </div>
-      </div>
-    `;
-  }).join("");
 }
 
-/**
- * 2. 視圖切換器 (雙欄並列 / 手搖專區 / 景點專區)
- */
-function switchRankingView(mode) {
-  currentRankingView = mode;
-  const grid = document.getElementById("rankings-main-grid");
-  document.querySelectorAll(".switch-tab").forEach(tab => tab.classList.remove("active"));
-
-  if (mode === "dual") {
-    document.getElementById("tab-dual").classList.add("active");
-    grid.className = "rankings-dual-grid";
-  } else if (mode === "drinks") {
-    document.getElementById("tab-drinks").classList.add("active");
-    grid.className = "rankings-dual-grid show-only-drinks";
-  } else if (mode === "spots") {
-    document.getElementById("tab-spots").classList.add("active");
-    grid.className = "rankings-dual-grid show-only-spots";
-  }
-}
-
-/**
- * 3. 分類篩選膠囊
- */
-function filterDrinksCategory(cat, btn) {
-  currentDrinksFilter = cat;
-  document.querySelectorAll("#drinks-filter-pills .filter-pill").forEach(p => p.classList.remove("active"));
-  btn.classList.add("active");
-  renderDrinksList();
-}
-
-function filterSpotsCategory(cat, btn) {
-  currentSpotsFilter = cat;
-  document.querySelectorAll("#spots-filter-pills .filter-pill").forEach(p => p.classList.remove("active"));
-  btn.classList.add("active");
-  renderSpotsList();
-}
-
-function filterThemesCategory(cat, btn) {
-  currentThemesFilter = cat;
-  document.querySelectorAll("#themes-filter-pills .filter-pill").forEach(p => p.classList.remove("active"));
-  btn.classList.add("active");
-  renderThemesGrid();
-}
-
-/**
- * 4. 渲染 16 大主題專區網格
- */
-function renderThemesGrid() {
+/* =========================================================
+   2. 第二區塊：18 大主題專區網格 (18 Themes Grid)
+   ========================================================= */
+function renderThemesSection() {
   const container = document.getElementById("themes-grid-container");
   if (!container || typeof THEMES_DATA === "undefined") return;
 
-  const filteredThemes = THEMES_DATA.filter(theme => {
-    return currentThemesFilter === "全部" || theme.categoryGroup === currentThemesFilter;
+  container.innerHTML = THEMES_DATA.map(theme => {
+    return `
+      <div class="theme-icon-card" onclick="filterByTheme('${theme.id}')" title="${theme.name}">
+        <div class="theme-icon-circle">${theme.icon}</div>
+        <div class="theme-card-title">${theme.shortName}</div>
+        <div class="theme-card-count">${theme.count}</div>
+      </div>
+    `;
+  }).join("");
+}
+
+function filterByTheme(themeId) {
+  if (themeId === "michelin") {
+    window.location.href = "michelin.html";
+    return;
+  }
+  if (themeId === "cafe") {
+    window.location.href = "cafe.html";
+    return;
+  }
+  // 平滑滾動到瀑布流
+  const wf = document.getElementById("city-spots");
+  if (wf) wf.scrollIntoView({ behavior: "smooth" });
+}
+
+/* =========================================================
+   3. 第三區塊：全部景點 ＋ 全部縣市瀑布流 (Masonry Waterfall)
+   ========================================================= */
+const TAIWAN_CITIES_LIST = [
+  "全部", "台北市", "新北市", "基隆市", "桃園市", "新竹縣", "苗栗縣", 
+  "台中市", "彰化縣", "南投縣", "雲林縣", "嘉義縣", "台南市", 
+  "高雄市", "屏東縣", "宜蘭縣", "花蓮縣", "台東縣", "澎湖縣", "金門縣", "連江縣"
+];
+
+function renderWaterfallSection() {
+  renderCityFilterButtons();
+  renderWaterfallCards();
+}
+
+function renderCityFilterButtons() {
+  const btnContainer = document.getElementById("city-filter-buttons");
+  if (!btnContainer) return;
+
+  btnContainer.innerHTML = TAIWAN_CITIES_LIST.map(city => {
+    const isActive = currentCityFilter === city ? "active" : "";
+    const label = city === "全部" ? "全部景點 (All)" : city;
+    return `
+      <button class="city-pill-btn ${isActive}" onclick="setCityFilter('${city}')">
+        ${label}
+      </button>
+    `;
+  }).join("");
+}
+
+function setCityFilter(city) {
+  currentCityFilter = city;
+  renderCityFilterButtons();
+  renderWaterfallCards();
+}
+
+function renderWaterfallCards() {
+  const container = document.getElementById("waterfall-cards-container");
+  if (!container || typeof ALL_SPOTS_DATA === "undefined") return;
+
+  const filteredSpots = ALL_SPOTS_DATA.filter(item => {
+    if (currentCityFilter === "全部") return true;
+    return item.city.includes(currentCityFilter.replace("縣", "").replace("市", ""));
   });
 
-  container.innerHTML = filteredThemes.map(theme => {
-    const charterUrl = AFFILIATE_HUB.getCharterUrl(theme.location);
-    const tourUrl = AFFILIATE_HUB.getTourUrl();
-    const hotelUrl = AFFILIATE_HUB.getHotelUrl(theme.location);
-    const flightBtn = theme.hasFlight ? `
-      <a href="${AFFILIATE_HUB.getFlightUrl()}" target="_blank" rel="noopener noreferrer" class="btn-action btn-trip-flight" style="padding:4px 8px; font-size:11px;">
-        ✈️ 查機票
-      </a>
-    ` : "";
+  if (filteredSpots.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1/-1; padding: 60px 20px; text-align: center; color: var(--text-muted);">
+        <div style="font-size: 40px; margin-bottom: 12px;">🔍</div>
+        <div style="font-size: 18px; font-weight: 700;">該縣市目前尚無特選景點</div>
+        <p style="margin-top: 6px; font-size: 14px;">歡迎點選其他縣市或切換至「全部景點」探索！</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = filteredSpots.map(item => {
+    const isFav = userFavorites.includes(item.name);
+    const tourUrl = AFFILIATE_HUB.getTourUrl(item.activityId || "1874-jiufen-shifen-day-tour-taipei");
+    const hotelUrl = AFFILIATE_HUB.getHotelUrl(item.name);
+    const mapUrl = AFFILIATE_HUB.getMapUrl(item.name);
+    const aspectClass = item.aspect ? `aspect-${item.aspect}` : "aspect-wide";
 
     return `
-      <div class="theme-card" onclick="openThemeDetail('${theme.id}')">
-        <div class="theme-img-wrap">
-          <img src="${theme.img}" alt="${theme.name}" loading="lazy">
-          <span class="theme-badge">${theme.badge}</span>
+      <div class="waterfall-card ${aspectClass}">
+        <div class="waterfall-media-wrap">
+          <img src="${item.img}" alt="${item.name}" loading="lazy">
+          ${item.badge ? `<span class="waterfall-badge-top">${item.badge}</span>` : ""}
+          <button class="waterfall-fav-btn ${isFav ? "active" : ""}" onclick="toggleFavorite('${item.name}')" title="收藏景點">
+            ${isFav ? "❤️" : "🤍"}
+          </button>
         </div>
-        <div class="theme-body">
-          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:4px;">
-            <span class="rank-tag-badge" style="background:#E0F2FE; color:#0284C7;">${theme.categoryGroup}</span>
-            <span style="font-size:11px; color:#D97706; font-weight:700;">★ ${theme.rate}</span>
+        <div class="waterfall-body">
+          <div class="waterfall-meta-header">
+            <span class="waterfall-city-tag">📍 ${item.city}</span>
+            <span class="waterfall-rate">${item.rate}</span>
           </div>
-          <h3 class="theme-title">${theme.name}</h3>
-          <p class="theme-desc">${theme.desc}</p>
-          <div class="theme-footer-row">
-            <span>📍 ${theme.location.split(" · ")[0]}</span>
-            <span>⏱️ ${theme.duration}</span>
-          </div>
-          <div style="display:flex; flex-wrap:wrap; gap:5px; margin-top:14px; padding-top:10px; border-top:1px solid #F1F5F9;" onclick="event.stopPropagation()">
-            <a href="${tourUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-tour" style="padding:4px 8px; font-size:11px;">
+          <h3 class="waterfall-title">${item.name}</h3>
+          <p class="waterfall-desc">${item.desc}</p>
+          <div class="waterfall-actions-row">
+            <a href="${tourUrl}" target="_blank" rel="noopener noreferrer" class="btn-waterfall btn-wf-tour">
               🎟️ 預定行程
             </a>
-            <a href="${charterUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-charter" style="padding:4px 8px; font-size:11px;">
-              🚗 包車
+            <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-waterfall btn-wf-hotel">
+              🏨 找房間
             </a>
-            <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-hotel" style="padding:4px 8px; font-size:11px;">
-              🏨 訂房去
+            <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-waterfall btn-wf-map" title="Google 地圖導航">
+              🧭
             </a>
-            ${flightBtn}
           </div>
         </div>
       </div>
@@ -219,324 +198,417 @@ function renderThemesGrid() {
   }).join("");
 }
 
-/**
- * 5. 搜尋連動邏輯
- */
-function handleWebSearch(query) {
-  query = (query || "").trim().toLowerCase();
-  
-  // 篩選主題卡片
-  document.querySelectorAll(".theme-card").forEach(card => {
-    const text = card.innerText.toLowerCase();
-    card.style.display = (!query || text.includes(query)) ? "flex" : "none";
-  });
+/* =========================================================
+   4. 排行榜專區 (7 大排行 Tab 切換)
+   ========================================================= */
+function renderRankingsSection() {
+  const container = document.getElementById("rankings-display-container");
+  if (!container || typeof RANKINGS_DATA === "undefined") return;
 
-  // 篩選排行榜
-  document.querySelectorAll(".ranking-row-card").forEach(row => {
-    const text = row.innerText.toLowerCase();
-    row.style.display = (!query || text.includes(query)) ? "flex" : "none";
-  });
-}
+  const dataList = RANKINGS_DATA[currentRankingTab] || [];
 
-function executeWebSearch() {
-  const input = document.getElementById("hero-search-input");
-  if (input) {
-    handleWebSearch(input.value);
-    const target = document.getElementById("rankings");
-    if (target) target.scrollIntoView({ behavior: "smooth" });
-  }
-}
-
-/**
- * 6. 多國語言切換
- */
-function toggleLangDropdown() {
-  const menu = document.getElementById("lang-dropdown-menu");
-  if (menu) menu.classList.toggle("show");
-}
-
-function switchLanguage(langCode, flag, label) {
-  currentLang = langCode;
-  document.getElementById("current-lang-flag").innerText = flag;
-  document.getElementById("current-lang-text").innerText = label;
-
-  document.querySelectorAll(".lang-option").forEach(el => el.classList.remove("active"));
-  if (event && event.currentTarget) event.currentTarget.classList.add("active");
-
-  const menu = document.getElementById("lang-dropdown-menu");
-  if (menu) menu.classList.remove("show");
-
-  const t = (typeof WEB_I18N !== "undefined" && WEB_I18N[langCode]) ? WEB_I18N[langCode] : WEB_I18N["zh-TW"];
-  if (!t) return;
-
-  // 更新關鍵文案
-  document.getElementById("nav-home-text").innerText = t.navHome;
-  document.getElementById("nav-themes-text").innerText = t.navThemes;
-  document.getElementById("nav-drinks-text").innerText = t.navDrinks;
-  document.getElementById("nav-spots-text").innerText = t.navSpots;
-  document.getElementById("hero-tagline-text").innerText = t.heroTagline;
-  document.getElementById("hero-title-main").innerHTML = `${t.heroTitle1}<br><span class="highlight-gradient">${t.heroTitle2}</span>`;
-  document.getElementById("hero-subtitle-text").innerText = t.heroSubtitle;
-  document.getElementById("hero-search-input").placeholder = t.searchPlaceholder;
-  document.getElementById("hero-search-btn-text").innerText = t.searchBtn;
-  document.getElementById("section-themes-title").innerText = t.sectionThemesTitle;
-  document.getElementById("section-themes-desc").innerText = t.sectionThemesDesc;
-  document.getElementById("section-drinks-title").innerText = t.sectionDrinksTitle;
-  document.getElementById("section-spots-title").innerText = t.sectionSpotsTitle;
-
-  // 更新所有按鈕文案
-  document.querySelectorAll(".btn-klook-tour").forEach(btn => btn.innerText = t.btnTour);
-  document.querySelectorAll(".btn-klook-charter").forEach(btn => btn.innerText = t.btnCharter);
-  document.querySelectorAll(".btn-booking-hotel").forEach(btn => btn.innerText = t.btnHotel);
-  document.querySelectorAll(".btn-trip-flight").forEach(btn => btn.innerText = t.btnFlight);
-  document.querySelectorAll(".btn-maps-nav").forEach(btn => btn.innerText = t.btnMap);
-}
-
-/**
- * 7. 詳情彈窗 Modal
- */
-function openDrinkDetail(rank) {
-  const item = DRINKS_DATA.find(d => d.rank === rank);
-  if (!item) return;
-
-  const mapUrl = AFFILIATE_HUB.getMapUrl(item.name.split(" ")[0]);
-  const modal = document.getElementById("detail-modal-overlay");
-  document.getElementById("modal-title").innerHTML = `${item.logo} ${item.name} <span class="rank-tag-badge">${item.category}</span>`;
-  
-  document.getElementById("modal-body-content").innerHTML = `
-    <div style="font-size:14px; color:var(--text-body); margin-bottom:16px;">
-      <p style="font-size:15px; font-weight:700; color:var(--text-heading); margin-bottom:8px;">${item.tag}</p>
-      <p style="line-height:1.7; margin-bottom:16px;">${item.desc}</p>
-    </div>
-    <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:14px; padding:16px; margin-bottom:16px;">
-      <div style="font-size:13px; font-weight:800; color:var(--text-heading); margin-bottom:8px;">⭐ 招牌人氣 Top 3 推薦：</div>
-      <ul style="padding-left:20px; font-size:14px; color:#334155; line-height:1.8;">
-        ${item.drinks.map(d => `<li><strong>${d}</strong></li>`).join("")}
-      </ul>
-    </div>
-    <div style="background:#FEF3C7; border:1px solid #FDE68A; border-radius:14px; padding:12px 16px; display:flex; align-items:center; justify-content:space-between;">
-      <span style="font-size:13px; font-weight:700; color:#92400E;">🍯 老饕黃金甜度冰量指南：</span>
-      <span style="font-size:14px; font-weight:800; color:#B45309;">${item.sugarIce}</span>
-    </div>
-  `;
-
-  document.getElementById("modal-footer-actions").innerHTML = `
-    <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding:9px 18px;">
-      📍 Google 地圖導航找附近門市
-    </a>
-  `;
-
-  modal.classList.add("open");
-}
-
-function openSpotDetail(rank) {
-  const item = SPOTS_TOP20_DATA.find(s => s.rank === rank);
-  if (!item) return;
-
-  const tourUrl = AFFILIATE_HUB.getTourUrl(item.activityId);
-  const charterUrl = AFFILIATE_HUB.getCharterUrl(item.city);
-  const hotelUrl = AFFILIATE_HUB.getHotelUrl(item.city);
-  const mapUrl = AFFILIATE_HUB.getMapUrl(item.name);
-  const modal = document.getElementById("detail-modal-overlay");
-
-  document.getElementById("modal-title").innerHTML = `🏆 NO.${item.rank} ${item.name}`;
-
-  document.getElementById("modal-body-content").innerHTML = `
-    <div style="width:100%; height:240px; border-radius:14px; overflow:hidden; margin-bottom:18px;">
-      <img src="${item.img}" alt="${item.name}" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
-      <span class="rank-tag-badge">${item.city}</span>
-      <span class="rank-tag-badge" style="background:#FEF3C7; color:#B45309;">${item.category}</span>
-      <span style="font-size:13px; font-weight:700; color:#D97706;">${item.rate}</span>
-      <span style="font-size:13px; color:var(--text-muted); margin-left:auto;">年度訪客：${item.visitors}</span>
-    </div>
-    <h4 style="font-size:16px; font-weight:800; color:var(--text-heading); margin-bottom:8px;">景點必訪亮點</h4>
-    <p style="font-size:14px; color:var(--text-body); line-height:1.7; margin-bottom:16px;">${item.highlight}。身為台灣最具代表性的指標旅遊勝地，深受國內外旅人一致好評，推薦搭配一日包車或提早預約免排隊門票。</p>
-  `;
-
-  document.getElementById("modal-footer-actions").innerHTML = `
-    <a href="${tourUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-tour" style="padding:9px 16px;">
-      🎟️ 預定行程
-    </a>
-    <a href="${charterUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-charter" style="padding:9px 16px;">
-      🚗 包車
-    </a>
-    <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-hotel" style="padding:9px 16px;">
-      🏨 訂房去
-    </a>
-    <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding:9px 16px;">
-      📍 地圖導航
-    </a>
-  `;
-
-  modal.classList.add("open");
-}
-
-function openThemeDetail(themeId) {
-  const theme = THEMES_DATA.find(t => t.id === themeId);
-  if (!theme) return;
-
-  const tourUrl = AFFILIATE_HUB.getTourUrl();
-  const charterUrl = AFFILIATE_HUB.getCharterUrl(theme.location);
-  const hotelUrl = AFFILIATE_HUB.getHotelUrl(theme.location);
-  const modal = document.getElementById("detail-modal-overlay");
-
-  const flightBanner = theme.hasFlight ? `
-    <div style="background:linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%); border-radius:12px; padding:12px 16px; margin:16px 0; display:flex; align-items:center; justify-content:space-between;">
-      <div>
-        <div style="font-size:13px; font-weight:800; color:#0369A1;">✈️ 離島國內跳島機票即時比價</div>
-        <div style="font-size:11px; color:#0284C7;">松山 / 台中 / 高雄 飛 澎湖 / 金門 / 馬祖</div>
+  if (currentRankingTab === "drinks") {
+    container.innerHTML = `
+      <div class="rankings-dual-grid" style="grid-template-columns: 1fr;">
+        <div class="ranking-list-card">
+          <div class="ranking-list-header">
+            <div class="ranking-header-title-row">
+              <span class="ranking-header-title">🧋 全台 20 大必喝手搖飲品牌與黃金甜度冰塊</span>
+            </div>
+          </div>
+          <div class="ranking-list-body">
+            ${dataList.map(item => {
+              const rankClass = item.rank === 1 ? "top1" : item.rank === 2 ? "top2" : item.rank === 3 ? "top3" : "";
+              const mapUrl = AFFILIATE_HUB.getMapUrl(item.name.split(" ")[0]);
+              return `
+                <div class="ranking-row-card">
+                  <div class="rank-number ${rankClass}">${item.rank}</div>
+                  <div style="font-size:24px; flex-shrink:0;">${item.logo}</div>
+                  <div class="rank-info">
+                    <div class="rank-name-row">
+                      <span class="rank-name">${item.name}</span>
+                      <span class="rank-tag-badge">${item.category}</span>
+                      <span style="font-size:12px; color:#D97706; font-weight:700;">${item.rate}</span>
+                    </div>
+                    <div class="rank-desc">招牌必點：${item.drinks.join("、")}</div>
+                    <div style="margin-top:4px;">
+                      <span class="sugar-ice-badge">🍯 ${item.sugarIce}</span>
+                    </div>
+                  </div>
+                  <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding:6px 12px; font-size:12px; flex-shrink:0;">
+                    📍 門市
+                  </a>
+                </div>
+              `;
+            }).join("")}
+          </div>
+        </div>
       </div>
-      <a href="${AFFILIATE_HUB.getFlightUrl()}" target="_blank" rel="noopener noreferrer" class="btn-action btn-trip-flight" style="padding:6px 12px; font-size:12px;">
-        ✈️ 查機票
-      </a>
-    </div>
-  ` : "";
-
-  const subSpotsHtml = (theme.subSpots && theme.subSpots.length) ? `
-    <div style="margin-top:20px;">
-      <h5 style="font-size:15px; font-weight:800; color:var(--text-heading); margin-bottom:12px; display:flex; align-items:center; gap:6px;">
-        <span>📍</span> 代表性精選景點路線 (${theme.subSpots.length})
-      </h5>
-      <div style="display:flex; flex-direction:column; gap:10px;">
-        ${theme.subSpots.map(s => {
-          const sTour = AFFILIATE_HUB.getTourUrl(s.activityId);
-          const sHotel = AFFILIATE_HUB.getHotelUrl(s.city);
-          const sCharter = AFFILIATE_HUB.getCharterUrl(s.city);
-          const sMap = AFFILIATE_HUB.getMapUrl(s.name);
+    `;
+  } else if (currentRankingTab === "spots") {
+    container.innerHTML = `
+      <div class="rankings-dual-grid" style="grid-template-columns: 1fr;">
+        <div class="ranking-list-card">
+          <div class="ranking-list-header">
+            <div class="ranking-header-title-row">
+              <span class="ranking-header-title">🏆 全台 20 大熱門訂閱景點人氣排行榜</span>
+            </div>
+          </div>
+          <div class="ranking-list-body">
+            ${dataList.map(item => {
+              const rankClass = item.rank === 1 ? "top1" : item.rank === 2 ? "top2" : item.rank === 3 ? "top3" : "";
+              const tourUrl = AFFILIATE_HUB.getTourUrl(item.activityId || "1874-jiufen-shifen-day-tour-taipei");
+              const hotelUrl = AFFILIATE_HUB.getHotelUrl(item.name);
+              return `
+                <div class="ranking-row-card">
+                  <div class="rank-number ${rankClass}">${item.rank}</div>
+                  <img src="${item.img}" style="width:60px; height:60px; border-radius:12px; object-fit:cover; flex-shrink:0;" alt="${item.name}">
+                  <div class="rank-info">
+                    <div class="rank-name-row">
+                      <span class="rank-name">${item.name}</span>
+                      <span class="rank-tag-badge">${item.tag}</span>
+                      <span style="font-size:12px; color:#D97706; font-weight:700;">${item.rate}</span>
+                    </div>
+                    <div class="rank-desc">${item.desc}</div>
+                    <div style="font-size:11px; color:#0284C7; font-weight:700; margin-top:2px;">🔥 ${item.views}</div>
+                  </div>
+                  <div style="display:flex; flex-direction:column; gap:4px; align-items:flex-end; flex-shrink:0;">
+                    <a href="${tourUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding:5px 10px; font-size:11px;">🎟️ 預定行程</a>
+                    <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room" style="padding:4px 8px; font-size:11px;">🏨 找房間</a>
+                  </div>
+                </div>
+              `;
+            }).join("")}
+          </div>
+        </div>
+      </div>
+    `;
+  } else if (currentRankingTab === "charter") {
+    container.innerHTML = `
+      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap:20px;">
+        ${dataList.map(item => {
+          const charterUrl = AFFILIATE_HUB.getCharterUrl();
           return `
-            <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:12px; padding:12px 14px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:4px;">
-                <span style="font-size:14px; font-weight:800; color:var(--text-heading);">${s.name}</span>
-                <span style="font-size:11px; color:var(--cyan-deep); font-weight:600;">${s.city}</span>
+            <div style="background:#FFFFFF; border:1px solid var(--border-color); border-radius:18px; padding:22px; display:flex; flex-direction:column; box-shadow:var(--shadow-sm);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+                <span style="font-size:18px; font-weight:800; color:var(--text-heading);">#${item.rank} ${item.name}</span>
+                <span style="background:#E0F2FE; color:#0284C7; font-size:11px; font-weight:800; padding:4px 10px; border-radius:9999px; flex-shrink:0;">${item.city}</span>
               </div>
-              <p style="font-size:12px; color:var(--text-muted); margin-bottom:10px; line-height:1.5;">${s.desc}</p>
-              <div style="display:flex; flex-wrap:wrap; gap:5px;">
-                <a href="${sTour}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-tour" style="padding:4px 8px; font-size:10px;">
-                  🎟️ 預定行程
-                </a>
-                <a href="${sHotel}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-hotel" style="padding:4px 8px; font-size:10px;">
-                  🏨 訂房去
-                </a>
-                <a href="${sCharter}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-charter" style="padding:4px 8px; font-size:10px;">
-                  🚗 包車
-                </a>
-                <a href="${sMap}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding:4px 8px; font-size:10px;">
-                  📍 導航
+              <p style="font-size:13px; color:var(--text-muted); line-height:1.6; margin-bottom:14px; flex:1;">${item.desc}</p>
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-top:auto; border-top:1px solid #F1F5F9; padding-top:12px;">
+                <div>
+                  <span style="font-size:11px; color:#64748B;">${item.trips}</span>
+                  <div style="font-size:16px; font-weight:800; color:#0284C7;">${item.price}</div>
+                </div>
+                <a href="${charterUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding:8px 16px; font-size:12px;">
+                  🚗 包車預約
                 </a>
               </div>
             </div>
           `;
         }).join("")}
       </div>
-    </div>
-  ` : "";
-
-  document.getElementById("modal-title").innerHTML = `${theme.name}`;
-  document.getElementById("modal-body-content").innerHTML = `
-    <div style="width:100%; height:220px; border-radius:14px; overflow:hidden; margin-bottom:16px;">
-      <img src="${theme.img}" alt="${theme.name}" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
-      <span class="rank-tag-badge" style="background:#E0F2FE; color:#0284C7;">${theme.categoryGroup}</span>
-      <span style="font-size:12px; font-weight:700; color:var(--cyan-deep);">📍 ${theme.location}</span>
-      <span style="font-size:12px; color:var(--text-muted); margin-left:auto;">建議天數：${theme.duration}</span>
-    </div>
-    <h4 style="font-size:17px; font-weight:800; color:var(--text-heading); margin-bottom:8px;">${theme.title}</h4>
-    <p style="font-size:14px; color:var(--text-body); line-height:1.7;">${theme.desc}</p>
-    ${flightBanner}
-    ${subSpotsHtml}
-  `;
-
-  document.getElementById("modal-footer-actions").innerHTML = `
-    <a href="${tourUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-tour" style="padding:9px 16px;">
-      🎟️ 預定行程
-    </a>
-    <a href="${charterUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-charter" style="padding:9px 16px;">
-      🚗 包車
-    </a>
-    <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-hotel" style="padding:9px 16px;">
-      🏨 訂房去
-    </a>
-  `;
-
-  modal.classList.add("open");
-}
-
-function closeDetailModal() {
-  const modal = document.getElementById("detail-modal-overlay");
-  if (modal) modal.classList.remove("open");
-}
-
-/**
- * 8. 收藏抽屜管理
- */
-function toggleFavDrawer() {
-  const overlay = document.getElementById("fav-drawer-overlay");
-  if (overlay) {
-    overlay.classList.toggle("open");
-    renderFavDrawerList();
+    `;
+  } else if (currentRankingTab === "events") {
+    container.innerHTML = `
+      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap:20px;">
+        ${dataList.map(item => `
+          <div style="background:#FFFFFF; border:1px solid var(--border-color); border-radius:18px; padding:22px; box-shadow:var(--shadow-sm);">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+              <span style="font-size:18px; font-weight:800; color:var(--text-heading);">#${item.rank} ${item.name}</span>
+              <span style="background:#FEF3C7; color:#92400E; font-size:11px; font-weight:800; padding:4px 10px; border-radius:9999px;">${item.tag}</span>
+            </div>
+            <div style="font-size:12px; color:#D97706; font-weight:700; margin-bottom:6px;">📅 ${item.date} ｜ 📍 ${item.loc}</div>
+            <p style="font-size:13px; color:var(--text-muted); line-height:1.6;">${item.desc}</p>
+          </div>
+        `).join("")}
+      </div>
+    `;
+  } else if (currentRankingTab === "rainy") {
+    container.innerHTML = `
+      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap:20px;">
+        ${dataList.map(item => `
+          <div style="background:#FFFFFF; border:1px solid var(--border-color); border-radius:18px; overflow:hidden; box-shadow:var(--shadow-sm); display:flex; flex-direction:column;">
+            <img src="${item.img}" style="width:100%; height:180px; object-fit:cover;" alt="${item.name}">
+            <div style="padding:20px; flex:1; display:flex; flex-direction:column;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                <span style="font-size:16px; font-weight:800; color:var(--text-heading);">#${item.rank} ${item.name}</span>
+                <span style="font-size:12px; color:#D97706; font-weight:800;">${item.rate}</span>
+              </div>
+              <div style="font-size:12px; color:#0284C7; font-weight:700; margin-bottom:8px;">🏛️ ${item.indoor}</div>
+              <p style="font-size:13px; color:var(--text-muted); line-height:1.6; margin-bottom:14px; flex:1;">${item.desc}</p>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding-top:10px; border-top:1px solid #F1F5F9;">
+                <span style="font-size:13px; font-weight:800; color:#0F172A;">門票：${item.ticket}</span>
+                <a href="${AFFILIATE_HUB.getMapUrl(item.name)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding:6px 12px; font-size:12px;">🧭 導航</a>
+              </div>
+            </div>
+          </div>
+        `).join("")}
+      </div>
+    `;
+  } else if (currentRankingTab === "cafe") {
+    container.innerHTML = `
+      <div class="cafe-grid-4col">
+        ${dataList.map(item => `
+          <div class="cafe-card">
+            <div class="cafe-img-wrap">
+              <img src="${item.img}" alt="${item.name}" loading="lazy">
+              <span style="position:absolute; top:12px; left:12px; background:rgba(15,23,42,0.8); color:#fff; font-size:11px; font-weight:800; padding:4px 8px; border-radius:6px;">#${item.rank}</span>
+            </div>
+            <div style="padding:18px; display:flex; flex-direction:column; flex:1;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:12px; font-weight:700; color:#D97706;">📍 ${item.city}</span>
+                <span style="font-size:12px; font-weight:800; color:#D97706;">${item.rate}</span>
+              </div>
+              <h4 style="font-size:16px; font-weight:800; color:var(--text-heading); margin:6px 0;">${item.name}</h4>
+              <div style="font-size:11px; color:#92400E; background:#FEF3C7; padding:3px 8px; border-radius:6px; display:inline-block; font-weight:700; margin-bottom:8px;">✨ ${item.tag}</div>
+              <p style="font-size:12px; color:var(--text-muted); line-height:1.5; margin-bottom:14px; flex:1;">${item.feature}</p>
+              <a href="${AFFILIATE_HUB.getMapUrl(item.name)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="text-align:center; padding:7px; font-size:12px;">
+                🧭 Google 地圖導航
+              </a>
+            </div>
+          </div>
+        `).join("")}
+      </div>
+    `;
+  } else if (currentRankingTab === "walk") {
+    container.innerHTML = `
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        ${dataList.map(item => `
+          <div style="background:#FFFFFF; border:1px solid var(--border-color); border-radius:16px; padding:20px; display:flex; align-items:center; gap:20px; box-shadow:var(--shadow-sm);">
+            <div style="font-size:22px; font-weight:900; color:#0284C7; width:44px; text-align:center; flex-shrink:0;">#${item.rank}</div>
+            <div style="flex:1;">
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:4px;">
+                <span style="font-size:16px; font-weight:800; color:var(--text-heading);">${item.name}</span>
+                <span style="font-size:11px; background:#F1F5F9; color:#475569; padding:2px 8px; border-radius:6px; font-weight:700;">${item.tag}</span>
+              </div>
+              <p style="font-size:13px; color:var(--text-muted); line-height:1.6;">${item.desc}</p>
+            </div>
+            <div style="text-align:right; flex-shrink:0;">
+              <div style="font-size:11px; color:#64748B;">🔥 ${item.views}</div>
+              <a href="${AFFILIATE_HUB.getMapUrl(item.name.split(" ｜ ")[0])}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="margin-top:6px; padding:6px 12px; font-size:12px;">🧭 路線散策</a>
+            </div>
+          </div>
+        `).join("")}
+      </div>
+    `;
   }
+}
+
+function switchRankingTab(tabKey) {
+  currentRankingTab = tabKey;
+  document.querySelectorAll(".ranking-tab-pill").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.tab === tabKey);
+  });
+  renderRankingsSection();
+}
+
+/* =========================================================
+   5. 週末探店專欄部落格 (Weekend Hop Editorial - 一排一個文章)
+   ========================================================= */
+function renderBlogSection() {
+  const container = document.getElementById("blog-articles-container");
+  if (!container || typeof BLOG_ARTICLES_DATA === "undefined") return;
+
+  container.innerHTML = BLOG_ARTICLES_DATA.map(art => {
+    const spot = art.spotInfo;
+    return `
+      <article class="blog-editorial-row">
+        <div class="blog-hero-wrap">
+          <img src="${art.heroImg}" alt="${art.title}" loading="lazy">
+          <span class="blog-category-badge">${art.category}</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta-line">
+            <span>📅 ${art.date}</span>
+            <span>·</span>
+            <span>✍️ ${art.author}</span>
+            <span>·</span>
+            <span>⏱️ ${art.readTime}</span>
+          </div>
+          <h3 class="blog-title">${art.title}</h3>
+          <div class="blog-subtitle">${art.subtitle}</div>
+          <div class="blog-excerpt">${art.content.replace(/\n\n/g, '<br><br>')}</div>
+
+          <!-- 景點詳細資訊盒 (Spot Info Box) -->
+          <div class="spot-info-box">
+            <div class="spot-info-header">
+              <span>🏠 ${spot.name}</span>
+            </div>
+            <div class="spot-info-list">
+              <div class="spot-info-item">
+                <span class="spot-info-label">📍 詳細地址</span>
+                <span>${spot.address}</span>
+              </div>
+              <div class="spot-info-item">
+                <span class="spot-info-label">⏰ 營業時間</span>
+                <span>${spot.hours}</span>
+              </div>
+              <div class="spot-info-item">
+                <span class="spot-info-label">💡 推薦必點</span>
+                <span>${spot.signature}</span>
+              </div>
+              <div class="spot-info-item">
+                <span class="spot-info-label">🚇 交通指南</span>
+                <span>${spot.transport}</span>
+              </div>
+            </div>
+            <div class="spot-info-actions">
+              <a href="${AFFILIATE_HUB.getMapUrl(spot.mapQuery)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding:8px 16px; font-size:12px;">
+                🧭 Google 地圖導航
+              </a>
+              <a href="${spot.bookingUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding:8px 16px; font-size:12px;">
+                🎟️ 線上預約 / 官方地圖
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+/* =========================================================
+   6. 搜尋中樞 (Hero Search Hub Setup)
+   ========================================================= */
+function setupSearchHub() {
+  const searchInput = document.getElementById("hero-main-search");
+  const searchBtn = document.getElementById("hero-search-btn");
+
+  if (searchBtn && searchInput) {
+    searchBtn.addEventListener("click", () => {
+      executeSearch(searchInput.value.trim());
+    });
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") executeSearch(searchInput.value.trim());
+    });
+  }
+}
+
+function executeSearch(query) {
+  if (!query) {
+    currentCityFilter = "全部";
+    renderWaterfallSection();
+    return;
+  }
+  const wf = document.getElementById("city-spots");
+  if (wf) wf.scrollIntoView({ behavior: "smooth" });
+
+  const container = document.getElementById("waterfall-cards-container");
+  if (!container || typeof ALL_SPOTS_DATA === "undefined") return;
+
+  const results = ALL_SPOTS_DATA.filter(item => {
+    return item.name.includes(query) || item.city.includes(query) || item.desc.includes(query);
+  });
+
+  if (results.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1/-1; padding: 60px 20px; text-align: center; color: var(--text-muted);">
+        <div style="font-size: 40px; margin-bottom: 12px;">🔍</div>
+        <div style="font-size: 18px; font-weight: 700;">找不到與「${query}」相關的景點</div>
+        <p style="margin-top: 6px; font-size: 14px;">試試搜尋「台北」、「日月潭」或「溫泉」吧！</p>
+      </div>
+    `;
+  } else {
+    container.innerHTML = results.map(item => {
+      const isFav = userFavorites.includes(item.name);
+      const tourUrl = AFFILIATE_HUB.getTourUrl(item.activityId || "1874-jiufen-shifen-day-tour-taipei");
+      const hotelUrl = AFFILIATE_HUB.getHotelUrl(item.name);
+      const mapUrl = AFFILIATE_HUB.getMapUrl(item.name);
+      return `
+        <div class="waterfall-card aspect-wide">
+          <div class="waterfall-media-wrap">
+            <img src="${item.img}" alt="${item.name}">
+            <button class="waterfall-fav-btn ${isFav ? "active" : ""}" onclick="toggleFavorite('${item.name}')">
+              ${isFav ? "❤️" : "🤍"}
+            </button>
+          </div>
+          <div class="waterfall-body">
+            <div class="waterfall-meta-header">
+              <span class="waterfall-city-tag">📍 ${item.city}</span>
+              <span class="waterfall-rate">${item.rate}</span>
+            </div>
+            <h3 class="waterfall-title">${item.name}</h3>
+            <p class="waterfall-desc">${item.desc}</p>
+            <div class="waterfall-actions-row">
+              <a href="${tourUrl}" target="_blank" rel="noopener noreferrer" class="btn-waterfall btn-wf-tour">🎟️ 預定行程</a>
+              <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-waterfall btn-wf-hotel">🏨 找房間</a>
+              <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-waterfall btn-wf-map">🧭</a>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+}
+
+/* =========================================================
+   7. 收藏清單與事件綁定 (Favorites & Event Listeners)
+   ========================================================= */
+function toggleFavorite(spotName) {
+  const index = userFavorites.indexOf(spotName);
+  if (index > -1) {
+    userFavorites.splice(index, 1);
+  } else {
+    userFavorites.push(spotName);
+  }
+  localStorage.setItem("tw_roam_web_favs", JSON.stringify(userFavorites));
+  updateFavBadge();
+  renderWaterfallCards();
 }
 
 function updateFavBadge() {
   const badge = document.getElementById("fav-count-badge");
-  const drawerCount = document.getElementById("drawer-fav-count");
-  if (badge) badge.innerText = userFavorites.length;
-  if (drawerCount) drawerCount.innerText = userFavorites.length;
-  localStorage.setItem("tw_roam_web_favs", JSON.stringify(userFavorites));
+  if (badge) badge.textContent = userFavorites.length;
 }
 
-function renderFavDrawerList() {
-  const container = document.getElementById("drawer-fav-list");
-  if (!container) return;
-
-  if (userFavorites.length === 0) {
-    container.innerHTML = `
-      <div style="text-align:center; padding:60px 0; color:#94A3B8;">
-        <div style="font-size:48px; margin-bottom:12px;">🤍</div>
-        <p>目前尚未收藏任何項目<br>點擊景點卡片即可加入收藏！</p>
-      </div>
-    `;
-    return;
-  }
-
-  container.innerHTML = userFavorites.map((title, i) => `
-    <div style="display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:#F8FAFC; border-radius:12px; margin-bottom:10px; border:1px solid #E2E8F0;">
-      <div style="font-weight:700; font-size:14px; color:#0F172A;">${i+1}. ${title}</div>
-      <button onclick="removeFavorite('${title}')" style="border:none; background:none; cursor:pointer; color:#EF4444; font-size:13px; font-weight:600;">✕ 移除</button>
-    </div>
-  `).join("");
-}
-
-function removeFavorite(title) {
-  const idx = userFavorites.indexOf(title);
-  if (idx > -1) {
-    userFavorites.splice(idx, 1);
-    updateFavBadge();
+function openFavDrawer() {
+  const drawer = document.getElementById("fav-drawer");
+  const overlay = document.getElementById("fav-drawer-overlay");
+  if (drawer && overlay) {
+    drawer.classList.add("open");
+    overlay.classList.add("open");
     renderFavDrawerList();
   }
 }
 
-/**
- * 9. 事件監聽
- */
-function setupEventListeners() {
-  document.addEventListener("click", (e) => {
-    const wrap = document.querySelector(".lang-dropdown-wrap");
-    if (wrap && !wrap.contains(e.target)) {
-      const menu = document.getElementById("lang-dropdown-menu");
-      if (menu) menu.classList.remove("show");
-    }
-  });
+function closeFavDrawer() {
+  const drawer = document.getElementById("fav-drawer");
+  const overlay = document.getElementById("fav-drawer-overlay");
+  if (drawer && overlay) {
+    drawer.classList.remove("open");
+    overlay.classList.remove("open");
+  }
+}
 
-  // ESC 鍵關閉彈窗
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      closeDetailModal();
-      const favDrawer = document.getElementById("fav-drawer-overlay");
-      if (favDrawer) favDrawer.classList.remove("open");
-    }
-  });
+function renderFavDrawerList() {
+  const listEl = document.getElementById("fav-drawer-list");
+  if (!listEl) return;
+
+  if (userFavorites.length === 0) {
+    listEl.innerHTML = `<div style="padding:40px 20px; text-align:center; color:#94A3B8;">尚無收藏景點，趕快在卡片上點擊 ❤️ 收藏吧！</div>`;
+    return;
+  }
+
+  listEl.innerHTML = userFavorites.map(name => {
+    return `
+      <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:#F8FAFC; border-radius:12px; margin-bottom:8px;">
+        <span style="font-weight:700; font-size:14px; color:#0F172A;">${name}</span>
+        <button onclick="toggleFavorite('${name}'); renderFavDrawerList();" style="border:none; background:transparent; cursor:pointer; color:#E11D48; font-size:16px;">🗑️</button>
+      </div>
+    `;
+  }).join("");
+}
+
+function setupEventListeners() {
+  // 語言選單切換
+  const langSelect = document.getElementById("global-lang-select");
+  if (langSelect) {
+    langSelect.addEventListener("change", (e) => {
+      currentLang = e.target.value;
+      if (typeof switchLanguage === "function") {
+        switchLanguage(currentLang);
+      }
+    });
+  }
 }

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>台灣必去咖啡店全覽 - 台灣吃喝玩樂 Taiwan Wanderlust</title>
+  
+  <meta name="description" content="全台縣市精選必去特色咖啡店散策！涵蓋插座友善、甜點好吃、世界冠軍手沖、老宅植栽、無敵海景景觀名店，卡牌四個一排完整收錄。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 置頂導航列 -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <div class="brand-logo-icon">🇹🇼</div>
+        <div class="brand-text-block">
+          <div class="brand-name">
+            台灣吃喝玩樂
+            <span class="brand-badge">官方網頁版</span>
+          </div>
+          <span class="brand-subtext">TAIWAN WANDERLUST PORTAL</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html#hero">首頁</a></li>
+          <li class="nav-item"><a href="index.html#themes">精選主題</a></li>
+          <li class="nav-item"><a href="index.html#city-spots">城市景點</a></li>
+          <li class="nav-item active"><a href="cafe.html">全台咖啡地圖</a></li>
+          <li class="nav-item"><a href="michelin.html">米其林指南</a></li>
+          <li class="nav-item"><a href="blog.html">週末探店</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right-tools">
+        <a href="index.html" class="city-pill-btn" style="padding: 8px 16px;">
+          ← 返回首頁
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 咖啡主題橫幅 Hero -->
+  <section class="section-padding" style="background: linear-gradient(180deg, #271E16 0%, #15110E 100%); color: #FFFFFF; text-align: center; padding: 70px 0 50px 0;">
+    <div class="container">
+      <span class="section-badge-pill" style="background: rgba(217, 119, 6, 0.25); color: #FCD34D; border-color: rgba(217, 119, 6, 0.45);">
+        SPECIALTY COFFEE CULTURE
+      </span>
+      <h1 style="font-size: 38px; font-weight: 900; margin-top: 14px; letter-spacing: -0.5px;">
+        台灣必去特色咖啡店 ‧ 全台縣市散策
+      </h1>
+      <p style="color: #E2E8F0; max-width: 720px; margin: 12px auto 0 auto; font-size: 15px; line-height: 1.7;">
+        從世界盃烘豆大師、老印刷廠改建天井、深山秘境到紅柴坑懸崖看海！依「有插頭、甜點好吃、手沖咖啡、店家可喝酒、寵物友善、採光超好」即時篩選（卡牌四個一排展示）。
+      </p>
+
+      <!-- 特徵分類篩選藥丸列 (Feature Tags Filter) -->
+      <div id="cafe-tag-filters" style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 32px;">
+        <button class="city-pill-btn active" data-tag="全部" onclick="setCafeTag('全部')">全部特色 (All)</button>
+        <button class="city-pill-btn" data-tag="有插頭" onclick="setCafeTag('有插頭')">🔌 有插頭 (Power Plugs)</button>
+        <button class="city-pill-btn" data-tag="甜點好吃" onclick="setCafeTag('甜點好吃')">🍰 甜點好吃 (Desserts)</button>
+        <button class="city-pill-btn" data-tag="手沖咖啡" onclick="setCafeTag('手沖咖啡')">☕ 手沖咖啡 (Pour-over)</button>
+        <button class="city-pill-btn" data-tag="適合聊天" onclick="setCafeTag('適合聊天')">🗣️ 適合聊天 (Chat-friendly)</button>
+        <button class="city-pill-btn" data-tag="店家可喝酒" onclick="setCafeTag('店家可喝酒')">🍷 店家可喝酒 (Cafe & Bar)</button>
+        <button class="city-pill-btn" data-tag="寵物友善" onclick="setCafeTag('寵物友善')">🐶 寵物友善 (Pet-friendly)</button>
+        <button class="city-pill-btn" data-tag="小孩友善" onclick="setCafeTag('小孩友善')">👶 小孩友善 (Kid-friendly)</button>
+        <button class="city-pill-btn" data-tag="採光超好" onclick="setCafeTag('採光超好')">☀️ 採光超好 (Daylight)</button>
+        <button class="city-pill-btn" data-tag="植栽老宅" onclick="setCafeTag('植栽老宅')">🌿 植栽老宅 (Vintage)</button>
+        <button class="city-pill-btn" data-tag="海景景觀" onclick="setCafeTag('海景景觀')">🌊 海景景觀 (Ocean View)</button>
+      </div>
+
+      <!-- 縣市切換按鈕條 -->
+      <div id="cafe-city-filters" style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; margin-top: 16px;">
+        <!-- 由 JS 動態生成縣市按鈕 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 欄卡牌網格主內容區 (一排四個展示) -->
+  <main class="section-padding" style="background: #F8FAFC;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <span id="cafe-results-count" style="font-size: 14px; font-weight: 700; color: #475569;">
+          顯示推薦名店...
+        </span>
+        <span style="font-size: 12px; color: #16A34A; font-weight: 700; display: flex; align-items: center; gap: 4px;">
+          ● 已驗證確認正常營業中
+        </span>
+      </div>
+
+      <!-- 一排四個卡牌網格 -->
+      <div id="cafe-4col-grid" class="cafe-grid-4col">
+        <!-- 由 JS 動態渲染 TAIWAN_CAFES_DATA -->
+      </div>
+    </div>
+  </main>
+
+  <!-- 頁尾 -->
+  <footer class="site-footer">
+    <div class="container footer-bottom-bar" style="border: none;">
+      <div>© 2026 台灣吃喝玩樂 Taiwan Wanderlust ‧ 全台咖啡地圖專欄. All Rights Reserved.</div>
+      <div>商務合作聯繫：himydream.studio0220@gmail.com</div>
+    </div>
+  </footer>
+
+  <script src="js/affiliate.js"></script>
+  <script src="js/data.js"></script>
+  <script>
+    let activeTag = "全部";
+    let activeCity = "全部";
+
+    const CAFE_CITIES = [
+      "全部", "台北市", "新北市", "基隆市", "桃園市", "新竹市", "苗栗縣", 
+      "台中市", "彰化縣", "南投縣", "嘉義市", "台南市", "高雄市", "屏東縣", 
+      "宜蘭縣", "花蓮縣", "台東縣"
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCityButtons();
+      renderCafesList();
+    });
+
+    function renderCityButtons() {
+      const cityContainer = document.getElementById("cafe-city-filters");
+      if (!cityContainer) return;
+      cityContainer.innerHTML = CAFE_CITIES.map(c => {
+        const isAct = activeCity === c ? "active" : "";
+        const label = c === "全部" ? "全部縣市" : c;
+        return `
+          <button class="city-pill-btn ${isAct}" style="font-size: 12px; padding: 5px 12px;" onclick="setCafeCity('${c}')">
+            ${label}
+          </button>
+        `;
+      }).join("");
+    }
+
+    function setCafeTag(tag) {
+      activeTag = tag;
+      document.querySelectorAll("#cafe-tag-filters .city-pill-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.tag === tag);
+      });
+      renderCafesList();
+    }
+
+    function setCafeCity(c) {
+      activeCity = c;
+      renderCityButtons();
+      renderCafesList();
+    }
+
+    function renderCafesList() {
+      const container = document.getElementById("cafe-4col-grid");
+      const countEl = document.getElementById("cafe-results-count");
+      if (!container || typeof TAIWAN_CAFES_DATA === "undefined") return;
+
+      const filtered = TAIWAN_CAFES_DATA.filter(item => {
+        const matchCity = activeCity === "全部" || item.city.includes(activeCity.replace("市", "").replace("縣", ""));
+        const matchTag = activeTag === "全部" || (item.tags && item.tags.includes(activeTag));
+        return matchCity && matchTag;
+      });
+
+      if (countEl) {
+        countEl.textContent = `共找到 ${filtered.length} 間精選咖啡名店（一排四個展示）`;
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1/-1; padding: 60px 20px; text-align: center; color: #64748B;">
+            <div style="font-size: 40px; margin-bottom: 10px;">☕</div>
+            <div style="font-size: 18px; font-weight: 700;">暫無符合當前條件的咖啡館</div>
+            <p style="margin-top: 6px; font-size: 13px;">歡迎切換特色標籤或選擇「全部縣市」！</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(item => {
+        const mapUrl = AFFILIATE_HUB.getMapUrl(item.name);
+        const hotelUrl = AFFILIATE_HUB.getHotelUrl(item.city + " 住宿");
+        const tagsHtml = (item.tags || []).map(t => `<span class="cafe-tag-chip">${t}</span>`).join("");
+
+        return `
+          <div class="cafe-card">
+            <div class="cafe-img-wrap">
+              <img src="${item.img}" alt="${item.name}" loading="lazy">
+              <span style="position: absolute; top: 12px; left: 12px; background: rgba(15,23,42,0.85); backdrop-filter: blur(6px); color: #fff; font-size: 11px; font-weight: 800; padding: 4px 8px; border-radius: 6px;">
+                ${item.city} ‧ ${item.district}
+              </span>
+              <span style="position: absolute; bottom: 10px; right: 10px; background: #16A34A; color: #fff; font-size: 10px; font-weight: 700; padding: 3px 6px; border-radius: 4px;">
+                營業中
+              </span>
+            </div>
+            <div style="padding: 18px; display: flex; flex-direction: column; flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 11px; font-weight: 700; color: #0284C7;">${item.status}</span>
+                <span style="font-size: 12px; font-weight: 800; color: #D97706;">${item.rate}</span>
+              </div>
+              <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; line-height: 1.35; margin-bottom: 6px;">
+                ${item.name}
+              </h3>
+              
+              <div class="cafe-tag-chips">
+                ${tagsHtml}
+              </div>
+
+              <p style="font-size: 12px; color: #64748B; line-height: 1.55; margin-bottom: 12px; flex: 1;">
+                ${item.features}
+              </p>
+
+              <div style="font-size: 11px; color: #334155; background: #F8FAFC; padding: 6px 8px; border-radius: 6px; margin-bottom: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${item.address}">
+                📍 ${item.address}
+              </div>
+
+              <div style="display: flex; gap: 8px; margin-top: auto;">
+                <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="flex: 1; text-align: center; padding: 7px; font-size: 11px;">
+                  🧭 Google 導航
+                </a>
+                <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room" style="flex: 1; text-align: center; padding: 7px; font-size: 11px;">
+                  🏨 找附近房間
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+  </script>
+</body>
+</html>

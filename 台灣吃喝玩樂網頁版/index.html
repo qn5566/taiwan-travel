@@ -5,12 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>台灣吃喝玩樂 Taiwan Wanderlust - 全台旅遊旗艦官方入口網</title>
   
-  <!-- Google Fonts: Inter & DM Sans -->
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="台灣吃喝玩樂 Taiwan Wanderlust 官方國際入口網。匯集全台熱門活動Top6、18大深度主題、全台縣市景點瀑布流、米其林星級指南、台灣必去特色咖啡店散策與週末探店專欄。">
+  <meta name="keywords" content="台灣旅遊, 台灣景點, 台北101, 九份, 太魯閣, 日月潭, 台灣咖啡廳, 米其林指南, 台灣包車, 台灣自由行, Taiwan Travel">
+  
+  <!-- Google Fonts: Inter & DM Sans & Noto Sans TC -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
   
-  <!-- 專用樣式表 -->
+  <!-- 全站專用樣式表 -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -35,316 +39,417 @@
       <!-- 導航主選單 -->
       <nav>
         <ul class="nav-menu">
-          <li class="nav-item active"><a href="#hero" id="nav-home-text">探索首頁</a></li>
-          <li class="nav-item"><a href="#themes" id="nav-themes-text">16 大主題</a></li>
-          <li class="nav-item"><a href="#rankings" id="nav-drinks-text">手搖排行 TOP20</a></li>
-          <li class="nav-item"><a href="#rankings" id="nav-spots-text">人氣景點 TOP20</a></li>
-          <li class="nav-item"><a href="https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" target="_blank" rel="noopener noreferrer">伴手禮直送</a></li>
+          <li class="nav-item active"><a href="#hero">首頁</a></li>
+          <li class="nav-item"><a href="#themes">精選主題</a></li>
+          <li class="nav-item"><a href="#city-spots">城市景點</a></li>
+          <li class="nav-item"><a href="#weekend-hop">週末探店</a></li>
+          <li class="nav-item"><a href="#rankings">排行榜</a></li>
+          <li class="nav-item"><a href="#community">留言討論</a></li>
         </ul>
       </nav>
 
-      <!-- 右側動作區 -->
-      <div class="header-actions">
-        <!-- 即時搜尋 -->
-        <div class="header-search-wrap">
-          <span class="header-search-icon">🔍</span>
-          <input type="text" class="header-search-input" id="top-search-input" placeholder="搜尋全台景點、美食..." oninput="handleWebSearch(this.value)">
+      <!-- 右側工具區：語言切換、收藏計數、伴手禮行動鈕 -->
+      <div class="header-right-tools">
+        <!-- 多語言選擇器 -->
+        <div class="lang-select-wrap">
+          <select id="global-lang-select" class="lang-select-dropdown" aria-label="切換語系">
+            <option value="zh-TW" selected>繁體中文 (TW)</option>
+            <option value="en">English (US)</option>
+            <option value="ja">日本語 (JP)</option>
+            <option value="ko">한국어 (KR)</option>
+            <option value="vi">Tiếng Việt (VN)</option>
+            <option value="th">ภาษาไทย (TH)</option>
+            <option value="id">Bahasa Indonesia (ID)</option>
+          </select>
         </div>
 
-        <!-- 7國語言切換下拉選單 -->
-        <div class="lang-dropdown-wrap">
-          <button class="lang-select-btn" onclick="toggleLangDropdown()">
-            <span id="current-lang-flag">🇹🇼</span>
-            <span id="current-lang-text">繁中</span>
-            <span>▾</span>
-          </button>
-          <ul class="lang-dropdown-menu" id="lang-dropdown-menu">
-            <li class="lang-option active" onclick="switchLanguage('zh-TW', '🇹🇼', '繁中')">🇹🇼 繁體中文</li>
-            <li class="lang-option" onclick="switchLanguage('en', '🇺🇸', 'English')">🇺🇸 English</li>
-            <li class="lang-option" onclick="switchLanguage('ja', '🇯🇵', '日本語')">🇯🇵 日本語</li>
-            <li class="lang-option" onclick="switchLanguage('ko', '🇰🇷', '한국어')">🇰🇷 한국어</li>
-            <li class="lang-option" onclick="switchLanguage('es', '🇪🇸', 'Español')">🇪🇸 Español</li>
-            <li class="lang-option" onclick="switchLanguage('de', '🇩🇪', 'Deutsch')">🇩🇪 Deutsch</li>
-            <li class="lang-option" onclick="switchLanguage('th', '🇹🇭', 'ภาษาไทย')">🇹🇭 ภาษาไทย</li>
-          </ul>
-        </div>
-
-        <!-- 收藏清單按鈕 -->
-        <button class="fav-nav-btn" onclick="toggleFavDrawer()" title="查看我的收藏">
-          ❤️
-          <span class="fav-badge-count" id="fav-count-badge">3</span>
+        <!-- 收藏景點按鈕 -->
+        <button class="nav-fav-trigger-btn" onclick="openFavDrawer()" title="查看已收藏景點">
+          ❤️ 收藏景點
+          <span id="fav-count-badge" class="fav-badge">0</span>
         </button>
+
+        <!-- 伴手禮直購連結 -->
+        <a href="https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-cta-primary" 
+           style="padding: 9px 18px; font-size: 13px;">
+          🛍️ 伴手禮直送
+        </a>
       </div>
     </div>
   </header>
 
   <!-- =========================================================
-       🏝️ 2. 寬螢幕沉浸式 Hero 首頁橫幅 (Desktop Hero Banner)
+       ✨ 2. 全寬英雄首頁視覺 (Hero Stage & Glassmorphic Search Hub)
        ========================================================= -->
-  <section class="hero-section" id="hero">
-    <div class="container hero-content">
-      <div class="hero-tagline" id="hero-tagline-text">
-        <span>✨</span> 2026 台灣旅遊旗艦門戶 · 全方位景點、手搖與在地體驗
-      </div>
-      <h1 class="hero-title" id="hero-title-main">
-        探索台灣極致魅力<br>
-        <span class="highlight-gradient">山海、節慶、溫泉與在地人情味</span>
-      </h1>
-      <p class="hero-subtitle" id="hero-subtitle-text">
-        匯聚 16 大主題深度路線、手搖飲料 TOP 20、包車直達與名湯住宿，世界旅人的台灣第一站。
-      </p>
+  <section id="hero" class="hero-stage-section">
+    <div class="hero-bg-cover" style="background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.65) 100%), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1920&auto=format&fit=crop');">
+      <div class="container hero-content-center">
+        <!-- 核心標語 -->
+        <div class="hero-headline-wrap">
+          <span class="hero-sub-pill">🇹🇼 TAIWAN OFFICIAL TRAVEL HUB</span>
+          <h1 class="hero-main-title">遇見最美的台灣，航向自由與探索</h1>
+          <p class="hero-main-subtitle">
+            國際旅人首選 · 涵蓋 101 高空天際線、山城九份、太魯閣峽谷、米其林美饌與全台特色咖啡散策
+          </p>
+        </div>
 
-      <!-- 寬螢幕大搜尋列 -->
-      <div class="hero-search-box">
-        <span class="hero-search-icon">🔍</span>
-        <input type="text" class="hero-search-input" id="hero-search-input" placeholder="搜尋想去的景點、手搖店、溫泉或夜市..." oninput="handleWebSearch(this.value)">
-        <button class="hero-search-btn" onclick="executeWebSearch()">
-          <span id="hero-search-btn-text">開始探索</span>
-          <span>➔</span>
-        </button>
-      </div>
+        <!-- 白色透明玻璃擬態搜尋中樞 (Glassmorphic Hero Hub) -->
+        <div class="hero-glass-container">
+          <!-- 1. 主搜尋列 -->
+          <div class="hero-search-input-row">
+            <span style="font-size: 20px; color: var(--text-muted); flex-shrink: 0;">🔍</span>
+            <input type="text" id="hero-main-search" class="hero-search-input" placeholder="搜尋台灣景點、城市、美食或主題（如：台北 101、九份、咖啡廳、溫泉）...">
+            <button id="hero-search-btn" class="hero-search-submit-btn">
+              探索台灣
+            </button>
+          </div>
 
-      <!-- 5 大金流樞紐服務方塊 (全面帶入 AID: 123436) -->
-      <div class="hero-service-hub">
-        <!-- 1. 查機票 (Trip.com) -->
-        <a href="https://tw.trip.com/flights/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275" target="_blank" rel="noopener noreferrer" class="service-capsule-card">
-          <div class="service-icon-box">✈️</div>
-          <div class="service-title">查機票</div>
-          <div class="service-desc">國際與跳島機票</div>
-          <span class="service-pill-badge">Trip.com 比價</span>
-        </a>
+          <!-- 2. 服務快捷散搜尋按鈕區 (機票、包車、接送、網卡、排行榜、伴手禮) -->
+          <div class="hero-service-pills-row">
+            <a href="https://tw.trip.com/flights/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275" target="_blank" rel="noopener noreferrer" class="hero-service-pill">
+              ✈️ 搜機票
+            </a>
+            <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" rel="noopener noreferrer" class="hero-service-pill">
+              🚗 預約包車
+            </a>
+            <a href="https://www.klook.com/zh-TW/airport-transfers/?aid=123436" target="_blank" rel="noopener noreferrer" class="hero-service-pill">
+              🚐 機場接送
+            </a>
+            <a href="https://www.simoptions.com/zh/" target="_blank" rel="noopener noreferrer" class="hero-service-pill">
+              📶 台灣網卡
+            </a>
+            <a href="#rankings" class="hero-service-pill">
+              🏆 熱門榜單
+            </a>
+            <a href="https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" target="_blank" rel="noopener noreferrer" class="hero-service-pill">
+              🛍️ 伴手禮直送
+            </a>
+          </div>
 
-        <!-- 2. 包車預約 (Klook) -->
-        <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" rel="noopener noreferrer" class="service-capsule-card">
-          <div class="service-icon-box">🚗</div>
-          <div class="service-title">包車預約</div>
-          <div class="service-desc">全台一日遊司機導覽</div>
-          <span class="service-pill-badge">Klook 認證</span>
-        </a>
+          <!-- 3. 下方兩個小專欄按鈕區塊 (Featured Column Pills) -->
+          <div class="hero-columns-row">
+            <!-- 米其林餐廳專欄 -->
+            <a href="michelin.html" class="featured-col-card michelin-col">
+              <div class="featured-col-icon">🌟</div>
+              <div>
+                <div class="featured-col-title">
+                  米其林指南名店推薦
+                  <span style="font-size: 11px; background: #FFE4E6; color: #BE123C; padding: 2px 6px; border-radius: 4px; font-weight: 700;">星級與必比登</span>
+                </div>
+                <div class="featured-col-subtitle">嚴選頤宮、態芮、logy 與全台必比登在地排隊街頭美味</div>
+              </div>
+              <span class="featured-col-arrow">進入專欄 →</span>
+            </a>
 
-        <!-- 3. 機場接送 (Klook) -->
-        <a href="https://www.klook.com/zh-TW/airport-transfers/?aid=123436" target="_blank" rel="noopener noreferrer" class="service-capsule-card">
-          <div class="service-icon-box">🚐</div>
-          <div class="service-title">機場接送</div>
-          <div class="service-desc">桃機/松機/高鐵接駁</div>
-          <span class="service-pill-badge">24H 準時接送</span>
-        </a>
-
-        <!-- 4. 台灣高鐵 (Klook) -->
-        <a href="https://www.klook.com/zh-TW/rails-32/1014-taiwan/?aid=123436" target="_blank" rel="noopener noreferrer" class="service-capsule-card">
-          <div class="service-icon-box">🚄</div>
-          <div class="service-title">台灣高鐵</div>
-          <div class="service-desc">全線車票特惠 85 折</div>
-          <span class="service-pill-badge">高鐵聯票特惠</span>
-        </a>
-
-        <!-- 5. 伴手禮直送 (萬家福最新 afftck) -->
-        <a href="https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" target="_blank" rel="noopener noreferrer" class="service-capsule-card">
-          <div class="service-icon-box">🛍️</div>
-          <div class="service-title">伴手禮直送</div>
-          <div class="service-desc">特產免提直送飯店營區</div>
-          <span class="service-pill-badge">萬家福直配</span>
-        </a>
+            <!-- 台灣必去咖啡店專題 -->
+            <a href="cafe.html" class="featured-col-card cafe-col">
+              <div class="featured-col-icon">☕</div>
+              <div>
+                <div class="featured-col-title">
+                  台灣必去咖啡店全覽
+                  <span style="font-size: 11px; background: #FEF3C7; color: #92400E; padding: 2px 6px; border-radius: 4px; font-weight: 700;">全台 16 縣市名店</span>
+                </div>
+                <div class="featured-col-subtitle">插座辦公、甜點好吃、冠軍手沖、老宅植栽與海景名店</div>
+              </div>
+              <span class="featured-col-arrow">探索地圖 →</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- =========================================================
-       🧋 & 🏆 3. 雙人氣排行榜並列專區 (Dual Rankings Showcase)
+       🚀 3. 第一區塊：圖四風格橢圓膠囊卡牌 (Trending in Taiwan: Top 1-6)
        ========================================================= -->
-  <section class="section-wrap" id="rankings">
+  <section id="trending-top6" class="trending-section">
     <div class="container">
-      <div class="section-header-row">
-        <div class="section-title-group">
-          <h2>🔥 台灣雙人氣指標榜單</h2>
-          <p>手搖飲料王國真實票選 Top 20 與全台百萬必訪景點 Top 20 並列展示</p>
+      <div class="trending-header-row">
+        <div class="trending-title-wrap">
+          <h2>Trending Destinations · 台灣熱門必訪 Top 6</h2>
+          <p>
+            Immerse yourself in the vibrant culture of Taiwan. Discover world-class landmarks, hidden gems, delectable cuisine, and unforgettable experiences.
+          </p>
         </div>
-        <!-- 視圖切換器 -->
-        <div class="view-switcher-bar">
-          <button class="switch-tab active" id="tab-dual" onclick="switchRankingView('dual')">⚡ 雙欄並列</button>
-          <button class="switch-tab" id="tab-drinks" onclick="switchRankingView('drinks')">🧋 手搖 TOP20 專區</button>
-          <button class="switch-tab" id="tab-spots" onclick="switchRankingView('spots')">🏆 景點 TOP20 專區</button>
+        <div class="trending-controls">
+          <button class="carousel-nav-btn" onclick="scrollTrending('prev')" title="向左捲動">←</button>
+          <button class="carousel-nav-btn" onclick="scrollTrending('next')" title="向右捲動">→</button>
         </div>
       </div>
 
-      <div class="rankings-dual-grid" id="rankings-main-grid">
-        <!-- 左欄：手搖飲料 TOP 20 -->
-        <div class="ranking-column drinks-col">
-          <div class="ranking-col-header">
-            <div>
-              <h3 class="ranking-col-title" id="section-drinks-title">🧋 台灣手搖飲料 TOP 20</h3>
-              <div style="font-size:12px; color:var(--text-muted); margin-top:2px;">含老饕黃金甜度冰量指南 · 點擊找附近門市</div>
-            </div>
-            <span style="font-size:12px; color:var(--cyan-deep); font-weight:700;">年度總票數 240 萬票</span>
-          </div>
-
-          <!-- 手搖分類膠囊 -->
-          <div class="filter-pills-row" id="drinks-filter-pills">
-            <button class="filter-pill active" onclick="filterDrinksCategory('全部', this)">✨ 全部</button>
-            <button class="filter-pill" onclick="filterDrinksCategory('經典國民', this)">🟡 經典國民</button>
-            <button class="filter-pill" onclick="filterDrinksCategory('果茶芝芝', this)">🥭 果茶芝芝</button>
-            <button class="filter-pill" onclick="filterDrinksCategory('文青純茶', this)">🟦 文青純茶</button>
-            <button class="filter-pill" onclick="filterDrinksCategory('厚奶加料', this)">🍃 厚奶加料</button>
-            <button class="filter-pill" onclick="filterDrinksCategory('英倫花茶', this)">🌹 英倫花茶</button>
-            <button class="filter-pill" onclick="filterDrinksCategory('老字號傳承', this)">🏮 老字號傳承</button>
-          </div>
-
-          <div class="ranking-items-list" id="drinks-ranking-list">
-            <!-- 由 JS 動態生成 -->
-          </div>
-        </div>
-
-        <!-- 右欄：人氣必訪景點 TOP 20 -->
-        <div class="ranking-column spots-col">
-          <div class="ranking-col-header">
-            <div>
-              <h3 class="ranking-col-title" id="section-spots-title">🏆 台灣百萬必訪景點 TOP 20</h3>
-              <div style="font-size:12px; color:var(--text-muted); margin-top:2px;">國際旅人熱搜 · 一鍵直通預訂與訂房</div>
-            </div>
-            <span style="font-size:12px; color:var(--cyan-deep); font-weight:700;">觀光署百萬人次統計</span>
-          </div>
-
-          <!-- 景點分類膠囊 -->
-          <div class="filter-pills-row" id="spots-filter-pills">
-            <button class="filter-pill active" onclick="filterSpotsCategory('全部', this)">✨ 全部</button>
-            <button class="filter-pill" onclick="filterSpotsCategory('自然山海', this)">🌊 自然山海</button>
-            <button class="filter-pill" onclick="filterSpotsCategory('文化歷史', this)">🏛️ 文化歷史</button>
-            <button class="filter-pill" onclick="filterSpotsCategory('都會地標', this)">🏙️ 都會地標</button>
-            <button class="filter-pill" onclick="filterSpotsCategory('休閒主題', this)">🎡 休閒主題</button>
-          </div>
-
-          <div class="ranking-items-list" id="spots-ranking-list">
-            <!-- 由 JS 動態生成 -->
-          </div>
-        </div>
+      <!-- 6 個橢圓拱門藥丸膠囊排列 -->
+      <div id="trending-capsule-row" class="pill-capsule-row">
+        <!-- 由 app.js 動態渲染 TOP_ACTIVITIES_6 -->
       </div>
     </div>
   </section>
 
   <!-- =========================================================
-       ✨ 詳情彈窗 Modal (Detail Modal Dialog)
+       🗺️ 4. 第二區塊：18 個深度探索主題專區 (18 Themes Grid)
        ========================================================= -->
-  <div class="modal-overlay" id="detail-modal-overlay" onclick="closeDetailModal()">
-    <div class="modal-card" onclick="event.stopPropagation()">
-      <div class="modal-header">
-        <h3 id="modal-title" style="font-size:20px; font-weight:800; color:var(--text-heading);">景點詳情</h3>
-        <button class="modal-close-btn" onclick="closeDetailModal()">✕</button>
-      </div>
-      <div class="modal-body" id="modal-body-content">
-        <!-- 動態填入內容 -->
-      </div>
-      <div class="modal-footer" id="modal-footer-actions">
-        <!-- 動態填入符合規範的跳轉按鈕 -->
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================
-       🗺️ 4. 16 大主題專區自適應網格 (Thematic Explorer Grid)
-       ========================================================= -->
-  <section class="section-wrap" id="themes" style="background:#F1F5F9; border-top:1px solid #E2E8F0;">
+  <section id="themes" class="section-padding" style="background: #FFFFFF;">
     <div class="container">
-      <div class="section-header-row">
-        <div class="section-title-group">
-          <h2 id="section-themes-title">🗺️ 16 大精選主題專區</h2>
-          <p id="section-themes-desc">從火山群島、縱谷海景、名湯夜市到棒球狂潮，深入最真實的台灣脈動</p>
-        </div>
-        <!-- 主題分類快選膠囊 -->
-        <div class="filter-pills-row" id="themes-filter-pills" style="margin-bottom:0;">
-          <button class="filter-pill active" onclick="filterThemesCategory('全部', this)">✨ 全部 16 主題</button>
-          <button class="filter-pill" onclick="filterThemesCategory('海島水上', this)">🏝️ 海島水上</button>
-          <button class="filter-pill" onclick="filterThemesCategory('山林冒險', this)">⛰️ 山林冒險</button>
-          <button class="filter-pill" onclick="filterThemesCategory('節慶文化', this)">🏮 節慶文化</button>
-          <button class="filter-pill" onclick="filterThemesCategory('休閒名湯', this)">♨️ 休閒名湯</button>
-          <button class="filter-pill" onclick="filterThemesCategory('都會運動', this)">⚾ 都會運動</button>
-        </div>
+      <div class="section-header-block" style="text-align: center; margin-bottom: 40px;">
+        <span class="section-badge-pill">18 CURATED THEMES</span>
+        <h2 class="section-heading-title">18 大深度探索主題專區</h2>
+        <p class="section-heading-desc" style="max-width: 680px; margin: 0 auto;">
+          從縱谷壯麗山海、海底溫泉到深夜食堂夜市，點擊任一主題立即探索全台專屬行程與景點
+        </p>
       </div>
 
-      <!-- 16 主題 4 欄網格 -->
-      <div class="themes-grid" id="themes-grid-container">
-        <!-- 由 JS 動態生成 -->
+      <!-- 18 主題網格 (桌面 6 個一排) -->
+      <div id="themes-grid-container" class="themes-grid-18">
+        <!-- 由 app.js 動態渲染 THEMES_DATA -->
       </div>
     </div>
   </section>
 
   <!-- =========================================================
-       ❤️ 5. 側邊收藏抽屜 (Favorites Drawer)
+       🧱 5. 第三區塊：全部景點 ＋ 全部縣市篩選 ＋ 瀑布流 (Masonry Waterfall)
        ========================================================= -->
-  <div class="drawer-overlay" id="fav-drawer-overlay" onclick="toggleFavDrawer()">
-    <div class="drawer-panel" onclick="event.stopPropagation()">
-      <div class="drawer-header">
-        <h3 class="drawer-title">❤️ 我的收藏清單 (<span id="drawer-fav-count">3</span>)</h3>
-        <button class="drawer-close-btn" onclick="toggleFavDrawer()">✕</button>
+  <section id="city-spots" class="section-padding" style="background: #F8FAFC;">
+    <div class="container">
+      <div class="section-header-block" style="margin-bottom: 24px;">
+        <span class="section-badge-pill">EXPLORE ALL TAIWAN</span>
+        <h2 class="section-heading-title">全台城市與景點探索</h2>
+        <p class="section-heading-desc">
+          點選下方縣市按鈕即時篩選，探索自然奇景、人文古蹟與隱藏版私房秘境（瀑布流卡片排列）
+        </p>
       </div>
-      <div class="drawer-content" id="drawer-fav-list">
-        <!-- 收藏景點由 JS 動態渲染 -->
+
+      <!-- 縣市切換按鈕條 -->
+      <div id="city-filter-buttons" class="city-filter-container">
+        <!-- 由 app.js 動態渲染 TAIWAN_CITIES_LIST -->
+      </div>
+
+      <!-- 瀑布流景點卡片排列容器 -->
+      <div id="waterfall-cards-container" class="waterfall-masonry-grid">
+        <!-- 由 app.js 動態渲染 ALL_SPOTS_DATA -->
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- =========================================================
-       🦶 6. 桌面版大頁尾 (Desktop Mega Footer)
+       🏆 6. 排行榜專區：7 大排行榜 Tab 切換 (Rankings Hub)
+       ========================================================= -->
+  <section id="rankings" class="section-padding" style="background: #FFFFFF;">
+    <div class="container">
+      <div class="section-header-block" style="text-align: center; margin-bottom: 30px;">
+        <span class="section-badge-pill">TAIWAN RANKINGS HUB</span>
+        <h2 class="section-heading-title">7 大年度人氣排行榜</h2>
+        <p class="section-heading-desc" style="max-width: 720px; margin: 0 auto;">
+          全網真實點閱與旅人訂閱大數據：手搖、景點、包車、活動、雨天室內、咖啡店與文青散步全收錄
+        </p>
+      </div>
+
+      <!-- 7 大排行導航標籤 (Tab Pills) -->
+      <div class="ranking-tabs-wrap" style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px;">
+        <button class="ranking-tab-pill active" data-tab="drinks" onclick="switchRankingTab('drinks')">🧋 手搖店 20 家</button>
+        <button class="ranking-tab-pill" data-tab="spots" onclick="switchRankingTab('spots')">🏆 熱門訂閱景點</button>
+        <button class="ranking-tab-pill" data-tab="charter" onclick="switchRankingTab('charter')">🚗 包車景點推薦</button>
+        <button class="ranking-tab-pill" data-tab="events" onclick="switchRankingTab('events')">🎪 最新活動推薦</button>
+        <button class="ranking-tab-pill" data-tab="rainy" onclick="switchRankingTab('rainy')">🌧️ 雨天活動排行 10 個</button>
+        <button class="ranking-tab-pill" data-tab="cafe" onclick="switchRankingTab('cafe')">☕ 咖啡店排行 20 個點閱</button>
+        <button class="ranking-tab-pill" data-tab="walk" onclick="switchRankingTab('walk')">🚶 文青散步散策 20 個</button>
+      </div>
+
+      <!-- 排行榜展示內容容器 -->
+      <div id="rankings-display-container">
+        <!-- 由 app.js 動態渲染對應排行榜內容 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       📰 7. 週末探店部落格專區 (Weekend Hop Editorial - 一排一個文章)
+       ========================================================= -->
+  <section id="weekend-hop" class="section-padding" style="background: #FCFDFE;">
+    <div class="container">
+      <div class="section-header-block" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 36px; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <span class="section-badge-pill">WEEKEND HOP BLOG</span>
+          <h2 class="section-heading-title">週末探店 ‧ 深度慢活散策</h2>
+          <p class="section-heading-desc">
+            每週嚴選！走進老洋房天井、聽山城海風、品嚐職人冠軍手沖（一排一個文章，附景點資訊盒）
+          </p>
+        </div>
+        <a href="blog.html" class="btn-action btn-klook-book" style="padding: 10px 22px; font-size: 13px;">
+          瀏覽全部探店文章 →
+        </a>
+      </div>
+
+      <!-- 部落格文章單列排列容器 (一排一個文章顯示) -->
+      <div id="blog-articles-container" class="blog-editorial-container">
+        <!-- 由 app.js 動態渲染 BLOG_ARTICLES_DATA -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       💬 8. 留言討論區 (Community Board)
+       ========================================================= -->
+  <section id="community" class="section-padding" style="background: #FFFFFF;">
+    <div class="container">
+      <div class="section-header-block" style="text-align: center; margin-bottom: 36px;">
+        <span class="section-badge-pill">TRAVELER COMMUNITY</span>
+        <h2 class="section-heading-title">旅人交流與留言討論牆</h2>
+        <p class="section-heading-desc">
+          與全球旅人分享你的台灣私房秘境、行程疑問或探店心得
+        </p>
+      </div>
+
+      <div style="max-width: 820px; margin: 0 auto; background: #F8FAFC; border: 1.5px solid var(--border-color); border-radius: 22px; padding: 32px; box-shadow: var(--shadow-sm);">
+        <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+          <input type="text" id="comm-name" placeholder="您的稱呼 (例: Alex / 台北旅人)" style="flex: 1; padding: 12px 16px; border: 1px solid var(--border-color); border-radius: 12px; font-size: 14px; outline: none;">
+          <input type="text" id="comm-location" placeholder="來自城市 (例: 香港 / 東京 / 台南)" style="width: 220px; padding: 12px 16px; border: 1px solid var(--border-color); border-radius: 12px; font-size: 14px; outline: none;">
+        </div>
+        <textarea id="comm-content" rows="3" placeholder="留下您對景點、咖啡店或行程的推薦與評價..." style="width: 100%; padding: 14px 16px; border: 1px solid var(--border-color); border-radius: 14px; font-size: 14px; font-family: inherit; outline: none; margin-bottom: 16px;"></textarea>
+        <div style="display: flex; justify-content: flex-end;">
+          <button onclick="postComment()" class="hero-search-submit-btn" style="padding: 10px 24px;">
+            發布留言 🚀
+          </button>
+        </div>
+
+        <!-- 留言列表展示 -->
+        <div id="comments-list-box" style="margin-top: 28px; display: flex; flex-direction: column; gap: 14px; border-top: 1px dashed #CBD5E1; padding-top: 20px;">
+          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 16px 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <span style="font-weight: 800; font-size: 14px; color: #0F172A;">Sophie Chen (Singapore)</span>
+              <span style="font-size: 12px; color: #94A3B8;">3 小時前</span>
+            </div>
+            <p style="font-size: 13px; color: #475569; line-height: 1.6;">
+              按照網站推薦去了赤峰街的老宅咖啡和太魯閣一日遊，真的太棒了！包車司機服務超親切，推薦給所有第一次來台灣自由行的朋友！
+            </p>
+          </div>
+          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 16px 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <span style="font-weight: 800; font-size: 14px; color: #0F172A;">Kenji Sato (Tokyo)</span>
+              <span style="font-size: 12px; color: #94A3B8;">昨日</span>
+            </div>
+            <p style="font-size: 13px; color: #475569; line-height: 1.6;">
+              九份と十分のツアーを予約しました。天燈上げが本当に感動的でした。タピオカティーランキング20もすごく参考になります！
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ❤️ 9. 收藏景點側邊抽屜 (Favorites Drawer)
+       ========================================================= -->
+  <div id="fav-drawer-overlay" class="drawer-overlay" onclick="closeFavDrawer()"></div>
+  <aside id="fav-drawer" class="fav-drawer">
+    <div class="fav-drawer-header">
+      <div style="font-size: 18px; font-weight: 800; color: var(--text-heading); display: flex; align-items: center; gap: 8px;">
+        ❤️ 我的收藏景點
+      </div>
+      <button onclick="closeFavDrawer()" style="border: none; background: transparent; font-size: 22px; cursor: pointer;">✕</button>
+    </div>
+    <div id="fav-drawer-list" class="fav-drawer-body">
+      <!-- 由 app.js 動態渲染收藏列表 -->
+    </div>
+  </aside>
+
+  <!-- =========================================================
+       ⚓ 10. 全局國際化精緻頁尾 (Global Modern Footer)
        ========================================================= -->
   <footer class="site-footer">
-    <div class="container">
+    <div class="container footer-inner">
       <div class="footer-top-grid">
-        <!-- 品牌簡介 -->
-        <div class="footer-brand">
-          <h3>🇹🇼 台灣吃喝玩樂 Taiwan Wanderlust</h3>
-          <p>專為熱愛台灣的旅客打造的旗艦旅遊門戶，提供 16 大主題深度路線、手搖排行 TOP 20、包車直達與名湯住宿。</p>
-          <div class="footer-affiliate-note">
-            ⚠️ <strong>分潤透明聲明</strong>：本平台點擊外部預訂（Klook、Booking.com、Trip.com、萬家福）可能產生分潤，所有推薦均經過嚴格編輯挑選，為您提供最優質的旅行體驗。
+        <div class="footer-brand-col">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+            <span style="font-size: 28px;">🇹🇼</span>
+            <span style="font-size: 20px; font-weight: 900; color: #FFFFFF;">台灣吃喝玩樂</span>
+          </div>
+          <p style="font-size: 13px; color: #94A3B8; line-height: 1.7; margin-bottom: 16px;">
+            HiMyDream Studio 官方維護旗艦入口網。專為歐美、日韓、東南亞及全球旅人打造的一站式台灣旅遊自由行指南。
+          </p>
+          <div style="font-size: 12px; color: #64748B;">
+            商務異業合作 / 資料勘誤信箱：<br>
+            <a href="mailto:himydream.studio0220@gmail.com" style="color: var(--cyan-primary); font-weight: 700;">
+              himydream.studio0220@gmail.com
+            </a>
           </div>
         </div>
 
-        <!-- 熱門主題 -->
-        <div class="footer-col">
-          <h4>熱門主題</h4>
-          <ul class="footer-links">
-            <li><a href="#themes">🏝️ 離島跳島全攻略</a></li>
-            <li><a href="#themes">🏞️ 花東外國人友善縱谷</a></li>
-            <li><a href="#themes">♨️ 頂級名湯溫泉放鬆</a></li>
-            <li><a href="#themes">🍢 舌尖上的深夜食堂</a></li>
-            <li><a href="#themes">⛺ 星空野奢豪華露營</a></li>
+        <div class="footer-links-col">
+          <div class="footer-col-title">專題導覽</div>
+          <ul class="footer-links-list">
+            <li><a href="#trending-top6">台灣熱門 Top 6 活動</a></li>
+            <li><a href="#themes">18 大深度探索主題</a></li>
+            <li><a href="#city-spots">全台 22 縣市景點瀑布流</a></li>
+            <li><a href="michelin.html">米其林星級與必比登美食</a></li>
+            <li><a href="cafe.html">台灣必去特色咖啡店散策</a></li>
+            <li><a href="blog.html">週末探店專欄文章</a></li>
           </ul>
         </div>
 
-        <!-- 人氣榜單 -->
-        <div class="footer-col">
-          <h4>人氣榜單</h4>
-          <ul class="footer-links">
-            <li><a href="#rankings">🧋 台灣手搖飲料 TOP 20</a></li>
-            <li><a href="#rankings">🏆 台灣百萬必訪景點 TOP 20</a></li>
-            <li><a href="#themes">⚾ 體育賽事與大巨蛋</a></li>
-            <li><a href="#themes">🚂 經典鐵道全景圖鑑</a></li>
+        <div class="footer-links-col">
+          <div class="footer-col-title">旅遊服務樞紐</div>
+          <ul class="footer-links-list">
+            <li><a href="https://tw.trip.com/flights/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275" target="_blank" rel="noopener noreferrer">✈️ Trip.com 全球機票查詢</a></li>
+            <li><a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" rel="noopener noreferrer">🚗 Klook 全台景點一日包車</a></li>
+            <li><a href="https://www.klook.com/zh-TW/airport-transfers/?aid=123436" target="_blank" rel="noopener noreferrer">🚐 桃園/松山機場接送</a></li>
+            <li><a href="https://affone.me/s/bQeO4" target="_blank" rel="noopener noreferrer">🏨 Booking.com 溫泉飯店訂房</a></li>
+            <li><a href="https://www.simoptions.com/zh/" target="_blank" rel="noopener noreferrer">📶 SimOptions 台灣eSIM上網卡</a></li>
+            <li><a href="https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" target="_blank" rel="noopener noreferrer">🛍️ 萬家福名產飯店直送</a></li>
           </ul>
         </div>
 
-        <!-- 商業合作 -->
-        <div class="footer-col">
-          <h4>商務與服務</h4>
-          <ul class="footer-links">
-            <li><a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" rel="noopener noreferrer">🚗 全台包車直通</a></li>
-            <li><a href="https://tw.trip.com/flights/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275" target="_blank" rel="noopener noreferrer">✈️ 國內外機票比價</a></li>
-            <li><a href="https://onelink.one/s/KmfgH" target="_blank" rel="noopener noreferrer">🛍️ 萬家福特產直送</a></li>
-            <li><a href="mailto:himydream.studio0220@gmail.com">📩 商務合作洽談</a></li>
+        <div class="footer-links-col">
+          <div class="footer-col-title">國際化語系</div>
+          <ul class="footer-links-list">
+            <li><a href="javascript:switchLanguage('zh-TW')">繁體中文 (Traditional Chinese)</a></li>
+            <li><a href="javascript:switchLanguage('en')">English (International)</a></li>
+            <li><a href="javascript:switchLanguage('ja')">日本語 (Japanese)</a></li>
+            <li><a href="javascript:switchLanguage('ko')">한국어 (Korean)</a></li>
+            <li><a href="javascript:switchLanguage('vi')">Tiếng Việt (Vietnamese)</a></li>
+            <li><a href="javascript:switchLanguage('th')">ภาษาไทย (Thai)</a></li>
+            <li><a href="javascript:switchLanguage('id')">Bahasa Indonesia (Indonesian)</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom-bar">
-        <div>© 2026 Taiwan Wanderlust. All rights reserved. Designed for World Travelers.</div>
-        <div>Made with ❤️ for Taiwan Travel Enthusiasts.</div>
+        <div>© 2026 台灣吃喝玩樂 Taiwan Wanderlust. All Rights Reserved. Powered by HiMyDream Studio.</div>
+        <div style="font-size: 12px; color: #64748B;">Official Affiliate Partners: Klook · Booking.com · Trip.com · SimOptions · Wanjiafu</div>
       </div>
     </div>
   </footer>
 
-  <!-- =========================================================
-       ⚙️ 7. 載入獨立模組 JS
-       ========================================================= -->
+  <!-- 核心資料與互動腳本 -->
   <script src="js/affiliate.js"></script>
   <script src="js/data.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/app.js"></script>
+
+  <script>
+    function postComment() {
+      const name = document.getElementById('comm-name').value.trim();
+      const loc = document.getElementById('comm-location').value.trim();
+      const content = document.getElementById('comm-content').value.trim();
+      if (!name || !content) {
+        alert('請填寫稱呼與留言內容！');
+        return;
+      }
+      const box = document.getElementById('comments-list-box');
+      const item = document.createElement('div');
+      item.style.cssText = 'background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 16px 20px; animation: fadeInSlide 0.3s ease;';
+      item.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span style="font-weight: 800; font-size: 14px; color: #0F172A;">${name} ${loc ? '(' + loc + ')' : ''}</span>
+          <span style="font-size: 12px; color: #0284C7; font-weight: 700;">剛剛</span>
+        </div>
+        <p style="font-size: 13px; color: #475569; line-height: 1.6;">${content}</p>
+      `;
+      box.prepend(item);
+      document.getElementById('comm-content').value = '';
+      alert('留言發布成功！感謝您的分享！');
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>米其林指南名店推薦 - 台灣吃喝玩樂 Taiwan Wanderlust</title>
+  
+  <meta name="description" content="臺灣米其林指南星級評鑑與必比登推介名單。涵蓋台北三星頤宮、態芮、二星logy、一星名廚殿堂與全台街頭巷弄排隊必比登小吃全覽。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 置頂導航列 -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <div class="brand-logo-icon">🇹🇼</div>
+        <div class="brand-text-block">
+          <div class="brand-name">
+            台灣吃喝玩樂
+            <span class="brand-badge">官方網頁版</span>
+          </div>
+          <span class="brand-subtext">TAIWAN WANDERLUST PORTAL</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html#hero">首頁</a></li>
+          <li class="nav-item"><a href="index.html#themes">精選主題</a></li>
+          <li class="nav-item"><a href="index.html#city-spots">城市景點</a></li>
+          <li class="nav-item"><a href="cafe.html">全台咖啡地圖</a></li>
+          <li class="nav-item active"><a href="michelin.html">米其林指南</a></li>
+          <li class="nav-item"><a href="blog.html">週末探店</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right-tools">
+        <a href="index.html" class="city-pill-btn" style="padding: 8px 16px;">
+          ← 返回首頁
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 米其林橫幅 Hero -->
+  <section class="section-padding" style="background: linear-gradient(180deg, #1E1B4B 0%, #0F172A 100%); color: #FFFFFF; text-align: center; padding: 70px 0 50px 0;">
+    <div class="container">
+      <span class="section-badge-pill" style="background: rgba(225, 29, 72, 0.2); color: #FDA4AF; border-color: rgba(225, 29, 72, 0.4);">
+        MICHELIN GUIDE TAIWAN
+      </span>
+      <h1 style="font-size: 38px; font-weight: 900; margin-top: 14px; letter-spacing: -0.5px;">
+        臺灣米其林指南 ‧ 星級殿堂與必比登推介
+      </h1>
+      <p style="color: #CBD5E1; max-width: 720px; margin: 12px auto 0 auto; font-size: 15px; line-height: 1.7;">
+        從蟬聯三星傳奇廣東菜「頤宮」、當代台灣法式料理「態芮」，到華山市場排隊厚餅「阜杭豆漿」，一站探索台灣頂級廚藝與在地靈魂美味。
+      </p>
+
+      <!-- 分類標籤按鈕 -->
+      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 36px;">
+        <button class="city-pill-btn active" id="btn-mich-all" onclick="filterMichelin('all')">全部名單 (All)</button>
+        <button class="city-pill-btn" id="btn-mich-three" onclick="filterMichelin('three_two')">⭐⭐⭐ 三星與二星殿堂</button>
+        <button class="city-pill-btn" id="btn-mich-one" onclick="filterMichelin('one_star')">⭐ 一星名廚料理</button>
+        <button class="city-pill-btn" id="btn-mich-bib" onclick="filterMichelin('bib')">🥣 必比登推介在地小吃</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 餐廳卡牌列表 -->
+  <main class="section-padding" style="background: #F8FAFC;">
+    <div class="container">
+      <div id="michelin-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 26px;">
+        <!-- 由 JS 動態渲染 -->
+      </div>
+    </div>
+  </main>
+
+  <!-- 頁尾 -->
+  <footer class="site-footer">
+    <div class="container footer-bottom-bar" style="border: none;">
+      <div>© 2026 台灣吃喝玩樂 Taiwan Wanderlust ‧ 米其林指南專題. All Rights Reserved.</div>
+      <div>商務合作聯繫：himydream.studio0220@gmail.com</div>
+    </div>
+  </footer>
+
+  <script src="js/affiliate.js"></script>
+  <script src="js/data.js"></script>
+  <script>
+    let currentMichCategory = "all";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderMichelinList();
+    });
+
+    function filterMichelin(cat) {
+      currentMichCategory = cat;
+      document.querySelectorAll(".city-pill-btn").forEach(btn => btn.classList.remove("active"));
+      if (cat === "all") document.getElementById("btn-mich-all").classList.add("active");
+      if (cat === "three_two") document.getElementById("btn-mich-three").classList.add("active");
+      if (cat === "one_star") document.getElementById("btn-mich-one").classList.add("active");
+      if (cat === "bib") document.getElementById("btn-mich-bib").classList.add("active");
+      renderMichelinList();
+    }
+
+    function renderMichelinList() {
+      const container = document.getElementById("michelin-cards-grid");
+      if (!container) return;
+
+      let list = [];
+      if (typeof TAIPEI_MICHELIN_STARS_DATA !== "undefined") {
+        list = list.concat(TAIPEI_MICHELIN_STARS_DATA);
+      }
+      if (typeof BIB_GOURMAND_DATA !== "undefined") {
+        list = list.concat(BIB_GOURMAND_DATA);
+      }
+
+      const filtered = list.filter(item => {
+        if (currentMichCategory === "all") return true;
+        if (currentMichCategory === "three_two") return item.category === "three_two" || (item.stars && (item.stars.includes("三星") || item.stars.includes("二星")));
+        if (currentMichCategory === "one_star") return item.category === "one_star" || (item.stars && item.stars.includes("一星"));
+        if (currentMichCategory === "bib") return item.badge && item.badge.includes("必比登");
+        return true;
+      });
+
+      container.innerHTML = filtered.map(item => {
+        const starTag = item.stars || item.badge || "⭐ 米其林評鑑";
+        const isBib = starTag.includes("必比登");
+        const tagBg = isBib ? "#FEF3C7" : "#FFE4E6";
+        const tagColor = isBib ? "#92400E" : "#BE123C";
+        const mapUrl = AFFILIATE_HUB.getMapUrl(item.name.replace("台北 ｜ ", ""));
+        const diningUrl = AFFILIATE_HUB.getDiningUrl();
+
+        return `
+          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: transform 0.3s ease;">
+            <div style="position: relative; width: 100%; height: 210px; overflow: hidden; background: #E2E8F0;">
+              <img src="${item.img || 'https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop'}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;">
+              <span style="position: absolute; top: 14px; left: 14px; background: ${tagBg}; color: ${tagColor}; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 9999px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+                ${starTag}
+              </span>
+            </div>
+            <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <span style="font-size: 13px; font-weight: 700; color: #0284C7;">📍 ${item.city || '台北市'}</span>
+                <span style="font-size: 13px; font-weight: 800; color: #D97706;">${item.cuisine || item.categoryName || '台灣風味'}</span>
+              </div>
+              <h3 style="font-size: 18px; font-weight: 800; color: #0F172A; margin-bottom: 8px;">${item.name}</h3>
+              <p style="font-size: 13px; color: #64748B; line-height: 1.6; margin-bottom: 14px; flex: 1;">${item.feature || item.desc}</p>
+              
+              <div style="background: #F8FAFC; border-radius: 10px; padding: 10px 12px; font-size: 12px; color: #334155; margin-bottom: 16px;">
+                <div><strong>均消：</strong> ${item.price || 'NT$ 300 - 1,500'}</div>
+                <div style="margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><strong>地址：</strong> ${item.address || item.city}</div>
+                ${item.dishes ? `<div style="margin-top: 3px;"><strong>必點：</strong> ${item.dishes}</div>` : ''}
+              </div>
+
+              <div style="display: flex; gap: 10px; margin-top: auto;">
+                <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="flex: 1; text-align: center; padding: 9px; font-size: 12px;">
+                  🧭 Google 導航
+                </a>
+                <a href="${diningUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="flex: 1; text-align: center; padding: 9px; font-size: 12px;">
+                  🍽️ 優惠餐券 / 搶位
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+  </script>
+</body>
+</html>
