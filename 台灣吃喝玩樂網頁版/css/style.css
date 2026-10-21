@@ -3,35 +3,66 @@
    ========================================================= */
 
 :root {
-  --bg-page: #F8FAFC;
+  /* =========================================================
+     🎨 專屬 4 大文青插畫色票系統 (User Illustrated Palettes)
+     ========================================================= */
+  /* Palette 1: 晴空海浪與暖杏珊瑚 */
+  --c-sky-cyan: #34B8E0;
+  --c-warm-apricot: #F4B648;
+  --c-coral-peach: #F6B0AE;
+
+  /* Palette 2: 陽光金橘與深海孔雀藍 */
+  --c-sunshine-yellow: #FEDC00;
+  --c-amber-orange: #FEA109;
+  --c-ocean-teal: #01879C;
+
+  /* Palette 3: 櫻花粉檸與晴空淡藍 */
+  --c-rose-blossom: #FBC1D9;
+  --c-lemon-cream: #FBF5B9;
+  --c-breeze-blue: #79BDEA;
+
+  /* Palette 4: 丁香紫霧與寶石蔚藍 */
+  --c-lavender-mist: #F1D6E7;
+  --c-cobalt-blue: #4068AE;
+  --c-periwinkle: #97B7E8;
+
+  /* 全站底色：清爽溫潤的淺雲藍白 / 晨曦淡青 */
+  --bg-page: #F4FAF9;
   --bg-surface: #FFFFFF;
-  --bg-surface-alt: #F1F5F9;
+  --bg-surface-alt: #EBF5F8;
   
-  /* 品牌主色：蔚藍漸層 (#38BDF8 ➔ #0284C7) */
-  --cyan-primary: #38BDF8;
-  --cyan-deep: #0284C7;
-  --cyan-dark: #0369A1;
-  --cyan-light: #F0F9FF;
-  --cyan-ice: #E0F2FE;
-  --cyan-border: #BAE6FD;
-  --cyan-glow: rgba(56, 189, 248, 0.25);
-  --cyan-gradient: linear-gradient(135deg, #38BDF8 0%, #0284C7 100%);
+  /* 品牌主色系統：深海孔雀藍 (#01879C) ➔ 晴空蔚藍 (#34B8E0) */
+  --cyan-primary: #34B8E0;
+  --cyan-deep: #01879C;
+  --cyan-dark: #4068AE;
+  --cyan-light: #F0F9FB;
+  --cyan-ice: #E6F5F9;
+  --cyan-border: #BAE6F2;
+  --cyan-glow: rgba(1, 135, 156, 0.22);
+  --cyan-gradient: linear-gradient(135deg, #34B8E0 0%, #01879C 100%);
   
-  /* 功能色 */
-  --accent-gold: #F59E0B;
-  --accent-coral: #FF6F61;
-  --accent-emerald: #10B981;
+  /* 活力點綴色：陽光黃金 (#FEDC00) ➔ 琥珀金橘 (#FEA109) ➔ 暖杏 (#F4B648) */
+  --accent-gold: #FEA109;
+  --accent-yellow: #FEDC00;
+  --accent-apricot: #F4B648;
+  --accent-coral: #F6B0AE;
+  --accent-rose: #FBC1D9;
+  --accent-cobalt: #4068AE;
+  --accent-lavender: #F1D6E7;
+  --accent-periwinkle: #97B7E8;
+  --gold-gradient: linear-gradient(135deg, #FEDC00 0%, #FEA109 100%);
+  --warm-gradient: linear-gradient(135deg, #FEA109 0%, #F4B648 100%);
   
   /* 文字顏色階層 */
-  --text-heading: #0F172A;
-  --text-body: #334155;
-  --text-muted: #64748B;
-  --text-light: #94A3B8;
+  --text-heading: #0E2938;
+  --text-body: #2C3E50;
+  --text-muted: #5A7184;
+  --text-light: #8CA0B3;
   --text-white: #FFFFFF;
   
   /* 邊框與圓角 */
-  --border-color: #E2E8F0;
-  --border-card: #F1F5F9;
+  --border-color: #E2ECF0;
+  --border-card: #EEF4F7;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
@@ -39,10 +70,10 @@
   --radius-pill: 9999px;
   
   /* 陰影 */
-  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
-  --shadow-md: 0 4px 14px rgba(15, 23, 42, 0.08);
-  --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.1);
-  --shadow-hover: 0 14px 34px rgba(2, 132, 199, 0.16);
+  --shadow-sm: 0 1px 3px rgba(14, 41, 56, 0.05);
+  --shadow-md: 0 4px 14px rgba(14, 41, 56, 0.08);
+  --shadow-lg: 0 10px 30px rgba(14, 41, 56, 0.10);
+  --shadow-hover: 0 14px 34px rgba(1, 135, 156, 0.18);
   
   --header-height: 74px;
   --container-max-width: 1400px;
@@ -2855,7 +2886,7 @@ body {
   width: 650px;
   height: 650px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(20, 184, 166, 0.16) 0%, rgba(56, 189, 248, 0.08) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(52, 184, 224, 0.20) 0%, rgba(1, 135, 156, 0.10) 50%, transparent 70%);
   filter: blur(80px);
   animation: floatAurora1 20s ease-in-out infinite alternate;
 }
@@ -2867,7 +2898,7 @@ body {
   width: 750px;
   height: 750px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.14) 0%, rgba(139, 92, 246, 0.08) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(254, 161, 9, 0.15) 0%, rgba(244, 182, 72, 0.08) 50%, transparent 70%);
   filter: blur(90px);
   animation: floatAurora2 24s ease-in-out infinite alternate;
 }
@@ -2879,7 +2910,7 @@ body {
   width: 700px;
   height: 700px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, rgba(45, 212, 191, 0.07) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(241, 214, 231, 0.25) 0%, rgba(251, 193, 217, 0.14) 50%, transparent 70%);
   filter: blur(85px);
   animation: floatAurora3 22s ease-in-out infinite alternate;
 }
@@ -3102,37 +3133,40 @@ body {
   transform: scale(1.08);
 }
 
-/* 置頂居中彩色藥丸 (圖三標誌性 pill badge) */
+/* 置頂居中彩色藥丸 (圖三標誌性 pill badge，依 4 大文青調色盤配色) */
 .spot-img3-category-pill {
   position: absolute;
   top: 14px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(135deg, #EC4899 0%, #F43F5E 100%);
+  background: linear-gradient(135deg, var(--c-rose-blossom) 0%, var(--c-coral-peach) 100%);
   color: #FFFFFF;
   font-size: 11.5px;
   font-weight: 800;
   padding: 5px 14px;
   border-radius: 9999px;
-  box-shadow: 0 4px 12px rgba(244, 63, 94, 0.35);
+  box-shadow: 0 4px 12px rgba(246, 176, 174, 0.4);
   letter-spacing: 0.5px;
   white-space: nowrap;
   z-index: 2;
 }
 
 .spot-img3-category-pill.cat-nature {
-  background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
-  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.35);
+  background: linear-gradient(135deg, var(--c-sky-cyan) 0%, var(--c-ocean-teal) 100%);
+  box-shadow: 0 4px 12px rgba(1, 135, 156, 0.35);
+  color: #FFFFFF;
 }
 
 .spot-img3-category-pill.cat-culture {
-  background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+  background: linear-gradient(135deg, var(--c-periwinkle) 0%, var(--c-cobalt-blue) 100%);
+  box-shadow: 0 4px 12px rgba(64, 104, 174, 0.35);
+  color: #FFFFFF;
 }
 
 .spot-img3-category-pill.cat-food {
-  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+  background: linear-gradient(135deg, var(--c-sunshine-yellow) 0%, var(--c-amber-orange) 100%);
+  box-shadow: 0 4px 12px rgba(254, 161, 9, 0.35);
+  color: #0E2938;
 }
 
 .spot-img3-body {
@@ -3190,7 +3224,7 @@ body {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0284C7 0%, #38BDF8 100%);
+  background: linear-gradient(135deg, var(--c-sky-cyan) 0%, var(--c-ocean-teal) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3215,20 +3249,21 @@ body {
 }
 
 .spot-img3-cta-btn {
-  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  background: linear-gradient(135deg, var(--c-ocean-teal) 0%, var(--c-sky-cyan) 100%);
   color: #FFFFFF;
   font-size: 12px;
   font-weight: 800;
   padding: 6px 14px;
   border-radius: 9999px;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);
+  box-shadow: 0 2px 8px rgba(1, 135, 156, 0.25);
   transition: all 0.2s ease;
 }
 
 .spot-img3-cta-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);
+  background: linear-gradient(135deg, var(--c-amber-orange) 0%, var(--c-warm-apricot) 100%);
+  box-shadow: 0 4px 14px rgba(254, 161, 9, 0.35);
 }
 
 

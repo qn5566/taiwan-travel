@@ -25,7 +25,7 @@ const TOP_ACTIVITIES_6 = [
     "origPrice": "NT$ 980",
     "tag": "Klook 全網熱銷 No.1 · 經典必訪",
     "desc": "外籍旅客指名度冠軍！專車漫步野柳女王頭、九份紅燈籠山城阿妹茶樓、放飛十分祈福天燈。",
-    "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop",
+    "img": "assets/shifen_lantern_tour.png",
     "activityId": "1301-jiufen-shifen-yehhliu-day-tour-taipei",
     "badge": "TOP 1 BESTSELLER"
   },
@@ -41,7 +41,7 @@ const TOP_ACTIVITIES_6 = [
     "origPrice": "NT$ 1,500",
     "tag": "世界級大理石大峽谷 · 太平洋絕壁",
     "desc": "造訪震撼壯麗的燕子口、九曲洞、長春祠與垂直聳立於太平洋之上的清水斷崖壯觀景致。",
-    "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=800&auto=format&fit=crop",
+    "img": "assets/taroko_gorge_tour.jpg",
     "activityId": "765-taroko-gorge-day-tour-hualien",
     "badge": "TOP 2 WONDER"
   },
@@ -57,7 +57,7 @@ const TOP_ACTIVITIES_6 = [
     "origPrice": "NT$ 1,800",
     "tag": "高山草原 · 湖光山色 · 百萬夕陽",
     "desc": "一次網羅中部三大名勝！乘搭日月潭遊艇、漫步清境綿羊群，傍晚於高美濕地欣賞夢幻風車夕陽。",
-    "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop",
+    "img": "assets/sun_moon_lake_tour.png",
     "activityId": "13214-sun-moon-lake-cingjing-taichung",
     "badge": "TOP 3 HIGHLIGHT"
   },
