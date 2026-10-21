@@ -331,9 +331,7 @@ function switchLanguage(lang) {
   // 2. 品牌與導航
   const brandNameEl = document.querySelector(".brand-name");
   if (brandNameEl) {
-    brandNameEl.innerHTML = isEn
-      ? `Taiwan Roam <span class="brand-badge">官方網頁版</span>`
-      : `台灣吃喝玩樂 <span class="brand-badge">官方網頁版</span>`;
+    brandNameEl.textContent = isEn ? "Taiwan Roam" : "台灣吃喝玩樂";
   }
   const brandSubtextEl = document.querySelector(".brand-subtext");
   if (brandSubtextEl) {

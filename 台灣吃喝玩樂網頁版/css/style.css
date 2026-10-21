@@ -3370,42 +3370,91 @@ body {
 }
 
 /* =========================================================
-   🎴 圖二：精選頁面扇形疊抽牌特效 (Fanned Deck & Draw Effect)
+   🎴 精選主題頁面：歐美風 3D 弧形扇形卡牌展演 (Trendy 3D Fanned Arc Deck)
    ========================================================= */
 .deck-fan-wrapper {
   position: relative;
-  max-width: 980px;
-  margin: 10px auto 40px auto;
-  padding: 50px 20px 30px 20px;
+  max-width: 1040px;
+  margin: 15px auto 35px auto;
+  padding: 40px 20px 20px 20px;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  min-height: 380px;
+  align-items: center;
+  min-height: 420px;
   perspective: 1200px;
+  user-select: none;
+  background: radial-gradient(ellipse at 50% 60%, rgba(186, 230, 253, 0.35) 0%, rgba(240, 249, 255, 0) 70%);
 }
 
 .deck-fan-stage {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   position: relative;
   width: 100%;
-  height: 320px;
+  max-width: 900px;
+  height: 340px;
 }
 
+/* 左右切換浮動按鈕 (Glass Floating Nav Buttons) */
+.deck-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.1);
+  color: #0F172A;
+  font-size: 26px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 60;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.deck-nav-btn:hover {
+  background: #0284C7;
+  color: #FFFFFF;
+  border-color: #0284C7;
+  transform: translateY(-50%) scale(1.12);
+  box-shadow: 0 10px 25px rgba(2, 132, 199, 0.35);
+}
+
+.deck-nav-prev {
+  left: 6px;
+}
+
+.deck-nav-next {
+  right: 6px;
+}
+
+/* 扇形卡牌個體 (Persistent 3D Arc Card) */
 .fan-card-item {
   position: absolute;
-  width: 190px;
-  height: 265px;
-  border-radius: 20px;
+  width: 200px;
+  height: 285px;
+  border-radius: 22px;
   background: #FFFFFF;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12), 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 14px 32px -8px rgba(15, 23, 42, 0.16), 0 2px 8px rgba(0, 0, 0, 0.04);
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transform-origin: bottom center;
+  transform-origin: center bottom;
   overflow: hidden;
-  border: 2px solid rgba(255, 255, 255, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 0.4s ease, 
+              border-color 0.35s ease, 
+              opacity 0.4s ease;
   user-select: none;
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
 .fan-card-inner {
@@ -3413,6 +3462,7 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   position: relative;
   padding: 16px;
   box-sizing: border-box;
@@ -3424,91 +3474,466 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.fan-card-item:hover .fan-card-bg-img {
+  transform: scale(1.08);
 }
 
 .fan-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.82) 100%);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.1) 45%, rgba(15, 23, 42, 0.88) 100%);
 }
 
-.fan-card-badge {
+.fan-card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
   z-index: 2;
-  align-self: flex-start;
-  background: rgba(255, 255, 255, 0.25);
+  width: 100%;
+}
+
+.fan-card-pill {
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  color: #0F172A;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.fan-card-active-tag {
+  display: none;
+  background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%);
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+}
+
+.fan-card-item.drawn .fan-card-active-tag {
+  display: inline-block;
+}
+
+.fan-card-bottom-info {
+  position: relative;
+  z-index: 2;
+  color: #FFFFFF;
+  text-align: left;
+}
+
+.fan-card-category {
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #94A3B8;
+  letter-spacing: 1.8px;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+}
+
+.fan-card-title {
+  font-size: 16.5px;
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin-bottom: 4px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.fan-card-action {
+  font-size: 11px;
+  font-weight: 700;
+  color: #38BDF8;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 選中狀態 (Drawn State - No Horizontal Jump!) */
+.fan-card-item.drawn {
+  border-color: #0284C7;
+  box-shadow: 0 22px 50px -10px rgba(2, 132, 199, 0.45), 0 0 24px rgba(56, 189, 248, 0.55);
+}
+
+/* 浮動計數導引標籤 (Indicator Pill) */
+.deck-counter-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid #E2E8F0;
+  border-radius: 9999px;
+  padding: 6px 18px;
+  font-size: 13px;
+  color: #64748B;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  margin-top: 5px;
+}
+
+.deck-counter-indicator .counter-num {
+  font-weight: 900;
+  color: #0284C7;
+  font-size: 14px;
+}
+
+.deck-counter-indicator .counter-slash {
+  color: #CBD5E1;
+}
+
+.deck-counter-indicator .counter-theme-title {
+  color: #0F172A;
+  font-weight: 700;
+  padding-left: 6px;
+  border-left: 1px solid #E2E8F0;
+}
+
+/* =========================================================
+   📱 下方雙欄：左側一日二日三日行程 ＋ 右側 REELS 短影音景點卡
+   ========================================================= */
+.theme-split-layout {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 32px;
+  margin-top: 28px;
+  align-items: start;
+}
+
+@media (max-width: 1040px) {
+  .theme-split-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+/* 左側行程卡片容器 (Itinerary Planner Container) */
+.itinerary-planner-box {
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 24px;
+  padding: 24px 20px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  position: sticky;
+  top: 90px;
+}
+
+/* 一日遊／二日遊／三日遊 分段切換選單 (Segmented Tabs) */
+.itinerary-segmented-tabs {
+  display: flex;
+  background: #F1F5F9;
+  border-radius: 14px;
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.itinerary-tab-btn {
+  flex: 1;
+  padding: 9px 8px;
+  border: none;
+  background: transparent;
+  color: #64748B;
+  font-size: 12.5px;
+  font-weight: 800;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.itinerary-tab-btn:hover {
+  color: #0F172A;
+}
+
+.itinerary-tab-btn.active {
+  background: #FFFFFF;
+  color: #0284C7;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+/* 行程動態時間線 (Timeline Days) */
+.itinerary-day-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.itinerary-timeline-node {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-left: 3.5px solid #0284C7;
+  border-radius: 0 16px 16px 0;
+  padding: 14px 16px;
+  transition: all 0.2s ease;
+}
+
+.itinerary-timeline-node:hover {
+  background: #F0F9FF;
+  border-color: #BAE6FD;
+  border-left-color: #0284C7;
+}
+
+.itinerary-node-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 900;
+  color: #0284C7;
+  margin-bottom: 6px;
+}
+
+.itinerary-node-route {
+  font-size: 13px;
+  color: #334155;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+/* 特色體驗抽屜 (Experiences Chips) */
+.itinerary-exp-drawer {
+  border-top: 1px dashed #E2E8F0;
+  padding-top: 16px;
+  margin-top: 10px;
+}
+
+.itinerary-exp-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #F8FAFC;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.itinerary-exp-item .exp-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.itinerary-exp-item .exp-title {
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.itinerary-exp-item .exp-desc {
+  color: #64748B;
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   🎬 右側景點小卡牌：REELS 短影音風格排版 (Reels-style Cards)
+   ========================================================= */
+.reels-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.reels-section-title {
+  font-size: 20px;
+  font-weight: 900;
+  color: #0F172A;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reels-count-badge {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0284C7;
+  background: rgba(2, 132, 199, 0.1);
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+
+/* REELS 卡牌網格 (2 欄現代瀑布流風格) */
+.reels-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 640px) {
+  .reels-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.reels-card {
+  position: relative;
+  height: 390px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #0F172A;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.reels-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px -10px rgba(2, 132, 199, 0.35), 0 0 20px rgba(56, 189, 248, 0.3);
+  border-color: rgba(56, 189, 248, 0.6);
+}
+
+.reels-card-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reels-card:hover .reels-card-bg-img {
+  transform: scale(1.09);
+}
+
+.reels-card-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.35) 0%, rgba(15, 23, 42, 0.05) 35%, rgba(15, 23, 42, 0.92) 100%);
+  pointer-events: none;
+}
+
+/* 卡牌頂部標籤與愛心收藏 */
+.reels-card-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+}
+
+.reels-card-badge {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #FFFFFF;
   font-size: 11px;
   font-weight: 800;
   padding: 4px 10px;
   border-radius: 9999px;
+  letter-spacing: 0.3px;
 }
 
-.fan-card-info {
+/* 底部毛玻璃內容盒 */
+.reels-card-bottom {
   position: relative;
-  z-index: 2;
-  margin-top: auto;
+  z-index: 3;
   color: #FFFFFF;
 }
 
-.fan-card-icon {
-  font-size: 32px;
-  margin-bottom: 4px;
-}
-
-.fan-card-title {
+.reels-spot-title {
   font-size: 17px;
   font-weight: 900;
   color: #FFFFFF;
+  line-height: 1.3;
   margin-bottom: 2px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
-.fan-card-subtitle {
+.reels-spot-en {
   font-size: 11px;
-  color: #CBD5E1;
+  color: #94A3B8;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
 }
 
-/* 抽卡時的懸浮或被選中抽起狀態 (Card Drawn Animation) */
-.fan-card-item:hover,
-.fan-card-item.drawn {
-  transform: translateY(-55px) rotate(0deg) scale(1.18) !important;
-  z-index: 100 !important;
-  box-shadow: 0 25px 50px -10px rgba(2, 132, 199, 0.45), 0 0 30px rgba(56, 189, 248, 0.7);
-  border-color: #38BDF8;
+.reels-spot-desc {
+  font-size: 12px;
+  color: #E2E8F0;
+  line-height: 1.5;
+  margin-bottom: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.fan-card-item.drawn::after {
-  content: "✨ 已抽取";
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+.reels-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.reels-btn-action {
+  flex: 1;
+  padding: 7px 10px;
+  font-size: 11.5px;
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.reels-btn-action.btn-outline {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   color: #FFFFFF;
-  font-size: 10px;
-  font-weight: 900;
-  padding: 3px 8px;
-  border-radius: 9999px;
-  z-index: 5;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  animation: pulseGlow 1.5s infinite;
 }
 
-@keyframes pulseGlow {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.85; transform: scale(1.05); }
+.reels-btn-action.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.reels-btn-action.btn-fill {
+  background: #0284C7;
+  border: 1px solid #38BDF8;
+  color: #FFFFFF;
+}
+
+.reels-btn-action.btn-fill:hover {
+  background: #0369A1;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
   .deck-fan-wrapper {
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding-bottom: 20px;
+    min-height: 360px;
+    padding-top: 20px;
   }
   .deck-fan-stage {
-    width: 820px;
+    height: 300px;
+  }
+  .fan-card-item {
+    width: 165px;
+    height: 240px;
   }
 }
 
