@@ -54,7 +54,7 @@
   --warm-gradient: linear-gradient(135deg, #FEA109 0%, #F4B648 100%);
   
   /* 文字顏色階層 */
-  --text-heading: #0E2938;
+  --text-heading: #334155; /* 溫和舒服深灰 (Comfortable Deep Slate) */
   --text-body: #2C3E50;
   --text-muted: #5A7184;
   --text-light: #8CA0B3;
