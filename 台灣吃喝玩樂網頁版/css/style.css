@@ -1989,12 +1989,56 @@ a {
   transition: opacity 0.25s ease;
 }
 
+.featured-col-card.michelin-col {
+  background: linear-gradient(135deg, #FFF5F6 0%, #FFEBEF 100%);
+  border: 1.5px solid #FECDD3;
+}
+
+.featured-col-card.michelin-col:hover {
+  border-color: #F43F5E;
+  box-shadow: 0 12px 28px rgba(225, 29, 72, 0.14);
+}
+
+.featured-col-card.michelin-col .featured-col-title {
+  color: #881337;
+}
+
+.featured-col-card.michelin-col .featured-col-subtitle {
+  color: #9F1239;
+}
+
+.featured-col-card.michelin-col .featured-col-arrow {
+  color: #E11D48;
+}
+
+.featured-col-card.cafe-col {
+  background: linear-gradient(135deg, #FAF6F0 0%, #F4ECE1 100%);
+  border: 1.5px solid #E4D5C7;
+}
+
+.featured-col-card.cafe-col:hover {
+  border-color: #B48356;
+  box-shadow: 0 12px 28px rgba(138, 90, 50, 0.14);
+}
+
+.featured-col-card.cafe-col .featured-col-title {
+  color: #4A3525;
+}
+
+.featured-col-card.cafe-col .featured-col-subtitle {
+  color: #78583E;
+}
+
+.featured-col-card.cafe-col .featured-col-arrow {
+  color: #8C5935;
+}
+
 .featured-col-card.michelin-col::before {
   background: linear-gradient(180deg, #E11D48 0%, #BE123C 100%);
 }
 
 .featured-col-card.cafe-col::before {
-  background: linear-gradient(180deg, #D97706 0%, #B45309 100%);
+  background: linear-gradient(180deg, #B48356 0%, #8C5935 100%);
 }
 
 .featured-col-card:hover {

@@ -131,32 +131,32 @@
             </button>
           </div>
 
-          <!-- 3. 下方兩個小專欄按鈕區塊 (Featured Column Pills) -->
+          <!-- 3. 下方兩個小專欄按鈕區塊 (優化配色：米其林淡淡紅色，咖啡廳淡淡咖啡色) -->
           <div class="hero-columns-row">
             <!-- 米其林餐廳專欄 -->
             <a href="michelin.html" class="featured-col-card michelin-col">
-              <div class="featured-col-icon">🌟</div>
+              <div class="featured-col-icon" style="background: #FFE4E6; border: 1px solid #FECDD3;">🌟</div>
               <div>
                 <div class="featured-col-title">
                   米其林指南名店推薦
-                  <span style="font-size: 11px; background: #FFE4E6; color: #BE123C; padding: 2px 6px; border-radius: 4px; font-weight: 700;">星級與必比登</span>
+                  <span style="font-size: 11px; background: #FECDD3; color: #9F1239; padding: 2px 7px; border-radius: 6px; font-weight: 800;">星級與必比登</span>
                 </div>
                 <div class="featured-col-subtitle">嚴選頤宮、態芮、logy 與全台必比登在地排隊街頭美味</div>
               </div>
-              <span class="featured-col-arrow">進入專欄 →</span>
+              <span class="featured-col-arrow">進入專欄 ➔</span>
             </a>
 
             <!-- 台灣必去咖啡店專題 -->
             <a href="cafe.html" class="featured-col-card cafe-col">
-              <div class="featured-col-icon">☕</div>
+              <div class="featured-col-icon" style="background: #EFE6DD; border: 1px solid #E4D5C7;">☕</div>
               <div>
                 <div class="featured-col-title">
                   台灣必去咖啡店全覽
-                  <span style="font-size: 11px; background: #FEF3C7; color: #92400E; padding: 2px 6px; border-radius: 4px; font-weight: 700;">全台 16 縣市名店</span>
+                  <span style="font-size: 11px; background: #E4D5C7; color: #4A3525; padding: 2px 7px; border-radius: 6px; font-weight: 800;">全台 22 縣市 330 間名店</span>
                 </div>
                 <div class="featured-col-subtitle">插座辦公、甜點好吃、冠軍手沖、老宅植栽與海景名店</div>
               </div>
-              <span class="featured-col-arrow">探索地圖 →</span>
+              <span class="featured-col-arrow">探索地圖 ➔</span>
             </a>
           </div>
         </div>
@@ -190,26 +190,79 @@
   </section>
 
   <!-- =========================================================
-       🗺️ 4. 第二區塊：18 個深度探索主題專區 (18 Themes Grid)
+       🗺️ 4. 第二區塊：6 大精選特色主題卡片 (跳轉獨立主題專頁)
        ========================================================= -->
   <section id="themes" class="section-padding" style="background: #FFFFFF;">
     <div class="container">
-      <div class="section-header-block" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 16px;">
+      <div class="section-header-block" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
         <div>
-          <span class="section-badge-pill">18 CURATED THEMES</span>
-          <h2 class="section-heading-title">18 大深度探索主題專區</h2>
+          <span class="section-badge-pill">CURATED THEMES HIGHLIGHT</span>
+          <h2 class="section-heading-title">精選旅行主題 ‧ 6 大推薦專欄</h2>
           <p class="section-heading-desc" style="max-width: 680px;">
-            從縱谷壯麗山海、海底溫泉到深夜食堂夜市，點擊任一主題立即探索全台專屬行程與景點
+            精選外籍旅客與自由行最熱門的 6 大特色主題！點選卡片直接進入獨立專題專頁，瀏覽完整場館、營地、老店與預約分潤資訊。
           </p>
         </div>
         <a href="themes.html" class="btn-action btn-klook-book" style="padding: 10px 22px; font-size: 13px; font-weight: 800; text-decoration: none;">
-          進入 18 大主題專頁 ➔
+          查看全部 18 大主題專頁 ➔
         </a>
       </div>
 
-      <!-- 18 主題網格 (桌面 6 個一排) -->
-      <div id="themes-grid-container" class="themes-grid-18">
-        <!-- 由 app.js 動態渲染 THEMES_DATA -->
+      <!-- 6 個精選主題可愛卡牌排列 (桌面 6 個一排) -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 28px;">
+        <!-- Card 1: 棒球應援 -->
+        <a href="themes.html?theme=baseball" class="theme-card" style="text-decoration: none; cursor: pointer; text-align: center; padding: 22px 16px; border: 1.5px solid #E2E8F0; border-radius: 20px; transition: all 0.3s ease; background: #FFFFFF; display: flex; flex-direction: column; align-items: center;">
+          <div style="width: 58px; height: 58px; border-radius: 16px; background: #EFF6FF; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 12px;">⚾</div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">職棒經典應援</h3>
+          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">台北大巨蛋、洲際、新莊！全球最狂啦啦隊熱血應援。</p>
+          <span class="theme-tag-chip" style="background: #DBEAFE; color: #1E40AF; font-size: 11px;">6 大主場館 ➔</span>
+        </a>
+
+        <!-- Card 2: 露營生鮮 -->
+        <a href="themes.html?theme=camping" class="theme-card" style="text-decoration: none; cursor: pointer; text-align: center; padding: 22px 16px; border: 1.5px solid #E2E8F0; border-radius: 20px; transition: all 0.3s ease; background: #FFFFFF; display: flex; flex-direction: column; align-items: center;">
+          <div style="width: 58px; height: 58px; border-radius: 16px; background: #FEF3C7; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 12px;">⛺</div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">露營生鮮野炊</h3>
+          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">免搭帳奢華星空帳篷，和牛海陸食材箱一鍵直配營位。</p>
+          <span class="theme-tag-chip" style="background: #FEF3C7; color: #92400E; font-size: 11px;">免備料直配 ➔</span>
+        </a>
+
+        <!-- Card 3: 風格咖啡 -->
+        <a href="cafe.html" class="theme-card" style="text-decoration: none; cursor: pointer; text-align: center; padding: 22px 16px; border: 1.5px solid #E2E8F0; border-radius: 20px; transition: all 0.3s ease; background: #FFFFFF; display: flex; flex-direction: column; align-items: center;">
+          <div style="width: 58px; height: 58px; border-radius: 16px; background: #F5EFEB; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 12px;">☕</div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">全台風格咖啡</h3>
+          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">全台 22 縣市 330 間名店！插頭、手沖、老宅與海景景觀。</p>
+          <span class="theme-tag-chip" style="background: #EFE6DD; color: #4A3525; font-size: 11px;">330 間名店 ➔</span>
+        </a>
+
+        <!-- Card 4: 米其林指南 -->
+        <a href="michelin.html" class="theme-card" style="text-decoration: none; cursor: pointer; text-align: center; padding: 22px 16px; border: 1.5px solid #E2E8F0; border-radius: 20px; transition: all 0.3s ease; background: #FFFFFF; display: flex; flex-direction: column; align-items: center;">
+          <div style="width: 58px; height: 58px; border-radius: 16px; background: #FFF1F2; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 12px;">🌟</div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">米其林指南</h3>
+          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">頤宮三星、態芮二星、logy 與全台必比登排隊街頭小吃。</p>
+          <span class="theme-tag-chip" style="background: #FECDD3; color: #9F1239; font-size: 11px;">摘星與必比登 ➔</span>
+        </a>
+
+        <!-- Card 5: 溫泉舒活 -->
+        <a href="themes.html?theme=hotspring" class="theme-card" style="text-decoration: none; cursor: pointer; text-align: center; padding: 22px 16px; border: 1.5px solid #E2E8F0; border-radius: 20px; transition: all 0.3s ease; background: #FFFFFF; display: flex; flex-direction: column; align-items: center;">
+          <div style="width: 58px; height: 58px; border-radius: 16px; background: #EFF6FF; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 12px;">♨️</div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">極致溫泉舒活</h3>
+          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">北投加賀屋白磺、礁溪美人湯、知本老爺與朝日海底溫泉。</p>
+          <span class="theme-tag-chip" style="background: #DBEAFE; color: #1E40AF; font-size: 11px;">全台名湯巡禮 ➔</span>
+        </a>
+
+        <!-- Card 6: 夜市美食 -->
+        <a href="themes.html?theme=nightmarket" class="theme-card" style="text-decoration: none; cursor: pointer; text-align: center; padding: 22px 16px; border: 1.5px solid #E2E8F0; border-radius: 20px; transition: all 0.3s ease; background: #FFFFFF; display: flex; flex-direction: column; align-items: center;">
+          <div style="width: 58px; height: 58px; border-radius: 16px; background: #FEF2F2; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 12px;">🧋</div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">夜市老饕圖鑑</h3>
+          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">寧夏夜市千歲宴、逢甲明倫蛋餅、台南花園夜市大鍋滷味。</p>
+          <span class="theme-tag-chip" style="background: #FEE2E2; color: #991B1B; font-size: 11px;">夜市排隊王 ➔</span>
+        </a>
+      </div>
+
+      <div style="text-align: center;">
+        <a href="themes.html" class="city-pill-btn" style="padding: 10px 28px; font-size: 14px; font-weight: 800; display: inline-flex; align-items: center; gap: 8px;">
+          <span>探索全部 18 大深度精選主題專頁（點擊進入獨立專頁）</span>
+          <span>➔</span>
+        </a>
       </div>
     </div>
   </section>
@@ -330,30 +383,6 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       📰 7. 週末探店部落格專區 (Weekend Hop Editorial - 一排一個文章)
-       ========================================================= -->
-  <section id="weekend-hop" class="section-padding" style="background: #FCFDFE;">
-    <div class="container">
-      <div class="section-header-block" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 36px; flex-wrap: wrap; gap: 16px;">
-        <div>
-          <span class="section-badge-pill">WEEKEND HOP BLOG</span>
-          <h2 class="section-heading-title">週末探店 ‧ 深度慢活散策</h2>
-          <p class="section-heading-desc">
-            每週嚴選！走進老洋房天井、聽山城海風、品嚐職人冠軍手沖（一排一個文章，附景點資訊盒）
-          </p>
-        </div>
-        <a href="blog.html" class="btn-action btn-klook-book" style="padding: 10px 22px; font-size: 13px;">
-          瀏覽全部探店文章 →
-        </a>
-      </div>
-
-      <!-- 部落格文章單列排列容器 (一排一個文章顯示) -->
-      <div id="blog-articles-container" class="blog-editorial-container">
-        <!-- 由 app.js 動態渲染 BLOG_ARTICLES_DATA -->
-      </div>
-    </div>
-  </section>
 
   <!-- =========================================================
        💬 8. 留言討論區 (Community Board)
