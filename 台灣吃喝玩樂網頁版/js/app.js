@@ -37,24 +37,14 @@ function renderTrendingSection() {
   container.innerHTML = TOP_ACTIVITIES_6.map(item => {
     const klookUrl = AFFILIATE_HUB.getTourUrl(item.activityId);
     return `
-      <div class="pill-card-item" onclick="window.open('${klookUrl}', '_blank')" title="預約 ${item.name}">
+      <div class="pill-card-item" onclick="window.open('${klookUrl}', '_blank')" title="前往預約 ${item.name}" style="cursor: pointer;">
         <div class="pill-window">
           <img src="${item.img}" alt="${item.name}" loading="lazy">
           <div class="pill-window-overlay"></div>
-          <span class="pill-rank-badge">#${item.rank}</span>
-          <div class="pill-explore-btn">
-            <span>↗</span>
-          </div>
         </div>
         <div class="pill-info-block">
-          <div class="pill-title">${item.name.split(" ")[0]}</div>
-          <div class="pill-en-title">${item.enName || item.city}</div>
-          <div class="pill-meta-row">
-            <span class="pill-rate-badge">${item.rate}</span>
-            <span style="color:#CBD5E1;">·</span>
-            <span class="pill-price-tag">${item.price}</span>
-          </div>
-          <span class="pill-klook-cta">🚐 預約一日遊 ➔</span>
+          <div class="pill-title" style="cursor: pointer; margin-bottom: 8px;">${item.name}</div>
+          <span class="pill-klook-cta" style="cursor: pointer;">預定去 ➔</span>
         </div>
       </div>
     `;

@@ -1142,7 +1142,7 @@ const RANKINGS_DATA = {
   },
   {
     "rank": 12,
-    "name": "幻猻家珈琲 Pallas Cafe",
+    "name": "AKA café (大稻埕古宅秘境)",
     "city": "台北市大同區",
     "views": "98 萬次點閱",
     "rate": "4.8★",
@@ -2032,14 +2032,14 @@ const TAIWAN_CAFES_DATA = [
   },
   {
     "id": "cafe_9",
-    "name": "幻猻家珈琲",
+    "name": "AKA café",
     "city": "台北市",
     "city_en": "Taipei",
     "district": "大同區",
-    "address": "台北市大同區迪化街一段14巷14號",
-    "phone": "(02) 2555-6680",
+    "address": "台北市大同區貴德街49號",
+    "phone": "(02) 2558-8702",
     "status": "營業中",
-    "mapUrl": "https://maps.google.com/?q=幻猻家珈琲&authuser=1",
+    "mapUrl": "https://maps.google.com/?q=AKA+cafe+台北",
     "tags": [
       "植栽老宅",
       "甜點好吃",
@@ -2050,7 +2050,7 @@ const TAIWAN_CAFES_DATA = [
       "🍰",
       "☕"
     ],
-    "features": "台北市大同區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "features": "大稻埕百年巴洛克古宅秘境！融合日式庭院枯山水與經典手沖精品咖啡，環境靜謐優雅，在地旅人首推預約制老宅美學。",
     "price": "NT$ 120 - 320",
     "rate": "4.9★",
     "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop"
@@ -2207,14 +2207,14 @@ const TAIWAN_CAFES_DATA = [
   },
   {
     "id": "cafe_16",
-    "name": "白日夢 Tea & Cafe",
+    "name": "我們在海邊",
     "city": "新北市",
     "city_en": "New Taipei",
-    "district": "石門區",
-    "address": "新北市石門區阿里荖47-2號",
-    "phone": "(02) 2638-0045",
+    "district": "三芝區",
+    "address": "新北市三芝區後厝里北勢子12-1號",
+    "phone": "0972-273-988",
     "status": "營業中",
-    "mapUrl": "https://maps.google.com/?q=白日夢Tea+Cafe+石門&authuser=1",
+    "mapUrl": "https://maps.google.com/?q=我們在海邊+三芝",
     "tags": [
       "海景景觀",
       "採光超好",
@@ -2225,21 +2225,21 @@ const TAIWAN_CAFES_DATA = [
       "☀️",
       "👶"
     ],
-    "features": "新北市石門區人氣口碑咖啡名店，主打海景景觀、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "features": "北海岸全台最火紅無敵海景落地窗咖啡廳！雙層挑高工業風直面蔚藍太平洋海浪，特製手作溫熱巴斯克與極品冷萃咖啡。",
     "price": "NT$ 120 - 320",
     "rate": "4.8★",
     "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop"
   },
   {
     "id": "cafe_17",
-    "name": "靠北過日子 Q.B.Days",
+    "name": "金山跳石沒有名字的咖啡店",
     "city": "新北市",
     "city_en": "New Taipei",
     "district": "金山區",
-    "address": "新北市金山區海興路174號",
-    "phone": "(02) 2408-2332",
+    "address": "新北市金山區永興里跳石4號",
+    "phone": "(02) 2408-1952",
     "status": "營業中",
-    "mapUrl": "https://maps.google.com/?q=靠北過日子&authuser=1",
+    "mapUrl": "https://maps.google.com/?q=金山跳石沒有名字的咖啡店",
     "tags": [
       "海景景觀",
       "甜點好吃",
@@ -2250,7 +2250,7 @@ const TAIWAN_CAFES_DATA = [
       "🍰",
       "🐶"
     ],
-    "features": "新北市金山區人氣口碑咖啡名店，主打海景景觀、甜點好吃、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "features": "淡金公路最美跳石海景第一排！黃色小木屋眺望北海岸無垠海景，吹海風品啜手沖拿鐵與手作磅蛋糕。",
     "price": "NT$ 120 - 320",
     "rate": "4.9★",
     "img": "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?w=600&auto=format&fit=crop"
@@ -2407,14 +2407,14 @@ const TAIWAN_CAFES_DATA = [
   },
   {
     "id": "cafe_24",
-    "name": "私處 Corner",
+    "name": "旭舊咖啡",
     "city": "新北市",
     "city_en": "New Taipei",
-    "district": "淡水區",
-    "address": "新北市淡水區民權路183巷23號",
-    "phone": "(02) 2808-5065",
+    "district": "板橋區",
+    "address": "新北市板橋區中山路一段216巷1號",
+    "phone": "(02) 2962-9599",
     "status": "營業中",
-    "mapUrl": "https://maps.google.com/?q=淡水+私處+Corner&authuser=1",
+    "mapUrl": "https://maps.google.com/?q=旭舊咖啡+板橋",
     "tags": [
       "採光超好",
       "植栽老宅",
@@ -2425,21 +2425,21 @@ const TAIWAN_CAFES_DATA = [
       "🌿",
       "🐶"
     ],
-    "features": "新北市淡水區人氣口碑咖啡名店，主打採光超好、植栽老宅、寵物友善。氛圍優雅舒適，深受在地旅人好評。",
+    "features": "新北板橋眷村老宅庭院咖啡！古董老家具與懷舊戶外綠意庭院，招牌焦糖布丁與慢磨手沖咖啡極受年輕族群喜愛。",
     "price": "NT$ 120 - 320",
     "rate": "4.8★",
     "img": "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&auto=format&fit=crop"
   },
   {
     "id": "cafe_25",
-    "name": "浪花丸かき氷·淡水分號",
+    "name": "安克黑咖啡 Ancre café",
     "city": "新北市",
     "city_en": "New Taipei",
     "district": "淡水區",
-    "address": "新北市淡水區中正路233-2號",
-    "phone": "(02) 2628-2727",
+    "address": "新北市淡水區中正路233-3號2樓",
+    "phone": "(02) 2626-0336",
     "status": "營業中",
-    "mapUrl": "https://maps.google.com/?q=浪花丸+淡水&authuser=1",
+    "mapUrl": "https://maps.google.com/?q=安克黑咖啡+淡水",
     "tags": [
       "海景景觀",
       "甜點好吃",
@@ -2450,7 +2450,7 @@ const TAIWAN_CAFES_DATA = [
       "🍰",
       "👶"
     ],
-    "features": "新北市淡水區人氣口碑咖啡名店，主打海景景觀、甜點好吃、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "features": "淡水金色水岸河景第一排歐風咖啡館！超可愛招牌錨印拉花拿鐵與現烤甜甜圈鬆餅，落日黃昏夕陽美不勝收。",
     "price": "NT$ 120 - 320",
     "rate": "4.9★",
     "img": "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=600&auto=format&fit=crop"
@@ -4857,14 +4857,14 @@ const TAIWAN_CAFES_DATA = [
   },
   {
     "id": "cafe_122",
-    "name": "端倪生活",
+    "name": "Stable Fly 穩定飛行模式",
     "city": "彰化縣",
     "city_en": "Changhua",
     "district": "彰化市",
-    "address": "彰化縣彰化市三民路9號",
-    "phone": "(04) 722-1686",
+    "address": "彰化縣彰化市永樂街44巷2號",
+    "phone": "(04) 722-0663",
     "status": "營業中",
-    "mapUrl": "https://maps.google.com/?q=%E7%AB%AF%E5%80%AA%E7%94%9F%E6%B4%BB&authuser=1",
+    "mapUrl": "https://maps.google.com/?q=穩定飛行模式+彰化",
     "tags": [
       "植栽老宅",
       "甜點好吃",
@@ -4875,21 +4875,21 @@ const TAIWAN_CAFES_DATA = [
       "🍰",
       "☕"
     ],
-    "features": "彰化縣彰化市人氣口碑咖啡名店，主打植栽老宅、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "features": "彰化永樂街四層樓復古老屋選物咖啡館！天井採光與老物陳列，手沖特調咖啡與手作甜點深受文青喜愛。",
     "price": "NT$ 120 - 320",
     "rate": "4.8★",
     "img": "https://images.unsplash.com/photo-1524350876685-274059332603?w=600&auto=format&fit=crop"
   },
   {
     "id": "cafe_123",
-    "name": "炎生 c_cafe",
+    "name": "透明空氣 toumei kuuki",
     "city": "彰化縣",
     "city_en": "Changhua",
-    "district": "彰化市",
-    "address": "彰化縣彰化市建文街11號",
-    "phone": "暫無提供",
+    "district": "員林市",
+    "address": "彰化縣員林市員集路二段277巷195號",
+    "phone": "0900-588-888",
     "status": "營業中",
-    "mapUrl": "https://maps.google.com/?q=%E7%82%8E%E7%94%9F+c_cafe&authuser=1",
+    "mapUrl": "https://maps.google.com/?q=透明空氣+員林",
     "tags": [
       "植栽老宅",
       "採光超好",
@@ -4900,7 +4900,7 @@ const TAIWAN_CAFES_DATA = [
       "☀️",
       "☕"
     ],
-    "features": "彰化縣彰化市人氣口碑咖啡名店，主打植栽老宅、採光超好、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "features": "彰化超人氣日式枯山水禪風預約制咖啡美學館！純白極簡與大片田園景觀窗，提供精緻和風茶點與精品手沖咖啡。",
     "price": "NT$ 120 - 320",
     "rate": "4.9★",
     "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&auto=format&fit=crop"
@@ -5532,14 +5532,14 @@ const TAIWAN_CAFES_DATA = [
   },
   {
     "id": "cafe_149",
-    "name": "小日子埔里店",
+    "name": "Feeling18 18度C巧克力工坊 義式咖啡",
     "city": "南投縣",
     "city_en": "Nantou",
     "district": "埔里鎮",
-    "address": "南投縣埔里鎮西安路一段",
-    "phone": "(04) 9298-0000",
+    "address": "南投縣埔里鎮慈恩街20號",
+    "phone": "(049) 298-4863",
     "status": "營業中",
-    "mapUrl": "https://maps.google.com/?q=%E5%B0%8F%E6%97%A5%E5%AD%90%E5%9F%94%E9%87%8C&authuser=1",
+    "mapUrl": "https://maps.google.com/?q=Feeling18+18度C巧克力工坊",
     "tags": [
       "植栽老宅",
       "手沖咖啡",
@@ -5550,7 +5550,7 @@ const TAIWAN_CAFES_DATA = [
       "☕",
       "🍰"
     ],
-    "features": "南投縣埔里鎮人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、甜點好吃。氛圍優雅舒適，深受在地旅人好評。",
+    "features": "南投埔里指標級人氣名店！以極品黑巧克力、手作義式冰淇淋與職人手沖咖啡聞名，設有舒適戶外咖啡休憩園區。",
     "price": "NT$ 120 - 320",
     "rate": "4.9★",
     "img": "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&auto=format&fit=crop"
@@ -7032,14 +7032,14 @@ const TAIWAN_CAFES_DATA = [
   },
   {
     "id": "cafe_209",
-    "name": "海丘甜點工作室 咖啡",
+    "name": "木溪 Merci Kitchen 司康咖啡",
     "city": "台南市",
     "city_en": "Tainan",
     "district": "中西區",
-    "address": "台南市中西區神農街145號",
-    "phone": "暫無提供",
+    "address": "台南市中西區郡緯街7號",
+    "phone": "(06) 222-8672",
     "status": "營業中",
-    "mapUrl": "https://maps.google.com/?q=%E7%A5%9E%E8%BE%B2%E8%A1%97%E6%B5%B7%E4%B8%98&authuser=1",
+    "mapUrl": "https://maps.google.com/?q=木溪+Merci+Kitchen+台南",
     "tags": [
       "植栽老宅",
       "甜點好吃",
@@ -7050,7 +7050,7 @@ const TAIWAN_CAFES_DATA = [
       "🍰",
       "☀️"
     ],
-    "features": "台南市中西區人氣口碑咖啡名店，主打植栽老宅、甜點好吃、採光超好。氛圍優雅舒適，深受在地旅人好評。",
+    "features": "台南老宅英式優雅司康專門咖啡館！每日出爐多種現烤手工司康與頂級果醬，搭配精選高山紅茶與手沖精品咖啡。",
     "price": "NT$ 120 - 320",
     "rate": "4.9★",
     "img": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop"
@@ -7232,14 +7232,14 @@ const TAIWAN_CAFES_DATA = [
   },
   {
     "id": "cafe_217",
-    "name": "Now & Then by nybc",
+    "name": "Shoreline Coffee & Roaster 燈塔咖啡",
     "city": "高雄市",
     "city_en": "Kaohsiung",
-    "district": "鹽埕區",
-    "address": "高雄市鹽埕區大義街2號C9-19",
-    "phone": "(07) 531-6999",
+    "district": "旗津區",
+    "address": "高雄市旗津區旗下巷34號",
+    "phone": "0913-907-793",
     "status": "營業中",
-    "mapUrl": "https://maps.google.com/?q=Now+and+Then+%E9%A7%81%E4%BA%8C&authuser=1",
+    "mapUrl": "https://maps.google.com/?q=Shoreline+Coffee+旗後燈塔",
     "tags": [
       "有插頭",
       "採光超好",
@@ -7250,7 +7250,7 @@ const TAIWAN_CAFES_DATA = [
       "☀️",
       "👶"
     ],
-    "features": "高雄市鹽埕區人氣口碑咖啡名店，主打有插頭、採光超好、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "features": "高雄旗後燈塔頂部純白海景第一排咖啡！坐擁360度高雄港與大船出入無敵夕陽景觀，手沖淺焙單品與特調冷萃極具口碑。",
     "price": "NT$ 120 - 320",
     "rate": "4.9★",
     "img": "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?w=600&auto=format&fit=crop"
@@ -8432,14 +8432,14 @@ const TAIWAN_CAFES_DATA = [
   },
   {
     "id": "cafe_265",
-    "name": "浪花丸 かき氷·島食咖啡",
+    "name": "浪慢咖啡 (Waves Cafe)",
     "city": "花蓮縣",
     "city_en": "Hualien",
-    "district": "花蓮市",
-    "address": "花蓮縣花蓮市海濱街31號",
-    "phone": "0973-888-588",
+    "district": "壽豐鄉",
+    "address": "花蓮縣壽豐鄉鹽寮村大橋24-1號",
+    "phone": "0918-616-911",
     "status": "營業中",
-    "mapUrl": "https://maps.google.com/?q=%E6%B5%AA%E8%8A%B1%E4%B8%B8%E8%8A%B1%E8%93%AE&authuser=1",
+    "mapUrl": "https://maps.google.com/?q=浪慢咖啡+花蓮",
     "tags": [
       "海景景觀",
       "甜點好吃",
@@ -8450,7 +8450,7 @@ const TAIWAN_CAFES_DATA = [
       "🍰",
       "👶"
     ],
-    "features": "花蓮縣花蓮市人氣口碑咖啡名店，主打海景景觀、甜點好吃、小孩友善。氛圍優雅舒適，深受在地旅人好評。",
+    "features": "花蓮鹽寮海岸公路第一排浪漫海景咖啡！設有無敵太平洋望海鞦韆與戶外階梯看海座席，聽濤吹海風極致放鬆。",
     "price": "NT$ 120 - 320",
     "rate": "4.9★",
     "img": "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&auto=format&fit=crop"
@@ -8482,14 +8482,14 @@ const TAIWAN_CAFES_DATA = [
   },
   {
     "id": "cafe_267",
-    "name": "浮室 soave plan",
+    "name": "珈琲花 c floral style",
     "city": "花蓮縣",
     "city_en": "Hualien",
     "district": "花蓮市",
-    "address": "花蓮縣花蓮市成功街280號",
-    "phone": "暫無提供",
+    "address": "花蓮縣花蓮市忠孝街79號",
+    "phone": "(03) 832-5172",
     "status": "營業中",
-    "mapUrl": "https://maps.google.com/?q=%E6%B5%AE%E5%AE%A4soave+plan&authuser=1",
+    "mapUrl": "https://maps.google.com/?q=珈琲花+花蓮",
     "tags": [
       "採光超好",
       "甜點好吃",
@@ -8500,7 +8500,7 @@ const TAIWAN_CAFES_DATA = [
       "🍰",
       "☕"
     ],
-    "features": "花蓮縣花蓮市人氣口碑咖啡名店，主打採光超好、甜點好吃、手沖咖啡。氛圍優雅舒適，深受在地旅人好評。",
+    "features": "花蓮舊城區日式木造乾燥花老屋咖啡！溫暖木質調與療癒店貓，提供深焙職人手沖與招牌焦糖肉桂捲。",
     "price": "NT$ 120 - 320",
     "rate": "4.9★",
     "img": "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?w=600&auto=format&fit=crop"
@@ -8807,14 +8807,14 @@ const TAIWAN_CAFES_DATA = [
   },
   {
     "id": "cafe_280",
-    "name": "走走池上 咖啡工作坊",
+    "name": "Bike De Koffie 米貝果手沖咖啡",
     "city": "台東縣",
     "city_en": "Taitung",
     "district": "池上鄉",
-    "address": "台東縣池上鄉中山路99號",
-    "phone": "0919-307-935",
+    "address": "台東縣池上鄉鐵花路14號",
+    "phone": "0980-868-945",
     "status": "營業中",
-    "mapUrl": "https://maps.google.com/?q=%E8%B5%B0%E8%B5%B0%E6%B1%A0%E4%B8%8A&authuser=1",
+    "mapUrl": "https://maps.google.com/?q=Bike+De+Koffie+池上",
     "tags": [
       "植栽老宅",
       "手沖咖啡",
@@ -8825,7 +8825,7 @@ const TAIWAN_CAFES_DATA = [
       "☕",
       "🔌"
     ],
-    "features": "台東縣池上鄉人氣口碑咖啡名店，主打植栽老宅、手沖咖啡、有插頭。氛圍優雅舒適，深受在地旅人好評。",
+    "features": "池上火車站旁老屋改裝人氣手作咖啡！嚴選池上好米研發外酥內Q的米貝果，佐在地紅烏龍手沖與精品美式。",
     "price": "NT$ 120 - 320",
     "rate": "4.8★",
     "img": "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&auto=format&fit=crop"
@@ -10126,7 +10126,7 @@ const CAFE_FEATURE_TOP20 = {
     "高雄神諭",
     "屏東春日廚房",
     "花蓮Gioconda",
-    "台東走走池上",
+    "台東Bike De Koffie",
     "澎湖吹吹風"
   ],
   "🗣️ 適合聊天 (Chat-friendly)": [
@@ -10176,7 +10176,7 @@ const CAFE_FEATURE_TOP20 = {
   "🐶 寵物友善 (Pet-friendly)": [
     "台北Coffee Syndicate",
     "台北弄宅",
-    "新北靠北過日子",
+    "新北我們在海邊",
     "桃園我們。They keep company",
     "新竹綠色小徑",
     "苗栗綠葉方舟",
@@ -10249,7 +10249,7 @@ const CAFE_FEATURE_TOP20 = {
     "新竹續日",
     "苗栗重成商號",
     "台中窩柢公寓",
-    "彰化端倪生活",
+    "彰化穩定飛行模式",
     "彰化炎生",
     "雲林後院",
     "嘉義霜空",
@@ -10263,7 +10263,7 @@ const CAFE_FEATURE_TOP20 = {
   ],
   "🌊 海景景觀 (Ocean View)": [
     "新北白日夢",
-    "新北靠北過日子",
+    "新北我們在海邊",
     "新北洋荳子",
     "新北天使熱愛的生活",
     "基隆圖們咖啡",
