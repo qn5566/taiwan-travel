@@ -71,12 +71,13 @@
 </head>
 <body>
 
-  <!-- 極光柔和動態背景 -->
+  <!-- 極光柔和動態背景與主題動態場景粒子系統 -->
   <div class="aurora-bg-ambient">
     <div class="aurora-blob-1"></div>
     <div class="aurora-blob-2"></div>
     <div class="aurora-blob-3"></div>
   </div>
+  <div class="theme-dynamic-particles-layer" id="theme-dynamic-particles"></div>
 
   <!-- =========================================================
        🌐 置頂國際化語系快捷列 (Global Top Language Bar)
@@ -143,11 +144,8 @@
        ========================================================= -->
   <section class="themes-hero-wrap">
     <div class="container">
-      <div class="themes-hero-sub">―  S I P  •  B I T E  •  W A N D E R  •  I N S P I R E  ―</div>
       <h1 class="themes-hero-title">精選旅行主題探索</h1>
-      <p class="themes-hero-lead">
-        點擊或滑動上方卡牌「抽取專屬旅行靈感」，下方即時解鎖一日遊、二日遊行程動線與 REELS 潮流短影音景點！
-      </p>
+      <div class="themes-hero-sub">―  S I P  •  B I T E  •  W A N D E R  •  I N S P I R E  ―</div>
 
       <!-- 歐美風 3D 弧形扇形卡牌桌 (3D Curved Fanned Arc Deck) -->
       <div class="deck-fan-wrapper">
@@ -158,10 +156,8 @@
         <button type="button" class="deck-nav-btn deck-nav-next" onclick="nextTheme()" aria-label="下一個主題">›</button>
       </div>
 
-      <!-- 序號與主題指示標籤 -->
-      <div>
-        <div class="deck-counter-indicator" id="deck-counter-indicator"></div>
-      </div>
+      <!-- 純文字主題標題展演（中文在上、英文在下，無邊框純文字） -->
+      <div class="deck-typography-display" id="deck-theme-title-display"></div>
 
       <!-- 快速切換主題膠囊按鈕列 -->
       <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 14px;" id="theme-all-pills">
@@ -194,620 +190,9 @@
   <script src="js/affiliate.js"></script>
   <script src="js/data.js"></script>
   <script src="js/i18n.js"></script>
+  <script src="js/themes_data.js"></script>
 
   <script>
-    // 8 大旗艦深度主題資料庫 (包含完整 1日/2日/3日推薦行程、特色體驗與 REELS 景點推薦卡片)
-    const THEMES_COMPLETE_DATA = [
-      {
-        id: "hualien",
-        icon: "🏞️",
-        name: "花東縱谷與海岸",
-        shortTitle: "花東探索",
-        bannerImg: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=1600&auto=format&fit=crop",
-        title: "The Majestic East Coast · Where Pacific Meets Mountains",
-        subtitle: "縱谷的風、太平洋的浪，世界旅人的純淨避風港",
-        deckBg: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop",
-        experiences: [
-          { icon: "🚙", title: "探險租車自駕", desc: "花東台 9 線／台 11 線 SUV 自駕指南，花蓮取車台東還。" },
-          { icon: "🚣", title: "晨曦太平洋立槳", desc: "清水斷崖日出 SUP 泛舟挑戰，飽覽絕美漸層藍色海洋。" },
-          { icon: "🌿", title: "東海岸原民巡禮", desc: "石梯坪海蝕壺穴、都蘭部落慢活、三仙台第一道曙光。" }
-        ],
-        itineraries: [
-          {
-            planName: "【1日遊】太魯閣與清水斷崖精華",
-            duration: "1 Day Tour · 精華暢玩",
-            days: [
-              { day: "全日精華", text: "花蓮市區出發 ➔ 清水斷崖晨曦觀景 ➔ 太魯閣砂卡礑步道 ➔ 燕子口奇岩峽谷 ➔ 七星潭礫石海灘 ➔ 東大門夜市" }
-            ]
-          },
-          {
-            planName: "【2天1夜】東海岸濱海輕旅行",
-            duration: "2 Days 1 Night · 經典慢活",
-            days: [
-              { day: "Day 1", text: "花蓮市出發 ➔ 貨櫃星巴克打卡 ➔ 芭崎瞭望台俯瞰磯崎灣 ➔ 石梯坪（夜宿海景民宿聽浪潮）" },
-              { day: "Day 2", text: "三仙台跨海八拱步橋 ➔ 成功漁港現撈海鮮直送 ➔ 都蘭糖廠文創 ➔ 台東鐵花村市集" }
-            ]
-          },
-          {
-            planName: "【3天2夜】縱谷鐵馬與溫泉大縱走",
-            duration: "3 Days 2 Nights · 深度體驗",
-            days: [
-              { day: "Day 1", text: "花蓮火車站取車 ➔ 鯉魚潭環湖步道 ➔ 光復糖廠古早味冰棒 ➔ 瑞穗黃金溫泉一泊二食" },
-              { day: "Day 2", text: "秀姑巒溪激流泛舟 ➔ 玉里麵在地美食 ➔ 池上伯朗大道金城武樹下騎行" },
-              { day: "Day 3", text: "鹿野高台眺望縱谷棋盤農田 ➔ 初鹿牧場香濃鮮奶 ➔ 台東市區返程" }
-            ]
-          }
-        ],
-        bookingCta: {
-          charter: "https://www.klook.com/zh-TW/car-rentals/?aid=123436",
-          hotel: "https://affone.me/s/bQeO4?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.zh-tw.html%3Fss%3D%E8%8A%B1%E8%93%AE%26aid%3D8133101",
-          tour: "https://www.klook.com/zh-TW/activity/765-taroko-gorge-day-tour-hualien/?aid=123436"
-        },
-        spots: [
-          {
-            name: "清水斷崖與太平洋海天一色",
-            en: "Qingshui Cliff Pacific Panorama",
-            tag: "世界級絕壁 · 晨曦 SUP",
-            desc: "千米懸崖直插深邃太平洋，海水呈現不可思議的深邃漸層藍。拂曉划著 SUP 迎接太平洋日出，一生難忘。",
-            img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "池上伯朗大道與天堂路",
-            en: "Chishang Brown Avenue",
-            tag: "無邊稻浪 · 金城武樹騎行",
-            desc: "全無電線桿遮蔽的遼闊翠綠稻海，隨風搖曳如綠色波浪。騎著電輔自行車徐徐穿行，心靈徹底放空。",
-            img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "石梯坪單面山與海蝕壺穴",
-            en: "Shitiping Geopark Coastal Terrace",
-            tag: "地質奇蹟 · 潮間帶生態",
-            desc: "灰白色凝灰岩向海傾斜形成天然單面山，登上高點俯瞰太平洋巨浪拍擊海蝕壺穴，震撼萬分。",
-            img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "三仙台跨海八拱步橋",
-            en: "Sanxiantai Dragon Arch Bridge",
-            tag: "跨海巨龍 · 台灣第一道曙光",
-            desc: "八個優雅紅灰相間拱橋宛如巨龍蜿蜒橫跨海面，連接珊瑚礁離島，全台迎曙光與星空銀河必訪地標。",
-            img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop"
-          }
-        ]
-      },
-      {
-        id: "northcoast",
-        icon: "🌊",
-        name: "北海岸與東北角",
-        shortTitle: "北海岸角",
-        bannerImg: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&auto=format&fit=crop",
-        title: "North Coast & Northeast Heritage",
-        subtitle: "山城紅燈籠 ‧ 奇岩怪石海岸 ‧ 太平洋極東角壯遊",
-        deckBg: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop",
-        experiences: [
-          { icon: "🚗", title: "經典黃金包車", desc: "九份老街 ➔ 金瓜石十三層遺址 ➔ 陰陽海 ➔ 鼻頭角步道。" },
-          { icon: "🗿", title: "地質奇觀巡禮", desc: "野柳地質公園女王頭 ➔ 金山老街鴨肉 ➔ 石門洞海蝕拱門。" },
-          { icon: "📸", title: "網美打卡秘境", desc: "基隆正濱漁港彩色屋 ➔ 潮境公園飛天掃帚 ➔ 象鼻岩海景。" }
-        ],
-        itineraries: [
-          {
-            planName: "【1日遊】經典黃金山海山城線",
-            duration: "1 Day · 台北出發最夯",
-            days: [
-              { day: "一日精華", text: "台北市區出發 ➔ 野柳女王頭奇岩 ➔ 十分老街放天燈 ➔ 九份阿妹茶樓品茗看夜景 ➔ 返回台北" }
-            ]
-          },
-          {
-            planName: "【2天1夜】東北角鐵道與極東秘境",
-            duration: "2 Days 1 Night · 山海雙享",
-            days: [
-              { day: "Day 1", text: "台北出發 ➔ 深澳鐵道自行車 ➔ 鼻頭角聽濤營區喝咖啡 ➔ 宿福隆海景飯店/金瓜石民宿" },
-              { day: "Day 2", text: "三貂角純白燈塔 ➔ 龍洞灣攀岩觀海 ➔ 基隆正濱彩虹屋 ➔ 廟口夜市美食攻略" }
-            ]
-          },
-          {
-            planName: "【3天2夜】北海岸石門至宜蘭溫泉全線",
-            duration: "3 Days 2 Nights · 深度環線",
-            days: [
-              { day: "Day 1", text: "淡水老街 ➔ 石門白沙灣 ➔ 野柳地質公園 ➔ 宿金山溫泉會館泡硫磺泉" },
-              { day: "Day 2", text: "九份山城漫遊 ➔ 猴硐貓村 ➔ 平溪深澳線 ➔ 抵達宜蘭礁溪夜宿溫泉飯店" },
-              { day: "Day 3", text: "宜蘭傳藝園區 ➔ 外澳黑沙灘看龜山島 ➔ 宜蘭伴手禮返程" }
-            ]
-          }
-        ],
-        bookingCta: {
-          charter: "https://www.klook.com/zh-TW/car-rentals/?aid=123436",
-          hotel: "https://affone.me/s/bQeO4?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.zh-tw.html%3Fss%3D%E4%B9%9D%E4%BB%BD%26aid%3D8133101",
-          tour: "https://www.klook.com/zh-TW/activity/1301-jiufen-shifen-yehhliu-day-tour-taipei/?aid=123436"
-        },
-        spots: [
-          {
-            name: "九份山城老街與阿妹茶樓",
-            en: "Jiufen Mountain Old Street",
-            tag: "宮崎駿動畫意境 · 紅燈籠階梯",
-            desc: "依山傍海的黃金山城，入夜後紅色燈籠璀璨亮起。石階梯上品味阿妹茶樓功夫茶與賴阿婆手工芋圓。",
-            img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "野柳地質公園 女王頭",
-            en: "Yehliu Geopark Queen's Head",
-            tag: "世界級蕈狀岩 · 風化大自然奇蹟",
-            desc: "歷經數千年海蝕與風化形成的蕈狀岩地貌，女王頭優雅端莊，還有仙女鞋、燭台石等奇岩怪石。",
-            img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "正濱漁港彩虹屋水岸",
-            en: "Zhengbin Port Color Houses",
-            tag: "台版威尼斯 · 繽紛彩色倒影",
-            desc: "16 棟塗刷明亮繽紛色彩的水岸街屋，倒映在碧綠漁港海水中宛如置身歐洲水城威尼斯，文青必訪。",
-            img: "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "十分瀑布與老街天燈祈福",
-            en: "Shifen Waterfall & Sky Lantern",
-            tag: "台灣尼加拉瀑布 · 鐵道放天燈",
-            desc: "壯闊的幕簾式瀑布水氣奔騰，緊鄰鐵道老街親手寫下心願，點燃天燈緩緩升空飄向山巒雲端。",
-            img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=800&auto=format&fit=crop"
-          }
-        ]
-      },
-      {
-        id: "islands",
-        icon: "🏝️",
-        name: "離島跳島秘境",
-        shortTitle: "離島跳島",
-        bannerImg: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&auto=format&fit=crop",
-        title: "Pacific Jewels · Islands of Taiwan",
-        subtitle: "七美雙心石滬 ‧ 綠島海底溫泉日出 ‧ 小琉球野生海龜共游",
-        deckBg: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop",
-        experiences: [
-          { icon: "🚢", title: "船票快速出票", desc: "嘉義布袋-澎湖、台東富岡-綠島蘭嶼、屏東東港-小琉球。" },
-          { icon: "✈️", title: "跳島國內機票", desc: "松山/台中/高雄直飛澎湖、金門、馬祖，即時票價查詢。" },
-          { icon: "🐢", title: "野生海龜共游", desc: "小琉球透明獨木舟與浮潛，遇見野生海龜機率高達 99%。" }
-        ],
-        itineraries: [
-          {
-            planName: "【小琉球 1日遊】海龜共游與浮潛精華",
-            duration: "1 Day · 高雄/屏東快閃",
-            days: [
-              { day: "快閃跳島", text: "東港搭交通船 20 分鐘抵達 ➔ 花瓶岩浮潛尋找海龜 ➔ 美人洞海景步道 ➔ 麻花捲伴手禮 ➔ 傍晚搭船返程" }
-            ]
-          },
-          {
-            planName: "【綠島 2天1夜】太平洋潛水與溫泉慢活",
-            duration: "2 Days 1 Night · 蔚藍夢幻",
-            days: [
-              { day: "Day 1", text: "台東富岡搭船至綠島 ➔ 租機車環島 ➔ 石朗水下郵筒潛水寄明信片 ➔ 帆船鼻大草原夕陽" },
-              { day: "Day 2", text: "清晨泡朝日海底溫泉看日出 ➔ 綠島純白燈塔拍照 ➔ 綠島監獄文史巡禮 ➔ 搭船返台東" }
-            ]
-          },
-          {
-            planName: "【澎湖 3天2夜】蔚藍跳島與花火慶典",
-            duration: "3 Days 2 Nights · 經典跳島",
-            days: [
-              { day: "Day 1", text: "抵達馬公 ➔ 澎湖跨海大橋 ➔ 二崁古厝喝仙人掌果汁 ➔ 觀音亭賞落日花火音樂節" },
-              { day: "Day 2", text: "南海碼頭搭遊艇 ➔ 七美雙心石滬 ➔ 大獅風景區 ➔ 望安花宅古厝聚落 ➔ 馬公海鮮大餐" },
-              { day: "Day 3", text: "奎壁山摩西分海奇景 ➔ 山水沙灘踏浪漫步 ➔ 採買黑糖糕伴手禮返航" }
-            ]
-          }
-        ],
-        bookingCta: {
-          charter: "https://www.klook.com/zh-TW/car-rentals/?aid=123436",
-          hotel: "https://affone.me/s/bQeO4?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.zh-tw.html%3Fss%3D%E6%BE%8E%E6%B9%96%26aid%3D8133101",
-          tour: "https://www.klook.com/zh-TW/activity/1328-penghu-ferry-ticket/?aid=123436"
-        },
-        spots: [
-          {
-            name: "七美雙心石滬",
-            en: "Twin Hearts Stone Weir Penghu",
-            tag: "海中浪漫印記 · 澎湖第一名景",
-            desc: "先民智慧利用玄武岩砌築的捕魚石滬，在蔚藍海水中勾勒出兩顆相印真心，吸引全球戀人朝聖打卡。",
-            img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "綠島朝日海底溫泉",
-            en: "Zhaori Marine Hot Spring",
-            tag: "世界三大罕見海底溫泉 · 泡湯看日出",
-            desc: "罕見的鹹水潮間帶岩石露天風呂。清晨浸泡在天然溫泉水中，迎接太平洋第一道璀璨日出與海風浪濤。",
-            img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "小琉球美人洞海龜共游",
-            en: "Xiao Liu Qiu Green Turtle",
-            tag: "野生綠蠵龜共游 · 珊瑚礁秘境",
-            desc: "海水清澈見底宛如玻璃，浮潛或划透明獨木舟就能與野生保育綠蠵龜同框悠游，是潛水客夢幻天堂。",
-            img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "澎湖奎壁山 摩西分海",
-            en: "Kuibishan Moses Sea Parting",
-            tag: "潮汐奇景 · 踏浪登赤嶼",
-            desc: "退潮時分海水向兩側退去，現出一條長達 300 公尺的玄武岩礫石步道，宛如聖經神蹟摩西分海再現。",
-            img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=800&auto=format&fit=crop"
-          }
-        ]
-      },
-      {
-        id: "baseball",
-        icon: "⚾",
-        name: "棒球熱潮與大巨蛋",
-        shortTitle: "棒球賽事",
-        bannerImg: "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=1600&auto=format&fit=crop",
-        title: "CPBL Baseball & Taipei Dome Fever",
-        subtitle: "走進台灣棒球應援狂潮 ‧ 啦啦隊熱區跳舞 ‧ 大巨蛋舒適觀賽",
-        deckBg: "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=700&auto=format&fit=crop",
-        experiences: [
-          { icon: "🏟️", title: "台北大巨蛋專區", desc: "4 萬人全室內冷氣空調，捷運直通，全台規格最高球場。" },
-          { icon: "💃", title: "女孩應援熱區", desc: "應援曲齊唱、啦啦隊熱區熱舞，體驗風靡全球的台式棒球激情。" },
-          { icon: "🚐", title: "外縣市看球專車", desc: "台中洲際、新莊、桃園、澄清湖球場接駁直達。" }
-        ],
-        itineraries: [
-          {
-            planName: "【大巨蛋觀賽 1日行程】",
-            duration: "1 Day · 熱血台北一日",
-            days: [
-              { day: "看球日", text: "松菸文創園區散步 ➔ 誠品 24 小時書店 ➔ 大巨蛋地下街採買台味啤酒與鹽酥雞 ➔ 熱區吶喊應援 ➔ 信義區酒吧微醺" }
-            ]
-          },
-          {
-            planName: "【2天1夜】雙城主場看球與球場朝聖",
-            duration: "2 Days 1 Night · 球迷狂熱",
-            days: [
-              { day: "Day 1", text: "台北大巨蛋午後賽事 ➔ 享受滿場應援氛圍 ➔ 宿台北潮流飯店 ➔ 通化夜市宵夜" },
-              { day: "Day 2", text: "高鐵直達台中 ➔ 審計新村文創 ➔ 傍晚進場台中洲際棒球場體驗爪迷百萬黃潮" }
-            ]
-          },
-          {
-            planName: "【3天2夜】全台熱血棒球應援壯遊",
-            duration: "3 Days 2 Nights · 鐵桿球迷",
-            days: [
-              { day: "Day 1", text: "台北大巨蛋旗艦主場巡禮 ➔ 天母或新莊球場 ➔ 台北夜景酒吧" },
-              { day: "Day 2", text: "搭乘高鐵南下台南 ➔ 參訪台南市立棒球場 ➔ 國華街吃牛肉湯 ➔ 宿台南古都老屋" },
-              { day: "Day 3", text: "高雄澄清湖棒球場 ➔ 駁二特區海景散步 ➔ 購買中職隊伍官方紀念球衣返程" }
-            ]
-          }
-        ],
-        bookingCta: {
-          charter: "https://www.klook.com/zh-TW/car-rentals/?aid=123436",
-          hotel: "https://affone.me/s/bQeO4?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.zh-tw.html%3Fss%3D%E5%A4%A7%E5%B7%A8%E8%9B%8B%26aid%3D8133101",
-          tour: "https://www.klook.com/zh-TW/activity/1659-taipei-101-observatory-ticket-taipei/?aid=123436"
-        },
-        spots: [
-          {
-            name: "台北大巨蛋 (Taipei Dome)",
-            en: "Taipei Dome Flagship Arena",
-            tag: "全新旗艦地標 · 捷運直達",
-            desc: "全新落成 4 萬席旗艦巨蛋！免受風雨影響，頂級聲光環形大螢幕，台日國際賽事與職棒大戰必訪聖地。",
-            img: "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "台中洲際棒球場",
-            en: "Taichung Intercontinental Stadium",
-            tag: "百萬爪迷黃潮 · 中信兄弟大本營",
-            desc: "全台灣熱情度最高的經典主場之一，滿場黃衫球迷揮舞旗幟、齊聲高唱應援曲，現場撼動人心。",
-            img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "松山文創園區與誠品松菸",
-            en: "Songshan Cultural Creative Park",
-            tag: "大巨蛋旁生活圈 · 24H 藝文書店",
-            desc: "緊鄰大巨蛋步行 2 分鐘，古蹟倉庫展覽、生態池咖啡廳與誠品 24 小時書店，看球前後最佳休憩站。",
-            img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "信義區高空酒吧與象山夜景",
-            en: "Xinyi District Skyline Bars",
-            tag: "球賽散場慶功 · 台北 101 首排",
-            desc: "散場後步行至信義區頂級高空酒吧，手握特調雞尾酒，與球友暢聊精彩戰況，坐擁璀璨信義夜景。",
-            img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop"
-          }
-        ]
-      },
-      {
-        id: "camping",
-        icon: "⛺",
-        name: "秘境露營野炊",
-        shortTitle: "秘境露營",
-        bannerImg: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1600&auto=format&fit=crop",
-        title: "Glamping & Wild Forest Escapes",
-        subtitle: "免裝備奢華星空帳 ‧ 阿里山雲海日出 ‧ 和牛海鮮直配營位",
-        deckBg: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop",
-        experiences: [
-          { icon: "🥩", title: "食材箱一鍵直配", desc: "頂級和牛海鮮食材箱直送營區前台，免洗免切輕鬆野炊。" },
-          { icon: "⛺", title: "免搭帳 Glamping", desc: "透明球型帳、美式露營車，冷暖氣獨立衛浴，拎包即住。" },
-          { icon: "🚐", title: "露營裝備包車接送", desc: "大空間專車接送往返山區營地，免去山路開車負擔。" }
-        ],
-        itineraries: [
-          {
-            planName: "【1日遊】免備料森林野餐與星空下午茶",
-            duration: "1 Day · 森林輕奢一日",
-            days: [
-              { day: "當日暢玩", text: "台北/台中出發 ➔ 苗栗森林步道吸多芬精 ➔ 秘境露營區下午茶野餐 ➔ 手沖咖啡與營火烤棉花糖 ➔ 滿載好心情返家" }
-            ]
-          },
-          {
-            planName: "【2天1夜】星空露營與湖畔慢活",
-            duration: "2 Days 1 Night · 杉林漫步",
-            days: [
-              { day: "Day 1", text: "南投魚池 峇嵐杉丘 ➔ 入住透明球型星空帳 ➔ 傍晚營火生鮮和牛海陸火烤兩吃 ➔ 仰望無光害銀河" },
-              { day: "Day 2", text: "晨光湖畔伸展 ➔ 日月潭遊湖搭高空纜車 ➔ 埔里紅茶手作體驗" }
-            ]
-          },
-          {
-            planName: "【3天2夜】阿里山雲海野奢 Glamping 探索",
-            duration: "3 Days 2 Nights · 雲端野營",
-            days: [
-              { day: "Day 1", text: "嘉義火車站集合 ➔ 專車上山至奮起湖老街 ➔ 入住頂級野奢營地 ➔ 享受無菜單森林晚餐" },
-              { day: "Day 2", text: "清晨在帳篷前看日出翻湧雲海 ➔ 巨木群步道健行 ➔ 傍晚營火音樂派對" },
-              { day: "Day 3", text: "高山茶園採茶製茶體驗 ➔ 品味特富野咖啡 ➔ 專車送達高鐵站" }
-            ]
-          }
-        ],
-        bookingCta: {
-          charter: "https://www.klook.com/zh-TW/car-rentals/?aid=123436",
-          hotel: "https://affone.me/s/bQeO4?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.zh-tw.html%3Fss%3D%E5%8D%97%E6%8A%95%E9%9C%B2%E7%87%9F%26aid%3D8133101",
-          tour: "https://aftck.com/track/clicks/1489/c627c2bc980522defc82ec23d62e9d47266c4cdf2aabebf50368bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1"
-        },
-        spots: [
-          {
-            name: "南投峇嵐杉丘 (Balan Hill)",
-            en: "Balan Hill Luxury Dome",
-            tag: "透明星空帳 · 一泊三食和牛火烤",
-            desc: "隱身於高聳杉林秘境，夜宿透明球型星空帳仰望璀璨繁星，全套備妥奢華燒肉食材箱。",
-            img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "苗栗橘祥豐收 美式露營車",
-            en: "Miaoli Harvest Camp Van",
-            tag: "柑橘果園 · 草皮營火晚會",
-            desc: "美式舒適露營車配備獨立衛浴與冷暖空調，微風伴隨果香，圍著營火烤棉花糖浪漫極致。",
-            img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "阿里山特富野森林營地",
-            en: "Tefuye Forest Glamping",
-            tag: "千年檜木林 · 高山雲海晨曦",
-            desc: "位於海拔千米涼爽山嶺，清晨走出帳篷就能俯瞰壯闊翻滾雲海，被濃郁芬多精徹底療癒。",
-            img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "宜蘭礁溪 那山那谷",
-            en: "Nanshan Nangu River Camp",
-            tag: "天然溪流漂流 · 泰雅部落秘境",
-            desc: "四面青山環抱的遼闊大草皮，在清涼溪水中漂流狂歡，夜晚點燃篝火數星星，親子度假首選。",
-            img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop"
-          }
-        ]
-      },
-      {
-        id: "hotspring",
-        icon: "♨️",
-        name: "名湯溫泉地圖",
-        shortTitle: "名湯溫泉",
-        bannerImg: "https://images.unsplash.com/photo-1544025162-d76694265947?w=1600&auto=format&fit=crop",
-        title: "Taiwan Hot Springs Sanctuary",
-        subtitle: "北投白磺牛奶泉 ‧ 礁溪碳酸氫鈉美人湯 ‧ 烏來溪谷秘境湯屋",
-        deckBg: "https://images.unsplash.com/photo-1544025162-d76694265947?w=700&auto=format&fit=crop",
-        experiences: [
-          { icon: "♨️", title: "頂級湯屋優惠券", desc: "北投加賀屋、麗禧、礁溪老爺溫泉票券線上即享特惠。" },
-          { icon: "🏨", title: "一泊二食早鳥比價", desc: "Booking / Trip 溫泉度假飯店即時空房查詢與會席料理。" },
-          { icon: "🚐", title: "山區溫泉包車直達", desc: "陽明山、烏來、苗栗泰安山區專車接駁，免去轉車負擔。" }
-        ],
-        itineraries: [
-          {
-            planName: "【台北北投 1日溫泉漫活】",
-            duration: "1 Day · 捷運直達白磺泉",
-            days: [
-              { day: "捷運漫遊", text: "新北投站 ➔ 北投溫泉博物館 ➔ 地熱谷白煙裊裊 ➔ 日勝生加賀屋泡獨立湯屋 ➔ 享用日式會席料理" }
-            ]
-          },
-          {
-            planName: "【2天1夜】礁溪美人湯與蘭陽美食",
-            duration: "2 Days 1 Night · 舒緩身心",
-            days: [
-              { day: "Day 1", text: "台北出發雪隧 ➔ 礁溪老爺酒店入住 ➔ 露天野天風呂放鬆 ➔ 礁溪夜市吃櫻桃鴨肉" },
-              { day: "Day 2", text: "林美石磐步道漫步 ➔ 湯圍溝公園溫泉魚泡腳 ➔ 採買奕順軒伴手禮返程" }
-            ]
-          },
-          {
-            planName: "【3天2夜】知本溫泉與東海岸山林湯屋",
-            duration: "3 Days 2 Nights · 療癒長假",
-            days: [
-              { day: "Day 1", text: "搭乘火車抵達知本 ➔ 知本老爺度假酒店辦理入住 ➔ 享受山谷露天美人湯" },
-              { day: "Day 2", text: "知本國家森林遊樂區健行 ➔ 太麻里平交道打卡 ➔ 晚上品嚐原住民風味山產" },
-              { day: "Day 3", text: "台東海濱公園騎鐵馬 ➔ 鐵花村微光市集 ➔ 買台東釋迦伴手禮返北" }
-            ]
-          }
-        ],
-        bookingCta: {
-          charter: "https://www.klook.com/zh-TW/car-rentals/?aid=123436",
-          hotel: "https://affone.me/s/bQeO4?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.zh-tw.html%3Fss%3D%E5%8C%97%E6%8A%95%26aid%3D8133101",
-          tour: "https://www.klook.com/zh-TW/activity/1874-jiufen-shifen-day-tour-taipei/?aid=123436"
-        },
-        spots: [
-          {
-            name: "北投日勝生加賀屋",
-            en: "Radium Kagaya Onsen Beitou",
-            tag: "純日式管家服務 · 白磺牛奶泉",
-            desc: "傳承日本加賀屋百年職人管家文化，白磺牛奶泉滑潤洗淨肌膚，換上花浴衣品味會席懷石美饌。",
-            img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "礁溪老爺酒店 野天風呂",
-            en: "Hotel Royal Chiaohsi Open-air Bath",
-            tag: "俯瞰蘭陽平原百萬夜景 · 美人湯",
-            desc: "坐落五峰旗山腰，無邊際溫泉風呂將蘭陽平原萬家燈火盡收眼底，碳酸氫鈉水質柔滑清透。",
-            img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "台東知本老爺 露天星空湯",
-            en: "Hotel Royal Chihpen Hot Spring",
-            tag: "東台灣第一名泉 · 峽谷原始林",
-            desc: "掩映於翠綠山巒之中，被芬多精與蟲鳴鳥叫包圍，夜晚泡湯仰望滿天星斗，身心靈徹底重啟。",
-            img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "烏來璞石麗緻 溪谷秘境湯屋",
-            en: "Wulai Pause Landis Resort",
-            tag: "緊鄰南勢溪綠水 · 泰雅原鄉",
-            desc: "臨溪而建的獨立景觀湯屋，落地窗外即是潺潺溪流與青翠山壁，碳酸泉質洗後神清氣爽。",
-            img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=800&auto=format&fit=crop"
-          }
-        ]
-      },
-      {
-        id: "nightmarket",
-        icon: "🍢",
-        name: "台灣夜市文化",
-        shortTitle: "夜市小吃",
-        bannerImg: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&auto=format&fit=crop",
-        title: "Night Markets · The Heartbeat of Taiwan",
-        subtitle: "台北 5 大必去夜市 ‧ 米其林必比登老攤巡禮 ‧ 越夜越美味",
-        deckBg: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop",
-        experiences: [
-          { icon: "🍢", title: "經典必吃對照", desc: "胡椒餅、滷肉飯、地瓜球、蚵仔煎、大餅包小餅一網打盡。" },
-          { icon: "💊", title: "大餐消化救星", desc: "保健好物消化酵素與益生菌，暴飲暴食零負擔。" },
-          { icon: "🚕", title: "深夜包車回飯店", desc: "逛到深夜 12 點免擠末班捷運，專車直達飯店門口。" }
-        ],
-        itineraries: [
-          {
-            planName: "【台北雙夜市吃透透 1 夜行程】",
-            duration: "1 Night · 老饕排隊王",
-            days: [
-              { day: "夜間暴食", text: "傍晚 17:30 寧夏夜市吃劉芋仔蛋黃芋餅與千歲宴 ➔ 20:30 轉戰士林夜市打彈珠、喝檸檬愛玉、吃豪大大雞排" }
-            ]
-          },
-          {
-            planName: "【2天1夜】北中夜市霸主接力品嚐",
-            duration: "2 Days 1 Night · 雙城巡禮",
-            days: [
-              { day: "Day 1", text: "台北饒河夜市吃福州胡椒餅、藥燉排骨 ➔ 漫步彩虹橋 ➔ 宿台北設計旅店" },
-              { day: "Day 2", text: "搭乘高鐵至台中 ➔ 逢甲夜市品嚐明倫蛋餅、一心臭豆腐、大腸包小腸 ➔ 幸福滿腹返程" }
-            ]
-          },
-          {
-            planName: "【3天2夜】全台傳奇夜市美食大環島",
-            duration: "3 Days 2 Nights · 終極吃貨",
-            days: [
-              { day: "Day 1", text: "台北寧夏夜市 ➔ 米其林必比登老店巡禮 ➔ 深夜基隆廟口三明治" },
-              { day: "Day 2", text: "台南花園夜市大旗飄揚 ➔ 炭烤雞排、二師兄滷味、現打木瓜牛奶 ➔ 宿台南古城" },
-              { day: "Day 3", text: "高雄六合夜市品嚐海產粥 ➔ 駁二散步消食 ➔ 滿載美食回憶返家" }
-            ]
-          }
-        ],
-        bookingCta: {
-          charter: "https://www.klook.com/zh-TW/car-rentals/?aid=123436",
-          hotel: "https://affone.me/s/bQeO4?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.zh-tw.html%3Fss%3D%E5%AF%A7%E5%A4%8F%26aid%3D8133101",
-          tour: "https://afftkr.site/track/clicks/2498/c627c2bc900729d8fd9cab248d219d46266e5b9633e0e4f00e68a44125095ff88635aca3163d8e?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82"
-        },
-        spots: [
-          {
-            name: "士林觀光夜市",
-            en: "Shilin Night Market Flagship",
-            tag: "全台知名度第一 · 巨無霸雞排",
-            desc: "上百家美食名攤雲集，大餅包小餅、生煎包、炸鮮奶、辛發亭雪花冰與排隊老字號豪大大雞排人氣爆棚。",
-            img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "寧夏夜市 (必比登搖籃)",
-            en: "Ningxia Night Market",
-            tag: "米其林密度最高 · 在地老味道",
-            desc: "短短一條街聚集 5 家必比登推薦名攤，劉芋仔蛋黃肉鬆芋餅香脆爆漿，千歲宴集結百年台菜精華。",
-            img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "饒河街觀光夜市",
-            en: "Raohe Street Night Market",
-            tag: "福州世祖胡椒餅 · 彩虹橋夜景",
-            desc: "壯觀牌樓迎賓，剛出爐的炭烤胡椒餅肉汁滾燙香氣撲鼻，吃飽後順道漫步彩虹橋吹基隆河晚風。",
-            img: "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "台南花園夜市",
-            en: "Tainan Flower Night Market",
-            tag: "南台灣最大 · 萬面旗幟飄揚",
-            desc: "台南代表性流動夜市，繽紛旗幟形成壯觀旗海，二師兄現滷麻油三杯、現烤厚切牛排與麻辣鴨血香氣四溢。",
-            img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop"
-          }
-        ]
-      },
-      {
-        id: "railway",
-        icon: "🚂",
-        name: "經典鐵道巡禮",
-        shortTitle: "經典鐵道",
-        bannerImg: "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=1600&auto=format&fit=crop",
-        title: "Railway Journeys · Heritage Across Mountains & Seas",
-        subtitle: "阿里山登山小火車 ‧ 復古藍皮解憂號 ‧ 平溪深澳山海支線",
-        deckBg: "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=700&auto=format&fit=crop",
-        experiences: [
-          { icon: "🚅", title: "高鐵外籍 85 折聯票", desc: "Klook 台灣高鐵外國人專用周遊券，南北 90 分鐘直達生活圈。" },
-          { icon: "🚂", title: "阿里山蒸汽林鐵", desc: "搭乘世遺等級登山小火車穿梭古老神木群與祝山金色日出。" },
-          { icon: "🚲", title: "深澳鐵道自行車", desc: "踩著可愛河豚自行車穿過七彩光雕隧道，俯瞰太平洋壯麗海景。" }
-        ],
-        itineraries: [
-          {
-            planName: "【平溪深澳 1日海線鐵道自行車】",
-            duration: "1 Day · 浪漫山海支線",
-            days: [
-              { day: "一日慢遊", text: "八斗子火車站出發（全台離海最近月台）➔ 騎乘深澳鐵道自行車 ➔ 菁桐木造老車站 ➔ 平溪放天燈 ➔ 暖暖老街嚐小吃" }
-            ]
-          },
-          {
-            planName: "【阿里山鐵道 2天1夜】",
-            duration: "2 Days 1 Night · 世紀林鐵傳奇",
-            days: [
-              { day: "Day 1", text: "嘉義火車站搭阿里山林鐵 ➔ 奮起湖老街吃現做鐵路便當 ➔ 阿里山森林園區姊妹潭 ➔ 夜宿阿里山賓館" },
-              { day: "Day 2", text: "清晨搭祝山線小火車賞日出雲海 ➔ 水山巨木步道健行 ➔ 嘉義市區品嚐火雞肉飯返程" }
-            ]
-          },
-          {
-            planName: "【3天2夜】南迴藍皮解憂號與東線慢火車",
-            duration: "3 Days 2 Nights · 復古懷舊壯遊",
-            days: [
-              { day: "Day 1", text: "枋寮車站搭乘無冷氣復古「藍皮解憂號」➔ 吹太平洋海風穿過太麻里隧道 ➔ 抵達台東市區夜宿" },
-              { day: "Day 2", text: "台東搭普悠瑪號至花蓮 ➔ 探訪山里車站、東里火車站最美月台 ➔ 宿花蓮海景飯店" },
-              { day: "Day 3", text: "花蓮鐵道文化園區散步 ➔ 宜蘭丟丟噹森林幾米公園 ➔ 平安返程" }
-            ]
-          }
-        ],
-        bookingCta: {
-          charter: "https://www.klook.com/zh-TW/car-rentals/?aid=123436",
-          hotel: "https://affone.me/s/bQeO4?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.zh-tw.html%3Fss%3D%E9%98%BF%E9%87%8C%E5%B1%B1%26aid%3D8133101",
-          tour: "https://www.klook.com/zh-TW/activity/1684-alishan-day-tour-chiayi/?aid=123436"
-        },
-        spots: [
-          {
-            name: "阿里山森林鐵路 祝山線",
-            en: "Alishan Forest Railway Sunrise Line",
-            tag: "百年登山火車 · 雲海曙光奇蹟",
-            desc: "世界三大登山鐵路之一，清晨載著各國旅人登上祝山觀景台迎接金色曙光，沿途穿越千公尺高落差巨木群。",
-            img: "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "深澳鐵道自行車 (八斗子)",
-            en: "Shen'ao Rail Bike Coastline",
-            tag: "全台離海最近月台 · 海岸河豚車",
-            desc: "騎乘可愛造型河豚自行車穿梭光雕隧道，沿著北海岸蜿蜒海崖欣賞壯麗太平洋浪濤，微風拂面無比愜意。",
-            img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "南迴鐵路 藍皮解憂號",
-            en: "Breezy Blue Heritage Train",
-            tag: "復古綠皮旋轉風扇 · 開窗迎海風",
-            desc: "全台唯一可手動開窗的復古客車，慢速行駛於南迴山海間，復古吊扇、綠色皮椅，重溫台灣早期鐵道記憶。",
-            img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop"
-          },
-          {
-            name: "平溪支線 菁桐木造車站",
-            en: "Jingtong Wooden Railway Station",
-            tag: "百年日式木造古蹟 · 鐵道祈福竹筒",
-            desc: "平溪支線終點站，完好保留日治時期純木造黑瓦建築，鐵軌兩旁掛滿祈福竹筒，古色古香靜謐悠揚。",
-            img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop"
-          }
-        ]
-      }
-    ];
-
     let currentThemeIndex = 0; // 當前選中主題索引 (0 ~ 7)
     let currentPlanIndex = 0;  // 當前選中行程天數索引 (0: 1日遊, 1: 2天1夜, 2: 3天2夜)
 
@@ -827,6 +212,7 @@
       updateDeckPositions();
       renderAllPills();
       renderThemeMainContent(currentThemeIndex, 0);
+      updateThemeBackground(THEMES_COMPLETE_DATA[currentThemeIndex].id);
 
       // 監聽視窗縮放更新座標
       window.addEventListener("resize", debounce(() => {
@@ -952,16 +338,15 @@
         }
       });
 
-      // 更新下方指示條
-      const counter = document.getElementById("deck-counter-indicator");
-      if (counter) {
+      // 更新下方純文字標題展演（中文在上、英文在下，無邊框純文字）
+      const titleDisplay = document.getElementById("deck-theme-title-display");
+      if (titleDisplay) {
         const curTheme = THEMES_COMPLETE_DATA[currentThemeIndex];
-        const numStr = (currentThemeIndex + 1) < 10 ? `0${currentThemeIndex + 1}` : `${currentThemeIndex + 1}`;
-        counter.innerHTML = `
-          <span class="counter-num">${numStr}</span>
-          <span class="counter-slash">/</span>
-          <span class="counter-total">08</span>
-          <span class="counter-theme-title">${curTheme.icon} ${curTheme.name}</span>
+        const isSports = (curTheme.id === "baseball");
+        titleDisplay.className = `deck-typography-display ${isSports ? 'theme-sports-active' : ''}`;
+        titleDisplay.innerHTML = `
+          <div class="deck-display-zh">${curTheme.zhTitle}</div>
+          <div class="deck-display-en">${curTheme.enTitle}</div>
         `;
       }
     }
@@ -978,6 +363,7 @@
 
       const theme = THEMES_COMPLETE_DATA[currentThemeIndex];
       renderThemeMainContent(currentThemeIndex, 0);
+      updateThemeBackground(theme.id);
 
       window.history.pushState({}, '', `?theme=${theme.id}`);
     }
@@ -1001,9 +387,10 @@
 
       pillsContainer.innerHTML = THEMES_COMPLETE_DATA.map((t, idx) => {
         const active = idx === currentThemeIndex;
+        const isSports = (t.id === "baseball");
         return `
           <button type="button" 
-                  class="subtheme-tab-btn ${active ? 'active' : ''}" 
+                  class="subtheme-tab-btn ${active ? 'active' : ''} ${active && isSports ? 'sports-active' : ''}" 
                   onclick="selectThemeByIndex(${idx})"
                   style="cursor: pointer;">
             ${t.icon} ${t.shortTitle}
@@ -1018,7 +405,7 @@
       renderThemeMainContent(currentThemeIndex, planIdx);
     }
 
-    // 渲染主題主內容（左側行程安排 ＋ 右側 REELS 短影音風格卡牌）
+    // 渲染主題主內容（左側行程安排 ＋ 右側景點卡牌）
     function renderThemeMainContent(themeIdx, planIdx = 0) {
       const theme = THEMES_COMPLETE_DATA[themeIdx];
       if (!theme) return;
@@ -1026,7 +413,11 @@
       const display = document.getElementById("theme-main-display");
       if (!display) return;
 
+      // 體育賽事切換專屬黑橘風格 (Sports Mode)
+      display.className = (theme.id === "baseball") ? "theme-sports-mode" : "";
+
       const activePlan = theme.itineraries[planIdx] || theme.itineraries[0];
+      const shortTabNames = ["一日遊", "二日遊", "三日遊", "四日遊"];
 
       display.innerHTML = `
         <!-- 頂部主題視覺大橫幅 (Hero Banner) -->
@@ -1056,34 +447,39 @@
           </div>
         </div>
 
-        <!-- 下方雙欄區塊：左側行程規劃 ＋ 右側 REELS 短影音風格景點卡 -->
+        <!-- 下方雙欄區塊：左側行程規劃 ＋ 右側景點推薦卡 -->
         <div class="theme-split-layout">
           
           <!-- 左側欄：一日遊、二日遊、三日遊行程動線規劃 -->
           <div>
             <div class="itinerary-planner-box">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <div style="font-size: 18px; font-weight: 900; color: #0F172A; display: flex; align-items: center; gap: 8px;">
+                <div style="font-size: 18px; font-weight: 900; color: #0F172A; display: flex; align-items: center; gap: 8px;" class="itinerary-planner-title">
                   <span>📅</span>
                   <span>行程路線規劃</span>
                 </div>
-                <span style="font-size: 11px; font-weight: 700; color: #0284C7; background: #F0F9FF; padding: 3px 8px; border-radius: 6px;">
+                <span style="font-size: 11px; font-weight: 700; color: #0284C7; background: #F0F9FF; padding: 3px 8px; border-radius: 6px;" class="itinerary-duration-badge">
                   ${activePlan.duration || '建議行程'}
                 </span>
               </div>
               <p style="font-size: 12px; color: #64748B; margin-bottom: 16px;">
-                點選下方分段標籤即可切換 1 日至 3 日專屬動線安排：
+                點選下方分段標籤即可切換一日至三日專屬動線：
               </p>
 
-              <!-- 一日遊／二日遊／三日遊 分段切換選單 (Segmented Tabs) -->
+              <!-- 一日遊／二日遊／三日遊 簡短按鈕 -->
               <div class="itinerary-segmented-tabs">
                 ${theme.itineraries.map((plan, pIdx) => `
                   <button type="button" 
                           class="itinerary-tab-btn ${pIdx === planIdx ? 'active' : ''}" 
                           onclick="switchPlan(${pIdx})">
-                    ${plan.planName.replace(/【|】/g, '')}
+                    ${shortTabNames[pIdx] || `第 ${pIdx + 1} 方案`}
                   </button>
                 `).join('')}
+              </div>
+
+              <!-- 當前方案名稱 -->
+              <div style="font-size: 14.5px; font-weight: 800; color: #0284C7; margin-bottom: 12px;" class="itinerary-active-planname">
+                ${activePlan.planName}
               </div>
 
               <!-- 當前選定行程方案的時間線 (Timeline Node) -->
@@ -1128,19 +524,13 @@
             </div>
           </div>
 
-          <!-- 右側欄：景點推薦小卡牌（REELS 短影音排版風格） -->
+          <!-- 右側欄：景點推薦（去除贅字、乾淨俐落） -->
           <div>
-            <div class="reels-section-header">
-              <div class="reels-section-title">
-                <span>🎬</span>
-                <span>必訪景點推薦 · REELS 視角</span>
-              </div>
-              <span class="reels-count-badge">
-                ${theme.spots.length} 個精選打卡地標
-              </span>
+            <div class="reels-section-header" style="margin-bottom: 14px;">
+              <h3 class="reels-section-title" style="font-size: 20px; font-weight: 800; margin: 0;">景點推薦</h3>
             </div>
 
-            <!-- REELS 景點卡片網格 (2 欄現代瀑布流短影音牌板) -->
+            <!-- 景點卡片網格 -->
             <div class="reels-cards-grid">
               ${theme.spots.map(spot => `
                 <div class="reels-card">
@@ -1161,24 +551,36 @@
                     </button>
                   </div>
 
-                  <!-- 底部毛玻璃內容盒 -->
+                  <!-- 底部內容 -->
                   <div class="reels-card-bottom">
                     <div class="reels-spot-title">${spot.name}</div>
                     <div class="reels-spot-en">${spot.en}</div>
                     <div class="reels-spot-desc">${spot.desc}</div>
                     
-                    <div class="reels-card-actions">
+                    <!-- 景點小卡牌淡雅三按鈕（包車、地圖、行程一排，不搶主視覺） -->
+                    <div class="reels-card-actions-row">
+                      <a href="${theme.bookingCta.charter}" 
+                         target="_blank" 
+                         rel="noopener noreferrer" 
+                         class="reels-soft-btn">
+                        🚗 包車
+                      </a>
                       <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}" 
                          target="_blank" 
                          rel="noopener noreferrer" 
-                         class="reels-btn-action btn-outline">
-                        🗺️ 地圖導航
+                         class="reels-soft-btn">
+                        🗺️ 地圖
                       </a>
                       <a href="${theme.bookingCta.tour}" 
                          target="_blank" 
                          rel="noopener noreferrer" 
-                         class="reels-btn-action btn-fill">
-                        🎟️ 預約行程
+                         class="reels-soft-btn">
+                        🎟️ 行程
+                      </a>
+                    </div>
+                    <div class="reels-card-hotel-link">
+                      <a href="${theme.bookingCta.hotel}" target="_blank" rel="noopener noreferrer">
+                        🏨 找周邊飯店 ➔
                       </a>
                     </div>
                   </div>
@@ -1240,6 +642,97 @@
           }
         }
       }, { passive: true });
+    }
+
+    // 動態切換精選主題場景背景與專屬動畫粒子 (Dynamic Ambient Background & Particles)
+    function updateThemeBackground(themeId) {
+      document.body.className = `bg-theme-${themeId} ${themeId === 'baseball' ? 'body-sports-mode' : ''}`;
+      const container = document.getElementById("theme-dynamic-particles");
+      if (!container) return;
+
+      if (themeId === "islands") {
+        // 離島跳島：水裡游泳氣泡動畫 (Underwater bubbles)
+        let bubblesHTML = "";
+        for (let i = 0; i < 16; i++) {
+          const left = Math.random() * 96 + 2;
+          const size = Math.floor(Math.random() * 26) + 14;
+          const dur = (Math.random() * 4 + 6).toFixed(1);
+          const delay = (Math.random() * 6).toFixed(1);
+          bubblesHTML += `<div class="bubble-particle" style="left: ${left}%; width: ${size}px; height: ${size}px; animation-duration: ${dur}s; animation-delay: ${delay}s;"></div>`;
+        }
+        container.innerHTML = bubblesHTML;
+      } else if (themeId === "hualien") {
+        // 花東縱谷：山溪瀑布水流落下 (Cascading streams)
+        let streamsHTML = "";
+        for (let i = 0; i < 14; i++) {
+          const left = Math.random() * 96 + 2;
+          const h = Math.floor(Math.random() * 70) + 90;
+          const dur = (Math.random() * 1.5 + 2.5).toFixed(1);
+          const delay = (Math.random() * 4).toFixed(1);
+          streamsHTML += `<div class="water-stream-line" style="left: ${left}%; height: ${h}px; animation-duration: ${dur}s; animation-delay: ${delay}s;"></div>`;
+        }
+        container.innerHTML = streamsHTML;
+      } else if (themeId === "northcoast") {
+        // 北海岸：海浪湧動 (Rolling Ocean Waves)
+        container.innerHTML = `
+          <div class="ocean-wave-layer"></div>
+          <div class="ocean-wave-layer-2"></div>
+        `;
+      } else if (themeId === "baseball") {
+        // 運動賽事：極速球場光束 (Electric Orange Speed Streaks)
+        let speedHTML = "";
+        for (let i = 0; i < 14; i++) {
+          const left = Math.random() * 90 + 5;
+          const h = Math.floor(Math.random() * 60) + 100;
+          const dur = (Math.random() * 0.8 + 1.2).toFixed(1);
+          const delay = (Math.random() * 2.5).toFixed(1);
+          speedHTML += `<div class="sports-speed-particle" style="left: ${left}%; height: ${h}px; animation-duration: ${dur}s; animation-delay: ${delay}s;"></div>`;
+        }
+        container.innerHTML = speedHTML;
+      } else if (themeId === "camping") {
+        // 秘境露營：螢火蟲 (Fireflies)
+        let fireflyHTML = "";
+        for (let i = 0; i < 12; i++) {
+          const left = Math.random() * 90 + 5;
+          const top = Math.random() * 70 + 15;
+          const dur = (Math.random() * 3 + 4).toFixed(1);
+          const delay = (Math.random() * 3).toFixed(1);
+          fireflyHTML += `<div class="firefly-particle" style="left: ${left}%; top: ${top}%; animation-duration: ${dur}s; animation-delay: ${delay}s;"></div>`;
+        }
+        container.innerHTML = fireflyHTML;
+      } else if (themeId === "hotspring") {
+        // 名湯溫泉：白煙溫泉霧氣 (Thermal steam)
+        let steamHTML = "";
+        for (let i = 0; i < 8; i++) {
+          const left = Math.random() * 85 + 5;
+          const dur = (Math.random() * 3 + 6).toFixed(1);
+          const delay = (Math.random() * 4).toFixed(1);
+          steamHTML += `<div class="steam-puff" style="left: ${left}%; animation-duration: ${dur}s; animation-delay: ${delay}s;"></div>`;
+        }
+        container.innerHTML = steamHTML;
+      } else if (themeId === "nightmarket") {
+        // 夜市小吃：暖光燈籠光暈 (Lantern bokeh)
+        let bokehHTML = "";
+        for (let i = 0; i < 10; i++) {
+          const left = Math.random() * 90 + 5;
+          const top = Math.random() * 80 + 10;
+          const dur = (Math.random() * 4 + 6).toFixed(1);
+          const delay = (Math.random() * 3).toFixed(1);
+          bokehHTML += `<div class="lantern-bokeh" style="left: ${left}%; top: ${top}%; animation-duration: ${dur}s; animation-delay: ${delay}s;"></div>`;
+        }
+        container.innerHTML = bokehHTML;
+      } else if (themeId === "railway") {
+        // 經典鐵道：山巒山嵐晨霧 (Forest mist)
+        let mistHTML = "";
+        for (let i = 0; i < 5; i++) {
+          const left = Math.random() * 80 + 5;
+          const top = Math.random() * 70 + 15;
+          const dur = (Math.random() * 6 + 12).toFixed(1);
+          const delay = (Math.random() * 5).toFixed(1);
+          mistHTML += `<div class="forest-mist" style="left: ${left}%; top: ${top}%; animation-duration: ${dur}s; animation-delay: ${delay}s;"></div>`;
+        }
+        container.innerHTML = mistHTML;
+      }
     }
 
     // 防抖輔助函數
