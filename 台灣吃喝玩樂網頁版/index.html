@@ -82,51 +82,51 @@
   </header>
 
   <!-- =========================================================
-       ✨ 2. 全寬英雄首頁視覺 (Hero Stage & Glassmorphic Search Hub)
+       ✨ 2. 全寬英雄首頁視覺 (Hero Stage & Overhanging White Search Hub)
        ========================================================= -->
   <section id="hero" class="hero-stage-section">
-    <div class="hero-bg-cover" style="background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.65) 100%), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1920&auto=format&fit=crop');">
+    <div class="hero-bg-cover" style="background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.40) 0%, rgba(15, 23, 42, 0.60) 100%), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1920&auto=format&fit=crop');">
       <div class="container hero-content-center">
-        <!-- 核心標語 -->
+        <!-- 核心標語 (底圖上方區域) -->
         <div class="hero-headline-wrap">
           <span class="hero-sub-pill">🇹🇼 TAIWAN OFFICIAL TRAVEL HUB</span>
-          <h1 class="hero-main-title">遇見最美的台灣，航向自由與探索</h1>
+          <h1 class="hero-main-title">Explore Taiwan and enjoy its beauty</h1>
           <p class="hero-main-subtitle">
-            國際旅人首選 · 涵蓋 101 高空天際線、山城九份、太魯閣峽谷、米其林美饌與全台特色咖啡散策
+            遇見最美的台灣 ‧ 國際旅人首選指南 ‧ 涵蓋 101 高空天際線、山城九份、太魯閣峽谷、米其林美饌與全台特色咖啡散策
           </p>
         </div>
 
-        <!-- 白色透明玻璃擬態搜尋中樞 (Glassmorphic Hero Hub) -->
+        <!-- 覆蓋的白色區塊：超出底圖邊界 (Overhanging White Card) -->
         <div class="hero-glass-container">
-          <!-- 1. 主搜尋列 -->
-          <div class="hero-search-input-row">
-            <span style="font-size: 20px; color: var(--text-muted); flex-shrink: 0;">🔍</span>
-            <input type="text" id="hero-main-search" class="hero-search-input" placeholder="搜尋台灣景點、城市、美食或主題（如：台北 101、九份、咖啡廳、溫泉）...">
-            <button id="hero-search-btn" class="hero-search-submit-btn">
-              探索台灣
-            </button>
+          <!-- 1. 頂部服務快捷 Tab 標籤列 (參考圖第一列風格) -->
+          <div class="hero-service-tabs-row">
+            <a href="https://tw.trip.com/flights/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275" target="_blank" rel="noopener noreferrer" class="hero-service-tab active">
+              ✈️ 搜機票 Flights
+            </a>
+            <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
+              🚗 預約包車 Private Charter
+            </a>
+            <a href="https://www.klook.com/zh-TW/airport-transfers/?aid=123436" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
+              🚐 機場接送 Airport Transfer
+            </a>
+            <a href="https://www.simoptions.com/zh/" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
+              📶 台灣網卡 eSIM
+            </a>
+            <a href="#rankings" class="hero-service-tab">
+              🏆 熱門榜單 Rankings
+            </a>
+            <a href="https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
+              🛍️ 伴手禮直送 Souvenirs
+            </a>
           </div>
 
-          <!-- 2. 服務快捷散搜尋按鈕區 (機票、包車、接送、網卡、排行榜、伴手禮) -->
-          <div class="hero-service-pills-row">
-            <a href="https://tw.trip.com/flights/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275" target="_blank" rel="noopener noreferrer" class="hero-service-pill">
-              ✈️ 搜機票
-            </a>
-            <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" rel="noopener noreferrer" class="hero-service-pill">
-              🚗 預約包車
-            </a>
-            <a href="https://www.klook.com/zh-TW/airport-transfers/?aid=123436" target="_blank" rel="noopener noreferrer" class="hero-service-pill">
-              🚐 機場接送
-            </a>
-            <a href="https://www.simoptions.com/zh/" target="_blank" rel="noopener noreferrer" class="hero-service-pill">
-              📶 台灣網卡
-            </a>
-            <a href="#rankings" class="hero-service-pill">
-              🏆 熱門榜單
-            </a>
-            <a href="https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" target="_blank" rel="noopener noreferrer" class="hero-service-pill">
-              🛍️ 伴手禮直送
-            </a>
+          <!-- 2. 中間主搜尋輸入列 -->
+          <div class="hero-search-input-row">
+            <span style="font-size: 20px; color: var(--text-muted); flex-shrink: 0;">🔍</span>
+            <input type="text" id="hero-main-search" class="hero-search-input" placeholder="搜尋全台熱門景點、城市、美食或主題（如：台北 101、九份、咖啡廳、溫泉）...">
+            <button id="hero-search-btn" class="hero-search-submit-btn">
+              探索台灣 Search
+            </button>
           </div>
 
           <!-- 3. 下方兩個小專欄按鈕區塊 (Featured Column Pills) -->

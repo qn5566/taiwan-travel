@@ -1488,7 +1488,7 @@ a {
 
 /* Section 1: Trending Top 6 (圖四風格) */
 .trending-section {
-  padding: 60px 0 70px 0;
+  padding: 160px 0 70px 0; /* 留足舒適空間給上方懸掛超出邊界的白色搜尋區塊 */
   background: #FCFDFE;
   position: relative;
 }
@@ -1732,19 +1732,133 @@ a {
 
 
 /* =========================================================
-   🌐 12. 白色透明玻璃擬態搜尋樞紐 (Glassmorphic Hero Hub)
+   🌐 12. 白色覆蓋搜尋樞紐：超出底圖邊界 (Overhanging Hero Hub)
    ========================================================= */
-.hero-glass-container {
-  max-width: 980px;
+.hero-stage-section {
+  position: relative;
+  background: var(--bg-page);
+  overflow: visible;
+  padding: 0;
+}
+
+.hero-bg-cover {
+  width: 100%;
+  min-height: 480px;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 0 0 40px 40px; /* 底圖下方優雅大圓角，如參考圖 */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 60px 0 0 0;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12);
+}
+
+.hero-content-center {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.hero-headline-wrap {
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+  padding: 0 20px;
+}
+
+.hero-sub-pill {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+  padding: 6px 16px;
+  border-radius: 9999px;
+  color: #FFFFFF;
+  margin-bottom: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.hero-main-title {
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+  margin-bottom: 12px;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.35);
+}
+
+.hero-main-subtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 700px;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.90);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1.5px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
-  border-radius: 28px;
-  padding: 28px 36px;
+  line-height: 1.6;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* 覆蓋的白色區塊：超出底圖的邊界 (Overhanging Hero Card) */
+.hero-glass-container {
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  background: #FFFFFF; /* 純白高質感卡片，仿參考圖 */
+  border: 1.5px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+  border-radius: 26px;
+  padding: 24px 34px;
   text-align: left;
+  position: relative;
+  z-index: 30;
+  /* 關鍵效果：負 margin-bottom 使白色區塊突出懸掛於底圖外緣 */
+  margin-bottom: -110px;
+}
+
+/* 頂部服務快捷 Tab 標籤列 (參考圖第一列風格) */
+.hero-service-tabs-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  border-bottom: 1.5px solid #F1F5F9;
+  padding-bottom: 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.hero-service-tabs-row::-webkit-scrollbar {
+  display: none;
+}
+
+.hero-service-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.hero-service-tab:hover {
+  color: var(--cyan-deep);
+  background: var(--cyan-light);
+}
+
+.hero-service-tab.active {
+  color: var(--cyan-deep);
+  background: var(--cyan-ice);
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.12);
 }
 
 /* 主搜尋輸入列 */
@@ -1752,7 +1866,7 @@ a {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: #FFFFFF;
+  background: #F8FAFC;
   border: 1.5px solid var(--border-color);
   border-radius: 18px;
   padding: 6px 8px 6px 18px;
@@ -1761,6 +1875,7 @@ a {
 }
 
 .hero-search-input-row:focus-within {
+  background: #FFFFFF;
   border-color: var(--cyan-primary);
   box-shadow: 0 0 0 4px var(--cyan-glow);
 }
@@ -1768,6 +1883,7 @@ a {
 .hero-search-input {
   flex: 1;
   border: none;
+  background: transparent;
   outline: none;
   font-size: 16px;
   font-family: inherit;
@@ -2435,6 +2551,24 @@ a {
   }
   .pill-capsule-row {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-main-title {
+    font-size: 30px;
+  }
+  .hero-bg-cover {
+    min-height: 420px;
+    padding-top: 40px;
+    border-radius: 0 0 28px 28px;
+  }
+  .hero-glass-container {
+    padding: 18px 16px;
+    margin-bottom: -100px;
+  }
+  .trending-section {
+    padding: 135px 0 50px 0;
   }
 }
 
