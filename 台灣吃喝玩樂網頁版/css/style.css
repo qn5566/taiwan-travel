@@ -3374,13 +3374,13 @@ body {
    ========================================================= */
 .deck-fan-wrapper {
   position: relative;
-  max-width: 1040px;
+  max-width: 1060px;
   margin: 15px auto 25px auto;
   padding: 45px 20px 35px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 450px;
+  min-height: 480px;
   perspective: 1200px;
   user-select: none;
   background: radial-gradient(ellipse at 50% 60%, rgba(186, 230, 253, 0.35) 0%, rgba(240, 249, 255, 0) 70%);
@@ -3392,8 +3392,8 @@ body {
   justify-content: center;
   position: relative;
   width: 100%;
-  max-width: 900px;
-  height: 360px;
+  max-width: 960px;
+  height: 380px;
 }
 
 /* 左右切換浮動按鈕 (Glass Floating Nav Buttons) */
@@ -3436,22 +3436,22 @@ body {
   right: 6px;
 }
 
-/* 扇形卡牌個體 (Persistent 3D Arc Card) */
+/* 扇形卡牌個體 (Persistent 3D Arc Card - 整個攤開偶對稱展演) */
 .fan-card-item {
   position: absolute;
-  width: 200px;
-  height: 285px;
-  border-radius: 22px;
+  width: 190px;
+  height: 275px;
+  border-radius: 20px;
   background: #FFFFFF;
   box-shadow: 0 14px 32px -8px rgba(15, 23, 42, 0.16), 0 2px 8px rgba(0, 0, 0, 0.04);
   cursor: pointer;
   transform-origin: center bottom;
   overflow: hidden;
   border: 2px solid rgba(255, 255, 255, 0.95);
-  transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1), 
+  transition: transform 0.65s cubic-bezier(0.2, 0.9, 0.3, 1), 
               box-shadow 0.4s ease, 
               border-color 0.35s ease, 
-              opacity 0.4s ease;
+              opacity 0.45s ease;
   user-select: none;
   backface-visibility: hidden;
   will-change: transform;
@@ -3561,10 +3561,20 @@ body {
   gap: 4px;
 }
 
-/* 選中狀態 (Drawn State - No Horizontal Jump!) */
+/* 選中狀態 (Drawn State - 向上抽起置頂，完美立體感) */
 .fan-card-item.drawn {
   border-color: #0284C7;
-  box-shadow: 0 22px 50px -10px rgba(2, 132, 199, 0.45), 0 0 24px rgba(56, 189, 248, 0.55);
+  box-shadow: 0 24px 55px -10px rgba(2, 132, 199, 0.5), 0 0 28px rgba(56, 189, 248, 0.65);
+}
+
+body.body-sports-mode .fan-card-item.drawn {
+  border-color: #F97316 !important;
+  box-shadow: 0 24px 55px -10px rgba(249, 115, 22, 0.6), 0 0 28px rgba(249, 115, 22, 0.75) !important;
+}
+
+body.body-sports-mode .fan-card-item.drawn .fan-card-active-tag {
+  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%) !important;
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.45) !important;
 }
 
 /* 純文字標題展演區（中文在上、英文在下，無邊框無背景，加大上下呼吸空間避免壓到卡片） */
@@ -4386,17 +4396,56 @@ body.body-sports-mode .deck-display-en {
   transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .deck-fan-wrapper {
-    min-height: 360px;
-    padding-top: 20px;
+    min-height: 440px;
+    padding: 35px 10px 25px 10px;
   }
   .deck-fan-stage {
-    height: 300px;
+    height: 350px;
+    max-width: 820px;
   }
   .fan-card-item {
-    width: 165px;
-    height: 240px;
+    width: 168px;
+    height: 245px;
+  }
+}
+
+@media (max-width: 640px) {
+  .deck-fan-wrapper {
+    min-height: 350px;
+    padding: 25px 6px 20px 6px;
+  }
+  .deck-fan-stage {
+    height: 290px;
+    max-width: 100%;
+  }
+  .fan-card-item {
+    width: 140px;
+    height: 205px;
+    border-radius: 16px;
+  }
+  .fan-card-inner {
+    padding: 10px;
+  }
+  .fan-card-pill {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+  .fan-card-active-tag {
+    font-size: 8px;
+    padding: 2px 5px;
+  }
+  .fan-card-category {
+    font-size: 7.5px;
+    letter-spacing: 1px;
+  }
+  .fan-card-title {
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+  .fan-card-action {
+    font-size: 9px;
   }
 }
 

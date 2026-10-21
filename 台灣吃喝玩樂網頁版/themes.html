@@ -209,7 +209,28 @@
       }
 
       buildDeckDOM();
-      updateDeckPositions();
+      
+      // 一進入頁面即執行開場「整個攤開」偶對稱展開動畫
+      requestAnimationFrame(() => {
+        THEMES_COMPLETE_DATA.forEach((_, idx) => {
+          const card = document.getElementById(`fan-card-${idx}`);
+          if (card) {
+            card.style.transitionDelay = `${idx * 0.045}s`;
+          }
+        });
+        updateDeckPositions();
+        
+        // 攤開完成後清除 delay，使後續手動點選即時響應無延遲
+        setTimeout(() => {
+          THEMES_COMPLETE_DATA.forEach((_, idx) => {
+            const card = document.getElementById(`fan-card-${idx}`);
+            if (card) {
+              card.style.transitionDelay = "";
+            }
+          });
+        }, 700);
+      });
+
       renderAllPills();
       renderThemeMainContent(currentThemeIndex, 0);
       updateThemeBackground(THEMES_COMPLETE_DATA[currentThemeIndex].id);
@@ -232,7 +253,7 @@
       if (!stage) return;
 
       stage.innerHTML = THEMES_COMPLETE_DATA.map((t, idx) => `
-        <div class="fan-card-item" id="fan-card-${idx}" onclick="selectThemeByIndex(${idx})">
+        <div class="fan-card-item" id="fan-card-${idx}" onclick="selectThemeByIndex(${idx})" style="opacity: 0; transform: translate3d(0, 50px, 0) scale(0.85) rotate(0deg);">
           <div class="fan-card-inner">
             <img src="${t.deckBg}" alt="${t.name}" class="fan-card-bg-img" loading="lazy">
             <div class="fan-card-overlay"></div>
@@ -240,7 +261,7 @@
             <!-- 頂部膠囊標籤 (如同 Wixel/Alba 範例圖) -->
             <div class="fan-card-top-row">
               <span class="fan-card-pill">${t.icon} ${t.shortTitle}</span>
-              <span class="fan-card-active-tag">✨ 探索中</span>
+              <span class="fan-card-active-tag">✨ 當前主題</span>
             </div>
 
             <!-- 底部資訊面版 -->
@@ -253,19 +274,20 @@
         </div>
       `).join('');
 
-      // 為每張卡片綁定優雅 Hover，保持原本角度與 X 位置向上微浮，絕不跑位亂跳！
+      // 為每張卡片綁定優雅 Hover，保持原本軸線微浮，絕不跑位亂跳！
       THEMES_COMPLETE_DATA.forEach((_, idx) => {
         const card = document.getElementById(`fan-card-${idx}`);
         if (!card) return;
 
         card.addEventListener('mouseenter', () => {
           if (card.dataset.tx === undefined) return;
+          const isDrawn = card.dataset.isDrawn === "true";
           const tx = parseFloat(card.dataset.tx);
-          const ty = parseFloat(card.dataset.ty) - 15;
+          const ty = parseFloat(card.dataset.ty) - (isDrawn ? 10 : 22);
           const rot = parseFloat(card.dataset.rot);
-          const scale = parseFloat(card.dataset.scale) * 1.03;
+          const scale = parseFloat(card.dataset.scale) * (isDrawn ? 1.02 : 1.04);
           card.style.transform = `translate3d(${tx}px, ${ty}px, 0) rotate(${rot}deg) scale(${scale})`;
-          card.style.zIndex = 70;
+          card.style.zIndex = isDrawn ? 85 : 75;
         });
 
         card.addEventListener('mouseleave', () => {
@@ -275,7 +297,7 @@
           const rot = parseFloat(card.dataset.rot);
           const scale = parseFloat(card.dataset.scale);
           card.style.transform = `translate3d(${tx}px, ${ty}px, 0) rotate(${rot}deg) scale(${scale})`;
-          card.style.zIndex = card.dataset.zIndex || 10;
+          card.style.zIndex = card.dataset.zIndex || 20;
         });
       });
 
@@ -283,59 +305,74 @@
       attachSwipeEvents(stage);
     }
 
-    // 計算並套用 3D 弧形展開座標 (Like Wixel Reference Image)
+    // 計算並套用 8 張卡牌「整個攤開在偶對稱」3D 弧形展開座標 (Even Symmetry Arc Model)
     function updateDeckPositions() {
-      const isMobile = window.innerWidth <= 768;
-      const total = THEMES_COMPLETE_DATA.length;
-      const maxDelta = isMobile ? 2 : 3;
+      const width = window.innerWidth;
+      const isMobile = width <= 640;
+      const isTablet = width > 640 && width <= 1024;
+      const total = THEMES_COMPLETE_DATA.length; // 8
+
+      // 偶對稱中心軸 (Even Symmetry Axis): 8 張卡片的中心在 3.5 (介於第 3 張與第 4 張之間)
+      const centerAxis = (total - 1) / 2; // 3.5
 
       THEMES_COMPLETE_DATA.forEach((t, idx) => {
         const card = document.getElementById(`fan-card-${idx}`);
         if (!card) return;
 
-        const delta = idx - currentThemeIndex;
-        const isDrawn = (delta === 0);
+        // 計算偶對稱偏移量: -3.5, -2.5, -1.5, -0.5, +0.5, +1.5, +2.5, +3.5
+        const offset = idx - centerAxis;
+        const isDrawn = (idx === currentThemeIndex);
 
         card.classList.toggle("drawn", isDrawn);
+        card.style.opacity = "1";
+        card.style.pointerEvents = "auto";
+        card.style.visibility = "visible";
 
-        if (Math.abs(delta) <= maxDelta) {
-          card.style.opacity = "1";
-          card.style.pointerEvents = "auto";
-          card.style.visibility = "visible";
+        // 響應式水平間距與旋轉弧度 (歐美弧形卡牌展開參數)
+        let xSpacing = 92;
+        let rotStep = 4.8;
+        let archFactor = 8.5;
+        let baseScale = 0.98;
 
-          // 歐美風弧形扇形數學模型 (Parabolic Arc Formula)
-          const xSpacing = isMobile ? 78 : 115;
-          const rotStep = isMobile ? 7.5 : 8.5;
-          const yStep = isMobile ? 12 : 16;
-
-          const tx = delta * xSpacing;
-          const rot = delta * rotStep;
-          const ty = isDrawn ? -22 : (Math.pow(Math.abs(delta), 1.55) * yStep);
-          const scale = isDrawn ? (isMobile ? 1.06 : 1.1) : Math.max(0.85, 1 - Math.abs(delta) * 0.045);
-          const zIndex = isDrawn ? 50 : (40 - Math.abs(delta) * 10);
-
-          card.style.transform = `translate3d(${tx}px, ${ty}px, 0) rotate(${rot}deg) scale(${scale})`;
-          card.style.zIndex = zIndex;
-
-          // 儲存資料供 hover 使用，避免亂跳
-          card.dataset.tx = tx;
-          card.dataset.ty = ty;
-          card.dataset.rot = rot;
-          card.dataset.scale = scale;
-          card.dataset.zIndex = zIndex;
-          card.dataset.delta = delta;
-        } else {
-          // 超出展示範圍向左右收合隱藏
-          const tx = delta > 0 ? (isMobile ? 240 : 400) : (isMobile ? -240 : -400);
-          const rot = delta > 0 ? 30 : -30;
-          card.style.opacity = "0";
-          card.style.pointerEvents = "none";
-          card.style.visibility = "hidden";
-          card.style.transform = `translate3d(${tx}px, 75px, 0) rotate(${rot}deg) scale(0.7)`;
-          card.style.zIndex = 1;
-
-          delete card.dataset.tx;
+        if (isTablet) {
+          xSpacing = 72;
+          rotStep = 4.0;
+          archFactor = 6.6;
+          baseScale = 0.92;
+        } else if (isMobile) {
+          xSpacing = 38;
+          rotStep = 2.8;
+          archFactor = 4.2;
+          baseScale = 0.85;
         }
+
+        // 偶對稱座標運算
+        const tx = offset * xSpacing;
+        const baseRot = offset * rotStep;
+        // 拋物線弧度：中央卡牌最高，兩側向下微沉呈現優美拱形 (Wixel 典雅拱弧)
+        const archY = Math.pow(Math.abs(offset), 1.62) * archFactor;
+
+        // 選中卡片抽起特效 (像卡片被抽到一樣向上拔出、微放正並放大)
+        const elevation = isMobile ? -36 : -48;
+        const ty = isDrawn ? (archY + elevation) : archY;
+        const rot = isDrawn ? (baseRot * 0.4) : baseRot;
+        const scale = isDrawn ? (baseScale * 1.08) : baseScale;
+
+        // 層級 (Z-Index): 選中卡片永遠置頂於最前(80)，其餘卡片呈偶對稱遞減（中間在兩側上方，層層堆疊）
+        const baseZ = 20 + Math.round((4 - Math.abs(offset)) * 3);
+        const zIndex = isDrawn ? 80 : baseZ;
+
+        // 套用 Transform 與 Z-index
+        card.style.transform = `translate3d(${tx}px, ${ty}px, 0) rotate(${rot}deg) scale(${scale})`;
+        card.style.zIndex = zIndex;
+
+        // 紀錄數值供 Hover 使用，保持完美軸線向上微浮不跑位
+        card.dataset.tx = tx;
+        card.dataset.ty = ty;
+        card.dataset.rot = rot;
+        card.dataset.scale = scale;
+        card.dataset.zIndex = zIndex;
+        card.dataset.isDrawn = isDrawn ? "true" : "false";
       });
 
       // 更新下方純文字標題展演（中文在上、英文在下，無邊框純文字）
