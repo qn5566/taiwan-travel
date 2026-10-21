@@ -312,7 +312,11 @@ function switchLanguage(lang) {
     localStorage.setItem("taiwan_travel_lang", lang);
   } catch (e) {}
 
-  // 1. 頂部語言列按鈕狀態更新
+  // 1. 同步右側語言下拉選單狀態
+  document.querySelectorAll("#global-lang-select, .header-lang-select, .clean-lang-select").forEach(sel => {
+    sel.value = lang;
+  });
+
   document.querySelectorAll(".lang-pill").forEach(btn => {
     const onclickStr = btn.getAttribute("onclick") || "";
     if (onclickStr.includes(`'${lang}'`)) {

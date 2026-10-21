@@ -31,15 +31,21 @@
        ========================================================= -->
   <div class="top-lang-bar">
     <div class="container top-lang-inner">
-      <div class="top-lang-label">🌐 國際化語系 / Language:</div>
-      <div class="top-lang-list">
-        <button type="button" class="lang-pill active" onclick="switchLanguage('zh-TW')">繁體中文 (Traditional Chinese)</button>
-        <button type="button" class="lang-pill" onclick="switchLanguage('en')">English (International)</button>
-        <button type="button" class="lang-pill" onclick="switchLanguage('ja')">日本語 (Japanese)</button>
-        <button type="button" class="lang-pill" onclick="switchLanguage('ko')">한국어 (Korean)</button>
-        <button type="button" class="lang-pill" onclick="switchLanguage('vi')">Tiếng Việt (Vietnamese)</button>
-        <button type="button" class="lang-pill" onclick="switchLanguage('th')">ภาษาไทย (Thai)</button>
-        <button type="button" class="lang-pill" onclick="switchLanguage('id')">Bahasa Indonesia (Indonesian)</button>
+      <div class="top-lang-label">
+        <span>🇹🇼</span> 台灣吃喝玩樂 ‧ TAIWAN ROAM OFFICIAL
+      </div>
+      <!-- 右側簡潔語言下拉選單 (Simplified Right-aligned Dropdown) -->
+      <div class="clean-lang-select-wrap">
+        <span style="font-size: 13px;">🌐</span>
+        <select id="global-lang-select" class="clean-lang-select" onchange="switchLanguage(this.value)">
+          <option value="zh-TW">繁體中文 (Traditional Chinese)</option>
+          <option value="en">English (International)</option>
+          <option value="ja">日本語 (Japanese)</option>
+          <option value="ko">한국어 (Korean)</option>
+          <option value="vi">Tiếng Việt</option>
+          <option value="th">ภาษาไทย</option>
+          <option value="id">Bahasa Indonesia</option>
+        </select>
       </div>
     </div>
   </div>
@@ -75,12 +81,26 @@
         </ul>
       </nav>
 
-      <!-- 右側工具區：伴手禮行動鈕 -->
-      <div class="header-right-tools">
+      <!-- 右側工具區：語言下拉選單 ＋ 伴手禮行動鈕 -->
+      <div class="header-right-tools" style="display: flex; align-items: center; gap: 10px;">
+        <!-- 導航列右側快速語系下拉選單 -->
+        <div class="header-lang-select-wrap">
+          <span style="font-size: 13px;">🌐</span>
+          <select class="header-lang-select" onchange="switchLanguage(this.value)">
+            <option value="zh-TW">繁體中文</option>
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="th">ภาษาไทย</option>
+            <option value="id">Bahasa Indonesia</option>
+          </select>
+        </div>
+
         <!-- 伴手禮直購連結 -->
         <a href="souvenir.html" 
            class="btn-cta-primary" 
-           style="padding: 9px 18px; font-size: 13px; text-decoration: none;">
+           style="padding: 8px 16px; font-size: 13px; text-decoration: none;">
           🛍️ 伴手禮直送
         </a>
       </div>
