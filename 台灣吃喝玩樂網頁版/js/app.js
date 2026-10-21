@@ -326,8 +326,8 @@ function renderWaterfallCards() {
         <div class="spot-img3-media-wrap">
           <img src="${item.img}" alt="${item.name}" loading="lazy">
           <span class="spot-img3-category-pill ${catClass}">${catPillText}</span>
-          <button class="waterfall-fav-btn ${isFav ? "active" : ""}" onclick="toggleFavorite('${item.name}')" title="${isEn ? 'Save' : '收藏景點'}" style="position: absolute; bottom: 12px; right: 12px; z-index: 3;">
-            ${isFav ? "❤️" : "🤍"}
+          <button type="button" class="waterfall-fav-btn ${isFav ? "active" : ""}" onclick="toggleFavorite('${item.name.replace(/'/g, "\\'")}', this)" title="${isEn ? 'Save' : '收藏景點'}" style="position: absolute; bottom: 12px; right: 12px; z-index: 3;">
+            <img src="assets/icon_heart_sparkle.png" alt="favorite" class="fav-sparkle-icon ${isFav ? 'active' : ''}">
           </button>
         </div>
         <div class="spot-img3-body">
@@ -351,7 +351,7 @@ function renderWaterfallCards() {
               </div>
             </div>
             <div style="display: flex; gap: 8px;">
-              <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" style="font-size: 11.5px; font-weight: 700; color: #64748B; text-decoration: none; padding: 6px 10px; border-radius: 9999px; background: #F1F5F9;">
+              <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="spot-hotel-btn">
                 ${hotelLabel}
               </a>
               <a href="${tourUrl}" target="_blank" rel="noopener noreferrer" class="spot-img3-cta-btn">
@@ -686,8 +686,8 @@ function executeSearch(query) {
         <div class="waterfall-card aspect-wide">
           <div class="waterfall-media-wrap">
             <img src="${item.img}" alt="${item.name}">
-            <button class="waterfall-fav-btn ${isFav ? "active" : ""}" onclick="toggleFavorite('${item.name}')">
-              ${isFav ? "❤️" : "🤍"}
+            <button type="button" class="waterfall-fav-btn ${isFav ? "active" : ""}" onclick="toggleFavorite('${item.name.replace(/'/g, "\\'")}', this)">
+              <img src="assets/icon_heart_sparkle.png" alt="favorite" class="fav-sparkle-icon ${isFav ? 'active' : ''}">
             </button>
           </div>
           <div class="waterfall-body">
@@ -712,16 +712,89 @@ function executeSearch(query) {
 /* =========================================================
    7. 收藏清單與事件綁定 (Favorites & Event Listeners)
    ========================================================= */
-function toggleFavorite(spotName) {
+function toggleFavorite(spotName, btnEl) {
   const index = userFavorites.indexOf(spotName);
-  if (index > -1) {
+  const isFavorited = (index === -1);
+
+  if (!isFavorited) {
     userFavorites.splice(index, 1);
   } else {
     userFavorites.push(spotName);
   }
   localStorage.setItem("tw_roam_web_favs", JSON.stringify(userFavorites));
   updateFavBadge();
-  renderWaterfallCards();
+
+  if (btnEl) {
+    const isEn = (typeof currentLang !== "undefined" && currentLang === "en");
+    if (isFavorited) {
+      btnEl.classList.add("active");
+      const img = btnEl.querySelector(".fav-sparkle-icon");
+      if (img) img.classList.add("active");
+      triggerHeartSparkleEffect(btnEl, true);
+      showCuteToast(isEn ? `Saved to favorites!` : `已將「${spotName}」加入收藏！`, "💖");
+    } else {
+      btnEl.classList.remove("active");
+      const img = btnEl.querySelector(".fav-sparkle-icon");
+      if (img) img.classList.remove("active");
+      triggerHeartSparkleEffect(btnEl, false);
+      showCuteToast(isEn ? `Removed from favorites` : `已取消收藏「${spotName}」`, "🤍");
+    }
+  } else {
+    renderWaterfallCards();
+  }
+}
+
+function triggerHeartSparkleEffect(btn, isFavorited) {
+  // 播放按鈕 Q 彈動態
+  btn.classList.remove("heart-bouncing");
+  void btn.offsetWidth; // force reflow
+  btn.classList.add("heart-bouncing");
+  setTimeout(() => btn.classList.remove("heart-bouncing"), 600);
+
+  if (!isFavorited) return;
+
+  // 產生發光漣漪光圈
+  const ring = document.createElement("div");
+  ring.className = "heart-ripple-ring";
+  btn.appendChild(ring);
+  setTimeout(() => ring.remove(), 700);
+
+  // 噴灑 6 個可愛發光小粒子 (✨ 💖 ⭐)
+  const sparkles = ["✨", "💖", "⭐", "✦", "💫", "✨"];
+  for (let i = 0; i < sparkles.length; i++) {
+    const p = document.createElement("div");
+    p.className = "sparkle-particle";
+    p.textContent = sparkles[i];
+    
+    const angle = (i * 60 + Math.random() * 20) * (Math.PI / 180);
+    const dist = 32 + Math.random() * 20;
+    const tx = Math.cos(angle) * dist;
+    const ty = Math.sin(angle) * dist;
+    
+    p.style.setProperty("--tx", `${tx}px`);
+    p.style.setProperty("--ty", `${ty}px`);
+    
+    btn.appendChild(p);
+    setTimeout(() => p.remove(), 680);
+  }
+}
+
+function showCuteToast(msg, icon) {
+  let toast = document.getElementById("cute-toast-pill");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "cute-toast-pill";
+    document.body.appendChild(toast);
+  }
+  toast.innerHTML = `<span style="font-size: 18px;">${icon || '💖'}</span> <span>${msg}</span>`;
+  toast.classList.remove("show");
+  void toast.offsetWidth;
+  toast.classList.add("show");
+  
+  clearTimeout(toast._timeout);
+  toast._timeout = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2200);
 }
 
 function updateFavBadge() {

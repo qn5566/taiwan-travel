@@ -2539,27 +2539,149 @@ a {
   position: absolute;
   top: 14px;
   right: 14px;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(6px);
-  border: none;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 16px;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+  padding: 0;
 }
 
 .waterfall-fav-btn:hover {
   transform: scale(1.15);
+  background: #FFFFFF;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18);
+}
+
+.fav-sparkle-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: grayscale(100%) opacity(0.35);
+  pointer-events: none;
+}
+
+.waterfall-fav-btn:hover .fav-sparkle-icon {
+  filter: grayscale(30%) opacity(0.75);
 }
 
 .waterfall-fav-btn.active {
-  color: #E11D48;
+  background: #FFF1F2;
+  border-color: #FDA4AF;
+  box-shadow: 0 4px 16px rgba(244, 63, 94, 0.35);
+}
+
+.fav-sparkle-icon.active,
+.waterfall-fav-btn.active .fav-sparkle-icon {
+  filter: none !important;
+  transform: scale(1.08);
+}
+
+/* 按鈕點擊時 Q 彈跳動動畫 (Elastic Heart Bounce) */
+.waterfall-fav-btn.heart-bouncing {
+  animation: heartBounceSpring 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes heartBounceSpring {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.35) rotate(-10deg); }
+  50% { transform: scale(0.92) rotate(6deg); }
+  75% { transform: scale(1.18) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+/* 擴散光圈漣漪 (Expanding Ripple Ring) */
+.heart-ripple-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  margin-left: -20px;
+  border-radius: 50%;
+  border: 2.5px solid #F43F5E;
+  pointer-events: none;
+  animation: rippleRing 0.65s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  z-index: 1;
+}
+
+@keyframes rippleRing {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+    border-color: #FDA4AF;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+    border-color: #F43F5E;
+  }
+}
+
+/* 噴灑發光粒子 (Sparkle Particles) */
+.sparkle-particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 14px;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 10;
+  animation: particleFly 0.65s cubic-bezier(0.2, 0.9, 0.4, 1) forwards;
+}
+
+@keyframes particleFly {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--tx) * 1.3), calc(-50% + var(--ty) * 1.3)) scale(0.6);
+  }
+}
+
+/* 底部可愛氣泡通知 (Cute Floating Toast) */
+#cute-toast-pill {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(40px) scale(0.9);
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.28);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 99999;
+}
+
+#cute-toast-pill.show {
+  transform: translateX(-50%) translateY(0) scale(1);
+  opacity: 1;
 }
 
 .waterfall-body {
@@ -3520,6 +3642,35 @@ body {
   font-size: 12px;
   font-weight: 700;
   color: #64748B;
+}
+
+/* 🏨 查訂房彩色微動態按鈕 (Colorful Hotel Booking Pill) */
+.spot-hotel-btn {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0284C7;
+  text-decoration: none;
+  padding: 6px 13px;
+  border-radius: 9999px;
+  background: #F0F9FF;
+  border: 1.5px solid #BAE6FD;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.08);
+}
+
+.spot-hotel-btn:hover {
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  color: #FFFFFF !important;
+  border-color: #0284C7;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.spot-hotel-btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .spot-img3-cta-btn {

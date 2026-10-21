@@ -351,10 +351,6 @@ function switchLanguage(lang) {
   }
 
   // 3. Hero 英雄區塊 (日雜散步小確幸風格)
-  const heroPocketTag = document.querySelector(".hero-pocket-tag");
-  if (heroPocketTag) {
-    heroPocketTag.textContent = "TAIWAN ROAM • POCKET GUIDE NO. 01";
-  }
   const heroZakkaTitle = document.querySelector(".hero-zakka-title");
   if (heroZakkaTitle) {
     heroZakkaTitle.textContent = isEn ? "Where shall we wander & taste across Taiwan today?" : "今天，想在台灣哪裡吃喝玩樂？";
