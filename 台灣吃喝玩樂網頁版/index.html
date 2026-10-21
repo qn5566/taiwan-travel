@@ -19,6 +19,31 @@
 </head>
 <body>
 
+  <!-- 🌌 全站淡淡藍綠極光動態背景 -->
+  <div class="aurora-bg-ambient">
+    <div class="aurora-blob-1"></div>
+    <div class="aurora-blob-2"></div>
+    <div class="aurora-blob-3"></div>
+  </div>
+
+  <!-- =========================================================
+       🌐 置頂國際化語系快捷列 (Global Top Language Bar)
+       ========================================================= -->
+  <div class="top-lang-bar">
+    <div class="container top-lang-inner">
+      <div class="top-lang-label">🌐 國際化語系 / Language:</div>
+      <div class="top-lang-list">
+        <button type="button" class="lang-pill active" onclick="switchLanguage('zh-TW')">繁體中文 (Traditional Chinese)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('en')">English (International)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('ja')">日本語 (Japanese)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('ko')">한국어 (Korean)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('vi')">Tiếng Việt (Vietnamese)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('th')">ภาษาไทย (Thai)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('id')">Bahasa Indonesia (Indonesian)</button>
+      </div>
+    </div>
+  </div>
+
   <!-- =========================================================
        🧭 1. 全寬置頂導航列 (Global Sticky Header)
        ========================================================= -->
@@ -43,6 +68,8 @@
           <li class="nav-item"><a href="themes.html">精選主題</a></li>
           <li class="nav-item"><a href="spots.html">城市景點</a></li>
           <li class="nav-item"><a href="ranking.html">排行榜</a></li>
+          <li class="nav-item"><a href="souvenir.html">伴手禮直送</a></li>
+          <li class="nav-item"><a href="foreigners.html">外國人專區</a></li>
           <li class="nav-item"><a href="cafe.html">全台咖啡地圖</a></li>
           <li class="nav-item"><a href="michelin.html">米其林指南</a></li>
           <li class="nav-item"><a href="blog.html">週末探店</a></li>
@@ -50,33 +77,12 @@
         </ul>
       </nav>
 
-      <!-- 右側工具區：語言切換、收藏計數、伴手禮行動鈕 -->
+      <!-- 右側工具區：伴手禮行動鈕 -->
       <div class="header-right-tools">
-        <!-- 多語言選擇器 -->
-        <div class="lang-select-wrap">
-          <select id="global-lang-select" class="lang-select-dropdown" aria-label="切換語系">
-            <option value="zh-TW" selected>繁體中文 (TW)</option>
-            <option value="en">English (US)</option>
-            <option value="ja">日本語 (JP)</option>
-            <option value="ko">한국어 (KR)</option>
-            <option value="vi">Tiếng Việt (VN)</option>
-            <option value="th">ภาษาไทย (TH)</option>
-            <option value="id">Bahasa Indonesia (ID)</option>
-          </select>
-        </div>
-
-        <!-- 收藏景點按鈕 -->
-        <button class="nav-fav-trigger-btn" onclick="openFavDrawer()" title="查看已收藏景點">
-          ❤️ 收藏景點
-          <span id="fav-count-badge" class="fav-badge">0</span>
-        </button>
-
         <!-- 伴手禮直購連結 -->
-        <a href="https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" 
-           target="_blank" 
-           rel="noopener noreferrer" 
+        <a href="souvenir.html" 
            class="btn-cta-primary" 
-           style="padding: 9px 18px; font-size: 13px;">
+           style="padding: 9px 18px; font-size: 13px; text-decoration: none;">
           🛍️ 伴手禮直送
         </a>
       </div>
@@ -159,21 +165,36 @@
               <span class="featured-col-arrow">探索地圖 ➔</span>
             </a>
           </div>
+
+          <!-- 4. 外國人必看專區入口 (專屬淡青藍色高質感卡片，簡約大氣不雜亂) -->
+          <div style="margin-top: 14px;">
+            <a href="foreigners.html" class="featured-col-card" style="background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border: 1.5px solid #BAE6FD; padding: 14px 20px; text-decoration: none; display: flex; align-items: center; gap: 14px; border-radius: 16px;">
+              <div class="featured-col-icon" style="background: #E0F2FE; border: 1px solid #7DD3FC; font-size: 20px;">🌐</div>
+              <div style="flex: 1;">
+                <div class="featured-col-title" style="color: #0369A1; font-weight: 800;">
+                  外國人必看自由行專區 · Inbound Traveler Guide
+                  <span style="font-size: 11px; background: #0284C7; color: #FFFFFF; padding: 2px 8px; border-radius: 6px; font-weight: 800; margin-left: 6px;">外籍救星 3 大工具 ＋ 6 大客群主題</span>
+                </div>
+                <div class="featured-col-subtitle" style="color: #475569; font-size: 12px; margin-top: 2px;">計程車大字卡、珍奶客製點餐小卡、寶可夢/職棒/衝浪/茶道、伴手禮直寄飯店免提</div>
+              </div>
+              <span class="featured-col-arrow" style="color: #0284C7; font-weight: 800; white-space: nowrap;">進入外籍專頁 ➔</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- =========================================================
-       🚀 3. 第一區塊：圖四風格橢圓膠囊卡牌 (Trending in Taiwan: Top 1-6)
+       🚀 3. 第一區塊：圖四風格橢圓膠囊卡牌 (台灣一日遊行程推薦 Top 1-6)
        ========================================================= -->
   <section id="trending-top6" class="trending-section">
     <div class="container">
       <div class="trending-header-row">
         <div class="trending-title-wrap">
-          <h2>Trending Destinations · 台灣熱門必訪 Top 6</h2>
+          <h2>台灣一日遊行程推薦 Top 1-6 · Day Tours</h2>
           <p>
-            Immerse yourself in the vibrant culture of Taiwan. Discover world-class landmarks, hidden gems, delectable cuisine, and unforgettable experiences.
+            Klook 全網熱銷第一！精選外國旅客最愛的一日跟團與拼車包車行程，專車接送輕鬆出發。
           </p>
         </div>
         <div class="trending-controls">
@@ -190,21 +211,12 @@
   </section>
 
   <!-- =========================================================
-       🗺️ 4. 第二區塊：6 大精選特色主題卡片 (跳轉獨立主題專頁)
+       🗺️ 4. 第二區塊：6 大精選特色主題卡片 (精選旅行主題 ‧ Curated Themes)
        ========================================================= -->
   <section id="themes" class="section-padding" style="background: #FFFFFF;">
     <div class="container">
-      <div class="section-header-block" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
-        <div>
-          <span class="section-badge-pill">CURATED THEMES HIGHLIGHT</span>
-          <h2 class="section-heading-title">精選旅行主題 ‧ 6 大推薦專欄</h2>
-          <p class="section-heading-desc" style="max-width: 680px;">
-            精選外籍旅客與自由行最熱門的 6 大特色主題！點選卡片直接進入獨立專題專頁，瀏覽完整場館、營地、老店與預約分潤資訊。
-          </p>
-        </div>
-        <a href="themes.html" class="btn-action btn-klook-book" style="padding: 10px 22px; font-size: 13px; font-weight: 800; text-decoration: none;">
-          查看全部 18 大主題專頁 ➔
-        </a>
+      <div class="section-header-block" style="margin-bottom: 24px;">
+        <h2 class="section-heading-title" style="margin: 0; font-size: 26px;">精選旅行主題 ‧ Curated Themes</h2>
       </div>
 
       <!-- 6 個精選主題可愛卡牌排列 (桌面 6 個一排) -->
@@ -297,110 +309,12 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       🏆 6. 排行榜專區：精華總覽與分頁專頁入口 (Rankings Hub Portal)
-       ========================================================= -->
-  <section id="rankings" class="section-padding" style="background: #FFFFFF;">
-    <div class="container">
-      <div class="section-header-block" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; flex-wrap: wrap; gap: 16px;">
-        <div>
-          <span class="section-badge-pill">TAIWAN RANKINGS HUB</span>
-          <h2 class="section-heading-title">7 大年度人氣排行榜 ‧ 精選冠軍榜</h2>
-          <p class="section-heading-desc" style="max-width: 720px;">
-            全網真實點閱與旅人訂閱大數據：手搖、景點、包車、活動、雨天室內、咖啡店與文青散步。完整 110 筆名單已移至獨立分頁專區瀏覽！
-          </p>
-        </div>
-        <a href="ranking.html" class="btn-action btn-klook-book" style="padding: 10px 22px; font-size: 13px; font-weight: 800; text-decoration: none;">
-          進入完整排行榜專頁（含分頁瀏覽）➔
-        </a>
-      </div>
-
-      <!-- 7 大排行快速跳轉藥丸列 -->
-      <div class="ranking-tabs-wrap" style="display: flex; gap: 8px; justify-content: flex-start; flex-wrap: wrap; margin-bottom: 28px;">
-        <a href="ranking.html?cat=drinks" class="ranking-tab-pill" style="text-decoration: none;">🧋 手搖店 20 家 ➔</a>
-        <a href="ranking.html?cat=spots" class="ranking-tab-pill" style="text-decoration: none;">🏆 熱門訂閱景點 20 ➔</a>
-        <a href="ranking.html?cat=cafe" class="ranking-tab-pill" style="text-decoration: none;">☕ 咖啡店排行 20 ➔</a>
-        <a href="ranking.html?cat=walk" class="ranking-tab-pill" style="text-decoration: none;">🚶 文青散步散策 20 ➔</a>
-        <a href="ranking.html?cat=charter" class="ranking-tab-pill" style="text-decoration: none;">🚗 包車景點推薦 10 ➔</a>
-        <a href="ranking.html?cat=events" class="ranking-tab-pill" style="text-decoration: none;">🎪 最新活動推薦 10 ➔</a>
-        <a href="ranking.html?cat=rainy" class="ranking-tab-pill" style="text-decoration: none;">🌧️ 雨天活動排行 10 ➔</a>
-      </div>
-
-      <!-- 4 大榜首冠軍精選卡片網格 (首頁不堆砌，只展現精華，引導前往獨立分頁) -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-bottom: 24px;">
-        <!-- Card 1: 手搖冠軍 -->
-        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column;">
-          <div style="height: 140px; position: relative; overflow: hidden;">
-            <img src="https://images.unsplash.com/photo-1558857563-b37cf5bc8e36?w=500&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover;" alt="得正">
-            <span style="position: absolute; top: 8px; left: 8px; background: #FEF3C7; color: #D97706; font-size: 11px; font-weight: 900; padding: 2px 7px; border-radius: 6px;">手搖 TOP 1</span>
-          </div>
-          <div style="padding: 14px; display: flex; flex-direction: column; flex: 1;">
-            <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 4px;">得正 Oolong Tea Project</h3>
-            <p style="font-size: 12px; color: #64748B; margin-bottom: 10px; line-height: 1.4;">烏龍茶專賣天花板！極生焙烏龍加焙烏龍茶凍，茶香清冽回甘。</p>
-            <a href="ranking.html?cat=drinks" style="margin-top: auto; font-size: 12px; font-weight: 700; color: #0284C7; text-decoration: none;">查看完整手搖 20 家分頁 ➔</a>
-          </div>
-        </div>
-
-        <!-- Card 2: 景點冠軍 -->
-        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column;">
-          <div style="height: 140px; position: relative; overflow: hidden;">
-            <img src="https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=500&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover;" alt="台北101">
-            <span style="position: absolute; top: 8px; left: 8px; background: #FEF3C7; color: #D97706; font-size: 11px; font-weight: 900; padding: 2px 7px; border-radius: 6px;">景點 TOP 1</span>
-          </div>
-          <div style="padding: 14px; display: flex; flex-direction: column; flex: 1;">
-            <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 4px;">台北 101 高空觀景台</h3>
-            <p style="font-size: 12px; color: #64748B; margin-bottom: 10px; line-height: 1.4;">37 秒直達 89 樓！360 度俯瞰台北盆地，世界級阻尼器近距離震撼。</p>
-            <a href="ranking.html?cat=spots" style="margin-top: auto; font-size: 12px; font-weight: 700; color: #0284C7; text-decoration: none;">查看完整景點 20 處分頁 ➔</a>
-          </div>
-        </div>
-
-        <!-- Card 3: 咖啡冠軍 -->
-        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column;">
-          <div style="height: 140px; position: relative; overflow: hidden;">
-            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=500&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover;" alt="興波咖啡">
-            <span style="position: absolute; top: 8px; left: 8px; background: #FEF3C7; color: #D97706; font-size: 11px; font-weight: 900; padding: 2px 7px; border-radius: 6px;">咖啡 TOP 1</span>
-          </div>
-          <div style="padding: 14px; display: flex; flex-direction: column; flex: 1;">
-            <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 4px;">Simple Kaffa 興波咖啡</h3>
-            <p style="font-size: 12px; color: #64748B; margin-bottom: 10px; line-height: 1.4;">WBC 世界咖啡大師冠軍旗艦館！極致單品手沖與招牌皺皺蛋糕。</p>
-            <a href="ranking.html?cat=cafe" style="margin-top: auto; font-size: 12px; font-weight: 700; color: #0284C7; text-decoration: none;">查看完整咖啡 20 家分頁 ➔</a>
-          </div>
-        </div>
-
-        <!-- Card 4: 散策冠軍 -->
-        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column;">
-          <div style="height: 140px; position: relative; overflow: hidden;">
-            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=500&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover;" alt="大稻埕">
-            <span style="position: absolute; top: 8px; left: 8px; background: #FEF3C7; color: #D97706; font-size: 11px; font-weight: 900; padding: 2px 7px; border-radius: 6px;">散策 TOP 1</span>
-          </div>
-          <div style="padding: 14px; display: flex; flex-direction: column; flex: 1;">
-            <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 4px;">大稻埕迪化街歷史散策</h3>
-            <p style="font-size: 12px; color: #64748B; margin-bottom: 10px; line-height: 1.4;">穿梭百年巴洛克紅磚老街，參拜霞海城隍廟，逛文創陶藝與布市。</p>
-            <a href="ranking.html?cat=walk" style="margin-top: auto; font-size: 12px; font-weight: 700; color: #0284C7; text-decoration: none;">查看完整散策 20 條分頁 ➔</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
 
 
 
-  <!-- =========================================================
-       ❤️ 9. 收藏景點側邊抽屜 (Favorites Drawer)
-       ========================================================= -->
-  <div id="fav-drawer-overlay" class="drawer-overlay" onclick="closeFavDrawer()"></div>
-  <aside id="fav-drawer" class="fav-drawer">
-    <div class="fav-drawer-header">
-      <div style="font-size: 18px; font-weight: 800; color: var(--text-heading); display: flex; align-items: center; gap: 8px;">
-        ❤️ 我的收藏景點
-      </div>
-      <button onclick="closeFavDrawer()" style="border: none; background: transparent; font-size: 22px; cursor: pointer;">✕</button>
-    </div>
-    <div id="fav-drawer-list" class="fav-drawer-body">
-      <!-- 由 app.js 動態渲染收藏列表 -->
-    </div>
-  </aside>
+
+
 
   <!-- =========================================================
        ⚓ 10. 全局國際化精緻頁尾 (Global Modern Footer)

@@ -54,7 +54,7 @@ function renderTrendingSection() {
             <span style="color:#CBD5E1;">·</span>
             <span class="pill-price-tag">${item.price}</span>
           </div>
-          <span class="pill-klook-cta">🎟️ 預定行程</span>
+          <span class="pill-klook-cta">🚐 預約一日遊 ➔</span>
         </div>
       </div>
     `;
@@ -142,6 +142,9 @@ function renderWaterfallCards() {
   const container = document.getElementById("waterfall-cards-container");
   if (!container || typeof ALL_SPOTS_DATA === "undefined") return;
 
+  // 使用圖三的三欄現代精緻網格
+  container.className = "spots-img3-grid";
+
   const filteredSpots = ALL_SPOTS_DATA.filter(item => {
     if (currentCityFilter === "全部") return true;
     return item.city.includes(currentCityFilter.replace("縣", "").replace("市", ""));
@@ -158,39 +161,69 @@ function renderWaterfallCards() {
     return;
   }
 
-  container.innerHTML = filteredSpots.map(item => {
+  container.innerHTML = filteredSpots.map((item, idx) => {
     const isFav = userFavorites.includes(item.name);
     const tourUrl = AFFILIATE_HUB.getTourUrl(item.activityId || "1874-jiufen-shifen-day-tour-taipei");
     const hotelUrl = AFFILIATE_HUB.getHotelUrl(item.name);
-    const mapUrl = AFFILIATE_HUB.getMapUrl(item.name);
-    const aspectClass = item.aspect ? `aspect-${item.aspect}` : "aspect-wide";
+
+    // 依縣市自動賦予多彩分類膠囊 (對照圖三頂部藥丸)
+    let catClass = "cat-nature";
+    let catPillText = "自然絕景 · Nature";
+    if (item.city.includes("台北") || item.city.includes("新北")) {
+      catClass = "cat-culture";
+      catPillText = "都會經典 · Taipei Iconic";
+    } else if (item.city.includes("台南") || item.city.includes("高雄")) {
+      catClass = "cat-food";
+      catPillText = "府城散策 · Heritage";
+    } else if (item.city.includes("花蓮") || item.city.includes("台東")) {
+      catClass = "cat-nature";
+      catPillText = "太平洋秘境 · Ocean Blue";
+    } else if (item.city.includes("台中") || item.city.includes("南投")) {
+      catClass = "";
+      catPillText = "山水勝景 · Scenic Wonder";
+    }
+
+    const reviewerAvatars = ["🧑‍💼", "👩‍🎨", "🧳", "✈️", "📸", "☕", "🚴", "🎒"];
+    const avatar = reviewerAvatars[idx % reviewerAvatars.length];
+    const views = (8.5 + (idx % 12) * 1.3).toFixed(1) + "k";
 
     return `
-      <div class="waterfall-card ${aspectClass}">
-        <div class="waterfall-media-wrap">
+      <div class="spot-img3-card">
+        <div class="spot-img3-media-wrap">
           <img src="${item.img}" alt="${item.name}" loading="lazy">
-          ${item.badge ? `<span class="waterfall-badge-top">${item.badge}</span>` : ""}
-          <button class="waterfall-fav-btn ${isFav ? "active" : ""}" onclick="toggleFavorite('${item.name}')" title="收藏景點">
+          <span class="spot-img3-category-pill ${catClass}">${catPillText}</span>
+          <button class="waterfall-fav-btn ${isFav ? "active" : ""}" onclick="toggleFavorite('${item.name}')" title="收藏景點" style="position: absolute; bottom: 12px; right: 12px; z-index: 3;">
             ${isFav ? "❤️" : "🤍"}
           </button>
         </div>
-        <div class="waterfall-body">
-          <div class="waterfall-meta-header">
-            <span class="waterfall-city-tag">📍 ${item.city}</span>
-            <span class="waterfall-rate">${item.rate}</span>
+        <div class="spot-img3-body">
+          <div>
+            <div class="spot-img3-date-line">
+              <span>📍 ${item.city}</span>
+              <span>·</span>
+              <span>⏱️ 建議停留 2-3h</span>
+              <span>·</span>
+              <span style="color: #F59E0B; font-weight: 800;">★ ${item.rate || "4.9"}</span>
+            </div>
+            <h3 class="spot-img3-title">${item.name}</h3>
+            <p class="spot-img3-desc">${item.desc}</p>
           </div>
-          <h3 class="waterfall-title">${item.name}</h3>
-          <p class="waterfall-desc">${item.desc}</p>
-          <div class="waterfall-actions-row">
-            <a href="${tourUrl}" target="_blank" rel="noopener noreferrer" class="btn-waterfall btn-wf-tour">
-              🎟️ 預定行程
-            </a>
-            <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-waterfall btn-wf-hotel">
-              🏨 找房間
-            </a>
-            <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-waterfall btn-wf-map" title="Google 地圖導航">
-              🧭
-            </a>
+          <div class="spot-img3-footer">
+            <div class="spot-img3-author-wrap">
+              <div class="spot-img3-avatar">${avatar}</div>
+              <div>
+                <div class="spot-img3-author-name">精選打卡推薦</div>
+                <div style="font-size: 11px; color: #94A3B8;">🔥 ${views} 旅人探訪</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" style="font-size: 11.5px; font-weight: 700; color: #64748B; text-decoration: none; padding: 6px 10px; border-radius: 9999px; background: #F1F5F9;">
+                🏨 查訂房
+              </a>
+              <a href="${tourUrl}" target="_blank" rel="noopener noreferrer" class="spot-img3-cta-btn">
+                預訂 ➔
+              </a>
+            </div>
           </div>
         </div>
       </div>

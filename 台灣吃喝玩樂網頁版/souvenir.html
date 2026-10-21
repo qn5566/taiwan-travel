@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>台灣必買伴手禮直送排行 · 100 大特產飯店代收免提 - 台灣吃喝玩樂</title>
+  
+  <meta name="description" content="台灣吃喝玩樂【伴手禮直送專區】。合作分潤電商萬家福、台灣熱門藥妝、質感生活選品直營直配！涵蓋鳳梨酥蛋糕、超人氣休閒零食、高山茶葉飲品、台灣製造藥品與送禮好物，退房前專人送達飯店前台。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .souvenir-cat-tabs {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      margin-bottom: 28px;
+    }
+    .souvenir-cat-btn {
+      padding: 12px 22px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 800;
+      border: 1.5px solid #E2E8F0;
+      background: #FFFFFF;
+      color: #334155;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .souvenir-cat-btn:hover {
+      border-color: #0284C7;
+      color: #0284C7;
+      transform: translateY(-2px);
+    }
+    .souvenir-cat-btn.active {
+      background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+      color: #FFFFFF;
+      border-color: #0284C7;
+      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.25);
+    }
+    .souvenir-painpoint-banner {
+      background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+      border: 1.5px solid #F59E0B;
+      border-radius: 20px;
+      padding: 20px 28px;
+      margin-bottom: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 置頂國際化語系快捷列 -->
+  <div class="top-lang-bar">
+    <div class="container top-lang-inner">
+      <div class="top-lang-label">🌐 國際化語系 / Language:</div>
+      <div class="top-lang-list">
+        <button type="button" class="lang-pill active" onclick="switchLanguage('zh-TW')">繁體中文 (Traditional Chinese)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('en')">English (International)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('ja')">日本語 (Japanese)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('ko')">한국어 (Korean)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('vi')">Tiếng Việt (Vietnamese)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('th')">ภาษาไทย (Thai)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('id')">Bahasa Indonesia (Indonesian)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 全寬置頂導航列 -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <div class="brand-logo-icon">🇹🇼</div>
+        <div class="brand-text-block">
+          <div class="brand-name">台灣吃喝玩樂 <span class="brand-badge">伴手禮直送</span></div>
+          <span class="brand-subtext">HOTEL DIRECT DELIVERY HUB</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html">首頁</a></li>
+          <li class="nav-item"><a href="themes.html">精選主題</a></li>
+          <li class="nav-item"><a href="spots.html">城市景點</a></li>
+          <li class="nav-item"><a href="ranking.html">排行榜</a></li>
+          <li class="nav-item active"><a href="souvenir.html">伴手禮直送</a></li>
+          <li class="nav-item"><a href="foreigners.html">外國人專區</a></li>
+          <li class="nav-item"><a href="cafe.html">全台咖啡地圖</a></li>
+          <li class="nav-item"><a href="michelin.html">米其林指南</a></li>
+          <li class="nav-item"><a href="blog.html">週末探店</a></li>
+          <li class="nav-item"><a href="community.html">留言討論</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right-tools">
+        <a href="https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-cta-primary" 
+           style="padding: 9px 18px; font-size: 13px; text-decoration: none;">
+          ⚡ 萬家福直購官網 ➔
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 頂部英雄視覺 -->
+  <section style="background: linear-gradient(135deg, #1E1B4B 0%, #0F172A 100%); color: #FFFFFF; padding: 56px 0 46px 0;">
+    <div class="container">
+      <div style="max-width: 860px; margin: 0 auto; text-align: center;">
+        <span style="display: inline-block; padding: 5px 16px; background: rgba(245, 158, 11, 0.2); border: 1px solid rgba(245, 158, 11, 0.4); color: #FBBF24; border-radius: 9999px; font-size: 12px; font-weight: 800; letter-spacing: 1px; margin-bottom: 14px;">
+          TAIWAN SOUVENIR DIRECT HOTEL DELIVERY · 100 TOP PRODUCTS
+        </span>
+        <h1 style="font-size: 36px; font-weight: 900; line-height: 1.25; margin-bottom: 12px; color: #FFFFFF;">
+          台灣必買伴手禮與特產直配 · 100 大排行榜
+        </h1>
+        <p style="font-size: 14px; color: #94A3B8; line-height: 1.6; margin-bottom: 24px;">
+          免排隊數小時、不佔隨身行李重量！合作電商萬家福生鮮伴手禮、台灣熱門藥妝與生活選物，退房前直達飯店櫃檯代收。
+        </p>
+
+        <!-- 搜尋篩選 -->
+        <div style="max-width: 580px; margin: 0 auto; position: relative;">
+          <input type="text" id="souvenir-search-input" placeholder="搜尋伴手禮名稱、品牌、產地 (例：微熱山丘、一條根、蛋黃酥)..." 
+                 style="width: 100%; padding: 14px 22px; border-radius: 9999px; border: 2px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08); color: #FFFFFF; font-size: 14px; outline: none;"
+                 oninput="filterSouvenirs()">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主內容區 -->
+  <section class="section-padding" style="background: #F8FAFC;">
+    <div class="container">
+      
+      <!-- 痛點解法橫幅 -->
+      <div class="souvenir-painpoint-banner">
+        <div>
+          <div style="font-size: 17px; font-weight: 900; color: #78350F; margin-bottom: 4px;">
+            🏨 外國旅客＆自由行痛點救星：線上直購，專人直送飯店代收！
+          </div>
+          <div style="font-size: 13px; color: #92400E; line-height: 1.5;">
+            不用在大熱天排隊 2 小時搶佳德或小潘！下單填寫入住飯店名稱與入住日期，退房前到前台領取整箱伴手禮，輕鬆去機場。
+          </div>
+        </div>
+        <a href="https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-action" 
+           style="background: #D97706; color: #FFFFFF; padding: 10px 20px; font-size: 13px; font-weight: 800; border-radius: 12px; text-decoration: none;">
+          萬家福飯店直送 ➔
+        </a>
+      </div>
+
+      <!-- 5 大分類按鈕列 -->
+      <div class="souvenir-cat-tabs" id="souvenir-tabs-wrap">
+        <!-- 由 JS 動態生成分類按鈕 -->
+      </div>
+
+      <!-- 分類說明盒 -->
+      <div id="souvenir-cat-info" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 18px; padding: 20px 24px; margin-bottom: 32px; box-shadow: var(--shadow-sm); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+        <!-- 由 JS 動態更新 -->
+      </div>
+
+      <!-- 20 個商品排行榜網格 -->
+      <div class="souvenir-grid" id="souvenir-products-grid">
+        <!-- 由 JS 動態渲染 SOUVENIR_CATEGORIES_DATA -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 全域頁尾 -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div style="text-align: center; color: #94A3B8; font-size: 13px;">
+        © 2026 台灣吃喝玩樂 Taiwan Wanderlust ‧ 伴手禮電商直配與排行專頁.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/affiliate.js"></script>
+  <script src="js/souvenirs_data.js"></script>
+  <script>
+    let activeCatId = 'pastry';
+
+    function initSouvenirPage() {
+      if (typeof SOUVENIR_CATEGORIES_DATA === 'undefined') return;
+
+      const tabsWrap = document.getElementById('souvenir-tabs-wrap');
+      tabsWrap.innerHTML = SOUVENIR_CATEGORIES_DATA.map(cat => {
+        return `
+          <button type="button" class="souvenir-cat-btn ${cat.id === activeCatId ? 'active' : ''}" onclick="switchSouvenirCategory('${cat.id}')">
+            <span>${cat.icon}</span>
+            <span>${cat.name}</span>
+          </button>
+        `;
+      }).join('');
+
+      renderCategoryProducts(activeCatId);
+    }
+
+    function switchSouvenirCategory(catId) {
+      activeCatId = catId;
+      document.querySelectorAll('.souvenir-cat-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('onclick').includes(catId));
+      });
+      renderCategoryProducts(catId);
+    }
+
+    function renderCategoryProducts(catId, searchKeyword = '') {
+      const cat = SOUVENIR_CATEGORIES_DATA.find(c => c.id === catId);
+      if (!cat) return;
+
+      // 更新說明盒
+      const infoBox = document.getElementById('souvenir-cat-info');
+      infoBox.innerHTML = `
+        <div>
+          <div style="font-size: 16px; font-weight: 800; color: #0F172A; display: flex; align-items: center; gap: 8px;">
+            <span>${cat.icon}</span>
+            <span>${cat.name}</span>
+            <span style="font-size: 11px; background: #E0F2FE; color: #0369A1; padding: 2px 8px; border-radius: 6px;">${cat.badge}</span>
+          </div>
+          <div style="font-size: 13px; color: #64748B; margin-top: 4px;">
+            ${cat.desc} ‧ 轉化管道：<strong>${cat.channel}</strong>
+          </div>
+        </div>
+        <a href="${cat.defaultUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding: 8px 18px; font-size: 13px;">
+          ${cat.cta}
+        </a>
+      `;
+
+      // 渲染商品
+      const grid = document.getElementById('souvenir-products-grid');
+      let items = cat.items;
+
+      if (searchKeyword) {
+        const kw = searchKeyword.toLowerCase();
+        items = items.filter(it => 
+          it.name.toLowerCase().includes(kw) || 
+          it.brand.toLowerCase().includes(kw) || 
+          it.origin.toLowerCase().includes(kw) ||
+          it.desc.toLowerCase().includes(kw)
+        );
+      }
+
+      if (items.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1 / -1; padding: 60px 20px; text-align: center; color: #94A3B8; font-size: 15px;">查無符合「${searchKeyword}」的特產項目，請嘗試其他關鍵字。</div>`;
+        return;
+      }
+
+      grid.innerHTML = items.map(item => {
+        const isTop3 = item.rank <= 3;
+        return `
+          <div class="souvenir-card">
+            <div class="souvenir-img-wrap">
+              <img src="${item.img}" alt="${item.name}" loading="lazy">
+              <span class="souvenir-rank-badge ${isTop3 ? 'top3' : ''}">No. ${item.rank}</span>
+            </div>
+            <div class="souvenir-body">
+              <div>
+                <div style="font-size: 11.5px; font-weight: 800; color: #0284C7; margin-bottom: 4px; display: flex; justify-content: space-between;">
+                  <span>${item.brand}</span>
+                  <span style="color: #64748B;">📍 ${item.origin}</span>
+                </div>
+                <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; line-height: 1.35; margin-bottom: 4px;">${item.name}</h3>
+                <div style="font-size: 11px; color: #94A3B8; margin-bottom: 8px;">${item.enName}</div>
+                <p style="font-size: 12.5px; color: #475569; line-height: 1.5; margin-bottom: 12px;">${item.desc}</p>
+                <div style="font-size: 11px; color: #166534; background: #DCFCE7; padding: 3px 8px; border-radius: 6px; font-weight: 700; display: inline-block; margin-bottom: 14px;">
+                  ${item.painPoint}
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; border-top: 1px dashed #E2E8F0; padding-top: 10px;">
+                  <span style="font-size: 16px; font-weight: 900; color: #E11D48;">${item.price}</span>
+                  <span style="font-size: 12px; color: #94A3B8;">${item.rating} (${item.reviews})</span>
+                </div>
+                <a href="${item.buyUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="width: 100%; justify-content: center; padding: 10px; font-size: 13px; font-weight: 800; text-decoration: none;">
+                  ${item.ctaText}
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterSouvenirs() {
+      const kw = document.getElementById('souvenir-search-input').value.trim();
+      renderCategoryProducts(activeCatId, kw);
+    }
+
+    window.addEventListener('DOMContentLoaded', initSouvenirPage);
+  </script>
+</body>
+</html>

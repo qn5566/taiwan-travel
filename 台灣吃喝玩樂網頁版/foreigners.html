@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>外國人必看自由行專區 · Tourist Survival & Inbound Guide - 台灣吃喝玩樂</title>
+  
+  <meta name="description" content="專為訪台外國旅客量身打造的一站式自由行指南：給司機看黑底大字卡、手搖飲道地客製化指南、行李免提直寄飯店、寶可夢與潮流動漫、職棒啦啦隊、衝浪潛水、功夫茶席、設計青旅與夜市飲食避雷。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* 外國人專頁特製元件樣式 */
+    .toolkit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 960px) {
+      .toolkit-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .toolkit-card {
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 24px;
+      padding: 28px 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .toolkit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+      border-color: #0284C7;
+    }
+    .driver-btn-chip {
+      background: #F1F5F9;
+      border: 1px solid #CBD5E1;
+      padding: 7px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0F172A;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .driver-btn-chip:hover, .driver-btn-chip.active {
+      background: #0F172A;
+      color: #FFFFFF;
+      border-color: #0F172A;
+    }
+
+    /* 手搖飲選鈕樣式 */
+    .boba-pill {
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .boba-pill:hover {
+      border-color: #F59E0B;
+      color: #D97706;
+    }
+    .boba-pill.active {
+      background: #F59E0B;
+      border-color: #D97706;
+      color: #FFFFFF;
+    }
+
+    /* 全螢幕黑底大字 Modal */
+    #driver-fullscreen-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #000000;
+      color: #FFFFFF;
+      z-index: 99999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      text-align: center;
+    }
+    #driver-fullscreen-modal.open {
+      display: flex;
+    }
+    .driver-big-text {
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 1.35;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      max-width: 900px;
+      color: #FFFFFF;
+    }
+    @media (max-width: 768px) {
+      .driver-big-text {
+        font-size: 34px;
+      }
+    }
+
+    /* 6 大分眾卡片樣式 */
+    .inbound-segment-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 24px;
+      overflow: hidden;
+      margin-bottom: 36px;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+    }
+    @media (max-width: 960px) {
+      .inbound-segment-card {
+        grid-template-columns: 1fr;
+      }
+    }
+    .inbound-img-wrap {
+      position: relative;
+      background: #0F172A;
+      overflow: hidden;
+      min-height: 280px;
+    }
+    .inbound-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .inbound-segment-card:hover .inbound-img-wrap img {
+      transform: scale(1.06);
+    }
+    .inbound-content {
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .inbound-badge-pill {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .diet-filter-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 置頂國際化語系快捷列 -->
+  <div class="top-lang-bar">
+    <div class="container top-lang-inner">
+      <div class="top-lang-label">🌐 Inbound Tourist Multilingual / 國際化語系:</div>
+      <div class="top-lang-list">
+        <button type="button" class="lang-pill active" onclick="switchLanguage('zh-TW')">繁體中文 (Traditional Chinese)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('en')">English (International)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('ja')">日本語 (Japanese)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('ko')">한국어 (Korean)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('vi')">Tiếng Việt (Vietnamese)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('th')">ภาษาไทย (Thai)</button>
+        <button type="button" class="lang-pill" onclick="switchLanguage('id')">Bahasa Indonesia (Indonesian)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 全寬置頂導航列 -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <div class="brand-logo-icon">🇹🇼</div>
+        <div class="brand-text-block">
+          <div class="brand-name">台灣吃喝玩樂 <span class="brand-badge">外國人專區</span></div>
+          <span class="brand-subtext">INBOUND TRAVELER GUIDE</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html">首頁</a></li>
+          <li class="nav-item"><a href="themes.html">精選主題</a></li>
+          <li class="nav-item"><a href="spots.html">城市景點</a></li>
+          <li class="nav-item"><a href="ranking.html">排行榜</a></li>
+          <li class="nav-item"><a href="souvenir.html">伴手禮直送</a></li>
+          <li class="nav-item active"><a href="foreigners.html">外國人專區</a></li>
+          <li class="nav-item"><a href="cafe.html">全台咖啡地圖</a></li>
+          <li class="nav-item"><a href="michelin.html">米其林指南</a></li>
+          <li class="nav-item"><a href="blog.html">週末探店</a></li>
+          <li class="nav-item"><a href="community.html">留言討論</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right-tools">
+        <a href="souvenir.html" class="btn-cta-primary" style="padding: 9px 18px; font-size: 13px; text-decoration: none;">
+          🛍️ 伴手禮飯店直送
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 頂部視覺英雄區 -->
+  <section style="background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%); color: #FFFFFF; padding: 60px 0 50px 0;">
+    <div class="container">
+      <div style="max-width: 860px; margin: 0 auto; text-align: center;">
+        <span style="display: inline-block; padding: 6px 16px; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.4); color: #38BDF8; border-radius: 9999px; font-size: 12px; font-weight: 800; letter-spacing: 1px; margin-bottom: 16px;">
+          TAIWAN INBOUND TOURIST TOOLKIT & SURVIVAL GUIDE
+        </span>
+        <h1 style="font-size: 38px; font-weight: 900; line-height: 1.25; margin-bottom: 14px; color: #FFFFFF;">
+          外國人必看自由行指南 ‧ 零障礙暢遊台灣
+        </h1>
+        <p style="font-size: 15px; color: #94A3B8; line-height: 1.7; margin-bottom: 24px;">
+          Welcome to Taiwan! We’ve solved the 3 biggest foreign traveler headaches: Show to Driver cards, Boba ordering cheat sheet, and Hotel Baggage-Free Souvenir delivery.
+        </p>
+
+        <!-- 實時貨幣換算器 -->
+        <div style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 18px; padding: 18px 24px; display: inline-flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center;">
+          <span style="font-size: 13px; font-weight: 800; color: #E2E8F0;">💱 實時匯率計算 (Live FX):</span>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 13px; color: #94A3B8;">NT$</span>
+            <input type="number" id="fx-twd-input" value="1000" min="1" style="width: 100px; padding: 6px 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); background: #0F172A; color: #FFFFFF; font-weight: 800; text-align: center;" oninput="calculateFX()">
+          </div>
+          <span style="color: #64748B;">≈</span>
+          <div id="fx-results-row" style="display: flex; gap: 12px; font-size: 13px; font-weight: 800; color: #38BDF8;">
+            <span>$ 31.5 USD</span> · <span>¥ 4,750 JPY</span> · <span>₩ 42,000 KRW</span> · <span>€ 29 EUR</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 一、三大外籍救星工具列 (Tourist Toolkits) -->
+  <section class="section-padding" style="background: #F8FAFC;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 36px;">
+        <span class="section-badge-pill">TOURIST TOOLKITS</span>
+        <h2 class="section-heading-title">三大外籍救星工具箱 ‧ 隨點即用</h2>
+        <p class="section-heading-desc">解決計程車司機看不懂英文地址、手搖飲複雜客製化點餐、伴手禮提袋沉重三大自由行痛點</p>
+      </div>
+
+      <div class="toolkit-grid">
+        <!-- 工具 1: 🚕 給司機看大字卡 -->
+        <div class="toolkit-card">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-size: 32px;">🚕</span>
+              <span style="font-size: 11px; background: #FEF3C7; color: #92400E; padding: 3px 8px; border-radius: 6px; font-weight: 800;">全螢幕超大繁體字</span>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">給司機看大字卡 (Show to Driver)</h3>
+            <p style="font-size: 13px; color: #64748B; line-height: 1.5; margin-bottom: 16px;">
+              司機看不懂英文地址？點選熱門地標或輸入飯店，一鍵全螢幕黑底大白字出示！
+            </p>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;">
+              <button type="button" class="driver-btn-chip active" onclick="setDriverDestination('台北大巨蛋 (Taipei Dome)', '台北市信義區忠孝東路四段515號')">台北大巨蛋</button>
+              <button type="button" class="driver-btn-chip" onclick="setDriverDestination('寧夏夜市 (Ningxia Night Market)', '台北市大同區寧夏路')">寧夏夜市</button>
+              <button type="button" class="driver-btn-chip" onclick="setDriverDestination('台北 101 大樓 (Taipei 101)', '台北市信義區信義路五段7號')">台北 101</button>
+              <button type="button" class="driver-btn-chip" onclick="setDriverDestination('國立故宮博物院 (Palace Museum)', '台北市士林區至善路二段221號')">故宮博物院</button>
+              <button type="button" class="driver-btn-chip" onclick="setDriverDestination('台北車站 (Taipei Main Station)', '台北市中正區北平西路3號')">台北車站</button>
+              <button type="button" class="driver-btn-chip" onclick="setDriverDestination('桃園機場 第一航廈 (T1)', '桃園市大園區航站南路15號')">桃園機場 T1</button>
+            </div>
+
+            <div style="margin-bottom: 16px;">
+              <input type="text" id="custom-driver-input" placeholder="或輸入您的飯店中文名稱/地址..." style="width: 100%; padding: 10px 14px; border: 1.5px solid #CBD5E1; border-radius: 12px; font-size: 13px;">
+            </div>
+          </div>
+
+          <button onclick="openDriverModal()" class="btn-action btn-klook-book" style="width: 100%; justify-content: center; padding: 12px; font-size: 14px; font-weight: 800;">
+            📱 點擊展開全螢幕黑底大字卡
+          </button>
+        </div>
+
+        <!-- 工具 2: 🧋 手搖飲道地客製化指南 -->
+        <div class="toolkit-card">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-size: 32px;">🧋</span>
+              <span style="font-size: 11px; background: #FFEDD5; color: #C2410C; padding: 3px 8px; border-radius: 6px; font-weight: 800;">在地人點餐模擬器</span>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">手搖飲道地客製指南 (Order Like a Local)</h3>
+            <p style="font-size: 13px; color: #64748B; line-height: 1.5; margin-bottom: 14px;">
+              點選手感滑塊生成中文訂單卡，直接截圖或拿給店員看秒通關！
+            </p>
+
+            <!-- 茶底 -->
+            <div style="margin-bottom: 10px;">
+              <div style="font-size: 11px; font-weight: 800; color: #64748B; margin-bottom: 4px;">1. 茶底 (Tea Base):</div>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="boba-tea-group">
+                <button type="button" class="boba-pill active" onclick="selectBobaOption('tea', '四季春青茶', this)">四季春</button>
+                <button type="button" class="boba-pill" onclick="selectBobaOption('tea', '錫蘭紅茶', this)">紅茶</button>
+                <button type="button" class="boba-pill" onclick="selectBobaOption('tea', '炭焙烏龍', this)">烏龍</button>
+                <button type="button" class="boba-pill" onclick="selectBobaOption('tea', '經典厚奶茶', this)">奶茶</button>
+              </div>
+            </div>
+
+            <!-- 甜度 -->
+            <div style="margin-bottom: 10px;">
+              <div style="font-size: 11px; font-weight: 800; color: #64748B; margin-bottom: 4px;">2. 甜度 (Sugar):</div>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="boba-sugar-group">
+                <button type="button" class="boba-pill active" onclick="selectBobaOption('sugar', '微糖 (30%)', this)">微糖 30%</button>
+                <button type="button" class="boba-pill" onclick="selectBobaOption('sugar', '無糖 (0%)', this)">無糖 0%</button>
+                <button type="button" class="boba-pill" onclick="selectBobaOption('sugar', '半糖 (50%)', this)">半糖 50%</button>
+              </div>
+            </div>
+
+            <!-- 冰量 -->
+            <div style="margin-bottom: 10px;">
+              <div style="font-size: 11px; font-weight: 800; color: #64748B; margin-bottom: 4px;">3. 冰量 (Ice):</div>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="boba-ice-group">
+                <button type="button" class="boba-pill active" onclick="selectBobaOption('ice', '微冰', this)">微冰</button>
+                <button type="button" class="boba-pill" onclick="selectBobaOption('ice', '去冰', this)">去冰</button>
+                <button type="button" class="boba-pill" onclick="selectBobaOption('ice', '常溫/溫熱', this)">溫熱</button>
+              </div>
+            </div>
+
+            <!-- 加料 -->
+            <div style="margin-bottom: 14px;">
+              <div style="font-size: 11px; font-weight: 800; color: #64748B; margin-bottom: 4px;">4. 加料 (Toppings):</div>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="boba-topping-group">
+                <button type="button" class="boba-pill active" onclick="selectBobaOption('topping', '珍波椰 (珍珠+椰果)', this)">珍波椰</button>
+                <button type="button" class="boba-pill" onclick="selectBobaOption('topping', '黑糖波霸珍珠', this)">黑糖波霸</button>
+                <button type="button" class="boba-pill" onclick="selectBobaOption('topping', '古早味粉粿', this)">粉粿</button>
+                <button type="button" class="boba-pill" onclick="selectBobaOption('topping', '不加料', this)">不加料</button>
+              </div>
+            </div>
+
+            <!-- 即時生成的中文小卡 -->
+            <div style="background: #FEF3C7; border: 1.5px dashed #D97706; border-radius: 14px; padding: 12px 14px; margin-bottom: 14px;">
+              <div style="font-size: 11px; color: #92400E; font-weight: 800; margin-bottom: 4px;">📋 繁體中文點餐小卡 (Show to Barista):</div>
+              <div id="boba-order-card" style="font-size: 15px; font-weight: 900; color: #78350F;">
+                「老闆您好，我要一杯：四季春青茶 珍波椰 微糖 微冰」
+              </div>
+            </div>
+          </div>
+
+          <button onclick="copyBobaOrder()" class="btn-action" style="background: #D97706; color: #FFFFFF; width: 100%; justify-content: center; padding: 12px; font-size: 14px; font-weight: 800; border-radius: 12px; border: none; cursor: pointer;">
+            📋 複製點單文字 / 出示給店員
+          </button>
+        </div>
+
+        <!-- 工具 3: 📦 行李免提・直寄飯店服務 -->
+        <div class="toolkit-card">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-size: 32px;">📦</span>
+              <span style="font-size: 11px; background: #DCFCE7; color: #166534; padding: 3px 8px; border-radius: 6px; font-weight: 800;">飯店代收免提服務</span>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">行李免提・直寄飯店 (Hands-Free Travel)</h3>
+            <p style="font-size: 13px; color: #64748B; line-height: 1.6; margin-bottom: 16px;">
+              “Don't carry heavy bags! We deliver pineapple cakes, boba kits & drugstore essentials directly to your hotel front desk.”
+            </p>
+
+            <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 14px; padding: 14px; margin-bottom: 18px;">
+              <div style="font-size: 13px; font-weight: 800; color: #15803D; margin-bottom: 6px;">✨ 外國人自由行 3 大便利保證：</div>
+              <ul style="font-size: 12px; color: #166534; line-height: 1.6; padding-left: 18px; margin: 0;">
+                <li>免排隊 2 小時排佳德與微熱山丘</li>
+                <li>出境退房前專人送達飯店前台保管代收</li>
+                <li>不佔用隨行行李重量，暢快玩樂全台灣</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <a href="souvenir.html" class="btn-action btn-klook-book" style="width: 100%; justify-content: center; padding: 12px; font-size: 14px; font-weight: 800; text-decoration: none;">
+              🛍️ 進入 100 大伴手禮直購排行 ➔
+            </a>
+            <a href="https://affckr.site/track/clicks/5891/c627c2bc9b0428dbf188ec23d62e9d47266c4cdf2aabebf10f69b313234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #F1F5F9; color: #0F172A; width: 100%; justify-content: center; padding: 10px; font-size: 13px; font-weight: 700; text-decoration: none;">
+              💊 台灣熱門藥妝飯店直送 ➔
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 二、6 大客群專屬主題專欄 (Curated Inbound Highlights) -->
+  <section class="section-padding" style="background: #FFFFFF;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 44px;">
+        <span class="section-badge-pill">CURATED INBOUND HIGHLIGHTS</span>
+        <h2 class="section-heading-title">6 大客群專屬主題專欄</h2>
+        <p class="section-heading-desc">依據歐美、日韓、東南亞旅客偏好深度打造，整合票務預約、住宿比價與專屬包車</p>
+      </div>
+
+      <!-- 專欄 1: ⚡ 潮流與 IP 朝聖專欄 -->
+      <article class="inbound-segment-card">
+        <div class="inbound-img-wrap">
+          <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&auto=format&fit=crop" alt="寶可夢中心與西門町">
+        </div>
+        <div class="inbound-content">
+          <div>
+            <span class="inbound-badge-pill" style="background: #FEF3C7; color: #B45309;">⚡ ANIME & POP CULTURE</span>
+            <h3 style="font-size: 22px; font-weight: 800; color: #0F172A; margin-bottom: 8px;">潮流與 IP 朝聖專欄（Pokémon & Anime Hub）</h3>
+            <div style="font-size: 13px; color: #0284C7; font-weight: 700; margin-bottom: 12px;">🎯 主要客群：東南亞年輕人、日韓家庭、全球動漫與寶可夢迷</div>
+            <p style="font-size: 14px; color: #475569; line-height: 1.7; margin-bottom: 16px;">
+              <strong>Pokémon Center TAIPEI（新光三越信義 A11 3F）</strong>：全台首間官方寶可夢中心！台灣限定版快龍、戴著鳳梨眼鏡的皮卡丘玩偶必搶。週末人潮眾多，提醒早上 09:30 前往領取入店整理券。<br>
+              <strong>台北地下街 Y 區 × 西門町萬年大樓</strong>：動漫迷朝聖天堂！全台灣最密集一番賞、扭蛋機盲盒、PVC 手辦模型與中古任天堂二手懷舊卡帶。
+            </p>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="https://affone.me/s/bQeO4?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.zh-tw.html%3Fss%3D%E8%A5%BF%E9%96%80%E7%94%BA%26aid%3D8133101" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding: 10px 18px; font-size: 13px;">
+              🏨 西門町周邊潮流旅宿訂房 (Booking/Trip)
+            </a>
+            <a href="https://www.klook.com/zh-TW/activity/1659-taipei-101-observatory-ticket-taipei/?aid=123436" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #EFF6FF; color: #1E40AF; padding: 10px 18px; font-size: 13px; font-weight: 700; text-decoration: none;">
+              🎟️ 信義區 101 觀景台門票 ➔
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 專欄 2: ⚾ 台灣職棒應援熱血體驗 -->
+      <article class="inbound-segment-card">
+        <div class="inbound-img-wrap">
+          <img src="https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=800&auto=format&fit=crop" alt="台北大巨蛋棒球賽事">
+        </div>
+        <div class="inbound-content">
+          <div>
+            <span class="inbound-badge-pill" style="background: #EFF6FF; color: #1E40AF;">⚾ CPBL BASEBALL FEVER</span>
+            <h3 style="font-size: 22px; font-weight: 800; color: #0F172A; margin-bottom: 8px;">台灣職棒應援熱血體驗（CPBL Baseball & Cheerleaders）</h3>
+            <div style="font-size: 13px; color: #0284C7; font-weight: 700; margin-bottom: 12px;">🎯 主要客群：日本球迷（朝聖狂熱台式應援舞蹈）、歐美體育愛好者</div>
+            <p style="font-size: 14px; color: #475569; line-height: 1.7; margin-bottom: 16px;">
+              <strong>台北大巨蛋（Taipei Dome）觀賽全攻略</strong>：捷運國父紀念館站直達！4 萬人全室內頂級冷氣空調，不受雨天影響。熱區啦啦隊應援文化風靡日韓，享受全場齊聲震撼吶喊跳舞！<br>
+              <strong>外國人購票與看球必備</strong>：當日現場售票亭可出示護照購票；場內必備台式現打金牌生啤酒、香酥熱騰騰鹽酥雞，享受極致夜生活運動派對。
+            </p>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="https://tw.trip.com/hotels/list?city=1&Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding: 10px 18px; font-size: 13px;">
+              🏨 大巨蛋周邊飯店比價 (Trip.com)
+            </a>
+            <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #EFF6FF; color: #1E40AF; padding: 10px 18px; font-size: 13px; font-weight: 700; text-decoration: none;">
+              🚐 看球專車接送直達球場 ➔
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 專欄 3: 🏄 太平洋野生浪點與蔚藍潛水 -->
+      <article class="inbound-segment-card">
+        <div class="inbound-img-wrap">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop" alt="小琉球海龜潛水與衝浪">
+        </div>
+        <div class="inbound-content">
+          <div>
+            <span class="inbound-badge-pill" style="background: #ECFEFF; color: #0E7490;">🏄 SURFING & DIVING</span>
+            <h3 style="font-size: 22px; font-weight: 800; color: #0F172A; margin-bottom: 8px;">太平洋野生浪點與蔚藍潛水（Wild Ocean: Surf & Diving）</h3>
+            <div style="font-size: 13px; color: #0284C7; font-weight: 700; margin-bottom: 12px;">🎯 主要客群：歐美背包客、戶外水上運動與海洋冒險愛好者</div>
+            <p style="font-size: 14px; color: #475569; line-height: 1.7; margin-bottom: 16px;">
+              <strong>宜蘭頭城烏石港 / 外澳沙灘</strong>：台北搭火車 1 小時直達！平緩沙灘浪型、英文衝浪教練一對一帶衝。<br>
+              <strong>台東金尊漁港</strong>：世界衝浪聯盟 (WSL) 國際公開賽指定場地，冬季節風浪況極佳。<br>
+              <strong>小琉球花瓶岩與美人洞</strong>：全球綠蠵龜密度最高海域！99% 機率野生海龜共游（嚴禁觸摸，違者最高罰款30萬台幣）。綠島石朗則擁有水下 30 米透明度與海底郵筒。
+            </p>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="https://linkgo.one/s/ikCjF" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding: 10px 18px; font-size: 13px;">
+              🤿 奧丁丁小琉球/綠島潛水考證體驗 (linkgo)
+            </a>
+            <a href="https://www.klook.com/zh-TW/activity/1090-kenting-day-tour-kaohsiung/?aid=123436" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #EFF6FF; color: #1E40AF; padding: 10px 18px; font-size: 13px; font-weight: 700; text-decoration: none;">
+              🎟️ 墾丁後壁湖浮潛預約 ➔
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 專欄 4: 🍵 台灣工夫茶道與景觀茶席 -->
+      <article class="inbound-segment-card">
+        <div class="inbound-img-wrap">
+          <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&auto=format&fit=crop" alt="九份阿妹茶樓與功夫茶">
+        </div>
+        <div class="inbound-content">
+          <div>
+            <span class="inbound-badge-pill" style="background: #F0FDF4; color: #15803D;">🍵 TRADITIONAL TEA HOUSES</span>
+            <h3 style="font-size: 22px; font-weight: 800; color: #0F172A; margin-bottom: 8px;">台灣工夫茶道與景觀茶席（Authentic Tea Houses）</h3>
+            <div style="font-size: 13px; color: #0284C7; font-weight: 700; margin-bottom: 12px;">🎯 主要客群：日本文青、歐美慢活自由行、東方生活美學愛好者</div>
+            <p style="font-size: 14px; color: #475569; line-height: 1.7; margin-bottom: 14px;">
+              <strong>九份阿妹茶樓</strong>：俯瞰陰陽海與山城紅燈籠，品嚐凍頂烏龍與綠豆椪。<br>
+              <strong>台北紫藤廬</strong>：古蹟日式榻榻米老宅茶席，沉浸於文人清談雅境。<br>
+              <strong>30 秒泡茶圖解</strong>：溫壺 (Warm Teapot) ➔ 置茶 1/4 (Add Tea Leaves) ➔ 沸水沖泡 45 秒 (Steep 45s) ➔ 聞香杯品香 (Smell Aroma) ➔ 細細品茗 (Sip & Savor)。
+            </p>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="https://linkgo.one/s/ikCjF" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding: 10px 18px; font-size: 13px;">
+              🍵 坪林/阿里山小農採茶手作體驗 (linkgo)
+            </a>
+            <a href="https://affclkr.online/track/clicks/5686/c627c2bf910421d7fb8dec23d62e9d47266c4cdf2aabebf10168b413234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #EFF6FF; color: #1E40AF; padding: 10px 18px; font-size: 13px; font-weight: 700; text-decoration: none;">
+              🎁 鶯歌茶具與高山烏龍直送飯店 ➔
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 專欄 5: 🎒 神級平價設計青旅與百岳步道 -->
+      <article class="inbound-segment-card">
+        <div class="inbound-img-wrap">
+          <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=800&auto=format&fit=crop" alt="合歡山百岳與設計青年旅舍">
+        </div>
+        <div class="inbound-content">
+          <div>
+            <span class="inbound-badge-pill" style="background: #FAF5FF; color: #7E22CE;">🎒 HOSTELS & MOUNTAIN TRAILS</span>
+            <h3 style="font-size: 22px; font-weight: 800; color: #0F172A; margin-bottom: 8px;">神級平價設計青旅與百岳步道（Hostels & High Mountain Trails）</h3>
+            <div style="font-size: 13px; color: #0284C7; font-weight: 700; margin-bottom: 12px;">🎯 主要客群：歐美背包客、小資青年自由行、徒步遠足旅行者</div>
+            <p style="font-size: 14px; color: #475569; line-height: 1.7; margin-bottom: 16px;">
+              <strong>超高評價設計背包客棧 (NT$ 600–900/晚)</strong>：台北夾腳拖的家（紅磚天井文青風）、北門窩泊旅（大稻埕樞紐）、台南福憩背包客棧、花蓮蜂巢膠囊，具備高速 Wi-Fi、英文流利管家與溫馨交誼廳。<br>
+              <strong>外國人友善百岳入門</strong>：合歡山主峰／石門山步道（海拔 3237m+），公路直達免入山證，30 分鐘輕鬆登頂俯瞰雲海壯景。
+            </p>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="https://tw.trip.com/hotels/list?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding: 10px 18px; font-size: 13px;">
+              🏨 Trip.com 全台青年旅館早鳥比價預約
+            </a>
+            <a href="https://www.klook.com/zh-TW/rails-32/1014-taiwan/?aid=123436" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #EFF6FF; color: #1E40AF; padding: 10px 18px; font-size: 13px; font-weight: 700; text-decoration: none;">
+              🚅 台灣高鐵外籍旅客 85 折周遊券 ➔
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 專欄 6: 🍢 外國人友善夜市必吃與飲食避雷 -->
+      <article class="inbound-segment-card">
+        <div class="inbound-img-wrap">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop" alt="台灣夜市小吃美食">
+        </div>
+        <div class="inbound-content">
+          <div>
+            <span class="inbound-badge-pill" style="background: #FFF1F2; color: #BE123C;">🍢 NIGHT MARKET & DIET FILTERS</span>
+            <h3 style="font-size: 22px; font-weight: 800; color: #0F172A; margin-bottom: 8px;">外國人友善夜市必吃與飲食避雷（Night Market Trail & Diet Filters）</h3>
+            <div style="font-size: 13px; color: #0284C7; font-weight: 700; margin-bottom: 12px;">🎯 主要客群：全體訪台外國旅客、穆斯林與素食旅人</div>
+            
+            <!-- 特殊飲食標籤 -->
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="diet-filter-tag" style="background: #DCFCE7; color: #166534;">🟢 清真友善 (Halal Certified / No Pork)</span>
+              <span class="diet-filter-tag" style="background: #FEF9C3; color: #854D0E;">🥬 蔬食純素 (Vegan & Vegetarian)</span>
+              <span class="diet-filter-tag" style="background: #FEE2E2; color: #991B1B;">⚠️ 花生海鮮過敏警示 (Allergy Warning)</span>
+            </div>
+
+            <!-- 經典小吃中英對照盒 -->
+            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 12px 16px; margin-bottom: 16px; font-size: 13px; line-height: 1.8; color: #334155;">
+              <strong>🥠 胡椒餅</strong>: Black Pepper Bun (酥脆多汁炭烤餡餅)<br>
+              <strong>🍚 滷肉飯</strong>: Braised Pork Rice (台灣靈魂醬香切丁五花肉)<br>
+              <strong>🍔 刈包</strong>: Taiwanese Pork Belly Burger (虎咬豬花生粉香菜掛包)<br>
+              <strong>🍳 蚵仔煎</strong>: Oyster Omelet (海味鮮蚵茼蒿粉漿蛋煎)<br>
+              <strong>🍠 地瓜球</strong>: Sweet Potato Balls (素食可食！金黃酥脆空心Q彈)
+            </div>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="https://afftkr.site/track/clicks/2498/c627c2bc900729d8fd9cab248d219d46266e5b9633e0e4f00e68a44125095ff88635aca3163d8e?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding: 10px 18px; font-size: 13px;">
+              💊 夜市大餐必備消化酵素益生菌 (afftkr)
+            </a>
+            <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #EFF6FF; color: #1E40AF; padding: 10px 18px; font-size: 13px; font-weight: 700; text-decoration: none;">
+              🚕 深夜夜市專車回飯店 ➔
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- 三、外國人必買伴手禮與藥妝（直配飯店櫃檯免提專區） -->
+  <section class="section-padding" style="background: #F8FAFC;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 36px;">
+        <span class="section-badge-pill">HOTEL DELIVERY HERO</span>
+        <h2 class="section-heading-title">外國人必買伴手禮與藥妝 ‧ 直送飯店免提</h2>
+        <p class="section-heading-desc">
+          線上勾選、安全付款、退房前專人送達飯店前台保管代收！不佔行李重量，免去數小時排隊
+        </p>
+      </div>
+
+      <!-- 精選 5 大必買神物橫幅表格卡牌 -->
+      <div style="max-width: 980px; margin: 0 auto; background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+        <div style="padding: 16px 24px; background: #0F172A; color: #FFFFFF; font-weight: 800; font-size: 14px; display: grid; grid-template-columns: 2fr 3fr 1.5fr 2fr; gap: 12px;">
+          <div>推薦品項 (Product)</div>
+          <div>核心吸引力 (Why Foreigners Love It)</div>
+          <div>適用客群</div>
+          <div style="text-align: right;">直送轉化管道</div>
+        </div>
+
+        <!-- Row 1 -->
+        <div style="padding: 18px 24px; border-bottom: 1px solid #F1F5F9; display: grid; grid-template-columns: 2fr 3fr 1.5fr 2fr; gap: 12px; align-items: center; font-size: 13px;">
+          <div><strong style="color:#0F172A;">佳德 / 微熱山丘 鳳梨酥</strong><br><span style="color:#64748B; font-size:11px;">SunnyHills & ChiaTe</span></div>
+          <div style="color:#475569;">台灣第 1 名代表點心，免去 2 小時排隊之苦</div>
+          <div><span style="background:#EFF6FF; color:#1E40AF; padding:3px 8px; border-radius:6px; font-weight:700; font-size:11px;">港澳日韓、歐美</span></div>
+          <div style="text-align: right;"><a href="https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding:6px 12px; font-size:12px; display:inline-block;">萬家福直配 ➔</a></div>
+        </div>
+
+        <!-- Row 2 -->
+        <div style="padding: 18px 24px; border-bottom: 1px solid #F1F5F9; display: grid; grid-template-columns: 2fr 3fr 1.5fr 2fr; gap: 12px; align-items: center; font-size: 13px;">
+          <div><strong style="color:#0F172A;">甜鹹牛軋糖蔥餅 (甜滿/蜜密)</strong><br><span style="color:#64748B; font-size:11px;">Scallion Nougat Crackers</span></div>
+          <div style="color:#475569;">鹹脆青蔥蘇打餅夾軟 Q 濃香牛軋糖，現象級搶購</div>
+          <div><span style="background:#FEF3C7; color:#92400E; padding:3px 8px; border-radius:6px; font-weight:700; font-size:11px;">韓國旅客瘋搶</span></div>
+          <div style="text-align: right;"><a href="https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding:6px 12px; font-size:12px; display:inline-block;">萬家福直配 ➔</a></div>
+        </div>
+
+        <!-- Row 3 -->
+        <div style="padding: 18px 24px; border-bottom: 1px solid #F1F5F9; display: grid; grid-template-columns: 2fr 3fr 1.5fr 2fr; gap: 12px; align-items: center; font-size: 13px;">
+          <div><strong style="color:#0F172A;">阿里山高山烏龍原葉茶</strong><br><span style="color:#64748B; font-size:11px;">Alishan Oolong Whole Leaf</span></div>
+          <div style="color:#475569;">海拔 1400m 手採原葉，天然花香甘甜耐泡</div>
+          <div><span style="background:#F0FDF4; color:#15803D; padding:3px 8px; border-radius:6px; font-weight:700; font-size:11px;">日本、歐美茶客</span></div>
+          <div style="text-align: right;"><a href="https://affclkr.online/track/clicks/5686/c627c2bf910421d7fb8dec23d62e9d47266c4cdf2aabebf10168b413234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding:6px 12px; font-size:12px; display:inline-block;">質感選物直購 ➔</a></div>
+        </div>
+
+        <!-- Row 4 -->
+        <div style="padding: 18px 24px; border-bottom: 1px solid #F1F5F9; display: grid; grid-template-columns: 2fr 3fr 1.5fr 2fr; gap: 12px; align-items: center; font-size: 13px;">
+          <div><strong style="color:#0F172A;">金門一條根 舒緩貼布/滾珠瓶</strong><br><span style="color:#64748B; font-size:11px;">Goryu-kon Relief Patches</span></div>
+          <div style="color:#475569;">暴走萬步自由行必備，舒緩肩頸痠痛腿抽筋</div>
+          <div><span style="background:#FAF5FF; color:#7E22CE; padding:3px 8px; border-radius:6px; font-weight:700; font-size:11px;">全體外國旅客</span></div>
+          <div style="text-align: right;"><a href="https://affckr.site/track/clicks/5891/c627c2bc9b0428dbf188ec23d62e9d47266c4cdf2aabebf10f69b313234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding:6px 12px; font-size:12px; display:inline-block;">台灣藥妝直購 ➔</a></div>
+        </div>
+
+        <!-- Row 5 -->
+        <div style="padding: 18px 24px; display: grid; grid-template-columns: 2fr 3fr 1.5fr 2fr; gap: 12px; align-items: center; font-size: 13px;">
+          <div><strong style="color:#0F172A;">我的美麗日記 / 提提研 面膜</strong><br><span style="color:#64748B; font-size:11px;">Beauty Diary & TTM Masks</span></div>
+          <div style="color:#475569;">台灣醫美科研保濕修護面膜，超高 CP 值掃貨</div>
+          <div><span style="background:#FFF1F2; color:#BE123C; padding:3px 8px; border-radius:6px; font-weight:700; font-size:11px;">東南亞、日韓女性</span></div>
+          <div style="text-align: right;"><a href="https://affckr.site/track/clicks/5891/c627c2bc9b0428dbf188ec23d62e9d47266c4cdf2aabebf10f69b313234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding:6px 12px; font-size:12px; display:inline-block;">台灣藥妝直購 ➔</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 全螢幕黑底大字 Modal -->
+  <div id="driver-fullscreen-modal" onclick="closeDriverModal()">
+    <div style="font-size: 14px; color: #94A3B8; margin-bottom: 20px; font-weight: 700;">
+      🚕 請出示給計程車司機大哥看 (Click anywhere to exit / 點擊任意處關閉)
+    </div>
+    <div style="font-size: 20px; color: #38BDF8; font-weight: 800; margin-bottom: 12px;">
+      司機大哥您好！請帶我到：
+    </div>
+    <div id="driver-modal-target-title" class="driver-big-text">
+      台北大巨蛋 (Taipei Dome)
+    </div>
+    <div id="driver-modal-target-addr" style="font-size: 26px; color: #F8FAFC; max-width: 800px; margin-bottom: 30px; font-weight: 700; line-height: 1.4;">
+      台北市信義區忠孝東路四段515號
+    </div>
+    <div style="background: #1E293B; border: 1px solid #334155; padding: 12px 24px; border-radius: 9999px; font-size: 16px; color: #FBBF24; font-weight: 800;">
+      🙏 非常感謝您！Thank you so much!
+    </div>
+  </div>
+
+  <!-- 全域頁尾 -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div style="text-align: center; color: #94A3B8; font-size: 13px;">
+        © 2026 台灣吃喝玩樂 Taiwan Wanderlust ‧ Inbound Traveler Special Guide.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/affiliate.js"></script>
+  <script src="js/data.js"></script>
+  <script>
+    // 司機大字卡狀態
+    let currentDestTitle = '台北大巨蛋 (Taipei Dome)';
+    let currentDestAddr = '台北市信義區忠孝東路四段515號';
+
+    function setDriverDestination(title, addr) {
+      currentDestTitle = title;
+      currentDestAddr = addr;
+      document.querySelectorAll('.driver-btn-chip').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.trim() === title.split(' ')[0]);
+      });
+    }
+
+    function openDriverModal() {
+      const customInput = document.getElementById('custom-driver-input').value.trim();
+      if (customInput) {
+        currentDestTitle = customInput;
+        currentDestAddr = '（旅客指定目的地）';
+      }
+      document.getElementById('driver-modal-target-title').innerText = currentDestTitle;
+      document.getElementById('driver-modal-target-addr').innerText = currentDestAddr;
+      document.getElementById('driver-fullscreen-modal').classList.add('open');
+    }
+
+    function closeDriverModal() {
+      document.getElementById('driver-fullscreen-modal').classList.remove('open');
+    }
+
+    // 手搖飲點單狀態
+    let bobaSelection = {
+      tea: '四季春青茶',
+      sugar: '微糖 (30%)',
+      ice: '微冰',
+      topping: '珍波椰 (珍珠+椰果)'
+    };
+
+    function selectBobaOption(type, val, btn) {
+      bobaSelection[type] = val;
+      const parent = btn.parentElement;
+      parent.querySelectorAll('.boba-pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      updateBobaOrderCard();
+    }
+
+    function updateBobaOrderCard() {
+      const card = document.getElementById('boba-order-card');
+      const topText = bobaSelection.topping === '不加料' ? '' : ' ' + bobaSelection.topping.split(' ')[0];
+      card.innerText = `「老闆您好，我要一杯：${bobaSelection.tea}${topText} ${bobaSelection.sugar.split(' ')[0]} ${bobaSelection.ice}」`;
+    }
+
+    function copyBobaOrder() {
+      const card = document.getElementById('boba-order-card');
+      const text = card.innerText.replace(/[「」]/g, '');
+      navigator.clipboard.writeText(text).then(() => {
+        alert('✅ 已複製點餐中文文字：\n' + text + '\n可以直接出示給手搖飲店員看！');
+      }).catch(() => {
+        alert('請出示給手搖飲店員看：\n' + text);
+      });
+    }
+
+    // 匯率計算
+    function calculateFX() {
+      const val = parseFloat(document.getElementById('fx-twd-input').value) || 0;
+      const usd = (val * 0.0315).toFixed(1);
+      const jpy = Math.round(val * 4.75).toLocaleString();
+      const krw = Math.round(val * 42).toLocaleString();
+      const eur = (val * 0.029).toFixed(1);
+      document.getElementById('fx-results-row').innerHTML = `
+        <span>$ ${usd} USD</span> · <span>¥ ${jpy} JPY</span> · <span>₩ ${krw} KRW</span> · <span>€ ${eur} EUR</span>
+      `;
+    }
+  </script>
+</body>
+</html>
