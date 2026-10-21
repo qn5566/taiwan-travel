@@ -73,7 +73,7 @@ const TOP_ACTIVITIES_6 = [
     "origPrice": "NT$ 1,980",
     "tag": "世界遺產登山鐵道 · 千年紅檜神木",
     "desc": "穿梭雲海仙境！搭乘百年歷史小火車、森呼吸兩千多年巨木群棧道與姊妹潭自然秘境。",
-    "img": "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=800&auto=format&fit=crop",
+    "img": "assets/alishan_train_tour.jpg",
     "activityId": "1684-alishan-day-tour-chiayi",
     "badge": "TOP 4 HERITAGE"
   },
