@@ -1,39 +1,70 @@
 /**
  * 台灣吃喝玩樂網頁版 - 集中式分潤中樞規範模組 (AFFILIATE_HUB)
- * 嚴格落實文案與跳轉規範：
- * 1. Klook 行程 ➔ 寫「預定行程」，帶入 aid=123436
- * 2. Klook 包車 ➔ 寫「包車」或「包車預約」，帶入 aid=123436
- * 3. Booking 住宿 ➔ 寫「訂房去」或「找房間」，帶入 aid=123436
- * 4. Trip.com 機票 ➔ 寫「查機票」，帶入 allianceid=123436&sid=123436
- * 5. 萬家福特產 ➔ 寫「伴手禮直送」，連至 onelink.one/s/KmfgH
- * 6. Google 地圖 ➔ 寫「地圖導航」，連至 Google Maps Search API
+ * 品牌：HiMyDream Studio
+ * 官方商務信箱：himydream.studio0220@gmail.com
+ * 全專案 14 大分潤通道權威配置中心
  */
 
 const AFFILIATE_HUB = {
-  // 分潤代碼設定（之後更換分潤 ID 只需修改此處）
+  // 官方商務聯絡
+  contactEmail: "himydream.studio0220@gmail.com",
+
+  // 12. Klook 官方聯盟
   klookAid: "123436",
+
+  // 11. Trip.com 官方聯盟
   tripAllianceId: "9507030",
   tripSid: "325761227",
   tripSub3: "D20272275",
-  wanjiafuUrl: "https://onelink.one/s/KmfgH",
 
   // Booking.com 聯盟網 (Affiliates.One / CJ) 專屬參數
   bookingAid: "8133101",
   bookingLabel: "affnetcj-17288959_pub-4456004_site-100117277",
   bookingAffoneBase: "https://affone.me/s/bQeO4",
 
-  // 未來若你在聯盟網後台產出特定飯店的專屬推廣網址，可直接登記在此對照表：
-  // 格式： "景點或飯店關鍵字": "該飯店在聯盟網產出的專屬短網址"
+  // 01. 露營生鮮食材箱 (aftck)
+  campingFreshFoodUrl: "https://aftck.com/track/clicks/1489/c627c2bc980522defc82ec23d62e9d47266c4cdf2aabebf50368bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+
+  // 02. 教育學習綜合平台 (vbtrax)
+  educationLearningUrl: "https://vbtrax.com/track/clicks/9445/c627c2bc9b0428dbf189ec23d62e9d47266c4cdf2aabebfd0364b713234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+
+  // 03. 線上學英文專屬推薦 (affckr)
+  englishLearningAppUrl: "https://affckr.site/track/clicks/6826/c627c2bc9b0428dbf18eec23d62e9d47266c4cdf2aabebf20f62b413234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1&subid_3=%E5%AD%B8%E8%8B%B1%E6%96%87%EF%BC%A1%EF%BC%B0%EF%BC%B0",
+
+  // 04. 台灣熱門藥妝店 (affckr)
+  drugstoreTaiwanUrl: "https://affckr.site/track/clicks/5891/c627c2bc9b0428dbf188ec23d62e9d47266c4cdf2aabebf10f69b313234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+
+  // 05. 質感選物店與生活選品 (affclkr)
+  lifestyleShopUrl: "https://affclkr.online/track/clicks/5686/c627c2bf910421d7fb8dec23d62e9d47266c4cdf2aabebf10168b413234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+
+  // 06. 萬家福生鮮伴手禮直送 (最新 afftck)
+  wanjiafuLatestUrl: "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+
+  // 07. 台灣訂餐與優惠餐券 (affckr)
+  diningVoucherUrl: "https://affckr.site/track/clicks/4127/c627c2bc980126defc88ec23d62e9d47266c4cdf2aabebf00662b513234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+
+  // 08. 保健食品導購 (afftkr)
+  healthSupplementsUrl: "https://afftkr.site/track/clicks/2498/c627c2bc900729d8fd9cab248d219d46266e5b9633e0e4f00e68a44125095ff88635aca3163d8e?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82",
+
+  // 09. 奧丁丁在地深度體驗 (linkgo)
+  owltingExperienceUrl: "https://linkgo.one/s/ikCjF",
+
+  // 10. 化妝品與藥品備用通道 (afflink)
+  cosmeticsPharmaUrl: "https://afflink.one/s/3WAKW",
+
+  // 13. SimOptions 上網網卡
+  simOptionsUrl: "https://www.simoptions.com/zh/",
+
+  // Booking 特定飯店專屬短網址映射表（可隨時擴增）
   customBookingLinks: {
-    // 範例（可隨時擴充）：
-    // "加賀屋": "https://affone.me/s/xxxx1",
-    // "老爺酒店": "https://affone.me/s/xxxx2"
+    // 範例："加賀屋": "https://affone.me/s/xxxx"
   },
 
-  /**
-   * 1. 預定行程 (Klook)
-   * @param {string} activityIdOrPath Klook 活動代碼或路徑
-   */
+  /* =======================================================
+     分潤連結建構函式
+     ======================================================= */
+
+  /** 1. 預定行程 (Klook) */
   getTourUrl: function(activityIdOrPath = "1874-jiufen-shifen-day-tour-taipei") {
     if (activityIdOrPath.startsWith("http")) {
       const url = new URL(activityIdOrPath);
@@ -43,86 +74,107 @@ const AFFILIATE_HUB = {
     return `https://www.klook.com/zh-TW/activity/${activityIdOrPath}/?aid=${this.klookAid}`;
   },
 
-  /**
-   * 2. 包車 / 包車預約 (Klook)
-   * @param {string} city 城市或地區名稱
-   */
+  /** 2. 包車 / 包車預約 (Klook) */
   getCharterUrl: function(city = "") {
     return `https://www.klook.com/zh-TW/car-rentals/?aid=${this.klookAid}`;
   },
 
-  /**
-   * 3. 機場接送 (Klook)
-   */
+  /** 3. 機場接送 (Klook) */
   getAirportTransferUrl: function() {
     return `https://www.klook.com/zh-TW/airport-transfers/?aid=${this.klookAid}`;
   },
 
-  /**
-   * 4. 台灣高鐵 (Klook)
-   */
+  /** 4. 台灣高鐵 (Klook) */
   getHsrUrl: function() {
     return `https://www.klook.com/zh-TW/rails-32/1014-taiwan/?aid=${this.klookAid}`;
   },
 
-  /**
-   * 5. 訂房去 / 找房間 (Booking.com 透過聯盟網 Affiliates.One)
-   * 智慧分潤路由：
-   * - 若在 customBookingLinks 有登記特定飯店專屬短網址，優先使用
-   * - 若無登記，自動帶入該景點/縣市的 Booking 精準搜尋頁，並封裝在聯盟網分潤網址中 (?url=...)
-   * - 若未指定關鍵字，直接跳轉聯盟網推廣首頁 (https://affone.me/s/bQeO4)
-   * @param {string} keyword 地點、飯店或景點名稱
-   */
+  /** 5. 訂房去 / 找房間 (Booking.com 雙重分潤) */
   getHotelUrl: function(keyword = "") {
     if (!keyword) {
       return this.bookingAffoneBase;
     }
 
-    // 檢查是否有專屬飯店短網址
     for (const [key, customUrl] of Object.entries(this.customBookingLinks)) {
       if (keyword.includes(key)) {
         return customUrl;
       }
     }
 
-    // 自動建構 Booking.com 精準搜尋頁面網址
     const query = keyword.includes("飯店") || keyword.includes("住宿") || keyword.includes("民宿")
       ? keyword 
       : `${keyword} 住宿`;
     
-    // 自動建構 Booking.com 精準搜尋頁面網址，雙重帶入你的 Booking 專屬 AID: 8133101 與 Label 參數
     const targetBookingUrl = `https://www.booking.com/searchresults.zh-tw.html?ss=${encodeURIComponent(query)}&aid=${this.bookingAid}&label=${encodeURIComponent(this.bookingLabel)}`;
-
-    // 透過聯盟網 deep link 機制轉址，確保 100% 記錄聯盟網 + Booking 雙重追蹤分潤
     return `${this.bookingAffoneBase}?url=${encodeURIComponent(targetBookingUrl)}`;
   },
 
-  /**
-   * 6. 查機票 (Trip.com)
-   * 帶入你的專屬 Allianceid: 9507030, SID: 325761227, trip_sub3: D20395461
-   */
+  /** 6. 查機票 (Trip.com) */
   getFlightUrl: function() {
     return `https://tw.trip.com/flights/?Allianceid=${this.tripAllianceId}&SID=${this.tripSid}&trip_sub1=&trip_sub3=${this.tripSub3}`;
   },
 
-  /**
-   * Trip.com 首頁連結
-   */
+  /** Trip.com 首頁連結 */
   getTripBaseUrl: function() {
     return `https://trip.com?Allianceid=${this.tripAllianceId}&SID=${this.tripSid}&trip_sub1=&trip_sub3=${this.tripSub3}`;
   },
 
-  /**
-   * 7. 伴手禮直送 (萬家福 OneLink)
-   */
+  /** 7. 萬家福生鮮伴手禮直送 (最新 afftck) */
   getSouvenirUrl: function() {
-    return this.wanjiafuUrl;
+    return this.wanjiafuLatestUrl;
   },
 
-  /**
-   * 8. 地圖導航 (Google Maps)
-   * @param {string} spotName 景點名稱
-   */
+  /** 8. 露營生鮮食材箱 (aftck) */
+  getCampingFoodUrl: function() {
+    return this.campingFreshFoodUrl;
+  },
+
+  /** 9. 台灣訂餐與優惠餐券 (affckr) */
+  getDiningUrl: function() {
+    return this.diningVoucherUrl;
+  },
+
+  /** 10. 台灣熱門藥妝店 (affckr) */
+  getDrugstoreUrl: function() {
+    return this.drugstoreTaiwanUrl;
+  },
+
+  /** 11. 質感選物店與生活選品 (affclkr) */
+  getLifestyleShopUrl: function() {
+    return this.lifestyleShopUrl;
+  },
+
+  /** 12. 教育學習綜合平台 (vbtrax) */
+  getEducationUrl: function() {
+    return this.educationLearningUrl;
+  },
+
+  /** 13. 線上學英文 (affckr) */
+  getEnglishLearningUrl: function() {
+    return this.englishLearningAppUrl;
+  },
+
+  /** 14. 保健食品導購 (afftkr) */
+  getHealthSupplementsUrl: function() {
+    return this.healthSupplementsUrl;
+  },
+
+  /** 15. 奧丁丁在地深度體驗 (linkgo) */
+  getOwltingUrl: function() {
+    return this.owltingExperienceUrl;
+  },
+
+  /** 16. 化妝品與藥品備用通道 (afflink) */
+  getCosmeticsPharmaUrl: function() {
+    return this.cosmeticsPharmaUrl;
+  },
+
+  /** 17. SimOptions 上網網卡 */
+  getSimOptionsUrl: function() {
+    return this.simOptionsUrl;
+  },
+
+  /** 18. 地圖導航 (Google Maps) */
   getMapUrl: function(spotName) {
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spotName)}`;
   }
