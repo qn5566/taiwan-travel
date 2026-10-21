@@ -328,7 +328,7 @@ function switchLanguage(lang) {
   const brandNameEl = document.querySelector(".brand-name");
   if (brandNameEl) {
     brandNameEl.innerHTML = isEn
-      ? `Taiwan Roam <span class="brand-badge">Official Guide</span>`
+      ? `Taiwan Roam <span class="brand-badge">官方網頁版</span>`
       : `台灣吃喝玩樂 <span class="brand-badge">官方網頁版</span>`;
   }
   const brandSubtextEl = document.querySelector(".brand-subtext");
@@ -350,26 +350,24 @@ function switchLanguage(lang) {
     ctaBtn.textContent = isEn ? "🛍️ Souvenirs Delivery" : "🛍️ 伴手禮直送";
   }
 
-  // 3. Hero 英雄區塊
-  const heroPill = document.querySelector(".hero-sub-pill");
-  if (heroPill) {
-    heroPill.textContent = isEn ? "🇹🇼 TAIWAN ROAM ｜ Island Roam Guide" : "🇹🇼 TAIWAN ROAM ｜ 島嶼漫遊指南";
+  // 3. Hero 英雄區塊 (日雜散步小確幸風格)
+  const heroPocketTag = document.querySelector(".hero-pocket-tag");
+  if (heroPocketTag) {
+    heroPocketTag.textContent = "TAIWAN ROAM • POCKET GUIDE NO. 01";
   }
-  const heroTitle = document.querySelector(".hero-main-title");
-  if (heroTitle) {
-    heroTitle.textContent = isEn ? "Roam Across Taiwan: Authentic Sights, Sips & Stories" : "山海相擁，漫遊島嶼時光";
+  const heroZakkaTitle = document.querySelector(".hero-zakka-title");
+  if (heroZakkaTitle) {
+    heroZakkaTitle.textContent = isEn ? "Where shall we wander & taste across Taiwan today?" : "今天，想在台灣哪裡吃喝玩樂？";
   }
-  const heroSubTitle = document.querySelector(".hero-headline-wrap div[style*='font-size: 15px']");
-  if (heroSubTitle) {
-    heroSubTitle.textContent = isEn 
-      ? "AUTHENTIC SIGHTS, SIPS & STORIES" 
-      : "Roam Across Taiwan: Authentic Sights, Sips & Stories";
+  const heroZakkaSubtitle = document.querySelector(".hero-zakka-subtitle");
+  if (heroZakkaSubtitle) {
+    heroZakkaSubtitle.textContent = "S I P • B I T E • W A N D E R • R E P E A T";
   }
-  const heroDesc = document.querySelector(".hero-main-subtitle");
-  if (heroDesc) {
-    heroDesc.innerHTML = isEn
-      ? `From misty ridge lines to midnight alleys — your curated guide to Taiwan's finest eats, stays, and adventures.<br><span style="font-size: 13.5px; color: rgba(255, 255, 255, 0.96); font-weight: 600;">(Authentic Local Living & Global Traveler Inspirations)</span>`
-      : `從 101 高空天際線、山城石階到隱密浪點，穿梭於在地老宅與夜市煙火之間，為全球旅人收錄最純粹的台灣生活靈感。<br><span style="font-size: 13.5px; color: rgba(255, 255, 255, 0.96); font-weight: 600; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);">(From misty ridge lines to midnight alleys — your curated guide to Taiwan's finest eats, stays, and adventures.)</span>`;
+  const heroZakkaLead = document.querySelector(".hero-zakka-lead");
+  if (heroZakkaLead) {
+    heroZakkaLead.textContent = isEn
+      ? "Pack your happiest mood. Follow the aroma of pour-over coffee, savor night market street food, and wander through this island embraced by mountain and sea."
+      : "把好心情裝進行囊。追一杯手沖的香氣、探一口街角的夜市煙火，漫步這座被山海擁抱的島嶼。";
   }
 
   // Hero Service Tabs
