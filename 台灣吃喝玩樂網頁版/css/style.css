@@ -5890,6 +5890,235 @@ body.bg-theme-roadtrip .deck-display-zh {
   box-shadow: 0 4px 14px rgba(254, 161, 9, 0.35);
 }
 
+/* =========================================================
+   ☁️ 排行榜柔和淺藍天際線 ＋ 飄動雲朵動態 (Soft Sky Blue & Drifting Clouds)
+   ========================================================= */
+.ranking-sky-hero-section {
+  background: linear-gradient(180deg, #BAE6FD 0%, #DDF2FE 35%, #F0F9FF 75%, #F8FAFC 100%) !important;
+  color: #0F172A !important;
+  text-align: center;
+  padding: 55px 0 45px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 雲朵飄移容器 (不阻礙滑鼠點擊) */
+.ranking-clouds-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ranking-drift-cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 9999px;
+  filter: drop-shadow(0 10px 24px rgba(2, 132, 199, 0.12));
+  will-change: transform;
+}
+
+.ranking-drift-cloud::before,
+.ranking-drift-cloud::after {
+  content: '';
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.ranking-cloud-lg {
+  width: 260px;
+  height: 76px;
+}
+.ranking-cloud-lg::before {
+  width: 108px;
+  height: 108px;
+  top: -52px;
+  left: 42px;
+}
+.ranking-cloud-lg::after {
+  width: 82px;
+  height: 82px;
+  top: -36px;
+  left: 128px;
+}
+
+.ranking-cloud-md {
+  width: 180px;
+  height: 56px;
+}
+.ranking-cloud-md::before {
+  width: 78px;
+  height: 78px;
+  top: -38px;
+  left: 30px;
+}
+.ranking-cloud-md::after {
+  width: 58px;
+  height: 58px;
+  top: -26px;
+  left: 88px;
+}
+
+.ranking-cloud-sm {
+  width: 130px;
+  height: 42px;
+}
+.ranking-cloud-sm::before {
+  width: 54px;
+  height: 54px;
+  top: -26px;
+  left: 22px;
+}
+.ranking-cloud-sm::after {
+  width: 42px;
+  height: 42px;
+  top: -18px;
+  left: 64px;
+}
+
+.cloud-pos-1 {
+  top: 8%;
+  left: -280px;
+  animation: cloudDriftSlow 52s linear infinite;
+  opacity: 0.85;
+}
+.cloud-pos-2 {
+  top: 32%;
+  left: -200px;
+  animation: cloudDriftSlow 38s linear infinite 12s;
+  opacity: 0.92;
+}
+.cloud-pos-3 {
+  top: 58%;
+  left: -240px;
+  animation: cloudDriftSlow 44s linear infinite 6s;
+  opacity: 0.78;
+}
+.cloud-pos-4 {
+  top: 82%;
+  left: -260px;
+  animation: cloudDriftSlow 48s linear infinite 22s;
+  opacity: 0.88;
+}
+
+@keyframes cloudDriftSlow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100vw + 400px));
+  }
+}
+
+/* 柔和天際線下之標題與副標題風格 */
+.ranking-sky-hero-section .ranking-main-title {
+  color: #0F172A !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.ranking-sky-hero-section .ranking-main-en {
+  color: #0284C7 !important;
+}
+
+.ranking-sky-hero-section .ranking-main-desc {
+  color: #334155 !important;
+}
+
+.ranking-sky-hero-section .ranking-stage-watermark {
+  color: rgba(2, 132, 199, 0.08) !important;
+}
+
+.ranking-sky-hero-section #ranking-search-input {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(2, 132, 199, 0.3) !important;
+  color: #0F172A !important;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.12) !important;
+}
+
+.ranking-sky-hero-section #ranking-search-input::placeholder {
+  color: #64748B !important;
+}
+
+.ranking-sky-hero-section .ranking-filter-glass-panel {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border-color: rgba(2, 132, 199, 0.22) !important;
+  box-shadow: 0 12px 32px rgba(2, 132, 199, 0.12) !important;
+}
+
+.ranking-sky-hero-section .glass-cat-btn {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(2, 132, 199, 0.22) !important;
+  color: #1E293B !important;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.06) !important;
+}
+
+.ranking-sky-hero-section .glass-cat-btn:hover {
+  background: #FFFFFF !important;
+  color: #0284C7 !important;
+  border-color: #38BDF8 !important;
+}
+
+.ranking-sky-hero-section .glass-cat-btn.active {
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%) !important;
+  color: #FFFFFF !important;
+  border-color: #0284C7 !important;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35) !important;
+}
+
+.ranking-sky-hero-section .glass-cat-btn.active .glass-count-badge {
+  background: rgba(255, 255, 255, 0.28) !important;
+  color: #FFFFFF !important;
+}
+
+.ranking-sky-hero-section .glass-count-badge {
+  background: rgba(2, 132, 199, 0.12) !important;
+  color: #0284C7 !important;
+}
+
+.ranking-sky-hero-section .glass-divider-line {
+  background: linear-gradient(90deg, transparent, rgba(2, 132, 199, 0.2) 20%, rgba(2, 132, 199, 0.2) 80%, transparent) !important;
+}
+
+.ranking-sky-hero-section .glass-subtopic-btn {
+  background: rgba(255, 255, 255, 0.82) !important;
+  border-color: rgba(2, 132, 199, 0.2) !important;
+  color: #334155 !important;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.05) !important;
+}
+
+.ranking-sky-hero-section .glass-subtopic-btn:hover {
+  background: #FFFFFF !important;
+  color: #0284C7 !important;
+  border-color: #38BDF8 !important;
+}
+
+.ranking-sky-hero-section .glass-subtopic-btn.active {
+  background: #0284C7 !important;
+  color: #FFFFFF !important;
+  border-color: #0284C7 !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35) !important;
+}
+
+.ranking-sky-hero-section .glass-subtopic-btn.active .subtopic-en {
+  color: #E0F2FE !important;
+}
+
+.ranking-sky-hero-section .ranking-arc-arrow-btn {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(2, 132, 199, 0.28) !important;
+  color: #0284C7 !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.16) !important;
+}
+.ranking-sky-hero-section .ranking-arc-arrow-btn:hover {
+  background: #0284C7 !important;
+  color: #FFFFFF !important;
+}
+
 /* ==========================================================================
    3D 拱形輪播舞台 (Arc Orbit Stage & Center Hero Visual)
    ========================================================================== */
