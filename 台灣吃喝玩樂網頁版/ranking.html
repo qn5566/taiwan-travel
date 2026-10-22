@@ -164,20 +164,15 @@
         <!-- 拱形軌道與小圖方塊 (由 JS 計算半圓坐標動態生成) -->
         <div class="ranking-arc-track" id="ranking-arc-track"></div>
 
-        <!-- 浮動作用標籤 (Tooltip Pill) -->
-        <div class="ranking-arc-tooltip-pill" id="ranking-arc-tooltip">
-          🧋 必喝手搖飲 Top 20
-        </div>
-
         <!-- 左右切換按鈕 -->
         <button class="ranking-arc-arrow-btn prev-btn" onclick="navigateRankingTopic(-1)" title="切換上一個榜單" aria-label="上一個榜單">‹</button>
         <button class="ranking-arc-arrow-btn next-btn" onclick="navigateRankingTopic(1)" title="切換下一個榜單" aria-label="下一個榜單">›</button>
 
-        <!-- 中央主視覺特寫 (Center Hero Visual) -->
+        <!-- 中央主視覺特寫 (Center Hero Visual - 放大展示) -->
         <div class="ranking-center-hero-container">
           <div class="ranking-hero-pedestal-shadow"></div>
           <div class="ranking-hero-card ranking-hero-pop" id="ranking-hero-card" onclick="scrollToList()" title="點擊快速捲動至下方排行榜清單">
-            <img id="ranking-hero-img" class="ranking-hero-card-img" src="assets/boba_orange.png" alt="當前排行榜主視覺">
+            <img id="ranking-hero-img" class="ranking-hero-card-img" src="assets/ranking_boba.png" alt="當前排行榜主視覺">
           </div>
         </div>
       </div>
@@ -355,11 +350,11 @@
       const total = topics.length;
       if (total === 0) return;
 
-      // 拱形橢圓半徑與中心點設定 (舞台寬高 880 x 440，cy 向下推、ry 放大向上頂開)
-      const cx = 440;
-      const cy = 370;
-      const rx = 380;
-      const ry = 250;
+      // 拱形橢圓半徑與中心點設定 (舞台寬高 900 x 480，加大半徑為中央大圖預留足夠空間)
+      const cx = 450;
+      const cy = 415;
+      const rx = 395;
+      const ry = 285;
 
       topics.forEach((t, index) => {
         let deg = 90;
@@ -427,25 +422,11 @@
 
       // 1. 更新小圖方塊 active 樣式
       const tiles = document.querySelectorAll(".ranking-arc-tile");
-      let activeTile = null;
       tiles.forEach(tile => {
-        const isActive = tile.dataset.topic === topicId;
-        tile.classList.toggle("active", isActive);
-        if (isActive) activeTile = tile;
+        tile.classList.toggle("active", tile.dataset.topic === topicId);
       });
 
-      // 2. 移動浮動 Tooltip Pill 到 active 方塊正上方
-      const tooltip = document.getElementById("ranking-arc-tooltip");
-      if (tooltip && activeTile) {
-        tooltip.style.left = activeTile.style.left;
-        tooltip.style.top = activeTile.style.top;
-        const ttIcon = meta.iconImg 
-          ? `<img src="${meta.iconImg}" style="width: 18px; height: 18px; object-fit: contain; vertical-align: middle;">` 
-          : meta.icon;
-        tooltip.innerHTML = `${ttIcon} ${meta.zhName || meta.shortName} <span style="font-weight: 600; font-size: 11px; opacity: 0.9;">${meta.enShort || ''}</span> <span style="font-size: 10.5px; opacity: 0.8; font-weight: normal; margin-left: 2px;">· ${meta.meaning || ''}</span>`;
-      }
-
-      // 3. 更新背景淡雅大文字浮水印
+      // 2. 更新背景淡雅大文字浮水印
       const watermark = document.getElementById("ranking-watermark");
       if (watermark) {
         watermark.style.opacity = "0";
