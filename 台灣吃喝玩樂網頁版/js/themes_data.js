@@ -1261,7 +1261,7 @@ const THEMES_COMPLETE_DATA = [
     "id": "hotspring",
     "icon": "♨️",
     "shortTitle": "溫泉/公園",
-    "zhTitle": "溫泉/公園・名湯白煙與親子度假",
+    "zhTitle": "溫泉/公園 ・台灣溫泉與親子公園",
     "enTitle": "HOT SPRINGS & RETREAT",
     "name": "全台極上溫泉與共融公園",
     "bannerImg": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1600&auto=format&fit=crop",

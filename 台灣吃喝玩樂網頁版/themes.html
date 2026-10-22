@@ -7,10 +7,10 @@
   
   <meta name="description" content="全方位探索台灣精選旅行主題：花東縱谷海岸、北海岸九份、離島跳島、大巨蛋棒球應援、奢華野奢露營、名湯溫泉散策、夜市美食文化、阿里山登山鐵道。一日遊、二日遊行程動線與 REELS 沉浸式景點小卡牌。">
   
-  <!-- Google Fonts: Noto Serif TC (文青日雜明體) & Cormorant Garamond & Outfit & Inter -->
+  <!-- Google Fonts: 文青日雜字體 (Noto Serif TC, Pinyon Script, Playfair Display, Cormorant Garamond) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600;1,700&family=Pinyon+Script&family=Noto+Serif+TC:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
   
   <!-- 全站樣式 -->
   <link rel="stylesheet" href="css/style.css">
@@ -49,24 +49,24 @@
       line-height: 1.5;
     }
 
-    /* 頂部主題橫幅 (Banner Card) */
+    /* 頂部主題橫幅 (Banner Card) - 精巧緊湊版，省出超過 140px 垂直高度 */
     .theme-banner-box {
-      border-radius: 24px;
+      border-radius: 18px;
       overflow: hidden;
       position: relative;
       background-size: cover;
       background-position: center;
-      min-height: 260px;
+      min-height: 125px;
       display: flex;
-      align-items: flex-end;
-      padding: 32px 36px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-      margin-bottom: 24px;
+      align-items: center;
+      padding: 16px 26px;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+      margin-bottom: 16px;
     }
     @media (max-width: 768px) {
       .theme-banner-box {
-        padding: 24px 20px;
-        min-height: 220px;
+        padding: 14px 16px;
+        min-height: 110px;
       }
     }
   </style>
@@ -144,8 +144,12 @@
        ========================================================= -->
   <section class="themes-hero-wrap">
     <div class="container">
-      <h1 class="themes-hero-title">精選旅行主題探索</h1>
-      <div class="themes-hero-sub">―  S I P  •  B I T E  •  W A N D E R  •  I N S P I R E  ―</div>
+      <h1 class="themes-hero-title editorial-hero-title" style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: 40px; margin-bottom: 2px;">
+        精選旅行主題探索
+      </h1>
+      <div class="brand-script-en" style="font-size: 34px; color: #0284C7; margin-bottom: 8px;">
+        Curated Journey Themes Across Taiwan
+      </div>
 
       <!-- 歐美風 3D 弧形扇形卡牌桌 (3D Curved Fanned Arc Deck) -->
       <div class="deck-fan-wrapper">
@@ -506,28 +510,32 @@
       const shortTabNames = ["1 日輕旅", "2 日漫遊", "3 日縱走"];
 
       display.innerHTML = `
-        <!-- 頂部主題視覺大橫幅 (Hero Banner) -->
-        <div class="theme-banner-box" style="background-image: linear-gradient(180deg, rgba(15,23,42,0.2) 0%, rgba(15,23,42,0.85) 100%), url('${theme.bannerImg}');">
-          <div style="position: relative; z-index: 2; color: #FFFFFF; max-width: 840px;">
-            <span style="background: rgba(2, 132, 199, 0.88); backdrop-filter: blur(8px); color: #FFFFFF; font-size: 11.5px; font-weight: 800; padding: 4px 14px; border-radius: 9999px; display: inline-block; margin-bottom: 12px; letter-spacing: 0.5px;">
-              ${theme.icon} ${theme.name} · CURATED GUIDE
-            </span>
-            <h2 style="font-size: 32px; font-weight: 900; margin-bottom: 8px; color: #FFFFFF; line-height: 1.25; font-family: 'Noto Serif TC', serif;">
-              ${theme.title}
-            </h2>
-            <p style="font-size: 14.5px; color: #E2E8F0; line-height: 1.6; margin-bottom: 22px;">
-              ${theme.subtitle}
-            </p>
+        <!-- 頂部主題視覺大橫幅 (Hero Banner - 舒適精緻美學，告別擁擠) -->
+        <div class="theme-banner-box" style="background-image: linear-gradient(90deg, rgba(15,23,42,0.92) 0%, rgba(15,23,42,0.65) 60%, rgba(15,23,42,0.3) 100%), url('${theme.bannerImg}'); min-height: 130px; padding: 18px 26px; border-radius: 18px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);">
+          <div style="position: relative; z-index: 2; color: #FFFFFF; width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+            <div style="flex: 1; min-width: 280px; max-width: 720px;">
+              <div style="margin-bottom: 6px;">
+                <span style="display: inline-flex; align-items: center; gap: 5px; background: rgba(2, 132, 199, 0.9); backdrop-filter: blur(8px); color: #FFFFFF; font-size: 11.5px; font-weight: 800; padding: 3px 12px; border-radius: 9999px; letter-spacing: 0.5px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
+                  ${theme.icon} ${theme.name}
+                </span>
+              </div>
+              <h2 style="font-size: 22px; font-weight: 900; color: #FFFFFF; margin: 0 0 6px 0; line-height: 1.35; font-family: 'Noto Serif TC', serif; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">
+                ${theme.title}
+              </h2>
+              <p style="font-size: 13px; color: rgba(255, 255, 255, 0.9); line-height: 1.5; margin: 0; text-shadow: 0 1px 4px rgba(0,0,0,0.5);">
+                ${theme.subtitle}
+              </p>
+            </div>
             
-            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-              <a href="${theme.bookingCta.charter}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding: 10px 20px; font-size: 13px; text-decoration: none;">
-                🚗 預約專屬包車司機 ➔
+            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; flex-shrink: 0;">
+              <a href="${theme.bookingCta.charter}" target="_blank" rel="noopener noreferrer" style="background: #0284C7; color: #FFFFFF; padding: 9px 18px; font-size: 12.5px; font-weight: 800; border-radius: 9999px; text-decoration: none; box-shadow: 0 3px 10px rgba(2, 132, 199, 0.35); transition: all 0.2s; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px;">
+                🚗 預約包車
               </a>
-              <a href="${theme.bookingCta.hotel}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.45); color: #FFFFFF; padding: 10px 20px; font-size: 13px; font-weight: 700; text-decoration: none;">
-                🏨 查周邊住宿即時空房 ➔
+              <a href="${theme.bookingCta.hotel}" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.45); color: #FFFFFF; padding: 9px 18px; font-size: 12.5px; font-weight: 700; border-radius: 9999px; text-decoration: none; transition: all 0.2s; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px;">
+                🏨 即時空房
               </a>
-              <a href="${theme.bookingCta.tour}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.45); color: #FFFFFF; padding: 10px 20px; font-size: 13px; font-weight: 700; text-decoration: none;">
-                🎟️ 熱門票券優惠 ➔
+              <a href="${theme.bookingCta.tour}" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.45); color: #FFFFFF; padding: 9px 18px; font-size: 12.5px; font-weight: 700; border-radius: 9999px; text-decoration: none; transition: all 0.2s; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px;">
+                🎟️ 預定去
               </a>
             </div>
           </div>
@@ -601,10 +609,10 @@
               <!-- 快捷行動按鈕組 -->
               <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 18px;">
                 <a href="${theme.bookingCta.charter}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="width: 100%; justify-content: center; padding: 11px; font-size: 13px; font-weight: 800; text-decoration: none;">
-                  🚗 預約專屬包車 (Klook)
+                  🚗 預約專屬包車
                 </a>
                 <a href="${theme.bookingCta.hotel}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #F8FAFC; border: 1px solid #CBD5E1; color: #0F172A; width: 100%; justify-content: center; padding: 9px; font-size: 12.5px; font-weight: 700; text-decoration: none;">
-                  🏨 預訂精選飯店 (Trip.com)
+                  🏨 預訂精選飯店
                 </a>
                 <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(theme.name)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #FFFFFF; border: 1px solid #E2E8F0; color: #475569; width: 100%; justify-content: center; padding: 8px; font-size: 12px; font-weight: 700; text-decoration: none;">
                   🗺️ 開啟 Google Maps 路線

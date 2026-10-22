@@ -119,6 +119,11 @@ const AFFILIATE_HUB = {
     return `${this.bookingAffoneBase}?url=${encodeURIComponent(targetBookingUrl)}`;
   },
 
+  /** Booking.com 搜尋直達 (別名) */
+  getBookingUrl: function(keyword = "") {
+    return this.getHotelUrl(keyword);
+  },
+
   /** 6. 查機票 (Trip.com) */
   getFlightUrl: function() {
     return `https://tw.trip.com/flights/?Allianceid=${this.tripAllianceId}&SID=${this.tripSid}&trip_sub1=&trip_sub3=${this.tripSub3}`;

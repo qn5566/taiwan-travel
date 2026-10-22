@@ -10,8 +10,28 @@
   <script>window.location.replace("cafe.html?tab=michelin-guide");</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600;1,700&family=Pinyon+Script&family=Noto+Serif+TC:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .brand-script-en {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 34px;
+      color: #FDA4AF;
+      font-weight: 500;
+      line-height: 1.15;
+      display: inline-block;
+      letter-spacing: 0.5px;
+    }
+    .brand-serif-en {
+      font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      letter-spacing: 0.5px;
+    }
+    .editorial-hero-title {
+      font-family: 'Noto Serif TC', serif !important;
+      font-weight: 900 !important;
+      letter-spacing: -0.5px;
+    }
 </head>
 <body>
 
@@ -51,12 +71,12 @@
   <!-- 米其林橫幅 Hero -->
   <section class="section-padding" style="background: linear-gradient(180deg, #1E1B4B 0%, #0F172A 100%); color: #FFFFFF; text-align: center; padding: 70px 0 50px 0;">
     <div class="container">
-      <span class="section-badge-pill" style="background: rgba(225, 29, 72, 0.2); color: #FDA4AF; border-color: rgba(225, 29, 72, 0.4);">
-        MICHELIN GUIDE TAIWAN
-      </span>
-      <h1 style="font-size: 38px; font-weight: 900; margin-top: 14px; letter-spacing: -0.5px;">
+      <h1 class="editorial-hero-title" style="font-size: 40px; font-weight: 900; margin-top: 14px; letter-spacing: -0.5px; font-family: 'Noto Serif TC', serif; margin-bottom: 2px;">
         臺灣米其林指南 ‧ 星級殿堂與必比登推介
       </h1>
+      <div class="brand-script-en" style="font-size: 34px; color: #FDA4AF; margin-bottom: 8px;">
+        Michelin Stars & Bib Gourmand Dining Guide
+      </div>
       <p style="color: #CBD5E1; max-width: 720px; margin: 12px auto 0 auto; font-size: 15px; line-height: 1.7;">
         從蟬聯三星傳奇廣東菜「頤宮」、當代台灣法式料理「態芮」，到華山市場排隊厚餅「阜杭豆漿」，一站探索台灣頂級廚藝與在地靈魂美味。
       </p>

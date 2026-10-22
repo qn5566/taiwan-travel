@@ -1,6 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600;1,700&family=Pinyon+Script&family=Noto+Serif+TC:wght@400;600;700;900&display=swap');
+
 /* =========================================================
    🎨 台灣吃喝玩樂網頁版 - 全站專用樣式表 (style.css)
    ========================================================= */
+
+/* 📖 頂級日系文青旅遊雜誌字體系統 (Editorial Lifestyle Typography) */
+.brand-script-en {
+  font-family: 'Pinyon Script', cursive !important;
+  font-size: 34px;
+  color: #A07153;
+  font-weight: 500;
+  line-height: 1.15;
+  display: inline-block;
+  letter-spacing: 0.5px;
+}
+
+.brand-serif-en {
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif !important;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+.editorial-hero-title {
+  font-family: 'Noto Serif TC', serif !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.5px;
+}
 
 :root {
   /* =========================================================
@@ -3683,22 +3708,23 @@ body.body-sports-mode .fan-card-item.drawn .fan-card-active-tag {
 
 .deck-display-zh {
   font-family: 'Noto Serif TC', serif;
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 32px;
+  font-weight: 900;
   color: #0F172A;
-  letter-spacing: 0.5px;
+  letter-spacing: -0.5px;
   line-height: 1.25;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   transition: all 0.3s ease;
 }
 
 .deck-display-en {
-  font-family: 'Outfit', 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 3px;
+  font-family: 'Pinyon Script', cursive !important;
+  font-size: 32px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
   color: #0284C7;
-  text-transform: uppercase;
+  text-transform: none !important;
+  line-height: 1.2;
   transition: all 0.3s ease;
 }
 
@@ -4190,31 +4216,31 @@ body.body-sports-mode {
 }
 
 /* =========================================================
-   🪟 雙層透明毛玻璃主題與小分類篩選器 (Two-tier Glassmorphism Filter)
+   🪟 雙層透明毛玻璃主題與小分類篩選器 (緊湊間距 ＋ 獨特膠囊微質感設計)
    ========================================================= */
 .themes-filter-glass-panel {
-  background: rgba(255, 255, 255, 0.42);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  border-radius: 24px;
-  padding: 16px 20px;
-  margin: 18px auto 26px auto;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  border-radius: 18px;
+  padding: 8px 14px;
+  margin: 10px auto 16px auto;
   max-width: 1080px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  transition: all 0.4s ease;
+  gap: 5px; /* 緊湊兩排按鈕間距 */
+  transition: all 0.3s ease;
 }
 
 /* 暗色主題背景下的雙層毛玻璃自適應 (露營、夜市、節慶) */
 body.bg-theme-outdoor .themes-filter-glass-panel,
 body.bg-theme-nightmarket .themes-filter-glass-panel,
 body.bg-theme-culture .themes-filter-glass-panel {
-  background: rgba(15, 23, 42, 0.68) !important;
+  background: rgba(15, 23, 42, 0.72) !important;
   border-color: rgba(255, 255, 255, 0.18) !important;
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
 }
 
 /* 淺色主題背景下的雙層毛玻璃自適應 (北海岸、離島、花東、環島) */
@@ -4222,49 +4248,47 @@ body.bg-theme-northcoast .themes-filter-glass-panel,
 body.bg-theme-islands .themes-filter-glass-panel,
 body.bg-theme-hualien .themes-filter-glass-panel,
 body.bg-theme-roadtrip .themes-filter-glass-panel {
-  background: rgba(255, 255, 255, 0.78) !important;
-  border-color: rgba(255, 255, 255, 0.9) !important;
-  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+  background: rgba(255, 255, 255, 0.82) !important;
+  border-color: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06), inset 0 1px 0 #FFFFFF !important;
 }
 
 /* 溫泉公園專屬粉嫩雙層毛玻璃 (粉粉色系) */
 body.bg-theme-hotspring .themes-filter-glass-panel {
-  background: rgba(255, 255, 255, 0.85) !important;
-  border-color: rgba(244, 114, 182, 0.5) !important;
-  box-shadow: 0 12px 36px rgba(190, 24, 93, 0.09), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-color: rgba(244, 114, 182, 0.45) !important;
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.08), inset 0 1px 0 #FFFFFF !important;
 }
 
 .themes-main-pills-row,
 .themes-sub-pills-row {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 
 .themes-sub-pills-row {
-  padding-top: 10px;
-  border-top: 1px dashed rgba(255, 255, 255, 0.22);
+  padding-top: 4px;
 }
 
-/* 第一排：8 大主題膠囊透明按鈕 */
+/* 第一排：8 大核心主題 (精緻 Squircle 膠囊按鈕，具立體層次與專屬特色) */
 .glass-theme-btn {
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
   color: #1E293B;
-  font-size: 13.5px;
-  font-weight: 700;
-  padding: 8px 18px;
-  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 7px 15px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  gap: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  position: relative;
 }
 
 /* 暗色主題標籤按鈕 (露營、夜市、節慶) */
@@ -4278,8 +4302,9 @@ body.bg-theme-culture .glass-theme-btn {
 body.bg-theme-outdoor .glass-theme-btn:hover,
 body.bg-theme-nightmarket .glass-theme-btn:hover,
 body.bg-theme-culture .glass-theme-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.22);
   color: #FFFFFF;
+  transform: translateY(-2px);
 }
 
 /* 淺色主題標籤按鈕 (北海岸、離島、花東、環島) */
@@ -4287,8 +4312,8 @@ body.bg-theme-northcoast .glass-theme-btn,
 body.bg-theme-islands .glass-theme-btn,
 body.bg-theme-hualien .glass-theme-btn,
 body.bg-theme-roadtrip .glass-theme-btn {
-  background: rgba(255, 255, 255, 0.88);
-  border-color: rgba(2, 132, 199, 0.25);
+  background: #FFFFFF;
+  border-color: #E2E8F0;
   color: #0F172A;
 }
 body.bg-theme-northcoast .glass-theme-btn:hover,
@@ -4296,51 +4321,54 @@ body.bg-theme-islands .glass-theme-btn:hover,
 body.bg-theme-hualien .glass-theme-btn:hover,
 body.bg-theme-roadtrip .glass-theme-btn:hover {
   background: #FFFFFF;
-  border-color: #0284C7;
+  border-color: #38BDF8;
   color: #0284C7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
 }
 
 /* 溫泉公園粉粉色標籤按鈕 */
 body.bg-theme-hotspring .glass-theme-btn {
-  background: rgba(255, 255, 255, 0.88);
-  border-color: rgba(244, 114, 182, 0.4);
+  background: #FFFFFF;
+  border-color: rgba(244, 114, 182, 0.35);
   color: #831843;
 }
 body.bg-theme-hotspring .glass-theme-btn:hover {
   background: #FFFFFF;
   border-color: #EC4899;
   color: #BE185D;
+  transform: translateY(-2px);
 }
 body.bg-theme-hotspring .glass-theme-btn.active {
   background: linear-gradient(135deg, #EC4899 0%, #BE185D 100%) !important;
   border-color: #BE185D !important;
   color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35) !important;
 }
 
 .glass-theme-btn.active {
   background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%) !important;
-  border-color: rgba(255, 255, 255, 0.5) !important;
+  border-color: transparent !important;
   color: #FFFFFF !important;
-  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.5) !important;
-  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.38), inset 0 1px 1px rgba(255, 255, 255, 0.35) !important;
+  transform: translateY(-2px) scale(1.02);
 }
 
-/* 第二排：小分類透明按鈕 */
+/* 第二排：精緻小分類標籤按鈕 (緊隨第一排，小巧洗鍊) */
 .glass-subtheme-btn {
-  background: rgba(255, 255, 255, 0.32);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  color: #334155;
-  font-size: 12.5px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  color: #475569;
+  font-size: 11.5px;
   font-weight: 700;
-  padding: 6px 14px;
-  border-radius: 9999px;
+  padding: 4px 12px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 body.bg-theme-outdoor .glass-subtheme-btn,
@@ -4355,14 +4383,14 @@ body.bg-theme-northcoast .glass-subtheme-btn,
 body.bg-theme-islands .glass-subtheme-btn,
 body.bg-theme-hualien .glass-subtheme-btn,
 body.bg-theme-roadtrip .glass-subtheme-btn {
-  background: rgba(255, 255, 255, 0.78);
-  border-color: rgba(2, 132, 199, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  border-color: #E2E8F0;
   color: #334155;
 }
 
 body.bg-theme-hotspring .glass-subtheme-btn {
-  background: rgba(255, 255, 255, 0.8);
-  border-color: rgba(244, 114, 182, 0.35);
+  background: #FFFFFF;
+  border-color: rgba(244, 114, 182, 0.3);
   color: #9D174D;
 }
 body.bg-theme-hotspring .glass-subtheme-btn.active {
@@ -4372,12 +4400,19 @@ body.bg-theme-hotspring .glass-subtheme-btn.active {
 }
 
 .glass-subtheme-btn:hover {
-  background: rgba(255, 255, 255, 0.55);
-  transform: translateY(-1.5px);
+  background: #FFFFFF;
+  color: #0F172A;
+  border-color: #CBD5E1;
+  transform: translateY(-1px);
 }
 
 .glass-subtheme-btn.active {
-  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%) !important;
+  background: linear-gradient(135deg, #F59E0B 0%, #EA580C 100%) !important;
+  border-color: transparent !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 3px 10px rgba(234, 88, 12, 0.3) !important;
+  transform: translateY(-1px);
+}
   border-color: rgba(255, 255, 255, 0.6) !important;
   color: #FFFFFF !important;
   box-shadow: 0 4px 14px rgba(217, 119, 6, 0.5) !important;
@@ -5196,77 +5231,114 @@ body.bg-theme-hotspring .itinerary-duration-badge {
   overflow: hidden;
   transition: all 0.4s ease;
 }
+/* 3. ♨️ 溫泉公園粉嫩柔和風（依照粉色背景深度搭配：暖粉、柔白、櫻粉與深莓紅）(.theme-hotspring-mode) */
+.theme-hotspring-mode {
+  position: relative;
+  background: rgba(255, 255, 255, 0.90) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 28px;
+  padding: 24px;
+  border: 1.5px solid rgba(244, 114, 182, 0.35) !important;
+  box-shadow: 0 15px 45px rgba(236, 72, 153, 0.10) !important;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
 .theme-hotspring-mode::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 420px;
-  background: radial-gradient(ellipse at 50% 0%, rgba(56, 189, 248, 0.22) 0%, rgba(14, 165, 233, 0.1) 45%, rgba(10, 23, 40, 0) 80%);
+  height: 380px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(251, 207, 232, 0.45) 0%, rgba(253, 242, 248, 0.25) 50%, transparent 80%);
   pointer-events: none;
 }
 .theme-hotspring-mode .theme-banner-box {
-  border: 1.5px solid rgba(56, 189, 248, 0.4);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.2);
+  border: 1.5px solid rgba(244, 114, 182, 0.35) !important;
+  box-shadow: 0 10px 25px rgba(244, 114, 182, 0.15) !important;
 }
 .theme-hotspring-mode .itinerary-planner-box {
-  background: rgba(15, 33, 56, 0.94);
-  border-color: rgba(56, 189, 248, 0.3);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+  background: #FFFFFF !important;
+  border-color: rgba(244, 114, 182, 0.25) !important;
+  box-shadow: 0 6px 20px rgba(244, 114, 182, 0.08) !important;
 }
 .theme-hotspring-mode .itinerary-planner-box h3,
-.theme-hotspring-mode .itinerary-planner-box div { color: #F8FAFC; }
-.theme-hotspring-mode .itinerary-planner-title { color: #FFFFFF !important; }
-.theme-hotspring-mode .itinerary-segmented-tabs {
-  background: #081422;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.theme-hotspring-mode .itinerary-planner-box div { color: #374151 !important; }
+.theme-hotspring-mode .itinerary-planner-title { color: #831843 !important; }
+.theme-hotspring-mode .itinerary-duration-badge {
+  color: #BE185D !important;
+  background: #FCE7F3 !important;
 }
-.theme-hotspring-mode .itinerary-tab-btn { color: #94A3B8; }
+.theme-hotspring-mode .itinerary-segmented-tabs {
+  background: #FDF2F8 !important;
+  border: 1px solid rgba(244, 114, 182, 0.25) !important;
+}
+.theme-hotspring-mode .itinerary-tab-btn { color: #9D174D !important; }
 .theme-hotspring-mode .itinerary-tab-btn.active {
-  background: linear-gradient(135deg, #0284C7 0%, #38BDF8 100%) !important;
+  background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%) !important;
   color: #FFFFFF !important;
-  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.45) !important;
+  box-shadow: 0 4px 14px rgba(236, 72, 153, 0.3) !important;
+}
+.theme-hotspring-mode .itinerary-active-planname {
+  color: #BE185D !important;
 }
 .theme-hotspring-mode .itinerary-timeline-node {
-  background: #112845;
-  border-color: rgba(255, 255, 255, 0.08);
-  border-left-color: #38BDF8 !important;
+  background: #FFF5F8 !important;
+  border-color: rgba(244, 114, 182, 0.25) !important;
+  border-left-color: #EC4899 !important;
 }
 .theme-hotspring-mode .itinerary-timeline-node:hover {
-  background: #163357;
-  border-color: rgba(56, 189, 248, 0.4);
+  background: #FDF2F8 !important;
+  border-color: rgba(244, 114, 182, 0.45) !important;
 }
-.theme-hotspring-mode .itinerary-node-badge { color: #38BDF8 !important; }
-.theme-hotspring-mode .itinerary-node-route { color: #E2E8F0 !important; }
-.theme-hotspring-mode .itinerary-exp-drawer { border-top-color: rgba(255, 255, 255, 0.1); }
+.theme-hotspring-mode .itinerary-node-badge { color: #DB2777 !important; }
+.theme-hotspring-mode .itinerary-node-route { color: #374151 !important; }
+.theme-hotspring-mode .itinerary-exp-drawer { border-top-color: rgba(244, 114, 182, 0.2) !important; }
 .theme-hotspring-mode .itinerary-exp-item {
-  background: #112845;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #FFF5F8 !important;
+  border: 1px solid rgba(244, 114, 182, 0.2) !important;
 }
-.theme-hotspring-mode .itinerary-exp-item .exp-title { color: #F8FAFC; }
-.theme-hotspring-mode .itinerary-exp-item .exp-desc { color: #94A3B8; }
+.theme-hotspring-mode .itinerary-exp-item .exp-title { color: #831843 !important; }
+.theme-hotspring-mode .itinerary-exp-item .exp-desc { color: #6B7280 !important; }
 .theme-hotspring-mode .btn-action.btn-klook-book,
 .theme-hotspring-mode .reels-btn-action.btn-fill {
-  background: linear-gradient(135deg, #0284C7 0%, #38BDF8 100%) !important;
-  border-color: #7DD3FC !important;
+  background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%) !important;
+  border-color: #F472B6 !important;
   color: #FFFFFF !important;
-  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4) !important;
+  box-shadow: 0 6px 18px rgba(236, 72, 153, 0.32) !important;
 }
 .theme-hotspring-mode .btn-action.btn-klook-book:hover,
 .theme-hotspring-mode .reels-btn-action.btn-fill:hover {
-  background: linear-gradient(135deg, #0369A1 0%, #0284C7 100%) !important;
+  background: linear-gradient(135deg, #DB2777 0%, #BE185D 100%) !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.55) !important;
+  box-shadow: 0 8px 22px rgba(236, 72, 153, 0.45) !important;
 }
-.theme-hotspring-mode .reels-section-title { color: #F8FAFC; }
+.theme-hotspring-mode .reels-section-title { color: #831843 !important; }
+.theme-hotspring-mode .theme-spot-count-badge {
+  background: #FCE7F3 !important;
+  color: #BE185D !important;
+}
+.theme-hotspring-mode .theme-subcat-mini-btn {
+  background: #FFFFFF !important;
+  border-color: rgba(244, 114, 182, 0.3) !important;
+  color: #9D174D !important;
+}
+.theme-hotspring-mode .theme-subcat-mini-btn.active {
+  background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%) !important;
+  color: #FFFFFF !important;
+}
 .theme-hotspring-mode .reels-card {
-  border-color: rgba(56, 189, 248, 0.3);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+  border-color: rgba(244, 114, 182, 0.3) !important;
+  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.10) !important;
 }
 .theme-hotspring-mode .reels-card:hover {
-  border-color: #38BDF8;
-  box-shadow: 0 20px 40px -10px rgba(2, 132, 199, 0.45), 0 0 25px rgba(56, 189, 248, 0.35);
+  border-color: #EC4899 !important;
+  box-shadow: 0 16px 36px rgba(236, 72, 153, 0.25) !important;
+}
+.theme-hotspring-mode .reels-card-badge {
+  background: rgba(255, 255, 255, 0.92) !important;
+  color: #BE185D !important;
 }
 
 /* 4. 經典鐵道暗色系（暗色鐵道鋼鐵黑 ＋ 搶眼橘色按鈕）(.theme-railway-mode) */
@@ -6101,10 +6173,10 @@ body.bg-theme-hotspring .itinerary-duration-badge {
 }
 
 /* =========================================================
-   ☁️ 排行榜柔和淺藍天際線 ＋ 飄動雲朵動態 (Soft Sky Blue & Drifting Clouds)
+   🌫️ 排行榜仙氣晨霧與柔和微光動態 (Ethereal Mist & Atmospheric Fog)
    ========================================================= */
 .ranking-sky-hero-section {
-  background: linear-gradient(180deg, #BAE6FD 0%, #DDF2FE 35%, #F0F9FF 75%, #F8FAFC 100%) !important;
+  background: linear-gradient(180deg, #E0F2FE 0%, #EDF7FE 35%, #F8FAFC 75%, #FFFFFF 100%) !important;
   color: #0F172A !important;
   text-align: center;
   padding: 55px 0 45px 0;
@@ -6112,7 +6184,7 @@ body.bg-theme-hotspring .itinerary-duration-badge {
   position: relative;
 }
 
-/* 雲朵飄移容器 (不阻礙滑鼠點擊) */
+/* 迷霧層容器 (不阻礙滑鼠點擊) */
 .ranking-clouds-wrap {
   position: absolute;
   top: 0;
@@ -6124,105 +6196,98 @@ body.bg-theme-hotspring .itinerary-duration-badge {
   z-index: 1;
 }
 
-.ranking-drift-cloud {
+/* 多層慢速流動、呼吸變化的迷霧 */
+.ranking-mist-layer {
   position: absolute;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 9999px;
-  filter: drop-shadow(0 10px 24px rgba(2, 132, 199, 0.12));
-  will-change: transform;
+  width: 200%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
 }
 
-.ranking-drift-cloud::before,
-.ranking-drift-cloud::after {
-  content: '';
-  position: absolute;
-  background: inherit;
-  border-radius: 50%;
-}
-
-.ranking-cloud-lg {
-  width: 260px;
-  height: 76px;
-}
-.ranking-cloud-lg::before {
-  width: 108px;
-  height: 108px;
-  top: -52px;
-  left: 42px;
-}
-.ranking-cloud-lg::after {
-  width: 82px;
-  height: 82px;
-  top: -36px;
-  left: 128px;
-}
-
-.ranking-cloud-md {
-  width: 180px;
-  height: 56px;
-}
-.ranking-cloud-md::before {
-  width: 78px;
-  height: 78px;
-  top: -38px;
-  left: 30px;
-}
-.ranking-cloud-md::after {
-  width: 58px;
-  height: 58px;
-  top: -26px;
-  left: 88px;
-}
-
-.ranking-cloud-sm {
-  width: 130px;
-  height: 42px;
-}
-.ranking-cloud-sm::before {
-  width: 54px;
-  height: 54px;
-  top: -26px;
-  left: 22px;
-}
-.ranking-cloud-sm::after {
-  width: 42px;
-  height: 42px;
-  top: -18px;
-  left: 64px;
-}
-
-.cloud-pos-1 {
-  top: 8%;
-  left: -280px;
-  animation: cloudDriftSlow 52s linear infinite;
+.mist-layer-1 {
+  background: radial-gradient(ellipse 65% 55% at 50% 40%, rgba(255, 255, 255, 0.75) 0%, rgba(240, 249, 255, 0.45) 45%, rgba(255, 255, 255, 0) 75%);
+  filter: blur(45px);
   opacity: 0.85;
-}
-.cloud-pos-2 {
-  top: 32%;
-  left: -200px;
-  animation: cloudDriftSlow 38s linear infinite 12s;
-  opacity: 0.92;
-}
-.cloud-pos-3 {
-  top: 58%;
-  left: -240px;
-  animation: cloudDriftSlow 44s linear infinite 6s;
-  opacity: 0.78;
-}
-.cloud-pos-4 {
-  top: 82%;
-  left: -260px;
-  animation: cloudDriftSlow 48s linear infinite 22s;
-  opacity: 0.88;
+  animation: mistDriftSlow 36s ease-in-out infinite alternate;
 }
 
-@keyframes cloudDriftSlow {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(100vw + 400px));
-  }
+.mist-layer-2 {
+  top: 20%;
+  background: radial-gradient(ellipse 70% 45% at 40% 50%, rgba(255, 255, 255, 0.65) 0%, rgba(224, 242, 254, 0.4) 50%, rgba(255, 255, 255, 0) 80%);
+  filter: blur(55px);
+  opacity: 0.75;
+  animation: mistDriftReverse 46s ease-in-out infinite alternate;
+}
+
+.mist-layer-3 {
+  bottom: 0;
+  height: 65%;
+  background: radial-gradient(ellipse 80% 60% at 60% 80%, rgba(255, 255, 255, 0.82) 0%, rgba(241, 245, 249, 0.5) 40%, rgba(255, 255, 255, 0) 75%);
+  filter: blur(40px);
+  opacity: 0.9;
+  animation: mistBreathe 26s ease-in-out infinite alternate;
+}
+
+/* 迷霧飄浮細緻光波帶 (Mist Wave Ribbons) */
+.mist-ribbon-1 {
+  position: absolute;
+  top: 15%;
+  left: -20%;
+  width: 140%;
+  height: 90px;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.65) 30%, rgba(240,249,255,0.85) 60%, rgba(255,255,255,0) 100%);
+  filter: blur(32px);
+  border-radius: 50%;
+  opacity: 0.72;
+  animation: mistRibbonFlow 30s linear infinite;
+  pointer-events: none;
+}
+
+.mist-ribbon-2 {
+  position: absolute;
+  top: 55%;
+  right: -20%;
+  width: 150%;
+  height: 120px;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(224,242,254,0.7) 40%, rgba(255,255,255,0.85) 70%, rgba(255,255,255,0) 100%);
+  filter: blur(36px);
+  border-radius: 50%;
+  opacity: 0.78;
+  animation: mistRibbonFlowReverse 40s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes mistDriftSlow {
+  0% { transform: translateX(0%) translateY(0); }
+  50% { transform: translateX(-8%) translateY(12px) scale(1.05); }
+  100% { transform: translateX(-16%) translateY(-8px); }
+}
+
+@keyframes mistDriftReverse {
+  0% { transform: translateX(-15%) translateY(0); }
+  50% { transform: translateX(-5%) translateY(-10px) scale(1.08); }
+  100% { transform: translateX(5%) translateY(6px); }
+}
+
+@keyframes mistBreathe {
+  0% { opacity: 0.65; transform: scaleY(1); }
+  50% { opacity: 0.95; transform: scaleY(1.15) translateY(-8px); }
+  100% { opacity: 0.7; transform: scaleY(0.95); }
+}
+
+@keyframes mistRibbonFlow {
+  0% { transform: translateX(-10%) scaleX(0.9); }
+  50% { transform: translateX(10%) scaleX(1.1); }
+  100% { transform: translateX(-10%) scaleX(0.9); }
+}
+
+@keyframes mistRibbonFlowReverse {
+  0% { transform: translateX(10%) scaleX(1.1); }
+  50% { transform: translateX(-10%) scaleX(0.9); }
+  100% { transform: translateX(10%) scaleX(1.1); }
 }
 
 /* 柔和天際線下之標題與副標題風格 */

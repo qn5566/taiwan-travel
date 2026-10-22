@@ -8,10 +8,109 @@
   <meta name="description" content="全台 22 縣市熱門與私房景點全覽！不規則瀑布流活潑排版、滑過 3D 微交互動態特效，提供 Klook 預訂行程、包車客製與 Booking 住宿一鍵比價。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600;1,700&family=Pinyon+Script&family=Noto+Serif+TC:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .brand-script-en {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 34px;
+      color: #0284C7;
+      font-weight: 500;
+      line-height: 1.15;
+      display: inline-block;
+      letter-spacing: 0.5px;
+    }
+    .brand-serif-en {
+      font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      letter-spacing: 0.5px;
+    }
+    .editorial-hero-title {
+      font-family: 'Noto Serif TC', serif !important;
+      font-weight: 900 !important;
+      letter-spacing: -0.5px;
+    }
+    /* 城市景點 6 欄卡片專用佈局 */
+    .spots-grid-6col {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 16px;
+    }
+    @media (max-width: 1480px) {
+      .spots-grid-6col { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    }
+    @media (max-width: 1200px) {
+      .spots-grid-6col { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+    @media (max-width: 900px) {
+      .spots-grid-6col { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .spots-grid-6col { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    }
+    @media (max-width: 380px) {
+      .spots-grid-6col { grid-template-columns: 1fr; }
+    }
+
+    .spot-card-6col {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .spot-card-6col:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(2, 132, 199, 0.12);
+      border-color: #38BDF8;
+    }
+    .spot-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 136px;
+      overflow: hidden;
+      background: #F1F5F9;
+    }
+    .spot-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .spot-card-6col:hover .spot-img-wrap img {
+      transform: scale(1.06);
+    }
+    .spot-region-pill {
+      padding: 9px 20px;
+      border-radius: 9999px;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      color: #334155;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .spot-region-pill:hover {
+      border-color: #0284C7;
+      color: #0284C7;
+      background: #F0F9FF;
+      transform: translateY(-1px);
+    }
+    .spot-region-pill.active {
+      background: #0284C7;
+      border-color: #0284C7;
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.28);
+      transform: translateY(-1px);
+    }
+  </style>
 </head>
-<body>
+<body style="background: #FFFFFF; color: #0F172A;">
 
   <!-- 置頂導航列 -->
   <header class="site-header">
@@ -45,60 +144,58 @@
     </div>
   </header>
 
-  <!-- 城市景點 Hero Banner -->
-  <section class="section-padding" style="background: linear-gradient(180deg, #064E3B 0%, #065F46 60%, #0F172A 100%); color: #FFFFFF; text-align: center; padding: 70px 0 50px 0;">
+  <!-- 城市景點 Hero Banner (純白極簡清新雜誌風格) -->
+  <section class="section-padding" style="background: #FFFFFF; border-bottom: 1px solid #F1F5F9; color: #0F172A; text-align: center; padding: 45px 0 28px 0;">
     <div class="container">
-      <span class="section-badge-pill" style="background: rgba(52, 211, 153, 0.25); color: #A7F3D0; border-color: rgba(52, 211, 153, 0.45);">
-        DISCOVER ALL 22 CITIES & HIDDEN GEMS
-      </span>
-      <h1 style="font-size: 38px; font-weight: 900; margin-top: 14px; letter-spacing: -0.5px;">
-        全台 22 縣市景點精選 ‧ 瀑布流互動漫遊
+      <h1 class="editorial-hero-title" style="font-size: 40px; font-weight: 900; margin-top: 4px; letter-spacing: -0.5px; color: #0F172A; font-family: 'Noto Serif TC', serif; margin-bottom: 2px;">
+        全台城市景點全覽
       </h1>
-      <p style="color: #E2E8F0; max-width: 800px; margin: 12px auto 0 auto; font-size: 15px; line-height: 1.7;">
-        打破傳統整齊格子排版！採用國際化瀑布流（Masonry Waterfall）高低錯落展示，滑過微動態浮起，隨時一鍵預訂 Klook 門票行程、包車出遊與 Booking 訂房。
+      <div class="brand-script-en" style="font-size: 34px; color: #0284C7; margin-bottom: 8px;">
+        Explore Taiwan's Diverse Scenic Spots & Cities
+      </div>
+      <p style="color: #64748B; max-width: 780px; margin: 6px auto 0 auto; font-size: 14.5px; line-height: 1.7;">
+        收錄全台高人氣地標與私房秘境！一排 6 張緊湊齊全呈現，支援即時關鍵字搜尋、導航與預約。<br>
+        <span class="brand-serif-en" style="font-size: 13.5px; color: #94A3B8; font-weight: 500;">(From northern mountain trails to southern sunsets and offshore island wonders.)</span>
       </p>
 
       <!-- 即時關鍵字搜尋框 -->
-      <div style="max-width: 560px; margin: 26px auto 0 auto;">
+      <div style="max-width: 520px; margin: 22px auto 0 auto;">
         <input type="text" id="spots-search-input" placeholder="🔍 搜尋景點名稱、縣市名、必玩特色或標籤..." 
-          style="width: 100%; padding: 13px 22px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.12); color: #FFFFFF; font-size: 14px; backdrop-filter: blur(10px); outline: none;">
+          style="width: 100%; padding: 12px 20px; border-radius: 9999px; border: 1.5px solid #E2E8F0; background: #F8FAFC; color: #0F172A; font-size: 14px; outline: none; transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
       </div>
 
-      <!-- 22 縣市切換藥丸列 -->
-      <div style="margin-top: 28px;">
-        <div style="font-size: 12px; color: #A7F3D0; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.5px;">
-          📍 選擇探索縣市：
-        </div>
-        <div id="spots-city-pills" style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; max-width: 1140px; margin: 0 auto;">
-          <!-- 由 JS 動態生成 22 縣市按鈕 -->
+      <!-- 精簡整合後的區域切換按鈕 (告別23個按鈕擁擠問題) -->
+      <div style="margin-top: 22px;">
+        <div id="spots-region-pills" style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; max-width: 900px; margin: 0 auto;">
+          <!-- 由 JS 動態生成 6 個清晰大區按鈕 -->
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 景點瀑布流列表 -->
-  <section class="section-padding" style="background: #F8FAFC; padding: 50px 0 100px 0;">
+  <!-- 景點卡片列表 (純白背景，一排 6 個) -->
+  <section class="section-padding" style="background: #FFFFFF; padding: 36px 0 80px 0;">
     <div class="container">
       
       <!-- 篩選列與計數 -->
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
         <div>
-          <span id="spots-count-text" style="font-size: 15px; font-weight: 800; color: #0F172A;">
-            共找到 32 處熱門與秘境景點
+          <span id="spots-count-text" style="font-size: 15px; font-weight: 900; color: #0F172A;">
+            顯示全部景點 (共 30 處)
           </span>
-          <span id="spots-current-city" style="font-size: 13px; color: #64748B; margin-left: 8px;">
-            [當前：全部縣市]
+          <span id="spots-current-city" style="font-size: 12.5px; color: #0284C7; font-weight: 700; margin-left: 8px; background: #F0F9FF; padding: 2px 8px; border-radius: 6px;">
+            [全台景點模式]
           </span>
         </div>
 
-        <button onclick="resetCityFilter()" class="city-pill-btn" style="font-size: 12px; padding: 6px 14px;">
-          🔄 檢視全部景點
+        <button onclick="resetCityFilter()" class="spot-region-pill" style="font-size: 12px; padding: 5px 14px; background: #F8FAFC;">
+          🔄 重設顯示全部
         </button>
       </div>
 
-      <!-- 瀑布流網格容器 -->
-      <div id="waterfall-grid" class="waterfall-masonry-container">
-        <!-- 由 JS 動態渲染瀑布流卡片 -->
+      <!-- 一排 6 個卡片網格容器 -->
+      <div id="spots-grid-container" class="spots-grid-6col">
+        <!-- 由 JS 動態渲染卡片 -->
       </div>
 
     </div>
@@ -109,7 +206,7 @@
     <div class="container">
       <div class="footer-brand-row">
         <div class="brand-logo-wrap">
-          <div class="brand-logo-icon">🇹🇼</div>
+          <img src="assets/taiwan_roam_logo.png" alt="台灣吃喝玩樂 TAIWAN ROAM" class="brand-logo-img" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
           <div class="brand-text-block">
             <div class="brand-name">台灣吃喝玩樂 Taiwan Wanderlust</div>
             <span class="brand-subtext">全台 22 縣市城市景點 ‧ 官方互動指南</span>
@@ -129,19 +226,21 @@
   <script src="js/affiliate.js"></script>
   <script src="js/data.js"></script>
   <script>
-    let activeCity = "全部";
+    let activeZone = "全部";
     let searchKeyword = "";
 
-    const ALL_CITIES = [
-      "全部", "台北市", "新北市", "基隆市", "桃園市", 
-      "新竹市", "新竹縣", "苗栗縣", "台中市", "彰化縣", 
-      "南投縣", "雲林縣", "嘉義市", "嘉義縣", "台南市", 
-      "高雄市", "屏東縣", "宜蘭縣", "花蓮縣", "台東縣", 
-      "澎湖縣", "金門縣", "連江縣"
+    // 精簡整合 6 大核心地理區按鈕 (取代原先 23 個瑣碎按鈕)
+    const REGION_CATEGORIES = [
+      { id: "全部", label: "🌟 全部景點 (All)", count: 30 },
+      { id: "北部", label: "🏙️ 北部景點", count: 8 },
+      { id: "中部", label: "🌿 中部景點", count: 6 },
+      { id: "南部", label: "☀️ 南部景點", count: 7 },
+      { id: "東部", label: "🌊 東部景點", count: 5 },
+      { id: "離島", label: "🏝️ 離島秘境", count: 4 }
     ];
 
     document.addEventListener("DOMContentLoaded", () => {
-      renderCityPills();
+      renderRegionButtons();
       setupSearch();
       renderSpots();
     });
@@ -155,64 +254,66 @@
       });
     }
 
-    function renderCityPills() {
-      const container = document.getElementById("spots-city-pills");
+    function renderRegionButtons() {
+      const container = document.getElementById("spots-region-pills");
       if (!container) return;
-      container.innerHTML = ALL_CITIES.map(c => {
-        const isAct = activeCity === c ? "active" : "";
-        const label = c === "全部" ? "全部縣市" : c;
+      container.innerHTML = REGION_CATEGORIES.map(reg => {
+        const isAct = activeZone === reg.id ? "active" : "";
         return `
-          <button class="city-pill-btn ${isAct}" style="font-size: 12px; padding: 5px 12px;" onclick="selectCity('${c}')">
-            ${label}
+          <button class="spot-region-pill ${isAct}" onclick="selectRegion('${reg.id}')">
+            ${reg.label}
           </button>
         `;
       }).join("");
     }
 
-    function selectCity(city) {
-      activeCity = city;
-      renderCityPills();
+    function selectRegion(zoneId) {
+      activeZone = zoneId;
+      renderRegionButtons();
       renderSpots();
     }
 
     function resetCityFilter() {
-      activeCity = "全部";
+      activeZone = "全部";
       searchKeyword = "";
       const input = document.getElementById("spots-search-input");
       if (input) input.value = "";
-      renderCityPills();
+      renderRegionButtons();
       renderSpots();
     }
 
     function renderSpots() {
-      const container = document.getElementById("waterfall-grid");
+      const container = document.getElementById("spots-grid-container");
       const countEl = document.getElementById("spots-count-text");
       const cityEl = document.getElementById("spots-current-city");
       if (!container || typeof ALL_SPOTS_DATA === "undefined") return;
 
       const filtered = ALL_SPOTS_DATA.filter(item => {
-        const matchCity = activeCity === "全部" || item.city.includes(activeCity.replace("市", "").replace("縣", ""));
+        const matchZone = activeZone === "全部" || item.zone === activeZone;
         const matchKeyword = !searchKeyword || 
           item.name.toLowerCase().includes(searchKeyword) ||
           item.city.toLowerCase().includes(searchKeyword) ||
-          item.desc.toLowerCase().includes(searchKeyword) ||
+          (item.desc && item.desc.toLowerCase().includes(searchKeyword)) ||
           (item.tag && item.tag.toLowerCase().includes(searchKeyword));
-        return matchCity && matchKeyword;
+        return matchZone && matchKeyword;
       });
 
       if (countEl) {
-        countEl.textContent = `共找到 ${filtered.length} 處熱門與秘境景點`;
+        countEl.textContent = `共找到 ${filtered.length} 處景點 (一排 6 張全量呈現)`;
       }
       if (cityEl) {
-        cityEl.textContent = activeCity === "全部" ? "[全台景點模式]" : `[當前：${activeCity}]`;
+        cityEl.textContent = activeZone === "全部" ? "[全台景點模式]" : `[當前：${activeZone}]`;
       }
 
       if (filtered.length === 0) {
         container.innerHTML = `
           <div style="grid-column: 1/-1; padding: 60px 20px; text-align: center; color: #64748B;">
             <div style="font-size: 40px; margin-bottom: 10px;">🏞️</div>
-            <div style="font-size: 18px; font-weight: 800;">暫無符合條件的景點</div>
-            <p style="margin-top: 6px; font-size: 13px;">歡迎切換其他縣市或清除搜尋條件！</p>
+            <div style="font-size: 18px; font-weight: 800; color: #0F172A;">暫無符合條件的景點</div>
+            <p style="margin-top: 6px; font-size: 13px;">歡迎切換上方大區或清除搜尋關鍵字！</p>
+            <button onclick="resetCityFilter()" class="spot-region-pill" style="margin-top: 14px; background: #0284C7; color: #FFF; border: none;">
+              顯示全部 30 處景點
+            </button>
           </div>
         `;
         return;
@@ -220,33 +321,44 @@
 
       container.innerHTML = filtered.map(item => {
         const klookUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSearchUrl(item.name) : "#";
-        const charterUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getCharterUrl(item.city) : "#";
-        const hotelUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getHotelUrl(item.city + " 住宿") : "#";
+        const mapUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(item.name) : `https://maps.google.com/?q=${encodeURIComponent(item.name)}`;
 
         return `
-          <div class="waterfall-card">
-            <div class="waterfall-img-wrap">
+          <div class="spot-card-6col">
+            <div class="spot-img-wrap">
               <img src="${item.img}" alt="${item.name}" loading="lazy">
-              <span class="waterfall-badge-city">${item.city}</span>
-              <span class="waterfall-badge-tag">${item.tag || "熱門景點"}</span>
+              <span style="position: absolute; top: 8px; left: 8px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #FFF; font-size: 10.5px; font-weight: 800; padding: 2px 7px; border-radius: 6px;">
+                ${item.city}
+              </span>
+              <span style="position: absolute; bottom: 8px; right: 8px; background: rgba(255, 255, 255, 0.95); color: #D97706; font-size: 10.5px; font-weight: 800; padding: 2px 6px; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+                ${item.rate || "4.9★"}
+              </span>
             </div>
-            <div class="waterfall-content">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <span class="waterfall-rate">${item.rate || "4.9★"}</span>
-                <span style="font-size: 12px; font-weight: 800; color: #0284C7;">${item.price || "免費參觀"}</span>
+            
+            <div style="padding: 12px; display: flex; flex-direction: column; flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 10.5px; font-weight: 800; color: #0284C7; background: #F0F9FF; padding: 2px 6px; border-radius: 4px;">
+                  ${item.tag || "熱門景點"}
+                </span>
+                <span style="font-size: 10.5px; color: #64748B;">
+                  ${item.duration || "2小時"}
+                </span>
               </div>
-              <h3 class="waterfall-title">${item.name}</h3>
-              <p class="waterfall-desc">${item.desc}</p>
               
-              <div class="waterfall-actions" style="margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px;">
-                <a href="${klookUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="text-align: center; padding: 6px 2px; font-size: 11px; text-decoration: none;">
-                  預定行程
+              <h3 style="font-size: 13.5px; font-weight: 900; color: #0F172A; margin: 4px 0 6px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.35;" title="${item.name}">
+                ${item.name}
+              </h3>
+              
+              <p style="font-size: 11.5px; color: #64748B; line-height: 1.5; margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; flex: 1;" title="${item.desc}">
+                ${item.desc}
+              </p>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: auto;">
+                <a href="${klookUrl}" target="_blank" rel="noopener noreferrer" style="text-align: center; padding: 6px 4px; font-size: 11px; font-weight: 700; color: #FFF; background: #F59E0B; border-radius: 6px; text-decoration: none; transition: background 0.2s;">
+                  🎟️ 預定去
                 </a>
-                <a href="${charterUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-charter-car" style="text-align: center; padding: 6px 2px; font-size: 11px; text-decoration: none;">
-                  包車接送
-                </a>
-                <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room" style="text-align: center; padding: 6px 2px; font-size: 11px; text-decoration: none;">
-                  訂房去
+                <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" style="text-align: center; padding: 6px 4px; font-size: 11px; font-weight: 700; color: #0284C7; background: #F0F9FF; border: 1px solid #BAE6FD; border-radius: 6px; text-decoration: none; transition: background 0.2s;">
+                  🧭 導航
                 </a>
               </div>
             </div>
