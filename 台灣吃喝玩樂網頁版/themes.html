@@ -450,15 +450,15 @@
 
       // 根據主題切換專屬暗色系面板風格
       let modeClass = "";
-      if (theme.id === "baseball") modeClass = "theme-sports-mode";
-      else if (theme.id === "camping") modeClass = "theme-camping-mode";
+      if (theme.id === "roadtrip") modeClass = "theme-sports-mode";
+      else if (theme.id === "outdoor") modeClass = "theme-camping-mode";
       else if (theme.id === "hotspring") modeClass = "theme-hotspring-mode";
-      else if (theme.id === "railway") modeClass = "theme-railway-mode";
+      else if (theme.id === "culture") modeClass = "theme-railway-mode";
       else if (theme.id === "nightmarket") modeClass = "theme-nightmarket-mode";
       display.className = modeClass;
 
       const activePlan = theme.itineraries[planIdx] || theme.itineraries[0];
-      const shortTabNames = ["一日遊", "二日遊", "三日遊", "四日遊"];
+      const shortTabNames = ["1 日輕旅", "2 日漫遊", "3 日縱走"];
 
       display.innerHTML = `
         <!-- 頂部主題視覺大橫幅 (Hero Banner) -->
@@ -491,29 +491,29 @@
         <!-- 下方雙欄區塊：左側行程規劃 ＋ 右側景點推薦卡 -->
         <div class="theme-split-layout">
           
-          <!-- 左側欄：一日遊、二日遊、三日遊行程動線規劃 -->
+          <!-- 左側欄：1/2/3 日推薦行程規劃 -->
           <div>
             <div class="itinerary-planner-box">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
                 <div style="font-size: 18px; font-weight: 900; color: #0F172A; display: flex; align-items: center; gap: 8px;" class="itinerary-planner-title">
                   <span>📅</span>
-                  <span>行程路線規劃</span>
+                  <span>推薦行程動線規劃</span>
                 </div>
                 <span style="font-size: 11px; font-weight: 700; color: #0284C7; background: #F0F9FF; padding: 3px 8px; border-radius: 6px;" class="itinerary-duration-badge">
                   ${activePlan.duration || '建議行程'}
                 </span>
               </div>
               <p style="font-size: 12px; color: #64748B; margin-bottom: 16px;">
-                點選下方分段標籤即可切換一日至三日專屬動線：
+                點選下方分段標籤切換精華動線、深度慢活與縱走路線：
               </p>
 
-              <!-- 一日遊／二日遊／三日遊 簡短按鈕 -->
+              <!-- 1 日輕旅／2 日漫遊／3 日縱走 簡短按鈕 -->
               <div class="itinerary-segmented-tabs">
                 ${theme.itineraries.map((plan, pIdx) => `
                   <button type="button" 
                           class="itinerary-tab-btn ${pIdx === planIdx ? 'active' : ''}" 
                           onclick="switchPlan(${pIdx})">
-                    ${shortTabNames[pIdx] || `第 ${pIdx + 1} 方案`}
+                    ${shortTabNames[pIdx] || plan.duration || `第 ${pIdx + 1} 方案`}
                   </button>
                 `).join('')}
               </div>
@@ -556,10 +556,13 @@
               <!-- 快捷行動按鈕組 -->
               <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 18px;">
                 <a href="${theme.bookingCta.charter}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="width: 100%; justify-content: center; padding: 11px; font-size: 13px; font-weight: 800; text-decoration: none;">
-                  🚗 預約包車行程直達
+                  🚗 預約專屬包車 (Klook)
                 </a>
                 <a href="${theme.bookingCta.hotel}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #F8FAFC; border: 1px solid #CBD5E1; color: #0F172A; width: 100%; justify-content: center; padding: 9px; font-size: 12.5px; font-weight: 700; text-decoration: none;">
-                  🏨 搜尋周邊熱門住宿 (Booking)
+                  🏨 預訂精選飯店 (Trip.com)
+                </a>
+                <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(theme.name)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #FFFFFF; border: 1px solid #E2E8F0; color: #475569; width: 100%; justify-content: center; padding: 8px; font-size: 12px; font-weight: 700; text-decoration: none;">
+                  🗺️ 開啟 Google Maps 路線
                 </a>
               </div>
             </div>
@@ -688,10 +691,10 @@
     // 動態切換精選主題場景背景與專屬動畫粒子 (Dynamic Ambient Background & Particles)
     function updateThemeBackground(themeId) {
       document.body.className = `bg-theme-${themeId} ${
-        themeId === 'baseball' ? 'body-sports-mode' : 
-        themeId === 'camping' ? 'body-camping-mode' : 
+        themeId === 'roadtrip' ? 'body-sports-mode' : 
+        themeId === 'outdoor' ? 'body-camping-mode' : 
         themeId === 'hotspring' ? 'body-hotspring-mode' : 
-        themeId === 'railway' ? 'body-railway-mode' : 
+        themeId === 'culture' ? 'body-railway-mode' : 
         themeId === 'nightmarket' ? 'body-nightmarket-mode' : ''
       }`;
       const container = document.getElementById("theme-dynamic-particles");
@@ -725,8 +728,8 @@
           <div class="ocean-wave-layer"></div>
           <div class="ocean-wave-layer-2"></div>
         `;
-      } else if (themeId === "baseball") {
-        // 運動賽事：黑色背景 ＋ 籃球閃過速度感與極速光束
+      } else if (themeId === "roadtrip") {
+        // 公路環島：黑色背景 ＋ 籃球與自駕極速光束
         let sportsHTML = `
           <div class="basketball-speed-container">
             <div class="fast-basketball-wrap ball-pass-1">
@@ -753,8 +756,8 @@
           sportsHTML += `<div class="sports-speed-particle" style="left: ${left}%; height: ${h}px; animation-duration: ${dur}s; animation-delay: -${delay}s;"></div>`;
         }
         container.innerHTML = sportsHTML;
-      } else if (themeId === "camping") {
-        // 秘境露營：冰島極光光影搖晃波動特效 (Iceland Aurora Borealis with Undulating Light Waves)
+      } else if (themeId === "outdoor") {
+        // 山林戶外：冰島極光光影搖晃波動特效 (Iceland Aurora Borealis with Undulating Light Waves)
         let auroraHTML = `
           <div class="iceland-aurora-stage">
             <div class="aurora-curtain-primary"></div>
@@ -780,7 +783,7 @@
         auroraHTML += `</div>`;
         container.innerHTML = auroraHTML;
       } else if (themeId === "hotspring") {
-        // 名湯溫泉：深藍色泉池 ＋ 白煙繚繞裊裊冒煙 (Deep Blue Onsen & Rising Vapor)
+        // 溫泉舒活：深藍色泉池 ＋ 白煙繚繞裊裊冒煙 (Deep Blue Onsen & Rising Vapor)
         let steamHTML = `
           <div class="onsen-stage-wrap">
             <div class="onsen-water-glow"></div>
@@ -796,7 +799,7 @@
         steamHTML += `</div>`;
         container.innerHTML = steamHTML;
       } else if (themeId === "nightmarket") {
-        // 夜市小吃：黑色背景 ＋ 熱鬧街景五彩燈光閃耀著 (Night Market Glowing Street Bokeh)
+        // 市井煙火：黑色背景 ＋ 熱鬧街景五彩燈光閃耀著 (Night Market Glowing Street Bokeh)
         let marketHTML = `
           <div class="nightmarket-stage-wrap">
             <div class="nightmarket-ambient-glow"></div>
@@ -833,9 +836,9 @@
         }
         marketHTML += `</div>`;
         container.innerHTML = marketHTML;
-      } else if (themeId === "railway") {
-        // 經典鐵道：暗色系 ＋ 搶眼橘色探照燈與夜霧穿梭 (Dark Railway & Amber Beam)
-        let railwayHTML = `
+      } else if (themeId === "culture") {
+        // 節慶文化：暗色系 ＋ 搶眼橘色探照燈與夜霧穿梭 (Cultural Lanterns & Amber Beam)
+        let cultureHTML = `
           <div class="railway-stage-wrap">
             <div class="train-headlight-beam"></div>
         `;
@@ -844,10 +847,10 @@
           const top = Math.random() * 70 + 15;
           const dur = (Math.random() * 6 + 10).toFixed(1);
           const delay = (Math.random() * 5).toFixed(1);
-          railwayHTML += `<div class="forest-mist" style="left: ${left}%; top: ${top}%; animation-duration: ${dur}s; animation-delay: -${delay}s; opacity: 0.35;"></div>`;
+          cultureHTML += `<div class="forest-mist" style="left: ${left}%; top: ${top}%; animation-duration: ${dur}s; animation-delay: -${delay}s; opacity: 0.35;"></div>`;
         }
-        railwayHTML += `</div>`;
-        container.innerHTML = railwayHTML;
+        cultureHTML += `</div>`;
+        container.innerHTML = cultureHTML;
       }
     }
 

@@ -141,58 +141,6 @@
         收錄手搖飲、伴手禮、藥妝、必比登夜市與百萬夜景，全球自由行旅人的不踩雷指南。
       </p>
 
-      <!-- 2. 5 大情境分類切換膠囊 (Category Tabs) -->
-      <div class="ranking-category-capsules" id="category-capsules-bar">
-        <button class="cat-capsule-btn active" data-scenario="all" onclick="switchScenario('all')">
-          全部 All <span class="count-badge">12</span>
-        </button>
-        <button class="cat-capsule-btn" data-scenario="food" onclick="switchScenario('food')">
-          🍽️ 美食飲品 <span class="count-badge">5</span>
-        </button>
-        <button class="cat-capsule-btn" data-scenario="activity" onclick="switchScenario('activity')">
-          🏞️ 景點活動 <span class="count-badge">3</span>
-        </button>
-        <button class="cat-capsule-btn" data-scenario="transport_stay" onclick="switchScenario('transport_stay')">
-          🚗 交通旅宿 <span class="count-badge">3</span>
-        </button>
-        <button class="cat-capsule-btn" data-scenario="shopping" onclick="switchScenario('shopping')">
-          🛍️ 購物採購 <span class="count-badge">1</span>
-        </button>
-      </div>
-
-      <!-- 星星名次漸層濾鏡定義 (Hidden SVG Gradients for Star Rank Badges) -->
-      <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
-        <defs>
-          <!-- 金星漸層 Top 1 -->
-          <linearGradient id="star-grad-gold" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FFF3BF" />
-            <stop offset="45%" stop-color="#F59E0B" />
-            <stop offset="100%" stop-color="#B45309" />
-          </linearGradient>
-
-          <!-- 銀星漸層 Top 2 -->
-          <linearGradient id="star-grad-silver" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FFFFFF" />
-            <stop offset="50%" stop-color="#94A3B8" />
-            <stop offset="100%" stop-color="#475569" />
-          </linearGradient>
-
-          <!-- 銅星漸層 Top 3 -->
-          <linearGradient id="star-grad-bronze" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FFEDD5" />
-            <stop offset="50%" stop-color="#D97706" />
-            <stop offset="100%" stop-color="#78350F" />
-          </linearGradient>
-
-          <!-- 深海藍星漸層 Rank 4~20 -->
-          <linearGradient id="star-grad-blue" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#38BDF8" />
-            <stop offset="50%" stop-color="#0284C7" />
-            <stop offset="100%" stop-color="#0369A1" />
-          </linearGradient>
-        </defs>
-      </svg>
-
       <!-- 3. 3D 拱形輪播舞台 (Arc Orbit Stage & Center Hero Visual) -->
       <div class="ranking-arc-stage-wrap" id="ranking-arc-stage">
         <!-- 背景大浮水印 -->
@@ -225,9 +173,34 @@
           style="width: 100%; padding: 13px 22px; border-radius: 9999px; border: 1.5px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.12); color: #FFFFFF; font-size: 14px; backdrop-filter: blur(10px); outline: none;">
       </div>
 
-      <!-- 17 大排行主題標籤按鈕列 (Topic Pills) -->
-      <div id="ranking-tabs-row" style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 20px; position: relative; z-index: 10; max-width: 980px; margin-left: auto; margin-right: auto;">
-        <!-- 由 JS 動態生成 -->
+      <!-- 統一透明雙排按鈕控制台：第一排大項目，第二排小項目 (點擊即時過濾展開) -->
+      <div class="ranking-filter-glass-panel">
+        <!-- 第一排：5 大情境分類透明膠囊按鈕 (Row 1: Major Category Tabs) -->
+        <div class="ranking-category-row" id="category-capsules-bar">
+          <button class="glass-cat-btn active" data-scenario="all" onclick="switchScenario('all')">
+            全部 All <span class="glass-count-badge">17</span>
+          </button>
+          <button class="glass-cat-btn" data-scenario="food" onclick="switchScenario('food')">
+            🍽️ 美食飲品 <span class="glass-count-badge">6</span>
+          </button>
+          <button class="glass-cat-btn" data-scenario="activity" onclick="switchScenario('activity')">
+            🏞️ 景點活動 <span class="glass-count-badge">6</span>
+          </button>
+          <button class="glass-cat-btn" data-scenario="transport_stay" onclick="switchScenario('transport_stay')">
+            🚗 交通旅宿 <span class="glass-count-badge">4</span>
+          </button>
+          <button class="glass-cat-btn" data-scenario="shopping" onclick="switchScenario('shopping')">
+            🛍️ 購物採購 <span class="glass-count-badge">1</span>
+          </button>
+        </div>
+
+        <!-- 中間微透分隔細線 -->
+        <div class="glass-divider-line"></div>
+
+        <!-- 第二排：當前大項目下屬的小項目透明膠囊按鈕 (Row 2: Sub-topics Pills) -->
+        <div class="ranking-subtopics-row" id="ranking-tabs-row">
+          <!-- 由 JS 根據當前所選大項目動態渲染 -->
+        </div>
       </div>
 
     </div>
@@ -362,7 +335,7 @@
     }
 
     function renderScenarioBar() {
-      document.querySelectorAll("#category-capsules-bar .cat-capsule-btn").forEach(btn => {
+      document.querySelectorAll("#category-capsules-bar .glass-cat-btn").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.scenario === currentScenario);
       });
     }
@@ -409,14 +382,14 @@
       });
     }
 
-    // 渲染下方主題按鈕膠囊列
+    // 渲染下方主題按鈕膠囊列 (半透明風格)
     function renderTopicPills() {
       const row = document.getElementById("ranking-tabs-row");
       if (!row) return;
 
       const topics = getTopicsForScenario(currentScenario);
       row.innerHTML = topics.map(t => `
-        <button class="ranking-tab-pill ${t.id === currentTopicId ? 'active' : ''}" 
+        <button class="glass-subtopic-btn ${t.id === currentTopicId ? 'active' : ''}" 
                 data-topic="${t.id}" 
                 onclick="selectTopic('${t.id}')">
           ${t.icon} ${t.shortName}
@@ -641,15 +614,9 @@
             <div style="position: relative; width: 100%; height: 165px; overflow: hidden; background: #F1F5F9;">
               <img src="${cardImg}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" onerror="this.src='${meta.heroImg}'">
               
-              <!-- 名次星星底色徽章：星星底色，數字在上面顯示 -->
-              <div class="rank-star-badge ${starClass}" title="名次第 ${item.rank} 名">
-                <svg class="rank-star-svg" viewBox="0 0 40 40">
-                  <path d="M20.0,2.0 L24.6,13.7 L37.1,14.4 L27.4,22.4 L30.6,34.6 L20.0,27.8 L9.4,34.6 L12.6,22.4 L2.9,14.4 L15.4,13.7 Z" 
-                        fill="url(#${starGradId})" 
-                        stroke="${strokeColor}" 
-                        stroke-width="1.8" 
-                        stroke-linejoin="round" />
-                </svg>
+              <!-- 名次星星底色徽章：不易太大，小小的又漂亮 (使用專屬可愛黃星) -->
+              <div class="rank-star-badge" title="名次第 ${item.rank} 名">
+                <img src="assets/star_rank_badge.png" alt="Star" class="rank-star-img">
                 <span class="rank-star-number ${isDoubleDigit ? 'double-digit' : ''}">${item.rank}</span>
               </div>
 
