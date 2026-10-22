@@ -255,54 +255,86 @@
         </div>
       </div>
 
-      <!-- 6 個精選主題可愛卡牌排列 (桌面 6 個一排) -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 10px;">
-        <!-- Card 1: 棒球應援 -->
-        <a href="themes.html?theme=baseball" class="theme-card" style="text-decoration: none; cursor: pointer; text-align: center; padding: 22px 16px; border: 1.5px solid #E2E8F0; border-radius: 20px; transition: all 0.3s ease; background: #FFFFFF; display: flex; flex-direction: column; align-items: center;">
-          <div style="width: 58px; height: 58px; border-radius: 16px; background: #EFF6FF; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 12px;">⚾</div>
-          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">職棒經典應援</h3>
-          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">台北大巨蛋、洲際、新莊！全球最狂啦啦隊熱血應援。</p>
-          <span class="theme-tag-chip" style="background: #DBEAFE; color: #1E40AF; font-size: 11px;">6 大主場館 ➔</span>
+      <!-- 8 大精選核心主題可愛卡牌排列 (方形圓角小 ICON 置中) -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-bottom: 10px;">
+        <!-- Card 1: 露營登山 -->
+        <a href="themes.html?theme=outdoor" class="theme-card home-curated-card">
+          <div class="theme-icon-rounded-square" style="background: #F0FDF4; border-color: #DCFCE7;">
+            <img src="assets/theme_icon_camping.png" alt="露營登山" class="theme-rounded-icon-img">
+          </div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">⛰️ 露營登山</h3>
+          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">免搭帳星空露營車、野炊火堆與北歐極光高山帷幕。</p>
+          <span class="theme-tag-chip" style="background: #DCFCE7; color: #166534; font-size: 11px;">百岳與星空 ➔</span>
         </a>
 
-        <!-- Card 2: 露營生鮮 -->
-        <a href="themes.html?theme=camping" class="theme-card" style="text-decoration: none; cursor: pointer; text-align: center; padding: 22px 16px; border: 1.5px solid #E2E8F0; border-radius: 20px; transition: all 0.3s ease; background: #FFFFFF; display: flex; flex-direction: column; align-items: center;">
-          <div style="width: 58px; height: 58px; border-radius: 16px; background: #FEF3C7; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 12px;">⛺</div>
-          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">露營生鮮野炊</h3>
-          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">免搭帳奢華星空帳篷，和牛海陸食材箱一鍵直配營位。</p>
-          <span class="theme-tag-chip" style="background: #FEF3C7; color: #92400E; font-size: 11px;">免備料直配 ➔</span>
+        <!-- Card 2: 離島跳島 -->
+        <a href="themes.html?theme=islands" class="theme-card home-curated-card">
+          <div class="theme-icon-rounded-square" style="background: #ECFEFF; border-color: #CFFAFE;">
+            <img src="assets/theme_icon_island.png" alt="離島跳島" class="theme-rounded-icon-img">
+          </div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">🏝️ 離島跳島</h3>
+          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">綠島、蘭嶼、小琉球與海龜共游，湛藍潛水泡泡。</p>
+          <span class="theme-tag-chip" style="background: #CFFAFE; color: #155E75; font-size: 11px;">海龜與浮潛 ➔</span>
         </a>
 
         <!-- Card 3: 風格咖啡 -->
-        <a href="cafe.html" class="theme-card" style="text-decoration: none; cursor: pointer; text-align: center; padding: 22px 16px; border: 1.5px solid #E2E8F0; border-radius: 20px; transition: all 0.3s ease; background: #FFFFFF; display: flex; flex-direction: column; align-items: center;">
-          <div style="width: 58px; height: 58px; border-radius: 16px; background: #F5EFEB; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 12px;">☕</div>
-          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">全台風格咖啡</h3>
-          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">全台 22 縣市 330 間名店！插頭、手沖、老宅與海景景觀。</p>
-          <span class="theme-tag-chip" style="background: #EFE6DD; color: #4A3525; font-size: 11px;">330 間名店 ➔</span>
+        <a href="cafe.html" class="theme-card home-curated-card">
+          <div class="theme-icon-rounded-square" style="background: #FFFBEB; border-color: #FEF3C7;">
+            <img src="assets/theme_icon_cafe.png" alt="全台風格咖啡" class="theme-rounded-icon-img">
+          </div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">☕ 全台風格咖啡</h3>
+          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">全台 22 縣市 330 間名店！手沖、老宅、布丁與海景。</p>
+          <span class="theme-tag-chip" style="background: #FEF3C7; color: #92400E; font-size: 11px;">330 間名店 ➔</span>
         </a>
 
-        <!-- Card 4: 米其林指南 -->
-        <a href="michelin.html" class="theme-card" style="text-decoration: none; cursor: pointer; text-align: center; padding: 22px 16px; border: 1.5px solid #E2E8F0; border-radius: 20px; transition: all 0.3s ease; background: #FFFFFF; display: flex; flex-direction: column; align-items: center;">
-          <div style="width: 58px; height: 58px; border-radius: 16px; background: #FFF1F2; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 12px;">🌟</div>
-          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">米其林指南</h3>
-          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">頤宮三星、態芮二星、logy 與全台必比登排隊街頭小吃。</p>
-          <span class="theme-tag-chip" style="background: #FECDD3; color: #9F1239; font-size: 11px;">摘星與必比登 ➔</span>
+        <!-- Card 4: 夜市小吃 -->
+        <a href="themes.html?theme=nightmarket" class="theme-card home-curated-card">
+          <div class="theme-icon-rounded-square" style="background: #FFF1F2; border-color: #FFE4E6;">
+            <img src="assets/theme_icon_food.png" alt="夜市小吃美食" class="theme-rounded-icon-img">
+          </div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">🍢 花火/活動小吃</h3>
+          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">小籠湯包、手搖珍奶、必比登老攤與暗夜璀璨煙火。</p>
+          <span class="theme-tag-chip" style="background: #FFE4E6; color: #9F1239; font-size: 11px;">必比登老攤 ➔</span>
         </a>
 
-        <!-- Card 5: 溫泉舒活 -->
-        <a href="themes.html?theme=hotspring" class="theme-card" style="text-decoration: none; cursor: pointer; text-align: center; padding: 22px 16px; border: 1.5px solid #E2E8F0; border-radius: 20px; transition: all 0.3s ease; background: #FFFFFF; display: flex; flex-direction: column; align-items: center;">
-          <div style="width: 58px; height: 58px; border-radius: 16px; background: #EFF6FF; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 12px;">♨️</div>
-          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">極致溫泉舒活</h3>
-          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">北投加賀屋白磺、礁溪美人湯、知本老爺與朝日海底溫泉。</p>
-          <span class="theme-tag-chip" style="background: #DBEAFE; color: #1E40AF; font-size: 11px;">全台名湯巡禮 ➔</span>
+        <!-- Card 5: 頂級美饌燒肉 -->
+        <a href="michelin.html" class="theme-card home-curated-card">
+          <div class="theme-icon-rounded-square" style="background: #FFF7ED; border-color: #FFEDD5;">
+            <img src="assets/theme_icon_bbq.png" alt="頂級美饌燒肉" class="theme-rounded-icon-img">
+          </div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">🥩 頂級美饌燒肉</h3>
+          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">頂級和牛炭烤、現流海鮮炙燒與米其林星級精選。</p>
+          <span class="theme-tag-chip" style="background: #FFEDD5; color: #9A3412; font-size: 11px;">摘星與燒肉 ➔</span>
         </a>
 
-        <!-- Card 6: 夜市美食 -->
-        <a href="themes.html?theme=nightmarket" class="theme-card" style="text-decoration: none; cursor: pointer; text-align: center; padding: 22px 16px; border: 1.5px solid #E2E8F0; border-radius: 20px; transition: all 0.3s ease; background: #FFFFFF; display: flex; flex-direction: column; align-items: center;">
-          <div style="width: 58px; height: 58px; border-radius: 16px; background: #FEF2F2; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 12px;">🧋</div>
-          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">夜市老饕圖鑑</h3>
-          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">寧夏夜市千歲宴、逢甲明倫蛋餅、台南花園夜市大鍋滷味。</p>
-          <span class="theme-tag-chip" style="background: #FEE2E2; color: #991B1B; font-size: 11px;">夜市排隊王 ➔</span>
+        <!-- Card 6: 北海岸經典 -->
+        <a href="themes.html?theme=northcoast" class="theme-card home-curated-card">
+          <div class="theme-icon-rounded-square" style="background: #EFF6FF; border-color: #DBEAFE;">
+            <span class="theme-rounded-icon-emoji">🌊</span>
+          </div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">🌊 北海岸經典</h3>
+          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">野柳女王頭、深澳鐵道自行車、九份山城濱海浪濤。</p>
+          <span class="theme-tag-chip" style="background: #DBEAFE; color: #1E40AF; font-size: 11px;">東北角浪花 ➔</span>
+        </a>
+
+        <!-- Card 7: 溫泉舒活 -->
+        <a href="themes.html?theme=hotspring" class="theme-card home-curated-card">
+          <div class="theme-icon-rounded-square" style="background: #FAF5FF; border-color: #F3E8FF;">
+            <span class="theme-rounded-icon-emoji">♨️</span>
+          </div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">♨️ 溫泉/公園舒活</h3>
+          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">北投白磺、礁溪美人湯，黑暗中白霧氤氳極致舒壓。</p>
+          <span class="theme-tag-chip" style="background: #F3E8FF; color: #6B21A8; font-size: 11px;">全台名湯 ➔</span>
+        </a>
+
+        <!-- Card 8: 台灣環島 -->
+        <a href="themes.html?theme=roadtrip" class="theme-card home-curated-card">
+          <div class="theme-icon-rounded-square" style="background: #F0FDF4; border-color: #DCFCE7;">
+            <img src="assets/ranking_ride.png" alt="台灣環島" class="theme-rounded-icon-img">
+          </div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">🚗 台灣環島壯遊</h3>
+          <p style="font-size: 12px; color: #64748B; line-height: 1.45; margin-bottom: 12px; flex: 1;">太平洋公路夜騎、森林微光螢火蟲與看球巡迴之旅。</p>
+          <span class="theme-tag-chip" style="background: #DCFCE7; color: #166534; font-size: 11px;">公路自駕 ➔</span>
         </a>
       </div>
     </div>

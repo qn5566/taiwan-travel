@@ -1078,8 +1078,71 @@ a {
 }
 
 /* =========================================================
-   🗺️ 5. 16 大主題專區自適應網格 (Thematic Explorer Grid)
+   🗺️ 首頁精選旅行主題：方形圓角小 ICON 展示系統
    ========================================================= */
+.home-curated-card {
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 22px 16px;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+}
+
+.home-curated-card:hover {
+  transform: translateY(-5px);
+  border-color: #38BDF8;
+  box-shadow: 0 12px 28px rgba(56, 189, 248, 0.15);
+}
+
+.theme-icon-rounded-square {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-curated-card:hover .theme-icon-rounded-square {
+  transform: scale(1.08);
+  border-color: #38BDF8;
+  background: #EFF6FF;
+  box-shadow: 0 6px 18px rgba(56, 189, 248, 0.2);
+}
+
+.theme-rounded-icon-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12));
+}
+
+.home-curated-card:hover .theme-rounded-icon-img {
+  transform: scale(1.1);
+}
+
+.theme-rounded-icon-emoji {
+  font-size: 26px;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.home-curated-card:hover .theme-rounded-icon-emoji {
+  transform: scale(1.15);
+}
 .themes-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
