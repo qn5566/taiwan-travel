@@ -13,10 +13,27 @@
   <style>
     .ranking-grid-page {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
     }
-    @media (max-width: 900px) {
+    @media (max-width: 1360px) {
+      .ranking-grid-page {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+    }
+    @media (max-width: 1080px) {
+      .ranking-grid-page {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .ranking-grid-page {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+    }
+    @media (max-width: 480px) {
       .ranking-grid-page {
         grid-template-columns: 1fr;
       }
@@ -183,12 +200,12 @@
     </div>
   </section>
 
-  <!-- 排行榜主列表（分頁展示） -->
-  <section class="section-padding" style="background: #F8FAFC; padding: 50px 0 90px 0;">
-    <div class="container">
+  <!-- 排行榜主列表（分頁展示，支援 5 欄一排） -->
+  <section class="section-padding" style="background: #F8FAFC; padding: 45px 0 90px 0;">
+    <div class="container" style="max-width: 1460px;">
       
       <!-- 頂部資訊與每頁筆數設定 -->
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 14px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; flex-wrap: wrap; gap: 14px;">
         <div>
           <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
             <span id="ranking-scenario-badge" style="font-size: 11.5px; font-weight: 800; background: #0284C7; color: #FFFFFF; padding: 2px 8px; border-radius: 6px;">
@@ -202,16 +219,16 @@
             Must-Drink Taiwanese Boba & Tea Brands Top 20
           </div>
           <span id="ranking-page-info" style="font-size: 12.5px; color: #475569;">
-            顯示第 1 - 8 筆，共 20 筆資料
+            顯示第 1 - 10 筆，共 20 筆資料
           </span>
         </div>
 
         <div style="display: flex; align-items: center; gap: 10px;">
           <span style="font-size: 13px; color: #64748B; font-weight: 600;">每頁筆數：</span>
-          <select id="items-per-page-select" onchange="changePageSize(this.value)" style="padding: 6px 12px; border-radius: 8px; border: 1px solid #CBD5E1; background: #FFF; font-size: 13px; outline: none; font-weight: 600;">
-            <option value="6">每頁 6 筆</option>
-            <option value="8" selected>每頁 8 筆</option>
-            <option value="12">每頁 12 筆</option>
+          <select id="items-per-page-select" onchange="changePageSize(this.value)" style="padding: 7px 12px; border-radius: 8px; border: 1px solid #CBD5E1; background: #FFF; font-size: 13px; outline: none; font-weight: 600;">
+            <option value="10" selected>每頁 10 筆 (2 排)</option>
+            <option value="15">每頁 15 筆 (3 排)</option>
+            <option value="20">每頁 20 筆 (4 排 / 滿榜)</option>
             <option value="999">全部顯示 (All)</option>
           </select>
         </div>
@@ -258,7 +275,7 @@
     let currentScenario = "all";
     let currentTopicId = "drinks";
     let currentPage = 1;
-    let pageSize = 8;
+    let pageSize = 10;
     let searchKeyword = "";
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -467,39 +484,39 @@
       scrollToList();
     }
 
-    // 依據主題與項目生成專屬高轉化 CTA 按鈕
+    // 依據主題與項目生成專屬高轉化 CTA 按鈕 (精簡適應 5 欄卡牌寬度)
     function generateCtaButton(item, meta) {
       const ctaType = item.ctaType || meta.ctaType || "klook";
       const name = item.name;
 
       if (ctaType === "souvenir") {
         const url = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSouvenirUrl() : "souvenir.html";
-        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-souvenir-cta">🛍️ 免提直寄飯店代收 ➔</a>`;
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-souvenir-cta" style="width: 100%; padding: 7px 8px; font-size: 11px; text-align: center; justify-content: center;">🛍️ 直寄代收 ➔</a>`;
       }
       if (ctaType === "drugstore") {
         const url = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getDrugstoreUrl() : "#";
-        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-souvenir-cta">💄 藥妝線上直購 ➔</a>`;
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-souvenir-cta" style="width: 100%; padding: 7px 8px; font-size: 11px; text-align: center; justify-content: center;">💄 藥妝直購 ➔</a>`;
       }
       if (ctaType === "dining") {
         const url = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getDiningUrl() : "#";
-        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-dining-cta">🍽️ 訂餐搶位 / 領優惠 ➔</a>`;
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-dining-cta" style="width: 100%; padding: 7px 8px; font-size: 11px; text-align: center; justify-content: center;">🍽️ 訂位優惠 ➔</a>`;
       }
       if (ctaType === "trip") {
         const url = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getTripSearchUrl(name) : "#";
-        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-trip-cta">🏨 Trip.com 即時比價 ➔</a>`;
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-trip-cta" style="width: 100%; padding: 7px 8px; font-size: 11px; text-align: center; justify-content: center;">🏨 即時比價 ➔</a>`;
       }
       if (ctaType === "owlting") {
         const url = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getOwltingUrl() : "#";
-        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-owlting-cta">🍵 奧丁丁採茶體驗 ➔</a>`;
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-owlting-cta" style="width: 100%; padding: 7px 8px; font-size: 11px; text-align: center; justify-content: center;">🍵 採茶體驗 ➔</a>`;
       }
       if (ctaType === "map") {
         const url = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(name) : `https://maps.google.com/?q=${encodeURIComponent(name)}`;
-        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-trip-cta">🧭 立即導航探索 ➔</a>`;
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-trip-cta" style="width: 100%; padding: 7px 8px; font-size: 11px; text-align: center; justify-content: center;">🧭 立即導航 ➔</a>`;
       }
 
       // Default to Klook
       const url = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSearchUrl(name) : "#";
-      return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-klook-cta">⚡ Klook 快速預約 ➔</a>`;
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-klook-cta" style="width: 100%; padding: 7px 8px; font-size: 11px; text-align: center; justify-content: center;">⚡ Klook預約 ➔</a>`;
     }
 
     function renderRankingsPage() {
@@ -559,7 +576,7 @@
         return;
       }
 
-      // Render cards
+      // Render cards (垂直五欄排版)
       grid.innerHTML = pageItems.map(item => {
         // Rank Badge: Top 1~3 Gold, Silver, Bronze. 4~20 Ocean Blue.
         let badgeClass = "rank-badge-blue";
@@ -581,59 +598,66 @@
 
         return `
           <div class="rank-card-wrap">
-            <div style="display: flex; gap: 16px; padding: 18px; flex: 1;">
-              <!-- 1:1 縮圖與立體圓形排名徽章 -->
-              <div style="width: 135px; height: 135px; border-radius: 16px; overflow: hidden; flex-shrink: 0; position: relative; background: #F1F5F9;">
-                <img src="${cardImg}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" onerror="this.src='${meta.heroImg}'">
-                <div class="rank-badge-circle ${badgeClass}">
-                  ${badgeText}
-                </div>
+            <!-- 頂部卡片縮圖 (高解析 165px，含立體名次徽章與城市小標籤) -->
+            <div style="position: relative; width: 100%; height: 165px; overflow: hidden; background: #F1F5F9;">
+              <img src="${cardImg}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" onerror="this.src='${meta.heroImg}'">
+              <div class="rank-badge-circle ${badgeClass}">
+                ${badgeText}
+              </div>
+              <span style="position: absolute; top: 8px; right: 8px; font-size: 10.5px; font-weight: 800; color: #0284C7; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(4px); padding: 2px 7px; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.12);">
+                ${item.city || "全台"}
+              </span>
+            </div>
+
+            <!-- 內容資訊區 -->
+            <div style="display: flex; flex-direction: column; padding: 13px 14px; flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 12px; font-weight: 800; color: #D97706;">
+                  ★ ${item.rating || "4.9★"}
+                </span>
+                <span style="font-size: 11px; color: #64748B; font-weight: 700;">
+                  Rank #${item.rank}
+                </span>
               </div>
 
-              <!-- 資訊內文區 -->
-              <div style="display: flex; flex-direction: column; flex: 1; min-width: 0;">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 4px;">
-                  <span style="font-size: 11px; font-weight: 800; color: #0284C7; background: #E0F2FE; padding: 2px 8px; border-radius: 6px;">
-                    ${item.city || "全台各縣市"}
-                  </span>
-                  <span style="font-size: 12px; font-weight: 800; color: #D97706;">
-                    ★ ${item.rating || "4.9★"}
-                  </span>
-                </div>
+              <!-- 中文全名與英文名稱 -->
+              <h3 style="font-size: 15.5px; font-weight: 900; color: #0F172A; line-height: 1.35; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${item.name}">
+                ${item.name}
+              </h3>
+              <div style="font-size: 11.5px; font-family: 'DM Sans', sans-serif; color: #64748B; font-weight: 600; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${item.enName || ''}">
+                ${item.enName || ""}
+              </div>
 
-                <!-- 雙語名稱 (中文全名 + 英文/日文) -->
-                <h3 style="font-size: 17px; font-weight: 900; color: #0F172A; line-height: 1.3; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${item.name}">
-                  ${item.name}
-                </h3>
-                <div style="font-size: 12px; font-family: 'DM Sans', sans-serif; color: #64748B; font-weight: 600; margin-bottom: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                  ${item.enName || ""}
+              <!-- 外國人痛點小標籤 -->
+              ${item.tag ? `
+                <div style="margin-bottom: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                  <span class="painpoint-tag" style="font-size: 10.5px; padding: 2px 6px;" title="${item.tag}">📌 ${item.tag}</span>
                 </div>
+              ` : ''}
 
-                <!-- 外國人痛點小標籤 & 特色亮點 -->
-                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px;">
-                  ${item.tag ? `<span class="painpoint-tag">📌 ${item.tag}</span>` : ''}
-                </div>
+              <!-- 特色亮點 -->
+              <div class="highlight-pill" style="font-size: 11px; padding: 3px 6px; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${item.highlight || item.desc}">
+                ⭐ ${item.highlight || item.desc}
+              </div>
 
-                <div class="highlight-pill">
-                  ⭐ ${item.highlight || item.desc}
-                </div>
+              <!-- 簡短描述 (限 2 行) -->
+              <p style="font-size: 11.5px; color: #475569; line-height: 1.45; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                ${item.desc || ""}
+              </p>
 
-                <p style="font-size: 12px; color: #475569; line-height: 1.45; margin-bottom: 6px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
-                  ${item.desc || ""}
-                </p>
-
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; font-size: 11.5px; font-weight: 700; color: #0F172A;">
-                  <span>${item.price || "入園/消費依現場為準"}</span>
-                  <span style="color: #64748B; font-weight: 500;">Rank #${item.rank}</span>
-                </div>
+              <!-- 價格/消費區間 -->
+              <div style="margin-top: auto; padding-top: 6px; font-size: 11.5px; font-weight: 700; color: #0F172A;">
+                <span>${item.price || "消費依現場為準"}</span>
               </div>
             </div>
 
-            <!-- 卡片底層專屬雙按鈕 (直達專屬 CTA + Google Maps 導航) -->
-            <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 8px; padding: 10px 18px; background: #F8FAFC; border-top: 1px solid #F1F5F9;">
-              ${ctaBtnHtml}
-              <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-map-guide">
-                🧭 Google 導航
+            <!-- 卡片底層雙按鈕 (專屬 CTA 佔主要寬度 + 地圖導航按鈕) -->
+            <div style="display: flex; gap: 6px; padding: 8px 12px; background: #F8FAFC; border-top: 1px solid #F1F5F9;">
+              <div style="flex: 1; min-width: 0;">
+                ${ctaBtnHtml}
+              </div>
+              <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-map-guide" style="padding: 7px 10px; font-size: 12px; flex-shrink: 0;" title="Google Maps 導航">
+                🧭
               </a>
             </div>
           </div>
