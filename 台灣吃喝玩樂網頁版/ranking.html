@@ -144,21 +144,54 @@
       <!-- 2. 5 大情境分類切換膠囊 (Category Tabs) -->
       <div class="ranking-category-capsules" id="category-capsules-bar">
         <button class="cat-capsule-btn active" data-scenario="all" onclick="switchScenario('all')">
-          全部 All <span class="count-badge">17</span>
+          全部 All <span class="count-badge">12</span>
         </button>
         <button class="cat-capsule-btn" data-scenario="food" onclick="switchScenario('food')">
-          🍽️ 美食飲品 <span class="count-badge">6</span>
+          🍽️ 美食飲品 <span class="count-badge">5</span>
         </button>
         <button class="cat-capsule-btn" data-scenario="activity" onclick="switchScenario('activity')">
-          🏞️ 景點活動 <span class="count-badge">6</span>
+          🏞️ 景點活動 <span class="count-badge">3</span>
         </button>
         <button class="cat-capsule-btn" data-scenario="transport_stay" onclick="switchScenario('transport_stay')">
-          🚗 交通旅宿 <span class="count-badge">4</span>
+          🚗 交通旅宿 <span class="count-badge">3</span>
         </button>
         <button class="cat-capsule-btn" data-scenario="shopping" onclick="switchScenario('shopping')">
           🛍️ 購物採購 <span class="count-badge">1</span>
         </button>
       </div>
+
+      <!-- 星星名次漸層濾鏡定義 (Hidden SVG Gradients for Star Rank Badges) -->
+      <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
+        <defs>
+          <!-- 金星漸層 Top 1 -->
+          <linearGradient id="star-grad-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFF3BF" />
+            <stop offset="45%" stop-color="#F59E0B" />
+            <stop offset="100%" stop-color="#B45309" />
+          </linearGradient>
+
+          <!-- 銀星漸層 Top 2 -->
+          <linearGradient id="star-grad-silver" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF" />
+            <stop offset="50%" stop-color="#94A3B8" />
+            <stop offset="100%" stop-color="#475569" />
+          </linearGradient>
+
+          <!-- 銅星漸層 Top 3 -->
+          <linearGradient id="star-grad-bronze" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFEDD5" />
+            <stop offset="50%" stop-color="#D97706" />
+            <stop offset="100%" stop-color="#78350F" />
+          </linearGradient>
+
+          <!-- 深海藍星漸層 Rank 4~20 -->
+          <linearGradient id="star-grad-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#38BDF8" />
+            <stop offset="50%" stop-color="#0284C7" />
+            <stop offset="100%" stop-color="#0369A1" />
+          </linearGradient>
+        </defs>
+      </svg>
 
       <!-- 3. 3D 拱形輪播舞台 (Arc Orbit Stage & Center Hero Visual) -->
       <div class="ranking-arc-stage-wrap" id="ranking-arc-stage">
@@ -334,7 +367,7 @@
       });
     }
 
-    // 初始化 3D 拱形輪播舞台半圓坐標軌道
+    // 初始化 3D 拱形輪播舞台半圓坐標軌道 (寬高 880 x 440，拉開與中央大圖的距離避免重疊)
     function initArcStage() {
       const track = document.getElementById("ranking-arc-track");
       if (!track) return;
@@ -344,11 +377,11 @@
       const total = topics.length;
       if (total === 0) return;
 
-      // 拱形橢圓半徑與中心點設定 (舞台寬高 820 x 380)
-      const cx = 410;
-      const cy = 300;
-      const rx = 340;
-      const ry = 175;
+      // 拱形橢圓半徑與中心點設定 (舞台寬高 880 x 440，cy 向下推、ry 放大向上頂開)
+      const cx = 440;
+      const cy = 370;
+      const rx = 380;
+      const ry = 250;
 
       topics.forEach((t, index) => {
         let deg = 90;
@@ -576,34 +609,51 @@
         return;
       }
 
-      // Render cards (垂直五欄排版)
+      // Render cards (垂直五欄排版，名次星星底色徽章)
       grid.innerHTML = pageItems.map(item => {
-        // Rank Badge: Top 1~3 Gold, Silver, Bronze. 4~20 Ocean Blue.
-        let badgeClass = "rank-badge-blue";
-        let badgeText = `#${item.rank}`;
+        // Star Rank Badge: Top 1 金星, Top 2 銀星, Top 3 銅星, 4~20 寶石深海藍星
+        let starClass = "star-badge-blue";
+        let starGradId = "star-grad-blue";
+        let strokeColor = "rgba(255, 255, 255, 0.85)";
+
         if (item.rank === 1) {
-          badgeClass = "rank-badge-gold";
-          badgeText = `🥇 1`;
+          starClass = "star-badge-gold";
+          starGradId = "star-grad-gold";
+          strokeColor = "#FEF08A";
         } else if (item.rank === 2) {
-          badgeClass = "rank-badge-silver";
-          badgeText = `🥈 2`;
+          starClass = "star-badge-silver";
+          starGradId = "star-grad-silver";
+          strokeColor = "#F1F5F9";
         } else if (item.rank === 3) {
-          badgeClass = "rank-badge-bronze";
-          badgeText = `🥉 3`;
+          starClass = "star-badge-bronze";
+          starGradId = "star-grad-bronze";
+          strokeColor = "#FED7AA";
         }
 
+        const isDoubleDigit = item.rank >= 10;
         const mapUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(item.name) : `https://maps.google.com/?q=${encodeURIComponent(item.name)}`;
         const ctaBtnHtml = generateCtaButton(item, meta);
         const cardImg = item.img || meta.heroImg;
 
         return `
           <div class="rank-card-wrap">
-            <!-- 頂部卡片縮圖 (高解析 165px，含立體名次徽章與城市小標籤) -->
+            <!-- 頂部卡片縮圖 (165px 高度，名次星星底色徽章 + 城市標籤) -->
             <div style="position: relative; width: 100%; height: 165px; overflow: hidden; background: #F1F5F9;">
               <img src="${cardImg}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" onerror="this.src='${meta.heroImg}'">
-              <div class="rank-badge-circle ${badgeClass}">
-                ${badgeText}
+              
+              <!-- 名次星星底色徽章：星星底色，數字在上面顯示 -->
+              <div class="rank-star-badge ${starClass}" title="名次第 ${item.rank} 名">
+                <svg class="rank-star-svg" viewBox="0 0 40 40">
+                  <path d="M20.0,2.0 L24.6,13.7 L37.1,14.4 L27.4,22.4 L30.6,34.6 L20.0,27.8 L9.4,34.6 L12.6,22.4 L2.9,14.4 L15.4,13.7 Z" 
+                        fill="url(#${starGradId})" 
+                        stroke="${strokeColor}" 
+                        stroke-width="1.8" 
+                        stroke-linejoin="round" />
+                </svg>
+                <span class="rank-star-number ${isDoubleDigit ? 'double-digit' : ''}">${item.rank}</span>
               </div>
+
+              <!-- 城市標籤 (右上角) -->
               <span style="position: absolute; top: 8px; right: 8px; font-size: 10.5px; font-weight: 800; color: #0284C7; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(4px); padding: 2px 7px; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.12);">
                 ${item.city || "全台"}
               </span>

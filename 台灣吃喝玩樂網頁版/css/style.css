@@ -5450,31 +5450,31 @@ body.body-nightmarket-mode .fan-card-item.drawn .fan-card-active-tag {
 .ranking-arc-stage-wrap {
   position: relative;
   width: 100%;
-  max-width: 820px;
-  height: 380px;
-  margin: 32px auto 20px auto;
+  max-width: 880px;
+  height: 440px;
+  margin: 24px auto 16px auto;
   user-select: none;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 880px) {
   .ranking-arc-stage-wrap {
     transform: scale(0.92);
     transform-origin: center top;
-    margin-bottom: -15px;
+    margin-bottom: -20px;
   }
 }
 @media (max-width: 640px) {
   .ranking-arc-stage-wrap {
     transform: scale(0.76);
     transform-origin: center top;
-    margin-bottom: -70px;
+    margin-bottom: -75px;
   }
 }
 @media (max-width: 480px) {
   .ranking-arc-stage-wrap {
     transform: scale(0.62);
     transform-origin: center top;
-    margin-bottom: -120px;
+    margin-bottom: -130px;
   }
 }
 
@@ -5506,9 +5506,9 @@ body.body-nightmarket-mode .fan-card-item.drawn .fan-card-active-tag {
 
 .ranking-arc-tile {
   position: absolute;
-  width: 66px;
-  height: 66px;
-  border-radius: 20px;
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -5587,14 +5587,14 @@ body.body-nightmarket-mode .fan-card-item.drawn .fan-card-active-tag {
   border-color: #FFFFFF transparent transparent transparent;
 }
 
-/* 中央主視覺 (Center Hero) */
+/* 中央主視覺 (Center Hero) - 縮減尺寸與拉開距離，避免與弧形方塊重疊擋住 */
 .ranking-center-hero-container {
   position: absolute;
-  bottom: 20px;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   z-index: 6;
   display: flex;
   flex-direction: column;
@@ -5607,8 +5607,8 @@ body.body-nightmarket-mode .fan-card-item.drawn .fan-card-active-tag {
   bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
-  width: 190px;
-  height: 22px;
+  width: 160px;
+  height: 18px;
   border-radius: 50%;
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.15) 55%, transparent 75%);
   filter: blur(4px);
@@ -5618,12 +5618,12 @@ body.body-nightmarket-mode .fan-card-item.drawn .fan-card-active-tag {
 
 .ranking-hero-card {
   position: relative;
-  width: 210px;
-  height: 210px;
-  border-radius: 34px;
+  width: 175px;
+  height: 175px;
+  border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.42), inset 0 2px 4px rgba(255, 255, 255, 0.45);
-  border: 3.5px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.42), inset 0 2px 4px rgba(255, 255, 255, 0.45);
+  border: 3px solid rgba(255, 255, 255, 0.65);
   background: #1E293B;
   display: flex;
   align-items: center;
@@ -5681,10 +5681,10 @@ body.body-nightmarket-mode .fan-card-item.drawn .fan-card-active-tag {
 /* 左右切換箭頭圓形按鈕 */
 .ranking-arc-arrow-btn {
   position: absolute;
-  top: 60%;
+  top: 66%;
   transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.16);
   backdrop-filter: blur(12px);
@@ -5715,11 +5715,11 @@ body.body-nightmarket-mode .fan-card-item.drawn .fan-card-active-tag {
 }
 
 .ranking-arc-arrow-btn.prev-btn {
-  left: calc(50% - 165px);
+  left: calc(50% - 138px);
 }
 
 .ranking-arc-arrow-btn.next-btn {
-  right: calc(50% - 165px);
+  right: calc(50% - 138px);
 }
 
 /* =======================================================
@@ -5857,6 +5857,77 @@ body.body-nightmarket-mode .fan-card-item.drawn .fan-card-active-tag {
   border: 1.5px solid rgba(255, 255, 255, 0.6);
   box-shadow: 0 3px 8px rgba(2, 132, 199, 0.35);
   font-size: 11.5px;
+}
+
+/* =======================================================
+   名次星星徽章 (Star Rank Badge with Number Overlay)
+   ======================================================= */
+.rank-star-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  filter: drop-shadow(0 3px 7px rgba(0, 0, 0, 0.38));
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  user-select: none;
+}
+
+.rank-card-wrap:hover .rank-star-badge {
+  transform: scale(1.15) rotate(-6deg);
+}
+
+.rank-star-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.rank-star-number {
+  position: relative;
+  z-index: 2;
+  font-family: 'DM Sans', 'Inter', -apple-system, sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  margin-top: 2.5px;
+}
+
+.rank-star-number.double-digit {
+  font-size: 11.5px;
+  letter-spacing: -0.5px;
+  margin-top: 3px;
+}
+
+/* 金星 Top 1 */
+.star-badge-gold .rank-star-number {
+  color: #78350F;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* 銀星 Top 2 */
+.star-badge-silver .rank-star-number {
+  color: #1E293B;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+/* 銅星 Top 3 */
+.star-badge-bronze .rank-star-number {
+  color: #431407;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* 深海藍星 Rank 4 ~ 20 */
+.star-badge-blue .rank-star-number {
+  color: #FFFFFF;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
 }
 
 /* 外國人痛點小標籤 */
