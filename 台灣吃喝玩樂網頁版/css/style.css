@@ -3661,77 +3661,394 @@ body.body-sports-mode .fan-card-item.drawn .fan-card-active-tag {
 }
 
 /* =========================================================
-   🌈 8 大旗艦主題動態場景背景系統與專屬調色盤 (8 Dynamic Ambient Themes)
+   🚀 極速輕量化 8 大主題背景動態特效系統 (High-Performance Ambient Themes)
    ========================================================= */
 
-/* 1. 🌊 北海岸 (northcoast) — 海浪潮汐柔光 (Tidal Ripple Breath)
-   調色盤: 太平洋深藍 (#0F4C81)、薄霧晨水藍 (#BAE6FD)、浪花白 */
+/* 1. 🌊 北海岸 (northcoast) — 淺藍色的底色 ＋ 海浪感覺 */
 body.bg-theme-northcoast {
-  background: radial-gradient(ellipse at 50% 20%, #0F4C81 0%, #0A355C 45%, #051C33 100%) !important;
-  color: #F8FAFC !important;
-  transition: background 0.8s ease;
+  background: linear-gradient(180deg, #E0F2FE 0%, #BAE6FD 45%, #F0F9FF 100%) !important;
+  color: #0F172A !important;
+  transition: background 0.6s ease;
 }
 
-/* 2. 🏝️ 離島跳島 (islands) — 熱帶水下焦散波光 (Caustic Sunlit Prism)
-   調色盤: 湛藍碧海青 (#06B6D4)、珊瑚透粉 (#FDA4AF)、透亮薄荷綠 (#6EE7B7) */
+/* 2. 🏝️ 離島跳島 (islands) — 藍藍綠底色漸層 ＋ 潛水水珠冒出泡泡 */
 body.bg-theme-islands {
-  background: radial-gradient(ellipse at 50% 20%, #083344 0%, #064E63 45%, #021F2A 100%) !important;
+  background: linear-gradient(180deg, #0F766E 0%, #06B6D4 45%, #0891B2 100%) !important;
   color: #F8FAFC !important;
-  transition: background 0.8s ease;
+  transition: background 0.6s ease;
 }
 
-/* 3. 🏞️ 花東探索 (hualien) — 晨霧山嵐山谷流動 (Valley Mist Drift)
-   調色盤: 晨曦暖金 (#FDE68A)、縱谷茶綠 (#A7F3D0)、天青灰藍 (#7DD3FC) */
+/* 3. 🏞️ 花東探索 (hualien) — 淺淺藍到海藍色海浪波動感 */
 body.bg-theme-hualien {
-  background: radial-gradient(ellipse at 50% 20%, #064E3B 0%, #08362E 50%, #031D18 100%) !important;
-  color: #F8FAFC !important;
-  transition: background 0.8s ease;
+  background: linear-gradient(180deg, #CFFAFE 0%, #38BDF8 35%, #0284C7 80%, #0369A1 100%) !important;
+  color: #FFFFFF !important;
+  transition: background 0.6s ease;
 }
 
-/* 4. ⛰️ 登山露營 (outdoor) — 高海拔跳動極光光幕 (Aurora Ribbon Rhythm)
-   調色盤: 螢石極光綠 (#34D399)、夜幕靛藍 (#1E1B4B)、晨曦紫 (#818CF8) */
+/* 4. ⛰️ 露營登山 (outdoor) — 像是北歐極光，極光的光緩緩波動 */
 body.bg-theme-outdoor,
 body.body-camping-mode {
-  background: radial-gradient(ellipse at 50% 20%, #1E1B4B 0%, #0F172A 50%, #050811 100%) !important;
+  background: radial-gradient(ellipse at 50% 15%, #1E1B4B 0%, #0F172A 50%, #020617 100%) !important;
   color: #F8FAFC !important;
-  transition: background 0.8s ease;
+  transition: background 0.6s ease;
 }
 
-/* 5. ♨️ 溫泉舒活 (hotspring) — 裊裊白霧氤氳 (Onsen Steam Thermal)
-   調色盤: 暖燕麥奶白 (#FFFBEB)、檜木淺棕 (#FED7AA)、柔霧灰紫 (#DDD6FE) */
+/* 5. ♨️ 溫泉/公園 (hotspring) — 黑暗中，有白色煙物氣習飄上來 */
 body.bg-theme-hotspring,
 body.body-hotspring-mode {
-  background: radial-gradient(ellipse at 50% 20%, #292524 0%, #1C1917 50%, #0C0A09 100%) !important;
+  background: radial-gradient(ellipse at 50% 20%, #1C1917 0%, #110E0C 55%, #070605 100%) !important;
   color: #F8FAFC !important;
-  transition: background 0.8s ease;
+  transition: background 0.6s ease;
 }
 
-/* 6. 🍢 市井煙火 (nightmarket) — 夜市炭火微光餘燼 (Night Market Embers)
-   調色盤: 磚紅炭火橘 (#FB923C)、暖琥珀黃 (#F59E0B)、夜市深緋紅 (#991B1B) */
+/* 6. 🍢 花火/活動 (nightmarket) — 暗黑的場景，有煙火點開來 */
 body.bg-theme-nightmarket,
 body.body-nightmarket-mode {
-  background: radial-gradient(ellipse at 50% 20%, #2A1208 0%, #180B05 50%, #090302 100%) !important;
+  background: radial-gradient(ellipse at 50% 25%, #181028 0%, #0B0714 50%, #030205 100%) !important;
   color: #F8FAFC !important;
-  transition: background 0.8s ease;
+  transition: background 0.6s ease;
 }
 
-/* 7. 🏮 節慶文化 (culture) — 天燈明滅與燭火搖曳 (Lantern Glow Flicker)
-   調色盤: 節慶赤紅 (#F43F5E)、溫暖宮燈橙 (#FDBA74)、深紫夜幕 (#312E81) */
+/* 7. 🏮 節慶文化 (culture) — 有城市的燈光閃閃動人 */
 body.bg-theme-culture,
 body.body-railway-mode {
-  background: radial-gradient(ellipse at 50% 20%, #312E81 0%, #1E1B4B 50%, #0B0A1C 100%) !important;
+  background: radial-gradient(ellipse at 50% 20%, #172554 0%, #0F172A 50%, #030712 100%) !important;
   color: #F8FAFC !important;
-  transition: background 0.8s ease;
+  transition: background 0.6s ease;
 }
 
-/* 8. 🚗 公路環島 (roadtrip) — 公路光軌速度流光 (Highway Light Streaks)
-   調色盤: 遠光星白 (#F1F5F9)、車尾珊瑚橘 (#FF6F61)、公路深邃藍 (#0F172A) */
+/* 8. 🚗 台灣環島 (roadtrip) — 森林感的氣息，有白色螢火蟲在飛翔 */
 body.bg-theme-roadtrip,
 body.body-sports-mode {
-  background: radial-gradient(ellipse at 50% 20%, #0F172A 0%, #090D17 50%, #02050A 100%) !important;
+  background: radial-gradient(ellipse at 50% 20%, #064E3B 0%, #022C22 55%, #01140F 100%) !important;
   color: #F8FAFC !important;
-  transition: background 0.8s ease;
+  transition: background 0.6s ease;
 }
+
+/* =========================================================
+   ✨ 8 大主題輕量 GPU 加速背景動態特效 (8 Lightweight CSS Ambient FX)
+   ========================================================= */
+
+.theme-dynamic-particles-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* --- 1. 🌊 北海岸：海浪湧動 (淺藍底色上的柔和潮汐浪波) --- */
+.nc-waves-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.nc-wave-svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 200px;
+  opacity: 0.35;
+  will-change: transform;
+}
+.nc-wave-1 {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,50 L1200,120 L0,120 Z' fill='%230284C7'%3E%3C/path%3E%3C/svg%3E") repeat-x;
+  animation: ncWaveMove1 14s linear infinite;
+}
+.nc-wave-2 {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,35 C200,110 450,15 600,60 C750,105 1000,20 1200,65 L1200,120 L0,120 Z' fill='%2338BDF8'%3E%3C/path%3E%3C/svg%3E") repeat-x;
+  height: 160px;
+  animation: ncWaveMove2 9s linear infinite;
+  opacity: 0.45;
+}
+@keyframes ncWaveMove1 {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+@keyframes ncWaveMove2 {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+/* --- 2. 🏝️ 離島跳島：水下冒泡泡潛水特效 (藍藍綠底色 ＋ 上升水珠) --- */
+.islands-bubbles-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.islands-bubble {
+  position: absolute;
+  bottom: -40px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(6, 182, 212, 0.4) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4), inset 0 0 6px rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation: bubbleRise 7.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@keyframes bubbleRise {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.6);
+    opacity: 0;
+  }
+  15% { opacity: 0.85; }
+  50% { transform: translate3d(18px, -50vh, 0) scale(1); opacity: 0.8; }
+  85% { opacity: 0.6; }
+  100% {
+    transform: translate3d(-15px, -110vh, 0) scale(1.15);
+    opacity: 0;
+  }
+}
+
+/* --- 3. 🏞️ 花東探索：淺淺藍到海藍色海浪波動感 --- */
+.hualien-surge-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hualien-wave-surge {
+  position: absolute;
+  width: 200%;
+  height: 240px;
+  bottom: 0;
+  left: 0;
+  opacity: 0.38;
+  will-change: transform;
+}
+.hualien-wave-1 {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,20 C180,95 400,-20 600,50 C800,120 1020,15 1200,55 L1200,120 L0,120 Z' fill='%23FFFFFF'%3E%3C/path%3E%3C/svg%3E") repeat-x;
+  animation: hualienSurge 11s ease-in-out infinite alternate;
+}
+.hualien-wave-2 {
+  height: 180px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,45 C220,105 420,20 640,65 C850,110 1050,30 1200,75 L1200,120 L0,120 Z' fill='%23BAE6FD'%3E%3C/path%3E%3C/svg%3E") repeat-x;
+  animation: hualienSurgeRev 8s ease-in-out infinite alternate;
+  opacity: 0.48;
+}
+@keyframes hualienSurge {
+  0% { transform: translate3d(0, 15px, 0); }
+  100% { transform: translate3d(-30%, -25px, 0); }
+}
+@keyframes hualienSurgeRev {
+  0% { transform: translate3d(-25%, -20px, 0); }
+  100% { transform: translate3d(0, 10px, 0); }
+}
+
+/* --- 4. ⛰️ 露營登山：北歐極光緩緩波動 (Nordic Aurora Waves) --- */
+.aurora-nordic-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.aurora-nordic-band {
+  position: absolute;
+  top: -15%;
+  width: 130%;
+  height: 80vh;
+  border-radius: 50%;
+  filter: blur(55px);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.aurora-band-green {
+  left: -15%;
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.65) 0%, rgba(16, 185, 129, 0.4) 40%, transparent 75%);
+  animation: auroraNordicWave1 14s ease-in-out infinite alternate;
+}
+.aurora-band-purple {
+  left: 5%;
+  background: linear-gradient(135deg, rgba(129, 140, 248, 0.6) 0%, rgba(52, 211, 153, 0.3) 50%, transparent 80%);
+  animation: auroraNordicWave2 18s ease-in-out infinite alternate;
+}
+@keyframes auroraNordicWave1 {
+  0% { transform: translateY(0) skewX(-6deg) scaleY(1); opacity: 0.45; }
+  50% { transform: translateY(35px) skewX(5deg) scaleY(1.15); opacity: 0.75; }
+  100% { transform: translateY(-25px) skewX(-10deg) scaleY(0.95); opacity: 0.55; }
+}
+@keyframes auroraNordicWave2 {
+  0% { transform: translateY(15px) skewX(8deg) scaleY(1.1); opacity: 0.5; }
+  50% { transform: translateY(-30px) skewX(-6deg) scaleY(0.92); opacity: 0.35; }
+  100% { transform: translateY(25px) skewX(4deg) scaleY(1.2); opacity: 0.65; }
+}
+
+/* --- 5. ♨️ 溫泉/公園：黑暗中白色煙霧氣息飄上來 --- */
+.onsen-dark-steam-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.onsen-white-plume {
+  position: absolute;
+  bottom: -120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.15) 50%, transparent 75%);
+  filter: blur(50px);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation: whiteSteamRise 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.steam-plume-1 {
+  left: 22%;
+  width: 440px;
+  height: 440px;
+  animation-duration: 11s;
+}
+.steam-plume-2 {
+  left: 54%;
+  width: 520px;
+  height: 520px;
+  animation-duration: 14s;
+  animation-delay: 3.5s;
+}
+.steam-plume-3 {
+  left: 38%;
+  width: 380px;
+  height: 380px;
+  animation-duration: 10s;
+  animation-delay: 7s;
+}
+@keyframes whiteSteamRise {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.65) rotate(0deg);
+    opacity: 0;
+  }
+  20% { opacity: 0.65; }
+  65% { opacity: 0.45; }
+  100% {
+    transform: translate3d(30px, -88vh, 0) scale(1.3) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* --- 6. 🍢 花火/活動：暗黑場景，有煙火點開來 --- */
+.fireworks-stage-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.firework-burst {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation: fireworkExplode 4s ease-out infinite;
+}
+.firework-1 {
+  top: 18%;
+  left: 25%;
+  background: radial-gradient(circle, #FDE047 0%, #F59E0B 35%, #EF4444 70%, transparent 100%);
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.9), 0 0 65px rgba(239, 68, 68, 0.65);
+  animation-duration: 3.6s;
+}
+.firework-2 {
+  top: 32%;
+  right: 22%;
+  background: radial-gradient(circle, #F472B6 0%, #EC4899 40%, #A855F7 75%, transparent 100%);
+  box-shadow: 0 0 35px rgba(236, 72, 153, 0.9), 0 0 65px rgba(168, 85, 247, 0.6);
+  animation-duration: 4.4s;
+  animation-delay: 1.6s;
+}
+.firework-3 {
+  top: 15%;
+  left: 60%;
+  background: radial-gradient(circle, #67E8F9 0%, #06B6D4 40%, #3B82F6 75%, transparent 100%);
+  box-shadow: 0 0 35px rgba(6, 182, 212, 0.9), 0 0 65px rgba(59, 130, 246, 0.6);
+  animation-duration: 4.1s;
+  animation-delay: 2.7s;
+}
+@keyframes fireworkExplode {
+  0% {
+    transform: translate3d(0, 50px, 0) scale(0.1);
+    opacity: 0;
+  }
+  30% {
+    transform: translate3d(0, 0, 0) scale(0.2);
+    opacity: 1;
+  }
+  55% {
+    transform: translate3d(0, -10px, 0) scale(1.15);
+    opacity: 0.95;
+  }
+  80% {
+    transform: translate3d(0, -15px, 0) scale(1.35);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate3d(0, -15px, 0) scale(1.45);
+    opacity: 0;
+  }
+}
+
+/* --- 7. 🏮 節慶文化：城市燈光閃閃動人 (City Twinkling Lights & Bokeh) --- */
+.city-lights-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.city-bokeh-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(8px);
+  will-change: transform, opacity;
+  animation: cityLightTwinkle 3.2s ease-in-out infinite alternate;
+}
+@keyframes cityLightTwinkle {
+  0% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1.15);
+  }
+}
+
+/* --- 8. 🚗 台灣環島：森林感氣息 ＋ 白色螢火蟲在飛翔 --- */
+.forest-fireflies-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.firefly-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 0 10px #FFFFFF, 0 0 20px #86EFAC, 0 0 35px #34D399;
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation: fireflyFloat 6.5s ease-in-out infinite alternate;
+}
+@keyframes fireflyFloat {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(40px, -50px, 0);
+    opacity: 0.3;
+  }
+}
+
 
 @keyframes fadeInCards {
   from {

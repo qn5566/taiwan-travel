@@ -1,4 +1,4 @@
-// 8 大核心旗艦深度主題資料庫 (整併 18 大零散分類，提供 1/2/3 日遊行程、小分類即時篩選與精選卡牌瀑布流)
+// 8 大核心旗艦深度主題資料庫
 const THEMES_COMPLETE_DATA = [
   {
     "id": "northcoast",
@@ -947,10 +947,10 @@ const THEMES_COMPLETE_DATA = [
   {
     "id": "outdoor",
     "icon": "⛰️",
-    "shortTitle": "山林戶外",
-    "zhTitle": "山林戶外・高山百岳與星空露營",
+    "shortTitle": "露營登山",
+    "zhTitle": "露營登山・北歐極光星空",
     "enTitle": "OUTDOOR & PEAKS",
-    "name": "全台百岳名山與野奢露營",
+    "name": "露營登山極光探險",
     "bannerImg": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1600&auto=format&fit=crop",
     "deckBg": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop",
     "title": "Alpine Wilderness & Glamping Escapes · Walk Above the Clouds",
@@ -1025,7 +1025,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "合歡山石門山百岳新手入門",
         "subCategory": "hiking",
-        "subName": "⛰️ 百岳登山",
+        "subName": "⛰️ 露營登山",
         "en": "Shimenshan Easiest 100 Peak",
         "tag": "花投交界 · 百岳名山",
         "desc": "海拔3237公尺最平易近人的百岳，單程僅需30分鐘即可登頂環視奇萊連峰。",
@@ -1034,7 +1034,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "合歡山主峰日落雲海公路步道",
         "subCategory": "hiking",
-        "subName": "⛰️ 百岳登山",
+        "subName": "⛰️ 露營登山",
         "en": "Hehuanshan Main Peak Sunset",
         "tag": "南投仁愛 · 百岳名山",
         "desc": "視野開闊的水泥路基百岳，黃昏時分看金色落日沉入厚重翻騰雲海絕景。",
@@ -1043,7 +1043,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "合歡山東峰玉山杜鵑花海坡",
         "subCategory": "hiking",
-        "subName": "⛰️ 百岳登山",
+        "subName": "⛰️ 露營登山",
         "en": "Hehuan East Peak Azalea Bloom",
         "tag": "南投仁愛 · 百岳名山",
         "desc": "每年五月高山杜鵑於險峻陡坡盛開，陡峭木棧道直通3421公尺壯麗巔峰。",
@@ -1052,7 +1052,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "玉山主峰全台之巔登頂巡禮",
         "subCategory": "hiking",
-        "subName": "⛰️ 百岳登山",
+        "subName": "⛰️ 露營登山",
         "en": "Yushan Main Peak Roof of Taiwan",
         "tag": "南投信義 · 百岳名山",
         "desc": "標高3952公尺東北亞第一高峰，一生必爬一次的台灣地標與壯闊風雲之頂。",
@@ -1061,7 +1061,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "玉山前峰亂石崩壁登山挑戰",
         "subCategory": "hiking",
-        "subName": "⛰️ 百岳登山",
+        "subName": "⛰️ 露營登山",
         "en": "Yushan Front Peak Boulder Slope",
         "tag": "南投信義 · 百岳名山",
         "desc": "以極限考驗心肺的陡峭亂石瀑石海著稱，登上頂峰享有極致成就感。",
@@ -1070,7 +1070,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "雪山東峰哭坡觀景平台",
         "subCategory": "hiking",
-        "subName": "⛰️ 百岳登山",
+        "subName": "⛰️ 露營登山",
         "en": "Xueshan East Peak Crying Slope",
         "tag": "台中和平 · 百岳名山",
         "desc": "征服陡峭哭坡後豁然開朗，於3201公尺東峰停機坪遠眺雪山一號圈谷大理岩壁。",
@@ -1079,7 +1079,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "眠月線失落高空鐵軌森林步道",
         "subCategory": "hiking",
-        "subName": "⛰️ 百岳登山",
+        "subName": "⛰️ 露營登山",
         "en": "Mianyue Line Lost High Trestles",
         "tag": "嘉義阿里山 · 登山步道",
         "desc": "地震重創後封存的高空森林鐵道，懸空枕木鐵軌穿越迷霧紅檜森林夢幻而神秘。",
@@ -1088,7 +1088,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "水漾森林枯木倒影夢幻堰塞湖",
         "subCategory": "hiking",
-        "subName": "⛰️ 百岳登山",
+        "subName": "⛰️ 露營登山",
         "en": "Shuiyang Forest Drowned Trees",
         "tag": "南投竹山 · 登山步道",
         "desc": "大地震形成的堰塞湖，枯立白木倒映在深山翡翠湖水中如魔幻仙境。",
@@ -1097,7 +1097,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "特富野古道紅檜林鐵道漫步",
         "subCategory": "hiking",
-        "subName": "⛰️ 百岳登山",
+        "subName": "⛰️ 露營登山",
         "en": "Tefuye Ancient Logging Trail",
         "tag": "嘉義阿里山 · 登山步道",
         "desc": "鄒族昔日狩獵便道，筆直柳杉高聳入雲，平緩鐵道鋪設碎石散步極致療癒。",
@@ -1106,7 +1106,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "司馬庫斯上帝部落千年神木群",
         "subCategory": "hiking",
-        "subName": "⛰️ 百岳登山",
+        "subName": "⛰️ 露營登山",
         "en": "Smangus Giant Cypress Sacred Trail",
         "tag": "新竹尖石 · 登山步道",
         "desc": "深山泰雅部落守護的大老爺巨木，樹齡超過兩千五百年展開雙臂庇護山林。",
@@ -1115,7 +1115,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "鳶嘴山險峻天然花崗岩稜線",
         "subCategory": "hiking",
-        "subName": "⛰️ 百岳登山",
+        "subName": "⛰️ 露營登山",
         "en": "Yuanzui Mountain Exposed Ridge",
         "tag": "台中和平 · 登山步道",
         "desc": "中部最刺激險峻的攀岩名山，手腳並用抓拉繩索攀行於刀刃般的陡峭岩稜上。",
@@ -1124,7 +1124,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "苗栗火炎山惡地大峽谷步道",
         "subCategory": "hiking",
-        "subName": "⛰️ 百岳登山",
+        "subName": "⛰️ 露營登山",
         "en": "Huoyanshan Grand Canyon Badlands",
         "tag": "苗栗三義 · 登山步道",
         "desc": "礫石淘蝕形成的鮮紅色火成岩崩壁，宛如台版美國大峽谷壯麗火紅地貌。",
@@ -1133,7 +1133,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "加里山台版小富士柳杉林步道",
         "subCategory": "hiking",
-        "subName": "⛰️ 百岳登山",
+        "subName": "⛰️ 露營登山",
         "en": "Jiali Mountain Mt Fuji of Taiwan",
         "tag": "苗栗南庄 · 登山步道",
         "desc": "一葉蘭與柳杉森林秘境，登頂標高2220公尺遠眺雪山聖稜線雪白壯麗積雪。",
@@ -1142,7 +1142,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "陽明山擎天崗大草原環形步道",
         "subCategory": "hiking",
-        "subName": "⛰️ 百岳登山",
+        "subName": "⛰️ 露營登山",
         "en": "Qingtiangang Grassland Ring Trail",
         "tag": "台北士林 · 登山步道",
         "desc": "大台北最親民的高山草原，平緩木棧圍欄與悠然水牛群交織自然田園畫卷。",
@@ -1247,7 +1247,7 @@ const THEMES_COMPLETE_DATA = [
       },
       {
         "id": "hiking",
-        "name": "⛰️ 百岳登山",
+        "name": "⛰️ 露營登山",
         "icon": "⛰️"
       },
       {
@@ -1260,10 +1260,10 @@ const THEMES_COMPLETE_DATA = [
   {
     "id": "hotspring",
     "icon": "♨️",
-    "shortTitle": "溫泉舒活",
-    "zhTitle": "溫泉舒活・名湯療癒與親子公園",
+    "shortTitle": "溫泉/公園",
+    "zhTitle": "溫泉/公園・名湯白煙與親子度假",
     "enTitle": "HOT SPRINGS & RETREAT",
-    "name": "全台極上溫泉名湯與度假散策",
+    "name": "全台極上溫泉與共融公園",
     "bannerImg": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1600&auto=format&fit=crop",
     "deckBg": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop",
     "title": "Mineral Healing Waters & Family Parkland · Total Body & Soul Reset",
@@ -1573,10 +1573,10 @@ const THEMES_COMPLETE_DATA = [
   {
     "id": "nightmarket",
     "icon": "🍢",
-    "shortTitle": "市井煙火",
-    "zhTitle": "市井煙火・夜市必比登與百萬夜景",
+    "shortTitle": "花火/活動",
+    "zhTitle": "花火/活動・夏夜璀璨煙火秀",
     "enTitle": "NIGHT MARKETS & SKYLINE",
-    "name": "全台指標夜市美味與高空夜景",
+    "name": "台灣夏夜花火與盛典活動",
     "bannerImg": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&auto=format&fit=crop",
     "deckBg": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop",
     "title": "Sizzling Street Bites & Million-Dollar Views · Taiwan's Night Beat",
@@ -1777,7 +1777,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "台北信義象山六巨石俯瞰101夜景",
         "subCategory": "nightview",
-        "subName": "🌃 百萬夜景",
+        "subName": "🎆 花火夜景",
         "en": "Xiangshan Elephant Mountain 101 View",
         "tag": "台北信義 · 百萬夜景",
         "desc": "全球旅人必訪世界級夜景，攀上六巨石俯瞰台北101與信義區璀璨萬家燈火。",
@@ -1786,7 +1786,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "內湖碧山巖開漳聖王廟夜景平台",
         "subCategory": "nightview",
-        "subName": "🌃 百萬夜景",
+        "subName": "🎆 花火夜景",
         "en": "Bishanyan Kaizhang Temple Cityscape",
         "tag": "台北內湖 · 百萬夜景",
         "desc": "廟前高台無遮蔽俯瞰整座大台北盆地，基隆河倒映101與松山機場飛機起降。",
@@ -1795,7 +1795,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "中和烘爐地南山福德宮不夜城夜景",
         "subCategory": "nightview",
-        "subName": "🌃 百萬夜景",
+        "subName": "🎆 花火夜景",
         "en": "Hongludi Nanshan Temple Starlight View",
         "tag": "新北中和 · 百萬夜景",
         "desc": "巨型土地公神像守護山頭，24小時香火鼎盛，求財摸元寶俯瞰雙北交織光軌。",
@@ -1804,7 +1804,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "陽明山文化大學後山情人坡夜景",
         "subCategory": "nightview",
-        "subName": "🌃 百萬夜景",
+        "subName": "🎆 花火夜景",
         "en": "Chinese Culture Univ Lover's Slope",
         "tag": "台北士林 · 百萬夜景",
         "desc": "大台北最浪漫的大學約會聖地，倚坐在草坡上看著萬家燈火延伸至天際線。",
@@ -1813,7 +1813,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "北投軍艦岩360度環景百萬夜色",
         "subCategory": "nightview",
-        "subName": "🌃 百萬夜景",
+        "subName": "🎆 花火夜景",
         "en": "Battleship Rock 360 Panorama Night",
         "tag": "台北北投 · 百萬夜景",
         "desc": "突出的雪白沉積砂岩山頭，居高臨下享有士林、北投與淡水河口的夜空微風。",
@@ -1822,7 +1822,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "台中清水鰲峰山觀景平台海線夜景",
         "subCategory": "nightview",
-        "subName": "🌃 百萬夜景",
+        "subName": "🎆 花火夜景",
         "en": "Aofeng Mountain Coastal Night Panorama",
         "tag": "台中清水 · 百萬夜景",
         "desc": "弧形半圓木造觀景平台，俯瞰台中港灣船舶點點燈火與高美風車夜間流光。",
@@ -1831,7 +1831,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "台中望高寮夜景公園台灣版函館",
         "subCategory": "nightview",
-        "subName": "🌃 百萬夜景",
+        "subName": "🎆 花火夜景",
         "en": "Wanggaoliao Taichung Hakodate Night",
         "tag": "台中南屯 · 百萬夜景",
         "desc": "圓形下沉式戶外階梯劇場，東望台中市區七期高樓群、西望彰化平原浩瀚燈海。",
@@ -1840,7 +1840,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "高雄壽山忠烈祠LOVE觀景台",
         "subCategory": "nightview",
-        "subName": "🌃 百萬夜景",
+        "subName": "🎆 花火夜景",
         "en": "Shoushan Martyrs Shrine LOVE View",
         "tag": "高雄鼓山 · 百萬夜景",
         "desc": "巨大LOVE裝置藝術搭配高雄港灣第一排視野，亞洲新灣區與85大樓流光璀璨。",
@@ -1849,7 +1849,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "高雄旗後燈塔浪漫夜色眺望西子灣",
         "subCategory": "nightview",
-        "subName": "🌃 百萬夜景",
+        "subName": "🎆 花火夜景",
         "en": "Cihou Lighthouse Romantic Harbor Night",
         "tag": "高雄旗津 · 百萬夜景",
         "desc": "百年純白巴洛克燈塔開放夜間參觀，倚欄品嚐文青咖啡吹海風俯瞰進出巨輪。",
@@ -1858,7 +1858,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "宜蘭礁溪空埕夜景眺望蘭陽平原",
         "subCategory": "nightview",
-        "subName": "🌃 百萬夜景",
+        "subName": "🎆 花火夜景",
         "en": "Jiaoxi Kongcheng Lanyang Plain Lights",
         "tag": "宜蘭礁溪 · 百萬夜景",
         "desc": "居高臨下俯瞰雪山隧道出口與整片棋盤狀蘭陽平原，星空與稻田燈火相輝映。",
@@ -1878,7 +1878,7 @@ const THEMES_COMPLETE_DATA = [
       },
       {
         "id": "nightview",
-        "name": "🌃 百萬夜景",
+        "name": "🎆 花火夜景",
         "icon": "🌃"
       }
     ]
@@ -2209,10 +2209,10 @@ const THEMES_COMPLETE_DATA = [
   {
     "id": "roadtrip",
     "icon": "🚗",
-    "shortTitle": "公路環島",
-    "zhTitle": "公路環島・極點壯遊與看球巡迴",
+    "shortTitle": "台灣環島",
+    "zhTitle": "台灣環島・森林螢火蟲壯遊",
     "enTitle": "GRAND ROADTRIP & SPORTS",
-    "name": "台灣極點公路壯遊與看球巡迴",
+    "name": "台灣環島森林公路壯遊",
     "bannerImg": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=1600&auto=format&fit=crop",
     "deckBg": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=700&auto=format&fit=crop",
     "title": "Grand Island Circuit & Stadium Passions · Chase Horizons",
@@ -2287,7 +2287,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "富貴角燈塔極北點黑白八角燈塔",
         "subCategory": "roadtrip",
-        "subName": "🚗 壯遊環島",
+        "subName": "🚗 台灣環島",
         "en": "Fugui Cape Extreme North Landmark",
         "tag": "新北石門 · 極點公路",
         "desc": "台灣本島最北端極點坐標，黑白相間八角形鐵造燈塔守望東海。",
@@ -2296,7 +2296,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "三貂角燈塔台灣極東純白燈塔",
         "subCategory": "roadtrip",
-        "subName": "🚗 壯遊環島",
+        "subName": "🚗 台灣環島",
         "en": "San Diego Cape Easternmost Point",
         "tag": "新北貢寮 · 極點公路",
         "desc": "極東之境迎接全島第一道日出，純白浪漫燈塔與愛心雕塑自駕必打卡。",
@@ -2305,7 +2305,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "鵝鑾鼻燈塔台灣極南光之指引",
         "subCategory": "roadtrip",
-        "subName": "🚗 壯遊環島",
+        "subName": "🚗 台灣環島",
         "en": "Eluanbi Lighthouse Extreme South Point",
         "tag": "屏東恆春 · 極點公路",
         "desc": "台灣最南端武裝燈塔，隔巴士海峽與菲律賓相望，東亞之光氣勢非凡。",
@@ -2314,7 +2314,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "國聖港燈塔台灣極西黑白鐵塔",
         "subCategory": "roadtrip",
-        "subName": "🚗 壯遊環島",
+        "subName": "🚗 台灣環島",
         "en": "Guoshenggang Westernmost Iron Tower",
         "tag": "台南七股 · 極點公路",
         "desc": "隱身七股頂頭額沙洲極西點，荒涼如撒哈拉沙漠的沙丘線條攝影師私藏名勝。",
@@ -2323,7 +2323,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "合歡山武嶺碑海拔3275m公路最高點",
         "subCategory": "roadtrip",
-        "subName": "🚗 壯遊環島",
+        "subName": "🚗 台灣環島",
         "en": "Wuling Highest Highway Pass in Taiwan",
         "tag": "南投仁愛 · 極點公路",
         "desc": "台灣公路最高點武嶺碑，單車環島與機車自駕族必須插旗登頂的榮耀地標。",
@@ -2332,7 +2332,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "蘇花改太魯閣景觀大道清水斷崖段",
         "subCategory": "roadtrip",
-        "subName": "🚗 壯遊環島",
+        "subName": "🚗 台灣環島",
         "en": "Suhua Highway Oceanfront Drive",
         "tag": "花蓮秀林 · 極點公路",
         "desc": "串連宜蘭與花蓮的世界級懸崖公路，車窗外就是太平洋層次分明的湛藍海景。",
@@ -2341,7 +2341,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "台東金崙高架橋直通太平洋海天一線",
         "subCategory": "roadtrip",
-        "subName": "🚗 壯遊環島",
+        "subName": "🚗 台灣環島",
         "en": "Jinlun Viaduct Pacific Ocean Bridge",
         "tag": "台東太麻里 · 極點公路",
         "desc": "被譽為全台最美高架橋，開車彷彿直奔無邊無際的太平洋海平面般心曠神怡。",
@@ -2350,7 +2350,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "屏東壽峠鐵馬驛站南迴公路最高點",
         "subCategory": "roadtrip",
-        "subName": "🚗 壯遊環島",
+        "subName": "🚗 台灣環島",
         "en": "Shouka Bicycle Station South Link",
         "tag": "屏東牡丹 · 極點公路",
         "desc": "台9戊線海拔460公尺南迴公路頂點，所有環島單車騎士揮灑汗水的英雄里程碑。",
@@ -2359,7 +2359,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "台中高美濕地風車大道木棧道天空之鏡",
         "subCategory": "roadtrip",
-        "subName": "🚗 壯遊環島",
+        "subName": "🚗 台灣環島",
         "en": "Gaomei Wetland Windmill Sky Mirror",
         "tag": "台中清水 · 極點公路",
         "desc": "巨大的白色風力發電機群排列海岸線，退潮泥灘倒映火紅夕陽美如天空之鏡。",
@@ -2368,7 +2368,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "苗栗後龍半天寮好望角俯瞰海線鐵道",
         "subCategory": "roadtrip",
-        "subName": "🚗 壯遊環島",
+        "subName": "🚗 台灣環島",
         "en": "Miaoli Cape of Good Hope Windmills",
         "tag": "苗栗後龍 · 極點公路",
         "desc": "西濱台61線公路必停休息點，居高臨下俯瞰火車奔馳海線與大風車迎風旋轉。",
@@ -2377,7 +2377,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "新竹香山濕地賞蟹步道心形石滬夕陽",
         "subCategory": "roadtrip",
-        "subName": "🚗 壯遊環島",
+        "subName": "🚗 台灣環島",
         "en": "Xiangshan Wetland Crab Walkway Sunset",
         "tag": "新竹香山 · 極點公路",
         "desc": "延伸進泥灘地的心形賞蟹步道，近距離觀察招潮蟹彈塗魚與金黃夕陽染紅海面。",
@@ -2386,7 +2386,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "宜蘭南方澳觀景台俯瞰內埤情人弧灣",
         "subCategory": "roadtrip",
-        "subName": "🚗 壯遊環島",
+        "subName": "🚗 台灣環島",
         "en": "Nanfang'ao Lookout Inner Pier Bay",
         "tag": "宜蘭蘇澳 · 極點公路",
         "desc": "蘇花公路起點俯瞰第一大漁港，遠眺豆腐岬海灣與筆架山秀麗地質奇觀。",
@@ -2395,7 +2395,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "花蓮豐濱新社梯田太平洋懸崖黃金稻浪",
         "subCategory": "roadtrip",
-        "subName": "🚗 壯遊環島",
+        "subName": "🚗 台灣環島",
         "en": "Xinshe Terraced Rice Fields by Sea",
         "tag": "花蓮豐濱 · 極點公路",
         "desc": "全台最大臨海梯田，夏收季節金黃色稻浪緊貼湛藍太平洋懸崖迎風起伏。",
@@ -2404,7 +2404,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "台東長濱金剛大道筆直直通太平洋",
         "subCategory": "roadtrip",
-        "subName": "🚗 壯遊環島",
+        "subName": "🚗 台灣環島",
         "en": "Jingang Avenue Straight to Pacific",
         "tag": "台東長濱 · 極點公路",
         "desc": "依偎在金剛山麓下的台11線支線，筆直無盡頭的公路如滑梯般直衝深藍太平洋。",
@@ -2413,7 +2413,7 @@ const THEMES_COMPLETE_DATA = [
       {
         "name": "台東鹿野武陵綠色隧道樟樹林蔭大道",
         "subCategory": "roadtrip",
-        "subName": "🚗 壯遊環島",
+        "subName": "🚗 台灣環島",
         "en": "Wuling Green Tunnel Camphor Avenue",
         "tag": "台東鹿野 · 極點公路",
         "desc": "台9線舊公路長達四公里的樟樹與木麻黃林蔭，自駕單車穿梭於陽光灑落的光斑中。",
@@ -2509,7 +2509,7 @@ const THEMES_COMPLETE_DATA = [
       },
       {
         "id": "roadtrip",
-        "name": "🚗 壯遊環島",
+        "name": "🚗 台灣環島",
         "icon": "🚗"
       },
       {
