@@ -370,9 +370,7 @@
           <li class="nav-item"><a href="themes.html">精選主題</a></li>
           <li class="nav-item"><a href="spots.html">城市景點</a></li>
           <li class="nav-item"><a href="ranking.html">排行榜</a></li>
-          <li class="nav-item"><a href="souvenir.html">伴手禮直送</a></li>
-          <li class="nav-item active"><a href="cafe.html">全台咖啡地圖</a></li>
-          <li class="nav-item"><a href="michelin.html">米其林指南</a></li>
+          <li class="nav-item active"><a href="cafe.html">全台咖啡與米其林</a></li>
           <li class="nav-item"><a href="community.html">留言討論</a></li>
         </ul>
       </nav>
@@ -410,13 +408,16 @@
         <span style="font-size: 13px; color: #94A3B8; font-weight: 500;">(330 handpicked specialty coffee shops, from coastal roasters to vintage alley hideaways.)</span>
       </p>
 
-      <!-- 🌟 兩大主專題核心切換 Tab 標籤列 (主選單) -->
+      <!-- 🌟 三大核心分頁切換 Tab 標籤列 (主選單) -->
       <div class="tab-switch-container">
         <button id="btn-tab-coffee" class="main-tab-pill active" onclick="switchPageTab('coffee-map')">
-          ☕ 全台灣咖啡地圖 (22 縣市 330 間名店)
+          ☕ 全台咖啡地圖 (330 間名店)
+        </button>
+        <button id="btn-tab-michelin" class="main-tab-pill" onclick="switchPageTab('michelin-guide')">
+          ⭐ 臺灣米其林餐廳 (星級與必比登)
         </button>
         <button id="btn-tab-weekend" class="main-tab-pill" onclick="switchPageTab('weekend-hop')">
-          📰 週末探店・真實踩點專題文章 (8 大散策實訪報導)
+          📰 週末探店踩點 (8 大散策專題)
         </button>
       </div>
 
@@ -496,6 +497,45 @@
 
       </div>
     </section>
+  </div>
+
+  <!-- =========================================================
+       分頁 2：⭐ 臺灣米其林餐廳 (Michelin Guide Tab)
+       ========================================================= -->
+  <div id="section-michelin-guide" style="display: none;">
+    <!-- 篩選列 -->
+    <section style="background: #18141F; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 24px 0 28px 0; color: #FFFFFF; text-align: center;">
+      <div class="container">
+        <div style="font-size: 11.5px; color: #FDA4AF; font-weight: 800; margin-bottom: 12px; letter-spacing: 1.5px; text-transform: uppercase;">
+          🏆 星級榮耀與必比登 ‧ 快速篩選
+        </div>
+        <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; max-width: 900px; margin: 0 auto;">
+          <button class="city-pill-btn active" id="btn-mich-all" onclick="filterMichelin('all')">🌟 全部名單 (All)</button>
+          <button class="city-pill-btn" id="btn-mich-three" onclick="filterMichelin('three_two')">⭐⭐⭐ 三星與二星殿堂</button>
+          <button class="city-pill-btn" id="btn-mich-one" onclick="filterMichelin('one_star')">⭐ 一星名廚料理</button>
+          <button class="city-pill-btn" id="btn-mich-bib" onclick="filterMichelin('bib')">🥣 必比登推介在地小吃</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 餐廳卡牌列表 -->
+    <main class="section-padding" style="background: #F8FAFC; padding: 45px 0 90px 0;">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <span style="font-size: 12px; font-weight: 800; color: #E11D48; letter-spacing: 1px;">MICHELIN GUIDE TAIWAN</span>
+            <h2 id="michelin-count-heading" style="font-size: 24px; font-weight: 900; color: #0F172A; margin: 2px 0 0 0;">米其林評鑑名錄</h2>
+          </div>
+          <div id="michelin-count-badge" style="font-size: 13px; color: #64748B;">
+            ✨ 收錄蟬聯三星頤宮、當代法式態芮、logy 與全台排隊必比登小吃
+          </div>
+        </div>
+
+        <div id="michelin-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 24px;">
+          <!-- 由 JS 動態渲染 -->
+        </div>
+      </div>
+    </main>
   </div>
 
 
@@ -695,12 +735,17 @@
     // 週末探店狀態
     let activeHopThemeId = "all";
 
+    // 米其林分類狀態
+    let currentMichCategory = "all";
+
     document.addEventListener("DOMContentLoaded", () => {
-      // 讀取 URL 參數決定初始分頁 (?tab=weekend-hop 或 ?tab=coffee-map)
+      // 讀取 URL 參數決定初始分頁 (?tab=weekend-hop 或 ?tab=michelin-guide 或 ?tab=coffee-map)
       const urlParams = new URLSearchParams(window.location.search);
       const initialTab = urlParams.get("tab");
       if (initialTab === "weekend-hop") {
         switchPageTab("weekend-hop", false);
+      } else if (initialTab === "michelin-guide" || initialTab === "michelin") {
+        switchPageTab("michelin-guide", false);
       } else {
         switchPageTab("coffee-map", false);
       }
@@ -715,6 +760,9 @@
       renderHopThemesNav();
       renderHopCards();
 
+      // 初始化米其林組件
+      renderMichelinList();
+
       // ESC 鍵關閉 Modal
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") closeArticleModalDirect();
@@ -722,24 +770,57 @@
     });
 
     /* =========================================================
-       1. 兩大主分頁切換邏輯
+       1. 三大主分頁切換邏輯 (咖啡地圖 / 米其林餐廳 / 週末探店)
        ========================================================= */
     function switchPageTab(tabName, updateHistory = true) {
       currentMainTab = tabName;
       const coffeeSection = document.getElementById("section-coffee-map");
+      const michelinSection = document.getElementById("section-michelin-guide");
       const hopSection = document.getElementById("section-weekend-hop");
+
       const btnCoffee = document.getElementById("btn-tab-coffee");
+      const btnMichelin = document.getElementById("btn-tab-michelin");
       const btnWeekend = document.getElementById("btn-tab-weekend");
+
       const heroBadge = document.getElementById("hero-badge-pill");
       const heroTitle = document.getElementById("hero-main-title");
       const heroEnTitle = document.getElementById("hero-en-title");
       const heroDesc = document.getElementById("hero-sub-desc");
 
-      if (tabName === "weekend-hop") {
-        coffeeSection.style.display = "none";
-        hopSection.style.display = "block";
-        btnCoffee.classList.remove("active");
-        btnWeekend.classList.add("active");
+      // 先隱藏所有分頁區塊與樣式
+      if (coffeeSection) coffeeSection.style.display = "none";
+      if (michelinSection) michelinSection.style.display = "none";
+      if (hopSection) hopSection.style.display = "none";
+
+      if (btnCoffee) btnCoffee.classList.remove("active");
+      if (btnMichelin) btnMichelin.classList.remove("active");
+      if (btnWeekend) btnWeekend.classList.remove("active");
+
+      if (tabName === "michelin-guide") {
+        if (michelinSection) michelinSection.style.display = "block";
+        if (btnMichelin) btnMichelin.classList.add("active");
+
+        if (heroBadge) {
+          heroBadge.textContent = "MICHELIN GUIDE TAIWAN ｜ 臺灣米其林星級與必比登推介";
+          heroBadge.style.background = "rgba(225, 29, 72, 0.22)";
+          heroBadge.style.color = "#FDA4AF";
+          heroBadge.style.borderColor = "rgba(225, 29, 72, 0.45)";
+        }
+        if (heroTitle) heroTitle.textContent = "臺灣米其林指南 ‧ 星級殿堂與必比登";
+        if (heroEnTitle) heroEnTitle.textContent = "Michelin Stars & Bib Gourmand Dining Guide";
+        if (heroDesc) {
+          heroDesc.innerHTML = "從蟬聯三星傳奇廣東菜「頤宮」、當代法餐「態芮」，到排隊必比登美味，一站探索台灣名廚殿堂與街頭極致風味。<br><span style='font-size: 13px; color: #94A3B8; font-weight: 500;'>(From 3-star culinary masters to iconic local street food gems across Taiwan.)</span>";
+        }
+
+        renderMichelinList();
+
+        if (updateHistory) {
+          const newUrl = window.location.pathname + "?tab=michelin-guide";
+          window.history.pushState({ tab: "michelin-guide" }, "", newUrl);
+        }
+      } else if (tabName === "weekend-hop") {
+        if (hopSection) hopSection.style.display = "block";
+        if (btnWeekend) btnWeekend.classList.add("active");
 
         if (heroBadge) {
           heroBadge.textContent = "WEEKEND HOP EDITORIAL ‧ 編輯部真實踩點 ‧ 8 大生活美學慢活散策";
@@ -758,10 +839,9 @@
           window.history.pushState({ tab: "weekend-hop" }, "", newUrl);
         }
       } else {
-        coffeeSection.style.display = "block";
-        hopSection.style.display = "none";
-        btnCoffee.classList.add("active");
-        btnWeekend.classList.remove("active");
+        // 預設為全台咖啡地圖 (coffee-map)
+        if (coffeeSection) coffeeSection.style.display = "block";
+        if (btnCoffee) btnCoffee.classList.add("active");
 
         if (heroBadge) {
           heroBadge.textContent = "TAIWAN COFFEE ROASTERS ｜ 島嶼咖啡巡禮";
@@ -1019,6 +1099,88 @@
                 </a>
                 <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room" style="text-align: center; padding: 7px 4px; font-size: 11px; text-decoration: none;">
                   🏨 訂周邊住宿
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    /* =========================================================
+       4. 米其林餐廳評鑑渲染與分類篩選 (Michelin Guide)
+       ========================================================= */
+    function filterMichelin(cat) {
+      currentMichCategory = cat;
+      const sec = document.getElementById("section-michelin-guide");
+      if (sec) {
+        sec.querySelectorAll(".city-pill-btn").forEach(btn => btn.classList.remove("active"));
+      }
+      if (cat === "all") document.getElementById("btn-mich-all")?.classList.add("active");
+      if (cat === "three_two") document.getElementById("btn-mich-three")?.classList.add("active");
+      if (cat === "one_star") document.getElementById("btn-mich-one")?.classList.add("active");
+      if (cat === "bib") document.getElementById("btn-mich-bib")?.classList.add("active");
+      renderMichelinList();
+    }
+
+    function renderMichelinList() {
+      const container = document.getElementById("michelin-cards-grid");
+      if (!container) return;
+
+      let list = [];
+      if (typeof TAIPEI_MICHELIN_STARS_DATA !== "undefined") {
+        list = list.concat(TAIPEI_MICHELIN_STARS_DATA);
+      }
+      if (typeof BIB_GOURMAND_DATA !== "undefined") {
+        list = list.concat(BIB_GOURMAND_DATA);
+      }
+
+      const filtered = list.filter(item => {
+        if (currentMichCategory === "all") return true;
+        if (currentMichCategory === "three_two") return item.category === "three_two" || (item.stars && (item.stars.includes("三星") || item.stars.includes("二星")));
+        if (currentMichCategory === "one_star") return item.category === "one_star" || (item.stars && item.stars.includes("一星"));
+        if (currentMichCategory === "bib") return item.badge && item.badge.includes("必比登");
+        return true;
+      });
+
+      const headingEl = document.getElementById("michelin-count-heading");
+      if (headingEl) {
+        headingEl.textContent = `米其林評鑑名錄 (${filtered.length} 間)`;
+      }
+
+      container.innerHTML = filtered.map(item => {
+        const starTag = item.stars || item.badge || "⭐ 米其林評鑑";
+        const isBib = starTag.includes("必比登");
+        const tagBg = isBib ? "#FEF3C7" : "#FFE4E6";
+        const tagColor = isBib ? "#92400E" : "#BE123C";
+        const cleanName = item.name.replace(/台北\s*｜\s*/, "");
+        const mapUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(cleanName) : `https://maps.google.com/?q=${encodeURIComponent(cleanName)}`;
+        const diningUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getDiningUrl() : "#";
+
+        return `
+          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.25s ease;">
+            <div style="position: relative; width: 100%; height: 210px; overflow: hidden; background: #E2E8F0;">
+              <img src="${item.img || 'https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop'}" alt="${item.name}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+              <span style="position: absolute; top: 14px; left: 14px; background: ${tagBg}; color: ${tagColor}; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 9999px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+                ${starTag}
+              </span>
+              <span style="position: absolute; bottom: 10px; right: 12px; background: rgba(15,23,42,0.85); backdrop-filter: blur(6px); color: #FFF; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px;">
+                ${item.stars ? '米其林星級' : '米其林必比登'}
+              </span>
+            </div>
+            <div style="padding: 22px; display: flex; flex-direction: column; flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <span style="font-size: 12px; font-weight: 800; color: #0284C7;">📍 ${item.city || '台北市'}</span>
+                <span style="font-size: 12.5px; font-weight: 800; color: #D97706; background: #FEF3C7; padding: 2px 8px; border-radius: 6px;">${item.cuisine || item.categoryName || '台灣在地美味'}</span>
+              </div>
+              <h3 style="font-size: 18px; font-weight: 900; color: #0F172A; margin: 4px 0 8px 0; line-height: 1.35;">${item.name}</h3>
+              <p style="font-size: 13px; color: #64748B; line-height: 1.6; margin-bottom: 16px; flex: 1;">${item.feature || item.desc}</p>
+              <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 8px; margin-top: auto;">
+                <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="text-align: center; padding: 8px 4px; font-size: 12px; text-decoration: none;">
+                  🧭 Google 地圖導航
+                </a>
+                <a href="${diningUrl}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-align: center; padding: 8px 4px; font-size: 12px; text-decoration: none; background: #E11D48; color: #FFFFFF; border-radius: 8px; font-weight: 700;">
+                  🍽️ 專屬美食預約
                 </a>
               </div>
             </div>

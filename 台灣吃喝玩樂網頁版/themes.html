@@ -126,9 +126,7 @@
           <li class="nav-item active"><a href="themes.html">精選主題</a></li>
           <li class="nav-item"><a href="spots.html">城市景點</a></li>
           <li class="nav-item"><a href="ranking.html">排行榜</a></li>
-          <li class="nav-item"><a href="souvenir.html">伴手禮直送</a></li>
-          <li class="nav-item"><a href="cafe.html">全台咖啡地圖</a></li>
-          <li class="nav-item"><a href="michelin.html">米其林指南</a></li>
+          <li class="nav-item"><a href="cafe.html">全台咖啡與米其林</a></li>
           <li class="nav-item"><a href="community.html">留言討論</a></li>
         </ul>
       </nav>
@@ -280,7 +278,7 @@
         </div>
       `).join('');
 
-      // 為每張卡片綁定優雅 Hover，保持原本軸線微浮，絕不跑位亂跳！
+      // 為每張卡片綁定優雅 Hover，滑鼠滑到有超流暢 3D 浮升放大、直立展演與光暈交互！
       THEMES_COMPLETE_DATA.forEach((_, idx) => {
         const card = document.getElementById(`fan-card-${idx}`);
         if (!card) return;
@@ -289,11 +287,22 @@
           if (card.dataset.tx === undefined) return;
           const isDrawn = card.dataset.isDrawn === "true";
           const tx = parseFloat(card.dataset.tx);
-          const ty = parseFloat(card.dataset.ty) - (isDrawn ? 10 : 22);
-          const rot = parseFloat(card.dataset.rot);
-          const scale = parseFloat(card.dataset.scale) * (isDrawn ? 1.02 : 1.04);
+          const ty = parseFloat(card.dataset.ty) - (isDrawn ? 24 : 40);
+          const rot = parseFloat(card.dataset.rot) * 0.2; // 直立優雅展演，不再歪斜卡卡
+          const scale = parseFloat(card.dataset.scale) * 1.14; // 生動放大聚焦
           card.style.transform = `translate3d(${tx}px, ${ty}px, 0) rotate(${rot}deg) scale(${scale})`;
-          card.style.zIndex = isDrawn ? 85 : 75;
+          card.style.zIndex = 160;
+          card.style.filter = "drop-shadow(0 20px 36px rgba(0, 0, 0, 0.35))";
+
+          // 周邊其他卡牌微降暗與半透明，突出懸浮的焦點卡牌
+          THEMES_COMPLETE_DATA.forEach((_, otherIdx) => {
+            if (otherIdx !== idx) {
+              const otherCard = document.getElementById(`fan-card-${otherIdx}`);
+              if (otherCard) {
+                otherCard.style.filter = "brightness(0.92) opacity(0.82)";
+              }
+            }
+          });
         });
 
         card.addEventListener('mouseleave', () => {
@@ -304,6 +313,14 @@
           const scale = parseFloat(card.dataset.scale);
           card.style.transform = `translate3d(${tx}px, ${ty}px, 0) rotate(${rot}deg) scale(${scale})`;
           card.style.zIndex = card.dataset.zIndex || 20;
+          card.style.filter = "none";
+
+          THEMES_COMPLETE_DATA.forEach((_, otherIdx) => {
+            const otherCard = document.getElementById(`fan-card-${otherIdx}`);
+            if (otherCard) {
+              otherCard.style.filter = "none";
+            }
+          });
         });
       });
 
@@ -311,7 +328,7 @@
       attachSwipeEvents(stage);
     }
 
-    // 計算並套用 8 張卡牌「整個攤開在偶對稱」3D 弧形展開座標 (Even Symmetry Arc Model)
+    // 計算並套用 8 張卡牌「整個攤開在偶對稱」3D 弧形展開座標 (更展開、靈活不卡卡)
     function updateDeckPositions() {
       const width = window.innerWidth;
       const isMobile = width <= 640;
@@ -321,20 +338,20 @@
       // 偶對稱中心軸 (Even Symmetry Axis)
       const centerAxis = (total - 1) / 2;
 
-      let xSpacing = 92;
-      let rotStep = 4.8;
-      let archFactor = 8.5;
+      let xSpacing = 126;
+      let rotStep = 4.0;
+      let archFactor = 6.2;
       let baseScale = 0.98;
 
       if (isTablet) {
-        xSpacing = 72;
-        rotStep = 4.0;
-        archFactor = 6.6;
+        xSpacing = 92;
+        rotStep = 3.6;
+        archFactor = 5.2;
         baseScale = 0.92;
       } else if (isMobile) {
-        xSpacing = 38;
-        rotStep = 2.8;
-        archFactor = 4.2;
+        xSpacing = 44;
+        rotStep = 2.4;
+        archFactor = 3.6;
         baseScale = 0.85;
       }
 

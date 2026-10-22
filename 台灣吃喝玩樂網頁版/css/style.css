@@ -3464,9 +3464,9 @@ body {
    ========================================================= */
 .deck-fan-wrapper {
   position: relative;
-  max-width: 1060px;
+  max-width: 1240px;
   margin: 15px auto 25px auto;
-  padding: 45px 20px 35px 20px;
+  padding: 40px 16px 30px 16px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3482,8 +3482,8 @@ body {
   justify-content: center;
   position: relative;
   width: 100%;
-  max-width: 960px;
-  height: 380px;
+  max-width: 1180px;
+  height: 390px;
 }
 
 /* 左右切換浮動按鈕 (Glass Floating Nav Buttons) */
@@ -3526,11 +3526,11 @@ body {
   right: 6px;
 }
 
-/* 扇形卡牌個體 (Persistent 3D Arc Card - 整個攤開偶對稱展演) */
+/* 扇形卡牌個體 (Persistent 3D Arc Card - 整個攤開偶對稱展演 ‧ 超靈活展開) */
 .fan-card-item {
   position: absolute;
-  width: 190px;
-  height: 275px;
+  width: 195px;
+  height: 280px;
   border-radius: 20px;
   background: #FFFFFF;
   box-shadow: 0 14px 32px -8px rgba(15, 23, 42, 0.16), 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -3538,6 +3538,8 @@ body {
   transform-origin: center bottom;
   overflow: hidden;
   border: 2px solid rgba(255, 255, 255, 0.95);
+  transition: transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.3s ease, filter 0.35s ease;
+  will-change: transform, filter;
   transition: transform 0.65s cubic-bezier(0.2, 0.9, 0.3, 1), 
               box-shadow 0.4s ease, 
               border-color 0.35s ease, 
@@ -7087,60 +7089,69 @@ body.bg-theme-hotspring .itinerary-duration-badge {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
 }
 
+/* ==========================================================================
+   🌸 日本「ベビーピンクの可愛い配色」官方品牌按鈕配色方案
+   (Baby Pink Design Palette for CTA Buttons)
+   ========================================================================== */
 .btn-souvenir-cta {
-  background: linear-gradient(135deg, #EA580C 0%, #C2410C 100%);
+  background: linear-gradient(135deg, #FF9977 0%, #FCC190 100%);
   color: #FFFFFF;
 }
 .btn-souvenir-cta:hover {
-  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  background: linear-gradient(135deg, #FFAE92 0%, #FF9977 100%);
   color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(255, 153, 119, 0.4);
 }
 
 .btn-dining-cta {
-  background: linear-gradient(135deg, #E11D48 0%, #BE123C 100%);
+  background: linear-gradient(135deg, #F3A8A8 0%, #E8C1F4 100%);
   color: #FFFFFF;
 }
 .btn-dining-cta:hover {
-  background: linear-gradient(135deg, #F43F5E 0%, #E11D48 100%);
+  background: linear-gradient(135deg, #F8BDBD 0%, #F3A8A8 100%);
   color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(243, 168, 168, 0.4);
 }
 
 .btn-trip-cta {
-  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  background: linear-gradient(135deg, #9FC2DD 0%, #B9ABD3 100%);
   color: #FFFFFF;
 }
 .btn-trip-cta:hover {
-  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  background: linear-gradient(135deg, #B5D4EB 0%, #9FC2DD 100%);
   color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(159, 194, 221, 0.4);
 }
 
 .btn-owlting-cta {
-  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  background: linear-gradient(135deg, #A0D9C5 0%, #AFCF69 100%);
   color: #FFFFFF;
 }
 .btn-owlting-cta:hover {
-  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  background: linear-gradient(135deg, #B5E6D5 0%, #A0D9C5 100%);
   color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(160, 217, 197, 0.4);
 }
 
 .btn-klook-cta {
-  background: linear-gradient(135deg, #FF5B00 0%, #E04800 100%);
+  background: linear-gradient(135deg, #FCC190 0%, #FF9977 100%);
   color: #FFFFFF;
 }
 .btn-klook-cta:hover {
-  background: linear-gradient(135deg, #FF7020 0%, #FF5B00 100%);
+  background: linear-gradient(135deg, #FFD2AB 0%, #FCC190 100%);
   color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(252, 193, 144, 0.4);
 }
 
 .btn-map-guide {
-  background: #FFFFFF;
-  color: #334155;
-  border: 1px solid #CBD5E1;
+  background: #FFF1DF;
+  color: #8C4A28;
+  border: 1.5px solid #FEE3D7;
 }
 .btn-map-guide:hover {
-  background: #F8FAFC;
-  color: #0F172A;
-  border-color: #94A3B8;
+  background: #FEE3D7;
+  color: #703517;
+  border-color: #F7C2AB;
 }
 
 

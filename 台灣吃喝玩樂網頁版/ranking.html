@@ -116,8 +116,7 @@
           <li class="nav-item"><a href="themes.html">精選主題</a></li>
           <li class="nav-item"><a href="spots.html">城市景點</a></li>
           <li class="nav-item active"><a href="ranking.html">排行榜</a></li>
-          <li class="nav-item"><a href="cafe.html">全台咖啡地圖</a></li>
-          <li class="nav-item"><a href="michelin.html">米其林指南</a></li>
+          <li class="nav-item"><a href="cafe.html">全台咖啡與米其林</a></li>
           <li class="nav-item"><a href="community.html">留言討論</a></li>
         </ul>
       </nav>
@@ -143,9 +142,6 @@
     <div class="container" style="position: relative; z-index: 2;">
       
       <!-- 1. 頁面頂部文青雙語 Header -->
-      <span class="section-badge-pill" style="background: rgba(2, 132, 199, 0.12); color: #0284C7; border: 1.5px solid rgba(2, 132, 199, 0.25); font-weight: 800; letter-spacing: 1px;">
-        TAIWAN ROAM RANKINGS ｜ 旅人權威指標
-      </span>
       <h1 class="ranking-main-title" style="font-size: 38px; font-weight: 900; margin-top: 12px; margin-bottom: 6px; letter-spacing: -0.5px;">
         全台吃喝玩樂人氣排行榜
       </h1>
@@ -170,17 +166,6 @@
             <img id="ranking-hero-img" class="ranking-hero-card-img" src="assets/ranking_boba.png" alt="當前排行榜主視覺">
           </div>
         </div>
-      </div>
-
-      <!-- 下方主題切換按鈕區塊 (移至大圖下方區塊，乾淨俐落不遮擋圖片) -->
-      <div class="ranking-bottom-nav-bar">
-        <button class="ranking-bottom-arrow-btn prev-btn" onclick="navigateRankingTopic(-1)" title="切換上一個榜單" aria-label="上一個榜單">‹</button>
-        <div class="ranking-bottom-nav-pill">
-          <span class="ranking-bottom-nav-dot"></span>
-          <span class="ranking-bottom-nav-label">切換主題排行榜</span>
-          <span class="ranking-bottom-nav-dot"></span>
-        </div>
-        <button class="ranking-bottom-arrow-btn next-btn" onclick="navigateRankingTopic(1)" title="切換下一個榜單" aria-label="下一個榜單">›</button>
       </div>
 
       <!-- 即時關鍵字搜尋框 -->
@@ -240,15 +225,7 @@
           <div id="ranking-en-title" style="font-size: 13px; color: #64748B; font-weight: 600; margin-bottom: 4px;">
             Must-Drink Taiwanese Boba & Tea Brands Top 20
           </div>
-          <span id="ranking-page-info" style="font-size: 12.5px; color: #475569;">
-            全榜共 20 筆人氣排行榜名店一次展開收錄 · 一排 6 張
-          </span>
-        </div>
-
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <span style="background: #EFF6FF; color: #0284C7; font-size: 12px; font-weight: 800; padding: 6px 16px; border-radius: 9999px; border: 1.5px solid #BAE6FD; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(2,132,199,0.08);">
-            ✨ 權威名店排行全量一次展開 · 一排 6 張
-          </span>
+          <span id="ranking-page-info" style="display: none;"></span>
         </div>
       </div>
 
@@ -562,11 +539,7 @@
 
       const totalItems = filtered.length;
       if (pageInfo) {
-        if (totalItems === 0) {
-          pageInfo.textContent = `共 0 筆符合搜尋條件`;
-        } else {
-          pageInfo.textContent = `全榜共 ${totalItems} 筆人氣名店全量一次展開（一排 6 張）· ${meta.desc}`;
-        }
+        pageInfo.textContent = "";
       }
 
       if (filtered.length === 0) {
