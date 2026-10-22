@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>台灣人氣排行榜全覽 - 分頁瀏覽 ｜ 台灣吃喝玩樂 Taiwan Wanderlust</title>
+  <title>全台吃喝玩樂人氣排行榜 - The Curated Top-Ranked Lists Across Taiwan ｜ 台灣吃喝玩樂 Taiwan Roam</title>
   
-  <meta name="description" content="全網真實點閱與旅人訂閱大數據：手搖、熱門景點、包車路線、最新活動、雨天室內、風格咖啡店與文青散步全收錄，支援分頁與分類即時切換。">
+  <meta name="description" content="TAIWAN ROAM RANKINGS 旅人權威指標：收錄手搖飲、風格咖啡、米其林必比登夜市、伴手禮、頂級燒肉與百萬夜景，全球自由行旅人的不踩雷指南。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
     }
-    @media (max-width: 860px) {
+    @media (max-width: 900px) {
       .ranking-grid-page {
         grid-template-columns: 1fr;
       }
@@ -53,6 +53,21 @@
       gap: 8px;
       margin-top: 40px;
       flex-wrap: wrap;
+    }
+    .rank-card-wrap {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+    }
+    .rank-card-wrap:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+      border-color: #CBD5E1;
     }
   </style>
 </head>
@@ -91,35 +106,59 @@
     </div>
   </header>
 
-  <!-- 排行榜 Hero Banner (含 3D 拱形輪播舞台與中央主視覺特寫) -->
-  <section class="section-padding" style="background: radial-gradient(circle at 50% 28%, #1E293B 0%, #0F172A 100%); color: #FFFFFF; text-align: center; padding: 60px 0 45px 0; overflow: hidden; position: relative;">
+  <!-- 排行榜 Hero Banner (頂部文青雙語 Header + 5 大情境分類切換膠囊 + 3D 拱形輪播舞台) -->
+  <section class="section-padding" style="background: radial-gradient(circle at 50% 28%, #1E293B 0%, #0F172A 100%); color: #FFFFFF; text-align: center; padding: 55px 0 45px 0; overflow: hidden; position: relative;">
     <div class="container" style="position: relative; z-index: 2;">
-      <span class="section-badge-pill" style="background: rgba(2, 132, 199, 0.25); color: #38BDF8; border-color: rgba(2, 132, 199, 0.45);">
-        TAIWAN POPULAR RANKINGS
+      
+      <!-- 1. 頁面頂部文青雙語 Header -->
+      <span class="section-badge-pill" style="background: rgba(2, 132, 199, 0.25); color: #38BDF8; border-color: rgba(2, 132, 199, 0.45); font-weight: 800; letter-spacing: 1px;">
+        TAIWAN ROAM RANKINGS ｜ 旅人權威指標
       </span>
       <h1 style="font-size: 38px; font-weight: 900; margin-top: 12px; margin-bottom: 6px; letter-spacing: -0.5px;">
-        人氣排行榜
+        全台吃喝玩樂人氣排行榜
       </h1>
-      <div style="color: #94A3B8; font-family: 'DM Sans', 'Inter', sans-serif; font-size: 13.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;">
-        POPULAR RANKINGS & LEADERBOARD
+      <div style="color: #94A3B8; font-family: 'DM Sans', 'Inter', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase;">
+        The Curated Top-Ranked Lists Across Taiwan
+      </div>
+      <p style="color: #CBD5E1; font-size: 14px; max-width: 660px; margin: 12px auto 0 auto; line-height: 1.6;">
+        收錄手搖飲、伴手禮、藥妝、必比登夜市與百萬夜景，全球自由行旅人的不踩雷指南。
+      </p>
+
+      <!-- 2. 5 大情境分類切換膠囊 (Category Tabs) -->
+      <div class="ranking-category-capsules" id="category-capsules-bar">
+        <button class="cat-capsule-btn active" data-scenario="all" onclick="switchScenario('all')">
+          全部 All <span class="count-badge">17</span>
+        </button>
+        <button class="cat-capsule-btn" data-scenario="food" onclick="switchScenario('food')">
+          🍽️ 美食飲品 <span class="count-badge">6</span>
+        </button>
+        <button class="cat-capsule-btn" data-scenario="activity" onclick="switchScenario('activity')">
+          🏞️ 景點活動 <span class="count-badge">6</span>
+        </button>
+        <button class="cat-capsule-btn" data-scenario="transport_stay" onclick="switchScenario('transport_stay')">
+          🚗 交通旅宿 <span class="count-badge">4</span>
+        </button>
+        <button class="cat-capsule-btn" data-scenario="shopping" onclick="switchScenario('shopping')">
+          🛍️ 購物採購 <span class="count-badge">1</span>
+        </button>
       </div>
 
-      <!-- 3D 拱形輪播舞台 (Arc Orbit Stage & Center Hero Visual) -->
+      <!-- 3. 3D 拱形輪播舞台 (Arc Orbit Stage & Center Hero Visual) -->
       <div class="ranking-arc-stage-wrap" id="ranking-arc-stage">
         <!-- 背景大浮水印 -->
-        <div class="ranking-stage-watermark" id="ranking-watermark">BOBA TEA</div>
+        <div class="ranking-stage-watermark" id="ranking-watermark">BOBA & TEA</div>
 
-        <!-- 拱形軌道與 9 個分類小圖方塊 (由 JS 計算半圓坐標動態生成) -->
+        <!-- 拱形軌道與小圖方塊 (由 JS 計算半圓坐標動態生成) -->
         <div class="ranking-arc-track" id="ranking-arc-track"></div>
 
         <!-- 浮動作用標籤 (Tooltip Pill) -->
         <div class="ranking-arc-tooltip-pill" id="ranking-arc-tooltip">
-          🧋 台灣人氣手搖飲 Top 20
+          🧋 必喝手搖飲 Top 20
         </div>
 
         <!-- 左右切換按鈕 -->
-        <button class="ranking-arc-arrow-btn prev-btn" onclick="navigateRankingCategory(-1)" title="切換上一個分類" aria-label="上一個分類">‹</button>
-        <button class="ranking-arc-arrow-btn next-btn" onclick="navigateRankingCategory(1)" title="切換下一個分類" aria-label="下一個分類">›</button>
+        <button class="ranking-arc-arrow-btn prev-btn" onclick="navigateRankingTopic(-1)" title="切換上一個榜單" aria-label="上一個榜單">‹</button>
+        <button class="ranking-arc-arrow-btn next-btn" onclick="navigateRankingTopic(1)" title="切換下一個榜單" aria-label="下一個榜單">›</button>
 
         <!-- 中央主視覺特寫 (Center Hero Visual) -->
         <div class="ranking-center-hero-container">
@@ -131,22 +170,14 @@
       </div>
 
       <!-- 即時關鍵字搜尋框 -->
-      <div style="max-width: 540px; margin: 18px auto 0 auto; position: relative; z-index: 10;">
-        <input type="text" id="ranking-search-input" placeholder="🔍 搜尋排行榜名店、景點名稱、推薦品項或關鍵字..." 
-          style="width: 100%; padding: 13px 22px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.12); color: #FFFFFF; font-size: 14px; backdrop-filter: blur(10px); outline: none;">
+      <div style="max-width: 560px; margin: 18px auto 0 auto; position: relative; z-index: 10;">
+        <input type="text" id="ranking-search-input" placeholder="🔍 搜尋排行榜名店、英文名稱、推薦品項、外國人標籤..." 
+          style="width: 100%; padding: 13px 22px; border-radius: 9999px; border: 1.5px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.12); color: #FFFFFF; font-size: 14px; backdrop-filter: blur(10px); outline: none;">
       </div>
 
-      <!-- 9 大排行分頁標籤按鈕 (Category Tabs) -->
-      <div id="ranking-tabs-row" style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 22px; position: relative; z-index: 10;">
-        <button class="ranking-tab-pill active" data-tab="drinks" onclick="changeRankingCategory('drinks')">🧋 手搖店 20 家</button>
-        <button class="ranking-tab-pill" data-tab="spots" onclick="changeRankingCategory('spots')">🏆 熱門訂閱景點 20</button>
-        <button class="ranking-tab-pill" data-tab="cafe" onclick="changeRankingCategory('cafe')">☕ 咖啡店排行 20</button>
-        <button class="ranking-tab-pill" data-tab="walk" onclick="changeRankingCategory('walk')">🚶 文青散步散策 20</button>
-        <button class="ranking-tab-pill" data-tab="charter" onclick="changeRankingCategory('charter')">🚗 包車景點推薦 10</button>
-        <button class="ranking-tab-pill" data-tab="events" onclick="changeRankingCategory('events')">🎪 最新活動推薦 10</button>
-        <button class="ranking-tab-pill" data-tab="rainy" onclick="changeRankingCategory('rainy')">🌧️ 雨天活動排行 10</button>
-        <button class="ranking-tab-pill" data-tab="family" onclick="changeRankingCategory('family')">👶 親子景點 20</button>
-        <button class="ranking-tab-pill" data-tab="mall" onclick="changeRankingCategory('mall')">🛍️ 百貨公司 10</button>
+      <!-- 17 大排行主題標籤按鈕列 (Topic Pills) -->
+      <div id="ranking-tabs-row" style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 20px; position: relative; z-index: 10; max-width: 980px; margin-left: auto; margin-right: auto;">
+        <!-- 由 JS 動態生成 -->
       </div>
 
     </div>
@@ -157,12 +188,20 @@
     <div class="container">
       
       <!-- 頂部資訊與每頁筆數設定 -->
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 14px;">
         <div>
-          <h2 id="ranking-category-title" style="font-size: 22px; font-weight: 900; color: #0F172A; margin-bottom: 4px;">
-            🧋 台灣人氣手搖飲 Top 20 排行榜
-          </h2>
-          <span id="ranking-page-info" style="font-size: 13px; color: #64748B;">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span id="ranking-scenario-badge" style="font-size: 11.5px; font-weight: 800; background: #0284C7; color: #FFFFFF; padding: 2px 8px; border-radius: 6px;">
+              🍽️ 美食飲品
+            </span>
+            <h2 id="ranking-category-title" style="font-size: 22px; font-weight: 900; color: #0F172A; margin: 0;">
+              🧋 台灣必喝手搖飲 Top 20
+            </h2>
+          </div>
+          <div id="ranking-en-title" style="font-size: 13px; color: #64748B; font-weight: 600; margin-bottom: 4px;">
+            Must-Drink Taiwanese Boba & Tea Brands Top 20
+          </div>
+          <span id="ranking-page-info" style="font-size: 12.5px; color: #475569;">
             顯示第 1 - 8 筆，共 20 筆資料
           </span>
         </div>
@@ -173,7 +212,7 @@
             <option value="6">每頁 6 筆</option>
             <option value="8" selected>每頁 8 筆</option>
             <option value="12">每頁 12 筆</option>
-            <option value="999">全部顯示</option>
+            <option value="999">全部顯示 (All)</option>
           </select>
         </div>
       </div>
@@ -199,7 +238,7 @@
           <img src="assets/taiwan_roam_logo.png" alt="台灣吃喝玩樂 TAIWAN ROAM" class="brand-logo-img" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
           <div class="brand-text-block">
             <div class="brand-name">台灣吃喝玩樂 TAIWAN ROAM</div>
-            <span class="brand-subtext">人氣排行榜 · TOP RANKINGS</span>
+            <span class="brand-subtext">權威排行榜 · TAIWAN RANKINGS HUB</span>
           </div>
         </div>
         <div class="footer-contact">
@@ -208,135 +247,75 @@
       </div>
       <div class="footer-bottom-row">
         <div>© 2026 台灣吃喝玩樂 HiMyDream Studio. All Rights Reserved.</div>
-        <div>全台 9 大排行 140 筆項目獨立分頁展示 · 支援即時關鍵字查詢</div>
+        <div>全台 17 大權威指標排行榜 · 300 筆不踩雷名店與行程推薦</div>
       </div>
     </div>
   </footer>
 
   <script src="js/affiliate.js"></script>
-  <script src="js/data.js"></script>
+  <script src="js/rankings_full_data.js"></script>
   <script>
-    let currentCategory = "drinks";
+    let currentScenario = "all";
+    let currentTopicId = "drinks";
     let currentPage = 1;
     let pageSize = 8;
     let searchKeyword = "";
 
-    const CATEGORIES_LIST = ["drinks", "spots", "cafe", "walk", "charter", "events", "rainy", "family", "mall"];
-
-    const CATEGORY_CONFIG = {
-      drinks: {
-        name: "🧋 台灣人氣手搖飲 Top 20 排行榜",
-        shortName: "手搖飲",
-        badge: "🧋 手搖店排行 20 家",
-        color: "#F5B592",
-        icon: "🧋",
-        watermark: "BOBA TEA",
-        heroImg: "https://images.unsplash.com/photo-1558857563-b37cf5a452ef?w=800&auto=format&fit=crop",
-        heroAlt: "台灣人氣手搖飲珍珠奶茶",
-        desc: "全網訂購大數據：黑糖波霸鮮奶、鮮果茶與原茶冠軍全收錄"
-      },
-      spots: {
-        name: "🏆 台灣熱門訂閱必訪景點 Top 20 排行榜",
-        shortName: "熱門景點",
-        badge: "🏆 熱門訂閱景點 20 家",
-        color: "#B8C56A",
-        icon: "🏆",
-        watermark: "TAIWAN SPOTS",
-        heroImg: "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=800&auto=format&fit=crop",
-        heroAlt: "台北 101 高空地標景觀",
-        desc: "國內外旅人必訪：指標名勝、國家公園與奇岩壯景"
-      },
-      cafe: {
-        name: "☕ 全台風格咖啡名店點閱 Top 20 排行榜",
-        shortName: "風格咖啡",
-        badge: "☕ 咖啡店排行 20 家",
-        color: "#A77353",
-        icon: "☕",
-        watermark: "SPECIALTY COFFEE",
-        heroImg: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&auto=format&fit=crop",
-        heroAlt: "風格精品手沖拉花咖啡",
-        desc: "世界冠軍得獎店、老宅天井、昭和喫茶與山海絕景咖啡"
-      },
-      walk: {
-        name: "🚶 文青漫步散策路線 Top 20 排行榜",
-        shortName: "文青散步",
-        badge: "🚶 文青散步散策 20 家",
-        color: "#E2C8A5",
-        icon: "🚶",
-        watermark: "CITY WALK",
-        heroImg: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&auto=format&fit=crop",
-        heroAlt: "文青散步老街巷弄相機",
-        desc: "漫遊老街町、獨立選物、昭和老宅與深度生活美學"
-      },
-      charter: {
-        name: "🚗 私人包車自由行景點推薦 Top 10 排行榜",
-        shortName: "包車推薦",
-        badge: "🚗 包車景點推薦 10 家",
-        color: "#9AC1DC",
-        icon: "🚗",
-        watermark: "PRIVATE CHARTER",
-        heroImg: "assets/sun_moon_lake_tour.png",
-        heroAlt: "風景公路包車自由行",
-        desc: "專車免轉車直達：九份野柳、太魯閣與阿里山經典行程"
-      },
-      events: {
-        name: "🎪 全台最新季節熱門活動 Top 10 排行榜",
-        shortName: "最新活動",
-        badge: "🎪 最新活動推薦 10 家",
-        color: "#ED9155",
-        icon: "🎪",
-        watermark: "LIVE FESTIVALS",
-        heroImg: "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?w=800&auto=format&fit=crop",
-        heroAlt: "熱氣球嘉年華與狂歡盛典",
-        desc: "大港開唱、熱氣球嘉年華、新北耶誕城與平溪天燈節"
-      },
-      rainy: {
-        name: "🌧️ 雨天室內好去處推薦 Top 10 排行榜",
-        shortName: "雨天活動",
-        badge: "🌧️ 雨天活動排行 10 家",
-        color: "#7DB0C8",
-        icon: "🌧️",
-        watermark: "RAINY DAYS",
-        heroImg: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=800&auto=format&fit=crop",
-        heroAlt: "奇美博物館與室內水族館",
-        desc: "陰雨天免淋雨：純白宮殿博物館、巨型海生館與沉浸式互動"
-      },
-      family: {
-        name: "👶 全台人氣親子景點 Top 20 排行榜",
-        shortName: "親子景點",
-        badge: "👶 親子景點 20 家",
-        color: "#F3A87D",
-        icon: "👶",
-        watermark: "FAMILY FUN",
-        heroImg: "https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?w=800&auto=format&fit=crop",
-        heroAlt: "親子遊樂園摩天輪與動物園",
-        desc: "全家放電首選：木柵動物園、海生館、兒童新樂園與熊猴森樂園"
-      },
-      mall: {
-        name: "🛍️ 全台指標百貨商場 Top 10 排行榜",
-        shortName: "百貨公司",
-        badge: "🛍️ 百貨公司 10 家",
-        color: "#A37E67",
-        icon: "🛍️",
-        watermark: "SHOPPING MALL",
-        heroImg: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&auto=format&fit=crop",
-        heroAlt: "時尚奢華精品百貨商場",
-        desc: "都會旗艦購物：台北101、新光三越、SOGO、台中大遠百與漢神巨蛋"
-      }
-    };
-
     document.addEventListener("DOMContentLoaded", () => {
-      // Check URL query parameters (e.g. ?cat=cafe)
+      // Check URL query parameters (e.g. ?cat=drinks or ?topic=nightmarket or ?scenario=food)
       const urlParams = new URLSearchParams(window.location.search);
-      const catParam = urlParams.get("cat");
-      if (catParam && CATEGORY_CONFIG[catParam]) {
-        currentCategory = catParam;
+      const scenarioParam = urlParams.get("scenario");
+      const topicParam = urlParams.get("topic") || urlParams.get("cat");
+
+      if (scenarioParam && ["all", "food", "activity", "transport_stay", "shopping"].includes(scenarioParam)) {
+        currentScenario = scenarioParam;
+      }
+
+      if (topicParam && typeof RANKINGS_TOPICS_META !== "undefined" && RANKINGS_TOPICS_META.some(t => t.id === topicParam)) {
+        currentTopicId = topicParam;
+        const topicMeta = RANKINGS_TOPICS_META.find(t => t.id === currentTopicId);
+        if (topicMeta && currentScenario !== "all" && topicMeta.category !== currentScenario) {
+          currentScenario = "all";
+        }
+      }
+
+      setupSearch();
+      renderScenarioBar();
+      initArcStage();
+      renderTopicPills();
+      updateTopicView(currentTopicId);
+    });
+
+    // 取得當前情境分類下的所有主題
+    function getTopicsForScenario(scenario) {
+      if (typeof RANKINGS_TOPICS_META === "undefined") return [];
+      if (scenario === "all") return RANKINGS_TOPICS_META;
+      return RANKINGS_TOPICS_META.filter(t => t.category === scenario);
+    }
+
+    // 切換 5 大情境膠囊
+    function switchScenario(scenario) {
+      currentScenario = scenario;
+      renderScenarioBar();
+      
+      const scenarioTopics = getTopicsForScenario(scenario);
+      // 若當前選中的主題不在新情境內，自動切換至新情境的第一個主題
+      if (!scenarioTopics.some(t => t.id === currentTopicId)) {
+        if (scenarioTopics.length > 0) {
+          currentTopicId = scenarioTopics[0].id;
+        }
       }
 
       initArcStage();
-      setupSearch();
-      changeRankingCategory(currentCategory);
-    });
+      renderTopicPills();
+      updateTopicView(currentTopicId);
+    }
+
+    function renderScenarioBar() {
+      document.querySelectorAll("#category-capsules-bar .cat-capsule-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.scenario === currentScenario);
+      });
+    }
 
     // 初始化 3D 拱形輪播舞台半圓坐標軌道
     function initArcStage() {
@@ -344,47 +323,74 @@
       if (!track) return;
       track.innerHTML = "";
 
+      const topics = getTopicsForScenario(currentScenario);
+      const total = topics.length;
+      if (total === 0) return;
+
       // 拱形橢圓半徑與中心點設定 (舞台寬高 820 x 380)
       const cx = 410;
       const cy = 300;
       const rx = 340;
       const ry = 175;
-      const total = CATEGORIES_LIST.length;
 
-      CATEGORIES_LIST.forEach((catKey, index) => {
-        const conf = CATEGORY_CONFIG[catKey];
-        // 角度從 172° (左下) 對稱分布至 8° (右下)
-        const deg = 172 - ((172 - 8) / (total - 1)) * index;
+      topics.forEach((t, index) => {
+        let deg = 90;
+        if (total > 1) {
+          deg = 172 - ((172 - 8) / (total - 1)) * index;
+        }
         const rad = deg * (Math.PI / 180);
         const x = cx + rx * Math.cos(rad);
         const y = cy - ry * Math.sin(rad);
 
         const tile = document.createElement("div");
-        tile.className = `ranking-arc-tile ${catKey === currentCategory ? 'active' : ''}`;
-        tile.dataset.cat = catKey;
+        tile.className = `ranking-arc-tile ${t.id === currentTopicId ? 'active' : ''}`;
+        tile.dataset.topic = t.id;
         tile.style.left = `${x}px`;
         tile.style.top = `${y}px`;
-        tile.style.background = conf.color;
-        tile.title = conf.name;
+        tile.style.background = t.color;
+        tile.title = t.title;
         tile.innerHTML = `
-          <span class="tile-icon">${conf.icon}</span>
-          <span class="tile-label">${conf.shortName}</span>
+          <span class="tile-icon">${t.icon}</span>
+          <span class="tile-label">${t.shortName}</span>
         `;
-        tile.onclick = () => changeRankingCategory(catKey);
+        tile.onclick = () => selectTopic(t.id);
 
         track.appendChild(tile);
       });
     }
 
+    // 渲染下方主題按鈕膠囊列
+    function renderTopicPills() {
+      const row = document.getElementById("ranking-tabs-row");
+      if (!row) return;
+
+      const topics = getTopicsForScenario(currentScenario);
+      row.innerHTML = topics.map(t => `
+        <button class="ranking-tab-pill ${t.id === currentTopicId ? 'active' : ''}" 
+                data-topic="${t.id}" 
+                onclick="selectTopic('${t.id}')">
+          ${t.icon} ${t.shortName}
+        </button>
+      `).join("");
+    }
+
+    function selectTopic(topicId) {
+      currentTopicId = topicId;
+      currentPage = 1;
+      updateTopicView(topicId);
+      renderTopicPills();
+    }
+
     // 更新 3D 拱形舞台的主視覺、Tooltip 與選中狀態
-    function updateArcStageVisuals(catKey) {
-      const conf = CATEGORY_CONFIG[catKey] || CATEGORY_CONFIG.drinks;
+    function updateTopicView(topicId) {
+      if (typeof RANKINGS_TOPICS_META === "undefined") return;
+      const meta = RANKINGS_TOPICS_META.find(t => t.id === topicId) || RANKINGS_TOPICS_META[0];
 
       // 1. 更新小圖方塊 active 樣式
       const tiles = document.querySelectorAll(".ranking-arc-tile");
       let activeTile = null;
       tiles.forEach(tile => {
-        const isActive = tile.dataset.cat === catKey;
+        const isActive = tile.dataset.topic === topicId;
         tile.classList.toggle("active", isActive);
         if (isActive) activeTile = tile;
       });
@@ -394,7 +400,7 @@
       if (tooltip && activeTile) {
         tooltip.style.left = activeTile.style.left;
         tooltip.style.top = activeTile.style.top;
-        tooltip.innerHTML = conf.badge;
+        tooltip.innerHTML = meta.badge;
       }
 
       // 3. 更新背景淡雅大文字浮水印
@@ -402,7 +408,7 @@
       if (watermark) {
         watermark.style.opacity = "0";
         setTimeout(() => {
-          watermark.textContent = conf.watermark;
+          watermark.textContent = meta.watermark;
           watermark.style.opacity = "0.05";
         }, 150);
       }
@@ -413,21 +419,25 @@
       if (heroImg && heroCard) {
         heroCard.classList.remove("ranking-hero-pop");
         void heroCard.offsetWidth; // 強制重排以重新觸發動畫
-        heroImg.src = conf.heroImg;
-        heroImg.alt = conf.heroAlt;
+        heroImg.src = meta.heroImg;
+        heroImg.alt = meta.heroAlt;
         heroCard.classList.add("ranking-hero-pop");
       }
+
+      // 5. 渲染下方列表與標題
+      renderRankingsPage();
     }
 
     // 左右導航按鈕切換
-    function navigateRankingCategory(direction) {
-      const currentIndex = CATEGORIES_LIST.indexOf(currentCategory);
+    function navigateRankingTopic(direction) {
+      const topics = getTopicsForScenario(currentScenario);
+      if (topics.length === 0) return;
+      const currentIndex = topics.findIndex(t => t.id === currentTopicId);
       if (currentIndex === -1) return;
-      const nextIndex = (currentIndex + direction + CATEGORIES_LIST.length) % CATEGORIES_LIST.length;
-      changeRankingCategory(CATEGORIES_LIST[nextIndex]);
+      const nextIndex = (currentIndex + direction + topics.length) % topics.length;
+      selectTopic(topics[nextIndex].id);
     }
 
-    // 快速滾動至卡片清單
     function scrollToList() {
       const el = document.getElementById("ranking-category-title");
       if (el) {
@@ -445,25 +455,6 @@
       });
     }
 
-    function changeRankingCategory(cat) {
-      if (!CATEGORY_CONFIG[cat]) return;
-      currentCategory = cat;
-      currentPage = 1;
-
-      // 同步下方按鈕列
-      updateTabButtons();
-      // 同步 3D 拱形輪播舞台與 Hero 視覺
-      updateArcStageVisuals(cat);
-      // 渲染下方列表
-      renderRankingsPage();
-    }
-
-    function updateTabButtons() {
-      document.querySelectorAll("#ranking-tabs-row .ranking-tab-pill").forEach(btn => {
-        btn.classList.toggle("active", btn.dataset.tab === currentCategory);
-      });
-    }
-
     function changePageSize(size) {
       pageSize = parseInt(size, 10);
       currentPage = 1;
@@ -476,29 +467,68 @@
       scrollToList();
     }
 
+    // 依據主題與項目生成專屬高轉化 CTA 按鈕
+    function generateCtaButton(item, meta) {
+      const ctaType = item.ctaType || meta.ctaType || "klook";
+      const name = item.name;
+
+      if (ctaType === "souvenir") {
+        const url = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSouvenirUrl() : "souvenir.html";
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-souvenir-cta">🛍️ 免提直寄飯店代收 ➔</a>`;
+      }
+      if (ctaType === "drugstore") {
+        const url = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getDrugstoreUrl() : "#";
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-souvenir-cta">💄 藥妝線上直購 ➔</a>`;
+      }
+      if (ctaType === "dining") {
+        const url = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getDiningUrl() : "#";
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-dining-cta">🍽️ 訂餐搶位 / 領優惠 ➔</a>`;
+      }
+      if (ctaType === "trip") {
+        const url = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getTripSearchUrl(name) : "#";
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-trip-cta">🏨 Trip.com 即時比價 ➔</a>`;
+      }
+      if (ctaType === "owlting") {
+        const url = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getOwltingUrl() : "#";
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-owlting-cta">🍵 奧丁丁採茶體驗 ➔</a>`;
+      }
+      if (ctaType === "map") {
+        const url = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(name) : `https://maps.google.com/?q=${encodeURIComponent(name)}`;
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-trip-cta">🧭 立即導航探索 ➔</a>`;
+      }
+
+      // Default to Klook
+      const url = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSearchUrl(name) : "#";
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-klook-cta">⚡ Klook 快速預約 ➔</a>`;
+    }
+
     function renderRankingsPage() {
       const grid = document.getElementById("ranking-cards-grid");
       const pageInfo = document.getElementById("ranking-page-info");
       const titleEl = document.getElementById("ranking-category-title");
+      const enTitleEl = document.getElementById("ranking-en-title");
+      const scenarioBadge = document.getElementById("ranking-scenario-badge");
       const paginContainer = document.getElementById("pagination-controls");
 
-      if (!grid || typeof RANKINGS_DATA === "undefined") return;
+      if (!grid || typeof RANKINGS_FULL_DATA === "undefined" || typeof RANKINGS_TOPICS_META === "undefined") return;
 
-      const conf = CATEGORY_CONFIG[currentCategory] || CATEGORY_CONFIG.drinks;
-      if (titleEl) {
-        titleEl.textContent = conf.name;
-      }
+      const meta = RANKINGS_TOPICS_META.find(t => t.id === currentTopicId) || RANKINGS_TOPICS_META[0];
+      if (titleEl) titleEl.textContent = meta.title;
+      if (enTitleEl) enTitleEl.textContent = meta.enTitle;
+      if (scenarioBadge) scenarioBadge.textContent = meta.categoryName;
 
-      const allItems = RANKINGS_DATA[currentCategory] || [];
+      const allItems = RANKINGS_FULL_DATA[currentTopicId] || [];
       
-      // Filter by keyword
+      // Filter by keyword across name, enName, city, tag, highlight, desc
       const filtered = allItems.filter(item => {
         if (!searchKeyword) return true;
         const name = (item.name || "").toLowerCase();
-        const city = (item.city || item.loc || "").toLowerCase();
-        const rec = (item.signature || item.features || item.desc || item.highlight || "").toLowerCase();
-        const tag = (item.category || item.tag || item.indoor || "").toLowerCase();
-        return name.includes(searchKeyword) || city.includes(searchKeyword) || rec.includes(searchKeyword) || tag.includes(searchKeyword);
+        const enName = (item.enName || "").toLowerCase();
+        const city = (item.city || "").toLowerCase();
+        const tag = (item.tag || "").toLowerCase();
+        const highlight = (item.highlight || "").toLowerCase();
+        const desc = (item.desc || "").toLowerCase();
+        return name.includes(searchKeyword) || enName.includes(searchKeyword) || city.includes(searchKeyword) || tag.includes(searchKeyword) || highlight.includes(searchKeyword) || desc.includes(searchKeyword);
       });
 
       const totalItems = filtered.length;
@@ -511,9 +541,9 @@
 
       if (pageInfo) {
         if (totalItems === 0) {
-          pageInfo.textContent = `共 0 筆資料`;
+          pageInfo.textContent = `共 0 筆符合資料`;
         } else {
-          pageInfo.textContent = `顯示第 ${startIndex + 1} - ${endIndex} 筆，共 ${totalItems} 筆資料（第 ${currentPage} / ${totalPages} 頁）· ${conf.desc}`;
+          pageInfo.textContent = `顯示第 ${startIndex + 1} - ${endIndex} 筆，共 ${totalItems} 筆資料（第 ${currentPage} / ${totalPages} 頁）· ${meta.desc}`;
         }
       }
 
@@ -522,7 +552,7 @@
           <div style="grid-column: 1/-1; padding: 60px 20px; text-align: center; color: #64748B; background: #FFFFFF; border-radius: 18px; border: 1px dashed #CBD5E1;">
             <div style="font-size: 40px; margin-bottom: 10px;">🔍</div>
             <div style="font-size: 18px; font-weight: 800; color: #0F172A;">找不到符合搜尋條件的排行榜項目</div>
-            <p style="margin-top: 6px; font-size: 13px;">請嘗試更換關鍵字或切換其他排行榜分類！</p>
+            <p style="margin-top: 6px; font-size: 13px;">請嘗試更換關鍵字或切換其他排行榜主題！</p>
           </div>
         `;
         if (paginContainer) paginContainer.innerHTML = "";
@@ -531,73 +561,79 @@
 
       // Render cards
       grid.innerHTML = pageItems.map(item => {
-        const medalColor = item.rank === 1 ? "#F59E0B" : item.rank === 2 ? "#94A3B8" : item.rank === 3 ? "#D97706" : "#475569";
-        const medalBg = item.rank === 1 ? "#FEF3C7" : item.rank === 2 ? "#F1F5F9" : item.rank === 3 ? "#FFEDD5" : "#F8FAFC";
-        
-        const mapUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(item.name) : `https://maps.google.com/?q=${encodeURIComponent(item.name)}`;
-        const klookUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSearchUrl(item.name) : "#";
-
-        let recText = "";
-        if (item.signature) {
-          recText = `招牌必點：<strong>${item.signature}</strong>`;
-        } else if (item.drinks && item.drinks.length > 0) {
-          recText = `必喝推薦：<strong>${item.drinks.join('、')}</strong>`;
-        } else if (item.features) {
-          recText = item.features;
-        } else if (item.desc) {
-          recText = item.desc;
-        } else if (item.highlight) {
-          recText = item.highlight;
+        // Rank Badge: Top 1~3 Gold, Silver, Bronze. 4~20 Ocean Blue.
+        let badgeClass = "rank-badge-blue";
+        let badgeText = `#${item.rank}`;
+        if (item.rank === 1) {
+          badgeClass = "rank-badge-gold";
+          badgeText = `🥇 1`;
+        } else if (item.rank === 2) {
+          badgeClass = "rank-badge-silver";
+          badgeText = `🥈 2`;
+        } else if (item.rank === 3) {
+          badgeClass = "rank-badge-bronze";
+          badgeText = `🥉 3`;
         }
 
-        const tagText = item.tag || item.indoor || item.trips || item.sugarIce || (item.category ? `分類：${item.category}` : "");
-        const priceOrRate = item.ticket || item.price || item.views || (item.sugarIce ? `建議：${item.sugarIce}` : "");
-        const cardImg = item.img || conf.heroImg;
+        const mapUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(item.name) : `https://maps.google.com/?q=${encodeURIComponent(item.name)}`;
+        const ctaBtnHtml = generateCtaButton(item, meta);
+        const cardImg = item.img || meta.heroImg;
 
         return `
-          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.04); transition: transform 0.2s, box-shadow 0.2s;">
+          <div class="rank-card-wrap">
             <div style="display: flex; gap: 16px; padding: 18px; flex: 1;">
-              <!-- 圖片 -->
-              <div style="width: 130px; height: 130px; border-radius: 14px; overflow: hidden; flex-shrink: 0; position: relative; background: #F1F5F9;">
-                <img src="${cardImg}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" onerror="this.src='${conf.heroImg}'">
-                <span style="position: absolute; top: 6px; left: 6px; background: ${medalBg}; color: ${medalColor}; font-size: 11px; font-weight: 900; padding: 2px 7px; border-radius: 6px; border: 1px solid ${medalColor}40;">
-                  #${item.rank}
-                </span>
+              <!-- 1:1 縮圖與立體圓形排名徽章 -->
+              <div style="width: 135px; height: 135px; border-radius: 16px; overflow: hidden; flex-shrink: 0; position: relative; background: #F1F5F9;">
+                <img src="${cardImg}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" onerror="this.src='${meta.heroImg}'">
+                <div class="rank-badge-circle ${badgeClass}">
+                  ${badgeText}
+                </div>
               </div>
 
-              <!-- 資訊 -->
+              <!-- 資訊內文區 -->
               <div style="display: flex; flex-direction: column; flex: 1; min-width: 0;">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 4px;">
                   <span style="font-size: 11px; font-weight: 800; color: #0284C7; background: #E0F2FE; padding: 2px 8px; border-radius: 6px;">
-                    ${item.city || item.loc || item.category || "全台"}
+                    ${item.city || "全台各縣市"}
                   </span>
                   <span style="font-size: 12px; font-weight: 800; color: #D97706;">
-                    ★ ${item.rating || item.rate || "4.9★"}
+                    ★ ${item.rating || "4.9★"}
                   </span>
                 </div>
 
-                <h3 style="font-size: 17px; font-weight: 800; color: #0F172A; line-height: 1.35; margin-bottom: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${item.name}">
+                <!-- 雙語名稱 (中文全名 + 英文/日文) -->
+                <h3 style="font-size: 17px; font-weight: 900; color: #0F172A; line-height: 1.3; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${item.name}">
                   ${item.name}
                 </h3>
+                <div style="font-size: 12px; font-family: 'DM Sans', sans-serif; color: #64748B; font-weight: 600; margin-bottom: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                  ${item.enName || ""}
+                </div>
 
-                <p style="font-size: 12px; color: #475569; line-height: 1.5; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
-                  ${recText}
+                <!-- 外國人痛點小標籤 & 特色亮點 -->
+                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px;">
+                  ${item.tag ? `<span class="painpoint-tag">📌 ${item.tag}</span>` : ''}
+                </div>
+
+                <div class="highlight-pill">
+                  ⭐ ${item.highlight || item.desc}
+                </div>
+
+                <p style="font-size: 12px; color: #475569; line-height: 1.45; margin-bottom: 6px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                  ${item.desc || ""}
                 </p>
 
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; font-size: 12px;">
-                  <span style="font-weight: 700; color: #0F172A;">${priceOrRate}</span>
-                  <span style="color: #64748B; font-size: 11px; max-width: 160px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${tagText}</span>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; font-size: 11.5px; font-weight: 700; color: #0F172A;">
+                  <span>${item.price || "入園/消費依現場為準"}</span>
+                  <span style="color: #64748B; font-weight: 500;">Rank #${item.rank}</span>
                 </div>
               </div>
             </div>
 
-            <!-- 卡片底層操作按鈕 -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px 18px; background: #F8FAFC; border-top: 1px solid #F1F5F9;">
-              <a href="${klookUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="text-align: center; padding: 7px; font-size: 11px; text-decoration: none;">
-                🎫 預約行程
-              </a>
-              <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="text-align: center; padding: 7px; font-size: 11px; text-decoration: none;">
-                🧭 地圖導航
+            <!-- 卡片底層專屬雙按鈕 (直達專屬 CTA + Google Maps 導航) -->
+            <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 8px; padding: 10px 18px; background: #F8FAFC; border-top: 1px solid #F1F5F9;">
+              ${ctaBtnHtml}
+              <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-map-guide">
+                🧭 Google 導航
               </a>
             </div>
           </div>

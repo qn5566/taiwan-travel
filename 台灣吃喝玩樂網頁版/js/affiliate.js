@@ -74,6 +74,16 @@ const AFFILIATE_HUB = {
     return `https://www.klook.com/zh-TW/activity/${activityIdOrPath}/?aid=${this.klookAid}`;
   },
 
+  /** Klook 關鍵字搜尋預約 */
+  getSearchUrl: function(keyword = "") {
+    return `https://www.klook.com/zh-TW/search/result/?keyword=${encodeURIComponent(keyword)}&aid=${this.klookAid}`;
+  },
+
+  /** Trip.com 飯店/溫泉搜尋比價 */
+  getTripSearchUrl: function(keyword = "") {
+    return `https://tw.trip.com/hotels/list?keyword=${encodeURIComponent(keyword)}&Allianceid=${this.tripAllianceId}&SID=${this.tripSid}&trip_sub1=&trip_sub3=${this.tripSub3}`;
+  },
+
   /** 2. 包車 / 包車預約 (Klook) */
   getCharterUrl: function(city = "") {
     return `https://www.klook.com/zh-TW/car-rentals/?aid=${this.klookAid}`;
