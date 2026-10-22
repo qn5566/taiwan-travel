@@ -6045,6 +6045,96 @@ body.bg-theme-roadtrip .deck-display-zh {
   transform: translateY(-1px);
 }
 
+.glass-subtopic-btn .subtopic-en {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  opacity: 0.82;
+  margin-left: 2px;
+}
+
+.glass-subtopic-btn.active .subtopic-en {
+  opacity: 0.95;
+  color: #0F172A;
+}
+
+.ranking-arc-tile .tile-en {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  opacity: 0.88;
+  line-height: 1.1;
+  margin-top: 1px;
+}
+
+/* =========================================================
+   🔥 首頁 12 款精選功能中英對照快捷列 (12 Curated Features)
+   ========================================================= */
+.hero-curated-12-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0 16px 0;
+  overflow-x: auto;
+  padding: 4px 2px;
+  scrollbar-width: none;
+}
+.hero-curated-12-wrap::-webkit-scrollbar {
+  display: none;
+}
+.hero-curated-12-label {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0284C7;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.hero-curated-12-scroll {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.hero-curated-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 13px;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 9999px;
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #1E293B;
+  white-space: nowrap;
+  transition: all 0.22s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+.hero-curated-pill:hover {
+  transform: translateY(-2px);
+  background: #FFFFFF;
+  border-color: #0284C7;
+  color: #0284C7;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.18);
+}
+.hero-curated-pill .curated-en {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #64748B;
+  background: rgba(241, 245, 249, 0.85);
+  padding: 1px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.2px;
+}
+.hero-curated-pill:hover .curated-en {
+  color: #0284C7;
+  background: #E0F2FE;
+}
+
 /* =======================================================
    名次星星徽章 (Cute Star Rank Badge with Number Overlay)
    ======================================================= */

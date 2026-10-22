@@ -178,16 +178,16 @@
         <!-- 第一排：5 大情境分類透明膠囊按鈕 (Row 1: Major Category Tabs) -->
         <div class="ranking-category-row" id="category-capsules-bar">
           <button class="glass-cat-btn active" data-scenario="all" onclick="switchScenario('all')">
-            全部 All <span class="glass-count-badge">17</span>
+            全部 All <span class="glass-count-badge">12</span>
           </button>
           <button class="glass-cat-btn" data-scenario="food" onclick="switchScenario('food')">
-            🍽️ 美食飲品 <span class="glass-count-badge">6</span>
+            🍽️ 美食飲品 <span class="glass-count-badge">5</span>
           </button>
           <button class="glass-cat-btn" data-scenario="activity" onclick="switchScenario('activity')">
-            🏞️ 景點活動 <span class="glass-count-badge">6</span>
+            🏞️ 景點活動 <span class="glass-count-badge">3</span>
           </button>
           <button class="glass-cat-btn" data-scenario="transport_stay" onclick="switchScenario('transport_stay')">
-            🚗 交通旅宿 <span class="glass-count-badge">4</span>
+            🚗 交通旅宿 <span class="glass-count-badge">3</span>
           </button>
           <button class="glass-cat-btn" data-scenario="shopping" onclick="switchScenario('shopping')">
             🛍️ 購物採購 <span class="glass-count-badge">1</span>
@@ -374,7 +374,7 @@
         tile.title = t.title;
         tile.innerHTML = `
           <span class="tile-icon">${t.icon}</span>
-          <span class="tile-label">${t.shortName}</span>
+          <span class="tile-label">${t.zhName || t.shortName}<span class="tile-en">${t.enShort || ''}</span></span>
         `;
         tile.onclick = () => selectTopic(t.id);
 
@@ -382,7 +382,7 @@
       });
     }
 
-    // 渲染下方主題按鈕膠囊列 (半透明風格)
+    // 渲染下方主題按鈕膠囊列 (半透明風格，中英文對照)
     function renderTopicPills() {
       const row = document.getElementById("ranking-tabs-row");
       if (!row) return;
@@ -392,7 +392,9 @@
         <button class="glass-subtopic-btn ${t.id === currentTopicId ? 'active' : ''}" 
                 data-topic="${t.id}" 
                 onclick="selectTopic('${t.id}')">
-          ${t.icon} ${t.shortName}
+          <span class="subtopic-icon">${t.icon}</span>
+          <span class="subtopic-zh">${t.zhName || t.shortName}</span>
+          <span class="subtopic-en">${t.enShort || ''}</span>
         </button>
       `).join("");
     }
@@ -423,7 +425,7 @@
       if (tooltip && activeTile) {
         tooltip.style.left = activeTile.style.left;
         tooltip.style.top = activeTile.style.top;
-        tooltip.innerHTML = meta.badge;
+        tooltip.innerHTML = `${meta.icon} ${meta.zhName || meta.shortName} <span style="font-weight: 600; font-size: 11px; opacity: 0.9;">${meta.enShort || ''}</span> <span style="font-size: 10.5px; opacity: 0.8; font-weight: normal; margin-left: 2px;">· ${meta.meaning || ''}</span>`;
       }
 
       // 3. 更新背景淡雅大文字浮水印
