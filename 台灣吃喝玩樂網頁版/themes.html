@@ -159,9 +159,12 @@
       <!-- 純文字主題標題展演（中文在上、英文在下，無邊框純文字） -->
       <div class="deck-typography-display" id="deck-theme-title-display"></div>
 
-      <!-- 快速切換主題膠囊按鈕列 -->
-      <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 14px;" id="theme-all-pills">
-        <!-- 由 JS 渲染膠囊按鈕 -->
+      <!-- 雙層透明毛玻璃主題與小分類篩選器 (Two-tier Glassmorphism Filter) -->
+      <div class="themes-filter-glass-panel">
+        <!-- 第一排：8 大核心主題透明膠囊按鈕 -->
+        <div class="themes-main-pills-row" id="theme-all-pills"></div>
+        <!-- 第二排：當前主題專屬之小分類透明標籤按鈕 -->
+        <div class="themes-sub-pills-row" id="theme-subcat-pills"></div>
       </div>
     </div>
   </section>
@@ -195,6 +198,7 @@
   <script>
     let currentThemeIndex = 0; // 當前選中主題索引 (0 ~ 7)
     let currentPlanIndex = 0;  // 當前選中行程天數索引 (0: 1日遊, 1: 2天1夜, 2: 3天2夜)
+    let currentSubCatId = "all"; // 當前選中小分類 (預設 'all' 全部景點)
 
     // 初始化頁面
     function initThemesPage() {
@@ -232,7 +236,7 @@
       });
 
       renderAllPills();
-      renderThemeMainContent(currentThemeIndex, 0);
+      renderThemeMainContent(currentThemeIndex, 0, currentSubCatId);
       updateThemeBackground(THEMES_COMPLETE_DATA[currentThemeIndex].id);
 
       // 監聽視窗縮放更新座標
@@ -258,7 +262,7 @@
             <img src="${t.deckBg}" alt="${t.name}" class="fan-card-bg-img" loading="lazy">
             <div class="fan-card-overlay"></div>
             
-            <!-- 頂部膠囊標籤 (如同 Wixel/Alba 範例圖) -->
+            <!-- 頂部膠囊標籤 -->
             <div class="fan-card-top-row">
               <span class="fan-card-pill">${t.icon} ${t.shortTitle}</span>
               <span class="fan-card-active-tag">✨ 當前主題</span>
@@ -312,32 +316,30 @@
       const isTablet = width > 640 && width <= 1024;
       const total = THEMES_COMPLETE_DATA.length; // 8
 
-      // 偶對稱中心軸 (Even Symmetry Axis): 18 張卡片的中心在 8.5
+      // 偶對稱中心軸 (Even Symmetry Axis)
       const centerAxis = (total - 1) / 2;
 
-      // 根據卡片總數動態計算展開步伐，確保在任何卡片數量下皆完美容納於舞台
-      let xSpacing = total > 10 ? 44 : 92;
-      let rotStep = total > 10 ? 2.4 : 4.8;
-      let archFactor = total > 10 ? 2.2 : 8.5;
-      let baseScale = total > 10 ? 0.95 : 0.98;
+      let xSpacing = 92;
+      let rotStep = 4.8;
+      let archFactor = 8.5;
+      let baseScale = 0.98;
 
       if (isTablet) {
-        xSpacing = total > 10 ? 34 : 72;
-        rotStep = total > 10 ? 1.9 : 4.0;
-        archFactor = total > 10 ? 1.8 : 6.6;
-        baseScale = total > 10 ? 0.88 : 0.92;
+        xSpacing = 72;
+        rotStep = 4.0;
+        archFactor = 6.6;
+        baseScale = 0.92;
       } else if (isMobile) {
-        xSpacing = total > 10 ? 19 : 38;
-        rotStep = total > 10 ? 1.3 : 2.8;
-        archFactor = total > 10 ? 1.2 : 4.2;
-        baseScale = total > 10 ? 0.82 : 0.85;
+        xSpacing = 38;
+        rotStep = 2.8;
+        archFactor = 4.2;
+        baseScale = 0.85;
       }
 
       THEMES_COMPLETE_DATA.forEach((t, idx) => {
         const card = document.getElementById(`fan-card-${idx}`);
         if (!card) return;
 
-        // 計算偶對稱偏移量
         const offset = idx - centerAxis;
         const isDrawn = (idx === currentThemeIndex);
 
@@ -346,27 +348,21 @@
         card.style.pointerEvents = "auto";
         card.style.visibility = "visible";
 
-        // 偶對稱座標運算
         const tx = offset * xSpacing;
         const baseRot = offset * rotStep;
-        // 拋物線弧度：中央卡牌最高，兩側向下微沉呈現優美拱形 (Wixel 典雅拱弧)
         const archY = Math.pow(Math.abs(offset), 1.55) * archFactor;
 
-        // 選中卡片抽起特效 (像卡片被抽到一樣向上拔出、微放正並放大)
         const elevation = isMobile ? -36 : -52;
         const ty = isDrawn ? (archY + elevation) : archY;
         const rot = isDrawn ? (baseRot * 0.35) : baseRot;
         const scale = isDrawn ? (baseScale * 1.09) : baseScale;
 
-        // 層級 (Z-Index): 選中卡片永遠置頂於最前(100)，其餘卡片呈偶對稱遞減（中間在兩側上方，層層堆疊）
         const baseZ = 20 + Math.round((total / 2 - Math.abs(offset)) * 2);
         const zIndex = isDrawn ? 100 : baseZ;
 
-        // 套用 Transform 與 Z-index
         card.style.transform = `translate3d(${tx}px, ${ty}px, 0) rotate(${rot}deg) scale(${scale})`;
         card.style.zIndex = zIndex;
 
-        // 紀錄數值供 Hover 使用，保持完美軸線向上微浮不跑位
         card.dataset.tx = tx;
         card.dataset.ty = ty;
         card.dataset.rot = rot;
@@ -375,7 +371,7 @@
         card.dataset.isDrawn = isDrawn ? "true" : "false";
       });
 
-      // 更新下方純文字標題展演（中文在上、英文在下，無邊框純文字）
+      // 更新下方純文字標題展演
       const titleDisplay = document.getElementById("deck-theme-title-display");
       if (titleDisplay) {
         const curTheme = THEMES_COMPLETE_DATA[currentThemeIndex];
@@ -393,12 +389,13 @@
 
       currentThemeIndex = newIndex;
       currentPlanIndex = 0; // 重設為該主題的第一個行程方案
+      currentSubCatId = "all"; // 切換主題時小分類自動回歸全部
 
       updateDeckPositions();
       renderAllPills();
 
       const theme = THEMES_COMPLETE_DATA[currentThemeIndex];
-      renderThemeMainContent(currentThemeIndex, 0);
+      renderThemeMainContent(currentThemeIndex, 0, currentSubCatId);
       updateThemeBackground(theme.id);
 
       window.history.pushState({}, '', `?theme=${theme.id}`);
@@ -416,32 +413,61 @@
       selectThemeByIndex(newIndex);
     }
 
-    // 渲染快捷膠囊切換鈕
+    // 渲染雙排毛玻璃切換鈕（第一排大主題，第二排小分類）
     function renderAllPills() {
       const pillsContainer = document.getElementById("theme-all-pills");
+      const subPillsContainer = document.getElementById("theme-subcat-pills");
       if (!pillsContainer) return;
 
+      // 第一排：8 大主題膠囊透明按鈕
       pillsContainer.innerHTML = THEMES_COMPLETE_DATA.map((t, idx) => {
         const active = idx === currentThemeIndex;
         return `
           <button type="button" 
-                  class="subtheme-tab-btn ${active ? 'active' : ''} ${active ? t.id + '-active' : ''}" 
+                  class="glass-theme-btn ${active ? 'active' : ''}" 
                   onclick="selectThemeByIndex(${idx})"
                   style="cursor: pointer;">
             ${t.icon} ${t.shortTitle}
           </button>
         `;
       }).join('');
+
+      // 第二排：當前主題之小分類透明標籤按鈕
+      if (subPillsContainer) {
+        const curTheme = THEMES_COMPLETE_DATA[currentThemeIndex];
+        if (curTheme && curTheme.subCategories) {
+          subPillsContainer.innerHTML = curTheme.subCategories.map(sub => {
+            const active = sub.id === currentSubCatId;
+            return `
+              <button type="button" 
+                      class="glass-subtheme-btn ${active ? 'active' : ''}" 
+                      onclick="selectSubCategory('${sub.id}')"
+                      style="cursor: pointer;">
+                ${sub.name}
+              </button>
+            `;
+          }).join('');
+        } else {
+          subPillsContainer.innerHTML = '';
+        }
+      }
+    }
+
+    // 小分類即時篩選 (Select Subcategory)
+    function selectSubCategory(subId) {
+      currentSubCatId = subId;
+      renderAllPills();
+      renderThemeSpotsGrid();
     }
 
     // 行程天數切換 (點擊一日遊、二日遊、三日遊方案)
     function switchPlan(planIdx) {
       currentPlanIndex = planIdx;
-      renderThemeMainContent(currentThemeIndex, planIdx);
+      renderThemeMainContent(currentThemeIndex, planIdx, currentSubCatId);
     }
 
     // 渲染主題主內容（左側行程安排 ＋ 右側景點卡牌）
-    function renderThemeMainContent(themeIdx, planIdx = 0) {
+    function renderThemeMainContent(themeIdx, planIdx = 0, subCatId = 'all') {
       const theme = THEMES_COMPLETE_DATA[themeIdx];
       if (!theme) return;
 
@@ -504,7 +530,7 @@
                 </span>
               </div>
               <p style="font-size: 12px; color: #64748B; margin-bottom: 16px;">
-                點選下方分段標籤切換精華動線、深度慢活與縱走路線：
+                點選下方分段標籤切換精華動線、深度漫活與縱走路線：
               </p>
 
               <!-- 1 日輕旅／2 日漫遊／3 日縱走 簡短按鈕 -->
@@ -568,290 +594,264 @@
             </div>
           </div>
 
-          <!-- 右側欄：景點推薦（去除贅字、乾淨俐落） -->
-          <div>
-            <div class="reels-section-header" style="margin-bottom: 14px;">
-              <h3 class="reels-section-title" style="font-size: 20px; font-weight: 800; margin: 0;">景點推薦</h3>
-            </div>
-
-            <!-- 景點卡片網格 -->
-            <div class="reels-cards-grid">
-              ${theme.spots.map(spot => `
-                <div class="reels-card">
-                  <img src="${spot.img}" alt="${spot.name}" class="reels-card-bg-img" loading="lazy">
-                  <div class="reels-card-scrim"></div>
-                  
-                  <!-- 頂部標籤與愛心收藏 -->
-                  <div class="reels-card-top-bar">
-                    <span class="reels-card-badge">
-                      ${spot.tag}
-                    </span>
-                    <button type="button" 
-                            class="waterfall-fav-btn" 
-                            onclick="toggleThemeSpotFav('${spot.name.replace(/'/g, "\\'")}', this, event)" 
-                            title="收藏景點"
-                            style="position: relative; width: 34px; height: 34px; background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.9); cursor: pointer;">
-                      <img src="assets/icon_heart_sparkle.png" alt="收藏" style="width: 16px; height: 16px; object-fit: contain;">
-                    </button>
-                  </div>
-
-                  <!-- 底部內容 -->
-                  <div class="reels-card-bottom">
-                    <div class="reels-spot-title">${spot.name}</div>
-                    <div class="reels-spot-en">${spot.en}</div>
-                    <div class="reels-spot-desc">${spot.desc}</div>
-                    
-                    <!-- 景點小卡牌淡雅三按鈕（包車、地圖、行程一排，不搶主視覺） -->
-                    <div class="reels-card-actions-row">
-                      <a href="${theme.bookingCta.charter}" 
-                         target="_blank" 
-                         rel="noopener noreferrer" 
-                         class="reels-soft-btn">
-                        🚗 包車
-                      </a>
-                      <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}" 
-                         target="_blank" 
-                         rel="noopener noreferrer" 
-                         class="reels-soft-btn">
-                        🗺️ 地圖
-                      </a>
-                      <a href="${theme.bookingCta.tour}" 
-                         target="_blank" 
-                         rel="noopener noreferrer" 
-                         class="reels-soft-btn">
-                        🎟️ 行程
-                      </a>
-                    </div>
-                    <div class="reels-card-hotel-link">
-                      <a href="${theme.bookingCta.hotel}" target="_blank" rel="noopener noreferrer">
-                        🏨 找周邊飯店 ➔
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              `).join('')}
-            </div>
+          <!-- 右側欄：景點推薦（含小分類篩選與數量統計） -->
+          <div id="theme-spots-container">
+            <!-- 由 renderThemeSpotsGrid 動態更新 -->
           </div>
 
         </div>
       `;
+
+      // 渲染景點網格
+      renderThemeSpotsGrid();
     }
 
-    // 收藏愛心點擊特效 (相容首頁 sparkling 愛心彈跳與小粒子)
+    // 僅重新渲染右側景點卡牌瀑布流與小分類過濾器
+    function renderThemeSpotsGrid() {
+      const container = document.getElementById("theme-spots-container");
+      if (!container) return;
+
+      const theme = THEMES_COMPLETE_DATA[currentThemeIndex];
+      if (!theme) return;
+
+      // 篩選景點
+      const visibleSpots = (currentSubCatId === "all") 
+        ? theme.spots 
+        : theme.spots.filter(s => s.subCategory === currentSubCatId);
+
+      container.innerHTML = `
+        <div class="reels-section-header" style="margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <h3 class="reels-section-title" style="font-size: 20px; font-weight: 800; margin: 0;">景點推薦</h3>
+            <span class="theme-spot-count-badge" id="spot-count-badge">${visibleSpots.length} 處景點</span>
+          </div>
+
+          <!-- 右側欄頂部縮小版小分類切換列 -->
+          <div class="theme-subcat-inline-row">
+            ${theme.subCategories.map(sub => `
+              <button type="button" 
+                      class="theme-subcat-mini-btn ${sub.id === currentSubCatId ? 'active' : ''}" 
+                      onclick="selectSubCategory('${sub.id}')">
+                ${sub.name}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- 景點卡片網格 -->
+        <div class="reels-cards-grid" style="animation: fadeInCards 0.3s ease;">
+          ${visibleSpots.map(spot => `
+            <div class="reels-card">
+              <img src="${spot.img}" alt="${spot.name}" class="reels-card-bg-img" loading="lazy">
+              <div class="reels-card-scrim"></div>
+              
+              <!-- 頂部標籤與愛心收藏 -->
+              <div class="reels-card-top-bar" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+                <div style="display: flex; flex-direction: column; gap: 5px; align-items: flex-start;">
+                  <span class="theme-spot-subcat-badge">
+                    ${spot.subName || theme.shortTitle}
+                  </span>
+                  <span class="reels-card-badge" style="font-size: 11px;">
+                    ${spot.tag}
+                  </span>
+                </div>
+                <button type="button" 
+                        class="waterfall-fav-btn" 
+                        onclick="toggleThemeSpotFav('${spot.name.replace(/'/g, "\\'")}', this, event)" 
+                        title="收藏景點"
+                        style="position: relative; width: 34px; height: 34px; background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.9); cursor: pointer;">
+                  <img src="assets/icon_heart_sparkle.png" alt="收藏" style="width: 16px; height: 16px; object-fit: contain;">
+                </button>
+              </div>
+
+              <!-- 底部內容 -->
+              <div class="reels-card-bottom">
+                <div class="reels-spot-title">${spot.name}</div>
+                <div class="reels-spot-en">${spot.en}</div>
+                <div class="reels-spot-desc">${spot.desc}</div>
+                
+                <!-- 景點小卡牌淡雅三按鈕 -->
+                <div class="reels-card-actions-row">
+                  <a href="${theme.bookingCta.charter}" 
+                     target="_blank" 
+                     rel="noopener noreferrer" 
+                     class="reels-soft-btn">
+                    🚗 包車
+                  </a>
+                  <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}" 
+                     target="_blank" 
+                     rel="noopener noreferrer" 
+                     class="reels-soft-btn">
+                    🗺️ 地圖
+                  </a>
+                  <a href="${theme.bookingCta.tour}" 
+                     target="_blank" 
+                     rel="noopener noreferrer" 
+                     class="reels-soft-btn">
+                    🎟️ 行程
+                  </a>
+                </div>
+                <div class="reels-card-hotel-link">
+                  <a href="${theme.bookingCta.hotel}" target="_blank" rel="noopener noreferrer">
+                    🏨 找周邊飯店 ➔
+                  </a>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    // 收藏愛心點擊特效
     function toggleThemeSpotFav(spotName, btnEl, event) {
       if (event) event.stopPropagation();
       btnEl.classList.toggle("active");
 
-      // 愛心彈跳動畫
       btnEl.style.transform = "scale(1.28)";
       setTimeout(() => {
         btnEl.style.transform = "scale(1)";
       }, 250);
+    }
 
-      // 發射可愛彩色小粒子
-      const rect = btnEl.getBoundingClientRect();
-      const sparkles = ["✨", "💖", "⭐", "✦", "💫"];
-      for (let i = 0; i < 5; i++) {
-        const span = document.createElement("span");
-        span.className = "sparkle-particle";
-        span.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
-        span.style.left = `${rect.left + rect.width / 2 + (Math.random() * 30 - 15)}px`;
-        span.style.top = `${rect.top + rect.height / 2 + (Math.random() * 20 - 10)}px`;
-        document.body.appendChild(span);
-        setTimeout(() => span.remove(), 700);
+    // 8 大頁面背景動畫概念與配色設計 (8 Dynamic Ambient Concept FX)
+    function updateThemeBackground(themeId) {
+      document.body.className = `bg-theme-${themeId}`;
+      const container = document.getElementById("theme-dynamic-particles");
+      if (!container) return;
+
+      if (themeId === "outdoor") {
+        // 1. ⛰️ 登山露營：高海拔跳動極光光幕 (Aurora Ribbon Rhythm)
+        // 3 條半透明流體光帶縱向交疊，伴隨正弦波浪緩慢扭曲、呼吸伸縮
+        let starsHTML = "";
+        for (let i = 0; i < 28; i++) {
+          const l = Math.random() * 96 + 2;
+          const t = Math.random() * 70 + 2;
+          const s = (Math.random() * 2.2 + 1.2).toFixed(1);
+          const dur = (Math.random() * 3 + 2).toFixed(1);
+          const del = (Math.random() * 4).toFixed(1);
+          starsHTML += `<div class="aurora-starfield-item" style="left: ${l}%; top: ${t}%; width: ${s}px; height: ${s}px; animation-duration: ${dur}s; animation-delay: -${del}s;"></div>`;
+        }
+        container.innerHTML = `
+          <div class="aurora-ribbon-stage">
+            <div class="aurora-ribbon-band aurora-ribbon-1"></div>
+            <div class="aurora-ribbon-band aurora-ribbon-2"></div>
+            <div class="aurora-ribbon-band aurora-ribbon-3"></div>
+            ${starsHTML}
+          </div>
+        `;
+      } else if (themeId === "northcoast") {
+        // 2. 🌊 北海岸：海浪潮汐柔光 (Tidal Ripple Breath)
+        // 模擬東北角湧浪，兩個大型橢圓光斑橫向推擠並上下微浮
+        container.innerHTML = `
+          <div class="tidal-ripple-stage">
+            <div class="tidal-ripple-orb tidal-ripple-1"></div>
+            <div class="tidal-ripple-orb tidal-ripple-2"></div>
+          </div>
+        `;
+      } else if (themeId === "islands") {
+        // 3. 🏝️ 離島跳島：熱帶水下焦散波光 (Caustic Sunlit Prism)
+        // 模擬陽光透過清澈海水灑在珊瑚礁上的閃爍焦散水紋（Caustics）
+        container.innerHTML = `
+          <div class="caustic-prism-stage">
+            <div class="caustic-mesh-layer caustic-mesh-1"></div>
+            <div class="caustic-mesh-layer caustic-mesh-2"></div>
+          </div>
+        `;
+      } else if (themeId === "hualien") {
+        // 4. 🏞️ 花東探索：晨霧山嵐山谷流動 (Valley Mist Drift)
+        // 模擬花東縱谷清晨山嵐雲霧，大面積斜向霧面光團由左向右飄移，透出金黃日光
+        container.innerHTML = `
+          <div class="valley-mist-stage">
+            <div class="valley-mist-cloud valley-mist-1"></div>
+            <div class="valley-mist-cloud valley-mist-2"></div>
+            <div class="valley-mist-sunlight"></div>
+          </div>
+        `;
+      } else if (themeId === "hotspring") {
+        // 5. ♨️ 溫泉舒活：裊裊白霧氤氳 (Onsen Steam Thermal)
+        // 模擬溫泉水汽徐徐升騰，3 個輕柔羽化的白汽暖團自底向上旋轉飄散
+        container.innerHTML = `
+          <div class="onsen-thermal-stage">
+            <div class="onsen-steam-plume onsen-steam-1"></div>
+            <div class="onsen-steam-plume onsen-steam-2"></div>
+            <div class="onsen-steam-plume onsen-steam-3"></div>
+          </div>
+        `;
+      } else if (themeId === "nightmarket") {
+        // 6. 🍢 市井煙火：夜市炭火微光餘燼 (Night Market Embers)
+        // 深暖底色上漂浮著幾顆忽明忽暗、微弱升騰的琥珀橘光點
+        let embersHTML = "";
+        for (let i = 0; i < 18; i++) {
+          const l = Math.random() * 92 + 4;
+          const s = Math.floor(Math.random() * 10) + 8;
+          const dur = (Math.random() * 4 + 5).toFixed(1);
+          const del = (Math.random() * 6).toFixed(1);
+          embersHTML += `<div class="market-floating-ember" style="left: ${l}%; bottom: -20px; width: ${s}px; height: ${s}px; animation-duration: ${dur}s; animation-delay: -${del}s;"></div>`;
+        }
+        container.innerHTML = `
+          <div class="market-embers-stage">
+            <div class="market-embers-ambient"></div>
+            ${embersHTML}
+          </div>
+        `;
+      } else if (themeId === "culture") {
+        // 7. 🏮 節慶文化：天燈明滅與燭火搖曳 (Lantern Glow Flicker)
+        // 模擬平溪萬盞天燈升空，暖紅光團伴隨如呼吸燈般的柔和節奏微幅縮放明滅
+        let lanternsHTML = "";
+        for (let i = 0; i < 12; i++) {
+          const l = Math.random() * 88 + 6;
+          const s = Math.floor(Math.random() * 18) + 14;
+          const dur = (Math.random() * 4 + 7).toFixed(1);
+          const del = (Math.random() * 6).toFixed(1);
+          lanternsHTML += `<div class="lantern-rising-orb" style="left: ${l}%; bottom: -30px; width: ${s}px; height: ${(s * 1.25).toFixed(0)}px; animation-duration: ${dur}s; animation-delay: -${del}s;"></div>`;
+        }
+        container.innerHTML = `
+          <div class="lantern-flicker-stage">
+            <div class="lantern-ambient-pulse"></div>
+            ${lanternsHTML}
+          </div>
+        `;
+      } else if (themeId === "roadtrip") {
+        // 8. 🚗 公路環島：公路光軌速度流光 (Highway Light Streaks)
+        // 模擬沿著海岸線夜騎/夜駕時，路燈與車尾燈拉出的流暢光軌，斜向快速拉伸平移
+        container.innerHTML = `
+          <div class="highway-streaks-stage">
+            <div class="highway-light-streak streak-1"></div>
+            <div class="highway-light-streak streak-2"></div>
+            <div class="highway-light-streak streak-3"></div>
+            <div class="highway-light-streak streak-4"></div>
+          </div>
+        `;
       }
     }
 
-    // 移動端手勢滑動監聽 (Touch Swipe Support)
+    // 觸控滑動支援 (Swipe)
     function attachSwipeEvents(element) {
+      if (!element) return;
       let startX = 0;
       let startY = 0;
+      let threshold = 40;
 
-      element.addEventListener("touchstart", (e) => {
+      element.addEventListener('touchstart', (e) => {
+        if (!e.touches || e.touches.length === 0) return;
         startX = e.touches[0].clientX;
         startY = e.touches[0].clientY;
       }, { passive: true });
 
-      element.addEventListener("touchend", (e) => {
-        const endX = e.changedTouches[0].clientX;
-        const endY = e.changedTouches[0].clientY;
-        const diffX = endX - startX;
-        const diffY = endY - startY;
+      element.addEventListener('touchend', (e) => {
+        if (!e.changedTouches || e.changedTouches.length === 0) return;
+        const diffX = e.changedTouches[0].clientX - startX;
+        const diffY = e.changedTouches[0].clientY - startY;
 
-        if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
-          if (diffX < 0) {
-            nextTheme();
-          } else {
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > threshold) {
+          if (diffX > 0) {
             prevTheme();
+          } else {
+            nextTheme();
           }
         }
       }, { passive: true });
-    }
-
-    // 動態切換精選主題場景背景與專屬動畫粒子 (Dynamic Ambient Background & Particles)
-    function updateThemeBackground(themeId) {
-      document.body.className = `bg-theme-${themeId} ${
-        themeId === 'roadtrip' ? 'body-sports-mode' : 
-        themeId === 'outdoor' ? 'body-camping-mode' : 
-        themeId === 'hotspring' ? 'body-hotspring-mode' : 
-        themeId === 'culture' ? 'body-railway-mode' : 
-        themeId === 'nightmarket' ? 'body-nightmarket-mode' : ''
-      }`;
-      const container = document.getElementById("theme-dynamic-particles");
-      if (!container) return;
-
-      if (themeId === "islands") {
-        // 離島跳島：水裡游泳氣泡動畫 (Underwater bubbles)
-        let bubblesHTML = "";
-        for (let i = 0; i < 16; i++) {
-          const left = Math.random() * 96 + 2;
-          const size = Math.floor(Math.random() * 26) + 14;
-          const dur = (Math.random() * 4 + 6).toFixed(1);
-          const delay = (Math.random() * 6).toFixed(1);
-          bubblesHTML += `<div class="bubble-particle" style="left: ${left}%; width: ${size}px; height: ${size}px; animation-duration: ${dur}s; animation-delay: ${delay}s;"></div>`;
-        }
-        container.innerHTML = bubblesHTML;
-      } else if (themeId === "hualien") {
-        // 花東縱谷：山溪瀑布水流落下 (Cascading streams)
-        let streamsHTML = "";
-        for (let i = 0; i < 14; i++) {
-          const left = Math.random() * 96 + 2;
-          const h = Math.floor(Math.random() * 70) + 90;
-          const dur = (Math.random() * 1.5 + 2.5).toFixed(1);
-          const delay = (Math.random() * 4).toFixed(1);
-          streamsHTML += `<div class="water-stream-line" style="left: ${left}%; height: ${h}px; animation-duration: ${dur}s; animation-delay: ${delay}s;"></div>`;
-        }
-        container.innerHTML = streamsHTML;
-      } else if (themeId === "northcoast") {
-        // 北海岸：海浪湧動 (Rolling Ocean Waves)
-        container.innerHTML = `
-          <div class="ocean-wave-layer"></div>
-          <div class="ocean-wave-layer-2"></div>
-        `;
-      } else if (themeId === "roadtrip") {
-        // 公路環島：黑色背景 ＋ 籃球與自駕極速光束
-        let sportsHTML = `
-          <div class="basketball-speed-container">
-            <div class="fast-basketball-wrap ball-pass-1">
-              <div class="basketball-tail"></div>
-              <div class="spinning-basketball">
-                <div class="ball-seam-horizontal"></div>
-                <div class="ball-seam-vertical"></div>
-              </div>
-            </div>
-            <div class="fast-basketball-wrap ball-pass-2">
-              <div class="basketball-tail"></div>
-              <div class="spinning-basketball">
-                <div class="ball-seam-horizontal"></div>
-                <div class="ball-seam-vertical"></div>
-              </div>
-            </div>
-          </div>
-        `;
-        for (let i = 0; i < 14; i++) {
-          const left = Math.random() * 92 + 4;
-          const h = Math.floor(Math.random() * 70) + 110;
-          const dur = (Math.random() * 0.7 + 0.9).toFixed(1);
-          const delay = (Math.random() * 2.5).toFixed(1);
-          sportsHTML += `<div class="sports-speed-particle" style="left: ${left}%; height: ${h}px; animation-duration: ${dur}s; animation-delay: -${delay}s;"></div>`;
-        }
-        container.innerHTML = sportsHTML;
-      } else if (themeId === "outdoor") {
-        // 山林戶外：冰島極光光影搖晃波動特效 (Iceland Aurora Borealis with Undulating Light Waves)
-        let auroraHTML = `
-          <div class="iceland-aurora-stage">
-            <div class="aurora-curtain-primary"></div>
-            <div class="aurora-curtain-secondary"></div>
-            <div class="aurora-curtain-neon"></div>
-        `;
-        for (let i = 0; i < 9; i++) {
-          const left = 7 + i * 11 + Math.random() * 4;
-          const dur = (Math.random() * 3 + 4.5).toFixed(1);
-          const delay = (Math.random() * 4).toFixed(1);
-          const opacity = (Math.random() * 0.3 + 0.45).toFixed(2);
-          const width = Math.floor(Math.random() * 22) + 16;
-          auroraHTML += `<div class="aurora-ray-beam" style="left: ${left}%; width: ${width}px; animation-duration: ${dur}s; animation-delay: -${delay}s; opacity: ${opacity};"></div>`;
-        }
-        for (let i = 0; i < 26; i++) {
-          const left = Math.random() * 96 + 2;
-          const top = Math.random() * 65 + 3;
-          const size = (Math.random() * 2.2 + 1.2).toFixed(1);
-          const dur = (Math.random() * 3 + 2).toFixed(1);
-          const delay = (Math.random() * 3).toFixed(1);
-          auroraHTML += `<div class="aurora-star" style="left: ${left}%; top: ${top}%; width: ${size}px; height: ${size}px; animation-duration: ${dur}s; animation-delay: -${delay}s;"></div>`;
-        }
-        auroraHTML += `</div>`;
-        container.innerHTML = auroraHTML;
-      } else if (themeId === "hotspring") {
-        // 溫泉舒活：深藍色泉池 ＋ 白煙繚繞裊裊冒煙 (Deep Blue Onsen & Rising Vapor)
-        let steamHTML = `
-          <div class="onsen-stage-wrap">
-            <div class="onsen-water-glow"></div>
-        `;
-        for (let i = 0; i < 16; i++) {
-          const left = Math.random() * 92 + 4;
-          const size = Math.floor(Math.random() * 120) + 130;
-          const dur = (Math.random() * 4 + 6).toFixed(1);
-          const delay = (Math.random() * 6).toFixed(1);
-          const blur = Math.floor(Math.random() * 15) + 25;
-          steamHTML += `<div class="onsen-steam-plume" style="left: ${left}%; width: ${size}px; height: ${size}px; filter: blur(${blur}px); animation-duration: ${dur}s; animation-delay: -${delay}s;"></div>`;
-        }
-        steamHTML += `</div>`;
-        container.innerHTML = steamHTML;
-      } else if (themeId === "nightmarket") {
-        // 市井煙火：黑色背景 ＋ 熱鬧街景五彩燈光閃耀著 (Night Market Glowing Street Bokeh)
-        let marketHTML = `
-          <div class="nightmarket-stage-wrap">
-            <div class="nightmarket-ambient-glow"></div>
-        `;
-        const neonColors = [
-          "radial-gradient(circle, rgba(239, 68, 68, 0.9) 0%, rgba(249, 115, 22, 0.45) 60%, transparent 80%)",
-          "radial-gradient(circle, rgba(245, 158, 11, 0.9) 0%, rgba(234, 179, 8, 0.4) 60%, transparent 80%)",
-          "radial-gradient(circle, rgba(236, 72, 153, 0.85) 0%, rgba(168, 85, 247, 0.4) 60%, transparent 80%)",
-          "radial-gradient(circle, rgba(6, 182, 212, 0.9) 0%, rgba(59, 130, 246, 0.4) 60%, transparent 80%)",
-          "radial-gradient(circle, rgba(251, 191, 36, 0.95) 0%, rgba(245, 158, 11, 0.45) 60%, transparent 80%)"
-        ];
-        const neonShadows = [
-          "0 0 22px rgba(239, 68, 68, 0.85)",
-          "0 0 22px rgba(245, 158, 11, 0.85)",
-          "0 0 22px rgba(236, 72, 153, 0.85)",
-          "0 0 22px rgba(6, 182, 212, 0.85)",
-          "0 0 22px rgba(251, 191, 36, 0.85)"
-        ];
-        for (let i = 0; i < 26; i++) {
-          const left = Math.random() * 94 + 3;
-          const top = Math.random() * 85 + 5;
-          const size = Math.floor(Math.random() * 26) + 16;
-          const colorIdx = i % neonColors.length;
-          const dur = (Math.random() * 2.5 + 2).toFixed(1);
-          const delay = (Math.random() * 3).toFixed(1);
-          marketHTML += `<div class="market-neon-bokeh" style="left: ${left}%; top: ${top}%; width: ${size}px; height: ${size}px; background: ${neonColors[colorIdx]}; box-shadow: ${neonShadows[colorIdx]}; animation: neonBlink ${dur}s ease-in-out infinite alternate; animation-delay: -${delay}s;"></div>`;
-        }
-        for (let i = 0; i < 18; i++) {
-          const left = Math.random() * 92 + 4;
-          const top = Math.random() * 65 + 5;
-          const dur = (Math.random() * 1.5 + 1.2).toFixed(1);
-          const delay = (Math.random() * 2.5).toFixed(1);
-          marketHTML += `<div class="market-sparkle-star" style="left: ${left}%; top: ${top}%; animation: starSparkle ${dur}s ease-in-out infinite alternate; animation-delay: -${delay}s;">✦</div>`;
-        }
-        marketHTML += `</div>`;
-        container.innerHTML = marketHTML;
-      } else if (themeId === "culture") {
-        // 節慶文化：暗色系 ＋ 搶眼橘色探照燈與夜霧穿梭 (Cultural Lanterns & Amber Beam)
-        let cultureHTML = `
-          <div class="railway-stage-wrap">
-            <div class="train-headlight-beam"></div>
-        `;
-        for (let i = 0; i < 7; i++) {
-          const left = Math.random() * 80 + 5;
-          const top = Math.random() * 70 + 15;
-          const dur = (Math.random() * 6 + 10).toFixed(1);
-          const delay = (Math.random() * 5).toFixed(1);
-          cultureHTML += `<div class="forest-mist" style="left: ${left}%; top: ${top}%; animation-duration: ${dur}s; animation-delay: -${delay}s; opacity: 0.35;"></div>`;
-        }
-        cultureHTML += `</div>`;
-        container.innerHTML = cultureHTML;
-      }
     }
 
     // 防抖輔助函數
@@ -864,6 +864,7 @@
     }
 
     window.addEventListener("DOMContentLoaded", initThemesPage);
+
   </script>
 </body>
 </html>

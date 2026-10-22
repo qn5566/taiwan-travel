@@ -1,4 +1,4 @@
-// 8 大核心旗艦深度主題資料庫 (整併 18 大零散分類，提供 1/2/3 日遊行程與精選卡牌瀑布流)
+// 8 大核心旗艦深度主題資料庫 (整併 18 大零散分類，提供 1/2/3 日遊行程、小分類即時篩選與精選卡牌瀑布流)
 const THEMES_COMPLETE_DATA = [
   {
     "id": "northcoast",
@@ -80,171 +80,241 @@ const THEMES_COMPLETE_DATA = [
     "spots": [
       {
         "name": "野柳女王頭",
-        "en": "北海岸角 Curated Spot",
+        "subCategory": "coast",
+        "subName": "🌊 北海岸",
+        "en": "North Coast Iconic Queen's Head",
         "tag": "新北萬里 · 精選地標",
-        "desc": "新北萬里・野柳女王頭，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "desc": "世界級蕈狀海蝕奇岩地質景觀，北海岸最具代表性的國際級天然地標。",
         "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
       },
       {
-        "name": "龜吼漁港",
-        "en": "北海岸角 Curated Spot",
+        "name": "龜吼漁港萬里蟹",
+        "subCategory": "coast",
+        "subName": "🌊 北海岸",
+        "en": "Guihou Fishing Harbor Crabs",
         "tag": "新北萬里 · 精選地標",
-        "desc": "新北萬里・龜吼漁港，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
+        "desc": "品嚐秋蟹與現撈活海鮮名產的臨海漁港，遠眺湛藍基隆嶼海景。",
+        "img": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "金包里老街",
-        "en": "北海岸角 Curated Spot",
+        "name": "金包里金山老街",
+        "subCategory": "coast",
+        "subName": "🌊 北海岸",
+        "en": "Jinbaoli Old Street Gourmet",
         "tag": "新北金山 · 精選地標",
-        "desc": "新北金山・金包里老街，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
+        "desc": "自清代繁榮至今的三百年老街，廣安宮廟口鴨肉與手工芋圓香氣四溢。",
+        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "朱銘美術館",
-        "en": "北海岸角 Curated Spot",
+        "name": "朱銘美術館山海園區",
+        "subCategory": "coast",
+        "subName": "🌊 北海岸",
+        "en": "Juming Museum Outdoor Sculptures",
         "tag": "新北金山 · 精選地標",
-        "desc": "新北金山・朱銘美術館，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
+        "desc": "隱身金山山巒的亞洲最大戶外雕塑園區，太極系列與人間系列磅礡生動。",
+        "img": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=700&auto=format&fit=crop"
       },
       {
-        "name": "神秘海岸一線天",
-        "en": "北海岸角 Curated Spot",
+        "name": "神秘海岸一線天海蝕洞",
+        "subCategory": "coast",
+        "subName": "🌊 北海岸",
+        "en": "Mystic Coast Secret Sea Cave",
         "tag": "新北金山 · 精選地標",
-        "desc": "新北金山・神秘海岸一線天，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "磺港黃金足湯",
-        "en": "北海岸角 Curated Spot",
-        "tag": "新北金山 · 精選地標",
-        "desc": "新北金山・磺港黃金足湯，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "desc": "穿越狹窄海蝕一線天洞穴，眼前豁然開朗迎向燭台雙嶼與蔚藍浪濤。",
         "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
       },
       {
         "name": "白沙灣遊憩區",
-        "en": "北海岸角 Curated Spot",
+        "subCategory": "coast",
+        "subName": "🌊 北海岸",
+        "en": "Baishawan Golden Beach",
         "tag": "新北石門 · 精選地標",
-        "desc": "新北石門・白沙灣遊憩區，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
+        "desc": "綿延一公里的潔白貝殼沙灘，夏日踏浪戏水與海風野餐的渡假勝地。",
+        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
       },
       {
-        "name": "老梅綠石槽",
-        "en": "北海岸角 Curated Spot",
+        "name": "老梅綠石槽季節奇景",
+        "subCategory": "coast",
+        "subName": "🌊 北海岸",
+        "en": "Laomei Green Stone Troughs",
         "tag": "新北石門 · 精選地標",
-        "desc": "新北石門・老梅綠石槽，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
+        "desc": "春天限定的海蝕溝槽綠色海藻毯，被CNN譽為台灣最美海岸秘境之一。",
+        "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
       },
       {
-        "name": "富貴角燈塔",
-        "en": "北海岸角 Curated Spot",
+        "name": "富貴角燈塔極北點",
+        "subCategory": "coast",
+        "subName": "🌊 北海岸",
+        "en": "Cape Fugui Extreme North Lighthouse",
         "tag": "新北石門 · 精選地標",
-        "desc": "新北石門・富貴角燈塔，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
+        "desc": "台灣本島最北端岬角，八角黑白斑馬紋燈塔與風稜石自然景觀。",
+        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
       },
       {
-        "name": "石門海蝕洞",
-        "en": "北海岸角 Curated Spot",
-        "tag": "新北石門 · 精選地標",
-        "desc": "新北石門・石門海蝕洞，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "淺水灣咖啡街",
-        "en": "北海岸角 Curated Spot",
+        "name": "淺水灣海景咖啡街",
+        "subCategory": "coast",
+        "subName": "🌊 北海岸",
+        "en": "Qianshuiwan Oceanfront Cafes",
         "tag": "新北三芝 · 精選地標",
-        "desc": "新北三芝・淺水灣咖啡街，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
+        "desc": "面朝大海的第一排異國風格咖啡館，傍晚欣賞北海岸最浪漫落日餘暉。",
+        "img": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=700&auto=format&fit=crop"
       },
       {
-        "name": "芝蘭海上平台",
-        "en": "北海岸角 Curated Spot",
-        "tag": "新北三芝 · 精選地標",
-        "desc": "新北三芝・芝蘭海上平台，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "九份基山街",
-        "en": "北海岸角 Curated Spot",
-        "tag": "新北瑞芳 · 精選地標",
-        "desc": "新北瑞芳・九份基山街，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "阿妹茶樓",
-        "en": "北海岸角 Curated Spot",
-        "tag": "新北瑞芳 · 精選地標",
-        "desc": "新北瑞芳・阿妹茶樓，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "黃金博物館",
-        "en": "北海岸角 Curated Spot",
-        "tag": "新北瑞芳 · 精選地標",
-        "desc": "新北瑞芳・黃金博物館，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "水湳洞陰陽海",
-        "en": "北海岸角 Curated Spot",
-        "tag": "新北瑞芳 · 精選地標",
-        "desc": "新北瑞芳・水湳洞陰陽海，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "十三層遺址",
-        "en": "北海岸角 Curated Spot",
-        "tag": "新北瑞芳 · 精選地標",
-        "desc": "新北瑞芳・十三層遺址，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "黃金瀑布",
-        "en": "北海岸角 Curated Spot",
-        "tag": "新北瑞芳 · 精選地標",
-        "desc": "新北瑞芳・黃金瀑布，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "鼻頭角稜谷步道",
-        "en": "北海岸角 Curated Spot",
-        "tag": "新北瑞芳 · 精選地標",
-        "desc": "新北瑞芳・鼻頭角稜谷步道，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "深澳鐵道自行車",
-        "en": "北海岸角 Curated Spot",
-        "tag": "新北瑞芳 · 精選地標",
-        "desc": "新北瑞芳・深澳鐵道自行車，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "深澳酋長岩",
-        "en": "北海岸角 Curated Spot",
-        "tag": "新北瑞芳 · 精選地標",
-        "desc": "新北瑞芳・深澳酋長岩，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "三貂角燈塔",
-        "en": "北海岸角 Curated Spot",
+        "name": "三貂角純白燈塔極東點",
+        "subCategory": "coast",
+        "subName": "🌊 北海岸",
+        "en": "San Diego Cape Easternmost Lighthouse",
         "tag": "新北貢寮 · 精選地標",
-        "desc": "新北貢寮・三貂角燈塔，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "desc": "台灣本島極東點，雪白純潔希臘風燈塔，迎接每日全台第一道晨曦曙光。",
         "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
       },
       {
-        "name": "福隆海水浴場",
-        "en": "北海岸角 Curated Spot",
-        "tag": "新北貢寮 · 精選地標",
-        "desc": "新北貢寮・福隆海水浴場，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "深澳鐵道自行車海景段",
+        "subCategory": "railway",
+        "subName": "🚂 經典鐵道",
+        "en": "Shenao Rail Bike Coastal Track",
+        "tag": "新北瑞芳 · 鐵道風情",
+        "desc": "騎乘可愛河豚造型自行車依山傍海前行，穿越星空彩繪光影隧道。",
+        "img": "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "舊草嶺環狀鐵道自行車隧道",
+        "subCategory": "railway",
+        "subName": "🚂 經典鐵道",
+        "en": "Old Caoling Railway Tunnel",
+        "tag": "新北貢寮 · 鐵道風情",
+        "desc": "紅磚砌成的古老鐵道隧道，伴隨童謠丟丟銅仔音樂涼爽穿梭新北宜蘭交界。",
+        "img": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "十分老街天燈鐵道風情",
+        "subCategory": "railway",
+        "subName": "🚂 經典鐵道",
+        "en": "Shifen Sky Lantern Railway",
+        "tag": "新北平溪 · 鐵道風情",
+        "desc": "火車門前過的經典鐵道奇觀，在鐵軌上親手寫下心願放飛天燈祈福。",
+        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "平溪老街石底橋古風",
+        "subCategory": "railway",
+        "subName": "🚂 經典鐵道",
+        "en": "Pingxi Old Street Stone Bridge",
+        "tag": "新北平溪 · 鐵道風情",
+        "desc": "保有純樸山村氣息的平溪鐵道支線，高架鐵軌橫越石底橋下寧靜溪流。",
+        "img": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "菁桐木造老火車站古蹟",
+        "subCategory": "railway",
+        "subName": "🚂 經典鐵道",
+        "en": "Jingtong Historic Wooden Station",
+        "tag": "新北平溪 · 鐵道風情",
+        "desc": "平溪支線終點站，全台僅存少數日治木造車站與掛滿願望竹筒的祈願牆。",
+        "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "猴硐貓村鐵道煤礦園區",
+        "subCategory": "railway",
+        "subName": "🚂 經典鐵道",
+        "en": "Houtong Cat Village & Coal Mine",
+        "tag": "新北瑞芳 · 鐵道風情",
+        "desc": "CNN評選全球六大貓咪勝地，溫馴街貓與黑金煤礦產業鐵道遺跡共融。",
+        "img": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "望古瀑布鐵道森林步道",
+        "subCategory": "railway",
+        "subName": "🚂 經典鐵道",
+        "en": "Wanggu Waterfall Hidden Trail",
+        "tag": "新北平溪 · 鐵道風情",
+        "desc": "出平溪望古無人小站沿鐵道步入森林，深山翠綠潭水宛如世外桃源仙境。",
+        "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "九份阿妹茶樓大紅燈籠",
+        "subCategory": "cinema",
+        "subName": "🎬 影視朝聖",
+        "en": "A-Mei Tea House Lantern Alley",
+        "tag": "新北瑞芳 · 影視朝聖",
+        "desc": "宮崎駿神隱少女靈感取材傳奇茶館，豎崎路階梯大紅燈籠入夜如夢似幻。",
         "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
       },
       {
-        "name": "舊草嶺隧道",
-        "en": "北海岸角 Curated Spot",
-        "tag": "新北貢寮 · 精選地標",
-        "desc": "新北貢寮・舊草嶺隧道，為台灣北海岸山海公路巡禮不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "九份基山街山城老街",
+        "subCategory": "cinema",
+        "subName": "🎬 影視朝聖",
+        "en": "Jiufen Old Street Misty Alley",
+        "tag": "新北瑞芳 · 影視朝聖",
+        "desc": "侯孝賢導演《悲情城市》取景地，品嚐阿柑姨現捏手工芋圓俯瞰基隆嶼。",
+        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "昇平戲院古早木椅劇院",
+        "subCategory": "cinema",
+        "subName": "🎬 影視朝聖",
+        "en": "Shengping Theater Historic Stage",
+        "tag": "新北瑞芳 · 影視朝聖",
+        "desc": "北台灣最早成立的老戲院，保留日治售票亭與電影放映古董設備。",
+        "img": "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "黃金博物館淘金體驗館",
+        "subCategory": "cinema",
+        "subName": "🎬 影視朝聖",
+        "en": "Gold Museum Mining Heritage",
+        "tag": "新北瑞芳 · 影視朝聖",
+        "desc": "親手觸摸220公斤純金金磚，走入本山五坑坑道感受採金淘金歷史刻痕。",
+        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "水湳洞陰陽海雙色奇觀",
+        "subCategory": "cinema",
+        "subName": "🎬 影視朝聖",
+        "en": "Yin Yang Sea Dual Color Bay",
+        "tag": "新北瑞芳 · 影視朝聖",
+        "desc": "礦物離子與深藍海水交織出的黃金碧藍雙色奇景，國內外電影最愛取景海灣。",
         "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "水湳洞十三層遺址天空之城",
+        "subCategory": "cinema",
+        "subName": "🎬 影視朝聖",
+        "en": "Remains of the 13 Levels",
+        "tag": "新北瑞芳 · 影視朝聖",
+        "desc": "層疊龐大選煉銅廠遺址，夜間金黃燈光照耀下宛如台版天空之城沉睡山巒間。",
+        "img": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "鼻頭角稜谷步道濱海長城",
+        "subCategory": "cinema",
+        "subName": "🎬 影視朝聖",
+        "en": "Bitou Cape Ridge Trail View",
+        "tag": "新北瑞芳 · 影視朝聖",
+        "desc": "蜿蜒在壯闊山稜線上的木棧道，媲美萬里長城的360度極致山海電影全景。",
+        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
+      }
+    ],
+    "subCategories": [
+      {
+        "id": "all",
+        "name": "全部景點 All",
+        "icon": "✨"
+      },
+      {
+        "id": "coast",
+        "name": "🌊 北海岸",
+        "icon": "🌊"
+      },
+      {
+        "id": "railway",
+        "name": "🚂 經典鐵道（深澳/平溪線）",
+        "icon": "🚂"
+      },
+      {
+        "id": "cinema",
+        "name": "🎬 影視朝聖（九份）",
+        "icon": "🎬"
       }
     ]
   },
@@ -328,171 +398,236 @@ const THEMES_COMPLETE_DATA = [
     "spots": [
       {
         "name": "二崁聚落保存區",
-        "en": "離島跳島 Curated Spot",
+        "subCategory": "islands",
+        "subName": "🏝️ 離島跳島",
+        "en": "Erkan Historic Village Preserved",
         "tag": "澎湖西嶼 · 精選地標",
-        "desc": "澎湖西嶼・二崁聚落保存區，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "desc": "全台首處傳統閩南古厝聚落，玄武岩咕咾石牆與杏仁茶香交織歲月靜好。",
         "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
       },
       {
-        "name": "奎壁山摩西分海",
-        "en": "離島跳島 Curated Spot",
+        "name": "奎壁山摩西分海退潮奇觀",
+        "subCategory": "islands",
+        "subName": "🏝️ 離島跳島",
+        "en": "Kuibishan Moses Sea Parting",
         "tag": "澎湖湖西 · 精選地標",
-        "desc": "澎湖湖西・奎壁山摩西分海，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
+        "desc": "退潮時玄武岩礫石步道自大海深處緩緩浮現，漫步宛如摩西分海壯麗傳奇。",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
       },
       {
-        "name": "跨海大橋",
-        "en": "離島跳島 Curated Spot",
+        "name": "澎湖跨海大橋海天大道",
+        "subCategory": "islands",
+        "subName": "🏝️ 離島跳島",
+        "en": "Penghu Great Bridge Landmark",
         "tag": "澎湖白沙 · 精選地標",
-        "desc": "澎湖白沙・跨海大橋，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
+        "desc": "橫跨白沙與西嶼的巨大白色拱門，騎乘機車感受海天一線呼嘯狂風。",
+        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
       },
       {
-        "name": "雙心石滬",
-        "en": "離島跳島 Curated Spot",
+        "name": "七美雙心石滬浪漫潮汐",
+        "subCategory": "islands",
+        "subName": "🏝️ 離島跳島",
+        "en": "Qimei Twin Hearts Stone Weir",
         "tag": "澎湖七美 · 精選地標",
-        "desc": "澎湖七美・雙心石滬，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "desc": "百年古老捕魚玄武岩石滬，俯瞰兩顆深藍愛心相連於清澈果凍海中。",
         "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
       },
       {
-        "name": "山水沙灘",
-        "en": "離島跳島 Curated Spot",
+        "name": "篤行十村眷村文創聚落",
+        "subCategory": "islands",
+        "subName": "🏝️ 離島跳島",
+        "en": "Duxing 10th Village Cultural Park",
         "tag": "澎湖馬公 · 精選地標",
-        "desc": "澎湖馬公・山水沙灘，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
+        "desc": "全台最老眷村改造文創園區，潘安邦與張雨生紀念館保留純真年代民歌風華。",
+        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "篤行十村",
-        "en": "離島跳島 Curated Spot",
-        "tag": "澎湖馬公 · 精選地標",
-        "desc": "澎湖馬公・篤行十村，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "風櫃洞聽濤",
-        "en": "離島跳島 Curated Spot",
+        "name": "大菓葉壯麗玄武岩柱群",
+        "subCategory": "islands",
+        "subName": "🏝️ 離島跳島",
+        "en": "Daguoye Basalt Columns Cliff",
         "tag": "澎湖西嶼 · 精選地標",
-        "desc": "澎湖西嶼・風櫃洞聽濤，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
+        "desc": "千萬年前熔岩冷卻形成的六角節理柱狀玄武岩，下雨積水倒映如天空之鏡。",
+        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
-        "name": "大菓葉玄武岩柱",
-        "en": "離島跳島 Curated Spot",
-        "tag": "澎湖西嶼 · 精選地標",
-        "desc": "澎湖西嶼・大菓葉玄武岩柱，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "漁翁島燈塔",
-        "en": "離島跳島 Curated Spot",
-        "tag": "澎湖西嶼 · 精選地標",
-        "desc": "澎湖西嶼・漁翁島燈塔，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "隘門沙灘",
-        "en": "離島跳島 Curated Spot",
-        "tag": "澎湖湖西 · 精選地標",
-        "desc": "澎湖湖西・隘門沙灘，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "朝日海底溫泉",
-        "en": "離島跳島 Curated Spot",
-        "tag": "綠島公館 · 精選地標",
-        "desc": "綠島公館・朝日海底溫泉，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "石朗水下郵筒",
-        "en": "離島跳島 Curated Spot",
-        "tag": "綠島南寮 · 精選地標",
-        "desc": "綠島南寮・石朗水下郵筒，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "大白沙步道",
-        "en": "離島跳島 Curated Spot",
+        "name": "純白綠島燈塔與星空",
+        "subCategory": "islands",
+        "subName": "🏝️ 離島跳島",
+        "en": "Green Island White Lighthouse",
         "tag": "綠島中寮 · 精選地標",
-        "desc": "綠島中寮・大白沙步道，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
+        "desc": "純白圓形歐式燈塔佇立海岸高台，春季周邊綻放白色百合花美不勝收。",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
       },
       {
-        "name": "純白綠島燈塔",
-        "en": "離島跳島 Curated Spot",
-        "tag": "綠島中寮 · 精選地標",
-        "desc": "綠島中寮・純白綠島燈塔，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "帆船鼻大草原",
-        "en": "離島跳島 Curated Spot",
+        "name": "帆船鼻大草原眺望太平洋",
+        "subCategory": "islands",
+        "subName": "🏝️ 離島跳島",
+        "en": "Fanchuanbi Ocean Grassland",
         "tag": "綠島溫泉 · 精選地標",
-        "desc": "綠島溫泉・帆船鼻大草原，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
+        "desc": "享有綠島地毯美譽的高台草原，俯瞰朝日溫泉與一望無際太平洋浩瀚海浪。",
+        "img": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=700&auto=format&fit=crop"
       },
       {
-        "name": "牛頭山夕陽",
-        "en": "離島跳島 Curated Spot",
+        "name": "牛頭山青翠草原絕美落日",
+        "subCategory": "islands",
+        "subName": "🏝️ 離島跳島",
+        "en": "Niutoushan Sunset Hilltop",
         "tag": "綠島公館 · 精選地標",
-        "desc": "綠島公館・牛頭山夕陽，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
+        "desc": "外觀酷似伏臥老牛伸向大海的海岬，360度無遮蔽賞夕陽與晚霞餘暉。",
+        "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop"
       },
       {
-        "name": "東清天然秘境",
-        "en": "離島跳島 Curated Spot",
+        "name": "蘭嶼東清灣傳統拼板舟",
+        "subCategory": "islands",
+        "subName": "🏝️ 離島跳島",
+        "en": "Dongqing Bay Indigenous Canoes",
         "tag": "蘭嶼東清 · 精選地標",
-        "desc": "蘭嶼東清・東清天然秘境，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "desc": "達悟族紅白黑雕刻拼板舟停泊純淨鵝卵石海灣，迎接台灣第一道破曉晨曦。",
         "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
       },
       {
-        "name": "東清灣拼板舟",
-        "en": "離島跳島 Curated Spot",
-        "tag": "蘭嶼東清 · 精選地標",
-        "desc": "蘭嶼東清・東清灣拼板舟，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "達悟地下屋",
-        "en": "離島跳島 Curated Spot",
+        "name": "達悟族野銀百年地下屋",
+        "subCategory": "islands",
+        "subName": "🏝️ 離島跳島",
+        "en": "Yeyin Underground Traditional Houses",
         "tag": "蘭嶼野銀 · 精選地標",
-        "desc": "蘭嶼野銀・達悟地下屋，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
+        "desc": "順應島嶼強烈颱風氣候建造的半穴居傳統建築，蘊含達悟族先人智慧。",
+        "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
       },
       {
-        "name": "氣象觀測站",
-        "en": "離島跳島 Curated Spot",
+        "name": "蘭嶼紅頭氣象觀測站展望",
+        "subCategory": "islands",
+        "subName": "🏝️ 離島跳島",
+        "en": "Lanyu Weather Station Panorama",
         "tag": "蘭嶼紅頭 · 精選地標",
-        "desc": "蘭嶼紅頭・氣象觀測站，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
+        "desc": "日治時期留存白色廢墟建築，位居島嶼中央山脊俯瞰東西海岸壯闊峽灣。",
+        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
-        "name": "花瓶岩海龜點",
-        "en": "離島跳島 Curated Spot",
+        "name": "小琉球花瓶岩標誌景點",
+        "subCategory": "islands",
+        "subName": "🏝️ 離島跳島",
+        "en": "Vase Rock Coral Formation",
         "tag": "小琉球白沙 · 精選地標",
-        "desc": "小琉球白沙・花瓶岩海龜點，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
+        "desc": "頂部長滿綠植的珊瑚礁岩柱酷似花瓶，岸邊淺灘是近距離觀賞海龜的第一站。",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
       },
       {
-        "name": "美人洞珊瑚礁",
-        "en": "離島跳島 Curated Spot",
-        "tag": "小琉球琉球 · 精選地標",
-        "desc": "小琉球琉球・美人洞珊瑚礁，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "烏鬼洞地質",
-        "en": "離島跳島 Curated Spot",
-        "tag": "小琉球天福 · 精選地標",
-        "desc": "小琉球天福・烏鬼洞地質，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "山豬溝綠廊",
-        "en": "離島跳島 Curated Spot",
+        "name": "小琉球山豬溝生態步道",
+        "subCategory": "islands",
+        "subName": "🏝️ 離島跳島",
+        "en": "Shanzhugou Banyan Coral Canyon",
         "tag": "小琉球杉福 · 精選地標",
-        "desc": "小琉球杉福・山豬溝綠廊，為台灣台灣熱門離島跳島漫遊不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "desc": "保留最完整原始高位珊瑚礁林與巨型百年雀榕氣根，清幽涼爽的綠色隧道。",
+        "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "綠島石朗水下郵筒潛水",
+        "subCategory": "diving",
+        "subName": "🤿 湛藍潛水",
+        "en": "Shihlang Underwater Postbox",
+        "tag": "綠島南寮 · 潛水聖地",
+        "desc": "深達水下11米全球最深豆丁海馬海底郵筒，親手投遞防水明信片寄給好友。",
+        "img": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "綠島大白沙潛水珊瑚步道",
+        "subCategory": "diving",
+        "subName": "🤿 湛藍潛水",
+        "en": "Dabaisha Coral Dive Walkway",
+        "tag": "綠島中寮 · 潛水聖地",
+        "desc": "向大海延伸的夢幻潛水海上步道，水下巨大獨立礁與壯麗軟珊瑚花園。",
         "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "綠島朝日海底鹹水溫泉",
+        "subCategory": "diving",
+        "subName": "🤿 湛藍潛水",
+        "en": "Zhaori Marine Hot Spring",
+        "tag": "綠島溫泉 · 潛水聖地",
+        "desc": "全球僅三處罕見海底鹹水溫泉，潮間帶邊泡暖湯邊聽滔滔海浪看日出。",
+        "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "蘭嶼東清天然海蝕秘境浮潛",
+        "subCategory": "diving",
+        "subName": "🤿 湛藍潛水",
+        "en": "Dongqing Secret Tidal Pool",
+        "tag": "蘭嶼東清 · 潛水聖地",
+        "desc": "天然礁岩環抱出的清澈水晶潟湖，不受外海風浪影響的頂級跳水浮潛池。",
+        "img": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "小琉球美人洞海龜共游浮潛",
+        "subCategory": "diving",
+        "subName": "🤿 湛藍潛水",
+        "en": "Beauty Cave Sea Turtle Snorkel",
+        "tag": "小琉球琉球 · 潛水聖地",
+        "desc": "近乎百分百巧遇野生綠蠵龜啃食海藻，保持5米禮貌距離感受人龜共游感動。",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "小琉球龍蝦洞海蝕壺穴深潛",
+        "subCategory": "diving",
+        "subName": "🤿 湛藍潛水",
+        "en": "Lobster Cave Scuba Marine Life",
+        "tag": "小琉球漁福 · 潛水聖地",
+        "desc": "豐富海蝕溝地形與水下熱帶魚群穿梭，沉浸於琉球島湛藍海水擁抱中。",
+        "img": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "小琉球厚石裙礁水下探險",
+        "subCategory": "diving",
+        "subName": "🤿 湛藍潛水",
+        "en": "Houshi Fringing Reef Blue Lagoon",
+        "tag": "小琉球大福 · 潛水聖地",
+        "desc": "綿延數公里的天然珊瑚裙礁，清澈見底的藍色潟湖是自由潛水玩家最愛。",
+        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "澎湖隘門沙灘水上活動天堂",
+        "subCategory": "diving",
+        "subName": "🤿 湛藍潛水",
+        "en": "Aimen Beach Water Sports Arena",
+        "tag": "澎湖湖西 · 潛水聖地",
+        "desc": "黃金珊瑚碎屑細沙灘，透明SUP立槳、水上摩托車與香蕉船極致暢玩。",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "澎湖七美月鯉灣珊瑚礁浮潛",
+        "subCategory": "diving",
+        "subName": "🤿 湛藍潛水",
+        "en": "Yueli Bay Coral Garden Snorkel",
+        "tag": "澎湖七美 · 潛水聖地",
+        "desc": "七美島唯一的天然沙灘海灣，海底佈滿大片葉狀玫瑰珊瑚群生機蓬勃。",
+        "img": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "蘭嶼開元港藍洞自由潛水",
+        "subCategory": "diving",
+        "subName": "🤿 湛藍潛水",
+        "en": "Kaiyuan Port Blue Cave Freediving",
+        "tag": "蘭嶼椰油 · 潛水聖地",
+        "desc": "水下天然海蝕洞透射出攝人心魄的鈷藍光芒，資深自潛愛好者的朝聖殿堂。",
+        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
+      }
+    ],
+    "subCategories": [
+      {
+        "id": "all",
+        "name": "全部景點 All",
+        "icon": "✨"
+      },
+      {
+        "id": "islands",
+        "name": "🏝️ 離島跳島",
+        "icon": "🏝️"
+      },
+      {
+        "id": "diving",
+        "name": "🤿 湛藍潛水（綠島/蘭嶼/小琉球）",
+        "icon": "🤿"
       }
     ]
   },
@@ -575,172 +710,237 @@ const THEMES_COMPLETE_DATA = [
     ],
     "spots": [
       {
-        "name": "清水斷崖絕壁",
-        "en": "花東探索 Curated Spot",
+        "name": "清水斷崖絕壁觀景台",
+        "subCategory": "valley",
+        "subName": "🏞️ 花東探索",
+        "en": "Qingshui Cliff Pacific Ocean Edge",
         "tag": "花蓮秀林 · 精選地標",
-        "desc": "花蓮秀林・清水斷崖絕壁，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "desc": "蘇花公路最驚險壯麗奇景，千米大理石斷崖垂直直插太平洋深藍巨浪。",
         "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
       },
       {
-        "name": "太魯閣砂卡礑",
-        "en": "花東探索 Curated Spot",
+        "name": "太魯閣砂卡礑神秘谷步道",
+        "subCategory": "valley",
+        "subName": "🏞️ 花東探索",
+        "en": "Shakadang Trail Turquoise Stream",
         "tag": "花蓮秀林 · 精選地標",
-        "desc": "花蓮秀林・太魯閣砂卡礑，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "desc": "沿著大理岩峭壁鑿出的平緩步道，溪水呈現如土耳其藍般的夢幻清澈晶透。",
+        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
-        "name": "長春祠飛瀑",
-        "en": "花東探索 Curated Spot",
+        "name": "太魯閣長春祠飛瀑流泉",
+        "subCategory": "valley",
+        "subName": "🏞️ 花東探索",
+        "en": "Eternal Spring Shrine Waterfall",
         "tag": "花蓮秀林 · 精選地標",
-        "desc": "花蓮秀林・長春祠飛瀑，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "desc": "紀念開闢中橫公路殉職人員唐式殿堂，崖壁山泉自祠下方湧出長流不息。",
+        "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop"
       },
       {
-        "name": "七星潭礫石灘",
-        "en": "花東探索 Curated Spot",
+        "name": "七星潭礫石月牙海灣",
+        "subCategory": "valley",
+        "subName": "🏞️ 花東探索",
+        "en": "Qixingtan Crescent Bay Pebbles",
         "tag": "花蓮新城 · 精選地標",
-        "desc": "花蓮新城・七星潭礫石灘，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "desc": "綿延優美的弧形礫石海灘，堆疊幸運石聽海浪拍打圓石奏出的天然樂章。",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
       },
       {
-        "name": "原野牧場海景",
-        "en": "花東探索 Curated Spot",
-        "tag": "花蓮新城 · 精選地標",
-        "desc": "花蓮新城・原野牧場海景，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "松園別館老松",
-        "en": "花東探索 Curated Spot",
-        "tag": "花蓮市 · 精選地標",
-        "desc": "花蓮市・松園別館老松，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "東大門觀光夜市",
-        "en": "花東探索 Curated Spot",
-        "tag": "花蓮市 · 精選地標",
-        "desc": "花蓮市・東大門觀光夜市，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "洄瀾貨櫃星巴克",
-        "en": "花東探索 Curated Spot",
+        "name": "花蓮洄瀾貨櫃星巴克旗艦店",
+        "subCategory": "valley",
+        "subName": "🏞️ 花東探索",
+        "en": "Container Starbucks Hualien",
         "tag": "花蓮吉安 · 精選地標",
-        "desc": "花蓮吉安・洄瀾貨櫃星巴克，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "desc": "日本建築大師隈研吾操刀設計，29個航行全球各大碼頭的彩色貨櫃交錯搭建。",
+        "img": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=700&auto=format&fit=crop"
       },
       {
-        "name": "慶修院日式真言宗",
-        "en": "花東探索 Curated Spot",
+        "name": "吉安慶修院日式真言宗古蹟",
+        "subCategory": "valley",
+        "subName": "🏞️ 花東探索",
+        "en": "Jian Qingxiu Temple Historic Site",
         "tag": "花蓮吉安 · 精選地標",
-        "desc": "花蓮吉安・慶修院日式真言宗，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "desc": "東台灣保存最完整的日式木造寺院，八十八尊石佛與枯山水散發悠然禪意。",
+        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "鯉魚潭水岸",
-        "en": "花東探索 Curated Spot",
+        "name": "壽豐鯉魚潭水岸環湖自行車",
+        "subCategory": "valley",
+        "subName": "🏞️ 花東探索",
+        "en": "Liyutan Lake Scenic Waterfront",
         "tag": "花蓮壽豐 · 精選地標",
-        "desc": "花蓮壽豐・鯉魚潭水岸，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "desc": "花蓮最大內陸湖泊，群山環抱湖光山色，踩踏天鵝船或環湖單車放慢節奏。",
+        "img": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=700&auto=format&fit=crop"
       },
       {
-        "name": "山度空間鞦韆",
-        "en": "花東探索 Curated Spot",
+        "name": "雲山水夢幻落羽松森林湖",
+        "subCategory": "valley",
+        "subName": "🏞️ 花東探索",
+        "en": "Yunshanshui Bald Cypress Lake",
         "tag": "花蓮壽豐 · 精選地標",
-        "desc": "花蓮壽豐・山度空間鞦韆，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "desc": "落羽松林倒映在碧綠牛奶湖中，踏上石磚水圳步道宛如走入歐洲童話世界。",
+        "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
       },
       {
-        "name": "海崖谷野餐",
-        "en": "花東探索 Curated Spot",
-        "tag": "花蓮壽豐 · 精選地標",
-        "desc": "花蓮壽豐・海崖谷野餐，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "雲山水夢幻落羽松",
-        "en": "花東探索 Curated Spot",
-        "tag": "花蓮壽豐 · 精選地標",
-        "desc": "花蓮壽豐・雲山水夢幻落羽松，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "林田山林場聚落",
-        "en": "花東探索 Curated Spot",
+        "name": "林田山林業文化園區小摩里沙卡",
+        "subCategory": "valley",
+        "subName": "🏞️ 花東探索",
+        "en": "Lintianshan Forestry Culture Park",
         "tag": "花蓮鳳林 · 精選地標",
-        "desc": "花蓮鳳林・林田山林場聚落，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "desc": "曾為台灣第四大林場，山谷間完整保存檜木宿舍聚落與鐵軌運材機具歷史。",
+        "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop"
       },
       {
-        "name": "觀光糖廠木屋",
-        "en": "花東探索 Curated Spot",
+        "name": "光復糖廠日式木屋與脆皮冰淇淋",
+        "subCategory": "valley",
+        "subName": "🏞️ 花東探索",
+        "en": "Guangfu Sugar Factory Wooden Inns",
         "tag": "花蓮光復 · 精選地標",
-        "desc": "花蓮光復・觀光糖廠木屋，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "desc": "走過百年歲月的糖業重鎮，品嚐招牌紅豆芥末冰與入住原汁原味日式榻榻米木屋。",
+        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "瑞穗生男黃金溫泉",
-        "en": "花東探索 Curated Spot",
+        "name": "瑞穗牧場香濃鮮奶乳酪工坊",
+        "subCategory": "valley",
+        "subName": "🏞️ 花東探索",
+        "en": "Ruisui Ranch Dairy & Ostrich Farm",
         "tag": "花蓮瑞穗 · 精選地標",
-        "desc": "花蓮瑞穗・瑞穗生男黃金溫泉，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "desc": "倚靠中央山脈純淨水源孕育出全台最濃醇乳品，在草地上近距離餵食乳牛鴕鳥。",
+        "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
       },
       {
-        "name": "秀姑巒溪泛舟中心",
-        "en": "花東探索 Curated Spot",
+        "name": "瑞穗百年黃金生男溫泉",
+        "subCategory": "valley",
+        "subName": "🏞️ 花東探索",
+        "en": "Ruisui Golden Iron Spring",
         "tag": "花蓮瑞穗 · 精選地標",
-        "desc": "花蓮瑞穗・秀姑巒溪泛舟中心，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "desc": "富含鐵質與礦物質的茶褐色碳酸鹽泉，享有生男之泉盛名的百年日式名湯。",
+        "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
       },
       {
-        "name": "石梯坪單面山壺穴",
-        "en": "花東探索 Curated Spot",
+        "name": "石梯坪單面山火山岩壺穴",
+        "subCategory": "valley",
+        "subName": "🏞️ 花東探索",
+        "en": "Shitiping Coastal Uplift Terraces",
         "tag": "花蓮豐濱 · 精選地標",
-        "desc": "花蓮豐濱・石梯坪單面山壺穴，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "desc": "白色凝灰岩向海傾斜形成的階梯狀地形，潮間帶生態豐富是露營看星空名勝。",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
       },
       {
-        "name": "親不知子海上古道",
-        "en": "花東探索 Curated Spot",
-        "tag": "花蓮豐濱 · 精選地標",
-        "desc": "花蓮豐濱・親不知子海上古道，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "name": "池上伯朗大道金城武樹",
+        "subCategory": "valley",
+        "subName": "🏞️ 花東探索",
+        "en": "Mr. Brown Avenue Golden Rice Sea",
+        "tag": "台東池上 · 精選地標",
+        "desc": "無任何電線桿阻擋的翠綠與金黃稻浪大道，騎乘單車暢遊翠綠縱谷田園風景。",
+        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
       },
       {
-        "name": "三仙台八拱步橋",
-        "en": "花東探索 Curated Spot",
+        "name": "三仙台八拱跨海人行步橋",
+        "subCategory": "valley",
+        "subName": "🏞️ 花東探索",
+        "en": "Sanxiantai 8-Arch Footbridge",
         "tag": "台東成功 · 精選地標",
-        "desc": "台東成功・三仙台八拱步橋，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "desc": "如巨龍騰躍於太平洋上的八拱跨海大橋，登島探索火山奇石與仙人傳說海角。",
+        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
       },
       {
-        "name": "星龍空中花園",
-        "en": "花東探索 Curated Spot",
-        "tag": "台東長濱 · 精選地標",
-        "desc": "台東長濱・星龍空中花園，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "name": "台東加路蘭海岸裝置藝術地標",
+        "subCategory": "valley",
+        "subName": "🏞️ 花東探索",
+        "en": "Jialulan Coastal Driftwood Art",
+        "tag": "台東台東 · 精選地標",
+        "desc": "原住民漂流木裝置藝術與遼闊太平洋互映，入夜後無光害仰望百萬璀璨銀河。",
+        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "金尊國際衝浪港",
-        "en": "花東探索 Curated Spot",
-        "tag": "台東東河 · 精選地標",
-        "desc": "台東東河・金尊國際衝浪港，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "name": "台東金尊國際衝浪比賽基地",
+        "subCategory": "surfing",
+        "subName": "🏄 熱血衝浪",
+        "en": "Jinzun Harbor World Surf Open",
+        "tag": "台東東河 · 衝浪聖地",
+        "desc": "台灣唯一舉辦世界WSL衝浪巡迴公開賽的浪點，得天獨厚鵝卵石浪型穩定澎湃。",
+        "img": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=700&auto=format&fit=crop"
       },
       {
-        "name": "新東都蘭糖廠",
-        "en": "花東探索 Curated Spot",
-        "tag": "台東東河 · 精選地標",
-        "desc": "台東東河・新東都蘭糖廠，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "name": "台東東河出海口捲浪基地",
+        "subCategory": "surfing",
+        "subName": "🏄 熱血衝浪",
+        "en": "Donghe River Mouth Left & Right",
+        "tag": "台東東河 · 衝浪聖地",
+        "desc": "馬武窟溪出海口兩側優質鵝卵石地形，吸引國內外長板與短板浪人常年駐點。",
+        "img": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=700&auto=format&fit=crop"
       },
       {
-        "name": "初鹿高坡牧場",
-        "en": "花東探索 Curated Spot",
-        "tag": "台東卑南 · 精選地標",
-        "desc": "台東卑南・初鹿高坡牧場，為台灣花東縱谷與太平洋海岸不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+        "name": "宜蘭頭城烏石港北堤衝浪街",
+        "subCategory": "surfing",
+        "subName": "🏄 熱血衝浪",
+        "en": "Wushi Harbor North Jetty Surf",
+        "tag": "宜蘭頭城 · 衝浪聖地",
+        "desc": "北台灣最具人氣的衝浪發源地，平緩沙灘搭配細膩浪花，初學者新手首選入門。",
+        "img": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "宜蘭頭城雙獅海岸浪點",
+        "subCategory": "surfing",
+        "subName": "🏄 熱血衝浪",
+        "en": "Double Lions Beach Surf Break",
+        "tag": "宜蘭頭城 · 衝浪聖地",
+        "desc": "因兩座像獅子的礁石而得名，浪況乾淨且綿長，適合練習長板走板與迴旋。",
+        "img": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "台東都歷海灘天空之鏡浪點",
+        "subCategory": "surfing",
+        "subName": "🏄 熱血衝浪",
+        "en": "Torik Sky Mirror Beach Surf",
+        "tag": "台東成功 · 衝浪聖地",
+        "desc": "退潮時黑沙灘如水銀鏡面般倒映藍天，浪況溫和舒適，衝浪拍照兩全其美。",
+        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "宜蘭大溪蜜月灣黑沙衝浪灘",
+        "subCategory": "surfing",
+        "subName": "🏄 熱血衝浪",
+        "en": "Honeymoon Bay Black Sand Surf",
+        "tag": "宜蘭頭城 · 衝浪聖地",
+        "desc": "弧形天然海灣與細黑沙灘，外海浪高強勁有力，是台灣經典老牌衝浪名點。",
+        "img": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "花蓮磯崎海水浴場浪點",
+        "subCategory": "surfing",
+        "subName": "🏄 熱血衝浪",
+        "en": "Jiqi Beach Pacific Wave Break",
+        "tag": "花蓮豐濱 · 衝浪聖地",
+        "desc": "花蓮海岸線少見的金色沙灘浪點，背倚大石鼻山前迎太平洋湧浪刺激過癮。",
+        "img": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "宜蘭外澳雙獅眺望龜山島浪點",
+        "subCategory": "surfing",
+        "subName": "🏄 熱血衝浪",
+        "en": "Waiao Surf Beach Guishan View",
+        "tag": "宜蘭頭城 · 衝浪聖地",
+        "desc": "黃色飛行傘降落基地旁，正面眺望龜山島神仙仙境，享受追浪與海風狂想。",
+        "img": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=700&auto=format&fit=crop"
+      }
+    ],
+    "subCategories": [
+      {
+        "id": "all",
+        "name": "全部景點 All",
+        "icon": "✨"
+      },
+      {
+        "id": "valley",
+        "name": "🏞️ 花東探索",
+        "icon": "🏞️"
+      },
+      {
+        "id": "surfing",
+        "name": "🏄 熱血衝浪（台東金尊/宜蘭烏石港）",
+        "icon": "🏄"
       }
     ]
   },
@@ -823,172 +1023,237 @@ const THEMES_COMPLETE_DATA = [
     ],
     "spots": [
       {
-        "name": "合歡山石門山百岳",
-        "en": "百岳登山 Curated Spot",
-        "tag": "花投交界 · 精選地標",
-        "desc": "花投交界・合歡山石門山百岳（入門首選3237m），為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "合歡山石門山百岳新手入門",
+        "subCategory": "hiking",
+        "subName": "⛰️ 百岳登山",
+        "en": "Shimenshan Easiest 100 Peak",
+        "tag": "花投交界 · 百岳名山",
+        "desc": "海拔3237公尺最平易近人的百岳，單程僅需30分鐘即可登頂環視奇萊連峰。",
         "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
-        "name": "合歡山主峰日落雲海公路",
-        "en": "百岳登山 Curated Spot",
-        "tag": "花投交界 · 精選地標",
-        "desc": "花投交界・合歡山主峰日落雲海公路，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "合歡山主峰日落雲海公路步道",
+        "subCategory": "hiking",
+        "subName": "⛰️ 百岳登山",
+        "en": "Hehuanshan Main Peak Sunset",
+        "tag": "南投仁愛 · 百岳名山",
+        "desc": "視野開闊的水泥路基百岳，黃昏時分看金色落日沉入厚重翻騰雲海絕景。",
         "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
-        "name": "合歡山東峰杜鵑花海坡",
-        "en": "百岳登山 Curated Spot",
-        "tag": "花投交界 · 精選地標",
-        "desc": "花投交界・合歡山東峰杜鵑花海坡，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "合歡山東峰玉山杜鵑花海坡",
+        "subCategory": "hiking",
+        "subName": "⛰️ 百岳登山",
+        "en": "Hehuan East Peak Azalea Bloom",
+        "tag": "南投仁愛 · 百岳名山",
+        "desc": "每年五月高山杜鵑於險峻陡坡盛開，陡峭木棧道直通3421公尺壯麗巔峰。",
         "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
-        "name": "玉山主峰全台之巔",
-        "en": "百岳登山 Curated Spot",
-        "tag": "南投信義 · 精選地標",
-        "desc": "南投信義・玉山主峰全台之巔（3952m），為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "玉山主峰全台之巔登頂巡禮",
+        "subCategory": "hiking",
+        "subName": "⛰️ 百岳登山",
+        "en": "Yushan Main Peak Roof of Taiwan",
+        "tag": "南投信義 · 百岳名山",
+        "desc": "標高3952公尺東北亞第一高峰，一生必爬一次的台灣地標與壯闊風雲之頂。",
         "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
-        "name": "玉山前峰亂石坡難關",
-        "en": "百岳登山 Curated Spot",
-        "tag": "南投信義 · 精選地標",
-        "desc": "南投信義・玉山前峰亂石坡難關，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "玉山前峰亂石崩壁登山挑戰",
+        "subCategory": "hiking",
+        "subName": "⛰️ 百岳登山",
+        "en": "Yushan Front Peak Boulder Slope",
+        "tag": "南投信義 · 百岳名山",
+        "desc": "以極限考驗心肺的陡峭亂石瀑石海著稱，登上頂峰享有極致成就感。",
         "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
-        "name": "雪山東峰哭坡觀景台",
-        "en": "百岳登山 Curated Spot",
-        "tag": "台中和平 · 精選地標",
-        "desc": "台中和平・雪山東峰哭坡觀景台，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "雪山東峰哭坡觀景平台",
+        "subCategory": "hiking",
+        "subName": "⛰️ 百岳登山",
+        "en": "Xueshan East Peak Crying Slope",
+        "tag": "台中和平 · 百岳名山",
+        "desc": "征服陡峭哭坡後豁然開朗，於3201公尺東峰停機坪遠眺雪山一號圈谷大理岩壁。",
         "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
-        "name": "武陵四秀桃山瀑布步道",
-        "en": "百岳登山 Curated Spot",
-        "tag": "台中和平 · 精選地標",
-        "desc": "台中和平・武陵四秀桃山瀑布步道，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "眠月線失落高空鐵軌森林步道",
+        "subCategory": "hiking",
+        "subName": "⛰️ 百岳登山",
+        "en": "Mianyue Line Lost High Trestles",
+        "tag": "嘉義阿里山 · 登山步道",
+        "desc": "地震重創後封存的高空森林鐵道，懸空枕木鐵軌穿越迷霧紅檜森林夢幻而神秘。",
+        "img": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "水漾森林枯木倒影夢幻堰塞湖",
+        "subCategory": "hiking",
+        "subName": "⛰️ 百岳登山",
+        "en": "Shuiyang Forest Drowned Trees",
+        "tag": "南投竹山 · 登山步道",
+        "desc": "大地震形成的堰塞湖，枯立白木倒映在深山翡翠湖水中如魔幻仙境。",
+        "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "特富野古道紅檜林鐵道漫步",
+        "subCategory": "hiking",
+        "subName": "⛰️ 百岳登山",
+        "en": "Tefuye Ancient Logging Trail",
+        "tag": "嘉義阿里山 · 登山步道",
+        "desc": "鄒族昔日狩獵便道，筆直柳杉高聳入雲，平緩鐵道鋪設碎石散步極致療癒。",
+        "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "司馬庫斯上帝部落千年神木群",
+        "subCategory": "hiking",
+        "subName": "⛰️ 百岳登山",
+        "en": "Smangus Giant Cypress Sacred Trail",
+        "tag": "新竹尖石 · 登山步道",
+        "desc": "深山泰雅部落守護的大老爺巨木，樹齡超過兩千五百年展開雙臂庇護山林。",
+        "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "鳶嘴山險峻天然花崗岩稜線",
+        "subCategory": "hiking",
+        "subName": "⛰️ 百岳登山",
+        "en": "Yuanzui Mountain Exposed Ridge",
+        "tag": "台中和平 · 登山步道",
+        "desc": "中部最刺激險峻的攀岩名山，手腳並用抓拉繩索攀行於刀刃般的陡峭岩稜上。",
         "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
-        "name": "火炎山惡地大峽谷步道",
-        "en": "百岳登山 Curated Spot",
-        "tag": "苗栗三義 · 精選地標",
-        "desc": "苗栗三義・火炎山惡地大峽谷步道，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
+        "name": "苗栗火炎山惡地大峽谷步道",
+        "subCategory": "hiking",
+        "subName": "⛰️ 百岳登山",
+        "en": "Huoyanshan Grand Canyon Badlands",
+        "tag": "苗栗三義 · 登山步道",
+        "desc": "礫石淘蝕形成的鮮紅色火成岩崩壁，宛如台版美國大峽谷壯麗火紅地貌。",
+        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
       },
       {
-        "name": "水漾森林枯木倒影秘境",
-        "en": "百岳登山 Curated Spot",
-        "tag": "嘉義阿里山 · 精選地標",
-        "desc": "嘉義阿里山・水漾森林枯木倒影秘境，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "特富野古道紅檜林舊鐵道",
-        "en": "百岳登山 Curated Spot",
-        "tag": "嘉義阿里山 · 精選地標",
-        "desc": "嘉義阿里山・特富野古道紅檜林舊鐵道，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "眠月線失落高空鐵軌步道",
-        "en": "百岳登山 Curated Spot",
-        "tag": "嘉義阿里山 · 精選地標",
-        "desc": "嘉義阿里山・眠月線失落高空鐵軌步道，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "見晴懷古青苔鐵道迷霧小徑",
-        "en": "百岳登山 Curated Spot",
-        "tag": "宜蘭大同 · 精選地標",
-        "desc": "宜蘭大同・見晴懷古青苔鐵道迷霧小徑，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "阿朗壹古道原始海岸鵝卵石",
-        "en": "百岳登山 Curated Spot",
-        "tag": "宜蘭南澳 · 精選地標",
-        "desc": "宜蘭南澳・阿朗壹古道原始海岸鵝卵石，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "無耳茶壺山眺望陰陽海",
-        "en": "百岳登山 Curated Spot",
-        "tag": "新北瑞芳 · 精選地標",
-        "desc": "新北瑞芳・無耳茶壺山眺望陰陽海，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "鼻頭角稜谷步道濱海長城",
-        "en": "百岳登山 Curated Spot",
-        "tag": "新北瑞芳 · 精選地標",
-        "desc": "新北瑞芳・鼻頭角稜谷步道濱海長城，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "劍龍稜險峻黃金岩壁攀爬",
-        "en": "百岳登山 Curated Spot",
-        "tag": "新北瑞芳 · 精選地標",
-        "desc": "新北瑞芳・劍龍稜險峻黃金岩壁攀爬，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "七星山主東峰台北最高點",
-        "en": "百岳登山 Curated Spot",
-        "tag": "台北北投 · 精選地標",
-        "desc": "台北北投・七星山主東峰台北最高點，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "加里山台版小富士柳杉林步道",
+        "subCategory": "hiking",
+        "subName": "⛰️ 百岳登山",
+        "en": "Jiali Mountain Mt Fuji of Taiwan",
+        "tag": "苗栗南庄 · 登山步道",
+        "desc": "一葉蘭與柳杉森林秘境，登頂標高2220公尺遠眺雪山聖稜線雪白壯麗積雪。",
         "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
         "name": "陽明山擎天崗大草原環形步道",
-        "en": "百岳登山 Curated Spot",
-        "tag": "台北士林 · 精選地標",
-        "desc": "台北士林・陽明山擎天崗大草原環形步道，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "subCategory": "hiking",
+        "subName": "⛰️ 百岳登山",
+        "en": "Qingtiangang Grassland Ring Trail",
+        "tag": "台北士林 · 登山步道",
+        "desc": "大台北最親民的高山草原，平緩木棧圍欄與悠然水牛群交織自然田園畫卷。",
+        "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "苗栗泰安豪華山景帳篷露營",
+        "subCategory": "camping",
+        "subName": "⛺ 秘境露營",
+        "en": "Tai'an Glamping Luxury Mountain Tents",
+        "tag": "苗栗泰安 · 秘境露營",
+        "desc": "免搭帳野奢露營，獨立衛浴冷暖空調，坐擁泰安山嵐雲海與夜晚滿天繁星。",
+        "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "新竹尖石高海拔雲海露營地",
+        "subCategory": "camping",
+        "subName": "⛺ 秘境露營",
+        "en": "Jianshi High Altitude Cloud Sea Camp",
+        "tag": "新竹尖石 · 秘境露營",
+        "desc": "海拔1200公尺以上頂級營地，清晨拉開帳門直面翻滾如浪濤的壯闊雲海。",
         "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
-        "name": "司馬庫斯千年神木群步道",
-        "en": "百岳登山 Curated Spot",
-        "tag": "新竹尖石 · 精選地標",
-        "desc": "新竹尖石・司馬庫斯千年神木群步道，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "南投清境星空景觀露營車",
+        "subCategory": "camping",
+        "subName": "⛺ 秘境露營",
+        "en": "Cingjing Starlight Luxury Camper",
+        "tag": "南投仁愛 · 秘境露營",
+        "desc": "配備景觀天窗的歐式奢華露營車，躺在床上仰望合歡山無光害璀璨銀河。",
+        "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "宜蘭南澳那山那谷漂流露營車",
+        "subCategory": "camping",
+        "subName": "⛺ 秘境露營",
+        "en": "Nan'ao Najia Wilderness Glamping",
+        "tag": "宜蘭南澳 · 秘境露營",
+        "desc": "被南澳群山環抱的廣闊青翠草皮，體驗天然南澳南溪漂漂河沁涼野外生活。",
+        "img": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "南投鹿谷凍頂烏龍茶園營地",
+        "subCategory": "camping",
+        "subName": "⛺ 秘境露營",
+        "en": "Lugu Oolong Tea Plantation Camp",
+        "tag": "南投鹿谷 · 秘境露營",
+        "desc": "在層層梯田茶香環繞中搭帳，品嚐現泡頂級凍頂烏龍茶感受高山芬多精。",
+        "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "台中谷關野溪松林露營區",
+        "subCategory": "camping",
+        "subName": "⛺ 秘境露營",
+        "en": "Guguan Wild Creek Pine Camp",
+        "tag": "台中和平 · 秘境露營",
+        "desc": "隱身五葉松林下的原生態營地，鄰近大甲溪畔聆聽潺潺流水與林鳥鳴唱。",
         "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
-        "name": "鎮西堡巨木群原始森林",
-        "en": "百岳登山 Curated Spot",
-        "tag": "新竹尖石 · 精選地標",
-        "desc": "新竹尖石・鎮西堡巨木群原始森林，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
+        "name": "花蓮海崖谷太平洋野奢帳篷",
+        "subCategory": "camping",
+        "subName": "⛺ 秘境露營",
+        "en": "Hualien Hayaku Ocean View Glamping",
+        "tag": "花蓮壽豐 · 秘境露營",
+        "desc": "坐落於懸崖邊的峇里島風奢華帳篷，早晨在帳篷內迎接太平洋第一道金色曙光。",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
       },
       {
-        "name": "鵝公髻山雲霧柳杉森林",
-        "en": "百岳登山 Curated Spot",
-        "tag": "新竹五峰 · 精選地標",
-        "desc": "新竹五峰・鵝公髻山雲霧柳杉森林，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
+        "name": "嘉義阿里山得恩亞納小木屋露營",
+        "subCategory": "camping",
+        "subName": "⛺ 秘境露營",
+        "en": "De'enyana Swiss Village Wooden Cabins",
+        "tag": "嘉義阿里山 · 秘境露營",
+        "desc": "台版合掌村歐風尖頂小木屋營地，杉林環繞彷彿走進瑞士童話小鎮世外桃源。",
+        "img": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=700&auto=format&fit=crop"
       },
       {
-        "name": "加里山台版小富士柳杉林",
-        "en": "百岳登山 Curated Spot",
-        "tag": "苗栗南莊 · 精選地標",
-        "desc": "苗栗南莊・加里山台版小富士柳杉林，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
+        "name": "宜蘭礁溪微丹森林野餐露營",
+        "subCategory": "camping",
+        "subName": "⛺ 秘境露營",
+        "en": "Jiaoxi Weidan Forest Picnic Glamp",
+        "tag": "宜蘭礁溪 · 秘境露營",
+        "desc": "隱蔽在雪山山腳下的私密森林營區，提供精緻野餐風格佈置與戶外柴燒烤肉。",
+        "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop"
       },
       {
-        "name": "鳶嘴山險峻天然花崗岩稜線",
-        "en": "百岳登山 Curated Spot",
-        "tag": "台中和平 · 精選地標",
-        "desc": "台中和平・鳶嘴山險峻天然花崗岩稜線，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
+        "name": "屏東旭海原民部落海岸露營",
+        "subCategory": "camping",
+        "subName": "⛺ 秘境露營",
+        "en": "Xuhai Oceanfront Tribal Camp",
+        "tag": "屏東牡丹 · 秘境露營",
+        "desc": "台灣最後未開發海岸公路旁，生起營火伴隨原民部落民謠仰望浩瀚南天星海。",
+        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
+      }
+    ],
+    "subCategories": [
+      {
+        "id": "all",
+        "name": "全部景點 All",
+        "icon": "✨"
       },
       {
-        "name": "忘憂森林水中白枯木綠藻",
-        "en": "百岳登山 Curated Spot",
-        "tag": "南投竹山 · 精選地標",
-        "desc": "南投竹山・忘憂森林水中白枯木綠藻，為台灣全台百岳名山與高山縱走不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
+        "id": "hiking",
+        "name": "⛰️ 百岳登山",
+        "icon": "⛰️"
+      },
+      {
+        "id": "camping",
+        "name": "⛺ 秘境露營",
+        "icon": "⛺"
       }
     ]
   },
@@ -1071,172 +1336,237 @@ const THEMES_COMPLETE_DATA = [
     ],
     "spots": [
       {
-        "name": "日勝生加賀屋純日式數寄屋白磺",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "台北北投 · 精選地標",
-        "desc": "台北北投・日勝生加賀屋純日式數寄屋白磺，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "日勝生加賀屋純日式白磺溫泉",
+        "subCategory": "hotspring",
+        "subName": "♨️ 名湯溫泉",
+        "en": "Kagaya Beitou Pure Japanese Onsen",
+        "tag": "台北北投 · 名湯溫泉",
+        "desc": "傳承日本石川縣加賀屋管家款待之道，數寄屋建築與乳白硫磺原湯身心釋放。",
         "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
       },
       {
-        "name": "麗禧大磺嘴第一道泉冷熱雙池",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "台北北投 · 精選地標",
-        "desc": "台北北投・麗禧大磺嘴第一道泉冷熱雙池，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "北投麗禧大磺嘴第一道泉",
+        "subCategory": "hotspring",
+        "subName": "♨️ 名湯溫泉",
+        "en": "Grand View Resort Beitou Spring",
+        "tag": "台北北投 · 名湯溫泉",
+        "desc": "北投制高點五星級奢華飯店，引流大磺嘴第一道純淨白磺泉，私密冷熱雙池。",
         "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
       },
       {
-        "name": "三二行館私人極簡禪意會所",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "台北北投 · 精選地標",
-        "desc": "台北北投・三二行館私人極簡禪意會所，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "三二行館私人頂級禪意私湯會所",
+        "subCategory": "hotspring",
+        "subName": "♨️ 名湯溫泉",
+        "en": "Villa 32 Private Zen Onsen Sanctuary",
+        "tag": "台北北投 · 名湯溫泉",
+        "desc": "只接待少數貴賓的奢華溫泉莊園，以泉、木、樹、石四大元素構築寧靜極致禪意。",
         "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
       },
       {
-        "name": "北投老爺健康水療客房熱湯",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "台北北投 · 精選地標",
-        "desc": "台北北投・北投老爺健康水療客房熱湯，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "地熱谷景觀公園白煙硫磺手湯",
+        "subCategory": "hotspring",
+        "subName": "♨️ 名湯溫泉",
+        "en": "Thermal Valley Geothermal Spring Hand Bath",
+        "tag": "台北北投 · 名湯溫泉",
+        "desc": "天然青磺泉源頭，長年熱氣氤氳瀰漫如同仙境，新建木棧道旁設有暖心手湯。",
         "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
       },
       {
-        "name": "地熱谷白煙硫磺手湯體驗",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "台北北投 · 精選地標",
-        "desc": "台北北投・地熱谷白煙硫磺手湯體驗，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "陽明山冷水坑天然低溫白湯",
+        "subCategory": "hotspring",
+        "subName": "♨️ 名湯溫泉",
+        "en": "Lengshuikeng Low Temp White Spring",
+        "tag": "台北士林 · 名湯溫泉",
+        "desc": "泉溫約40度溫和不燙的免費男女公共浴池，富含碳酸氫鈉與微量鐵質。",
         "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
       },
       {
-        "name": "陽明山冷水坑免費低溫白湯",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "台北士林 · 精選地標",
-        "desc": "台北士林・陽明山冷水坑免費低溫白湯，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "烏來馥蘭朵南勢溪景觀雙人湯屋",
+        "subCategory": "hotspring",
+        "subName": "♨️ 名湯溫泉",
+        "en": "Volando Urai Spring & Art Resort",
+        "tag": "新北烏來 · 名湯溫泉",
+        "desc": "落地大窗面朝碧綠翡翠南勢溪，沉浸在無色無味清澈美人湯享受水畔太鼓演奏。",
         "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
       },
       {
-        "name": "馥蘭朵南勢溪景觀雙人湯屋",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "新北烏來 · 精選地標",
-        "desc": "新北烏來・馥蘭朵南勢溪景觀雙人湯屋，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "烏來璞石麗緻清水模特色石桶湯",
+        "subCategory": "hotspring",
+        "subName": "♨️ 名湯溫泉",
+        "en": "Pause Landis Resort Stone Bath",
+        "tag": "新北烏來 · 名湯溫泉",
+        "desc": "現代極簡清水模建築，鍋物湯、泰雅湯等特色主題半露天湯屋獨具巧思。",
         "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
       },
       {
-        "name": "璞石麗緻清水模特色桶型湯屋",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "新北烏來 · 精選地標",
-        "desc": "新北烏來・璞石麗緻清水模特色桶型湯屋，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "礁溪老爺酒店蘭陽平原野天風呂",
+        "subCategory": "hotspring",
+        "subName": "♨️ 名湯溫泉",
+        "en": "Hotel Royal Chiaohsi Open Air Bath",
+        "tag": "宜蘭礁溪 · 名湯溫泉",
+        "desc": "坐落五峰旗山腰俯瞰蘭陽平原百萬燈火，無邊際碳酸氫鈉泉水療與日式庭園。",
         "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
       },
       {
-        "name": "天籟兩千坪湧泉水樂園",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "新北金山 · 精選地標",
-        "desc": "新北金山・天籟兩千坪湧泉水樂園，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "舊金山總督日治招待所海底溫泉",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "新北金山 · 精選地標",
-        "desc": "新北金山・舊金山總督日治招待所海底溫泉，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "礁溪老爺蘭陽平原野天風呂",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "宜蘭礁溪 · 精選地標",
-        "desc": "宜蘭礁溪・礁溪老爺蘭陽平原野天風呂，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "寒沐高雅寬敞溫水水療池",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "宜蘭礁溪 · 精選地標",
-        "desc": "宜蘭礁溪・寒沐高雅寬敞溫水水療池，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "呆水溫泉香杉原木靜謐私湯",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "宜蘭礁溪 · 精選地標",
-        "desc": "宜蘭礁溪・呆水溫泉香杉原木靜謐私湯，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "長榮鳳凰千坪慢活大尺寸石池",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "宜蘭礁溪 · 精選地標",
-        "desc": "宜蘭礁溪・長榮鳳凰千坪慢活大尺寸石池，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "湯圍溝戶外免費木亭溫泉魚",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "宜蘭礁溪 · 精選地標",
-        "desc": "宜蘭礁溪・湯圍溝戶外免費木亭溫泉魚，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "礁溪呆水溫泉香杉原木靜謐私湯",
+        "subCategory": "hotspring",
+        "subName": "♨️ 名湯溫泉",
+        "en": "Sui Spring Retreat Cedarwood Bath",
+        "tag": "宜蘭礁溪 · 名湯溫泉",
+        "desc": "歷時七年打造的原木美學私湯空間，淡淡杉木清香伴隨純淨美人湯極致享受。",
         "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
       },
       {
         "name": "鳩之澤森林藍寶石溫泉蛋池",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "宜蘭大同 · 精選地標",
-        "desc": "宜蘭大同・鳩之澤森林藍寶石溫泉蛋池，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "subCategory": "hotspring",
+        "subName": "♨️ 名湯溫泉",
+        "en": "Jiouzhize Sapphire Blue Forest Bath",
+        "tag": "宜蘭大同 · 名湯溫泉",
+        "desc": "太平山下如藍寶石般夢幻淡藍色高溫碳酸泉，戶外巨大石池泡湯與竹簍煮溫泉蛋。",
         "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
       },
       {
-        "name": "泰安觀止鐵木共構清水模綠建築",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "苗栗泰安 · 精選地標",
-        "desc": "苗栗泰安・泰安觀止鐵木共構清水模綠建築，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "泰安觀止鐵木共構清水模名湯",
+        "subCategory": "hotspring",
+        "subName": "♨️ 名湯溫泉",
+        "en": "Onsen Papawaqa Timber & Concrete",
+        "tag": "苗栗泰安 · 名湯溫泉",
+        "desc": "紫藤蔓延清水模外牆與肖楠木共構，汶水溪畔無邊際露天溫泉池如詩如畫。",
         "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
       },
       {
-        "name": "日出南洋茅草涼亭滑嫩弱鹼泉",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "苗栗泰安 · 精選地標",
-        "desc": "苗栗泰安・日出南洋茅草涼亭滑嫩弱鹼泉，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "星野虹夕諾雅谷關樓中樓半露天風呂",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "台中和平 · 精選地標",
-        "desc": "台中和平・星野虹夕諾雅谷關樓中樓半露天風呂，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "谷關統一泰雅五行五色湯池",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "台中和平 · 精選地標",
-        "desc": "台中和平・谷關統一泰雅五行五色湯池，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "東埔帝綸弱鹼性玉山洗滌泉",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "南投信義 · 精選地標",
-        "desc": "南投信義・東埔帝綸弱鹼性玉山洗滌泉，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "廬山清澈可飲透明優質名湯",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "南投仁愛 · 精選地標",
-        "desc": "南投仁愛・廬山清澈可飲透明優質名湯，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "虹夕諾雅谷關樓中樓半露天風呂",
+        "subCategory": "hotspring",
+        "subName": "♨️ 名湯溫泉",
+        "en": "Hoshinoya Guguan Mezzanine Onsen",
+        "tag": "台中和平 · 名湯溫泉",
+        "desc": "星野集團奢華美學頂峰，每間客房均配置專屬溫泉樓層與通風半露天流動原湯。",
         "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
       },
       {
         "name": "關子嶺儷景天然黑色泥漿美肌湯",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "台南白河 · 精選地標",
-        "desc": "台南白河・關子嶺儷景天然黑色泥漿美肌湯，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "subCategory": "hotspring",
+        "subName": "♨️ 名湯溫泉",
+        "en": "Guanziling Mud Spring Skin Therapy",
+        "tag": "台南白河 · 名湯溫泉",
+        "desc": "全台唯一天然濁泉，灰黑色富含礦物質泥漿塗抹全身，洗後肌膚滑嫩光澤。",
         "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
       },
       {
-        "name": "景大中歐莊園泥漿水療面膜",
-        "en": "名湯溫泉 Curated Spot",
-        "tag": "台南白河 · 精選地標",
-        "desc": "台南白河・景大中歐莊園泥漿水療面膜，為台灣全台極上溫泉名湯與私湯不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "知本老爺酒店原住民圖騰溫泉風呂",
+        "subCategory": "hotspring",
+        "subName": "♨️ 名湯溫泉",
+        "en": "Hotel Royal Chihpen Tribal Bath",
+        "tag": "台東卑南 · 名湯溫泉",
+        "desc": "東台灣老牌名湯，結合卑南族原住民文化圖騰與瀑布星空露天風呂放鬆無比。",
         "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "新北大都會公園熊猴森樂園",
+        "subCategory": "inclusive_park",
+        "subName": "🛝 共融公園",
+        "en": "New Taipei Bear & Monkey Inclusive Park",
+        "tag": "新北三重 · 親子共融",
+        "desc": "全台最大共融堤坡滑梯樂園，31座以台灣特有動物命名的滑梯玩到不想回家。",
+        "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "台北大佳河濱共融式沙坑遊戲場",
+        "subCategory": "inclusive_park",
+        "subName": "🛝 共融公園",
+        "en": "Dajia Riverside Sand Inclusive Playground",
+        "tag": "台北中山 · 親子共融",
+        "desc": "全台最大共融式沙坑遊戲場，設置無障礙沙桌、共融輪椅鞦韆與夏日噴水鯨魚。",
+        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "天母運動公園共融兒童棒球遊戲區",
+        "subCategory": "inclusive_park",
+        "subName": "🛝 共融公園",
+        "en": "Tianmu Baseball Themed Inclusive Zone",
+        "tag": "台北士林 · 親子共融",
+        "desc": "以棒球為主題的9公尺巨型棒球攀爬溜滑梯，全齡安全軟質鋪面與共融旋轉盤。",
+        "img": "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "中和員山共融公園超長彩色滑梯",
+        "subCategory": "inclusive_park",
+        "subName": "🛝 共融公園",
+        "en": "Yuanshan Giant Colorful Slides & Grass",
+        "tag": "新北中和 · 親子共融",
+        "desc": "擁有20米超長彩色石子滑梯、大型人工草皮滑草場與城堡攀爬網的放電天堂。",
+        "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "桃園風禾公園50米超長滾輪溜滑梯",
+        "subCategory": "inclusive_park",
+        "subName": "🛝 共融公園",
+        "en": "Fenghe Park 50M Roller Slide",
+        "tag": "桃園桃園 · 親子共融",
+        "desc": "引進日本規格超長滾輪溜滑梯，順著地勢蜿蜒俯衝刺激安全，親子排隊熱門景點。",
+        "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "台中中央公園飛行體驗全齡共融區",
+        "subCategory": "inclusive_park",
+        "subName": "🛝 共融公園",
+        "en": "Taichung Central Park Aviation Play",
+        "tag": "台中西屯 · 親子共融",
+        "desc": "舊水湳機場改建，結合十二感官體驗與飛行航太遊具，寬闊綠地全家悠活野餐。",
+        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "台南竹溪水岸共融式兒童遊戲場",
+        "subCategory": "inclusive_park",
+        "subName": "🛝 共融公園",
+        "en": "Zhuxi Waterfront Inclusive Playground",
+        "tag": "台南南區 · 親子共融",
+        "desc": "由丹麥引進頂級共融遊具，月亮鞦韆、攀爬繩網與親水步道營造優雅河岸樂園。",
+        "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "屏東勝利星村共融動物遊戲場",
+        "subCategory": "inclusive_park",
+        "subName": "🛝 共融公園",
+        "en": "Shengli Star Village Animal Inclusive Park",
+        "tag": "屏東屏東 · 親子共融",
+        "desc": "結合眷村老宅復古文化與可愛動物造型遊具，貓咪柴犬造型滑梯療癒感滿分。",
+        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "高雄衛武營全齡共融綠茵放電公園",
+        "subCategory": "inclusive_park",
+        "subName": "🛝 共融公園",
+        "en": "Weiwuying All Age Inclusive Green Lawn",
+        "tag": "高雄鳳山 · 親子共融",
+        "desc": "緊鄰國家藝術文化中心，廣大白色巨蛋沙坑、無障礙共融蹺蹺板與林蔭步道。",
+        "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "花蓮太平洋共融極限運動公園",
+        "subCategory": "inclusive_park",
+        "subName": "🛝 共融公園",
+        "en": "Pacific Oceanfront Inclusive Activity Park",
+        "tag": "花蓮花蓮 · 親子共融",
+        "desc": "面朝浩瀚太平洋海浪第一排，無障礙海景溜滑梯與極限滑板場滿足各年齡層歡樂。",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
+      }
+    ],
+    "subCategories": [
+      {
+        "id": "all",
+        "name": "全部景點 All",
+        "icon": "✨"
+      },
+      {
+        "id": "hotspring",
+        "name": "♨️ 名湯溫泉",
+        "icon": "♨️"
+      },
+      {
+        "id": "inclusive_park",
+        "name": "🛝 共融公園",
+        "icon": "🛝"
       }
     ]
   },
@@ -1319,172 +1649,237 @@ const THEMES_COMPLETE_DATA = [
     ],
     "spots": [
       {
-        "name": "寧夏劉芋仔蛋黃肉鬆芋餅",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台北大同 · 精選地標",
-        "desc": "台北大同・寧夏劉芋仔蛋黃肉鬆芋餅，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "寧夏夜市劉芋仔蛋黃肉鬆芋餅",
+        "subCategory": "market",
+        "subName": "🍢 夜市小吃",
+        "en": "Ningxia Liu Yuzi Taro Meatball",
+        "tag": "台北大同 · 夜市必吃",
+        "desc": "米其林必比登推薦，嚴選甲仙芋頭現包整顆鹹蛋黃與黑豬肉肉鬆香脆絕倫。",
         "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "寧夏豬肝榮仔厚切脆豬肝湯",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台北大同 · 精選地標",
-        "desc": "台北大同・寧夏豬肝榮仔厚切脆豬肝湯，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "士林夜市海友十全藥燉排骨",
+        "subCategory": "market",
+        "subName": "🍢 夜市小吃",
+        "en": "Shilin Haiyou Ribs Herbal Soup",
+        "tag": "台北士林 · 夜市必吃",
+        "desc": "超過四十年老字號十五種漢方溫補藥材熬煮，排骨肉質軟嫩甘甜回味無窮。",
         "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "海友十全藥燉排骨甘醇湯",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台北士林 · 精選地標",
-        "desc": "台北士林・海友十全藥燉排骨甘醇湯，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "饒河夜市福州世祖炭烤胡椒餅",
+        "subCategory": "market",
+        "subName": "🍢 夜市小吃",
+        "en": "Raohe Fuzhou Black Pepper Buns",
+        "tag": "台北松山 · 夜市必吃",
+        "desc": "夜市入口排隊長龍名店，貼於高溫炭火泥爐現烤，酥脆外皮爆漿濃郁黑胡椒肉汁。",
         "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "忠誠號金黃酥脆鮮蚵仔煎",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台北士林 · 精選地標",
-        "desc": "台北士林・忠誠號金黃酥脆鮮蚵仔煎，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "通化臨江夜市御品元冰火湯圓",
+        "subCategory": "market",
+        "subName": "🍢 夜市小吃",
+        "en": "Linjiang Yupinyuan Hot Cold Tangyuan",
+        "tag": "台北大安 · 夜市必吃",
+        "desc": "現煮滾燙爆漿芝麻花生手工湯圓置於清爽剉冰上，淋上純天然桂花檸檬蜜蜜意濃。",
         "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "饒河福州世祖炭烤胡椒餅",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台北松山 · 精選地標",
-        "desc": "台北松山・饒河福州世祖炭烤胡椒餅，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "南機場夜市阿男甘甜清爽麻油雞",
+        "subCategory": "market",
+        "subName": "🍢 夜市小吃",
+        "en": "South Airport A-Nan Sesame Oil Chicken",
+        "tag": "台北中正 · 夜市必吃",
+        "desc": "連續多年入選必比登推介，酒香與黑麻油香恰到好處，去骨雞腿肉彈牙爽口。",
         "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "饒河陳董紅燒藥燉羊肉排骨",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台北松山 · 精選地標",
-        "desc": "台北松山・饒河陳董紅燒藥燉羊肉排骨，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "基隆廟口夜市天一香百年滷肉飯",
+        "subCategory": "market",
+        "subName": "🍢 夜市小吃",
+        "en": "Keelung Tianyixiang Heritage Braised Pork",
+        "tag": "基隆仁愛 · 夜市必吃",
+        "desc": "百年傳承祖傳手切肥瘦勻稱黑豬肉臊，淋在粒粒分明熱白飯上黏嘴膠質滿溢。",
         "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "臨江御品元熱冷冰火湯圓",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台北大安 · 精選地標",
-        "desc": "台北大安・臨江御品元熱冷冰火湯圓，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "樂華夜市阿爸の芋圓瀑布蔗片冰",
+        "subCategory": "market",
+        "subName": "🍢 夜市小吃",
+        "en": "Lehua Father's Taro Sugarcane Shaved Ice",
+        "tag": "新北永和 · 夜市必吃",
+        "desc": "獨創純手工炭燒蔗片冰，鋪滿綿密芋泥瀑布、芋圓、白玉湯圓與晶亮粉圓極致震撼。",
         "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "臨江梁記廣式冷滷鴨翅脆腸",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台北大安 · 精選地標",
-        "desc": "台北大安・臨江梁記廣式冷滷鴨翅脆腸，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "新竹城隍廟口鴨香油手撕鴨肉飯",
+        "subCategory": "market",
+        "subName": "🍢 夜市小吃",
+        "en": "Hsinchu God Temple Shredded Duck Rice",
+        "tag": "新竹北區 · 夜市必吃",
+        "desc": "煙燻多汁去骨鴨肉絲淋上香醇黃金鴨油與小黃瓜胡椒，搭配半熟荷包蛋銷魂至極。",
         "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "南機場阿男甘甜清爽麻油雞腿",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台北中正 · 精選地標",
-        "desc": "台北中正・南機場阿男甘甜清爽麻油雞腿，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "逢甲夜市官芝霖炭烤大腸包小腸",
+        "subCategory": "market",
+        "subName": "🍢 夜市小吃",
+        "en": "Fengjia Guanzhilin Sausage in Rice Sausage",
+        "tag": "台中西屯 · 夜市必吃",
+        "desc": "台灣經典街頭美食元祖，炭火烤香糯米腸包入多汁香腸，加入酸菜碎蒜小黃瓜。",
         "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "南機場山內鮮嫩白斬雞肉飯",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台北中正 · 精選地標",
-        "desc": "台北中正・南機場山內鮮嫩白斬雞肉飯，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "台南花園夜市二師兄熱炒三杯米血",
+        "subCategory": "market",
+        "subName": "🍢 夜市小吃",
+        "en": "Garden Night Market Second Brother Three-Cup",
+        "tag": "台南北區 · 夜市必吃",
+        "desc": "巨型大鐵鍋現炒三杯米血與鳥蛋，濃郁麻油老薑冰糖醬汁香氣四溢排隊數十米。",
         "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "公館雄記蜂蜜芥末九層塔蔥抓餅",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台北中正 · 精選地標",
-        "desc": "台北中正・公館雄記蜂蜜芥末九層塔蔥抓餅，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "台南花園夜市統大先炸後烤炭烤雞排",
+        "subCategory": "market",
+        "subName": "🍢 夜市小吃",
+        "en": "Garden Market Tongda Crispy BBQ Chicken",
+        "tag": "台南北區 · 夜市必吃",
+        "desc": "先裹粉高溫酥炸鎖住肉汁，再刷上台南靈魂微甜蜜汁炭火慢烤焦香誘人。",
         "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "湳雅王記大骨湯麻油雞腿",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "新北板橋 · 精選地標",
-        "desc": "新北板橋・湳雅王記大骨湯麻油雞腿，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "高雄瑞豐夜市天使厚切超爆汁雞排",
+        "subCategory": "market",
+        "subName": "🍢 夜市小吃",
+        "en": "Ruifeng Angel Extra Thick Crispy Chicken",
+        "tag": "高雄左營 · 夜市必吃",
+        "desc": "厚度超越兩公分的特厚溫體雞胸肉，金黃酥脆薄皮咬下湯汁四溢全台聞名。",
         "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "樂華阿爸の芋圓瀑布蔗片冰",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "新北永和 · 精選地標",
-        "desc": "新北永和・樂華阿爸の芋圓瀑布蔗片冰，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "高雄六合夜市莊記海產鮮蝦鮑魚粥",
+        "subCategory": "market",
+        "subName": "🍢 夜市小吃",
+        "en": "Liuhe Zhuangji Fresh Seafood Porridge",
+        "tag": "高雄新興 · 夜市必吃",
+        "desc": "當日現撈鮮蝦、肥美蛤蜊、花枝與蟹管肉大火現煮，鮮甜高湯讓人一滴不剩。",
         "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "廟口天一香百年肥瘦滷肉飯",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "基隆仁愛 · 精選地標",
-        "desc": "基隆仁愛・廟口天一香百年肥瘦滷肉飯，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "羅東夜市義豐蔥油派香酥排隊名店",
+        "subCategory": "market",
+        "subName": "🍢 夜市小吃",
+        "en": "Luodong Yifeng Crispy Scallion Pie",
+        "tag": "宜蘭羅東 · 夜市必吃",
+        "desc": "嚴選在地三星青蔥手揉層層麵皮，豬油半煎半炸外酥內嫩蔥香滿溢。",
         "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "廟口一口吃現烤香腸配蒜頭",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "基隆仁愛 · 精選地標",
-        "desc": "基隆仁愛・廟口一口吃現烤香腸配蒜頭，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
+        "name": "台北信義象山六巨石俯瞰101夜景",
+        "subCategory": "nightview",
+        "subName": "🌃 百萬夜景",
+        "en": "Xiangshan Elephant Mountain 101 View",
+        "tag": "台北信義 · 百萬夜景",
+        "desc": "全球旅人必訪世界級夜景，攀上六巨石俯瞰台北101與信義區璀璨萬家燈火。",
+        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "中壢不一樣現炸脆皮營養三明治",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "桃園中壢 · 精選地標",
-        "desc": "桃園中壢・中壢不一樣現炸脆皮營養三明治，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
+        "name": "內湖碧山巖開漳聖王廟夜景平台",
+        "subCategory": "nightview",
+        "subName": "🌃 百萬夜景",
+        "en": "Bishanyan Kaizhang Temple Cityscape",
+        "tag": "台北內湖 · 百萬夜景",
+        "desc": "廟前高台無遮蔽俯瞰整座大台北盆地，基隆河倒映101與松山機場飛機起降。",
+        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "城隍廟口鴨香油去骨手撕鴨肉飯",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "新竹東區 · 精選地標",
-        "desc": "新竹東區・城隍廟口鴨香油去骨手撕鴨肉飯，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
+        "name": "中和烘爐地南山福德宮不夜城夜景",
+        "subCategory": "nightview",
+        "subName": "🌃 百萬夜景",
+        "en": "Hongludi Nanshan Temple Starlight View",
+        "tag": "新北中和 · 百萬夜景",
+        "desc": "巨型土地公神像守護山頭，24小時香火鼎盛，求財摸元寶俯瞰雙北交織光軌。",
+        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "逢甲明倫特調甜辣醬現淋粉漿蛋餅",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台中西屯 · 精選地標",
-        "desc": "台中西屯・逢甲明倫特調甜辣醬現淋粉漿蛋餅，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
+        "name": "陽明山文化大學後山情人坡夜景",
+        "subCategory": "nightview",
+        "subName": "🌃 百萬夜景",
+        "en": "Chinese Culture Univ Lover's Slope",
+        "tag": "台北士林 · 百萬夜景",
+        "desc": "大台北最浪漫的大學約會聖地，倚坐在草坡上看著萬家燈火延伸至天際線。",
+        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "逢甲官芝霖炭烤黑胡椒大腸包小腸",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台中西屯 · 精選地標",
-        "desc": "台中西屯・逢甲官芝霖炭烤黑胡椒大腸包小腸，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
+        "name": "北投軍艦岩360度環景百萬夜色",
+        "subCategory": "nightview",
+        "subName": "🌃 百萬夜景",
+        "en": "Battleship Rock 360 Panorama Night",
+        "tag": "台北北投 · 百萬夜景",
+        "desc": "突出的雪白沉積砂岩山頭，居高臨下享有士林、北投與淡水河口的夜空微風。",
+        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
-        "name": "中華路陳陵低溫脆炸筍肉肉圓",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台中西區 · 精選地標",
-        "desc": "台中西區・中華路陳陵低溫脆炸筍肉肉圓，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
+        "name": "台中清水鰲峰山觀景平台海線夜景",
+        "subCategory": "nightview",
+        "subName": "🌃 百萬夜景",
+        "en": "Aofeng Mountain Coastal Night Panorama",
+        "tag": "台中清水 · 百萬夜景",
+        "desc": "弧形半圓木造觀景平台，俯瞰台中港灣船舶點點燈火與高美風車夜間流光。",
+        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "一中豐仁酸梅冰配大紅豆牛乳冰",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台中北區 · 精選地標",
-        "desc": "台中北區・一中豐仁酸梅冰配大紅豆牛乳冰，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
+        "name": "台中望高寮夜景公園台灣版函館",
+        "subCategory": "nightview",
+        "subName": "🌃 百萬夜景",
+        "en": "Wanggaoliao Taichung Hakodate Night",
+        "tag": "台中南屯 · 百萬夜景",
+        "desc": "圓形下沉式戶外階梯劇場，東望台中市區七期高樓群、西望彰化平原浩瀚燈海。",
+        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "花園二師兄大鍋熱炒三杯米血小鳥蛋",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台南北區 · 精選地標",
-        "desc": "台南北區・花園二師兄大鍋熱炒三杯米血小鳥蛋，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
+        "name": "高雄壽山忠烈祠LOVE觀景台",
+        "subCategory": "nightview",
+        "subName": "🌃 百萬夜景",
+        "en": "Shoushan Martyrs Shrine LOVE View",
+        "tag": "高雄鼓山 · 百萬夜景",
+        "desc": "巨大LOVE裝置藝術搭配高雄港灣第一排視野，亞洲新灣區與85大樓流光璀璨。",
+        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "花園統大先炸後烤微甜靈魂雞排",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台南北區 · 精選地標",
-        "desc": "台南北區・花園統大先炸後烤微甜靈魂雞排，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
+        "name": "高雄旗後燈塔浪漫夜色眺望西子灣",
+        "subCategory": "nightview",
+        "subName": "🌃 百萬夜景",
+        "en": "Cihou Lighthouse Romantic Harbor Night",
+        "tag": "高雄旗津 · 百萬夜景",
+        "desc": "百年純白巴洛克燈塔開放夜間參觀，倚欄品嚐文青咖啡吹海風俯瞰進出巨輪。",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
       },
       {
-        "name": "武聖阿美新鮮現拌甘草梅子芭樂",
-        "en": "夜市小吃 Curated Spot",
-        "tag": "台南中西 · 精選地標",
-        "desc": "台南中西・武聖阿美新鮮現拌甘草梅子芭樂，為台灣熱血夜市饕客美味大搜查不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
+        "name": "宜蘭礁溪空埕夜景眺望蘭陽平原",
+        "subCategory": "nightview",
+        "subName": "🌃 百萬夜景",
+        "en": "Jiaoxi Kongcheng Lanyang Plain Lights",
+        "tag": "宜蘭礁溪 · 百萬夜景",
+        "desc": "居高臨下俯瞰雪山隧道出口與整片棋盤狀蘭陽平原，星空與稻田燈火相輝映。",
+        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
+      }
+    ],
+    "subCategories": [
+      {
+        "id": "all",
+        "name": "全部景點 All",
+        "icon": "✨"
+      },
+      {
+        "id": "market",
+        "name": "🍢 夜市小吃",
+        "icon": "🍢"
+      },
+      {
+        "id": "nightview",
+        "name": "🌃 百萬夜景",
+        "icon": "🌃"
       }
     ]
   },
@@ -1567,172 +1962,247 @@ const THEMES_COMPLETE_DATA = [
     ],
     "spots": [
       {
-        "name": "十分天燈節廣場",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "新北平溪 · 精選地標",
-        "desc": "新北平溪・十分天燈節廣場，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "平溪十分天燈節萬盞祈福齊飛",
+        "subCategory": "festival",
+        "subName": "🏮 節慶典禮",
+        "en": "Pingxi Sky Lantern Global Festival",
+        "tag": "新北平溪 · 歲時盛典",
+        "desc": "被國際媒體列為全球此生必遊節慶，千百盞溫暖火紅天燈同時升向夜空感動萬千。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "101跨年煙火高台",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "台北信義 · 精選地標",
-        "desc": "台北信義・101跨年煙火高台，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "台南鹽水武廟萬發蜂炮戰線震撼",
+        "subCategory": "festival",
+        "subName": "🏮 節慶典禮",
+        "en": "Yanshui Beehive Fireworks Battle",
+        "tag": "台南鹽水 · 歲時盛典",
+        "desc": "全球第三大嘉年華盛典，全副武裝感受百萬支蜂炮傾巢齊發的辟邪震撼洗禮。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "武廟蜂炮戰線",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "台南鹽水 · 精選地標",
-        "desc": "台南鹽水・武廟蜂炮戰線，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "屏東東港東隆宮三年一科迎王平安祭典",
+        "subCategory": "festival",
+        "subName": "🏮 節慶典禮",
+        "en": "Donggang King Boat Burning Ceremony",
+        "tag": "屏東東港 · 歲時盛典",
+        "desc": "國定無形文化資產，純金箔打造王船在鎮海公園海灘引燃恭送千歲爺返天祈福。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "月津港水岸燈節",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "台南鹽水 · 精選地標",
-        "desc": "台南鹽水・月津港水岸燈節，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "苗栗中港慈裕宮炸邯鄲火炮狂歡",
+        "subCategory": "festival",
+        "subName": "🏮 節慶典禮",
+        "en": "Miaoli Handan Firecracker Ceremony",
+        "tag": "苗栗竹南 · 歲時盛典",
+        "desc": "元宵節特有傳統，信徒手擲排炮炸邯鄲祈求財富與地方平安，火光四射熱鬧非凡。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "東隆宮燒王船祭典",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "屏東東港 · 精選地標",
-        "desc": "屏東東港・東隆宮燒王船祭典，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "台東玄武堂肉身寒單爺火炮巡禮",
+        "subCategory": "festival",
+        "subName": "🏮 節慶典禮",
+        "en": "Taitung Xuanwu Hall Master Handan",
+        "tag": "台東台東 · 歲時盛典",
+        "desc": "勇士打赤膊站立神轎上接受成串連環炮洗禮，展現堅毅信仰勇氣與元宵迎財神民俗。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "中港慈裕宮炸邯鄲",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "苗栗竹南 · 精選地標",
-        "desc": "苗栗竹南・中港慈裕宮炸邯鄲，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "屏東恆春古城豎孤棚中元搶孤盛會",
+        "subCategory": "festival",
+        "subName": "🏮 節慶典禮",
+        "en": "Hengchun Ghost Festival Pole Climbing",
+        "tag": "屏東恆春 · 歲時盛典",
+        "desc": "百年傳統中元民俗，健兒塗滿牛油的十二公尺原木柱上合力攀爬展現團隊默契。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "玄武堂肉身寒單爺",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "台東市 · 精選地標",
-        "desc": "台東市・玄武堂肉身寒單爺，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "台北101跨年煙火璀璨大秀",
+        "subCategory": "events",
+        "subName": "🎪 節慶活動",
+        "en": "Taipei 101 New Year Fireworks",
+        "tag": "台北信義 · 節慶活動",
+        "desc": "全球矚目跨年煙火音樂光雕秀，數萬發煙火自508米高樓同步迸發迎接新年。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "迪化街年貨大街",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "台北大同 · 精選地標",
-        "desc": "台北大同・迪化街年貨大街，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "台南鹽水月津港水岸光影藝術燈節",
+        "subCategory": "events",
+        "subName": "🎪 節慶活動",
+        "en": "Yuejin Lantern Festival Water Art",
+        "tag": "台南鹽水 · 節慶活動",
+        "desc": "以水上藝術裝置點亮歷史古港，夜間倒映水面的如幻光影被譽為全台最美水岸藝術節。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "天津路年貨大街",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "台中中區 · 精選地標",
-        "desc": "台中中區・天津路年貨大街，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "新北歡樂耶誕城巨幅3D光雕盛典",
+        "subCategory": "events",
+        "subName": "🎪 節慶活動",
+        "en": "Christmasland New Taipei 3D Light",
+        "tag": "新北板橋 · 節慶活動",
+        "desc": "全台最大冬季盛事，新北市府大樓化身巨幕裸視3D光雕秀，百萬璀璨燈海天橋打卡。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "三鳳中街年貨商圈",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "高雄三民 · 精選地標",
-        "desc": "高雄三民・三鳳中街年貨商圈，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "台北大稻埕迪化街歲末年貨大街",
+        "subCategory": "events",
+        "subName": "🎪 節慶活動",
+        "en": "Dihua Street Lunar New Year Market",
+        "tag": "台北大同 · 節慶活動",
+        "desc": "百年中藥南北貨批發街，農曆年前叫賣試吃聲不絕於耳，感受最濃郁道地台灣年味。",
+        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "台北大佳河濱端午國際龍舟錦標賽",
+        "subCategory": "events",
+        "subName": "🎪 節慶活動",
+        "en": "Taipei Dragon Boat Championship",
+        "tag": "台北中山 · 節慶活動",
+        "desc": "基隆河畔鼓聲震天，百艘龍舟破浪競渡爭奪奪旗榮耀，伴隨端午立蛋與包粽節慶。",
+        "img": "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "台北總統府國慶光雕展演盛典",
+        "subCategory": "events",
+        "subName": "🎪 節慶活動",
+        "en": "National Day Presidential Light Show",
+        "tag": "台北中正 · 節慶活動",
+        "desc": "百年巴洛克紅磚官邸化作巨幅歷史畫布，以磅礡音樂動畫回顧台灣土地動人記憶。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "行天宮除夕排隊祈福",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "台北中山 · 精選地標",
-        "desc": "台北中山・行天宮除夕排隊祈福，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "台中大甲鎮瀾宮媽祖遶境進香",
+        "subCategory": "temple",
+        "subName": "🥁 信仰廟會",
+        "en": "Dajia Mazu Nine Days Pilgrimage",
+        "tag": "台中大甲 · 信仰盛事",
+        "desc": "世界三大宗教盛事之一，九天八夜徒步三百餘公里，沿途信徒鑽轎腳祈求安康。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "艋舺龍山寺點平安燈",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "台北萬華 · 精選地標",
-        "desc": "台北萬華・艋舺龍山寺點平安燈，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "苗栗白沙屯拱天宮粉紅超跑徒步進香",
+        "subCategory": "temple",
+        "subName": "🥁 信仰廟會",
+        "en": "Baishatun Mazu Pink Supercar Run",
+        "tag": "苗栗通霄 · 信仰盛事",
+        "desc": "全台最神速無固定路線徒步進香，神轎隨媽祖旨意涉溪穿巷展現超凡神蹟感召。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "紫南宮求發財金",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "南投竹山 · 精選地標",
-        "desc": "南投竹山・紫南宮求發財金，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "台北行天宮除夕夜排隊祈安納福",
+        "subCategory": "temple",
+        "subName": "🥁 信仰廟會",
+        "en": "Xingtian Temple New Year Eve Bless",
+        "tag": "台北中山 · 信仰盛事",
+        "desc": "主祀關聖帝君，首創不燒金紙香炷環保理念，藍袍收驚婆婆親切撫慰撫平心靈。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "朝天宮春節香火",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "雲林北港 · 精選地標",
-        "desc": "雲林北港・朝天宮春節香火，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "艋舺龍山寺點光明平安燈祈福",
+        "subCategory": "temple",
+        "subName": "🥁 信仰廟會",
+        "en": "Bangka Lungshan Temple Lanterns",
+        "tag": "台北萬華 · 信仰盛事",
+        "desc": "台北建城重要信仰核心，正殿供奉觀世音菩薩，精雕細琢龍柱剪黏極富藝術價值。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "普濟殿萬盞彩繪燈海",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "台南中西 · 精選地標",
-        "desc": "台南中西・普濟殿萬盞彩繪燈海，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "南投竹山紫南宮求發財金開運錢母",
+        "subCategory": "temple",
+        "subName": "🥁 信仰廟會",
+        "en": "Zinan Temple Fortune Money Coin",
+        "tag": "南投竹山 · 信仰盛事",
+        "desc": "全台求財最靈驗土地公廟，借六百發財金轉運創業，鑽金雞摸元寶人氣爆棚。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "歡樂耶誕城光雕",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "新北板橋 · 精選地標",
-        "desc": "新北板橋・歡樂耶誕城光雕，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "台南普濟殿萬盞手繪彩繪燈海",
+        "subCategory": "temple",
+        "subName": "🥁 信仰廟會",
+        "en": "Puji Temple Handpainted Lantern Sea",
+        "tag": "台南中西 · 信仰盛事",
+        "desc": "數千顆民間學童手繪彩繪燈籠懸掛古廟街巷，春節點燈照耀古都漫溢溫暖祥和。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "香堤大道聖誕市集",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "台北信義 · 精選地標",
-        "desc": "台北信義・香堤大道聖誕市集，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "九份昇平戲院古蹟劇院影視巡禮",
+        "subCategory": "cinema",
+        "subName": "🎬 影視朝聖",
+        "en": "Shengping Theater City of Sadness",
+        "tag": "新北瑞芳 · 影視朝聖",
+        "desc": "侯孝賢導演威尼斯金獅獎《悲情城市》核心取景地，保留日治黃金年代老戲院風華。",
+        "img": "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "淡水真理大學大禮拜堂影視場景",
+        "subCategory": "cinema",
+        "subName": "🎬 影視朝聖",
+        "en": "Aletheia Univ Secret Film Campus",
+        "tag": "新北淡水 · 影視朝聖",
+        "desc": "周杰倫自導自演電影《不能說的秘密》母校取景地，哥德式教堂尖塔與紅磚長廊優雅浪漫。",
+        "img": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "墾丁白砂灣少年PI奇幻漂流海灘",
+        "subCategory": "cinema",
+        "subName": "🎬 影視朝聖",
+        "en": "Baisha Bay Life of Pi Landing",
+        "tag": "屏東恆春 · 影視朝聖",
+        "desc": "奧斯卡導演李安《少年PI的奇幻漂流》老虎理查帕克上岸走入叢林的潔白貝殼沙灘。",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "鹿港龍山寺國定古蹟鹿港小鎮場景",
+        "subCategory": "cinema",
+        "subName": "🎬 影視朝聖",
+        "en": "Lukang Longshan Temple Melody Spot",
+        "tag": "彰化鹿港 · 影視朝聖",
+        "desc": "羅大佑名曲《鹿港小鎮》與多部台灣史詩電影靈魂背景，八卦藻井與山門雕刻登峰造極。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
       },
       {
-        "name": "天母萬聖搞怪嘉年華",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "台北士林 · 精選地標",
-        "desc": "台北士林・天母萬聖搞怪嘉年華，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
+        "name": "台南神農街百年老街屋俗女養成記",
+        "subCategory": "cinema",
+        "subName": "🎬 影視朝聖",
+        "en": "Shennong Street The Making of Ordinary Woman",
+        "tag": "台南中西 · 影視朝聖",
+        "desc": "現象級爆紅金鐘台劇《俗女養成記》取景地，五條港時期老屋木門紅燈籠散發老台南韻味。",
+        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "大佳河濱端午龍舟賽",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "台北中山 · 精選地標",
-        "desc": "台北中山・大佳河濱端午龍舟賽，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "嘉義檜意森活村KANO熱血教練宿舍",
+        "subCategory": "cinema",
+        "subName": "🎬 影視朝聖",
+        "en": "Hinoki Village KANO Historic Dorm",
+        "tag": "嘉義東區 · 影視朝聖",
+        "desc": "全台最大日式官舍建築聚落，熱血棒球電影《KANO》近藤教練住所，穿著和服感受時光倒流。",
         "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
+      }
+    ],
+    "subCategories": [
+      {
+        "id": "all",
+        "name": "全部景點 All",
+        "icon": "✨"
       },
       {
-        "name": "慶端陽國際龍舟賽",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "彰化鹿港 · 精選地標",
-        "desc": "彰化鹿港・慶端陽國際龍舟賽，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
+        "id": "festival",
+        "name": "🏮 節慶典禮",
+        "icon": "🏮"
       },
       {
-        "name": "運河夜間端午龍舟錦標賽",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "台南安平 · 精選地標",
-        "desc": "台南安平・運河夜間端午龍舟錦標賽，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
+        "id": "events",
+        "name": "🎪 節慶活動",
+        "icon": "🎪"
       },
       {
-        "name": "愛河端午龍舟拔河",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "高雄前金 · 精選地標",
-        "desc": "高雄前金・愛河端午龍舟拔河，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
+        "id": "temple",
+        "name": "🥁 信仰廟會",
+        "icon": "🥁"
       },
       {
-        "name": "總統府國慶光雕展演",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "台北中正 · 精選地標",
-        "desc": "台北中正・總統府國慶光雕展演，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "恆春古城豎孤棚中元搶孤",
-        "en": "節慶典禮 Curated Spot",
-        "tag": "屏東恆春 · 精選地標",
-        "desc": "屏東恆春・恆春古城豎孤棚中元搶孤，為台灣台灣全島歲時狂歡與節慶不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=700&auto=format&fit=crop"
+        "id": "cinema",
+        "name": "🎬 影視朝聖",
+        "icon": "🎬"
       }
     ]
   },
@@ -1815,172 +2285,237 @@ const THEMES_COMPLETE_DATA = [
     ],
     "spots": [
       {
-        "name": "富貴角燈塔",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "新北石門 · 精選地標",
-        "desc": "新北石門・富貴角燈塔（極北點黑白八角燈塔），為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "富貴角燈塔極北點黑白八角燈塔",
+        "subCategory": "roadtrip",
+        "subName": "🚗 壯遊環島",
+        "en": "Fugui Cape Extreme North Landmark",
+        "tag": "新北石門 · 極點公路",
+        "desc": "台灣本島最北端極點坐標，黑白相間八角形鐵造燈塔守望東海。",
         "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
       },
       {
-        "name": "三貂角燈塔",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "新北貢寮 · 精選地標",
-        "desc": "新北貢寮・三貂角燈塔（極東點第一道日出），為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "三貂角燈塔台灣極東純白燈塔",
+        "subCategory": "roadtrip",
+        "subName": "🚗 壯遊環島",
+        "en": "San Diego Cape Easternmost Point",
+        "tag": "新北貢寮 · 極點公路",
+        "desc": "極東之境迎接全島第一道日出，純白浪漫燈塔與愛心雕塑自駕必打卡。",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "鵝鑾鼻燈塔台灣極南光之指引",
+        "subCategory": "roadtrip",
+        "subName": "🚗 壯遊環島",
+        "en": "Eluanbi Lighthouse Extreme South Point",
+        "tag": "屏東恆春 · 極點公路",
+        "desc": "台灣最南端武裝燈塔，隔巴士海峽與菲律賓相望，東亞之光氣勢非凡。",
         "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
       },
       {
-        "name": "鵝鑾鼻燈塔",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "屏東恆春 · 精選地標",
-        "desc": "屏東恆春・鵝鑾鼻燈塔（極南點巴士海峽交界），為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "國聖港燈塔台灣極西黑白鐵塔",
+        "subCategory": "roadtrip",
+        "subName": "🚗 壯遊環島",
+        "en": "Guoshenggang Westernmost Iron Tower",
+        "tag": "台南七股 · 極點公路",
+        "desc": "隱身七股頂頭額沙洲極西點，荒涼如撒哈拉沙漠的沙丘線條攝影師私藏名勝。",
         "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
       },
       {
-        "name": "國聖港燈塔",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "台南七股 · 精選地標",
-        "desc": "台南七股・國聖港燈塔（極西點七股大沙漠黑鐵塔），為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "合歡山武嶺碑",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "南投仁愛 · 精選地標",
-        "desc": "南投仁愛・合歡山武嶺碑（台灣公路最高點3275m），為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "日月潭向山遊客中心環湖最美木棧道",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "南投魚池 · 精選地標",
-        "desc": "南投魚池・日月潭向山遊客中心環湖最美木棧道，為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
+        "name": "合歡山武嶺碑海拔3275m公路最高點",
+        "subCategory": "roadtrip",
+        "subName": "🚗 壯遊環島",
+        "en": "Wuling Highest Highway Pass in Taiwan",
+        "tag": "南投仁愛 · 極點公路",
+        "desc": "台灣公路最高點武嶺碑，單車環島與機車自駕族必須插旗登頂的榮耀地標。",
+        "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
         "name": "蘇花改太魯閣景觀大道清水斷崖段",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "花蓮秀林 · 精選地標",
-        "desc": "花蓮秀林・蘇花改太魯閣景觀大道清水斷崖段，為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "subCategory": "roadtrip",
+        "subName": "🚗 壯遊環島",
+        "en": "Suhua Highway Oceanfront Drive",
+        "tag": "花蓮秀林 · 極點公路",
+        "desc": "串連宜蘭與花蓮的世界級懸崖公路，車窗外就是太平洋層次分明的湛藍海景。",
+        "img": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "台東金崙高架橋直通太平洋海天一線",
+        "subCategory": "roadtrip",
+        "subName": "🚗 壯遊環島",
+        "en": "Jinlun Viaduct Pacific Ocean Bridge",
+        "tag": "台東太麻里 · 極點公路",
+        "desc": "被譽為全台最美高架橋，開車彷彿直奔無邊無際的太平洋海平面般心曠神怡。",
         "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
       },
       {
-        "name": "金崙高架橋",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "台東太麻里 · 精選地標",
-        "desc": "台東太麻里・金崙高架橋（全台最美懸空太平洋公路），為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "屏東壽峠鐵馬驛站南迴公路最高點",
+        "subCategory": "roadtrip",
+        "subName": "🚗 壯遊環島",
+        "en": "Shouka Bicycle Station South Link",
+        "tag": "屏東牡丹 · 極點公路",
+        "desc": "台9戊線海拔460公尺南迴公路頂點，所有環島單車騎士揮灑汗水的英雄里程碑。",
+        "img": "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "台中高美濕地風車大道木棧道天空之鏡",
+        "subCategory": "roadtrip",
+        "subName": "🚗 壯遊環島",
+        "en": "Gaomei Wetland Windmill Sky Mirror",
+        "tag": "台中清水 · 極點公路",
+        "desc": "巨大的白色風力發電機群排列海岸線，退潮泥灘倒映火紅夕陽美如天空之鏡。",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "苗栗後龍半天寮好望角俯瞰海線鐵道",
+        "subCategory": "roadtrip",
+        "subName": "🚗 壯遊環島",
+        "en": "Miaoli Cape of Good Hope Windmills",
+        "tag": "苗栗後龍 · 極點公路",
+        "desc": "西濱台61線公路必停休息點，居高臨下俯瞰火車奔馳海線與大風車迎風旋轉。",
+        "img": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "新竹香山濕地賞蟹步道心形石滬夕陽",
+        "subCategory": "roadtrip",
+        "subName": "🚗 壯遊環島",
+        "en": "Xiangshan Wetland Crab Walkway Sunset",
+        "tag": "新竹香山 · 極點公路",
+        "desc": "延伸進泥灘地的心形賞蟹步道，近距離觀察招潮蟹彈塗魚與金黃夕陽染紅海面。",
+        "img": "https://images.unsplash.com/photo-1505881502353-a1986add3762?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "宜蘭南方澳觀景台俯瞰內埤情人弧灣",
+        "subCategory": "roadtrip",
+        "subName": "🚗 壯遊環島",
+        "en": "Nanfang'ao Lookout Inner Pier Bay",
+        "tag": "宜蘭蘇澳 · 極點公路",
+        "desc": "蘇花公路起點俯瞰第一大漁港，遠眺豆腐岬海灣與筆架山秀麗地質奇觀。",
+        "img": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=700&auto=format&fit=crop"
+      },
+      {
+        "name": "花蓮豐濱新社梯田太平洋懸崖黃金稻浪",
+        "subCategory": "roadtrip",
+        "subName": "🚗 壯遊環島",
+        "en": "Xinshe Terraced Rice Fields by Sea",
+        "tag": "花蓮豐濱 · 極點公路",
+        "desc": "全台最大臨海梯田，夏收季節金黃色稻浪緊貼湛藍太平洋懸崖迎風起伏。",
         "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
       },
       {
-        "name": "成廣澳文化地景台11線休息站",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "台東成功 · 精選地標",
-        "desc": "台東成功・成廣澳文化地景台11線休息站，為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
+        "name": "台東長濱金剛大道筆直直通太平洋",
+        "subCategory": "roadtrip",
+        "subName": "🚗 壯遊環島",
+        "en": "Jingang Avenue Straight to Pacific",
+        "tag": "台東長濱 · 極點公路",
+        "desc": "依偎在金剛山麓下的台11線支線，筆直無盡頭的公路如滑梯般直衝深藍太平洋。",
         "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
       },
       {
-        "name": "壽峠鐵馬驛站",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "屏東牡丹 · 精選地標",
-        "desc": "屏東牡丹・壽峠鐵馬驛站（南迴公路最高點打卡），為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
+        "name": "台東鹿野武陵綠色隧道樟樹林蔭大道",
+        "subCategory": "roadtrip",
+        "subName": "🚗 壯遊環島",
+        "en": "Wuling Green Tunnel Camphor Avenue",
+        "tag": "台東鹿野 · 極點公路",
+        "desc": "台9線舊公路長達四公里的樟樹與木麻黃林蔭，自駕單車穿梭於陽光灑落的光斑中。",
+        "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
       },
       {
-        "name": "雙流國家森林遊樂區南迴森呼吸",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "屏東獅子 · 精選地標",
-        "desc": "屏東獅子・雙流國家森林遊樂區南迴森呼吸，為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
+        "name": "台北大巨蛋棒球室內殿堂",
+        "subCategory": "sports",
+        "subName": "⚾ 運動賽事",
+        "en": "Taipei Dome Baseball Indoor Sanctuary",
+        "tag": "台北信義 · 運動朝聖",
+        "desc": "全台首座四萬席頂級室內空調棒球場，國際頂級賽事與經典熱血對決舞台。",
+        "img": "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=700&auto=format&fit=crop"
       },
       {
-        "name": "井仔腳瓦盤鹽田棋盤夕陽",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "台南北門 · 精選地標",
-        "desc": "台南北門・井仔腳瓦盤鹽田棋盤夕陽，為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
+        "name": "台中洲際棒球場中信兄弟主場",
+        "subCategory": "sports",
+        "subName": "⚾ 運動賽事",
+        "en": "Taichung Intercontinental Brothers Stadium",
+        "tag": "台中北屯 · 運動朝聖",
+        "desc": "熱血百萬爪迷黃潮大本營，外觀巨型棒球紅色縫線拱橋，熱烈應援震撼全場。",
+        "img": "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=700&auto=format&fit=crop"
       },
       {
-        "name": "白水湖壽島水上馬桶退潮摩西路",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "嘉義東石 · 精選地標",
-        "desc": "嘉義東石・白水湖壽島水上馬桶退潮摩西路，為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
+        "name": "台南市立棒球場統一獅南霸天大本營",
+        "subCategory": "sports",
+        "subName": "⚾ 運動賽事",
+        "en": "Tainan Municipal Lions Historic Stadium",
+        "tag": "台南南區 · 運動朝聖",
+        "desc": "全台歷史最悠久的職棒主場，橘綠旗幟飄揚，感受府城古都近百年的棒球狂熱信仰。",
+        "img": "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=700&auto=format&fit=crop"
       },
       {
-        "name": "成龍濕地水上竹編裝置藝術",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "雲林口湖 · 精選地標",
-        "desc": "雲林口湖・成龍濕地水上竹編裝置藝術，為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
+        "name": "高雄澄清湖棒球場台鋼雄鷹主場",
+        "subCategory": "sports",
+        "subName": "⚾ 運動賽事",
+        "en": "Kaohsiung Chengcing Lake Hawks Stadium",
+        "tag": "高雄鳥松 · 運動朝聖",
+        "desc": "綠意澄清湖畔的雄偉球場，全新中職第六隊台鋼雄鷹主場展翅，南部球迷狂歡基地。",
+        "img": "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=700&auto=format&fit=crop"
       },
       {
-        "name": "海空步道紅樹林濕地木棧道",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "彰化芳苑 · 精選地標",
-        "desc": "彰化芳苑・海空步道紅樹林濕地木棧道，為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
+        "name": "台北天母棒球場味全龍狂龍主場",
+        "subCategory": "sports",
+        "subName": "⚾ 運動賽事",
+        "en": "Tianmu Baseball Dragons Red Stadium",
+        "tag": "台北士林 · 運動朝聖",
+        "desc": "全台唯一全面鋪設人工草皮的國際球場，味全龍紅色風暴震撼天母商圈。",
+        "img": "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=700&auto=format&fit=crop"
       },
       {
-        "name": "高美濕地風車大道木棧道天空之鏡",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "台中清水 · 精選地標",
-        "desc": "台中清水・高美濕地風車大道木棧道天空之鏡，為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
+        "name": "樂天桃園棒球場猿風應援熱區",
+        "subCategory": "sports",
+        "subName": "⚾ 運動賽事",
+        "en": "Rakuten Taoyuan Monkeys Stadium",
+        "tag": "桃園中壢 · 運動朝聖",
+        "desc": "開創全猿主場應援文化先驅，專業DJ音響、升降舞台與活力啦啦隊無死角熱舞狂歡。",
+        "img": "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=700&auto=format&fit=crop"
       },
       {
-        "name": "半天寮好望角大風車俯瞰海線鐵道",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "苗栗後龍 · 精選地標",
-        "desc": "苗栗後龍・半天寮好望角大風車俯瞰海線鐵道，為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
+        "name": "新北新莊棒球場富邦悍將城堡",
+        "subCategory": "sports",
+        "subName": "⚾ 運動賽事",
+        "en": "Xinzhuang Guardians Castle Stadium",
+        "tag": "新北新莊 · 運動朝聖",
+        "desc": "五星級VIP包廂與高規格乾淨草皮，大台北最舒適看球城堡與多元美食商場。",
+        "img": "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=700&auto=format&fit=crop"
       },
       {
-        "name": "香山濕地賞蟹步道心形石滬夕陽",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "新竹香山 · 精選地標",
-        "desc": "新竹香山・香山濕地賞蟹步道心形石滬夕陽，為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
+        "name": "花蓮德興棒球場後山職棒盛會",
+        "subCategory": "sports",
+        "subName": "⚾ 運動賽事",
+        "en": "Hualien Dexing Baseball Mountain Arena",
+        "tag": "花蓮花蓮 · 運動朝聖",
+        "desc": "群山環繞的太平洋棒球場，每逢夏季職棒巡迴週原住民選手榮耀回鄉熱血沸騰。",
+        "img": "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=700&auto=format&fit=crop"
       },
       {
-        "name": "竹圍漁港彩虹跨海拱橋海鮮",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "桃園大園 · 精選地標",
-        "desc": "桃園大園・竹圍漁港彩虹跨海拱橋海鮮，為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
+        "name": "雲林斗六棒球場國際級標準球場",
+        "subCategory": "sports",
+        "subName": "⚾ 運動賽事",
+        "en": "Douliu Baseball Stadium Yunlin",
+        "tag": "雲林斗六 · 運動朝聖",
+        "desc": "視野開闊無死角的國際標準球場，台灣冬季聯盟與國家代表隊集訓聖殿。",
+        "img": "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=700&auto=format&fit=crop"
+      }
+    ],
+    "subCategories": [
+      {
+        "id": "all",
+        "name": "全部景點 All",
+        "icon": "✨"
       },
       {
-        "name": "漁人碼頭情人橋淡江夕照",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "新北淡水 · 精選地標",
-        "desc": "新北淡水・漁人碼頭情人橋淡江夕照，為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
+        "id": "roadtrip",
+        "name": "🚗 壯遊環島",
+        "icon": "🚗"
       },
       {
-        "name": "南方澳觀景台俯瞰內埤情人弧灣",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "宜蘭蘇澳 · 精選地標",
-        "desc": "宜蘭蘇澳・南方澳觀景台俯瞰內埤情人弧灣，為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "新社梯田太平洋懸崖黃金稻浪",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "花蓮豐濱 · 精選地標",
-        "desc": "花蓮豐濱・新社梯田太平洋懸崖黃金稻浪，為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "金剛大道筆直直通太平洋海天一色",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "台東長濱 · 精選地標",
-        "desc": "台東長濱・金剛大道筆直直通太平洋海天一色，為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
-      },
-      {
-        "name": "武陵綠色隧道樟樹林蔭林道",
-        "en": "壯遊環島 Curated Spot",
-        "tag": "台東鹿野 · 精選地標",
-        "desc": "台東鹿野・武陵綠色隧道樟樹林蔭林道，為台灣台灣極點公路與海線自駕不可錯過的指標勝地，體驗迷人山海風貌與在地人文魅力。",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
+        "id": "sports",
+        "name": "⚾ 運動賽事（看球巡迴）",
+        "icon": "⚾"
       }
     ]
   }
