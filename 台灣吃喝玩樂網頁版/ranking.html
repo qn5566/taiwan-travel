@@ -164,17 +164,23 @@
         <!-- 拱形軌道與小圖方塊 (由 JS 計算半圓坐標動態生成) -->
         <div class="ranking-arc-track" id="ranking-arc-track"></div>
 
-        <!-- 左右切換按鈕 -->
-        <button class="ranking-arc-arrow-btn prev-btn" onclick="navigateRankingTopic(-1)" title="切換上一個榜單" aria-label="上一個榜單">‹</button>
-        <button class="ranking-arc-arrow-btn next-btn" onclick="navigateRankingTopic(1)" title="切換下一個榜單" aria-label="下一個榜單">›</button>
-
         <!-- 中央主視覺特寫 (Center Hero Visual - 放大展示) -->
         <div class="ranking-center-hero-container">
-          <div class="ranking-hero-pedestal-shadow"></div>
           <div class="ranking-hero-card ranking-hero-pop" id="ranking-hero-card" onclick="scrollToList()" title="點擊快速捲動至下方排行榜清單">
             <img id="ranking-hero-img" class="ranking-hero-card-img" src="assets/ranking_boba.png" alt="當前排行榜主視覺">
           </div>
         </div>
+      </div>
+
+      <!-- 下方主題切換按鈕區塊 (移至大圖下方區塊，乾淨俐落不遮擋圖片) -->
+      <div class="ranking-bottom-nav-bar">
+        <button class="ranking-bottom-arrow-btn prev-btn" onclick="navigateRankingTopic(-1)" title="切換上一個榜單" aria-label="上一個榜單">‹</button>
+        <div class="ranking-bottom-nav-pill">
+          <span class="ranking-bottom-nav-dot"></span>
+          <span class="ranking-bottom-nav-label">切換主題排行榜</span>
+          <span class="ranking-bottom-nav-dot"></span>
+        </div>
+        <button class="ranking-bottom-arrow-btn next-btn" onclick="navigateRankingTopic(1)" title="切換下一個榜單" aria-label="下一個榜單">›</button>
       </div>
 
       <!-- 即時關鍵字搜尋框 -->

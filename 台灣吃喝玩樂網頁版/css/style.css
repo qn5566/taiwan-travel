@@ -1101,6 +1101,33 @@ a {
   box-shadow: 0 12px 28px rgba(56, 189, 248, 0.15);
 }
 
+/* 首頁精選主題去背大插圖（移除方框、直接顯示大圖、生動懸浮特效） */
+.theme-direct-art-wrap {
+  width: 100%;
+  height: 86px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.theme-direct-art-img {
+  max-width: 82px;
+  max-height: 82px;
+  object-fit: contain;
+  filter: none;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.home-curated-card:hover .theme-direct-art-img {
+  transform: translateY(-6px) scale(1.15) rotate(-3deg);
+}
+
 .theme-icon-rounded-square {
   width: 58px;
   height: 58px;
@@ -3734,10 +3761,10 @@ body.bg-theme-northcoast {
   transition: background 0.6s ease;
 }
 
-/* 2. 🏝️ 離島跳島 (islands) — 藍藍綠底色漸層 ＋ 潛水水珠冒出泡泡 */
+/* 2. 🏝️ 離島跳島 (islands) — 淺藍到淺綠綠漸層 ＋ 潛水氣泡冒升 */
 body.bg-theme-islands {
-  background: linear-gradient(180deg, #0F766E 0%, #06B6D4 45%, #0891B2 100%) !important;
-  color: #F8FAFC !important;
+  background: linear-gradient(180deg, #BAE6FD 0%, #A7F3D0 45%, #6EE7B7 100%) !important;
+  color: #0F172A !important;
   transition: background 0.6s ease;
 }
 
@@ -3748,31 +3775,31 @@ body.bg-theme-hualien {
   transition: background 0.6s ease;
 }
 
-/* 4. ⛰️ 露營登山 (outdoor) — 像是北歐極光，極光的光緩緩波動 */
+/* 4. ⛰️ 露營登山 (outdoor) — 北歐極光流光帷幕扭曲呼吸，真實極光霓虹綠與紫羅蘭羽紗 */
 body.bg-theme-outdoor,
 body.body-camping-mode {
-  background: radial-gradient(ellipse at 50% 15%, #1E1B4B 0%, #0F172A 50%, #020617 100%) !important;
+  background: radial-gradient(ellipse at 50% 15%, #061826 0%, #030712 60%, #01040A 100%) !important;
   color: #F8FAFC !important;
   transition: background 0.6s ease;
 }
 
-/* 5. ♨️ 溫泉/公園 (hotspring) — 黑暗中，有白色煙物氣習飄上來 */
+/* 5. ♨️ 溫泉/公園 (hotspring) — 粉粉的柔嫩色系 ＋ 浪漫白霧冒煙動畫 */
 body.bg-theme-hotspring,
 body.body-hotspring-mode {
-  background: radial-gradient(ellipse at 50% 20%, #1C1917 0%, #110E0C 55%, #070605 100%) !important;
-  color: #F8FAFC !important;
+  background: linear-gradient(180deg, #FDF2F8 0%, #FCE7F3 38%, #FBCFE8 72%, #F9A8D4 100%) !important;
+  color: #831843 !important;
   transition: background 0.6s ease;
 }
 
-/* 6. 🍢 花火/活動 (nightmarket) — 暗黑的場景，有煙火點開來 */
+/* 6. 🍢 花火/活動 (nightmarket) — 黑夜中的煙火大小顆綻放 */
 body.bg-theme-nightmarket,
 body.body-nightmarket-mode {
-  background: radial-gradient(ellipse at 50% 25%, #181028 0%, #0B0714 50%, #030205 100%) !important;
-  color: #F8FAFC !important;
+  background: radial-gradient(ellipse at 50% 25%, #180D2B 0%, #0C0617 50%, #030208 100%) !important;
+  color: #FFFFFF !important;
   transition: background 0.6s ease;
 }
 
-/* 7. 🏮 節慶文化 (culture) — 有城市的燈光閃閃動人 */
+/* 7. 🏮 節慶文化 (culture) — 城市燈火與暖光光斑閃爍 */
 body.bg-theme-culture,
 body.body-railway-mode {
   background: radial-gradient(ellipse at 50% 20%, #172554 0%, #0F172A 50%, #030712 100%) !important;
@@ -3780,11 +3807,11 @@ body.body-railway-mode {
   transition: background 0.6s ease;
 }
 
-/* 8. 🚗 台灣環島 (roadtrip) — 森林感的氣息，有白色螢火蟲在飛翔 */
+/* 8. 🚗 台灣環島 (roadtrip) — 淺藍和淺綠的森林夢幻，森林氣息與螢火蟲飛行閃爍右移動 */
 body.bg-theme-roadtrip,
 body.body-sports-mode {
-  background: radial-gradient(ellipse at 50% 20%, #064E3B 0%, #022C22 55%, #01140F 100%) !important;
-  color: #F8FAFC !important;
+  background: linear-gradient(180deg, #BAE6FD 0%, #A7F3D0 32%, #059669 72%, #022C22 100%) !important;
+  color: #FFFFFF !important;
   transition: background 0.6s ease;
 }
 
@@ -3902,7 +3929,7 @@ body.body-sports-mode {
   100% { transform: translate3d(0, 10px, 0); }
 }
 
-/* --- 4. ⛰️ 露營登山：北歐極光緩緩波動 (Nordic Aurora Waves) --- */
+/* --- 4. ⛰️ 露營登山：真實北歐極光流光帷幕扭曲呼吸 (True Nordic Aurora Curtains) --- */
 .aurora-nordic-wrap {
   position: absolute;
   inset: 0;
@@ -3911,150 +3938,179 @@ body.body-sports-mode {
 }
 .aurora-nordic-band {
   position: absolute;
-  top: -15%;
-  width: 130%;
-  height: 80vh;
-  border-radius: 50%;
-  filter: blur(55px);
+  top: -22%;
+  width: 145%;
+  height: 85vh;
+  border-radius: 40% 60% 50% 50%;
+  filter: blur(42px);
   mix-blend-mode: screen;
   pointer-events: none;
   will-change: transform, opacity;
 }
 .aurora-band-green {
-  left: -15%;
-  background: linear-gradient(135deg, rgba(52, 211, 153, 0.65) 0%, rgba(16, 185, 129, 0.4) 40%, transparent 75%);
-  animation: auroraNordicWave1 14s ease-in-out infinite alternate;
+  left: -22%;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 255, 136, 0.72) 42%, rgba(16, 185, 129, 0.38) 75%, transparent 100%);
+  animation: auroraCurtainFlow1 12s ease-in-out infinite alternate;
 }
 .aurora-band-purple {
-  left: 5%;
-  background: linear-gradient(135deg, rgba(129, 140, 248, 0.6) 0%, rgba(52, 211, 153, 0.3) 50%, transparent 80%);
-  animation: auroraNordicWave2 18s ease-in-out infinite alternate;
+  left: -5%;
+  background: linear-gradient(180deg, rgba(168, 85, 247, 0.65) 5%, rgba(217, 70, 239, 0.42) 45%, transparent 85%);
+  animation: auroraCurtainFlow2 16s ease-in-out infinite alternate;
 }
-@keyframes auroraNordicWave1 {
-  0% { transform: translateY(0) skewX(-6deg) scaleY(1); opacity: 0.45; }
-  50% { transform: translateY(35px) skewX(5deg) scaleY(1.15); opacity: 0.75; }
-  100% { transform: translateY(-25px) skewX(-10deg) scaleY(0.95); opacity: 0.55; }
+.aurora-band-cyan {
+  left: 15%;
+  background: linear-gradient(180deg, transparent 5%, rgba(5, 223, 114, 0.58) 35%, rgba(6, 182, 212, 0.42) 65%, transparent 95%);
+  animation: auroraCurtainFlow3 14s ease-in-out infinite alternate;
 }
-@keyframes auroraNordicWave2 {
-  0% { transform: translateY(15px) skewX(8deg) scaleY(1.1); opacity: 0.5; }
-  50% { transform: translateY(-30px) skewX(-6deg) scaleY(0.92); opacity: 0.35; }
-  100% { transform: translateY(25px) skewX(4deg) scaleY(1.2); opacity: 0.65; }
+@keyframes auroraCurtainFlow1 {
+  0% { transform: translateY(0) skewX(-8deg) scaleY(1); opacity: 0.5; }
+  50% { transform: translateY(40px) skewX(8deg) scaleY(1.22); opacity: 0.88; }
+  100% { transform: translateY(-20px) skewX(-12deg) scaleY(0.92); opacity: 0.6; }
+}
+@keyframes auroraCurtainFlow2 {
+  0% { transform: translateY(20px) skewX(10deg) scaleY(1.15); opacity: 0.55; }
+  50% { transform: translateY(-35px) skewX(-8deg) scaleY(0.88); opacity: 0.38; }
+  100% { transform: translateY(30px) skewX(5deg) scaleY(1.25); opacity: 0.75; }
+}
+@keyframes auroraCurtainFlow3 {
+  0% { transform: translateY(-15px) skewX(-5deg) scaleY(0.95); opacity: 0.4; }
+  50% { transform: translateY(25px) skewX(6deg) scaleY(1.18); opacity: 0.8; }
+  100% { transform: translateY(-10px) skewX(-9deg) scaleY(1.05); opacity: 0.5; }
 }
 
-/* --- 5. ♨️ 溫泉/公園：黑暗中白色煙霧氣息飄上來 --- */
+/* --- 5. ♨️ 溫泉/公園：暖黃光暈 ＋ 裊裊白霧冒煙動畫 (Warm Golden Glow & Rising Steam) --- */
 .onsen-dark-steam-wrap {
   position: absolute;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
 }
+.onsen-ambient-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 85%, rgba(251, 191, 36, 0.22) 0%, rgba(245, 158, 11, 0.1) 50%, transparent 80%);
+  pointer-events: none;
+}
 .onsen-white-plume {
   position: absolute;
-  bottom: -120px;
+  bottom: -140px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.15) 50%, transparent 75%);
-  filter: blur(50px);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.48) 0%, rgba(254, 243, 199, 0.25) 45%, transparent 75%);
+  filter: blur(45px);
   mix-blend-mode: screen;
   pointer-events: none;
   will-change: transform, opacity;
-  animation: whiteSteamRise 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: whiteSteamRise 11s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 .steam-plume-1 {
-  left: 22%;
-  width: 440px;
-  height: 440px;
-  animation-duration: 11s;
+  left: 18%;
+  width: 480px;
+  height: 480px;
+  animation-duration: 10s;
 }
 .steam-plume-2 {
-  left: 54%;
-  width: 520px;
-  height: 520px;
-  animation-duration: 14s;
-  animation-delay: 3.5s;
+  left: 52%;
+  width: 560px;
+  height: 560px;
+  animation-duration: 13s;
+  animation-delay: 2.8s;
 }
 .steam-plume-3 {
-  left: 38%;
-  width: 380px;
-  height: 380px;
-  animation-duration: 10s;
-  animation-delay: 7s;
+  left: 35%;
+  width: 420px;
+  height: 420px;
+  animation-duration: 9.5s;
+  animation-delay: 5.5s;
+}
+.steam-plume-4 {
+  left: 72%;
+  width: 450px;
+  height: 450px;
+  animation-duration: 12s;
+  animation-delay: 7.2s;
 }
 @keyframes whiteSteamRise {
   0% {
     transform: translate3d(0, 0, 0) scale(0.65) rotate(0deg);
     opacity: 0;
   }
-  20% { opacity: 0.65; }
-  65% { opacity: 0.45; }
+  20% { opacity: 0.72; }
+  60% { opacity: 0.52; }
   100% {
-    transform: translate3d(30px, -88vh, 0) scale(1.3) rotate(45deg);
+    transform: translate3d(40px, -90vh, 0) scale(1.35) rotate(50deg);
     opacity: 0;
   }
 }
 
-/* --- 6. 🍢 花火/活動：暗黑場景，有煙火點開來 --- */
+/* --- 6. 🍢 花火/活動：黑夜中大小顆煙火放射星芒綻放 (Radial Starburst Fireworks) --- */
 .fireworks-stage-wrap {
   position: absolute;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
 }
-.firework-burst {
+.firework-burst-container {
   position: absolute;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
   pointer-events: none;
   will-change: transform, opacity;
-  animation: fireworkExplode 4s ease-out infinite;
 }
-.firework-1 {
-  top: 18%;
-  left: 25%;
-  background: radial-gradient(circle, #FDE047 0%, #F59E0B 35%, #EF4444 70%, transparent 100%);
-  box-shadow: 0 0 35px rgba(245, 158, 11, 0.9), 0 0 65px rgba(239, 68, 68, 0.65);
-  animation-duration: 3.6s;
+.firework-star-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 0 10px rgba(253, 224, 71, 0.8));
 }
-.firework-2 {
-  top: 32%;
-  right: 22%;
-  background: radial-gradient(circle, #F472B6 0%, #EC4899 40%, #A855F7 75%, transparent 100%);
-  box-shadow: 0 0 35px rgba(236, 72, 153, 0.9), 0 0 65px rgba(168, 85, 247, 0.6);
-  animation-duration: 4.4s;
-  animation-delay: 1.6s;
-}
-.firework-3 {
+.fw-burst-lg-1 {
   top: 15%;
-  left: 60%;
-  background: radial-gradient(circle, #67E8F9 0%, #06B6D4 40%, #3B82F6 75%, transparent 100%);
-  box-shadow: 0 0 35px rgba(6, 182, 212, 0.9), 0 0 65px rgba(59, 130, 246, 0.6);
-  animation-duration: 4.1s;
-  animation-delay: 2.7s;
+  left: 20%;
+  width: 180px;
+  height: 180px;
+  animation: fireworkRayBloom 4.2s cubic-bezier(0.12, 0.8, 0.32, 1) infinite;
 }
-@keyframes fireworkExplode {
+.fw-burst-sm-1 {
+  top: 28%;
+  left: 45%;
+  width: 110px;
+  height: 110px;
+  animation: fireworkRayBloom 3.5s cubic-bezier(0.12, 0.8, 0.32, 1) 1.2s infinite;
+}
+.fw-burst-lg-2 {
+  top: 20%;
+  right: 18%;
+  width: 190px;
+  height: 190px;
+  animation: fireworkRayBloom 4.6s cubic-bezier(0.12, 0.8, 0.32, 1) 2.2s infinite;
+}
+.fw-burst-sm-2 {
+  top: 36%;
+  right: 38%;
+  width: 120px;
+  height: 120px;
+  animation: fireworkRayBloom 3.8s cubic-bezier(0.12, 0.8, 0.32, 1) 3.1s infinite;
+}
+@keyframes fireworkRayBloom {
   0% {
-    transform: translate3d(0, 50px, 0) scale(0.1);
+    transform: scale(0.08) rotate(0deg);
     opacity: 0;
   }
-  30% {
-    transform: translate3d(0, 0, 0) scale(0.2);
+  20% {
     opacity: 1;
   }
   55% {
-    transform: translate3d(0, -10px, 0) scale(1.15);
+    transform: scale(1.1) rotate(14deg);
     opacity: 0.95;
   }
   80% {
-    transform: translate3d(0, -15px, 0) scale(1.35);
-    opacity: 0.4;
+    transform: scale(1.25) rotate(20deg);
+    opacity: 0.45;
   }
   100% {
-    transform: translate3d(0, -15px, 0) scale(1.45);
+    transform: scale(1.35) rotate(26deg);
     opacity: 0;
   }
 }
 
-/* --- 7. 🏮 節慶文化：城市燈光閃閃動人 (City Twinkling Lights & Bokeh) --- */
+/* --- 7. 🏮 節慶文化：城市燈火與暖光光斑閃爍 (City Bokeh & Twinkling Lights) --- */
 .city-lights-wrap {
   position: absolute;
   inset: 0;
@@ -4080,7 +4136,7 @@ body.body-sports-mode {
   }
 }
 
-/* --- 8. 🚗 台灣環島：森林感氣息 ＋ 白色螢火蟲在飛翔 --- */
+/* --- 8. 🚗 台灣環島：森林夢幻 ＋ 螢火蟲飛行閃爍右移動 (Dreamy Forest & Fireflies Drift Right) --- */
 .forest-fireflies-wrap {
   position: absolute;
   inset: 0;
@@ -4089,26 +4145,33 @@ body.body-sports-mode {
 }
 .firefly-particle {
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: #FFFFFF;
-  box-shadow: 0 0 10px #FFFFFF, 0 0 20px #86EFAC, 0 0 35px #34D399;
+  background: #FEF08A;
+  box-shadow: 0 0 10px #FEF08A, 0 0 20px #86EFAC, 0 0 35px #34D399;
   pointer-events: none;
   will-change: transform, opacity;
-  animation: fireflyFloat 6.5s ease-in-out infinite alternate;
+  animation: fireflyDriftRight 6.8s ease-in-out infinite alternate;
 }
-@keyframes fireflyFloat {
+@keyframes fireflyDriftRight {
   0% {
-    transform: translate3d(0, 0, 0);
-    opacity: 0.15;
+    transform: translate3d(0, 0, 0) scale(0.6);
+    opacity: 0.12;
+  }
+  25% {
+    opacity: 1;
   }
   50% {
+    transform: translate3d(70px, -45px, 0) scale(1.25);
+    opacity: 0.4;
+  }
+  75% {
     opacity: 1;
   }
   100% {
-    transform: translate3d(40px, -50px, 0);
-    opacity: 0.3;
+    transform: translate3d(140px, -90px, 0) scale(0.75);
+    opacity: 0.12;
   }
 }
 
@@ -4143,18 +4206,30 @@ body.body-sports-mode {
   transition: all 0.4s ease;
 }
 
-/* 暗色主題背景下的雙層毛玻璃自適應 */
+/* 暗色主題背景下的雙層毛玻璃自適應 (露營、夜市、節慶) */
 body.bg-theme-outdoor .themes-filter-glass-panel,
+body.bg-theme-nightmarket .themes-filter-glass-panel,
+body.bg-theme-culture .themes-filter-glass-panel {
+  background: rgba(15, 23, 42, 0.68) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+/* 淺色主題背景下的雙層毛玻璃自適應 (北海岸、離島、花東、環島) */
 body.bg-theme-northcoast .themes-filter-glass-panel,
 body.bg-theme-islands .themes-filter-glass-panel,
 body.bg-theme-hualien .themes-filter-glass-panel,
-body.bg-theme-hotspring .themes-filter-glass-panel,
-body.bg-theme-nightmarket .themes-filter-glass-panel,
-body.bg-theme-culture .themes-filter-glass-panel,
 body.bg-theme-roadtrip .themes-filter-glass-panel {
-  background: rgba(15, 23, 42, 0.58) !important;
-  border-color: rgba(255, 255, 255, 0.16) !important;
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  background: rgba(255, 255, 255, 0.78) !important;
+  border-color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+}
+
+/* 溫泉公園專屬粉嫩雙層毛玻璃 (粉粉色系) */
+body.bg-theme-hotspring .themes-filter-glass-panel {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(244, 114, 182, 0.5) !important;
+  box-shadow: 0 12px 36px rgba(190, 24, 93, 0.09), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
 }
 
 .themes-main-pills-row,
@@ -4190,34 +4265,54 @@ body.bg-theme-roadtrip .themes-filter-glass-panel {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
+/* 暗色主題標籤按鈕 (露營、夜市、節慶) */
 body.bg-theme-outdoor .glass-theme-btn,
+body.bg-theme-nightmarket .glass-theme-btn,
+body.bg-theme-culture .glass-theme-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #F8FAFC;
+}
+body.bg-theme-outdoor .glass-theme-btn:hover,
+body.bg-theme-nightmarket .glass-theme-btn:hover,
+body.bg-theme-culture .glass-theme-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+
+/* 淺色主題標籤按鈕 (北海岸、離島、花東、環島) */
 body.bg-theme-northcoast .glass-theme-btn,
 body.bg-theme-islands .glass-theme-btn,
 body.bg-theme-hualien .glass-theme-btn,
-body.bg-theme-hotspring .glass-theme-btn,
-body.bg-theme-nightmarket .glass-theme-btn,
-body.bg-theme-culture .glass-theme-btn,
 body.bg-theme-roadtrip .glass-theme-btn {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.18);
-  color: #F8FAFC;
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(2, 132, 199, 0.25);
+  color: #0F172A;
 }
-
-.glass-theme-btn:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-}
-
-body.bg-theme-outdoor .glass-theme-btn:hover,
 body.bg-theme-northcoast .glass-theme-btn:hover,
 body.bg-theme-islands .glass-theme-btn:hover,
 body.bg-theme-hualien .glass-theme-btn:hover,
-body.bg-theme-hotspring .glass-theme-btn:hover,
-body.bg-theme-nightmarket .glass-theme-btn:hover,
-body.bg-theme-culture .glass-theme-btn:hover,
 body.bg-theme-roadtrip .glass-theme-btn:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: #FFFFFF;
+  border-color: #0284C7;
+  color: #0284C7;
+}
+
+/* 溫泉公園粉粉色標籤按鈕 */
+body.bg-theme-hotspring .glass-theme-btn {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(244, 114, 182, 0.4);
+  color: #831843;
+}
+body.bg-theme-hotspring .glass-theme-btn:hover {
+  background: #FFFFFF;
+  border-color: #EC4899;
+  color: #BE185D;
+}
+body.bg-theme-hotspring .glass-theme-btn.active {
+  background: linear-gradient(135deg, #EC4899 0%, #BE185D 100%) !important;
+  border-color: #BE185D !important;
+  color: #FFFFFF !important;
 }
 
 .glass-theme-btn.active {
@@ -4247,16 +4342,31 @@ body.bg-theme-roadtrip .glass-theme-btn:hover {
 }
 
 body.bg-theme-outdoor .glass-subtheme-btn,
-body.bg-theme-northcoast .glass-subtheme-btn,
-body.bg-theme-islands .glass-subtheme-btn,
-body.bg-theme-hualien .glass-subtheme-btn,
-body.bg-theme-hotspring .glass-subtheme-btn,
 body.bg-theme-nightmarket .glass-subtheme-btn,
-body.bg-theme-culture .glass-subtheme-btn,
-body.bg-theme-roadtrip .glass-subtheme-btn {
+body.bg-theme-culture .glass-subtheme-btn {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.15);
   color: #E2E8F0;
+}
+
+body.bg-theme-northcoast .glass-subtheme-btn,
+body.bg-theme-islands .glass-subtheme-btn,
+body.bg-theme-hualien .glass-subtheme-btn,
+body.bg-theme-roadtrip .glass-subtheme-btn {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(2, 132, 199, 0.2);
+  color: #334155;
+}
+
+body.bg-theme-hotspring .glass-subtheme-btn {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(244, 114, 182, 0.35);
+  color: #9D174D;
+}
+body.bg-theme-hotspring .glass-subtheme-btn.active {
+  background: linear-gradient(135deg, #F43F5E 0%, #E11D48 100%) !important;
+  border-color: #E11D48 !important;
+  color: #FFFFFF !important;
 }
 
 .glass-subtheme-btn:hover {
@@ -4283,15 +4393,25 @@ body.bg-theme-roadtrip .glass-subtheme-btn {
 }
 
 body.bg-theme-outdoor .theme-spot-count-badge,
+body.bg-theme-nightmarket .theme-spot-count-badge,
+body.bg-theme-culture .theme-spot-count-badge {
+  background: rgba(255, 255, 255, 0.16);
+  color: #F8FAFC;
+}
+
 body.bg-theme-northcoast .theme-spot-count-badge,
 body.bg-theme-islands .theme-spot-count-badge,
 body.bg-theme-hualien .theme-spot-count-badge,
-body.bg-theme-hotspring .theme-spot-count-badge,
-body.bg-theme-nightmarket .theme-spot-count-badge,
-body.bg-theme-culture .theme-spot-count-badge,
 body.bg-theme-roadtrip .theme-spot-count-badge {
-  background: rgba(255, 255, 255, 0.16);
-  color: #F8FAFC;
+  background: #E0F2FE;
+  color: #0284C7;
+  border: 1px solid #BAE6FD;
+}
+
+body.bg-theme-hotspring .theme-spot-count-badge {
+  background: #FCE7F3;
+  color: #BE185D;
+  border: 1px solid #FBCFE8;
 }
 
 /* 卡片上的小分類標籤 (Subcategory Badge on spot cards) */
@@ -4353,36 +4473,124 @@ body.bg-theme-roadtrip .theme-subcat-mini-btn {
   color: #FFFFFF !important;
 }
 
-/* 暗色模式專屬文字提亮 */
-body.bg-theme-outdoor .themes-hero-title,
+/* 根據主題背景色自動自適應標題與副標題字體配色（淺色主題深色字、暗色主題白色發光字、粉色主題莓果深酒紅） */
+/* 1. 淺色系主題：北海岸、離島跳島、花東探索、台灣環島 (Deep Slate Navy for maximum readability) */
 body.bg-theme-northcoast .themes-hero-title,
 body.bg-theme-islands .themes-hero-title,
 body.bg-theme-hualien .themes-hero-title,
-body.bg-theme-hotspring .themes-hero-title,
-body.bg-theme-nightmarket .themes-hero-title,
-body.bg-theme-culture .themes-hero-title,
 body.bg-theme-roadtrip .themes-hero-title {
-  color: #FFFFFF !important;
+  color: #0F172A !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6) !important;
 }
 
-body.bg-theme-outdoor .themes-hero-sub { color: #34D399 !important; }
-body.bg-theme-northcoast .themes-hero-sub { color: #BAE6FD !important; }
-body.bg-theme-islands .themes-hero-sub { color: #6EE7B7 !important; }
-body.bg-theme-hualien .themes-hero-sub { color: #FDE68A !important; }
-body.bg-theme-hotspring .themes-hero-sub { color: #FED7AA !important; }
-body.bg-theme-nightmarket .themes-hero-sub { color: #FB923C !important; }
-body.bg-theme-culture .themes-hero-sub { color: #FDBA74 !important; }
-body.bg-theme-roadtrip .themes-hero-sub { color: #FF6F61 !important; }
+body.bg-theme-northcoast .themes-hero-sub,
+body.bg-theme-islands .themes-hero-sub,
+body.bg-theme-hualien .themes-hero-sub {
+  color: #0284C7 !important;
+  text-shadow: none !important;
+}
 
-body.bg-theme-outdoor .deck-display-zh,
+body.bg-theme-roadtrip .themes-hero-sub {
+  color: #047857 !important;
+  text-shadow: none !important;
+}
+
 body.bg-theme-northcoast .deck-display-zh,
 body.bg-theme-islands .deck-display-zh,
 body.bg-theme-hualien .deck-display-zh,
-body.bg-theme-hotspring .deck-display-zh,
-body.bg-theme-nightmarket .deck-display-zh,
-body.bg-theme-culture .deck-display-zh,
 body.bg-theme-roadtrip .deck-display-zh {
+  color: #0F172A !important;
+}
+
+body.bg-theme-northcoast .reels-section-title,
+body.bg-theme-islands .reels-section-title,
+body.bg-theme-hualien .reels-section-title,
+body.bg-theme-roadtrip .reels-section-title {
+  color: #0F172A !important;
+}
+
+/* 2. 暗色系主題：露營登山、花火/活動、節慶文化 (Crisp Pure White with themed glowing accents) */
+body.bg-theme-outdoor .themes-hero-title,
+body.bg-theme-nightmarket .themes-hero-title,
+body.bg-theme-culture .themes-hero-title {
   color: #FFFFFF !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7) !important;
+}
+
+body.bg-theme-outdoor .themes-hero-sub {
+  color: #00FF88 !important;
+  text-shadow: 0 0 12px rgba(0, 255, 136, 0.6) !important;
+}
+body.bg-theme-nightmarket .themes-hero-sub {
+  color: #F472B6 !important;
+  text-shadow: 0 0 12px rgba(244, 114, 182, 0.6) !important;
+}
+body.bg-theme-culture .themes-hero-sub {
+  color: #FBBF24 !important;
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.6) !important;
+}
+
+body.bg-theme-outdoor .deck-display-zh,
+body.bg-theme-nightmarket .deck-display-zh,
+body.bg-theme-culture .deck-display-zh {
+  color: #FFFFFF !important;
+}
+
+body.bg-theme-outdoor .reels-section-title,
+body.bg-theme-nightmarket .reels-section-title,
+body.bg-theme-culture .reels-section-title {
+  color: #FFFFFF !important;
+}
+
+/* 3. 溫泉/公園主題 (粉粉色背景)：浪漫莓果深酒紅高對比字體，絕不失真 */
+body.bg-theme-hotspring .themes-hero-title {
+  color: #831843 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8) !important;
+}
+body.bg-theme-hotspring .themes-hero-sub {
+  color: #DB2777 !important;
+  text-shadow: none !important;
+}
+body.bg-theme-hotspring .themes-hero-lead {
+  color: #9D174D !important;
+}
+body.bg-theme-hotspring .deck-display-zh {
+  color: #831843 !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8) !important;
+}
+body.bg-theme-hotspring .deck-display-en {
+  color: #DB2777 !important;
+}
+body.bg-theme-hotspring .deck-display-desc {
+  color: #9D174D !important;
+}
+body.bg-theme-hotspring .reels-section-title {
+  color: #831843 !important;
+}
+body.bg-theme-hotspring .theme-subcat-mini-btn {
+  background: rgba(255, 255, 255, 0.88) !important;
+  color: #831843 !important;
+  border-color: #FBCFE8 !important;
+}
+body.bg-theme-hotspring .theme-subcat-mini-btn.active {
+  background: #EC4899 !important;
+  border-color: #EC4899 !important;
+  color: #FFFFFF !important;
+}
+body.bg-theme-hotspring .itinerary-planner-box {
+  background: #FFFFFF !important;
+  border: 1.5px solid #FBCFE8 !important;
+  box-shadow: 0 10px 30px rgba(190, 24, 93, 0.08) !important;
+}
+body.bg-theme-hotspring .itinerary-planner-title {
+  color: #831843 !important;
+}
+body.bg-theme-hotspring .itinerary-active-planname {
+  color: #DB2777 !important;
+}
+body.bg-theme-hotspring .itinerary-duration-badge {
+  background: #FCE7F3 !important;
+  color: #BE185D !important;
 }
 
 /* =========================================================
@@ -6198,23 +6406,22 @@ body.bg-theme-roadtrip .deck-display-zh {
 }
 
 .ranking-arc-tile:hover {
-  transform: translate(-50%, -50%) scale(1.15);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.5);
-  border-color: rgba(255, 255, 255, 0.85);
+  transform: translate(-50%, -50%) scale(1.18);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8) !important;
+  border-color: #FFFFFF;
   z-index: 8;
 }
 
 .ranking-arc-tile.active {
   transform: translate(-50%, -50%) scale(1.22);
   border-color: #FFFFFF;
-  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.7), 0 16px 32px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.7);
   z-index: 10;
 }
 
 .ranking-arc-tile .tile-icon {
   font-size: 26px;
   line-height: 1;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
   transition: transform 0.25s ease;
 }
 
@@ -6222,9 +6429,14 @@ body.bg-theme-roadtrip .deck-display-zh {
   width: 32px;
   height: 32px;
   object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.28));
+  filter: none !important;
   transition: transform 0.25s ease;
   pointer-events: none;
+}
+
+.ranking-arc-tile:hover .tile-icon-img {
+  transform: scale(1.15);
+  filter: none !important;
 }
 
 .ranking-arc-tile:hover .tile-icon-img {
@@ -6264,55 +6476,54 @@ body.bg-theme-roadtrip .deck-display-zh {
 }
 
 .ranking-hero-pedestal-shadow {
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 240px;
-  height: 26px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.42) 0%, rgba(2, 132, 199, 0.15) 55%, transparent 75%);
-  filter: blur(6px);
-  pointer-events: none;
-  z-index: 5;
+  display: none !important;
 }
 
 .ranking-hero-card {
   position: relative;
-  width: 280px;
-  height: 280px;
+  width: 285px;
+  height: 285px;
   border-radius: 0;
   overflow: visible;
   background: transparent;
   border: none;
-  box-shadow: none;
+  box-shadow: none !important;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 6;
   animation: heroFloat 3.8s ease-in-out infinite;
   cursor: pointer;
-  transition: transform 0.25s ease;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   padding: 0;
+  will-change: transform;
 }
 
 .ranking-hero-card:hover {
-  transform: translateY(-6px) scale(1.05);
+  transform: translateY(-12px) scale(1.1) rotate(-2.5deg);
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.ranking-hero-card:active {
+  transform: translateY(-4px) scale(0.98);
 }
 
 .ranking-hero-card-img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.35)) drop-shadow(0 6px 12px rgba(2, 132, 199, 0.2));
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+  filter: none !important;
+  box-shadow: none !important;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   user-select: none;
   -webkit-user-drag: none;
 }
 
 .ranking-hero-card:hover .ranking-hero-card-img {
-  transform: scale(1.06);
-  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.52)) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.28));
+  transform: scale(1.08) rotate(3.5deg);
+  filter: none !important;
+  box-shadow: none !important;
 }
 
 .ranking-hero-pop {
@@ -6343,48 +6554,76 @@ body.bg-theme-roadtrip .deck-display-zh {
   }
 }
 
-/* 左右切換箭頭圓形按鈕 */
+/* 下方主題切換按鈕區塊 (位於大圖下方區塊，乾淨俐落不遮擋圖片) */
 .ranking-arc-arrow-btn {
-  position: absolute;
-  top: 66%;
-  transform: translateY(-50%);
+  display: none !important;
+}
+
+.ranking-bottom-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 14px auto 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.ranking-bottom-arrow-btn {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1.5px solid rgba(255, 255, 255, 0.45);
-  color: #FFFFFF;
-  font-size: 22px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(2, 132, 199, 0.28);
+  color: #0284C7;
+  font-size: 24px;
   line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.16);
   transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-  z-index: 8;
   outline: none;
 }
 
-.ranking-arc-arrow-btn:hover {
-  background: rgba(255, 255, 255, 0.32);
-  border-color: #FFFFFF;
-  transform: translateY(-50%) scale(1.15);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+.ranking-bottom-arrow-btn:hover {
+  background: #0284C7;
+  color: #FFFFFF;
+  border-color: #0284C7;
+  transform: scale(1.12);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35);
 }
 
-.ranking-arc-arrow-btn:active {
-  transform: translateY(-50%) scale(0.92);
+.ranking-bottom-arrow-btn:active {
+  transform: scale(0.92);
 }
 
-.ranking-arc-arrow-btn.prev-btn {
-  left: calc(50% - 138px);
+.ranking-bottom-nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);
 }
 
-.ranking-arc-arrow-btn.next-btn {
-  right: calc(50% - 138px);
+.ranking-bottom-nav-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #0284C7;
+}
+
+.ranking-bottom-nav-label {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #0369A1;
+  letter-spacing: 0.5px;
 }
 
 /* =======================================================

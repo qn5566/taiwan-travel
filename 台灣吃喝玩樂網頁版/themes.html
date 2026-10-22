@@ -18,33 +18,35 @@
   <style>
     /* 頂部英雄視覺與文青歐美排版 */
     .themes-hero-wrap {
-      padding: 45px 0 10px 0;
+      padding: 20px 0 6px 0;
       text-align: center;
       position: relative;
     }
     .themes-hero-sub {
-      font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
-      font-size: 15px;
-      letter-spacing: 3.5px;
+      font-family: 'DM Sans', 'Noto Serif TC', serif;
+      font-size: 13px;
+      letter-spacing: 3px;
       color: #0284C7;
       text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 8px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      transition: color 0.4s ease, text-shadow 0.4s ease;
     }
     .themes-hero-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: 36px;
-      font-weight: 700;
+      font-size: 34px;
+      font-weight: 900;
       color: #0F172A;
-      margin: 0 0 10px 0;
+      margin: 0 0 6px 0;
       letter-spacing: -0.5px;
+      transition: color 0.4s ease, text-shadow 0.4s ease;
     }
     .themes-hero-lead {
-      font-size: 14.5px;
+      font-size: 13.5px;
       color: #64748B;
       max-width: 640px;
       margin: 0 auto;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     /* 頂部主題橫幅 (Banner Card) */
@@ -753,29 +755,131 @@
           </div>
         `;
       } else if (themeId === "outdoor") {
-        // 4. ⛰️ 露營登山：北歐極光，極光的光緩緩波動
+        // 4. ⛰️ 露營登山：真實北歐極光流光帷幕扭曲呼吸 (True Nordic Aurora Neon Green & Violet)
         container.innerHTML = `
           <div class="aurora-nordic-wrap">
             <div class="aurora-nordic-band aurora-band-green"></div>
             <div class="aurora-nordic-band aurora-band-purple"></div>
+            <div class="aurora-nordic-band aurora-band-cyan"></div>
           </div>
         `;
       } else if (themeId === "hotspring") {
-        // 5. ♨️ 溫泉/公園：黑暗中，有白色煙霧氣息飄上來
+        // 5. ♨️ 溫泉/公園：粉粉柔嫩色系 ＋ 裊裊白霧冒煙動畫
         container.innerHTML = `
           <div class="onsen-dark-steam-wrap">
+            <div class="onsen-ambient-glow" style="background: radial-gradient(ellipse at 50% 85%, rgba(244, 114, 182, 0.28) 0%, rgba(251, 207, 232, 0.18) 50%, transparent 80%);"></div>
             <div class="onsen-white-plume steam-plume-1"></div>
             <div class="onsen-white-plume steam-plume-2"></div>
             <div class="onsen-white-plume steam-plume-3"></div>
+            <div class="onsen-white-plume steam-plume-4"></div>
           </div>
         `;
       } else if (themeId === "nightmarket") {
-        // 6. 🍢 花火/活動：暗黑的場景，有煙火點開來
+        // 6. 🍢 花火/活動：黑夜中的煙火大小顆星芒放射綻放 (Radial Starburst Fireworks)
         container.innerHTML = `
           <div class="fireworks-stage-wrap">
-            <div class="firework-burst firework-1"></div>
-            <div class="firework-burst firework-2"></div>
-            <div class="firework-burst firework-3"></div>
+            <!-- 大顆煙火 1 (金黃+洋紅星芒) -->
+            <div class="firework-burst-container fw-burst-lg-1">
+              <svg class="firework-star-svg" viewBox="0 0 160 160">
+                <g stroke="#FDE047" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="80" y1="80" x2="80" y2="10" />
+                  <line x1="80" y1="80" x2="130" y2="30" />
+                  <line x1="80" y1="80" x2="150" y2="80" />
+                  <line x1="80" y1="80" x2="130" y2="130" />
+                  <line x1="80" y1="80" x2="80" y2="150" />
+                  <line x1="80" y1="80" x2="30" y2="130" />
+                  <line x1="80" y1="80" x2="10" y2="80" />
+                  <line x1="80" y1="80" x2="30" y2="30" />
+                </g>
+                <g stroke="#EC4899" stroke-width="1.8" stroke-linecap="round">
+                  <line x1="80" y1="80" x2="110" y2="15" />
+                  <line x1="80" y1="80" x2="145" y2="50" />
+                  <line x1="80" y1="80" x2="145" y2="110" />
+                  <line x1="80" y1="80" x2="110" y2="145" />
+                  <line x1="80" y1="80" x2="50" y2="145" />
+                  <line x1="80" y1="80" x2="15" y2="110" />
+                  <line x1="80" y1="80" x2="15" y2="50" />
+                  <line x1="80" y1="80" x2="50" y2="15" />
+                </g>
+                <circle cx="80" cy="10" r="3.5" fill="#FFFFFF" />
+                <circle cx="130" cy="30" r="3.5" fill="#FDE047" />
+                <circle cx="150" cy="80" r="3.5" fill="#F43F5E" />
+                <circle cx="130" cy="130" r="3.5" fill="#FDE047" />
+                <circle cx="80" cy="150" r="3.5" fill="#FFFFFF" />
+                <circle cx="30" cy="130" r="3.5" fill="#F43F5E" />
+                <circle cx="10" cy="80" r="3.5" fill="#FDE047" />
+                <circle cx="30" cy="30" r="3.5" fill="#FFFFFF" />
+              </svg>
+            </div>
+            <!-- 小顆煙火 1 (青綠+白金星芒) -->
+            <div class="firework-burst-container fw-burst-sm-1">
+              <svg class="firework-star-svg" viewBox="0 0 160 160">
+                <g stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="80" y1="80" x2="80" y2="15" />
+                  <line x1="80" y1="80" x2="125" y2="35" />
+                  <line x1="80" y1="80" x2="145" y2="80" />
+                  <line x1="80" y1="80" x2="125" y2="125" />
+                  <line x1="80" y1="80" x2="80" y2="145" />
+                  <line x1="80" y1="80" x2="35" y2="125" />
+                  <line x1="80" y1="80" x2="15" y2="80" />
+                  <line x1="80" y1="80" x2="35" y2="35" />
+                </g>
+                <circle cx="80" cy="15" r="3" fill="#FFFFFF" />
+                <circle cx="125" cy="35" r="3" fill="#67E8F9" />
+                <circle cx="145" cy="80" r="3" fill="#A855F7" />
+                <circle cx="125" cy="125" r="3" fill="#67E8F9" />
+                <circle cx="80" cy="145" r="3" fill="#FFFFFF" />
+                <circle cx="35" cy="125" r="3" fill="#A855F7" />
+                <circle cx="15" cy="80" r="3" fill="#67E8F9" />
+                <circle cx="35" cy="35" r="3" fill="#FFFFFF" />
+              </svg>
+            </div>
+            <!-- 大顆煙火 2 (紫羅蘭+金黃星芒) -->
+            <div class="firework-burst-container fw-burst-lg-2">
+              <svg class="firework-star-svg" viewBox="0 0 160 160">
+                <g stroke="#C084FC" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="80" y1="80" x2="80" y2="10" />
+                  <line x1="80" y1="80" x2="130" y2="30" />
+                  <line x1="80" y1="80" x2="150" y2="80" />
+                  <line x1="80" y1="80" x2="130" y2="130" />
+                  <line x1="80" y1="80" x2="80" y2="150" />
+                  <line x1="80" y1="80" x2="30" y2="130" />
+                  <line x1="80" y1="80" x2="10" y2="80" />
+                  <line x1="80" y1="80" x2="30" y2="30" />
+                </g>
+                <circle cx="80" cy="10" r="3.5" fill="#FDE047" />
+                <circle cx="130" cy="30" r="3.5" fill="#FFFFFF" />
+                <circle cx="150" cy="80" r="3.5" fill="#F472B6" />
+                <circle cx="130" cy="130" r="3.5" fill="#FFFFFF" />
+                <circle cx="80" cy="150" r="3.5" fill="#FDE047" />
+                <circle cx="30" cy="130" r="3.5" fill="#FFFFFF" />
+                <circle cx="10" cy="80" r="3.5" fill="#F472B6" />
+                <circle cx="30" cy="30" r="3.5" fill="#FFFFFF" />
+              </svg>
+            </div>
+            <!-- 小顆煙火 2 (珊瑚紅+琥珀星芒) -->
+            <div class="firework-burst-container fw-burst-sm-2">
+              <svg class="firework-star-svg" viewBox="0 0 160 160">
+                <g stroke="#FB923C" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="80" y1="80" x2="80" y2="20" />
+                  <line x1="80" y1="80" x2="122" y2="38" />
+                  <line x1="80" y1="80" x2="140" y2="80" />
+                  <line x1="80" y1="80" x2="122" y2="122" />
+                  <line x1="80" y1="80" x2="80" y2="140" />
+                  <line x1="80" y1="80" x2="38" y2="122" />
+                  <line x1="80" y1="80" x2="20" y2="80" />
+                  <line x1="80" y1="80" x2="38" y2="38" />
+                </g>
+                <circle cx="80" cy="20" r="3" fill="#FFFFFF" />
+                <circle cx="122" cy="38" r="3" fill="#FDE047" />
+                <circle cx="140" cy="80" r="3" fill="#EA580C" />
+                <circle cx="122" cy="122" r="3" fill="#FDE047" />
+                <circle cx="80" cy="140" r="3" fill="#FFFFFF" />
+                <circle cx="38" cy="122" r="3" fill="#EA580C" />
+                <circle cx="20" cy="80" r="3" fill="#FDE047" />
+                <circle cx="38" cy="38" r="3" fill="#FFFFFF" />
+              </svg>
+            </div>
           </div>
         `;
       } else if (themeId === "culture") {
@@ -798,18 +902,18 @@
         });
         container.innerHTML = `<div class="city-lights-wrap">${lightsHTML}</div>`;
       } else if (themeId === "roadtrip") {
-        // 8. 🚗 台灣環島：森林感氣息，有白色螢火蟲在飛翔
+        // 8. 🚗 台灣環島：森林夢幻 ＋ 白色微光螢火蟲飛行閃爍右移動
         let firefliesHTML = "";
         const fireflyPositions = [
-          { left: "15%", top: "35%", delay: "0s", dur: "5.5s" },
-          { left: "28%", top: "60%", delay: "1.5s", dur: "6.8s" },
-          { left: "42%", top: "28%", delay: "3.2s", dur: "7.2s" },
-          { left: "58%", top: "52%", delay: "0.8s", dur: "5.8s" },
-          { left: "70%", top: "22%", delay: "2.4s", dur: "6.5s" },
-          { left: "82%", top: "65%", delay: "4.1s", dur: "7.0s" },
-          { left: "90%", top: "38%", delay: "1.9s", dur: "6.2s" },
-          { left: "36%", top: "75%", delay: "3.7s", dur: "5.9s" },
-          { left: "64%", top: "80%", delay: "2.1s", dur: "6.4s" }
+          { left: "12%", top: "40%", delay: "0s", dur: "5.5s" },
+          { left: "24%", top: "65%", delay: "1.5s", dur: "6.8s" },
+          { left: "38%", top: "32%", delay: "3.2s", dur: "7.2s" },
+          { left: "52%", top: "58%", delay: "0.8s", dur: "5.8s" },
+          { left: "66%", top: "28%", delay: "2.4s", dur: "6.5s" },
+          { left: "78%", top: "70%", delay: "4.1s", dur: "7.0s" },
+          { left: "86%", top: "44%", delay: "1.9s", dur: "6.2s" },
+          { left: "32%", top: "80%", delay: "3.7s", dur: "5.9s" },
+          { left: "60%", top: "85%", delay: "2.1s", dur: "6.4s" }
         ];
         fireflyPositions.forEach(f => {
           firefliesHTML += `<div class="firefly-particle" style="left: ${f.left}; top: ${f.top}; animation-duration: ${f.dur}; animation-delay: ${f.delay};"></div>`;
