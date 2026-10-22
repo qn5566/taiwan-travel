@@ -5444,4 +5444,283 @@ body.body-nightmarket-mode .fan-card-item.drawn .fan-card-active-tag {
   box-shadow: 0 4px 14px rgba(254, 161, 9, 0.35);
 }
 
+/* ==========================================================================
+   3D 拱形輪播舞台 (Arc Orbit Stage & Center Hero Visual)
+   ========================================================================== */
+.ranking-arc-stage-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 820px;
+  height: 380px;
+  margin: 32px auto 20px auto;
+  user-select: none;
+}
+
+@media (max-width: 820px) {
+  .ranking-arc-stage-wrap {
+    transform: scale(0.92);
+    transform-origin: center top;
+    margin-bottom: -15px;
+  }
+}
+@media (max-width: 640px) {
+  .ranking-arc-stage-wrap {
+    transform: scale(0.76);
+    transform-origin: center top;
+    margin-bottom: -70px;
+  }
+}
+@media (max-width: 480px) {
+  .ranking-arc-stage-wrap {
+    transform: scale(0.62);
+    transform-origin: center top;
+    margin-bottom: -120px;
+  }
+}
+
+.ranking-stage-watermark {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'DM Sans', 'Inter', -apple-system, sans-serif;
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: 10px;
+  color: rgba(255, 255, 255, 0.05);
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.ranking-arc-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.ranking-arc-tile {
+  position: absolute;
+  width: 66px;
+  height: 66px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  cursor: pointer;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.25s ease;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28), inset 0 2px 2px rgba(255, 255, 255, 0.35);
+  z-index: 4;
+}
+
+.ranking-arc-tile:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.85);
+  z-index: 8;
+}
+
+.ranking-arc-tile.active {
+  transform: translate(-50%, -50%) scale(1.22);
+  border-color: #FFFFFF;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.7), 0 16px 32px rgba(0, 0, 0, 0.45);
+  z-index: 10;
+}
+
+.ranking-arc-tile .tile-icon {
+  font-size: 26px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+  transition: transform 0.25s ease;
+}
+
+.ranking-arc-tile:hover .tile-icon {
+  transform: scale(1.12);
+}
+
+.ranking-arc-tile .tile-label {
+  font-size: 10px;
+  font-weight: 800;
+  color: #FFFFFF;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  line-height: 1;
+}
+
+/* 浮動作用標籤 (Siamese cat 樣式 Tooltip Pill) */
+.ranking-arc-tooltip-pill {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  margin-top: -14px;
+  background: #FFFFFF;
+  color: #0F172A;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  z-index: 25;
+  pointer-events: none;
+  transition: left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), top 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ranking-arc-tooltip-pill::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: #FFFFFF transparent transparent transparent;
+}
+
+/* 中央主視覺 (Center Hero) */
+.ranking-center-hero-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 250px;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.ranking-hero-pedestal-shadow {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 190px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.15) 55%, transparent 75%);
+  filter: blur(4px);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.ranking-hero-card {
+  position: relative;
+  width: 210px;
+  height: 210px;
+  border-radius: 34px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.42), inset 0 2px 4px rgba(255, 255, 255, 0.45);
+  border: 3.5px solid rgba(255, 255, 255, 0.6);
+  background: #1E293B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+  animation: heroFloat 3.8s ease-in-out infinite;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ranking-hero-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+}
+
+.ranking-hero-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ranking-hero-card:hover .ranking-hero-card-img {
+  transform: scale(1.08);
+}
+
+.ranking-hero-pop {
+  animation: heroPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards, heroFloat 3.8s ease-in-out 0.5s infinite;
+}
+
+@keyframes heroPopIn {
+  0% {
+    transform: scale(0.65) translateY(28px);
+    opacity: 0;
+  }
+  65% {
+    transform: scale(1.08) translateY(-6px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* 左右切換箭頭圓形按鈕 */
+.ranking-arc-arrow-btn {
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  color: #FFFFFF;
+  font-size: 22px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 8;
+  outline: none;
+}
+
+.ranking-arc-arrow-btn:hover {
+  background: rgba(255, 255, 255, 0.32);
+  border-color: #FFFFFF;
+  transform: translateY(-50%) scale(1.15);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.ranking-arc-arrow-btn:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.ranking-arc-arrow-btn.prev-btn {
+  left: calc(50% - 165px);
+}
+
+.ranking-arc-arrow-btn.next-btn {
+  right: calc(50% - 165px);
+}
+
+
 
