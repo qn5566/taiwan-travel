@@ -401,7 +401,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "",
       "price": "NT$ 45 - 75",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1546173159-315724a31696?w=600&auto=format&fit=crop"
+      "img": "assets/hachiyo_tea.png"
     },
     {
       "rank": 11,
@@ -414,7 +414,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "",
       "price": "NT$ 100 - 180",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1558857563-b37cf5a452ef?w=600&auto=format&fit=crop"
+      "img": "assets/chunshuitang_tea.png"
     },
     {
       "rank": 12,
@@ -427,7 +427,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "",
       "price": "NT$ 50 - 75",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1525385133512-2f3bdd039054?w=600&auto=format&fit=crop"
+      "img": "assets/daming_tea.png"
     },
     {
       "rank": 13,
@@ -440,7 +440,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "",
       "price": "NT$ 45 - 70",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=600&auto=format&fit=crop"
+      "img": "assets/taotaotea_tea.png"
     },
     {
       "rank": 14,
@@ -453,7 +453,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "",
       "price": "NT$ 55 - 75",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1561047029-3000c68339ca?w=600&auto=format&fit=crop"
+      "img": "assets/johntea_tea.png"
     },
     {
       "rank": 15,
