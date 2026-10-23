@@ -4,15 +4,16 @@
    🎨 台灣吃喝玩樂網頁版 - 全站專用樣式表 (style.css)
    ========================================================= */
 
-/* 📖 頂級日系文青旅遊雜誌字體系統 (Editorial Lifestyle Typography) */
+/* 📖 頂級日系文青旅遊雜誌字體系統 (Editorial Lifestyle Typography - 絕不連寫，優雅非手寫襯線) */
 .brand-script-en {
-  font-family: 'Pinyon Script', cursive !important;
-  font-size: 34px;
-  color: #A07153;
-  font-weight: 500;
-  line-height: 1.15;
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif !important;
+  font-style: italic !important;
+  font-size: 21px !important;
+  font-weight: 700 !important;
+  color: #0284C7;
+  line-height: 1.3;
   display: inline-block;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
 }
 
 .brand-serif-en {
@@ -3718,13 +3719,13 @@ body.body-sports-mode .fan-card-item.drawn .fan-card-active-tag {
 }
 
 .deck-display-en {
-  font-family: 'Pinyon Script', cursive !important;
-  font-size: 32px !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.5px !important;
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 21px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px !important;
   color: #0284C7;
-  text-transform: none !important;
-  line-height: 1.2;
+  text-transform: uppercase !important;
+  line-height: 1.3;
   transition: all 0.3s ease;
 }
 

@@ -25,7 +25,7 @@ const WEB_I18N = {
     btnHotel: "🏨 訂房去",
     btnHotelAlt: "🏨 找房間",
     btnFlight: "✈️ 查機票",
-    btnMap: "📍 地圖導航",
+    btnMap: "📍 Map",
     btnSouvenir: "🛍️ 伴手禮直送",
     serviceFlight: "查機票",
     serviceFlightDesc: "國際與跳島機票",

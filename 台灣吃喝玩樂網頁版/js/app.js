@@ -403,7 +403,7 @@ function renderRankingsSection() {
                     </div>
                   </div>
                   <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding:6px 12px; font-size:12px; flex-shrink:0;">
-                    📍 門市
+                    📍 Map
                   </a>
                 </div>
               `;
@@ -506,7 +506,7 @@ function renderRankingsSection() {
               <p style="font-size:13px; color:var(--text-muted); line-height:1.6; margin-bottom:14px; flex:1;">${item.desc}</p>
               <div style="display:flex; justify-content:space-between; align-items:center; padding-top:10px; border-top:1px solid #F1F5F9;">
                 <span style="font-size:13px; font-weight:800; color:#0F172A;">門票：${item.ticket}</span>
-                <a href="${AFFILIATE_HUB.getMapUrl(item.name)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding:6px 12px; font-size:12px;">🧭 導航</a>
+                <a href="${AFFILIATE_HUB.getMapUrl(item.name)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding:6px 12px; font-size:12px;">📍 Map</a>
               </div>
             </div>
           </div>
@@ -531,7 +531,7 @@ function renderRankingsSection() {
               <div style="font-size:11px; color:#92400E; background:#FEF3C7; padding:3px 8px; border-radius:6px; display:inline-block; font-weight:700; margin-bottom:8px;">✨ ${item.tag}</div>
               <p style="font-size:12px; color:var(--text-muted); line-height:1.5; margin-bottom:14px; flex:1;">${item.feature}</p>
               <a href="${AFFILIATE_HUB.getMapUrl(item.name)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="text-align:center; padding:7px; font-size:12px;">
-                🧭 Google 地圖導航
+                📍 Map
               </a>
             </div>
           </div>
@@ -553,7 +553,7 @@ function renderRankingsSection() {
             </div>
             <div style="text-align:right; flex-shrink:0;">
               <div style="font-size:11px; color:#64748B;">🔥 ${item.views}</div>
-              <a href="${AFFILIATE_HUB.getMapUrl(item.name.split(" ｜ ")[0])}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="margin-top:6px; padding:6px 12px; font-size:12px;">🧭 路線散策</a>
+              <a href="${AFFILIATE_HUB.getMapUrl(item.name.split(" ｜ ")[0])}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="margin-top:6px; padding:6px 12px; font-size:12px;">📍 Map</a>
             </div>
           </div>
         `).join("")}
@@ -622,7 +622,7 @@ function renderBlogSection() {
             </div>
             <div class="spot-info-actions">
               <a href="${AFFILIATE_HUB.getMapUrl(spot.mapQuery)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding:8px 16px; font-size:12px;">
-                🧭 Google 地圖導航
+                📍 Map
               </a>
               <a href="${spot.bookingUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding:8px 16px; font-size:12px;">
                 🎟️ 線上預約 / 官方地圖

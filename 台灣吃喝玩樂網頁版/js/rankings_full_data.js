@@ -808,7 +808,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "米其林必比登常客！現桿大甲檳榔心芋泥包裹鹹鴨蛋黃與香濃黑豬肉脯，外酥內爆漿綿密。",
       "price": "NT$ 30 - 35",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=600&auto=format&fit=crop"
     },
     {
       "rank": 2,
@@ -821,7 +821,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "饒河街慈祐宮入口第一攤，排隊人潮從未間斷！手工貼在炭火高溫甕壁烤出焦香酥脆外皮，咬下滿滿滾燙肉汁與濃郁蔥香。",
       "price": "NT$ 65",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Baking_Hujiao_bing.jpg/960px-Baking_Hujiao_bing.jpg"
     },
     {
       "rank": 3,
@@ -834,7 +834,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "老士林冬令進補首選！十五味溫補中藥慢熬數小時，湯頭甘醇回甘不苦澀，排骨肉質軟爛輕易骨肉分離。",
       "price": "NT$ 100 - 150",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1547592180-85f173990554?w=600&auto=format&fit=crop"
     },
     {
       "rank": 4,
@@ -847,7 +847,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "獨門控溫燙熟厚切新鮮豬肝，粉嫩爽脆絲毫不乾柴。醇厚琥珀色高湯加入冬菜與香油提香，老饕讚不絕口。",
       "price": "NT$ 75 - 90",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&auto=format&fit=crop"
     },
     {
       "rank": 5,
@@ -860,7 +860,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "手工現煮爆漿熱芝麻花生湯圓鋪在剉冰上，淋上獨家香甜桂花蜜！吃完湯圓還能免費回攤加檸檬汁變身檸檬桂花清冰。",
       "price": "NT$ 80 - 100",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&auto=format&fit=crop"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/202501_%E6%A1%82%E8%8A%B1%E8%9C%9C%E7%B6%9C%E5%90%88%E6%B9%AF%E5%9C%93%E5%88%A8%E5%86%B0%2CAka_%E5%86%B0%E7%81%AB%E6%B9%AF%E5%9C%93.jpg/960px-202501_%E6%A1%82%E8%8A%B1%E8%9C%9C%E7%B6%9C%E5%90%88%E6%B9%AF%E5%9C%93%E5%88%A8%E5%86%B0%2CAka_%E5%86%B0%E7%81%AB%E6%B9%AF%E5%9C%93.jpg"
     },
     {
       "rank": 6,
@@ -873,7 +873,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "連續多年入選米其林必比登推介，精選大支肋骨慢燉至骨髓入味，湯頭清香無負擔，搭配特製香豆瓣醬更添風味。",
       "price": "NT$ 90 - 110",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1603073163308-9654c3fb70b5?w=600&auto=format&fit=crop"
     },
     {
       "rank": 7,
@@ -886,7 +886,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "每日限量！整支超大去骨仿土雞腿肉質彈牙鮮嫩，麻油湯頭清澈甘甜帶淡淡酒香，冬日開攤半小時即搶購一空。",
       "price": "NT$ 120 - 160",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=600&auto=format&fit=crop"
     },
     {
       "rank": 8,
@@ -899,7 +899,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "夜市門口第一攤！現切帶皮土雞肉淋上特調甘甜醬油膏，搭配淋上雞油與古早味油膏的白飯，肉質扎實甘香飽滿。",
       "price": "NT$ 90 - 110",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&auto=format&fit=crop"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Charcoal_Grilled_Chicken_Leg_Rice_%28Taiwan%29.jpg/960px-Charcoal_Grilled_Chicken_Leg_Rice_%28Taiwan%29.jpg"
     },
     {
       "rank": 9,
@@ -912,7 +912,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "通化夜市老饕必買宵夜下酒菜！陳年老滷汁冷泡入味，鴨翅皮脆肉香，搭配獨門酸菜與現磨生辣椒醬，越嚼越香。",
       "price": "NT$ 60 - 150",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=600&auto=format&fit=crop"
     },
     {
       "rank": 10,
@@ -925,7 +925,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "鐵板上拍打出千層酥脆感！加入大把新鮮九層塔葉與現煎嫩蛋，淋上獨創微甜不嗆的蜂蜜芥末醬，香氣四溢。",
       "price": "NT$ 45 - 65",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/A_scallion_pancake_with_egg_and_cheese.jpg/960px-A_scallion_pancake_with_egg_and_cheese.jpg"
     },
     {
       "rank": 11,
@@ -938,7 +938,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "基隆廟口元老級名攤！手切帶皮肥瘦相間的黑豬肉燥慢火熬煮至晶瑩剔透，白飯粒粒裹上油亮膠質，平價美味天花板。",
       "price": "NT$ 30 - 55",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&auto=format&fit=crop"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/A_bowl_of_minced_pork_rice.jpg/960px-A_bowl_of_minced_pork_rice.jpg"
     },
     {
       "rank": 12,
@@ -951,7 +951,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "炭火爐上翻滾的小巧紅潤香腸，外腸衣焦脆緊繃，咬下瞬間肉汁四濺。攤位前擺滿新鮮大蒜粒，一口香腸一口大蒜最道地！",
       "price": "NT$ 8 / 顆",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&auto=format&fit=crop"
     },
     {
       "rank": 13,
@@ -964,7 +964,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "軟嫩濕潤的古早味粉漿餅皮在鐵板上煎出微焦金黃，打入大顆青蔥鮮蛋，刷上招牌鹹甜微辣醬汁，熱騰騰捲起超滿足。",
       "price": "NT$ 50",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600&auto=format&fit=crop"
     },
     {
       "rank": 14,
@@ -977,7 +977,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "炭烤糯米腸劃開塞入厚切黑豬肉香腸、醃小黃瓜、酸菜、嫩薑與花生粉，特製紙筒旋轉即食不沾手，香氣層次極致豐富。",
       "price": "NT$ 65",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Small_sausage_in_large_sausage_2004-09-05.jpg/960px-Small_sausage_in_large_sausage_2004-09-05.jpg"
     },
     {
       "rank": 15,
@@ -990,7 +990,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "冬天穿大衣也甘願吃！自製古法酸梅冰沙為底，鋪上蜜煮至鬆軟綿密的大紅豆，再挖入一球香濃手工牛奶冰淇淋，鹹甜酸甘絕頂滋味。",
       "price": "NT$ 50 - 60",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&auto=format&fit=crop"
     },
     {
       "rank": 16,
@@ -1003,7 +1003,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "大老遠就能聞到黑麻油、老薑與蒜頭熱炒的濃烈三杯香！每顆鵪鶉蛋與雞翅被炒至醬黑發亮、皮Q肉韌，甜鹹交織極其下飯下酒。",
       "price": "NT$ 50 - 100",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1579684947550-22e945225d9a?w=600&auto=format&fit=crop"
     },
     {
       "rank": 17,
@@ -1016,7 +1016,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "雞排炸至金黃酥脆後，移至炭火網上刷滿台南特有甘甜蜜汁醬，炭火炙烤帶出微焦香氣，外皮甜脆肉質厚實多汁。",
       "price": "NT$ 85",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Angel_Chicken_Cutlet_Ruifeng_Store%2C_2026_%2802%29.jpg/960px-Angel_Chicken_Cutlet_Ruifeng_Store%2C_2026_%2802%29.jpg"
     },
     {
       "rank": 18,
@@ -1029,7 +1029,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "瑞豐夜市天天大排長龍！薄脆如餅乾的特調麵衣緊鎖住鮮美雞汁，厚度驚人卻無比嫩滑，是高雄自由行必吃罪惡宵夜代表。",
       "price": "NT$ 95",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600&auto=format&fit=crop"
     },
     {
       "rank": 19,
@@ -1055,7 +1055,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "六合夜市最知名地標！精選當季高甜度紅肉木瓜，加入整瓶高品質純鮮奶現點現打，不加一滴水，口感綿滑濃醇宛如冰淇淋。",
       "price": "NT$ 70",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1558857563-b37cf5a452ef?w=600&auto=format&fit=crop"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/202001_A_cup_of_papaya_milk_bought_at_Liouho_Night_Market%2C_Kaohsiung.jpg/960px-202001_A_cup_of_papaya_milk_bought_at_Liouho_Night_Market%2C_Kaohsiung.jpg"
     }
   ],
   "bbq": [

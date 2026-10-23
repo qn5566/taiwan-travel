@@ -80,13 +80,14 @@
       color: #2D2522 !important;
     }
 
-    /* 品牌連寫與草寫英文專用字體 */
+    /* 品牌副標文青英文專用字體 */
     .brand-script-en {
-      font-family: 'Pinyon Script', cursive;
-      font-size: 34px;
+      font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 26px;
       color: #A07153;
-      font-weight: 500;
-      line-height: 1.1;
+      font-weight: 700;
+      line-height: 1.25;
       display: inline-block;
       letter-spacing: 0.5px;
     }
@@ -666,7 +667,7 @@
             📋 複製中文地址
           </button>
           <a id="modal-map-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding: 10px 18px; font-size: 13px; text-decoration: none;">
-            🧭 Google 地圖導航
+            📍 Map
           </a>
           <a id="modal-affiliate-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding: 10px 20px; font-size: 13px; text-decoration: none;">
             🎫 立即線上預訂 ➔
@@ -1100,7 +1101,7 @@
 
               <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 6px; margin-top: auto;">
                 <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="text-align: center; padding: 7px 4px; font-size: 11px; text-decoration: none;">
-                  🧭 Google 地圖
+                  📍 Map
                 </a>
                 <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room" style="text-align: center; padding: 7px 4px; font-size: 11px; text-decoration: none;">
                   🏨 訂周邊住宿
@@ -1183,7 +1184,7 @@
               <p style="font-size: 13.5px; color: #6C5F56; line-height: 1.65; margin-bottom: 16px; flex: 1;">${item.feature || item.desc}</p>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: auto;">
                 <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" style="text-align: center; padding: 9px 4px; font-size: 12px; font-weight: 700; text-decoration: none; background: #F8F5F0; color: #5C5047; border: 1px solid #E4D9CE; border-radius: 10px; transition: all 0.2s;">
-                  🧭 地圖導航
+                  📍 Map
                 </a>
                 <a href="${diningUrl}" target="_blank" rel="noopener noreferrer" style="text-align: center; padding: 9px 4px; font-size: 12px; font-weight: 700; text-decoration: none; background: linear-gradient(135deg, #BE123C 0%, #9F1239 100%); color: #FFFFFF; border-radius: 10px; box-shadow: 0 3px 10px rgba(190, 18, 60, 0.25); transition: all 0.2s;">
                   🍽️ 專屬美食預約
@@ -1340,7 +1341,7 @@
                       📖 閱讀整篇踩點報導
                     </button>
                     <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding: 10px 14px; font-size: 12px; text-decoration: none;">
-                      🧭 Google 導航
+                      📍 Map
                     </a>
                     <a href="${affUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding: 10px 14px; font-size: 12px; text-decoration: none;">
                       ${place.affiliateLabel || '🎟️ 立即預訂 ➔'}

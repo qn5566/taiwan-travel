@@ -12,11 +12,12 @@
   <link rel="stylesheet" href="css/style.css">
   <style>
     .brand-script-en {
-      font-family: 'Pinyon Script', cursive;
-      font-size: 34px;
+      font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 26px;
       color: #0284C7;
-      font-weight: 500;
-      line-height: 1.15;
+      font-weight: 700;
+      line-height: 1.25;
       display: inline-block;
       letter-spacing: 0.5px;
     }
@@ -177,15 +178,11 @@
   <section class="section-padding" style="background: #FFFFFF; padding: 36px 0 80px 0;">
     <div class="container">
       
-      <!-- 篩選列與計數 -->
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
-        <div>
-          <span id="spots-count-text" style="font-size: 15px; font-weight: 900; color: #0F172A;">
-            顯示全部景點 (共 30 處)
-          </span>
-          <span id="spots-current-city" style="font-size: 12.5px; color: #0284C7; font-weight: 700; margin-left: 8px; background: #F0F9FF; padding: 2px 8px; border-radius: 6px;">
-            [全台景點模式]
-          </span>
+      <!-- 篩選列與計數 (依需求不顯示繁雜文字) -->
+      <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+        <div style="display: none;">
+          <span id="spots-count-text"></span>
+          <span id="spots-current-city"></span>
         </div>
 
         <button onclick="resetCityFilter()" class="spot-region-pill" style="font-size: 12px; padding: 5px 14px; background: #F8FAFC;">
@@ -298,12 +295,8 @@
         return matchZone && matchKeyword;
       });
 
-      if (countEl) {
-        countEl.textContent = `共找到 ${filtered.length} 處景點 (一排 6 張全量呈現)`;
-      }
-      if (cityEl) {
-        cityEl.textContent = activeZone === "全部" ? "[全台景點模式]" : `[當前：${activeZone}]`;
-      }
+      if (countEl) countEl.textContent = "";
+      if (cityEl) cityEl.textContent = "";
 
       if (filtered.length === 0) {
         container.innerHTML = `
@@ -358,7 +351,7 @@
                   🎟️ 預定去
                 </a>
                 <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" style="text-align: center; padding: 6px 4px; font-size: 11px; font-weight: 700; color: #0284C7; background: #F0F9FF; border: 1px solid #BAE6FD; border-radius: 6px; text-decoration: none; transition: background 0.2s;">
-                  🧭 導航
+                  📍 Map
                 </a>
               </div>
             </div>
