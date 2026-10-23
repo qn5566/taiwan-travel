@@ -336,7 +336,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "",
       "price": "NT$ 65 - 95",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?w=600&auto=format&fit=crop"
+      "img": "assets/macu_tea.png"
     },
     {
       "rank": 6,
