@@ -362,7 +362,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "",
       "price": "NT$ 55 - 80",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&auto=format&fit=crop"
+      "img": "assets/milksha_tea.png"
     },
     {
       "rank": 8,
