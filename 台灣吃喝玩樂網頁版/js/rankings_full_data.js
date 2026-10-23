@@ -375,7 +375,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "",
       "price": "NT$ 40 - 65",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&auto=format&fit=crop"
+      "img": "assets/kebuke_tea.jpg"
     },
     {
       "rank": 9,
@@ -388,7 +388,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "",
       "price": "NT$ 110 - 160",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600&auto=format&fit=crop"
+      "img": "assets/tsujiri_tea.png"
     },
     {
       "rank": 10,
