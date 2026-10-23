@@ -569,20 +569,8 @@
   <div id="section-weekend-hop" style="display: none;">
     
     <!-- 主題導航切換區 -->
-    <section style="background: #F9F6F0; border-bottom: 1px solid #EADBCE; padding: 24px 0; color: #2D2522; text-align: center;">
+    <section style="background: #F9F6F0; border-bottom: 1px solid #EADBCE; padding: 20px 0; color: #2D2522; text-align: center;">
       <div class="container">
-        <div style="display: inline-flex; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #BBF7D0; padding: 4px 14px; border-radius: 9999px; color: #15803D; font-size: 12px; font-weight: 800; margin-bottom: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
-          <span>✍️ 編輯部實地走訪踩點</span>
-          <span>·</span>
-          <span>📖 可點擊閱讀整篇採訪報導</span>
-          <span>·</span>
-          <span>🚕 附司機大字卡與預訂</span>
-        </div>
-
-        <div style="font-size: 12.5px; color: #6C5F56; margin-bottom: 12px; font-weight: 600;">
-          切換 8 大散策主題，瀏覽特派員親自實測的深度報導：
-        </div>
-
         <!-- 8 大主題切換按鈕 -->
         <div id="hop-themes-nav" style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; max-width: 1060px; margin: 0 auto;">
           <!-- 由 JS 動態生成 8 大主題按鈕 -->
@@ -591,24 +579,12 @@
     </section>
 
     <!-- 探店卡片主體專區 -->
-    <main class="section-padding" style="background: #FAF8F5; padding: 40px 0 80px 0;">
+    <main class="section-padding" style="background: #FAF8F5; padding: 30px 0 80px 0;">
       <div class="container">
-        
-        <!-- 當前主題核心客群與專屬分潤資訊橫幅 -->
-        <div id="theme-banner-box" class="theme-summary-banner">
-          <div>
-            <div id="banner-theme-title" style="font-size: 20px; font-weight: 900; color: #166534; margin-bottom: 6px;"></div>
-            <div id="banner-theme-audience" style="font-size: 13px; color: #14532D; margin-bottom: 4px;"></div>
-            <div id="banner-theme-affiliate" style="font-size: 12px; color: #15803D; font-weight: 700;"></div>
-          </div>
-          <div id="banner-theme-tags" style="display: flex; gap: 6px; flex-wrap: wrap;"></div>
-        </div>
-
         <!-- 探店卡片列表容器 -->
         <div id="weekend-hop-cards-container">
           <!-- 由 JS 動態渲染每張卡牌 -->
         </div>
-
       </div>
     </main>
   </div>
@@ -1229,33 +1205,15 @@
 
     function renderHopCards() {
       const container = document.getElementById("weekend-hop-cards-container");
-      const bannerBox = document.getElementById("theme-banner-box");
-      const titleEl = document.getElementById("banner-theme-title");
-      const audEl = document.getElementById("banner-theme-audience");
-      const affEl = document.getElementById("banner-theme-affiliate");
-      const tagsEl = document.getElementById("banner-theme-tags");
-
       if (!container || typeof WEEKEND_HOP_8_THEMES === "undefined") return;
 
       let currentThemes = [];
       if (activeHopThemeId === "all") {
         currentThemes = WEEKEND_HOP_8_THEMES;
-        if (bannerBox) {
-          titleEl.textContent = "🌟 週末探店全覽：8 大深度美學主題 42 間踩點全圖鑑";
-          audEl.textContent = "🎯 核心客群：歐美、日韓旅人、在地生活家、自由行吃貨與慢活探店達人";
-          affEl.textContent = "💰 內嵌專屬分潤入口：線上預約付費 ＋ Klook 門票與包車 ＋ 55688 叫車直達 ＋ 萬家福伴手禮直配";
-          tagsEl.innerHTML = `<span class="theme-tag-chip" style="background: #BBF7D0; color: #14532D;">8 大主題完整收錄 ‧ 均附整篇報導</span>`;
-        }
       } else {
         const th = WEEKEND_HOP_8_THEMES.find(t => t.id === activeHopThemeId);
         if (th) {
           currentThemes = [th];
-          if (bannerBox) {
-            titleEl.textContent = `${th.name} ｜ ${th.nameEn}`;
-            audEl.textContent = `🎯 核心客群與場景：${th.audience}`;
-            affEl.textContent = `💰 內嵌專屬分潤入口：${th.affiliateIntro}`;
-            tagsEl.innerHTML = th.tags.map(t => `<span class="theme-tag-chip" style="background: #BBF7D0; color: #14532D;">${t}</span>`).join("");
-          }
         }
       }
 

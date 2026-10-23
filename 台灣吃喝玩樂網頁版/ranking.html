@@ -39,25 +39,49 @@
       max-width: 960px !important;
       height: 520px !important;
       margin: 20px auto 14px auto !important;
+      position: relative !important;
+    }
+    .ranking-arc-track {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 20 !important;
+      pointer-events: none !important;
     }
     .ranking-arc-tile {
-      width: 68px !important;
-      height: 68px !important;
-      border-radius: 20px !important;
+      width: 72px !important;
+      height: 72px !important;
+      border-radius: 22px !important;
       border: 2.5px solid rgba(255, 255, 255, 0.92) !important;
       box-shadow: none !important; /* 陰影全數去除 */
       filter: none !important;
-      transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1), outline 0.2s ease, border-color 0.2s ease !important;
+      transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1), outline 0.2s ease, border-color 0.2s ease, opacity 0.28s ease !important;
+      cursor: pointer !important;
+      z-index: 25 !important;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      touch-action: manipulation !important;
+      pointer-events: auto !important;
+    }
+    /* 擴大滑鼠點擊反應熱區，讓整個 ICON 和周圍都極易被選取 */
+    .ranking-arc-tile::after {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 28px;
+      z-index: 1;
       cursor: pointer;
     }
+    .ranking-arc-tile * {
+      pointer-events: none !important;
+    }
     .ranking-arc-tile:hover {
-      transform: translate(-50%, -50%) scale(1.22) rotate(-3.5deg) !important;
+      transform: translate(-50%, -50%) scale(1.24) rotate(-3.5deg) !important;
       border-color: #FFFFFF !important;
       outline: 3px solid rgba(255, 255, 255, 0.95) !important;
       outline-offset: 3px !important;
       box-shadow: none !important; /* 絕對不用影子 */
       animation: cuteJelly 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-      z-index: 10 !important;
+      z-index: 35 !important;
     }
     .ranking-arc-tile.active {
       transform: translate(-50%, -50%) scale(1.26) !important;
@@ -65,16 +89,31 @@
       outline: 3.5px solid #FFFFFF !important;
       outline-offset: 3.5px !important;
       box-shadow: none !important;
-      z-index: 12 !important;
+      z-index: 30 !important;
+      opacity: 1 !important;
+    }
+    .ranking-arc-tile.preview-active {
+      transform: translate(-50%, -50%) scale(1.24) rotate(-3.5deg) !important;
+      border-color: #FFFFFF !important;
+      outline: 3px solid rgba(255, 255, 255, 0.95) !important;
+      outline-offset: 3px !important;
+      z-index: 32 !important;
+      opacity: 1 !important;
+    }
+    .ranking-arc-tile.dimmed {
+      opacity: 0.35 !important;
+      transform: translate(-50%, -50%) scale(0.92) !important;
+      filter: grayscale(25%) !important;
     }
     .ranking-arc-tile .tile-icon-img {
-      width: 36px !important;
-      height: 36px !important;
+      width: 38px !important;
+      height: 38px !important;
       filter: none !important;
       box-shadow: none !important;
       transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
     }
-    .ranking-arc-tile:hover .tile-icon-img {
+    .ranking-arc-tile:hover .tile-icon-img,
+    .ranking-arc-tile.preview-active .tile-icon-img {
       transform: translateY(-3px) scale(1.15) rotate(4deg) !important;
     }
     @keyframes cuteJelly {
@@ -82,14 +121,16 @@
       35% { transform: translate(-50%, -50%) scale(1.26, 0.88) rotate(-4deg); }
       60% { transform: translate(-50%, -50%) scale(0.94, 1.18) rotate(2deg); }
       80% { transform: translate(-50%, -50%) scale(1.16, 0.96) rotate(-1deg); }
-      100% { transform: translate(-50%, -50%) scale(1.22) rotate(-3.5deg); }
+      100% { transform: translate(-50%, -50%) scale(1.24) rotate(-3.5deg); }
     }
 
-    /* 中央主視覺特寫 (30% 加大顯示 ＋ 活潑彈跳彈簧進場 ＋ 絕無陰影) */
+    /* 中央主視覺特寫 (30% 加大顯示 ＋ 活潑彈跳彈簧進場 ＋ 絕無陰影 ＋ pointer-events 防止遮擋上方方塊) */
     .ranking-center-hero-container {
       width: 380px !important;
       height: 380px !important;
       bottom: 12px !important;
+      z-index: 6 !important;
+      pointer-events: none !important;
     }
     .ranking-hero-card {
       width: 370px !important;
@@ -98,6 +139,7 @@
       border: none !important;
       filter: none !important;
       background: transparent !important;
+      pointer-events: auto !important;
     }
     .ranking-hero-card-img {
       width: 100% !important;
@@ -567,7 +609,8 @@
         }
       }
 
-      initArcStage();
+      // 上方拱形圖標永遠保持 12 個完整顯示，絕不減少，僅更新焦點與淡化
+      updateArcTilesState();
       renderTopicPills();
       updateTopicView(currentTopicId);
     }
@@ -578,13 +621,14 @@
       });
     }
 
-    // 初始化 3D 拱形輪播舞台半圓坐標軌道 (為 30% 加大主圖預留足夠空間，圓弧優雅環繞)
+    // 初始化 3D 拱形輪播舞台半圓坐標軌道 (全量 12 個主題永遠完整呈現不減少)
     function initArcStage() {
       const track = document.getElementById("ranking-arc-track");
       if (!track) return;
       track.innerHTML = "";
 
-      const topics = getTopicsForScenario(currentScenario);
+      // 永遠使用完整的 12 個主題，絕不縮減
+      const topics = RANKINGS_TOPICS_META;
       const total = topics.length;
       if (total === 0) return;
 
@@ -606,10 +650,13 @@
         const tile = document.createElement("div");
         tile.className = `ranking-arc-tile ${t.id === currentTopicId ? 'active' : ''}`;
         tile.dataset.topic = t.id;
+        tile.dataset.category = t.category;
+        tile.id = `arc-tile-${t.id}`;
         tile.style.left = `${x}px`;
         tile.style.top = `${y}px`;
         tile.style.background = t.color;
         tile.title = t.title;
+
         const tileIconHtml = t.iconImg 
           ? `<img src="${t.iconImg}" class="tile-icon-img" alt="${t.zhName}">`
           : `<span class="tile-icon">${t.icon}</span>`;
@@ -622,16 +669,65 @@
           </span>
         `;
 
-        // 滑過即刻活潑彈跳切換大圖，點擊正式選中
-        tile.onmouseenter = () => previewTopicHero(t.id);
-        tile.onmouseleave = () => previewTopicHero(currentTopicId);
-        tile.onclick = () => selectTopic(t.id);
+        // 滑過即刻活潑彈跳切換大圖並高亮下方按鈕，點擊正式選中
+        tile.addEventListener("mouseenter", () => {
+          previewTopicHero(t.id);
+          highlightSubtopicBtn(t.id);
+        });
+        tile.addEventListener("mouseleave", () => {
+          previewTopicHero(currentTopicId);
+          unhighlightSubtopicBtn();
+        });
+        tile.addEventListener("click", (e) => {
+          e.stopPropagation();
+          selectTopic(t.id);
+        });
 
         track.appendChild(tile);
       });
+
+      updateArcTilesState();
     }
 
-    // 渲染下方主題按鈕膠囊列 (半透明風格，中英文對照)
+    // 更新 12 個拱形圖標的選中與篩選淡化狀態
+    function updateArcTilesState() {
+      const tiles = document.querySelectorAll(".ranking-arc-tile");
+      tiles.forEach(tile => {
+        const isSelected = tile.dataset.topic === currentTopicId;
+        tile.classList.toggle("active", isSelected);
+
+        if (currentScenario === "all") {
+          tile.classList.remove("dimmed");
+        } else {
+          const matchScenario = tile.dataset.category === currentScenario;
+          tile.classList.toggle("dimmed", !matchScenario && !isSelected);
+        }
+      });
+    }
+
+    function highlightArcTile(topicId) {
+      const tile = document.getElementById(`arc-tile-${topicId}`);
+      if (tile) tile.classList.add("preview-active");
+    }
+
+    function unhighlightArcTile() {
+      document.querySelectorAll(".ranking-arc-tile.preview-active").forEach(t => {
+        t.classList.remove("preview-active");
+      });
+    }
+
+    function highlightSubtopicBtn(topicId) {
+      const btn = document.querySelector(`.glass-subtopic-btn[data-topic="${topicId}"]`);
+      if (btn) btn.classList.add("hover-preview");
+    }
+
+    function unhighlightSubtopicBtn() {
+      document.querySelectorAll(".glass-subtopic-btn.hover-preview").forEach(b => {
+        b.classList.remove("hover-preview");
+      });
+    }
+
+    // 渲染下方主題按鈕膠囊列 (滑鼠滑過與點擊均即時連動上方拱形 ICON 與中央大圖)
     function renderTopicPills() {
       const row = document.getElementById("ranking-tabs-row");
       if (!row) return;
@@ -644,6 +740,8 @@
         return `
           <button class="glass-subtopic-btn ${t.id === currentTopicId ? 'active' : ''}" 
                   data-topic="${t.id}" 
+                  onmouseenter="previewTopicHero('${t.id}'); highlightArcTile('${t.id}')"
+                  onmouseleave="previewTopicHero(currentTopicId); unhighlightArcTile()"
                   onclick="selectTopic('${t.id}')">
             <span class="subtopic-icon">${subtopicIconHtml}</span>
             <span class="subtopic-zh">${t.zhName || t.shortName}</span>
@@ -656,6 +754,15 @@
     function selectTopic(topicId) {
       currentTopicId = topicId;
       currentPage = 1;
+
+      // 若當前情境非 all 且不包含該主題，自動切換該主題所屬情境或全部
+      const targetMeta = RANKINGS_TOPICS_META.find(t => t.id === topicId);
+      if (targetMeta && currentScenario !== "all" && targetMeta.category !== currentScenario) {
+        currentScenario = targetMeta.category;
+        renderScenarioBar();
+      }
+
+      updateArcTilesState();
       updateTopicView(topicId);
       renderTopicPills();
     }
@@ -747,10 +854,13 @@
         return `<a href="${uberUrl}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-ubereats-cta" style="width: 100%; padding: 7px 8px; font-size: 11px; text-align: center; justify-content: center; text-decoration: none;">🛵 找外送 ➔</a>`;
       }
 
-      // 2. 外國旅客必買伴手禮 Top 20：按鈕改為「哪裡買」
+      // 2. 外國旅客必買伴手禮 Top 20：按鈕改為「Uber Eats 外送送到府」
       if (currentTopicId === "souvenir" || ctaType === "souvenir") {
-        const url = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSouvenirUrl() : "souvenir.html";
-        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-souvenir-cta" style="width: 100%; padding: 7px 8px; font-size: 11px; text-align: center; justify-content: center; text-decoration: none;">🛍️ 哪裡買 ➔</a>`;
+        const cleanName = (item.name || "").replace(/・.*/, '').replace(/（.*）/, '').trim();
+        const uberUrl = typeof AFFILIATE_HUB !== "undefined" && AFFILIATE_HUB.getUberEatsUrl
+          ? AFFILIATE_HUB.getUberEatsUrl(cleanName)
+          : `https://www.ubereats.com/tw/search?q=${encodeURIComponent(cleanName)}`;
+        return `<a href="${uberUrl}" target="_blank" rel="noopener noreferrer" class="btn-action-cta btn-ubereats-cta" style="width: 100%; padding: 7px 8px; font-size: 11px; text-align: center; justify-content: center; text-decoration: none;">🛵 外送送到府 ➔</a>`;
       }
 
       // 3. 外國人最愛包車景點：按鈕寫「看行程」

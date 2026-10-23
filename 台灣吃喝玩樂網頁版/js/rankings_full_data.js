@@ -4526,7 +4526,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "外籍旅客訪台伴手禮冠軍！皮薄餡多，採用古法慢火熬煮的鳳梨冬瓜金黃軟餡，外皮散發天然紐西蘭奶油香氣，酥脆不掉屑，入口即化。",
       "price": "盒裝約 NT$ 240 - 480",
       "ctaType": "souvenir",
-      "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&auto=format&fit=crop"
     },
     {
       "rank": 2,
@@ -4539,7 +4539,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "台灣現代伴手禮美學代表！堅持不摻冬瓜餡，完全採用台灣原生土鳳梨長時間慢熬，每一口都嚼得到真材實料的酸甜果肉纖維，配高山茶絕配。",
       "price": "盒裝約 NT$ 450 - 750",
       "ctaType": "souvenir",
-      "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=600&auto=format&fit=crop"
     },
     {
       "rank": 3,
@@ -4552,7 +4552,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "永康街每天清晨七點排隊的爆款神作！香脆微鹹的青蔥蘇打餅乾，中間夾入濃郁軟Q不黏牙的牛奶牛軋糖，鹹甜交織魔性口感，一吃停不下來。",
       "price": "每盒約 NT$ 200 - 300",
       "ctaType": "souvenir",
-      "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=600&auto=format&fit=crop"
     },
     {
       "rank": 4,
@@ -4565,7 +4565,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "紅遍全球華人圈的伴手禮天王！嚴選法國天然奶油與低溫慢烤香脆加州杏仁粒，軟硬適中奶香濃郁且不黏牙，粉紅提袋包裝高雅體面。",
       "price": "每盒約 NT$ 280 - 550",
       "ctaType": "souvenir",
-      "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1582293041079-7814c2f12063?w=600&auto=format&fit=crop"
     },
     {
       "rank": 5,
@@ -4591,7 +4591,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "台中在地人低調私藏名單！招牌松子酥層次分明，細膩紅豆餡包入Q彈麻糬與香烤松子仁，甜度適中貴氣典雅，老饕送禮指名度極高。",
       "price": "盒裝約 NT$ 300 - 600",
       "ctaType": "souvenir",
-      "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&auto=format&fit=crop"
     },
     {
       "rank": 7,
@@ -4604,7 +4604,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "將傳統肉乾工藝推向極致！超薄0.01公分肉紙薄如洋芋片、入口即碎香脆逼人；特厚蜜汁豬肉乾則厚達一公分，肉汁飽滿軟嫩多汁。",
       "price": "每包約 NT$ 200 - 350",
       "ctaType": "souvenir",
-      "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop"
     },
     {
       "rank": 8,
@@ -4617,7 +4617,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "被譽為台灣芋頭酥發明人！堅持使用大甲大安溪純淨水源孕育的優質檳榔心芋，手工捏塑成紫色玫瑰花螺旋紋理，綿密濃香齒頰留香。",
       "price": "盒裝約 NT$ 280 - 520",
       "ctaType": "souvenir",
-      "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&auto=format&fit=crop"
     },
     {
       "rank": 9,
@@ -4630,7 +4630,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "嘉義超過七十年的傳統手工蛋捲老字號！厚實多層的酥脆口感，濃郁新鮮雞蛋香與芝麻烘烤香撲鼻而來，扎實飽滿遠勝一般市售量產蛋捲。",
       "price": "每包約 NT$ 180 - 250",
       "ctaType": "souvenir",
-      "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&auto=format&fit=crop"
     },
     {
       "rank": 10,
@@ -4643,7 +4643,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "外國旅人必帶國寶好禮！種植在海拔一千公尺以上高山茶園，經專業焙茶師精心揉捻焙火，茶湯金黃透亮，冷泡熱泡皆帶高雅蘭花清香與回甘甜韻。",
       "price": "每罐約 NT$ 450 - 1,200",
       "ctaType": "souvenir",
-      "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_tea.png"
     },
     {
       "rank": 11,
@@ -4656,7 +4656,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "花蓮無人不知的第一伴手禮！嚴選花蓮在地糯米，每日手工蒸煮搗槌出極致軟Q彈牙的麻糬皮，包入滿滿香濃餡料，口感濕潤綿密。",
       "price": "每顆 NT$ 20 - 30",
       "ctaType": "souvenir",
-      "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1612203985729-70726954388c?w=600&auto=format&fit=crop"
     },
     {
       "rank": 12,
@@ -4682,7 +4682,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "港澳星馬旅客指名度最高的熟食滷味！數十味珍貴中藥材老滷慢熬入味，鴨舌與鴨翅皮Q肉嫩骨髓香濃，真空包裝可輕鬆帶上飛機或放飯店享用。",
       "price": "每盒約 NT$ 150 - 350",
       "ctaType": "souvenir",
-      "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&auto=format&fit=crop"
     },
     {
       "rank": 14,
@@ -4695,7 +4695,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "金門最驕傲的名產！選用在地飼育金門黃牛，肉質纖維粗壯多汁，醃入陳年金門高粱酒慢火慢焙，濃郁酒香與肉汁在口中爆發，極具嚼勁。",
       "price": "每包約 NT$ 220 - 320",
       "ctaType": "souvenir",
-      "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop"
     },
     {
       "rank": 15,
@@ -4708,7 +4708,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "曾獲選總統國宴指定招待各國外賓的榮譽點心！螺旋如紫色玫瑰的酥皮賞心悅目，堅持純手工製作，內餡綿滑芋香天然濃郁。",
       "price": "盒裝約 NT$ 260 - 500",
       "ctaType": "souvenir",
-      "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&auto=format&fit=crop"
     },
     {
       "rank": 16,
@@ -4721,7 +4721,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "台灣國民零食天花板！烘烤得金黃酥脆的微薄泡芙外皮，咬開爆出絲滑香濃的牛奶或巧克力奶油餡，外國旅客回國都是整箱整箱扛回家。",
       "price": "每包 NT$ 35 - 40",
       "ctaType": "souvenir",
-      "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&auto=format&fit=crop"
     },
     {
       "rank": 17,
@@ -4747,7 +4747,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "熱門節目與老饕瘋狂團購的甜點奇蹟！純粹以新鮮大甲芋頭、鮮奶與微糖製成紮實的芋泥球，口感極其綿密濃郁，能品嚐到天然芋頭碎粒顆粒感。",
       "price": "每盒 NT$ 60 - 100",
       "ctaType": "souvenir",
-      "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&auto=format&fit=crop"
     },
     {
       "rank": 19,
@@ -4760,7 +4760,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "將傳統厚硬的牛舌餅改良為僅有0.1公分的極致香脆薄餅！酥脆如紙、入口化開，揉入宜蘭在地三星蔥或楓糖，大人小孩一口接一口停不下來。",
       "price": "每包約 NT$ 40 - 50",
       "ctaType": "souvenir",
-      "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=600&auto=format&fit=crop"
     },
     {
       "rank": 20,
@@ -4773,7 +4773,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "台灣最早產製牛軋糖的名店之一！精選雲林北港大粒飽滿的花生，經慢火焙炒香脆，融入紐西蘭奶粉與麥芽糖熬製，古早味奶香扎實回味甘甜。",
       "price": "每盒約 NT$ 180 - 350",
       "ctaType": "souvenir",
-      "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop"
+      "img": "https://images.unsplash.com/photo-1582293041079-7814c2f12063?w=600&auto=format&fit=crop"
     }
   ]
 };

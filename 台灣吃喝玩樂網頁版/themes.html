@@ -163,12 +163,10 @@
       <!-- 純文字主題標題展演（中文在上、英文在下，無邊框純文字） -->
       <div class="deck-typography-display" id="deck-theme-title-display"></div>
 
-      <!-- 雙層透明毛玻璃主題與小分類篩選器 (Two-tier Glassmorphism Filter) -->
+      <!-- 透明毛玻璃主題篩選器 -->
       <div class="themes-filter-glass-panel">
-        <!-- 第一排：8 大核心主題透明膠囊按鈕 -->
+        <!-- 8 大核心主題透明膠囊按鈕 -->
         <div class="themes-main-pills-row" id="theme-all-pills"></div>
-        <!-- 第二排：當前主題專屬之小分類透明標籤按鈕 -->
-        <div class="themes-sub-pills-row" id="theme-subcat-pills"></div>
       </div>
     </div>
   </section>
@@ -203,6 +201,106 @@
     let currentThemeIndex = 0; // 當前選中主題索引 (0 ~ 7)
     let currentPlanIndex = 0;  // 當前選中行程天數索引 (0: 1日遊, 1: 2天1夜, 2: 3天2夜)
     let currentSubCatId = "all"; // 當前選中小分類 (預設 'all' 全部景點)
+
+    // 各大主題之小分類專屬 1日/2日/3日 深度規劃行程表
+    const SUB_CATEGORY_ITINERARIES = {
+      "northcoast": {
+        "coast": [
+          { planName: "【1 日輕旅】北海岸浪花海景咖啡一日行", duration: "1 日輕活", days: [{ day: "精華動線", text: "三芝淺水灣海景咖啡 ➔ 白沙灣踏浪 ➔ 富貴角極北燈塔 ➔ 金山老街鴨肉。" }] },
+          { planName: "【2 日漫遊】奇岩海岸與漁港慢活二日遊", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "野柳地質公園女王頭 ➔ 龜吼漁港品嚐萬里蟹 ➔ 正濱漁港彩色屋 ➔ 宿基隆港景。" }, { day: "Day 2", text: "潮境公園飛天掃帚 ➔ 望幽谷濱海步道 ➔ 八斗子車站（海天一色）➔ 傍晚返程。" }] },
+          { planName: "【3 日縱走】濱海公路黃金浪花全景縱走", duration: "3 天 2 夜", days: [{ day: "Day 1", text: "淡金公路自駕 ➔ 石門洞海蝕奇景 ➔ 富貴角燈塔 ➔ 夜宿金山溫泉旅館。" }, { day: "Day 2", text: "萬里翡翠灣 ➔ 野柳奇岩 ➔ 和平島地質公園 ➔ 基隆廟口夜市大快朵頤。" }, { day: "Day 3", text: "深澳象鼻岩 ➔ 鼻頭角稜線步道 ➔ 三貂角燈塔（極東點）夕陽返程。" }] }
+        ],
+        "jiufen": [
+          { planName: "【1 日輕旅】九份山城阿妹茶樓一日遊", duration: "1 日山城", days: [{ day: "精華動線", text: "瑞芳火車站 ➔ 侯硐貓村 ➔ 九份老街阿柑姨芋圓 ➔ 阿妹茶樓品茗觀山海。" }] },
+          { planName: "【2 日漫遊】金瓜石採金歷史與山居漫活", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "黃金博物館體驗淘金 ➔ 四連棟日式宿舍 ➔ 無耳茶壺山步道 ➔ 宿九份景觀民宿。" }, { day: "Day 2", text: "九份昇平戲院 ➔ 祈堂老街彩虹階梯 ➔ 水湳洞陰陽海與十三層遺址。" }] },
+          { planName: "【3 日縱走】水金九百年黃金採礦秘境縱走", duration: "3 天 2 夜", days: [{ day: "Day 1", text: "猴硐煤礦生態園區 ➔ 三貂嶺瀑布群 ➔ 暖東峽谷 ➔ 宿九份老街夜景。" }, { day: "Day 2", text: "黃金瀑布 ➔ 報時山海景棧道 ➔ 本山五坑坑道體驗 ➔ 祈堂老街慢活。" }, { day: "Day 3", text: "不厭亭（寂寞公路）遠眺雙溪全景 ➔ 燦光寮步道 ➔ 瑞芳美食街返程。" }] }
+        ]
+      },
+      "islands": {
+        "islands": [
+          { planName: "【1 日輕旅】澎湖藍海地質輕快一日遊", duration: "1 日跳島", days: [{ day: "精華動線", text: "馬公中央老街 ➔ 奎壁山摩西分海 ➔ 跨海大橋 ➔ 大菓葉玄武岩奇景。" }] },
+          { planName: "【2 日漫遊】馬祖芹壁地中海與追藍眼淚", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "南竿北海坑道搖櫓 ➔ 鐵堡 ➔ 北竿芹壁石屋聚落 ➔ 夜間出海追夢幻藍眼淚。" }, { day: "Day 2", text: "壁山觀景台俯瞰機場 ➔ 坂里大澳沙灘 ➔ 橋仔聚落品嚐黃金餃返程。" }] },
+          { planName: "【3 日縱走】金門洋樓風情與烈嶼跨海縱走", duration: "3 天 2 夜", days: [{ day: "Day 1", text: "翟山坑道 ➔ 水頭聚落得月樓 ➔ 珠山聚落閩南古厝 ➔ 宿百年古厝民宿。" }, { day: "Day 2", text: "金門大橋跨海直達烈嶼（小金門）➔ 勇士堡地雷館 ➔ 雙口沙灘望廈門天際線。" }, { day: "Day 3", text: "太武山毋忘在莒 ➔ 沙美摩洛哥土黃街屋 ➔ 陳景蘭洋樓 ➔ 採買牛肉乾返程。" }] }
+        ],
+        "turtle": [
+          { planName: "【1 日輕旅】小琉球花瓶岩尋龜初體驗", duration: "1 日尋龜", days: [{ day: "精華動線", text: "東港搭船 ➔ 花瓶岩浮潛近距離與海龜共游 ➔ 蛤板灣威尼斯沙灘 ➔ 潮間帶生態導覽。" }] },
+          { planName: "【2 日漫遊】小琉球全島海龜潛點探索巡禮", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "厚石裙礁 SUP 立槳尋龜 ➔ 杉福漁港自由潛水 ➔ 落日亭海景夕陽 ➔ 炭烤海鮮大餐。" }, { day: "Day 2", text: "美人洞珊瑚礁步道 ➔ 龍蝦洞海蝕壺穴 ➔ 麻花捲伴手禮 ➔ 搭船滿載歸。" }] },
+          { planName: "【3 日縱走】綠島與小琉球雙島世界級蔚藍潛水", duration: "3 天 2 夜", days: [{ day: "Day 1", text: "東港出海小琉球 ➔ 花瓶岩海龜同游 ➔ 大福漁港潛水 ➔ 宿海景獨棟包棟。" }, { day: "Day 2", text: "台東富岡搭船轉戰綠島 ➔ 大白沙珊瑚礁與海龜群共游 ➔ 朝日溫泉夜泡觀星。" }, { day: "Day 3", text: "綠島水下郵筒寄明信片 ➔ 牛頭山綠茵草原 ➔ 綠島燈塔夕陽返程。" }] }
+        ]
+      },
+      "hualien": {
+        "valley": [
+          { planName: "【1 日輕旅】池上稻浪與金城武樹一日遊", duration: "1 日漫活", days: [{ day: "精華動線", text: "池上火車站 ➔ 伯朗大道單車巡禮 ➔ 大坡池水鳥濕地 ➔ 池上木盒冠軍便當。" }] },
+          { planName: "【2 日漫遊】花東縱谷溫泉與酪農莊園慢活", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "瑞穗牧場餵小牛喝鮮乳 ➔ 舞鶴台地品蜜香紅茶 ➔ 宿瑞穗黃金溫泉一泊二食。" }, { day: "Day 2", text: "玉里橋頭臭豆腐 ➔ 富里稻草藝術季 ➔ 鹿野高台眺望縱谷棋盤農田。" }] },
+          { planName: "【3 日縱走】花東大縱谷金黃稻田與茶鄉縱走", duration: "3 天 2 夜", days: [{ day: "Day 1", text: "吉安慶修院 ➔ 光復糖廠吃冰 ➔ 瑞穗牧場 ➔ 宿花蓮溫泉渡假村。" }, { day: "Day 2", text: "富里六十石山金針花海 ➔ 池上天堂路 ➔ 關山環保親水單車道。" }, { day: "Day 3", text: "鹿野高台熱氣球體驗 ➔ 初鹿牧場 ➔ 台東鐵花村音樂市集返程。" }] }
+        ],
+        "taroko": [
+          { planName: "【1 日輕旅】大理石世界級大峽谷一日遊", duration: "1 日奇觀", days: [{ day: "精華動線", text: "太魯閣牌樓 ➔ 砂卡礑神秘谷步道 ➔ 燕子口一線天 ➔ 長春祠湧泉瀑布。" }] },
+          { planName: "【2 日漫遊】太魯閣深境峽谷與星空野奢", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "九曲洞大理石絕壁 ➔ 白楊步道水濂洞 ➔ 宿天祥晶英酒店峽谷泳池 ➔ 峽谷觀星。" }, { day: "Day 2", text: "文山溫泉秘境遠眺 ➔ 綠水地質步道 ➔ 崇德清水斷崖獨木舟看海。" }] },
+          { planName: "【3 日縱走】錐麓古道大斷崖挑戰縱走", duration: "3 天 2 夜", days: [{ day: "Day 1", text: "清水斷崖觀景台 ➔ 砂卡礑步道 ➔ 燕子口戴安全帽探險 ➔ 宿天祥山莊。" }, { day: "Day 2", text: "挑戰錐麓古道垂直七百米峽谷大斷崖 ➔ 慈母橋 ➔ 岳王亭吊橋。" }, { day: "Day 3", text: "長春祠步道 ➔ 七星潭礫石海灘堆石頭 ➔ 東大門夜市原住民烤肉返程。" }] }
+        ]
+      },
+      "outdoor": {
+        "hiking": [
+          { planName: "【1 日輕旅】合歡山武嶺與百岳輕鬆登頂", duration: "1 日百岳", days: [{ day: "精華動線", text: "清境出發 ➔ 全台公路最高點武嶺 3275m ➔ 石門山步道輕鬆攻頂百岳 ➔ 松雪樓午餐。" }] },
+          { planName: "【2 日漫遊】合歡北峰高山反射板雲海行", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "小風口登山口 ➔ 合歡北峰紅毛杜鵑花海 ➔ 巨大微波反射板 ➔ 宿清境英倫城堡莊園。" }, { day: "Day 2", text: "青青草原綿羊秀 ➔ 清境高空景觀步道 ➔ 埔里紙教堂返程。" }] },
+          { planName: "【3 日縱走】雪山東峰與合歡群峰大縱走", duration: "3 天 2 夜", days: [{ day: "Day 1", text: "武陵農場 ➔ 雪山大水池登山口 ➔ 七卡山莊 ➔ 挑戰哭坡登頂雪山東峰。" }, { day: "Day 2", text: "合歡尖山冰蝕地形 ➔ 合歡主峰看日落夕陽雲海 ➔ 宿合歡山莊夜觀銀河。" }, { day: "Day 3", text: "石門山日出破曉 ➔ 奇萊連峰遠眺 ➔ 翠峰茶園買高山茶返程。" }] }
+        ],
+        "camping": [
+          { planName: "【1 日輕旅】山林日光野餐與柴燒料理", duration: "1 日野趣", days: [{ day: "精華動線", text: "新竹/苗栗森活營地 ➔ 草地野餐下午茶 ➔ 柴燒窯烤手作披薩 ➔ 芬多精森林浴。" }] },
+          { planName: "【2 日漫遊】一泊四食奢華帳篷星空之夜", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "苗栗奢華免搭帳露營 Check-in ➔ 和牛海鮮火烤兩吃 ➔ 露天星空電影院 ➔ 營火棉花糖。" }, { day: "Day 2", text: "晨光鳥鳴手沖咖啡 ➔ 森林自然步道 ➔ 南庄百年老街桂花巷買擂茶返程。" }] },
+          { planName: "【3 日縱走】野奢露營與野溪溫泉探險縱走", duration: "3 天 2 夜", days: [{ day: "Day 1", text: "宜蘭大同野奢露營地 ➔ 梵梵野溪溫泉秘境探險 ➔ 泰雅原民獵人射箭體驗。" }, { day: "Day 2", text: "太平山國家森林遊樂區 ➔ 見晴懷古步道漫步 ➔ 翠峰湖環山步道觀霧。" }, { day: "Day 3", text: "鳩之澤溫泉煮溫泉蛋 ➔ 露天火山溫泉湯屋 ➔ 礁溪伴手禮返程。" }] }
+        ]
+      },
+      "hotspring": {
+        "hotspring": [
+          { planName: "【1 日輕旅】北投地熱谷與百年名湯一日遊", duration: "1 日紓壓", days: [{ day: "精華動線", text: "新北投木造綠建築圖書館 ➔ 北投溫泉博物館 ➔ 加賀屋/日勝生白磺泉名湯體驗 ➔ 滿來溫泉拉麵。" }] },
+          { planName: "【2 日漫遊】陽明山冷水坑與礁溪美人湯漫活", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "陽明山冷水坑天然低溫白湯 ➔ 擎天崗草原看水牛 ➔ 夜宿礁溪頂級溫泉飯店一泊二食。" }, { day: "Day 2", text: "湯圍溝溫泉公園魚咬腳 ➔ 礁溪森林溫泉風呂 ➔ 奕順軒奶凍捲伴手禮返程。" }] },
+          { planName: "【3 日縱走】北台灣四大名湯極致縱走", duration: "3 天 2 夜", days: [{ day: "Day 1", text: "北投地熱谷源頭 ➔ 三二行館極致白磺私湯 ➔ 宿北投五星級溫泉度假酒店。" }, { day: "Day 2", text: "陽明山小油坑火山景觀 ➔ 金山萬里金湧泉海底溫泉 ➔ 基隆廟口夜市海鮮。" }, { day: "Day 3", text: "烏來馥蘭朵南勢溪景觀湯屋 ➔ 烏來泰雅老街山豬肉香腸 ➔ 內洞瀑布吸收負離子。" }] }
+        ],
+        "park": [
+          { planName: "【1 日輕旅】新北熊猴森樂園放電一日遊", duration: "1 日歡樂", days: [{ day: "精華動線", text: "新北大都會熊猴森樂園（31座特色滑梯）➔ 辰光橋水岸自行車 ➔ 塭仔底濕地生態公園。" }] },
+          { planName: "【2 日漫遊】雙北超人氣旗艦特色共融公園", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "大安森林公園恐龍遊戲場 ➔ 青年公園飛行探索滑梯 ➔ 華山文創大草原野餐。" }, { day: "Day 2", text: "南港公園森林共融遊樂場 ➔ 碧湖公園大船入港木造遊戲場 ➔ 美麗華摩天輪夜景。" }] },
+          { planName: "【3 日縱走】全台特色親子旗艦遊戲場暢玩", duration: "3 天 2 夜", days: [{ day: "Day 1", text: "新北大都會熊猴森樂園 ➔ 鶯歌永吉公園炮仗花滑梯 ➔ 鶯歌陶瓷老街手捏陶。" }, { day: "Day 2", text: "苗栗貓裏喵親子公園（八爪章魚大滑梯）➔ 台中鰲峰山運動公園極限體能競賽場。" }, { day: "Day 3", text: "屏東和平公園共融遊戲場 ➔ 勝利星村文創園區吃冰品 ➔ 歡樂返程。" }] }
+        ]
+      },
+      "nightmarket": {
+        "market": [
+          { planName: "【1 日輕旅】台北必比登老饕通宵吃透透", duration: "1 日老饕", days: [{ day: "精華動線", text: "寧夏夜市圓環邊蚵仔煎 ➔ 饒河街米其林胡椒餅 ➔ 通化夜市御品元冰火湯圓 ➔ 永康街水果冰。" }] },
+          { planName: "【2 日漫遊】中台灣傳奇夜市排隊排爆連線", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "台中一中街排隊無骨雞排 ➔ 逢甲夜市地瓜球與明倫蛋餅 ➔ 宿逢甲文創旅店。" }, { day: "Day 2", text: "旱溪夜市在地老字號美食 ➔ 忠孝路夜市品嚐南投意麵與木瓜牛奶 ➔ 返程。" }] },
+          { planName: "【3 日縱走】南台灣夜市霸主神級橫掃縱走", duration: "3 天 2 夜", days: [{ day: "Day 1", text: "台南花園夜市旗魚黑輪與二師兄滷味 ➔ 國華街牛肉湯 ➔ 宿台南老爺行旅。" }, { day: "Day 2", text: "高雄瑞豐夜市天使雞排 ➔ 六合夜市鄭老牌木瓜牛奶 ➔ 駁二大港橋散策。" }, { day: "Day 3", text: "屏東潮州夜市冷熱冰 ➔ 墾丁大街夜市南洋烤肉 ➔ 滿載美食回憶返程。" }] }
+        ],
+        "skyline": [
+          { planName: "【1 日輕旅】台北信義區天際線與象山日落", duration: "1 日登高", days: [{ day: "精華動線", text: "象山步道六巨石俯瞰 101 ➔ 微風南山高空酒吧 ➔ 大稻埕碼頭貨櫃夕陽夜色品調酒。" }] },
+          { planName: "【2 日漫遊】陽明山後花園與台中望高寮星光", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "陽明山屋頂上景觀餐廳 ➔ 文化大學後山百萬燈火 ➔ 宿台北寒舍艾美高空景觀房。" }, { day: "Day 2", text: "台中望高寮夜景公園俯瞰台中七彩燈火 ➔ 鰲峰山觀景平台 ➔ 台中港三井摩天輪。" }] },
+          { planName: "【3 日縱走】台灣海港與高空天際線夜景全覽", duration: "3 天 2 夜", days: [{ day: "Day 1", text: "九份阿妹茶樓山海夜色 ➔ 基隆虎仔山 KEELUNG 地標看大船入港 ➔ 宿基隆長榮酒店。" }, { day: "Day 2", text: "南下高雄 85 大樓周邊 ➔ 高雄流行音樂中心七彩光雕 ➔ 駁二輕軌夜行。" }, { day: "Day 3", text: "壽山忠烈祠 LOVE 觀景台眺望高雄港 ➔ 旗津砲台星空隧道 ➔ 夕陽夜景返程。" }] }
+        ]
+      },
+      "culture": {
+        "festival": [
+          { planName: "【1 日輕旅】十分祈福天燈與壯麗瀑布盛典", duration: "1 日祈福", days: [{ day: "精華動線", text: "平溪支線小火車 ➔ 十分老街手寫祈願放天燈 ➔ 靜安吊橋 ➔ 十分瀑布彩虹水氣。" }] },
+          { planName: "【2 日漫遊】鹽水蜂炮民俗與古都文創漫遊", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "台南鹽水武廟參拜 ➔ 八角樓歷史建築 ➔ 親臨鹽水蜂炮震撼民俗盛會 ➔ 宿台南市區。" }, { day: "Day 2", text: "林百貨復古電梯 ➔ 台南美術館二館 ➔ 藍晒圖文創園區 ➔ 品嚐鱔魚意麵。" }] },
+          { planName: "【3 日縱走】台灣三大國家級民俗慶典深度行", duration: "3 天 2 夜", days: [{ day: "Day 1", text: "平溪天燈節萬盞天燈齊飛壯景 ➔ 菁桐木造老車站 ➔ 宿新北投溫泉旅館。" }, { day: "Day 2", text: "苗栗火旁龍民俗舞龍競技 ➔ 三義木雕博物館 ➔ 舊山線鐵道自行車。" }, { day: "Day 3", text: "屏東東港東隆宮迎王平安祭典 ➔ 華僑市場品嚐現切黑鮪魚 ➔ 滿載平安返程。" }] }
+        ],
+        "heritage": [
+          { planName: "【1 日輕旅】艋舺剝皮寮與龍山寺古風散策", duration: "1 日人文", days: [{ day: "精華動線", text: "艋舺龍山寺參拜祈福 ➔ 剝皮寮歷史街區紅磚拱廊 ➔ 青草巷喝百草茶 ➔ 華西街古早擔仔麵。" }] },
+          { planName: "【2 日漫遊】台南府城古都老街與老饕名店", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "赤崁樓 ➔ 全台首學孔廟 ➔ 神農街老宅文創小舖 ➔ 宿安平古堡老宅民宿。" }, { day: "Day 2", text: "安平樹屋與古堡 ➔ 四草綠色隧道戴斗笠划船 ➔ 國華街必比登牛肉湯飽食。" }] },
+          { planName: "【3 日縱走】全台五大紅磚木造老街歷史縱走", duration: "3 天 2 夜", days: [{ day: "Day 1", text: "三峽老街祖師廟精細木雕與藍染 ➔ 大溪木藝老街品嚐黃日香豆干。" }, { day: "Day 2", text: "彰化鹿港老街九曲巷 ➔ 摸乳巷 ➔ 鹿港天后宮 ➔ 王功漁港採蚵摸文蛤。" }, { day: "Day 3", text: "高雄旗山老街仿巴洛克洋樓 ➔ 旗山香蕉蛋糕 ➔ 美濃客家文物館體驗紙傘返程。" }] }
+        ]
+      },
+      "roadtrip": {
+        "roadtrip": [
+          { planName: "【1 日輕旅】北台灣最美濱海公路自駕一日遊", duration: "1 日自駕", days: [{ day: "精華動線", text: "台 2 線濱海公路 ➔ 鼻頭角稜線步道 ➔ 南雅奇石 ➔ 陰陽海 ➔ 不厭亭寂寞公路。" }] },
+          { planName: "【2 日漫遊】花東台 11 線太平洋逐浪自駕行", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "花蓮出發 ➔ 芭崎眺望 ➔ 新社梯田看稻草人 ➔ 石梯坪露營區 ➔ 宿台東成功海景民宿。" }, { day: "Day 2", text: "三仙台八拱跨海大橋 ➔ 都歷海灘天空之鏡 ➔ 加路蘭海岸裝置藝術 ➔ 台東市區。" }] },
+          { planName: "【3 日縱走】環島一號線七大極點壯麗大征服", duration: "3 天 2 夜", days: [{ day: "Day 1", text: "極北富貴角燈塔 ➔ 極東三貂角燈塔 ➔ 蘇花改絕美山海 ➔ 宿花蓮海景飯店。" }, { day: "Day 2", text: "花東縱谷南下 ➔ 屏東鵝鑾鼻極南燈塔 ➔ 墾丁龍磐公園崩崖 ➔ 宿墾丁大街。" }, { day: "Day 3", text: "極西台南國聖港燈塔 ➔ 西濱快速道路 ➔ 台中高美濕地夕陽 ➔ 環島圓滿返程。" }] }
+        ],
+        "sports": [
+          { planName: "【1 日輕旅】台北大巨蛋頂級看球體驗", duration: "1 日熱血", days: [{ day: "精華動線", text: "大巨蛋球團旗艦店採買球衣 ➔ VIP 內野席應援看球 ➔ 啦啦隊熱力互動 ➔ 東區居酒屋微醺。" }] },
+          { planName: "【2 日漫遊】台中洲際與台南棒球熱血雙城連線", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "台中洲際棒球場中信兄弟主場 ➔ 台中棒球故事館 ➔ 宿台中逢甲夜市附近飯店。" }, { day: "Day 2", text: "高鐵直奔台南市立棒球場統一獅主場 ➔ 復古棒球老味道 ➔ 花園夜市慶功。" }] },
+          { planName: "【3 日縱走】全台棒球聖地與極限賽車朝聖行", duration: "3 天 2 夜", days: [{ day: "Day 1", text: "天母棒球場味全龍主場 ➔ 台北大巨蛋朝聖巡禮 ➔ 信義區運動酒吧。" }, { day: "Day 2", text: "台中麗寶國際賽車場卡丁車極速狂飆 ➔ 麗寶摩天輪 ➔ 台中市區。" }, { day: "Day 3", text: "屏東大鵬灣國際賽道巡禮 ➔ 大鵬灣水上活動 ➔ 屏東夜市品嚐肉圓返程。" }] }
+        ]
+      }
+    };
 
     // 初始化頁面
     function initThemesPage() {
@@ -439,10 +537,9 @@
     // 渲染雙排毛玻璃切換鈕（第一排大主題，第二排小分類）
     function renderAllPills() {
       const pillsContainer = document.getElementById("theme-all-pills");
-      const subPillsContainer = document.getElementById("theme-subcat-pills");
       if (!pillsContainer) return;
 
-      // 第一排：8 大主題膠囊透明按鈕
+      // 8 大主題膠囊透明按鈕
       pillsContainer.innerHTML = THEMES_COMPLETE_DATA.map((t, idx) => {
         const active = idx === currentThemeIndex;
         return `
@@ -454,26 +551,6 @@
           </button>
         `;
       }).join('');
-
-      // 第二排：當前主題之小分類透明標籤按鈕
-      if (subPillsContainer) {
-        const curTheme = THEMES_COMPLETE_DATA[currentThemeIndex];
-        if (curTheme && curTheme.subCategories) {
-          subPillsContainer.innerHTML = curTheme.subCategories.map(sub => {
-            const active = sub.id === currentSubCatId;
-            return `
-              <button type="button" 
-                      class="glass-subtheme-btn ${active ? 'active' : ''}" 
-                      onclick="selectSubCategory('${sub.id}')"
-                      style="cursor: pointer;">
-                ${sub.name}
-              </button>
-            `;
-          }).join('');
-        } else {
-          subPillsContainer.innerHTML = '';
-        }
-      }
     }
 
     // 小分類即時篩選 (Select Subcategory)
@@ -486,7 +563,109 @@
     // 行程天數切換 (點擊一日遊、二日遊、三日遊方案)
     function switchPlan(planIdx) {
       currentPlanIndex = planIdx;
-      renderThemeMainContent(currentThemeIndex, planIdx, currentSubCatId);
+      renderThemeItineraryPlanner();
+    }
+
+    // 小分類即時切換 (同時連動更新：左側推薦行程規劃 ＋ 右側景點卡牌清單)
+    function selectSubCategory(subId) {
+      currentSubCatId = subId;
+      currentPlanIndex = 0; // 切換小分類時自動回到第 1 方案 (1 日輕旅)
+      renderThemeItineraryPlanner();
+      renderThemeSpotsGrid();
+    }
+
+    // 渲染左側推薦行程規劃 (依當前主題與所選小分類動態變化一日/二日/三日動線)
+    function renderThemeItineraryPlanner() {
+      const container = document.getElementById("theme-itinerary-container");
+      if (!container) return;
+
+      const theme = THEMES_COMPLETE_DATA[currentThemeIndex];
+      if (!theme) return;
+
+      // 取得對應小分類的專屬行程；若為全部或無專屬行程則使用主題預設
+      let plans = theme.itineraries;
+      if (currentSubCatId !== "all" && typeof SUB_CATEGORY_ITINERARIES !== "undefined" && SUB_CATEGORY_ITINERARIES[theme.id]?.[currentSubCatId]) {
+        plans = SUB_CATEGORY_ITINERARIES[theme.id][currentSubCatId];
+      }
+
+      const activePlan = plans[currentPlanIndex] || plans[0];
+      const shortTabNames = ["1 日輕旅", "2 日漫遊", "3 日縱走"];
+
+      container.innerHTML = `
+        <div class="itinerary-planner-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <div style="font-size: 18px; font-weight: 900; color: #0F172A; display: flex; align-items: center; gap: 8px;" class="itinerary-planner-title">
+              <span>📅</span>
+              <span>推薦行程動線規劃</span>
+            </div>
+            <span style="font-size: 11px; font-weight: 700; color: #0284C7; background: #F0F9FF; padding: 3px 8px; border-radius: 6px;" class="itinerary-duration-badge">
+              ${activePlan.duration || '建議行程'}
+            </span>
+          </div>
+          <p style="font-size: 12px; color: #64748B; margin-bottom: 16px;">
+            點選下方分段標籤切換精華動線、深度漫活與縱走路線：
+          </p>
+
+          <!-- 1 日輕旅／2 日漫遊／3 日縱走 簡短按鈕 -->
+          <div class="itinerary-segmented-tabs">
+            ${plans.map((plan, pIdx) => `
+              <button type="button" 
+                      class="itinerary-tab-btn ${pIdx === currentPlanIndex ? 'active' : ''}" 
+                      onclick="switchPlan(${pIdx})">
+                ${shortTabNames[pIdx] || plan.duration || `第 ${pIdx + 1} 方案`}
+              </button>
+            `).join('')}
+          </div>
+
+          <!-- 當前方案名稱 -->
+          <div style="font-size: 14.5px; font-weight: 800; color: #0284C7; margin-bottom: 12px;" class="itinerary-active-planname">
+            ${activePlan.planName}
+          </div>
+
+          <!-- 當前選定行程方案的時間線 (Timeline Node) -->
+          <div class="itinerary-day-timeline">
+            ${activePlan.days.map((d) => `
+              <div class="itinerary-timeline-node">
+                <div class="itinerary-node-badge">
+                  <span>🚩</span>
+                  <span>${d.day}</span>
+                </div>
+                <div class="itinerary-node-route">${d.text}</div>
+              </div>
+            `).join('')}
+          </div>
+
+          <!-- 本主題特色體驗抽屜 (Experience Drawer) -->
+          <div class="itinerary-exp-drawer">
+            <div style="font-size: 13px; font-weight: 800; color: #0F172A; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+              <span>✨</span>
+              <span>主題特色亮點與體驗</span>
+            </div>
+            ${theme.experiences.map(exp => `
+              <div class="itinerary-exp-item">
+                <div class="exp-icon">${exp.icon}</div>
+                <div>
+                  <div class="exp-title">${exp.title}</div>
+                  <div class="exp-desc">${exp.desc}</div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+
+          <!-- 快捷行動按鈕組 -->
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 18px;">
+            <a href="${theme.bookingCta.charter}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="width: 100%; justify-content: center; padding: 11px; font-size: 13px; font-weight: 800; text-decoration: none;">
+              🚗 預約專屬包車
+            </a>
+            <a href="${theme.bookingCta.hotel}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #F8FAFC; border: 1px solid #CBD5E1; color: #0F172A; width: 100%; justify-content: center; padding: 9px; font-size: 12.5px; font-weight: 700; text-decoration: none;">
+              🏨 預訂精選飯店
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(theme.name)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #FFFFFF; border: 1px solid #E2E8F0; color: #475569; width: 100%; justify-content: center; padding: 8px; font-size: 12px; font-weight: 700; text-decoration: none;">
+              📍 Map
+            </a>
+          </div>
+        </div>
+      `;
     }
 
     // 渲染主題主內容（左側行程安排 ＋ 右側景點卡牌）
@@ -506,11 +685,8 @@
       else if (theme.id === "nightmarket") modeClass = "theme-nightmarket-mode";
       display.className = modeClass;
 
-      const activePlan = theme.itineraries[planIdx] || theme.itineraries[0];
-      const shortTabNames = ["1 日輕旅", "2 日漫遊", "3 日縱走"];
-
       display.innerHTML = `
-        <!-- 頂部主題視覺大橫幅 (Hero Banner - 舒適精緻美學，告別擁擠) -->
+        <!-- 頂部主題視覺大橫幅 (Hero Banner) -->
         <div class="theme-banner-box" style="background-image: linear-gradient(90deg, rgba(15,23,42,0.92) 0%, rgba(15,23,42,0.65) 60%, rgba(15,23,42,0.3) 100%), url('${theme.bannerImg}'); min-height: 130px; padding: 18px 26px; border-radius: 18px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);">
           <div style="position: relative; z-index: 2; color: #FFFFFF; width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
             <div style="flex: 1; min-width: 280px; max-width: 720px;">
@@ -543,97 +719,20 @@
 
         <!-- 下方雙欄區塊：左側行程規劃 ＋ 右側景點推薦卡 -->
         <div class="theme-split-layout">
-          
-          <!-- 左側欄：1/2/3 日推薦行程規劃 -->
-          <div>
-            <div class="itinerary-planner-box">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <div style="font-size: 18px; font-weight: 900; color: #0F172A; display: flex; align-items: center; gap: 8px;" class="itinerary-planner-title">
-                  <span>📅</span>
-                  <span>推薦行程動線規劃</span>
-                </div>
-                <span style="font-size: 11px; font-weight: 700; color: #0284C7; background: #F0F9FF; padding: 3px 8px; border-radius: 6px;" class="itinerary-duration-badge">
-                  ${activePlan.duration || '建議行程'}
-                </span>
-              </div>
-              <p style="font-size: 12px; color: #64748B; margin-bottom: 16px;">
-                點選下方分段標籤切換精華動線、深度漫活與縱走路線：
-              </p>
+          <!-- 左側欄：1/2/3 日推薦行程規劃容器 -->
+          <div id="theme-itinerary-container"></div>
 
-              <!-- 1 日輕旅／2 日漫遊／3 日縱走 簡短按鈕 -->
-              <div class="itinerary-segmented-tabs">
-                ${theme.itineraries.map((plan, pIdx) => `
-                  <button type="button" 
-                          class="itinerary-tab-btn ${pIdx === planIdx ? 'active' : ''}" 
-                          onclick="switchPlan(${pIdx})">
-                    ${shortTabNames[pIdx] || plan.duration || `第 ${pIdx + 1} 方案`}
-                  </button>
-                `).join('')}
-              </div>
-
-              <!-- 當前方案名稱 -->
-              <div style="font-size: 14.5px; font-weight: 800; color: #0284C7; margin-bottom: 12px;" class="itinerary-active-planname">
-                ${activePlan.planName}
-              </div>
-
-              <!-- 當前選定行程方案的時間線 (Timeline Node) -->
-              <div class="itinerary-day-timeline">
-                ${activePlan.days.map((d, dIdx) => `
-                  <div class="itinerary-timeline-node">
-                    <div class="itinerary-node-badge">
-                      <span>🚩</span>
-                      <span>${d.day}</span>
-                    </div>
-                    <div class="itinerary-node-route">${d.text}</div>
-                  </div>
-                `).join('')}
-              </div>
-
-              <!-- 本主題特色體驗抽屜 (Experience Drawer) -->
-              <div class="itinerary-exp-drawer">
-                <div style="font-size: 13px; font-weight: 800; color: #0F172A; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
-                  <span>✨</span>
-                  <span>主題特色亮點與體驗</span>
-                </div>
-                ${theme.experiences.map(exp => `
-                  <div class="itinerary-exp-item">
-                    <div class="exp-icon">${exp.icon}</div>
-                    <div>
-                      <div class="exp-title">${exp.title}</div>
-                      <div class="exp-desc">${exp.desc}</div>
-                    </div>
-                  </div>
-                `).join('')}
-              </div>
-
-              <!-- 快捷行動按鈕組 -->
-              <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 18px;">
-                <a href="${theme.bookingCta.charter}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="width: 100%; justify-content: center; padding: 11px; font-size: 13px; font-weight: 800; text-decoration: none;">
-                  🚗 預約專屬包車
-                </a>
-                <a href="${theme.bookingCta.hotel}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #F8FAFC; border: 1px solid #CBD5E1; color: #0F172A; width: 100%; justify-content: center; padding: 9px; font-size: 12.5px; font-weight: 700; text-decoration: none;">
-                  🏨 預訂精選飯店
-                </a>
-                <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(theme.name)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #FFFFFF; border: 1px solid #E2E8F0; color: #475569; width: 100%; justify-content: center; padding: 8px; font-size: 12px; font-weight: 700; text-decoration: none;">
-                  📍 Map
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 右側欄：景點推薦（含小分類篩選與數量統計） -->
-          <div id="theme-spots-container">
-            <!-- 由 renderThemeSpotsGrid 動態更新 -->
-          </div>
-
+          <!-- 右側欄：景點卡牌與小分類切換列容器 -->
+          <div id="theme-spots-container"></div>
         </div>
       `;
 
-      // 渲染景點網格
+      // 渲染左側行程與右側景點
+      renderThemeItineraryPlanner();
       renderThemeSpotsGrid();
     }
 
-    // 僅重新渲染右側景點卡牌瀑布流與小分類過濾器
+    // 僅重新渲染右側景點卡牌瀑布流與小分類切換列 (無冗餘文字，僅展示小分類按鈕)
     function renderThemeSpotsGrid() {
       const container = document.getElementById("theme-spots-container");
       if (!container) return;
@@ -647,14 +746,9 @@
         : theme.spots.filter(s => s.subCategory === currentSubCatId);
 
       container.innerHTML = `
-        <div class="reels-section-header" style="margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <h3 class="reels-section-title" style="font-size: 20px; font-weight: 800; margin: 0;">景點推薦</h3>
-            <span class="theme-spot-count-badge" id="spot-count-badge">${visibleSpots.length} 處景點</span>
-          </div>
-
-          <!-- 右側欄頂部縮小版小分類切換列 -->
-          <div class="theme-subcat-inline-row">
+        <!-- 右側欄頂部：純小分類切換按鈕列 (已移除「景點推薦 24 處景點」字樣) -->
+        <div class="reels-section-header" style="margin-bottom: 16px; display: flex; align-items: center; justify-content: flex-start; gap: 8px; flex-wrap: wrap;">
+          <div class="theme-subcat-inline-row" style="display: flex; gap: 8px; flex-wrap: wrap;">
             ${theme.subCategories.map(sub => `
               <button type="button" 
                       class="theme-subcat-mini-btn ${sub.id === currentSubCatId ? 'active' : ''}" 

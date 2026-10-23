@@ -89,6 +89,12 @@ const AFFILIATE_HUB = {
     return `https://www.klook.com/zh-TW/car-rentals/?aid=${this.klookAid}`;
   },
 
+  /** 2.5 Uber Eats 美食與伴手禮外送專屬導購 */
+  getUberEatsUrl: function(storeName = "") {
+    const clean = storeName.replace(/（.*）/, '').replace(/・.*/, '').trim();
+    return `https://www.ubereats.com/tw/search?q=${encodeURIComponent(clean)}`;
+  },
+
   /** 3. 機場接送 (Klook) */
   getAirportTransferUrl: function() {
     return `https://www.klook.com/zh-TW/airport-transfers/?aid=${this.klookAid}`;
