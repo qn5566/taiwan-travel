@@ -12000,7 +12000,7 @@ const WEEKEND_HOP_8_THEMES = [
         "mapUrl": "https://maps.google.com/?q=劉芋仔蛋黃芋餅",
         "affiliateLabel": "🎟️ Klook 寧夏夜市美食券 ➔",
         "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%AF%A7%E5%A4%8F%E5%A4%9C%E5%B8%82&aid=123436",
-        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop"
+        "img": "assets/ranking_taro_ball.png"
       },
       {
         "id": "hop_5_2",

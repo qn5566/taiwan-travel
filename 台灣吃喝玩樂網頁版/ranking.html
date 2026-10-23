@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="css/style.css">
   <style>
     /* 可愛丸文字風格 (Zen Maru Gothic) */
-    .tile-zh, .subtopic-zh {
+    .tile-zh, .subtopic-zh, .cat-zh, .glass-cat-btn, .glass-subtopic-btn {
       font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', sans-serif !important;
       letter-spacing: 0.5px;
     }
@@ -32,6 +32,49 @@
       letter-spacing: 0.3px;
       line-height: 1;
       margin-top: 2px;
+    }
+    .subtopic-en, .cat-en, .glass-count-badge {
+      font-family: 'DM Sans', 'Zen Maru Gothic', sans-serif !important;
+      letter-spacing: 0.3px;
+    }
+    .glass-cat-btn {
+      font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', sans-serif !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.5px !important;
+    }
+    .glass-cat-btn .cat-zh {
+      font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', sans-serif !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.5px !important;
+    }
+    .glass-cat-btn .cat-en {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 11.5px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.3px !important;
+      opacity: 0.85;
+      margin-left: 2px;
+    }
+    .glass-subtopic-btn {
+      font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', sans-serif !important;
+      letter-spacing: 0.5px !important;
+    }
+    .glass-subtopic-btn .subtopic-zh {
+      font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', sans-serif !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.5px !important;
+    }
+    .glass-subtopic-btn .subtopic-en {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.3px !important;
+      opacity: 0.85;
+      margin-left: 2px;
+    }
+    .glass-count-badge {
+      font-family: 'DM Sans', sans-serif !important;
+      font-weight: 800 !important;
     }
 
     /* 3D 拱形舞台與方塊 - 絕無陰影 ＋ 可愛彈跳果凍動態 ＋ 30% 放大展示 */
@@ -417,19 +460,19 @@
         <!-- 第一排：5 大情境分類透明膠囊按鈕 (Row 1: Major Category Tabs) -->
         <div class="ranking-category-row" id="category-capsules-bar">
           <button class="glass-cat-btn active" data-scenario="all" onclick="switchScenario('all')">
-            全部 All <span class="glass-count-badge">12</span>
+            <span class="cat-zh">全部</span> <span class="cat-en">All</span> <span class="glass-count-badge">12</span>
           </button>
           <button class="glass-cat-btn" data-scenario="food" onclick="switchScenario('food')">
-            🍽️ 美食飲品 <span class="glass-count-badge">5</span>
+            <span>🍽️</span> <span class="cat-zh">美食飲品</span> <span class="glass-count-badge">5</span>
           </button>
           <button class="glass-cat-btn" data-scenario="activity" onclick="switchScenario('activity')">
-            🏞️ 景點活動 <span class="glass-count-badge">3</span>
+            <span>🏞️</span> <span class="cat-zh">景點活動</span> <span class="glass-count-badge">3</span>
           </button>
           <button class="glass-cat-btn" data-scenario="transport_stay" onclick="switchScenario('transport_stay')">
-            🚗 交通旅宿 <span class="glass-count-badge">3</span>
+            <span>🚗</span> <span class="cat-zh">交通旅宿</span> <span class="glass-count-badge">3</span>
           </button>
           <button class="glass-cat-btn" data-scenario="shopping" onclick="switchScenario('shopping')">
-            🛍️ 購物採購 <span class="glass-count-badge">1</span>
+            <span>🛍️</span> <span class="cat-zh">購物採購</span> <span class="glass-count-badge">1</span>
           </button>
         </div>
 

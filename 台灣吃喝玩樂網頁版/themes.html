@@ -582,6 +582,28 @@
       const theme = THEMES_COMPLETE_DATA[currentThemeIndex];
       if (!theme) return;
 
+      // 動態計算當前行程地點標籤 (右邊顯示地點)
+      let locationBadge = theme.locationTitle || theme.name;
+      if (theme.id === "outdoor") {
+        if (currentSubCatId === "hiking") locationBadge = "合歡山・玉山・雪山百岳";
+        else if (currentSubCatId === "camping") locationBadge = "全台高海拔・野奢露營區";
+        else locationBadge = "合歡群峰・百岳名山・奢華露營";
+      } else if (theme.id === "northcoast") {
+        locationBadge = currentSubCatId === "jiufen" ? "九份山城・金瓜石採金歷史" : "新北石門・金山・北海岸浪花";
+      } else if (theme.id === "islands") {
+        locationBadge = currentSubCatId === "turtle" ? "小琉球尋海龜・綠島蔚藍潛水" : "澎湖群島・馬祖芹壁地中海";
+      } else if (theme.id === "hualien") {
+        locationBadge = currentSubCatId === "taroko" ? "太魯閣峽谷・錐麓古道大斷崖" : "花東縱谷・池上伯朗大道";
+      } else if (theme.id === "hotspring") {
+        locationBadge = currentSubCatId === "park" ? "雙北旗艦共融公園・親子放電" : "北投青磺・礁溪美人湯";
+      } else if (theme.id === "nightmarket") {
+        locationBadge = currentSubCatId === "skyline" ? "台北象山・台中望高寮夜景" : "台北寧夏・饒河・台中逢甲夜市";
+      } else if (theme.id === "culture") {
+        locationBadge = "平溪天燈・大甲媽祖・鹿港老街";
+      } else if (theme.id === "roadtrip") {
+        locationBadge = "花東海岸公路・武嶺最高公路";
+      }
+
       // 取得對應小分類的專屬行程；若為全部或無專屬行程則使用主題預設
       let plans = theme.itineraries;
       if (currentSubCatId !== "all" && typeof SUB_CATEGORY_ITINERARIES !== "undefined" && SUB_CATEGORY_ITINERARIES[theme.id]?.[currentSubCatId]) {
@@ -593,18 +615,18 @@
 
       container.innerHTML = `
         <div class="itinerary-planner-box">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-            <div style="font-size: 18px; font-weight: 900; color: #0F172A; display: flex; align-items: center; gap: 8px;" class="itinerary-planner-title">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+            <div style="font-size: 17px; font-weight: 900; color: #0F172A; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;" class="itinerary-planner-title">
               <span>📅</span>
               <span>推薦行程動線規劃</span>
+              <span style="font-size: 11.5px; font-weight: 800; color: #0284C7; background: #E0F2FE; padding: 2px 8px; border-radius: 9999px; letter-spacing: 0.3px;">
+                📍 ${locationBadge}
+              </span>
             </div>
             <span style="font-size: 11px; font-weight: 700; color: #0284C7; background: #F0F9FF; padding: 3px 8px; border-radius: 6px;" class="itinerary-duration-badge">
               ${activePlan.duration || '建議行程'}
             </span>
           </div>
-          <p style="font-size: 12px; color: #64748B; margin-bottom: 16px;">
-            點選下方分段標籤切換精華動線、深度漫活與縱走路線：
-          </p>
 
           <!-- 1 日輕旅／2 日漫遊／3 日縱走 簡短按鈕 -->
           <div class="itinerary-segmented-tabs">
@@ -745,23 +767,12 @@
         ? theme.spots 
         : theme.spots.filter(s => s.subCategory === currentSubCatId);
 
-      container.innerHTML = `
-        <!-- 右側欄頂部：純小分類切換按鈕列 (舒適寬敞間距 ＋ 高對比專屬配色) -->
-        <div class="reels-section-header" style="margin-top: 6px; margin-bottom: 24px; display: flex; align-items: center; justify-content: flex-start; gap: 12px; flex-wrap: wrap;">
-          <div class="theme-subcat-inline-row" style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
-            ${theme.subCategories.map(sub => `
-              <button type="button" 
-                      class="theme-subcat-mini-btn ${sub.id === currentSubCatId ? 'active' : ''}" 
-                      onclick="selectSubCategory('${sub.id}')">
-                ${sub.name}
-              </button>
-            `).join('')}
-          </div>
-        </div>
+      // 除了煙火/活動 (nightmarket) 和節慶文化 (culture) 不用改，其餘全部改為圖二雜誌風卡牌 (theme-editorial-card)
+      const isClassicVideoStyle = (theme.id === "nightmarket" || theme.id === "culture");
 
-        <!-- 景點卡片網格 -->
-        <div class="reels-cards-grid" style="animation: fadeInCards 0.3s ease;">
-          ${visibleSpots.map(spot => `
+      const cardsHtml = visibleSpots.map(spot => {
+        if (isClassicVideoStyle) {
+          return `
             <div class="reels-card">
               <img src="${spot.img}" alt="${spot.name}" class="reels-card-bg-img" loading="lazy">
               <div class="reels-card-scrim"></div>
@@ -803,7 +814,7 @@
                      target="_blank" 
                      rel="noopener noreferrer" 
                      class="reels-soft-btn">
-                    🗺️ 地圖
+                    📍 Map
                   </a>
                   <a href="${theme.bookingCta.tour}" 
                      target="_blank" 
@@ -819,7 +830,114 @@
                 </div>
               </div>
             </div>
-          `).join('')}
+          `;
+        }
+
+        // 圖二樣式：極簡現代白底雜誌風卡牌 (Editorial Card)
+        const tagsList = spot.tags || [
+          spot.tag ? spot.tag.split('·')[0].trim() : '熱門推薦',
+          spot.altitude || spot.duration || '必訪體驗',
+          spot.subName ? spot.subName.replace(/^[^\s]+\s*/, '') : '人氣指標'
+        ].filter(Boolean);
+        const tagsHtml = tagsList.slice(0, 3).map(t => `<span class="theme-editorial-tag-chip">${t}</span>`).join('');
+
+        const statusPill = spot.permitUrl 
+          ? `<span class="theme-spot-status-pill" style="background: #D97706;">📋 需入山申請</span>` 
+          : `<span class="theme-spot-status-pill">🟢 ${spot.status || '營業中'}</span>`;
+
+        const infoLine = spot.duration 
+          ? `⏱️ 建議時間：${spot.duration}` 
+          : (spot.altitude ? `⛰️ ${spot.altitude}` : (spot.phone ? `📞 ${spot.phone}` : `✨ ${spot.subName || theme.shortTitle}`));
+
+        // 底部自訂行動按鈕
+        let actionBtn2 = '';
+        let actionBtn3 = '';
+        if (spot.permitUrl) {
+          actionBtn2 = `<a href="${spot.permitUrl}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #0284C7; color: #FFFFFF; font-weight: 800; font-size: 11px; padding: 7px 4px; text-decoration: none; text-align: center; border-radius: 6px;">📋 登山申請 ➔</a>`;
+          actionBtn3 = `<a href="${theme.bookingCta.charter}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #F8FAFC; border: 1px solid #CBD5E1; color: #0F172A; font-weight: 700; font-size: 11px; padding: 7px 4px; text-decoration: none; text-align: center; border-radius: 6px;">🚗 包車</a>`;
+        } else if (spot.subCategory === 'camping') {
+          actionBtn2 = `<a href="${spot.campUrl || 'https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436'}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #0284C7; color: #FFFFFF; font-weight: 800; font-size: 11px; padding: 7px 4px; text-decoration: none; text-align: center; border-radius: 6px;">⛺ 預定營位</a>`;
+          actionBtn3 = `<a href="https://onelink.one/s/KmfgH" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #FEF3C7; border: 1px solid #F59E0B; color: #92400E; font-weight: 700; font-size: 11px; padding: 7px 4px; text-decoration: none; text-align: center; border-radius: 6px;">🥩 萬家福食材</a>`;
+        } else {
+          actionBtn2 = `<a href="${theme.bookingCta.hotel}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room" style="text-align: center; padding: 7px 4px; font-size: 11px; text-decoration: none;">🏨 訂周邊住宿</a>`;
+          actionBtn3 = `<a href="${theme.bookingCta.charter}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #F8FAFC; border: 1px solid #CBD5E1; color: #0F172A; font-weight: 700; font-size: 11px; padding: 7px 4px; text-decoration: none; text-align: center; border-radius: 6px;">🚗 包車</a>`;
+        }
+
+        return `
+          <div class="theme-editorial-card">
+            <div class="theme-editorial-img-wrap">
+              <img src="${spot.img}" alt="${spot.name}" loading="lazy">
+              <span class="theme-spot-location-pill">
+                📍 ${spot.tag || spot.city || spot.subName || theme.shortTitle}
+              </span>
+              ${statusPill}
+              <button type="button" 
+                      class="waterfall-fav-btn" 
+                      onclick="toggleThemeSpotFav('${spot.name.replace(/'/g, "\\'")}', this, event)" 
+                      title="收藏景點"
+                      style="position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.9); cursor: pointer; z-index: 5;">
+                <img src="assets/icon_heart_sparkle.png" alt="收藏" style="width: 16px; height: 16px; object-fit: contain;">
+              </button>
+            </div>
+            
+            <div class="theme-editorial-body">
+              <div class="theme-editorial-meta-row">
+                <span class="theme-editorial-en">${spot.en || ''}</span>
+                <span class="theme-editorial-rating">⭐ ${spot.rate || spot.rating || '4.9★'}</span>
+              </div>
+              
+              <h3 class="theme-editorial-title" title="${spot.name}">
+                ${spot.name}
+              </h3>
+              
+              <div class="theme-editorial-tag-chips">
+                ${tagsHtml}
+              </div>
+
+              <div class="theme-editorial-info-line">
+                ${infoLine}
+              </div>
+
+              <p class="theme-editorial-desc">
+                ${spot.desc}
+              </p>
+
+              <div class="theme-editorial-address-box" title="${spot.address || spot.tag}">
+                📍 ${spot.address || spot.tag}
+              </div>
+
+              <div class="theme-editorial-actions-row">
+                <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn-action btn-maps-nav" style="text-align: center; padding: 7px 4px; font-size: 11px; text-decoration: none;">
+                  📍 Map
+                </a>
+                ${actionBtn2}
+                ${actionBtn3}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      container.innerHTML = `
+        <!-- 右側欄頂部：純小分類切換按鈕列 (舒適寬敞間距 ＋ 高對比專屬配色) -->
+        <div class="reels-section-header" style="margin-top: 6px; margin-bottom: 24px; display: flex; align-items: center; justify-content: flex-start; gap: 12px; flex-wrap: wrap;">
+          <div class="theme-subcat-inline-row" style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+            ${theme.subCategories.map(sub => `
+              <button type="button" 
+                      class="theme-subcat-mini-btn ${sub.id === currentSubCatId ? 'active' : ''}" 
+                      onclick="selectSubCategory('${sub.id}')">
+                ${sub.name}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- 景點卡片網格 -->
+        <div class="reels-cards-grid" style="animation: fadeInCards 0.3s ease;">
+          ${cardsHtml}
         </div>
       `;
     }

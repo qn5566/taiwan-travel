@@ -808,7 +808,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "米其林必比登常客！現桿大甲檳榔心芋泥包裹鹹鴨蛋黃與香濃黑豬肉脯，外酥內爆漿綿密。",
       "price": "NT$ 30 - 35",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_taro_ball.png"
     },
     {
       "rank": 2,
@@ -821,7 +821,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "饒河街慈祐宮入口第一攤，排隊人潮從未間斷！手工貼在炭火高溫甕壁烤出焦香酥脆外皮，咬下滿滿滾燙肉汁與濃郁蔥香。",
       "price": "NT$ 65",
       "ctaType": "dining",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Baking_Hujiao_bing.jpg/960px-Baking_Hujiao_bing.jpg"
+      "img": "assets/ranking_pepper_bun.png"
     },
     {
       "rank": 3,
@@ -834,7 +834,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "老士林冬令進補首選！十五味溫補中藥慢熬數小時，湯頭甘醇回甘不苦澀，排骨肉質軟爛輕易骨肉分離。",
       "price": "NT$ 100 - 150",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1547592180-85f173990554?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_herbal_ribs.png"
     },
     {
       "rank": 4,
@@ -847,7 +847,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "獨門控溫燙熟厚切新鮮豬肝，粉嫩爽脆絲毫不乾柴。醇厚琥珀色高湯加入冬菜與香油提香，老饕讚不絕口。",
       "price": "NT$ 75 - 90",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_pig_liver.png"
     },
     {
       "rank": 5,
@@ -860,7 +860,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "手工現煮爆漿熱芝麻花生湯圓鋪在剉冰上，淋上獨家香甜桂花蜜！吃完湯圓還能免費回攤加檸檬汁變身檸檬桂花清冰。",
       "price": "NT$ 80 - 100",
       "ctaType": "dining",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/202501_%E6%A1%82%E8%8A%B1%E8%9C%9C%E7%B6%9C%E5%90%88%E6%B9%AF%E5%9C%93%E5%88%A8%E5%86%B0%2CAka_%E5%86%B0%E7%81%AB%E6%B9%AF%E5%9C%93.jpg/960px-202501_%E6%A1%82%E8%8A%B1%E8%9C%9C%E7%B6%9C%E5%90%88%E6%B9%AF%E5%9C%93%E5%88%A8%E5%86%B0%2CAka_%E5%86%B0%E7%81%AB%E6%B9%AF%E5%9C%93.jpg"
+      "img": "assets/ranking_yupinyuan_tangyuan.png"
     },
     {
       "rank": 6,
@@ -873,7 +873,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "連續多年入選米其林必比登推介，精選大支肋骨慢燉至骨髓入味，湯頭清香無負擔，搭配特製香豆瓣醬更添風味。",
       "price": "NT$ 90 - 110",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1603073163308-9654c3fb70b5?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_chendong_ribs.png"
     },
     {
       "rank": 7,
@@ -886,7 +886,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "每日限量！整支超大去骨仿土雞腿肉質彈牙鮮嫩，麻油湯頭清澈甘甜帶淡淡酒香，冬日開攤半小時即搶購一空。",
       "price": "NT$ 120 - 160",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_anan_chicken.png"
     },
     {
       "rank": 8,
@@ -899,7 +899,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "夜市門口第一攤！現切帶皮土雞肉淋上特調甘甜醬油膏，搭配淋上雞油與古早味油膏的白飯，肉質扎實甘香飽滿。",
       "price": "NT$ 90 - 110",
       "ctaType": "dining",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Charcoal_Grilled_Chicken_Leg_Rice_%28Taiwan%29.jpg/960px-Charcoal_Grilled_Chicken_Leg_Rice_%28Taiwan%29.jpg"
+      "img": "assets/ranking_shannei_chicken.png"
     },
     {
       "rank": 9,
@@ -912,7 +912,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "通化夜市老饕必買宵夜下酒菜！陳年老滷汁冷泡入味，鴨翅皮脆肉香，搭配獨門酸菜與現磨生辣椒醬，越嚼越香。",
       "price": "NT$ 60 - 150",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_liangji_luwei.png"
     },
     {
       "rank": 10,
@@ -938,7 +938,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "基隆廟口元老級名攤！手切帶皮肥瘦相間的黑豬肉燥慢火熬煮至晶瑩剔透，白飯粒粒裹上油亮膠質，平價美味天花板。",
       "price": "NT$ 30 - 55",
       "ctaType": "dining",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/A_bowl_of_minced_pork_rice.jpg/960px-A_bowl_of_minced_pork_rice.jpg"
+      "img": "assets/ranking_tianyixiang_pork.png"
     },
     {
       "rank": 12,
