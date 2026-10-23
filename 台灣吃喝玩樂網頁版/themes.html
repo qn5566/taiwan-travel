@@ -746,9 +746,9 @@
         : theme.spots.filter(s => s.subCategory === currentSubCatId);
 
       container.innerHTML = `
-        <!-- 右側欄頂部：純小分類切換按鈕列 (已移除「景點推薦 24 處景點」字樣) -->
-        <div class="reels-section-header" style="margin-bottom: 16px; display: flex; align-items: center; justify-content: flex-start; gap: 8px; flex-wrap: wrap;">
-          <div class="theme-subcat-inline-row" style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <!-- 右側欄頂部：純小分類切換按鈕列 (舒適寬敞間距 ＋ 高對比專屬配色) -->
+        <div class="reels-section-header" style="margin-top: 6px; margin-bottom: 24px; display: flex; align-items: center; justify-content: flex-start; gap: 12px; flex-wrap: wrap;">
+          <div class="theme-subcat-inline-row" style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
             ${theme.subCategories.map(sub => `
               <button type="button" 
                       class="theme-subcat-mini-btn ${sub.id === currentSubCatId ? 'active' : ''}" 
