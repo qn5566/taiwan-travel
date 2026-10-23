@@ -323,7 +323,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "",
       "price": "NT$ 45 - 70",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1527661591475-527312dd65f5?w=600&auto=format&fit=crop"
+      "img": "assets/aniceholiday_tea.png"
     },
     {
       "rank": 5,
