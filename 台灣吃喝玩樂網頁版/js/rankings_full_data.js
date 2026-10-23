@@ -349,7 +349,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "",
       "price": "NT$ 65 - 85",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop"
+      "img": "assets/soma_tea.png"
     },
     {
       "rank": 7,
