@@ -6456,9 +6456,9 @@ body.bg-theme-hotspring .itinerary-duration-badge {
 
 .ranking-arc-tile {
   position: absolute;
-  width: 64px;
-  height: 64px;
-  border-radius: 18px;
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6466,24 +6466,28 @@ body.bg-theme-hotspring .itinerary-duration-badge {
   gap: 2px;
   cursor: pointer;
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.25s ease;
-  border: 2px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28), inset 0 2px 2px rgba(255, 255, 255, 0.35);
+  transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1), outline 0.2s ease, border-color 0.2s ease;
+  border: 2.5px solid rgba(255, 255, 255, 0.92);
+  box-shadow: none !important;
   z-index: 4;
 }
 
 .ranking-arc-tile:hover {
-  transform: translate(-50%, -50%) scale(1.18);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8) !important;
+  transform: translate(-50%, -50%) scale(1.22) rotate(-3.5deg);
   border-color: #FFFFFF;
-  z-index: 8;
+  outline: 3px solid rgba(255, 255, 255, 0.95) !important;
+  outline-offset: 3px;
+  box-shadow: none !important;
+  z-index: 10;
 }
 
 .ranking-arc-tile.active {
-  transform: translate(-50%, -50%) scale(1.22);
-  border-color: #FFFFFF;
-  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.7);
-  z-index: 10;
+  transform: translate(-50%, -50%) scale(1.26);
+  border: 3px solid #FFFFFF;
+  outline: 3.5px solid #FFFFFF !important;
+  outline-offset: 3.5px;
+  box-shadow: none !important;
+  z-index: 12;
 }
 
 .ranking-arc-tile .tile-icon {
@@ -6493,21 +6497,17 @@ body.bg-theme-hotspring .itinerary-duration-badge {
 }
 
 .ranking-arc-tile .tile-icon-img {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   object-fit: contain;
   filter: none !important;
-  transition: transform 0.25s ease;
+  box-shadow: none !important;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   pointer-events: none;
 }
 
 .ranking-arc-tile:hover .tile-icon-img {
-  transform: scale(1.15);
-  filter: none !important;
-}
-
-.ranking-arc-tile:hover .tile-icon-img {
-  transform: scale(1.15);
+  transform: translateY(-3px) scale(1.15) rotate(4deg);
 }
 
 .ranking-arc-tile:hover .tile-icon {
@@ -6515,11 +6515,15 @@ body.bg-theme-hotspring .itinerary-duration-badge {
 }
 
 .ranking-arc-tile .tile-label {
-  font-size: 10px;
-  font-weight: 800;
+  font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', sans-serif !important;
+  font-size: 11px;
+  font-weight: 900;
   color: #FFFFFF;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-  line-height: 1;
+  text-shadow: none !important;
+  line-height: 1.15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* 浮動作用標籤 - 依需求徹底停用隱藏避免遮擋 */

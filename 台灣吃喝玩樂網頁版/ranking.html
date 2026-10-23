@@ -8,9 +8,166 @@
   <meta name="description" content="TAIWAN ROAM RANKINGS 旅人權威指標：收錄手搖飲、風格咖啡、米其林必比登夜市、伴手禮、頂級燒肉與百萬夜景，全球自由行旅人的不踩雷指南。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600;1,700&family=Pinyon+Script&family=Noto+Serif+TC:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600;1,700&family=Pinyon+Script&family=Noto+Serif+TC:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
+    /* 可愛丸文字風格 (Zen Maru Gothic) */
+    .tile-zh, .subtopic-zh {
+      font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', sans-serif !important;
+      letter-spacing: 0.5px;
+    }
+    .tile-zh {
+      font-size: 11.5px;
+      font-weight: 900;
+      color: #FFFFFF;
+      text-shadow: none !important;
+      line-height: 1.15;
+    }
+    .tile-en {
+      font-family: 'DM Sans', 'Zen Maru Gothic', sans-serif !important;
+      font-size: 8.5px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.95);
+      text-shadow: none !important;
+      letter-spacing: 0.3px;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    /* 3D 拱形舞台與方塊 - 絕無陰影 ＋ 可愛彈跳果凍動態 ＋ 30% 放大展示 */
+    .ranking-arc-stage-wrap {
+      max-width: 960px !important;
+      height: 520px !important;
+      margin: 20px auto 14px auto !important;
+    }
+    .ranking-arc-tile {
+      width: 68px !important;
+      height: 68px !important;
+      border-radius: 20px !important;
+      border: 2.5px solid rgba(255, 255, 255, 0.92) !important;
+      box-shadow: none !important; /* 陰影全數去除 */
+      filter: none !important;
+      transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1), outline 0.2s ease, border-color 0.2s ease !important;
+      cursor: pointer;
+    }
+    .ranking-arc-tile:hover {
+      transform: translate(-50%, -50%) scale(1.22) rotate(-3.5deg) !important;
+      border-color: #FFFFFF !important;
+      outline: 3px solid rgba(255, 255, 255, 0.95) !important;
+      outline-offset: 3px !important;
+      box-shadow: none !important; /* 絕對不用影子 */
+      animation: cuteJelly 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+      z-index: 10 !important;
+    }
+    .ranking-arc-tile.active {
+      transform: translate(-50%, -50%) scale(1.26) !important;
+      border: 3px solid #FFFFFF !important;
+      outline: 3.5px solid #FFFFFF !important;
+      outline-offset: 3.5px !important;
+      box-shadow: none !important;
+      z-index: 12 !important;
+    }
+    .ranking-arc-tile .tile-icon-img {
+      width: 36px !important;
+      height: 36px !important;
+      filter: none !important;
+      box-shadow: none !important;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    }
+    .ranking-arc-tile:hover .tile-icon-img {
+      transform: translateY(-3px) scale(1.15) rotate(4deg) !important;
+    }
+    @keyframes cuteJelly {
+      0% { transform: translate(-50%, -50%) scale(1); }
+      35% { transform: translate(-50%, -50%) scale(1.26, 0.88) rotate(-4deg); }
+      60% { transform: translate(-50%, -50%) scale(0.94, 1.18) rotate(2deg); }
+      80% { transform: translate(-50%, -50%) scale(1.16, 0.96) rotate(-1deg); }
+      100% { transform: translate(-50%, -50%) scale(1.22) rotate(-3.5deg); }
+    }
+
+    /* 中央主視覺特寫 (30% 加大顯示 ＋ 活潑彈跳彈簧進場 ＋ 絕無陰影) */
+    .ranking-center-hero-container {
+      width: 380px !important;
+      height: 380px !important;
+      bottom: 12px !important;
+    }
+    .ranking-hero-card {
+      width: 370px !important;
+      height: 370px !important;
+      box-shadow: none !important;
+      border: none !important;
+      filter: none !important;
+      background: transparent !important;
+    }
+    .ranking-hero-card-img {
+      width: 100% !important;
+      height: 100% !important;
+      max-width: 370px !important;
+      max-height: 370px !important;
+      box-shadow: none !important;
+      filter: none !important;
+    }
+    .ranking-hero-pop {
+      animation: heroBouncyPop 0.52s cubic-bezier(0.34, 1.56, 0.64, 1) forwards, heroFloat 3.8s ease-in-out 0.52s infinite !important;
+    }
+    @keyframes heroBouncyPop {
+      0% {
+        transform: scale(0.48) translateY(45px) rotate(-6deg);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.15) translateY(-8px) rotate(2.5deg);
+        opacity: 1;
+      }
+      82% {
+        transform: scale(0.95) translateY(3px) rotate(-1deg);
+      }
+      100% {
+        transform: scale(1) translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+    }
+
+    /* 粉藍色萌萌龍雪 (Dreamy Pastel Powder-Blue & Pink Dragon Snow Falling Dots) */
+    .cute-dragon-snow-container {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .cute-snow-dot {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: dragonSnowFall linear infinite;
+      will-change: transform, opacity;
+    }
+    @keyframes dragonSnowFall {
+      0% {
+        transform: translateY(-20px) translateX(0) scale(0.7);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.85;
+      }
+      85% {
+        opacity: 0.85;
+      }
+      100% {
+        transform: translateY(600px) translateX(var(--drift-x, 25px)) scale(1.15);
+        opacity: 0;
+      }
+    }
+
+    /* 控制按鈕無陰影 */
+    .glass-subtopic-btn {
+      box-shadow: none !important;
+    }
+    .glass-cat-btn {
+      box-shadow: none !important;
+    }
+
     .brand-script-en {
       font-family: 'Pinyon Script', cursive;
       font-size: 34px;
@@ -166,8 +323,9 @@
 
   <!-- 排行榜 Hero Banner (晨光煙嵐微霧背景 ＋ 飄逸流動動態 ＋ 3D 拱形輪播舞台) -->
   <section class="section-padding ranking-sky-hero-section">
-    <!-- 晨光微霧與流動煙嵐效果層 (Ethereal Mist & Atmospheric Fog) -->
+    <!-- 晨光微霧與流動煙嵐效果層 ＋ 粉藍色萌萌龍雪 (Pastel Dragon Snow & Mist) -->
     <div class="ranking-clouds-wrap">
+      <div class="cute-dragon-snow-container" id="cuteDragonSnow"></div>
       <div class="ranking-mist-layer mist-layer-1"></div>
       <div class="ranking-mist-layer mist-layer-2"></div>
       <div class="ranking-mist-layer mist-layer-3"></div>
@@ -327,7 +485,66 @@
       initArcStage();
       renderTopicPills();
       updateTopicView(currentTopicId);
+      initCuteDragonSnow();
     });
+
+    // 飄落粉藍色萌萌龍雪 (Dreamy Dragon Snow Falling Dots)
+    function initCuteDragonSnow() {
+      const container = document.getElementById("cuteDragonSnow");
+      if (!container) return;
+      container.innerHTML = "";
+      const pastelColors = [
+        "rgba(186, 230, 253, 0.85)", // 萌粉藍
+        "rgba(147, 197, 253, 0.8)",  // 天空藍
+        "rgba(251, 207, 232, 0.85)", // 萌粉紅
+        "rgba(254, 215, 226, 0.88)", // 奶桃粉
+        "rgba(255, 255, 255, 0.92)", // 軟萌純白雪
+        "rgba(224, 242, 254, 0.88)"  // 晶瑩冰藍
+      ];
+      const count = 46;
+      for (let i = 0; i < count; i++) {
+        const dot = document.createElement("div");
+        dot.className = "cute-snow-dot";
+        const size = 5 + Math.random() * 9;
+        const left = Math.random() * 100;
+        const color = pastelColors[Math.floor(Math.random() * pastelColors.length)];
+        const duration = 4.2 + Math.random() * 5.8;
+        const delay = -(Math.random() * 10);
+        const driftX = (Math.random() - 0.42) * 55;
+        
+        dot.style.width = `${size}px`;
+        dot.style.height = `${size}px`;
+        dot.style.left = `${left}%`;
+        dot.style.top = `-25px`;
+        dot.style.background = color;
+        dot.style.animationDuration = `${duration}s`;
+        dot.style.animationDelay = `${delay}s`;
+        dot.style.setProperty("--drift-x", `${driftX}px`);
+        
+        container.appendChild(dot);
+      }
+    }
+
+    // 滑過/預覽主題大圖 (30% 加大 ＋ 活潑彈跳進場)
+    function previewTopicHero(topicId) {
+      if (typeof RANKINGS_TOPICS_META === "undefined") return;
+      const meta = RANKINGS_TOPICS_META.find(t => t.id === topicId) || RANKINGS_TOPICS_META[0];
+      const heroImg = document.getElementById("ranking-hero-img");
+      const heroCard = document.getElementById("ranking-hero-card");
+      const watermark = document.getElementById("ranking-watermark");
+      if (heroImg && heroCard) {
+        if (!heroImg.src.endsWith(meta.heroImg)) {
+          heroCard.classList.remove("ranking-hero-pop");
+          void heroCard.offsetWidth; // 強制重排觸發活潑彈簧進場動畫
+          heroImg.src = meta.heroImg;
+          heroImg.alt = meta.heroAlt;
+          heroCard.classList.add("ranking-hero-pop");
+        }
+      }
+      if (watermark && watermark.textContent !== meta.watermark) {
+        watermark.textContent = meta.watermark;
+      }
+    }
 
     // 取得當前情境分類下的所有主題
     function getTopicsForScenario(scenario) {
@@ -360,7 +577,7 @@
       });
     }
 
-    // 初始化 3D 拱形輪播舞台半圓坐標軌道 (寬高 880 x 440，拉開與中央大圖的距離避免重疊)
+    // 初始化 3D 拱形輪播舞台半圓坐標軌道 (為 30% 加大主圖預留足夠空間，圓弧優雅環繞)
     function initArcStage() {
       const track = document.getElementById("ranking-arc-track");
       if (!track) return;
@@ -370,11 +587,11 @@
       const total = topics.length;
       if (total === 0) return;
 
-      // 拱形橢圓半徑與中心點設定 (舞台寬高 900 x 480，加大半徑為中央大圖預留足夠空間)
-      const cx = 450;
-      const cy = 415;
-      const rx = 395;
-      const ry = 285;
+      // 拱形橢圓半徑與中心點設定 (加大空間為 380px 大圖預留足夠空間)
+      const cx = 480;
+      const cy = 460;
+      const rx = 430;
+      const ry = 340;
 
       topics.forEach((t, index) => {
         let deg = 90;
@@ -398,8 +615,15 @@
 
         tile.innerHTML = `
           ${tileIconHtml}
-          <span class="tile-label">${t.zhName || t.shortName}<span class="tile-en">${t.enShort || ''}</span></span>
+          <span class="tile-label">
+            <span class="tile-zh">${t.zhName || t.shortName}</span>
+            <span class="tile-en">${t.enShort || ''}</span>
+          </span>
         `;
+
+        // 滑過即刻活潑彈跳切換大圖，點擊正式選中
+        tile.onmouseenter = () => previewTopicHero(t.id);
+        tile.onmouseleave = () => previewTopicHero(currentTopicId);
         tile.onclick = () => selectTopic(t.id);
 
         track.appendChild(tile);
