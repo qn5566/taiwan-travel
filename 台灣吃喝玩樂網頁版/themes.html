@@ -458,14 +458,18 @@
 
     // 初始化頁面
     function initThemesPage() {
-      // 讀取 URL ?theme=...
+      // 讀取 URL ?theme=... & ?sub=...
       const urlParams = new URLSearchParams(window.location.search);
       const param = urlParams.get('theme');
+      const subParam = urlParams.get('sub');
       if (param) {
         const foundIdx = THEMES_COMPLETE_DATA.findIndex(t => t.id === param);
         if (foundIdx !== -1) {
           currentThemeIndex = foundIdx;
         }
+      }
+      if (subParam) {
+        currentSubCatId = subParam;
       }
 
       buildDeckDOM();
