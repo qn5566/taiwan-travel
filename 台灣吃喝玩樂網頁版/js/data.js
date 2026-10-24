@@ -2341,6 +2341,62 @@ const ALL_SPOTS_DATA = [
     "desc": "在鐵道中央提筆寫下新年心願，看著彩色天燈冉冉升入藍天！順道走訪落差二十公尺、水氣磅礡奔騰的十分瀑布。",
     "activityId": "1874-jiufen-shifen-day-tour-taipei",
     "aspect": "wide"
+  },
+  {
+    "id": 31,
+    "name": "新竹都城隍廟與東門市場",
+    "city": "新竹市",
+    "zone": "北部",
+    "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop",
+    "rate": "4.8★",
+    "duration": "2.5小時",
+    "tag": "百年老城",
+    "badge": "風城美食聚落",
+    "desc": "全台位階最高的都城隍廟！廟口聚集百年郭家潤餅、鴨肉許與炊粉貢丸，步行即可串聯年輕文青進駐的東門市場深夜食堂。",
+    "activityId": "3270-smangus-tour",
+    "aspect": "square"
+  },
+  {
+    "id": 32,
+    "name": "新竹南寮漁港與魚鱗天梯",
+    "city": "新竹市",
+    "zone": "北部",
+    "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop",
+    "rate": "4.7★",
+    "duration": "2小時",
+    "tag": "海岸地景",
+    "badge": "十七公里海岸線",
+    "desc": "純白魚鱗造型消波塊層層延伸入海，騎乘十七公里海岸線單車吹海風、在波光市集品嚐現烤海味並欣賞台灣海峽絕美落日。",
+    "activityId": "3270-smangus-tour",
+    "aspect": "wide"
+  },
+  {
+    "id": 33,
+    "name": "嘉義檜意森活村與北門驛",
+    "city": "嘉義市",
+    "zone": "南部",
+    "img": "https://images.unsplash.com/photo-1544025162-d76694265947?w=700&auto=format&fit=crop",
+    "rate": "4.8★",
+    "duration": "2.5小時",
+    "tag": "日式木造群",
+    "badge": "台版小京都",
+    "desc": "全台灣最大的日式官舍建築群！29棟百年阿里山檜木日式町屋完整保存，提供和服體驗、福義軒蛋捲伴手禮與阿里山林鐵起點巡禮。",
+    "activityId": "3150-alishan-day-tour",
+    "aspect": "tall"
+  },
+  {
+    "id": 34,
+    "name": "嘉義文化路夜市與噴水圓環",
+    "city": "嘉義市",
+    "zone": "南部",
+    "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700&auto=format&fit=crop",
+    "rate": "4.9★",
+    "duration": "2小時",
+    "tag": "美食不夜城",
+    "badge": "火雞肉飯聖地",
+    "desc": "Netflix《世界小吃》跨海專訪！匯集林聰明沙鍋魚頭、阿宏師火雞肉飯、御香屋葡萄柚綠茶與方塊酥，體驗最道地的諸羅城魅力。",
+    "activityId": "3150-alishan-day-tour",
+    "aspect": "wide"
   }
 ];
 
@@ -10817,7 +10873,7 @@ const TAIPEI_MICHELIN_STARS_DATA = [
         price: "NT$2,500 - 8,000",
         rate: "5.0★",
         feature: "蟬聯多年三星的頂級粵菜傳奇，招牌『火焰片皮鴨』皮脆肉嫩脂香四溢，搭配極致手工港點工藝，是海外貴賓與全球饕客訪台必訪殿堂。",
-        img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop"
+        img: "assets/michelin_le_palais.png"
       },
       {
         id: "star-2",
@@ -10832,7 +10888,7 @@ const TAIPEI_MICHELIN_STARS_DATA = [
         price: "NT$4,500 - 8,800",
         rate: "5.0★",
         feature: "以法式 Fine Dining 的繁複技巧與精準火候，重新演繹台灣本土風味與家常滋味（如芋泥油封鴨、經典家常湯品意象），展現台灣風土當代藝術之美。",
-        img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&auto=format&fit=crop"
+        img: "assets/michelin_tairroir.png"
       },
       {
         id: "star-3",
@@ -10847,7 +10903,7 @@ const TAIPEI_MICHELIN_STARS_DATA = [
         price: "NT$3,800 - 5,500",
         rate: "4.9★",
         feature: "由日籍主廚田原諒悟掌杓，善於結合台灣在地食材、香草與亞洲飲食文化，茶湯與茶碗蒸招牌層次繁複迷人，創造極富層次的獨特風味套餐。",
-        img: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop"
+        img: "assets/michelin_logy.png"
       },
       {
         id: "star-4",
@@ -10862,7 +10918,7 @@ const TAIPEI_MICHELIN_STARS_DATA = [
         price: "NT$3,200 - 5,000",
         rate: "4.9★",
         feature: "西班牙米其林二星餐廳的海外唯一分店，坐落於慕舍酒店，以自然優雅的分子料理手法呈現西班牙庇里牛斯山谷與台灣海洋風土的和諧共鳴。",
-        img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&auto=format&fit=crop"
+        img: "assets/michelin_molino.png"
       },
       {
         id: "star-5",
@@ -10877,7 +10933,7 @@ const TAIPEI_MICHELIN_STARS_DATA = [
         price: "NT$3,000 - 7,000",
         rate: "4.9★",
         feature: "世紀名廚侯布雄在台北的招牌黑紅吧台餐廳，經典法式馬鈴薯泥綿密若絲綢、精準熟度的肉類與時令海鮮料理極具世界級水準。",
-        img: "https://images.unsplash.com/photo-1547496502-affa22d38842?w=600&auto=format&fit=crop"
+        img: "assets/michelin_robuchon.png"
       },
       {
         id: "star-6",
@@ -12105,7 +12161,7 @@ const WEEKEND_HOP_8_THEMES = [
       "🌰 濃郁肉桂捲",
       "🥭 季節鮮果"
     ],
-    "affiliateIntro": "affckr 甜點下午茶預付餐券 ＋ 萬家福生鮮伴手禮直送飯店",
+    "affiliateIntro": "affckr 甜點下午茶預付餐券 ＋ Uber Eats 伴手禮直送飯店",
     "places": [
       {
         "id": "hop_6_1",
@@ -12125,8 +12181,8 @@ const WEEKEND_HOP_8_THEMES = [
         ],
         "features": "台灣法式烘焙甜點天花板！名廚李依錫以日本生乳奶油融合在地季節鮮果（愛文芒果、大湖草莓、水蜜桃），招牌老奶奶檸檬蛋糕清香酸甜，長年排隊不輟。",
         "mapUrl": "https://maps.google.com/?q=法朋烘焙甜點坊",
-        "affiliateLabel": "🎁 萬家福伴手禮直送飯店 ➔",
-        "affiliateUrl": "index.html#wanjiafu",
+        "affiliateLabel": "🛵 Uber Eats 甜點直送飯店 ➔",
+        "affiliateUrl": "https://www.ubereats.com/tw/search?q=%E6%B3%95%E6%9C%8B%E7%83%98%E7%84%99%E7%94%9C%E9%BB%9E%E5%9D%8A",
         "img": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&auto=format&fit=crop"
       },
       {

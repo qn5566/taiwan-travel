@@ -762,15 +762,20 @@ a {
   box-shadow: 0 5px 14px rgba(225, 29, 72, 0.35);
 }
 
-/* 6. Google 地圖導航按鈕 */
-.btn-maps-nav {
+/* 6. Google 地圖導航按鈕 ＆ 住宿／包車統一按鈕樣式 */
+.btn-maps-nav,
+.btn-booking-room,
+.btn-charter-unified {
   background: #F1F5F9;
   color: var(--text-heading) !important;
-  border: 1px solid var(--border-color);
+  border: 1px solid #CBD5E1;
+  border-radius: 9999px;
 }
-.btn-maps-nav:hover {
+.btn-maps-nav:hover,
+.btn-booking-room:hover,
+.btn-charter-unified:hover {
   background: #E2E8F0;
-  border-color: #CBD5E1;
+  border-color: #94A3B8;
   transform: translateY(-1px);
 }
 
@@ -7533,9 +7538,30 @@ body.bg-theme-hotspring .itinerary-duration-badge {
 
 .theme-editorial-actions-row {
   display: grid;
-  grid-template-columns: 1fr 1.3fr 1fr;
-  gap: 5px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
   margin-top: auto;
+}
+
+.theme-editorial-actions-row .btn-action {
+  background: #F1F5F9;
+  color: #1E293B !important;
+  border: 1px solid #CBD5E1;
+  border-radius: 9999px;
+  padding: 7px 4px;
+  font-size: 11.5px;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  justify-content: center;
+  box-shadow: none;
+}
+
+.theme-editorial-actions-row .btn-action:hover {
+  background: #E0F2FE;
+  border-color: #0284C7;
+  color: #0284C7 !important;
+  transform: translateY(-1px);
 }
 
 

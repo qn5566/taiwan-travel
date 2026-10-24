@@ -6,13 +6,13 @@ const SOUVENIR_CATEGORIES_DATA = [
   {
     "id": "pastry",
     "icon": "🍍",
-    "name": "經典糕點與鳳梨酥蛋糕 Top 20",
-    "shortName": "鳳梨酥蛋糕",
-    "channel": "萬家福生鮮伴手禮直送 ＋ affclkr 質感生活選品",
+    "name": "鳳梨酥與糕點",
+    "shortName": "鳳梨酥與糕點",
+    "channel": "Uber Eats 飯店外送 ＋ affclkr 質感生活選品",
     "badge": "外籍旅客指名 No.1 必買",
     "desc": "台灣第一名特產！微熱山丘、佳德、陳耀訓蛋黃酥、小潘鳳凰酥名店直配，免去大排長龍，直接寄送飯店櫃檯代收。",
-    "cta": "🛍️ 萬家福直購直送 ➔",
-    "defaultUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+    "cta": "🛵 Uber Eats 外送直送 ➔",
+    "defaultUrl": "https://www.ubereats.com/tw/search?q=%E9%B3%B3%E6%A2%A8%E9%85%A5%E8%88%87%E7%B3%95%E9%BB%9E",
     "items": [
       {
         "rank": 1,
@@ -25,8 +25,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "26,000+ 好評",
         "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%BE%AE%E7%86%B1%E5%B1%B1%E4%B8%98%20%E7%B6%93%E5%85%B8%E5%9C%9F%E9%B3%B3%E6%A2%A8%E9%85%A5%E7%A6%AE%E7%9B%92",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -40,8 +40,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "25,150+ 好評",
         "img": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E4%BD%B3%E5%BE%B7%E7%B3%95%E9%A4%85%20%E5%8E%9F%E5%91%B3%E9%B3%B3%E6%A2%A8%E9%85%A5%E5%86%A0%E8%BB%8D%E7%A6%AE%E7%9B%92",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -55,8 +55,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "24,300+ 好評",
         "img": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%B0%8F%E6%BD%98%E8%9B%8B%E7%B3%95%E5%9D%8A%20%E6%8B%9B%E7%89%8C%E9%B3%B3%E5%87%B0%E9%85%A5",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -70,8 +70,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "23,450+ 好評",
         "img": "https://images.unsplash.com/photo-1582293041079-7814c2f12063?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E7%B3%96%E6%9D%91%20%E6%B3%95%E5%BC%8F%E8%B6%85%E4%BA%BA%E6%B0%A3%E7%89%9B%E8%BB%8B%E7%B3%96%E7%B6%93%E5%85%B8%E5%8C%85",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -85,8 +85,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "5.0★",
         "reviews": "22,600+ 好評",
         "img": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E9%99%B3%E8%80%80%E8%A8%93%C2%B7%E9%BA%B5%E5%8C%85%E5%9F%A0%20%E7%B4%85%E5%9C%9F%E8%9B%8B%E9%BB%83%E9%85%A5",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -100,8 +100,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "21,750+ 好評",
         "img": "https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E4%B8%8D%E4%BA%8C%E5%9D%8A%20%E5%BD%B0%E5%8C%96%E5%82%B3%E5%A5%87%E7%B6%93%E5%85%B8%E6%89%8B%E5%B7%A5%E8%9B%8B%E9%BB%83%E9%85%A5",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -115,8 +115,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "20,900+ 好評",
         "img": "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E6%97%A5%E5%87%BA%20%E5%AE%AE%E5%8E%9F%E7%9C%BC%E7%A7%91%20%E7%B6%93%E5%85%B8%E5%9C%9F%E9%B3%B3%E6%A2%A8%E9%85%A5",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -130,8 +130,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.7★",
         "reviews": "20,050+ 好評",
         "img": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E4%B8%80%E4%B9%8B%E8%BB%92%20%E6%8B%9B%E7%89%8C%E6%89%8B%E4%BD%9C%E6%89%8B%E5%B7%A5%E9%BB%91%E7%B3%96%E9%BA%BB%E7%B3%AC%E7%A6%AE%E7%9B%92",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -145,8 +145,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "19,200+ 好評",
         "img": "https://images.unsplash.com/photo-1535141192574-5d4897c13136?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E9%98%BF%E8%81%B0%E5%B8%AB%20%E5%A4%A7%E7%94%B2%E8%8A%8B%E9%A0%AD%E9%85%A5%E5%89%B5%E5%A7%8B%E7%A6%AE%E7%9B%92",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -160,8 +160,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "18,350+ 好評",
         "img": "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%8F%B0%E5%8C%97%E7%8A%81%E8%A8%98%20%E7%89%B9%E7%B4%9A%E7%B6%A0%E8%B1%86%E6%A4%AA%E8%88%87%E9%A6%99%E8%8A%8B%E9%85%A5%E9%9B%99%E6%8B%BC%E7%A6%AE%E7%9B%92",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -175,8 +175,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "17,500+ 好評",
         "img": "https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E8%A3%95%E7%8F%8D%E9%A6%A8%20%E5%A4%A7%E7%94%B2%E5%A5%B6%E6%B2%B9%E5%B0%8F%E9%85%A5%E9%A4%85%E5%8E%9F%E5%91%B3%E7%A6%AE%E7%9B%92",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -190,8 +190,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "16,650+ 好評",
         "img": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%BF%AB%E8%BB%8A%E8%82%89%E4%B9%BE%20%E8%B6%85%E8%96%84%E8%8A%9D%E9%BA%BB%E6%9D%8F%E4%BB%81%E9%A6%99%E8%84%86%E8%82%89%E7%B4%99",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -205,8 +205,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "15,800+ 好評",
         "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E8%88%8A%E6%8C%AF%E5%8D%97%20%E7%B6%93%E5%85%B8%E7%99%BE%E5%B9%B4%E4%B8%AD%E5%BC%8F%E7%B6%A0%E8%B1%86%E6%A4%AA%E7%B2%BE%E8%A3%9D%E7%A6%AE%E7%9B%92",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -220,8 +220,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.7★",
         "reviews": "14,950+ 好評",
         "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%A4%AA%E9%99%BD%E5%A0%82%E8%80%81%E5%BA%97%20%E5%82%B3%E7%B5%B1%E6%89%8B%E5%B7%A5%E9%BA%A5%E8%8A%BD%E5%A4%AA%E9%99%BD%E9%A4%85",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -235,8 +235,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "14,100+ 好評",
         "img": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E6%9D%8E%E4%BA%AD%E9%A6%99%20%E7%99%BE%E5%B9%B4%E9%A4%85%E5%BA%97%E7%B6%93%E5%85%B8%E5%B9%B3%E5%AE%89%E9%BE%9C%E8%8A%B1%E7%94%9F%E7%B3%96%E7%A6%AE%E7%9B%92",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -250,8 +250,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.7★",
         "reviews": "13,250+ 好評",
         "img": "https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E9%83%AD%E5%85%83%E7%9B%8A%20%E7%83%8F%E8%B1%86%E6%B2%99%E8%9B%8B%E9%BB%83%E9%85%A5%E8%88%87%E7%B4%94%E6%89%8B%E5%B7%A5%E5%86%B0%E6%B2%99%E9%A4%A1%E9%A4%85",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -265,8 +265,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.7★",
         "reviews": "12,400+ 好評",
         "img": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E6%9B%BE%E8%A8%98%E9%BA%BB%E7%B3%AC%20%E8%8A%B1%E8%93%AE%E7%89%B9%E7%94%A2%E7%8F%BE%E5%81%9A%E7%B6%9C%E5%90%88%E9%BA%BB%E7%B3%AC%E7%B2%BE%E7%BE%8E%E7%A6%AE%E7%9B%92",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -280,8 +280,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "11,550+ 好評",
         "img": "https://images.unsplash.com/photo-1582293041079-7814c2f12063?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E6%B5%B7%E9%82%8A%E8%B5%B0%E8%B5%B0%20%E7%B6%93%E5%85%B8%E6%89%8B%E4%BD%9C%E8%8A%B1%E7%94%9F%E6%84%9B%E9%A4%A1%E8%9B%8B%E6%8D%B2",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -295,8 +295,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "10,700+ 好評",
         "img": "https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E8%81%96%E4%BF%9D%E7%BE%85%E7%83%98%E7%84%99%E8%8A%B1%E5%9C%92%20%E9%98%BF%E9%87%8C%E5%B1%B1%20Q%E9%A4%85%E7%B6%9C%E5%90%88%E7%A6%AE%E7%9B%92",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -310,8 +310,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "9,850+ 好評",
         "img": "https://images.unsplash.com/photo-1535141192574-5d4897c13136?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%85%88%E9%BA%A5%E8%8A%8B%E9%A0%AD%E9%85%A5%20%E5%9C%8B%E5%AE%B4%E9%BB%9E%E5%BF%83%E6%8C%87%E5%AE%9A%E7%B4%94%E6%89%8B%E5%B7%A5%E5%A4%A7%E7%94%B2%E8%8A%8B%E9%A0%AD%E9%85%A5",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       }
     ]
@@ -319,13 +319,13 @@ const SOUVENIR_CATEGORIES_DATA = [
   {
     "id": "snack",
     "icon": "🍿",
-    "name": "台灣超人氣休閒零食 Top 20",
-    "shortName": "休閒零食",
-    "channel": "萬家福名產零食專區",
+    "name": "人氣休閒零食",
+    "shortName": "人氣休閒零食",
+    "channel": "Uber Eats名產零食專區",
     "badge": "童年回憶與追劇神物",
     "desc": "義美小泡芙、綠乖乖科技神物、可樂果蒜香、蚵仔煎洋芋片！台灣人童年記憶與各國旅人行李箱必塞零食。",
-    "cta": "🛍️ 萬家福零食直送 ➔",
-    "defaultUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+    "cta": "🛵 Uber Eats 外送直送 ➔",
+    "defaultUrl": "https://www.ubereats.com/tw/search?q=%E4%BA%BA%E6%B0%A3%E4%BC%91%E9%96%92%E9%9B%B6%E9%A3%9F",
     "items": [
       {
         "rank": 1,
@@ -338,8 +338,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "26,000+ 好評",
         "img": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E7%BE%A9%E7%BE%8E%20%E6%8B%9B%E7%89%8C%E7%B6%93%E5%85%B8%E5%B7%A7%E5%85%8B%E5%8A%9B%E5%B0%8F%E6%B3%A1%E8%8A%99",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -353,8 +353,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "5.0★",
         "reviews": "25,150+ 好評",
         "img": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E4%B9%96%E4%B9%96%20%E7%B6%93%E5%85%B8%E7%B6%A0%E8%89%B2%E6%A4%B0%E5%AD%90%E7%B1%B3%E6%9E%9C%EF%BC%88%E5%B7%A5%E7%A8%8B%E5%B8%AB%E6%A9%9F%E6%88%BF%E5%BF%85%E5%82%99%EF%BC%89",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -368,8 +368,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "24,300+ 好評",
         "img": "https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%8F%AF%E6%A8%82%E6%9E%9C%20%E5%8F%A4%E6%97%A9%E5%91%B3%E5%8E%9F%E5%91%B3%E8%92%9C%E9%A6%99%E8%A0%B6%E8%B1%86%E9%85%A5",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -383,8 +383,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.7★",
         "reviews": "23,450+ 好評",
         "img": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E8%9D%A6%E5%91%B3%E5%85%88%20%E5%8E%9F%E5%91%B3%E7%B6%93%E5%85%B8%E9%A6%99%E8%84%86%E9%AE%AE%E8%9D%A6%E6%A2%9D",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -398,8 +398,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "22,600+ 好評",
         "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E7%BE%A9%E7%BE%8E%20%E7%B6%93%E5%85%B8%E5%8E%9A%E9%86%AC%E5%A4%BE%E5%BF%83%E9%85%A5",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -413,8 +413,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "21,750+ 好評",
         "img": "https://images.unsplash.com/photo-1582293041079-7814c2f12063?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E8%90%AC%E6%AD%B2%E7%89%8C%20%E7%B6%9C%E5%90%88%E8%9C%9C%E6%B1%81%E6%9D%8F%E4%BB%81%E8%85%B0%E6%9E%9C%E5%A0%85%E6%9E%9C%E9%9A%A8%E6%89%8B%E5%8C%85",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -428,8 +428,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.7★",
         "reviews": "20,900+ 好評",
         "img": "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E7%9B%9B%E9%A6%99%E7%8F%8D%20%E8%B1%90%E8%91%B5%E9%A6%99%E7%93%9C%E5%AD%90%E8%88%87%E8%92%9C%E9%A6%99%E9%9D%92%E8%B1%86%E5%A4%A7%E5%8C%85%E8%A3%9D",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -443,8 +443,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "20,050+ 好評",
         "img": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%8F%B0%E6%9D%B1%E6%A5%8A%E8%A8%98%E5%AE%B6%E5%82%B3%20%E8%80%81%E6%9D%B1%E8%8A%B3%E5%9C%B0%E7%93%9C%E9%85%A5%E8%88%87%E8%8A%8B%E9%A0%AD%E9%85%A5%E7%89%87",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -458,8 +458,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.7★",
         "reviews": "19,200+ 好評",
         "img": "https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%8C%97%E7%94%B0%20%E8%83%BD%E9%87%8F99%E6%A3%92%E8%9B%8B%E9%BB%83%E7%B3%99%E7%B1%B3%E8%86%A8%E8%86%A8%E5%A4%BE%E5%BF%83%E6%A3%92",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -473,8 +473,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "18,350+ 好評",
         "img": "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%96%9C%E5%B9%B4%E4%BE%86%20%E7%B6%93%E5%85%B8%E5%8E%9F%E5%91%B3%E9%87%91%E9%BB%83%E9%9B%9E%E8%9B%8B%E8%9B%8B%E6%8D%B2",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -488,8 +488,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "17,500+ 好評",
         "img": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E7%8F%8D%E7%8F%8D%20%E7%9C%9F%E6%AD%A3%E9%AE%AE%E7%83%A4%E9%AD%B7%E9%AD%9A%E7%B5%B2%E8%88%87%E9%A6%99%E7%83%A4%E9%80%8F%E6%8A%BD%E7%89%87",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -503,8 +503,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "16,650+ 好評",
         "img": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%AE%8F%E4%BA%9E%E6%96%B0%E8%B2%B4%E6%B4%BE%20%E7%B6%93%E5%85%B8%E8%8A%B1%E7%94%9F%E5%B7%A7%E5%85%8B%E5%8A%9B%E5%A8%81%E5%8C%96%E5%A4%BE%E5%BF%83%E9%A4%85%E4%B9%BE",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -518,8 +518,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "15,800+ 好評",
         "img": "https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E8%8F%AF%E5%85%83%E6%B3%A2%E7%9A%84%E5%A4%9A%20%E7%89%B9%E6%BF%83%E8%9A%B5%E4%BB%94%E7%85%8E%E9%A2%A8%E5%91%B3%E6%B4%8B%E8%8A%8B%E7%89%87",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -533,8 +533,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "14,950+ 好評",
         "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%98%89%E7%BE%A9%E8%80%81%E6%A5%8A%20%E7%B6%93%E5%85%B8%E5%8E%9F%E5%91%B3%E8%88%87%E9%B9%B9%E8%9B%8B%E9%BB%83%E6%96%B9%E5%A1%8A%E9%85%A5%E7%A6%AE%E7%9B%92",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -548,8 +548,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.7★",
         "reviews": "14,100+ 好評",
         "img": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E8%81%AF%E8%8F%AF%E5%8D%A1%E8%BF%AA%E9%82%A3%20%E7%B6%93%E5%85%B8%E5%BE%B7%E5%B7%9E%E8%96%AF%E6%A2%9D%E8%8C%84%E6%B1%81%E9%A2%A8%E5%91%B3",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -563,8 +563,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "13,250+ 好評",
         "img": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E7%BE%A9%E7%BE%8E%20%E8%91%A1%E8%90%84%E9%BB%91%E9%86%8B%E6%A0%97%20QQ%20%E8%BB%9F%E7%B3%96%E5%B0%8F%E7%86%8A%E5%8C%85%E8%A3%9D",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -578,8 +578,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "12,400+ 好評",
         "img": "https://images.unsplash.com/photo-1582293041079-7814c2f12063?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%8C%97%E6%B5%B7%E9%B1%88%E9%AD%9A%E9%A6%99%E7%B5%B2%20%E7%B6%93%E5%85%B8%E5%8E%9F%E5%91%B3%E5%A4%A7%E5%8C%85%E8%A3%9D",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -593,8 +593,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.7★",
         "reviews": "11,550+ 好評",
         "img": "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E6%BB%BF%E5%A4%A9%E6%98%9F%20%E7%B6%93%E5%85%B8%E5%8E%9F%E5%91%B3%E4%BA%94%E8%A7%92%E6%98%9F%E6%98%9F%E8%84%86%E7%89%87%E6%B4%8B%E8%8A%8B%E9%BB%9E%E5%BF%83",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -608,8 +608,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "10,700+ 好評",
         "img": "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E4%B8%AD%E7%A5%A5%E9%A3%9F%E5%93%81%20%E8%87%AA%E7%84%B6%E4%B9%8B%E9%A1%8F%E9%A6%99%E8%94%A5%E8%94%AC%E8%8F%9C%E8%98%87%E6%89%93%E9%A4%85%E4%B9%BE",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -623,8 +623,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "9,850+ 好評",
         "img": "https://images.unsplash.com/photo-1535141192574-5d4897c13136?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E7%A6%8F%E7%BE%A9%E8%BB%92%20%E5%98%89%E7%BE%A9%E5%82%B3%E5%A5%87%E7%A6%8F%E6%A4%92%E8%98%87%E6%89%93%E9%A4%85",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       }
     ]
@@ -632,13 +632,13 @@ const SOUVENIR_CATEGORIES_DATA = [
   {
     "id": "drink",
     "icon": "🧋",
-    "name": "台灣人氣茶葉與特色飲料 Top 20",
-    "shortName": "飲料與茶葉",
-    "channel": "萬家福茶葉飲品直配",
+    "name": "台灣茶葉飲品",
+    "shortName": "台灣茶葉飲品",
+    "channel": "Uber Eats茶葉飲品直配",
     "badge": "回甘茶香與道地手搖",
     "desc": "阿里山高山茶、日月潭台茶18號紅玉、黑松沙士、蘋果西打與 DIY 珍奶沖泡調理包，品味最地道的台灣茶飲文化。",
-    "cta": "🛍️ 萬家福特選直配 ➔",
-    "defaultUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+    "cta": "🛵 Uber Eats 外送直送 ➔",
+    "defaultUrl": "https://www.ubereats.com/tw/search?q=%E5%8F%B0%E7%81%A3%E8%8C%B6%E8%91%89%E9%A3%B2%E5%93%81",
     "items": [
       {
         "rank": 1,
@@ -651,8 +651,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "26,000+ 好評",
         "img": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%8F%B0%E7%81%A3%E9%AB%98%E5%B1%B1%E8%8C%B6%20%E5%8D%97%E6%8A%95%E9%B9%BF%E8%B0%B7%E5%87%8D%E9%A0%82%E7%83%8F%E9%BE%8D%E8%8C%B6%20%E5%8E%9F%E8%91%89%E7%AB%8B%E9%AB%94%E8%8C%B6%E5%8C%85",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -666,8 +666,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "5.0★",
         "reviews": "25,150+ 好評",
         "img": "https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E6%97%A5%E6%9C%88%E6%BD%AD%E7%B4%85%E8%8C%B6%20%E5%8F%B0%E8%8C%B618%E8%99%9F%E7%B4%85%E7%8E%89%E7%B4%85%E8%8C%B6%20%E5%8E%9F%E6%9C%A8%E7%B2%BE%E7%B7%BB%E8%8C%B6%E8%91%89%E7%BD%90",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -681,8 +681,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "24,300+ 好評",
         "img": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E9%98%BF%E9%87%8C%E5%B1%B1%E9%AB%98%E5%B1%B1%E8%8C%B6%20%E7%89%B9%E7%AD%89%E5%A4%A7%E9%98%BF%E9%87%8C%E5%B1%B1%E6%89%8B%E6%8E%A1%E9%AB%98%E5%86%B7%E9%9D%92%E8%8C%B6",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -696,8 +696,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "23,450+ 好評",
         "img": "https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%9D%AA%E6%9E%97%E5%8C%85%E7%A8%AE%E8%8C%B6%20%E6%96%B0%E5%8C%97%E5%9D%AA%E6%9E%97%E6%B8%85%E9%A6%99%E5%9E%8B%E6%96%87%E5%B1%B1%E5%8C%85%E7%A8%AE%E8%8C%B6",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -711,8 +711,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "22,600+ 好評",
         "img": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E7%91%9E%E7%A9%97%E8%9C%9C%E9%A6%99%E7%B4%85%E8%8C%B6%20%E8%8A%B1%E8%93%AE%E7%84%A1%E6%AF%92%E8%BE%B2%E6%B3%95%E5%B0%8F%E7%B6%A0%E8%91%89%E8%9F%AC%E5%92%AC%E9%A3%9F%E7%86%9F%E6%88%90%E7%B4%85%E8%8C%B6",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -726,8 +726,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "21,750+ 好評",
         "img": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E9%BB%91%E6%9D%BE%20%E9%BB%91%E6%9D%BE%E6%B2%99%E5%A3%AB%20%E7%B6%93%E5%85%B8%E7%BD%90%E8%A3%9D/%E5%8A%A0%E9%B9%BD%E7%89%88",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -741,8 +741,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "20,900+ 好評",
         "img": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%A4%A7%E8%A5%BF%E6%B4%8B%E9%A3%B2%E6%96%99%20%E8%98%8B%E6%9E%9C%E8%A5%BF%E6%89%93%20%E5%8F%B0%E7%81%A3%E5%9C%8B%E6%B0%91%E7%B6%93%E5%85%B8%E7%A2%B3%E9%85%B8%E9%A3%B2",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -756,8 +756,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "20,050+ 好評",
         "img": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E7%B5%B1%E4%B8%80%E4%BC%81%E6%A5%AD%20%E9%BA%A5%E9%A6%99%E7%B4%85%E8%8C%B6%20/%20%E7%B6%A0%E8%8C%B6%20/%20%E5%A5%B6%E8%8C%B6%E7%B6%93%E5%85%B8%E5%88%A9%E6%A8%82%E5%8C%85",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -771,8 +771,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "19,200+ 好評",
         "img": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E6%B3%B0%E5%B1%B1%E4%BC%81%E6%A5%AD%20%E6%B3%B0%E5%B1%B1%E4%BB%99%E8%8D%89%E8%9C%9C%20%E6%B2%81%E6%B6%BC%E5%A4%A9%E7%84%B6%E8%8D%89%E6%9C%AC%E9%A1%86%E7%B2%92%E9%A3%B2",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -786,8 +786,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.7★",
         "reviews": "18,350+ 好評",
         "img": "https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E6%84%9B%E4%B9%8B%E5%91%B3%20%E9%BA%A5%E4%BB%94%E8%8C%B6%20%E6%AD%A2%E5%98%B4%E4%B9%BE%E4%B8%8D%E7%A4%99%E8%83%83%E7%B6%93%E5%85%B8%E7%84%A1%E7%B3%96/%E5%BE%AE%E7%B3%96",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -801,8 +801,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "17,500+ 好評",
         "img": "https://images.unsplash.com/photo-1558857563-b371f30ca6a5?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E7%8F%8D%E7%8F%A0%E5%A5%B6%E8%8C%B6DIY%20%E5%8F%B0%E7%81%A3%E7%8F%8D%E7%8F%A0%E5%A5%B6%E8%8C%B6%E5%8D%B3%E9%A3%9F%E6%B2%96%E6%B3%A1%E9%BB%91%E7%B3%96%E6%B3%A2%E9%9C%B8%E8%AA%BF%E7%90%86%E7%9B%92",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -816,8 +816,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.7★",
         "reviews": "16,650+ 好評",
         "img": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E7%B4%94%E5%96%AB%E8%8C%B6%20%E6%AA%B8%E6%AA%AC%E7%B4%85%E8%8C%B6%E8%88%87%E7%84%A1%E7%B3%96%E7%B6%A0%E8%8C%B6%E5%88%A9%E6%A8%82%E5%8C%85",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -831,8 +831,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "15,800+ 好評",
         "img": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E7%BE%A9%E7%BE%8E%20%E9%8C%AB%E8%98%AD%E5%8E%9A%E5%A5%B6%E8%8C%B6%20%E4%B9%B3%E5%90%AB%E9%87%8F%E8%B6%85%E9%81%8E%2050%25",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -846,8 +846,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.7★",
         "reviews": "14,950+ 好評",
         "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E9%87%91%E8%BB%8A%E4%BC%AF%E6%9C%97%20%E4%BC%AF%E6%9C%97%E7%B6%93%E5%85%B8%E8%97%8D%E5%B1%B1%E9%A2%A8%E5%91%B3%E7%BD%90%E8%A3%9D%E5%92%96%E5%95%A1",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -861,8 +861,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "14,100+ 好評",
         "img": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%8F%B0%E7%81%A3%E5%B0%8F%E8%BE%B2%E6%9E%9C%E6%B1%81%20100%25%20%E5%8F%B0%E7%81%A3%E5%9C%A8%E5%9C%B0%E7%8F%8D%E7%8F%A0%E8%8A%AD%E6%A8%82%E6%AA%B8%E6%AA%AC%E7%B6%9C%E5%90%88%E6%9E%9C%E6%B1%81",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -876,8 +876,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "13,250+ 好評",
         "img": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E4%B9%9D%E5%A6%82%E5%86%AC%E7%93%9C%E6%AA%B8%E6%AA%AC%E7%A3%9A%20%E5%8F%A4%E6%B3%95%E6%89%8B%E5%B7%A5%E7%86%AC%E7%85%AE%E9%BB%91%E7%B3%96%E5%86%AC%E7%93%9C%E6%AA%B8%E6%AA%AC%E7%A3%9A",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -891,8 +891,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "12,400+ 好評",
         "img": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%8F%B0%E7%81%A3%E5%95%A4%E9%85%92%20%E9%87%91%E7%89%8C%E5%8F%B0%E7%81%A3%E5%95%A4%E9%85%92%20%26%20%E8%8A%92%E6%9E%9C%E8%8D%94%E6%9E%9D%E5%9C%A8%E5%9C%B0%E6%B0%B4%E6%9E%9C%E5%BE%AE%E9%86%BA%E7%B3%BB%E5%88%97",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -906,8 +906,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "11,550+ 好評",
         "img": "https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E6%A1%82%E6%A0%BC%20%E9%A4%8A%E6%B0%A3%E4%BA%BA%E8%94%98%E6%BB%8B%E8%A3%9C%E9%A3%B2%E7%A6%AE%E7%9B%92",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -921,8 +921,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "10,700+ 好評",
         "img": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E5%8F%B0%E7%81%A3%E5%B0%8F%E8%BE%B2%E8%9C%82%E8%9C%9C%20%E7%89%B9%E7%AD%89%E9%A0%AD%E7%AD%89%E7%B4%94%E9%BE%8D%E7%9C%BC%E8%9C%82%E8%9C%9C%E5%8E%9F%E6%9C%A8%E7%A6%AE%E7%9B%92",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       },
       {
@@ -936,8 +936,8 @@ const SOUVENIR_CATEGORIES_DATA = [
         "rating": "5.0★",
         "reviews": "9,850+ 好評",
         "img": "https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?w=600&auto=format&fit=crop",
-        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "ctaText": "🛍️ 萬家福直配飯店 ➔",
+        "buyUrl": "https://www.ubereats.com/tw/search?q=%E6%96%B0%E7%AB%B9%E5%B3%A8%E7%9C%89%E8%8C%B6%E8%A1%8C%20%E9%A0%82%E7%B4%9A%E6%9D%B1%E6%96%B9%E7%BE%8E%E4%BA%BA%E8%8C%B6%20%E7%99%BD%E6%AF%AB%E7%83%8F%E9%BE%8D%E6%89%8B%E6%8E%A1%E7%BD%90%E8%A3%9D",
+        "ctaText": "🛵 Uber Eats 外送飯店 ➔",
         "painPoint": "⚡ 免排隊免扛重 · 直配飯店櫃檯 / 桃園機場代收"
       }
     ]
@@ -945,8 +945,8 @@ const SOUVENIR_CATEGORIES_DATA = [
   {
     "id": "pharma",
     "icon": "💊",
-    "name": "台灣製造藥品與熱銷藥妝 Top 20",
-    "shortName": "台灣製造藥品",
+    "name": "熱銷藥品藥妝",
+    "shortName": "熱銷藥品藥妝",
     "channel": "台灣熱門藥妝直送 ＋ 藥品備用通道 ＋ 酵素益生菌",
     "badge": "日韓旅客狂掃貨良藥",
     "desc": "金門一條根滾珠貼布、綠油精、白花油、DR.WU杏仁酸、我的美麗日記面膜！日韓歐美觀光客指名掃貨，免排隊直配櫃檯。",
@@ -1258,9 +1258,9 @@ const SOUVENIR_CATEGORIES_DATA = [
   {
     "id": "lifestyle",
     "icon": "🎁",
-    "name": "台灣文創送禮好物與人氣小物 Top 20",
-    "shortName": "送禮好物小物",
-    "channel": "affclkr 質感選物 ＋ 萬家福文創直送",
+    "name": "文創送禮小物",
+    "shortName": "文創送禮小物",
+    "channel": "affclkr 質感選物 ＋ Uber Eats 飯店外送",
     "badge": "送禮最體面高質感",
     "desc": "台灣阿嬤茄芷袋、鶯歌手作陶瓷茶具、阿里山檜木精油、143ml 熱炒啤酒對杯與茶籽堂洗沐禮盒，送禮最體面的精緻選物。",
     "cta": "🎁 質感選物購買 ➔",

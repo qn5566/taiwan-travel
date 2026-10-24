@@ -17,19 +17,16 @@ let userFavorites = JSON.parse(localStorage.getItem("tw_roam_web_favs") || '["�
 
 // 頁面加載完成後初始化
 document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("taiwan_travel_lang") || "zh-TW";
-  if (savedLang === "en" && typeof switchLanguage === "function") {
-    switchLanguage("en");
-  } else {
-    renderTrendingSection();
-    renderThemesSection();
-    renderWaterfallSection();
-    renderRankingsSection();
-    renderBlogSection();
-    setupSearchHub();
-    setupEventListeners();
-    updateFavBadge();
-  }
+  localStorage.removeItem("taiwan_travel_lang");
+  currentLang = "zh-TW";
+  renderTrendingSection();
+  renderThemesSection();
+  renderWaterfallSection();
+  renderRankingsSection();
+  renderBlogSection();
+  setupSearchHub();
+  setupEventListeners();
+  updateFavBadge();
 });
 
 /* =========================================================
@@ -441,7 +438,7 @@ function renderRankingsSection() {
                   </div>
                   <div style="display:flex; flex-direction:column; gap:4px; align-items:flex-end; flex-shrink:0;">
                     <a href="${tourUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding:5px 10px; font-size:11px;">🎟️ 預定行程</a>
-                    <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room" style="padding:4px 8px; font-size:11px;">🏨 找房間</a>
+                    <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room" style="padding:4px 8px; font-size:11px;">🏨 住宿</a>
                   </div>
                 </div>
               `;
@@ -697,10 +694,10 @@ function executeSearch(query) {
             </div>
             <h3 class="waterfall-title">${item.name}</h3>
             <p class="waterfall-desc">${item.desc}</p>
-            <div class="waterfall-actions-row">
-              <a href="${tourUrl}" target="_blank" rel="noopener noreferrer" class="btn-waterfall btn-wf-tour">🎟️ 預定行程</a>
-              <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-waterfall btn-wf-hotel">🏨 找房間</a>
-              <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-waterfall btn-wf-map">🧭</a>
+            <div class="card-action-group" style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-top:auto;">
+              <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav">📍 Map</a>
+              <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room">🏨 住宿</a>
+              <a href="${AFFILIATE_HUB.getCharterUrl(item.city)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-charter-unified">🚗 包車</a>
             </div>
           </div>
         </div>

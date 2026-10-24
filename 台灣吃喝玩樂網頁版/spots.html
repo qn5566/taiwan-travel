@@ -165,10 +165,13 @@
           style="width: 100%; padding: 12px 20px; border-radius: 9999px; border: 1.5px solid #E2E8F0; background: #F8FAFC; color: #0F172A; font-size: 14px; outline: none; transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
       </div>
 
-      <!-- 精簡整合後的區域切換按鈕 (告別23個按鈕擁擠問題) -->
+      <!-- 精簡整合後的區域切換按鈕 ＋ 點擊後展開的縣市小按鈕列 -->
       <div style="margin-top: 22px;">
         <div id="spots-region-pills" style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; max-width: 900px; margin: 0 auto;">
           <!-- 由 JS 動態生成 6 個清晰大區按鈕 -->
+        </div>
+        <div id="spots-city-subpills" style="display: none; gap: 8px; justify-content: center; flex-wrap: wrap; max-width: 900px; margin: 12px auto 0 auto;">
+          <!-- 點擊北部/中部/南部/東部/離島後，動態顯示該區城市按鈕 -->
         </div>
       </div>
     </div>
@@ -224,20 +227,75 @@
   <script src="js/data.js"></script>
   <script>
     let activeZone = "全部";
+    let activeCity = "全部";
     let searchKeyword = "";
 
-    // 精簡整合 6 大核心地理區按鈕 (取代原先 23 個瑣碎按鈕)
+    // 精簡整合 6 大核心地理區按鈕 ＋ 對應下層縣市按鈕
     const REGION_CATEGORIES = [
-      { id: "全部", label: "🌟 全部景點 (All)", count: 30 },
-      { id: "北部", label: "🏙️ 北部景點", count: 8 },
-      { id: "中部", label: "🌿 中部景點", count: 6 },
-      { id: "南部", label: "☀️ 南部景點", count: 7 },
-      { id: "東部", label: "🌊 東部景點", count: 5 },
-      { id: "離島", label: "🏝️ 離島秘境", count: 4 }
+      { id: "全部", label: "🌟 全部景點 (All)", cities: [] },
+      {
+        id: "北部",
+        label: "🏙️ 北部景點",
+        cities: [
+          { key: "全部", label: "全部北部" },
+          { key: "台北市", label: "台北市" },
+          { key: "新北市", label: "新北市" },
+          { key: "基隆市", label: "基隆市" },
+          { key: "桃園市", label: "桃園市" },
+          { key: "新竹市", label: "新竹市" },
+          { key: "新竹縣", label: "新竹縣" }
+        ]
+      },
+      {
+        id: "中部",
+        label: "🌿 中部景點",
+        cities: [
+          { key: "全部", label: "全部中部" },
+          { key: "台中市", label: "台中市" },
+          { key: "苗栗縣", label: "苗栗縣" },
+          { key: "彰化縣", label: "彰化縣" },
+          { key: "南投縣", label: "南投縣" },
+          { key: "雲林縣", label: "雲林縣" }
+        ]
+      },
+      {
+        id: "南部",
+        label: "☀️ 南部景點",
+        cities: [
+          { key: "全部", label: "全部南部" },
+          { key: "台南市", label: "台南市" },
+          { key: "高雄市", label: "高雄市" },
+          { key: "嘉義市", label: "嘉義市" },
+          { key: "嘉義縣", label: "嘉義縣" },
+          { key: "屏東縣", label: "屏東縣" }
+        ]
+      },
+      {
+        id: "東部",
+        label: "🌊 東部景點",
+        cities: [
+          { key: "全部", label: "全部東部" },
+          { key: "宜蘭縣", label: "宜蘭縣" },
+          { key: "花蓮縣", label: "花蓮縣" },
+          { key: "台東縣", label: "台東縣" }
+        ]
+      },
+      {
+        id: "離島",
+        label: "🏝️ 離島秘境",
+        cities: [
+          { key: "全部", label: "全部離島" },
+          { key: "澎湖縣", label: "澎湖縣" },
+          { key: "金門縣", label: "金門縣" },
+          { key: "連江縣", label: "連江縣 (馬祖)" },
+          { key: "屏東縣", label: "小琉球" }
+        ]
+      }
     ];
 
     document.addEventListener("DOMContentLoaded", () => {
       renderRegionButtons();
+      renderCitySubButtons();
       setupSearch();
       renderSpots();
     });
@@ -264,18 +322,48 @@
       }).join("");
     }
 
+    function renderCitySubButtons() {
+      const subContainer = document.getElementById("spots-city-subpills");
+      if (!subContainer) return;
+      const reg = REGION_CATEGORIES.find(r => r.id === activeZone);
+      if (!reg || !reg.cities || reg.cities.length === 0) {
+        subContainer.style.display = "none";
+        subContainer.innerHTML = "";
+        return;
+      }
+      subContainer.style.display = "flex";
+      subContainer.innerHTML = reg.cities.map(c => {
+        const isAct = activeCity === c.key ? "active" : "";
+        return `
+          <button class="spot-region-pill ${isAct}" style="font-size: 12.5px; padding: 6px 15px;" onclick="selectCity('${c.key}')">
+            ${c.label}
+          </button>
+        `;
+      }).join("");
+    }
+
     function selectRegion(zoneId) {
       activeZone = zoneId;
+      activeCity = "全部";
       renderRegionButtons();
+      renderCitySubButtons();
+      renderSpots();
+    }
+
+    function selectCity(cityKey) {
+      activeCity = cityKey;
+      renderCitySubButtons();
       renderSpots();
     }
 
     function resetCityFilter() {
       activeZone = "全部";
+      activeCity = "全部";
       searchKeyword = "";
       const input = document.getElementById("spots-search-input");
       if (input) input.value = "";
       renderRegionButtons();
+      renderCitySubButtons();
       renderSpots();
     }
 
@@ -287,12 +375,13 @@
 
       const filtered = ALL_SPOTS_DATA.filter(item => {
         const matchZone = activeZone === "全部" || item.zone === activeZone;
+        const matchCity = activeCity === "全部" || item.city === activeCity;
         const matchKeyword = !searchKeyword || 
           item.name.toLowerCase().includes(searchKeyword) ||
           item.city.toLowerCase().includes(searchKeyword) ||
           (item.desc && item.desc.toLowerCase().includes(searchKeyword)) ||
           (item.tag && item.tag.toLowerCase().includes(searchKeyword));
-        return matchZone && matchKeyword;
+        return matchZone && matchCity && matchKeyword;
       });
 
       if (countEl) countEl.textContent = "";
@@ -305,7 +394,7 @@
             <div style="font-size: 18px; font-weight: 800; color: #0F172A;">暫無符合條件的景點</div>
             <p style="margin-top: 6px; font-size: 13px;">歡迎切換上方大區或清除搜尋關鍵字！</p>
             <button onclick="resetCityFilter()" class="spot-region-pill" style="margin-top: 14px; background: #0284C7; color: #FFF; border: none;">
-              顯示全部 30 處景點
+              顯示全部景點
             </button>
           </div>
         `;
@@ -313,7 +402,8 @@
       }
 
       container.innerHTML = filtered.map(item => {
-        const klookUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSearchUrl(item.name) : "#";
+        const hotelUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getHotelUrl(item.city + " " + item.name) : "#";
+        const charterUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getCharterUrl(item.city) : "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436";
         const mapUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(item.name) : `https://maps.google.com/?q=${encodeURIComponent(item.name)}`;
 
         return `
@@ -346,12 +436,15 @@
                 ${item.desc}
               </p>
               
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: auto;">
-                <a href="${klookUrl}" target="_blank" rel="noopener noreferrer" style="text-align: center; padding: 6px 4px; font-size: 11px; font-weight: 700; color: #FFF; background: #F59E0B; border-radius: 6px; text-decoration: none; transition: background 0.2s;">
-                  🎟️ 預定去
-                </a>
-                <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" style="text-align: center; padding: 6px 4px; font-size: 11px; font-weight: 700; color: #0284C7; background: #F0F9FF; border: 1px solid #BAE6FD; border-radius: 6px; text-decoration: none; transition: background 0.2s;">
+              <div class="card-action-group" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: auto;">
+                <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding: 6px 2px; font-size: 11px;">
                   📍 Map
+                </a>
+                <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room" style="padding: 6px 2px; font-size: 11px;">
+                  🏨 住宿
+                </a>
+                <a href="${charterUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-charter-unified" style="padding: 6px 2px; font-size: 11px;">
+                  🚗 包車
                 </a>
               </div>
             </div>

@@ -2036,7 +2036,7 @@ const THEMES_COMPLETE_DATA = [
         "tags": [
           "天然溫泉",
           "一泊四食",
-          "萬家福食材直配"
+          "Uber Eats 食材外送"
         ],
         "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
         "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop"

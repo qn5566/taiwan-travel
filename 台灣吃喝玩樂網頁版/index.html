@@ -27,30 +27,6 @@
   </div>
 
   <!-- =========================================================
-       🌐 置頂國際化語系快捷列 (Global Top Language Bar)
-       ========================================================= -->
-  <div class="top-lang-bar">
-    <div class="container top-lang-inner">
-      <div class="top-lang-label">
-        <span>🇹🇼</span> 台灣吃喝玩樂 ‧ TAIWAN ROAM OFFICIAL
-      </div>
-      <!-- 右側簡潔語言下拉選單 (Simplified Right-aligned Dropdown) -->
-      <div class="clean-lang-select-wrap">
-        <span style="font-size: 13px;">🌐</span>
-        <select id="global-lang-select" class="clean-lang-select" onchange="switchLanguage(this.value)">
-          <option value="zh-TW">繁體中文 (Traditional Chinese)</option>
-          <option value="en">English (International)</option>
-          <option value="ja">日本語 (Japanese)</option>
-          <option value="ko">한국어 (Korean)</option>
-          <option value="vi">Tiếng Việt</option>
-          <option value="th">ภาษาไทย</option>
-          <option value="id">Bahasa Indonesia</option>
-        </select>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================
        🧭 1. 全寬置頂導航列 (Global Sticky Header)
        ========================================================= -->
   <header class="site-header">
@@ -120,19 +96,19 @@
             <a href="https://tw.trip.com/flights/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275" target="_blank" rel="noopener noreferrer" class="hero-service-tab active">
               ✈️ 搜機票 Flights
             </a>
-            <a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
+            <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
               🚗 預約包車 Private Charter
             </a>
             <a href="https://www.klook.com/zh-TW/airport-transfers/?aid=123436" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
               🚐 機場接送 Airport Transfer
             </a>
-            <a href="https://www.simoptions.com/zh/" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
+            <a href="https://www.klook.com/zh-TW/wifi-sim-card/?aid=123436" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
               📶 台灣網卡 eSIM
             </a>
-            <a href="#rankings" class="hero-service-tab">
+            <a href="ranking.html" class="hero-service-tab">
               🏆 熱門榜單 Rankings
             </a>
-            <a href="https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
+            <a href="https://www.ubereats.com/tw" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
               🛍️ 伴手禮直送 Souvenirs
             </a>
           </div>
@@ -153,6 +129,8 @@
               <a href="ranking.html?topic=drinks" class="hero-curated-pill">🧋 手搖 <span class="curated-en">Boba</span></a>
               <a href="ranking.html?topic=nightmarket" class="hero-curated-pill">🍢 夜市 <span class="curated-en">Market</span></a>
               <a href="ranking.html?topic=bbq" class="hero-curated-pill">🥩 燒肉 <span class="curated-en">BBQ</span></a>
+              <a href="michelin.html" class="hero-curated-pill">🌟 米其林 <span class="curated-en">Michelin</span></a>
+              <a href="cafe.html" class="hero-curated-pill">☕ 咖啡 <span class="curated-en">Cafe</span></a>
               <a href="ranking.html?topic=spots" class="hero-curated-pill">🏆 景點 <span class="curated-en">Spots</span></a>
               <a href="ranking.html?topic=walk" class="hero-curated-pill">🚶 散策 <span class="curated-en">Walk</span></a>
             </div>
@@ -358,72 +336,111 @@
 
 
   <!-- =========================================================
-       ⚓ 10. 全局國際化精緻頁尾 (Global Modern Footer)
+       ⚓ 10. 品牌介紹與專題導覽頁尾 (Taiwan Roam Brand & Quick Links Footer)
        ========================================================= -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-top-grid">
-        <div class="footer-brand-col">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
-            <img src="assets/taiwan_roam_logo.png" alt="台灣吃喝玩樂 TAIWAN ROAM" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
-            <div>
-              <div style="font-size: 20px; font-weight: 900; color: #FFFFFF;">台灣吃喝玩樂</div>
-              <div style="font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: var(--c-sunshine-yellow);">TAIWAN ROAM</div>
+  <footer class="site-footer" style="background: #F8FAFC; border-top: 1.5px solid #E2E8F0; padding: 64px 0 56px 0; margin-top: 0; color: #0F172A;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; max-width: 1060px; margin: 0 auto;">
+        
+        <!-- 左側：品牌介紹白色圓角卡片（比照參考圖設計） -->
+        <div style="background: #FFFFFF; border-radius: 28px; border: 1.5px solid #E2E8F0; padding: 36px 32px 28px; box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04); text-align: center;">
+          <!-- 1. 頂部第一行：LOGO + 台灣吃喝玩樂 Taiwan Roam -->
+          <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 18px; white-space: nowrap;">
+            <img src="assets/taiwan_roam_logo.png" alt="Taiwan Roam App Icon" style="width: 42px; height: 42px; border-radius: 11px; object-fit: cover; box-shadow: 0 2px 8px rgba(0,0,0,0.08); flex-shrink: 0;">
+            <div style="display: flex; align-items: baseline; gap: 10px; white-space: nowrap;">
+              <span style="font-size: 21px; font-weight: 900; color: #0F172A; letter-spacing: -0.2px;">台灣吃喝玩樂</span>
+              <span style="font-size: 14px; font-weight: 800; color: #0284C7; letter-spacing: 0.5px;">Taiwan Roam</span>
             </div>
           </div>
-          <p style="font-size: 13px; color: #94A3B8; line-height: 1.7; margin-bottom: 16px;">
-            HiMyDream Studio 官方維護旗艦入口網。專為歐美、日韓、東南亞及全球旅人打造的一站式台灣旅遊自由行指南。
-          </p>
-          <div style="font-size: 12px; color: #64748B;">
-            商務異業合作 / 資料勘誤信箱：<br>
-            <a href="mailto:himydream.studio0220@gmail.com" style="color: var(--cyan-primary); font-weight: 700;">
-              himydream.studio0220@gmail.com
+
+          <!-- 2. 核心大標題 ＆ 英文理念 ＆ 敘事文案 -->
+          <div style="margin-bottom: 22px;">
+            <h2 style="font-size: 21px; font-weight: 900; color: #0F172A; margin: 0 0 8px; letter-spacing: -0.3px; line-height: 1.35;">
+              探索最純粹的島嶼景點冒險
+            </h2>
+            <div style="font-size: 13px; color: #64748B; font-weight: 700; letter-spacing: 0.4px; margin-bottom: 14px; line-height: 1.4;">
+              Curating Taiwan’s Authentic Travel Aesthetics &amp; Island Stories
+            </div>
+            <p style="font-size: 14px; color: #475569; line-height: 1.8; margin: 0 auto; max-width: 420px; font-weight: 500;">
+              山海相擁，巷弄有光。豐富的小島風情、道地美食與人文藝術。<br>
+              準備好你的行囊，一起走進最迷人的台灣探險！
+            </p>
+          </div>
+
+          <!-- 3. 品牌合作洽詢按鈕 -->
+          <div style="margin-bottom: 22px;">
+            <a href="mailto:himydream.studio0220@gmail.com?subject=%E3%80%90%E5%93%81%E7%89%8C%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2%E3%80%91%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82%20Taiwan%20Roam%20%E5%95%86%E6%A5%AD%E5%90%88%E4%BD%9C" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: #FFFFFF; text-decoration: none; font-size: 13.5px; font-weight: 800; padding: 11px 28px; border-radius: 9999px; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18); transition: all 0.2s ease;">
+              <span>🤝</span>
+              <span>品牌合作洽詢</span>
+              <span style="font-size: 12px; opacity: 0.85;">(來信洽談)</span>
             </a>
+          </div>
+
+          <!-- 4. 最底部：PRODUCED BY HiMyDream STUDIO 與版權宣告 -->
+          <div style="padding-top: 16px; border-top: 1px solid #F1F5F9; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <a href="https://himydream.me/studio/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 6px 16px; border-radius: 9999px; text-decoration: none; transition: all 0.15s ease;" title="造訪 HiMyDream STUDIO 官方網站">
+              <span style="font-size: 10.5px; font-weight: 800; color: #64748B; letter-spacing: 0.4px;">PRODUCED BY</span>
+              <span style="font-size: 12px; font-weight: 900; color: #0F172A;">HiMyDream STUDIO</span>
+              <span style="font-size: 12px; color: #0284C7; font-weight: 900;">↗</span>
+            </a>
+            <div style="font-size: 11.5px; color: #94A3B8; margin-top: 2px; letter-spacing: 0.3px;">
+              © Taiwan Roam · HiMyDream STUDIO · All Rights Reserved
+            </div>
           </div>
         </div>
 
-        <div class="footer-links-col">
-          <div class="footer-col-title">專題導覽</div>
-          <ul class="footer-links-list">
-            <li><a href="#trending-top6">台灣熱門 Top 6 活動</a></li>
-            <li><a href="#themes">18 大深度探索主題</a></li>
-            <li><a href="#city-spots">全台 22 縣市景點瀑布流</a></li>
-            <li><a href="michelin.html">米其林星級與必比登美食</a></li>
-            <li><a href="cafe.html">台灣必去特色咖啡店散策</a></li>
-            <li><a href="cafe.html?tab=weekend-hop">週末探店專欄文章</a></li>
-            <li><a href="community.html">旅人留言討論專區</a></li>
+        <!-- 右側：重點快速連結（專題導覽） -->
+        <div style="background: #FFFFFF; border-radius: 28px; border: 1.5px solid #E2E8F0; padding: 36px 36px; box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);">
+          <div style="font-size: 18px; font-weight: 900; color: #0F172A; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1.5px solid #F1F5F9; display: flex; align-items: center; gap: 8px;">
+            <span style="color: #0284C7;">🧭</span>
+            <span>專題導覽</span>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+            <li>
+              <a href="#trending-top6" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 12px; background: #F8FAFC; color: #334155; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s ease;">
+                <span>台灣熱門 Top 6 活動</span>
+                <span style="color: #0284C7; font-size: 13px;">➔</span>
+              </a>
+            </li>
+            <li>
+              <a href="themes.html" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 12px; background: #F8FAFC; color: #334155; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s ease;">
+                <span>18 大深度探索主題</span>
+                <span style="color: #0284C7; font-size: 13px;">➔</span>
+              </a>
+            </li>
+            <li>
+              <a href="spots.html" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 12px; background: #F8FAFC; color: #334155; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s ease;">
+                <span>全台 22 縣市景點瀑布流</span>
+                <span style="color: #0284C7; font-size: 13px;">➔</span>
+              </a>
+            </li>
+            <li>
+              <a href="michelin.html" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 12px; background: #F8FAFC; color: #334155; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s ease;">
+                <span>米其林星級與必比登美食</span>
+                <span style="color: #0284C7; font-size: 13px;">➔</span>
+              </a>
+            </li>
+            <li>
+              <a href="cafe.html" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 12px; background: #F8FAFC; color: #334155; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s ease;">
+                <span>台灣必去特色咖啡店散策</span>
+                <span style="color: #0284C7; font-size: 13px;">➔</span>
+              </a>
+            </li>
+            <li>
+              <a href="cafe.html?tab=weekend-hop" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 12px; background: #F8FAFC; color: #334155; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s ease;">
+                <span>週末探店專欄文章</span>
+                <span style="color: #0284C7; font-size: 13px;">➔</span>
+              </a>
+            </li>
+            <li>
+              <a href="community.html" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 12px; background: #F8FAFC; color: #334155; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s ease;">
+                <span>旅人留言討論專區</span>
+                <span style="color: #0284C7; font-size: 13px;">➔</span>
+              </a>
+            </li>
           </ul>
         </div>
 
-        <div class="footer-links-col">
-          <div class="footer-col-title">旅遊服務樞紐</div>
-          <ul class="footer-links-list">
-            <li><a href="https://tw.trip.com/flights/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275" target="_blank" rel="noopener noreferrer">✈️ Trip.com 全球機票查詢</a></li>
-            <li><a href="https://www.klook.com/zh-TW/car-rentals/?aid=123436" target="_blank" rel="noopener noreferrer">🚗 Klook 全台景點一日包車</a></li>
-            <li><a href="https://www.klook.com/zh-TW/airport-transfers/?aid=123436" target="_blank" rel="noopener noreferrer">🚐 桃園/松山機場接送</a></li>
-            <li><a href="https://affone.me/s/bQeO4" target="_blank" rel="noopener noreferrer">🏨 Booking.com 溫泉飯店訂房</a></li>
-            <li><a href="https://www.simoptions.com/zh/" target="_blank" rel="noopener noreferrer">📶 SimOptions 台灣eSIM上網卡</a></li>
-            <li><a href="https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" target="_blank" rel="noopener noreferrer">🛍️ 萬家福名產飯店直送</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-links-col">
-          <div class="footer-col-title">國際化語系</div>
-          <ul class="footer-links-list">
-            <li><a href="javascript:switchLanguage('zh-TW')">繁體中文 (Traditional Chinese)</a></li>
-            <li><a href="javascript:switchLanguage('en')">English (International)</a></li>
-            <li><a href="javascript:switchLanguage('ja')">日本語 (Japanese)</a></li>
-            <li><a href="javascript:switchLanguage('ko')">한국어 (Korean)</a></li>
-            <li><a href="javascript:switchLanguage('vi')">Tiếng Việt (Vietnamese)</a></li>
-            <li><a href="javascript:switchLanguage('th')">ภาษาไทย (Thai)</a></li>
-            <li><a href="javascript:switchLanguage('id')">Bahasa Indonesia (Indonesian)</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom-bar">
-        <div>© 2026 台灣吃喝玩樂 TAIWAN ROAM. All Rights Reserved. Powered by HiMyDream Studio.</div>
-        <div style="font-size: 12px; color: #64748B;">Official Affiliate Partners: Klook · Booking.com · Trip.com · SimOptions · Wanjiafu</div>
       </div>
     </div>
   </footer>

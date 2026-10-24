@@ -22,8 +22,8 @@ const AFFILIATE_HUB = {
   bookingLabel: "affnetcj-17288959_pub-4456004_site-100117277",
   bookingAffoneBase: "https://affone.me/s/bQeO4",
 
-  // 01. 露營生鮮食材箱 (aftck)
-  campingFreshFoodUrl: "https://aftck.com/track/clicks/1489/c627c2bc980522defc82ec23d62e9d47266c4cdf2aabebf50368bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+  // 01. 露營生鮮食材箱 (Uber Eats 外送直配)
+  campingFreshFoodUrl: "https://www.ubereats.com/tw/search?q=%E7%83%A4%E8%82%89%E7%94%9F%E9%AE%AE",
 
   // 02. 教育學習綜合平台 (vbtrax)
   educationLearningUrl: "https://vbtrax.com/track/clicks/9445/c627c2bc9b0428dbf189ec23d62e9d47266c4cdf2aabebfd0364b713234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
@@ -37,8 +37,8 @@ const AFFILIATE_HUB = {
   // 05. 質感選物店與生活選品 (affclkr)
   lifestyleShopUrl: "https://affclkr.online/track/clicks/5686/c627c2bf910421d7fb8dec23d62e9d47266c4cdf2aabebf10168b413234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
 
-  // 06. 萬家福生鮮伴手禮直送 (最新 afftck)
-  wanjiafuLatestUrl: "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+  // 06. Uber Eats 美食與伴手禮外送直送飯店
+  wanjiafuLatestUrl: "https://www.ubereats.com/tw",
 
   // 07. 台灣訂餐與優惠餐券 (affckr)
   diningVoucherUrl: "https://affckr.site/track/clicks/4127/c627c2bc980126defc88ec23d62e9d47266c4cdf2aabebf00662b513234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
@@ -52,8 +52,8 @@ const AFFILIATE_HUB = {
   // 10. 化妝品與藥品備用通道 (afflink)
   cosmeticsPharmaUrl: "https://afflink.one/s/3WAKW",
 
-  // 13. SimOptions 上網網卡
-  simOptionsUrl: "https://www.simoptions.com/zh/",
+  // 13. 台灣上網網卡 / eSIM (Klook 官方聯盟)
+  simOptionsUrl: "https://www.klook.com/zh-TW/wifi-sim-card/?aid=123436",
 
   // Booking 特定飯店專屬短網址映射表（可隨時擴增）
   customBookingLinks: {
@@ -86,7 +86,7 @@ const AFFILIATE_HUB = {
 
   /** 2. 包車 / 包車預約 (Klook) */
   getCharterUrl: function(city = "") {
-    return `https://www.klook.com/zh-TW/car-rentals/?aid=${this.klookAid}`;
+    return `https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=${this.klookAid}`;
   },
 
   /** 2.5 Uber Eats 美食與伴手禮外送專屬導購 */

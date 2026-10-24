@@ -82,30 +82,6 @@
   <div class="theme-dynamic-particles-layer" id="theme-dynamic-particles"></div>
 
   <!-- =========================================================
-       🌐 置頂國際化語系快捷列 (Global Top Language Bar)
-       ========================================================= -->
-  <div class="top-lang-bar">
-    <div class="container top-lang-inner">
-      <div class="top-lang-label">
-        <span>🇹🇼</span> 台灣吃喝玩樂 ‧ TAIWAN ROAM OFFICIAL
-      </div>
-      <!-- 右側簡潔語言下拉選單 -->
-      <div class="clean-lang-select-wrap">
-        <span style="font-size: 13px;">🌐</span>
-        <select id="global-lang-select" class="clean-lang-select" onchange="switchLanguage(this.value)">
-          <option value="zh-TW">繁體中文 (Traditional Chinese)</option>
-          <option value="en">English (International)</option>
-          <option value="ja">日本語 (Japanese)</option>
-          <option value="ko">한국어 (Korean)</option>
-          <option value="vi">Tiếng Việt</option>
-          <option value="th">ภาษาไทย</option>
-          <option value="id">Bahasa Indonesia</option>
-        </select>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================
        🧭 置頂導航列 (Global Header)
        ========================================================= -->
   <header class="site-header">
@@ -301,7 +277,7 @@
         ],
         "camping": [
           { planName: "【1 日輕旅】山林日光野餐與柴燒料理", duration: "1 日野趣", days: [{ day: "精華動線", text: "新竹/苗栗高海拔森活營地 ➔ 雲海草地野餐下午茶 ➔ 柴燒窯烤手作披薩 ➔ 芬多精森林浴。" }] },
-          { planName: "【2 日漫遊】一泊四食免裝備奢華帳篷星空之夜", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "苗栗/南投豪華神殿帳 Check-in ➔ 萬家福烤肉海陸大餐 ➔ 露天星空電影院 ➔ 營火烤棉花糖。" }, { day: "Day 2", text: "晨光鳥鳴手沖高山咖啡 ➔ 柳杉林自然步道 ➔ 南庄百年老街桂花巷買擂茶返程。" }] },
+          { planName: "【2 日漫遊】一泊四食免裝備奢華帳篷星空之夜", duration: "2 天 1 夜", days: [{ day: "Day 1", text: "苗栗/南投豪華神殿帳 Check-in ➔ Uber Eats 生鮮烤肉海陸大餐 ➔ 露天星空電影院 ➔ 營火烤棉花糖。" }, { day: "Day 2", text: "晨光鳥鳴手沖高山咖啡 ➔ 柳杉林自然步道 ➔ 南庄百年老街桂花巷買擂茶返程。" }] },
           { planName: "【3 日縱走】高海拔雲海露營與野溪溫泉探險縱走", duration: "3 天 2 夜", days: [{ day: "Day 1", text: "新竹五峰白蘭部落高海拔營地紮營 ➔ 俯瞰翻騰雲海與晚霞 ➔ 高山星空銀河夜拍。" }, { day: "Day 2", text: "張學良文化園區與清泉吊橋將軍湯泡腳 ➔ 轉戰苗栗泰安烏嘎彥竹林秘境營區。" }, { day: "Day 3", text: "大湖草莓文化館採果體驗 ➔ 泰安洗水坑豆腐街午餐 ➔ 滿載山林能量返程。" }] }
         ]
       },
@@ -416,7 +392,7 @@
         ],
         "camping": [
           { icon: "⛺", title: "全台 TOP 20 高海拔野奢營地", desc: "精選五峰白蘭部落、泰安竹林與阿里山雲海第一排頂級營區。" },
-          { icon: "🥩", title: "萬家福烤肉海陸食材直送", desc: "一鍵預訂露營烤肉箱與頂級海陸食材，免備料輕鬆開烤。" },
+          { icon: "🥩", title: "Uber Eats 烤肉生鮮食材外送", desc: "一鍵預訂露營烤肉箱與家樂福頂級海陸食材，免備料輕鬆開烤。" },
           { icon: "🌌", title: "雲海星空帳篷一泊四食", desc: "入住冷暖氣神殿帳與星空球形帳，夜賞銀河與營火電影院。" }
         ]
       },
@@ -1082,37 +1058,37 @@
           </div>
         ` : '';
 
-        // 底部自訂行動按鈕
+        // 底部自訂行動按鈕（全部統一膠囊按鈕設計，中間統一寫「🏨 住宿」）
         let actionsRowHtml = '';
         if (spot.subCategory === 'railway') {
           actionsRowHtml = `
-            <a href="${spot.trainTicketUrl || 'https://tw.trip.com/trains/taiwan/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275'}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #0284C7; color: #FFFFFF; font-weight: 800; font-size: 11px; padding: 7px 4px; text-decoration: none; text-align: center; border-radius: 6px;">🎟️ 預訂火車票 ➔</a>
-            <a href="${spot.hotelUrl || 'https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275'}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room" style="text-align: center; padding: 7px 4px; font-size: 11px; text-decoration: none;">🏨 預訂周邊房間</a>
-            <a href="${spot.charterUrl || 'https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436'}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #F8FAFC; border: 1px solid #CBD5E1; color: #0F172A; font-weight: 700; font-size: 11px; padding: 7px 4px; text-decoration: none; text-align: center; border-radius: 6px;">🚗 鐵道包車</a>
+            <a href="${spot.trainTicketUrl || 'https://tw.trip.com/trains/taiwan/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275'}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav">🎟️ 車票</a>
+            <a href="${spot.hotelUrl || 'https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275'}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room">🏨 住宿</a>
+            <a href="${spot.charterUrl || 'https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436'}" target="_blank" rel="noopener noreferrer" class="btn-action btn-charter-unified">🚗 包車</a>
           `;
         } else if (spot.subCategory === 'cinema') {
           actionsRowHtml = `
-            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="text-align: center; padding: 7px 4px; font-size: 11px; text-decoration: none;">📍 Map</a>
-            <a href="${spot.charterUrl || 'https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436'}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #0284C7; color: #FFFFFF; font-weight: 800; font-size: 11px; padding: 7px 4px; text-decoration: none; text-align: center; border-radius: 6px;">🚗 包車直達</a>
-            <a href="${theme.bookingCta.hotel}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room" style="text-align: center; padding: 7px 4px; font-size: 11px; text-decoration: none;">🏨 訂周邊住宿</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav">📍 Map</a>
+            <a href="${theme.bookingCta.hotel}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room">🏨 住宿</a>
+            <a href="${spot.charterUrl || 'https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436'}" target="_blank" rel="noopener noreferrer" class="btn-action btn-charter-unified">🚗 包車</a>
           `;
         } else if (spot.permitUrl) {
           actionsRowHtml = `
-            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="text-align: center; padding: 7px 4px; font-size: 11px; text-decoration: none;">📍 Map</a>
-            <a href="${spot.permitUrl}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #0284C7; color: #FFFFFF; font-weight: 800; font-size: 11px; padding: 7px 4px; text-decoration: none; text-align: center; border-radius: 6px;">📋 登山申請 ➔</a>
-            <a href="${theme.bookingCta.charter}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #F8FAFC; border: 1px solid #CBD5E1; color: #0F172A; font-weight: 700; font-size: 11px; padding: 7px 4px; text-decoration: none; text-align: center; border-radius: 6px;">🚗 包車</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav">📍 Map</a>
+            <a href="${spot.permitUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room">📋 登山申請</a>
+            <a href="${theme.bookingCta.charter}" target="_blank" rel="noopener noreferrer" class="btn-action btn-charter-unified">🚗 包車</a>
           `;
         } else if (spot.subCategory === 'camping') {
           actionsRowHtml = `
-            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="text-align: center; padding: 7px 4px; font-size: 11px; text-decoration: none;">📍 Map</a>
-            <a href="${spot.campUrl || 'https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436'}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #0284C7; color: #FFFFFF; font-weight: 800; font-size: 11px; padding: 7px 4px; text-decoration: none; text-align: center; border-radius: 6px;">⛺ 預定營位</a>
-            <a href="https://onelink.one/s/KmfgH" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #FEF3C7; border: 1px solid #F59E0B; color: #92400E; font-weight: 700; font-size: 11px; padding: 7px 4px; text-decoration: none; text-align: center; border-radius: 6px;">🥩 萬家福食材</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav">📍 Map</a>
+            <a href="${spot.campUrl || 'https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436'}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room">⛺ 營位</a>
+            <a href="https://www.ubereats.com/tw/search?q=%E7%83%A4%E8%82%89%E7%94%9F%E9%AE%AE" target="_blank" rel="noopener noreferrer" class="btn-action btn-charter-unified">🥩 食材</a>
           `;
         } else {
           actionsRowHtml = `
-            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="text-align: center; padding: 7px 4px; font-size: 11px; text-decoration: none;">📍 Map</a>
-            <a href="${theme.bookingCta.hotel}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room" style="text-align: center; padding: 7px 4px; font-size: 11px; text-decoration: none;">🏨 訂周邊住宿</a>
-            <a href="${theme.bookingCta.charter}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #F8FAFC; border: 1px solid #CBD5E1; color: #0F172A; font-weight: 700; font-size: 11px; padding: 7px 4px; text-decoration: none; text-align: center; border-radius: 6px;">🚗 包車</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav">📍 Map</a>
+            <a href="${theme.bookingCta.hotel}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room">🏨 住宿</a>
+            <a href="${theme.bookingCta.charter}" target="_blank" rel="noopener noreferrer" class="btn-action btn-charter-unified">🚗 包車</a>
           `;
         }
 

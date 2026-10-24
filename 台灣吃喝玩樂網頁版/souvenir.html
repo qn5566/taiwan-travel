@@ -33,44 +33,46 @@
     }
     .souvenir-cat-tabs {
       display: flex;
-      gap: 12px;
-      overflow-x: auto;
-      padding-bottom: 12px;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding-bottom: 8px;
       margin-bottom: 28px;
     }
     .souvenir-cat-btn {
-      padding: 12px 22px;
+      padding: 10px 18px;
       border-radius: 9999px;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 800;
-      border: 1.5px solid #E2E8F0;
+      border: 1.5px solid #FED7AA;
       background: #FFFFFF;
-      color: #334155;
+      color: #7C2D12;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       white-space: nowrap;
       transition: all 0.25s ease;
       box-shadow: 0 2px 6px rgba(0,0,0,0.02);
     }
     .souvenir-cat-btn:hover {
-      border-color: #0284C7;
-      color: #0284C7;
+      border-color: #EA580C;
+      color: #EA580C;
+      background: #FFF7ED;
       transform: translateY(-2px);
     }
     .souvenir-cat-btn.active {
-      background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+      background: linear-gradient(135deg, #EA580C 0%, #E11D48 100%);
       color: #FFFFFF;
-      border-color: #0284C7;
-      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.25);
+      border-color: transparent;
+      box-shadow: 0 6px 16px rgba(234, 88, 12, 0.25);
     }
     .souvenir-painpoint-banner {
-      background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
-      border: 1.5px solid #F59E0B;
+      background: linear-gradient(135deg, #FFF7ED 0%, #FFE4E6 100%);
+      border: 1.5px solid #FDBA74;
       border-radius: 20px;
       padding: 20px 28px;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -80,22 +82,6 @@
   </style>
 </head>
 <body>
-
-  <!-- 置頂國際化語系快捷列 -->
-  <div class="top-lang-bar">
-    <div class="container top-lang-inner">
-      <div class="top-lang-label">🌐 國際化語系 / Language:</div>
-      <div class="top-lang-list">
-        <button type="button" class="lang-pill active" onclick="switchLanguage('zh-TW')">繁體中文 (Traditional Chinese)</button>
-        <button type="button" class="lang-pill" onclick="switchLanguage('en')">English (International)</button>
-        <button type="button" class="lang-pill" onclick="switchLanguage('ja')">日本語 (Japanese)</button>
-        <button type="button" class="lang-pill" onclick="switchLanguage('ko')">한국어 (Korean)</button>
-        <button type="button" class="lang-pill" onclick="switchLanguage('vi')">Tiếng Việt (Vietnamese)</button>
-        <button type="button" class="lang-pill" onclick="switchLanguage('th')">ภาษาไทย (Thai)</button>
-        <button type="button" class="lang-pill" onclick="switchLanguage('id')">Bahasa Indonesia (Indonesian)</button>
-      </div>
-    </div>
-  </div>
 
   <!-- 全寬置頂導航列 -->
   <header class="site-header">
@@ -122,39 +108,36 @@
       </nav>
 
       <div class="header-right-tools">
-        <a href="https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" 
+        <a href="https://www.ubereats.com/tw" 
            target="_blank" 
            rel="noopener noreferrer" 
            class="btn-cta-primary" 
-           style="padding: 9px 18px; font-size: 13px; text-decoration: none;">
-          ⚡ 萬家福直購官網 ➔
+           style="padding: 9px 18px; font-size: 13px; text-decoration: none; background: linear-gradient(135deg, #16A34A 0%, #15803D 100%);">
+          🛵 Uber Eats 外送 ➔
         </a>
       </div>
     </div>
   </header>
 
-  <!-- 頂部英雄視覺 -->
-  <section style="background: linear-gradient(135deg, #1E1B4B 0%, #0F172A 100%); color: #FFFFFF; padding: 56px 0 46px 0;">
+  <!-- 頂部英雄視覺（橘色與淺粉溫柔漸層底色） -->
+  <section style="background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 48%, #FFE4E6 100%); border-bottom: 1.5px solid #FED7AA; color: #0F172A; padding: 52px 0 44px 0;">
     <div class="container">
       <div style="max-width: 860px; margin: 0 auto; text-align: center;">
-        <span style="display: inline-block; padding: 5px 16px; background: rgba(245, 158, 11, 0.2); border: 1px solid rgba(245, 158, 11, 0.4); color: #FBBF24; border-radius: 9999px; font-size: 12px; font-weight: 800; letter-spacing: 1px; margin-bottom: 14px;">
-          TAIWAN SOUVENIR DIRECT HOTEL DELIVERY · 100 TOP PRODUCTS
-        </span>
-        <h1 class="editorial-hero-title" style="font-size: 40px; font-weight: 900; line-height: 1.25; margin-bottom: 2px; color: #FFFFFF; font-family: 'Noto Serif TC', serif;">
+        <h1 class="editorial-hero-title" style="font-size: 40px; font-weight: 900; line-height: 1.25; margin-bottom: 4px; color: #7C2D12; font-family: 'Noto Serif TC', serif;">
           台灣必買伴手禮與特產直配
         </h1>
-        <div class="brand-script-en" style="font-size: 34px; color: #FCD34D; margin-bottom: 10px;">
-          Curated Souvenirs & Hotel Direct Delivery
+        <div class="brand-script-en" style="font-size: 34px; color: #EA580C; margin-bottom: 10px;">
+          Curated Souvenirs &amp; Hotel Direct Delivery
         </div>
-        <p style="font-size: 14.5px; color: #CBD5E1; line-height: 1.65; margin-bottom: 24px;">
-          免排隊數小時、不佔隨身行李重量！合作電商萬家福生鮮伴手禮、熱門藥妝與生活選物，退房前直達飯店櫃檯代收。<br>
-          <span class="brand-serif-en" style="font-size: 13.5px; color: #94A3B8; font-weight: 500;">(Authentic Taiwanese Pineapple Cakes, Sun Cakes, Tea, Snacks & Beauty Essentials.)</span>
+        <p style="font-size: 14.5px; color: #7C2D12; line-height: 1.7; margin-bottom: 24px; font-weight: 500;">
+          免排隊數小時、不佔隨身行李重量！透過 Uber Eats 與合作電商貼心外送服務，無論是知名伴手禮、家樂福量販必買或在地美食，皆可輕鬆直送下榻飯店。<br>
+          <span class="brand-serif-en" style="font-size: 13.5px; color: #9A3412; font-weight: 600;">(Order authentic Taiwanese souvenirs, Carrefour essentials &amp; local delicacies via Uber Eats &amp; e-commerce — thoughtfully delivered straight to your hotel!)</span>
         </p>
 
         <!-- 搜尋篩選 -->
         <div style="max-width: 580px; margin: 0 auto; position: relative;">
-          <input type="text" id="souvenir-search-input" placeholder="搜尋伴手禮名稱、品牌、產地 (例：微熱山丘、一條根、蛋黃酥)..." 
-                 style="width: 100%; padding: 14px 22px; border-radius: 9999px; border: 2px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08); color: #FFFFFF; font-size: 14px; outline: none;"
+          <input type="text" id="souvenir-search-input" placeholder="🔍 搜尋伴手禮名稱、品牌、產地 (例：微熱山丘、一條根、蛋黃酥)..." 
+                 style="width: 100%; padding: 14px 22px; border-radius: 9999px; border: 1.5px solid #FDBA74; background: #FFFFFF; color: #0F172A; font-size: 14px; outline: none; box-shadow: 0 4px 14px rgba(234, 88, 12, 0.08);"
                  oninput="filterSouvenirs()">
         </div>
       </div>
@@ -168,19 +151,19 @@
       <!-- 痛點解法橫幅 -->
       <div class="souvenir-painpoint-banner">
         <div>
-          <div style="font-size: 17px; font-weight: 900; color: #78350F; margin-bottom: 4px;">
-            🏨 外國旅客＆自由行痛點救星：線上直購，專人直送飯店代收！
+          <div style="font-size: 17px; font-weight: 900; color: #7C2D12; margin-bottom: 4px;">
+            🛵 外國旅客＆自由行痛點救星：Uber Eats ＆ 電商外送，專人直送飯店代收！
           </div>
-          <div style="font-size: 13px; color: #92400E; line-height: 1.5;">
-            不用在大熱天排隊 2 小時搶佳德或小潘！下單填寫入住飯店名稱與入住日期，退房前到前台領取整箱伴手禮，輕鬆去機場。
+          <div style="font-size: 13px; color: #9A3412; line-height: 1.55;">
+            不用在大熱天排隊 2 小時搶佳德或小潘，也不用扛大包小包逛超市！直接用 Uber Eats 點購伴手禮名店、家樂福超市零嘴與在地美食直送飯店，輕鬆去機場。
           </div>
         </div>
-        <a href="https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1" 
+        <a href="https://www.ubereats.com/tw" 
            target="_blank" 
            rel="noopener noreferrer" 
            class="btn-action" 
-           style="background: #D97706; color: #FFFFFF; padding: 10px 20px; font-size: 13px; font-weight: 800; border-radius: 12px; text-decoration: none;">
-          萬家福飯店直送 ➔
+           style="background: linear-gradient(135deg, #16A34A 0%, #15803D 100%); color: #FFFFFF; padding: 10px 20px; font-size: 13px; font-weight: 800; border-radius: 12px; text-decoration: none; white-space: nowrap;">
+          🛵 Uber Eats 飯店外送 ➔
         </a>
       </div>
 
