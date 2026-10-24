@@ -925,7 +925,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "鐵板上拍打出千層酥脆感！加入大把新鮮九層塔葉與現煎嫩蛋，淋上獨創微甜不嗆的蜂蜜芥末醬，香氣四溢。",
       "price": "NT$ 45 - 65",
       "ctaType": "dining",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/A_scallion_pancake_with_egg_and_cheese.jpg/960px-A_scallion_pancake_with_egg_and_cheese.jpg"
+      "img": "assets/ranking_xiongji_pancake.png"
     },
     {
       "rank": 11,
@@ -951,7 +951,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "炭火爐上翻滾的小巧紅潤香腸，外腸衣焦脆緊繃，咬下瞬間肉汁四濺。攤位前擺滿新鮮大蒜粒，一口香腸一口大蒜最道地！",
       "price": "NT$ 8 / 顆",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_yikouchi_sausage.png"
     },
     {
       "rank": 13,
@@ -964,11 +964,11 @@ const RANKINGS_FULL_DATA = {
       "desc": "軟嫩濕潤的古早味粉漿餅皮在鐵板上煎出微焦金黃，打入大顆青蔥鮮蛋，刷上招牌鹹甜微辣醬汁，熱騰騰捲起超滿足。",
       "price": "NT$ 50",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_minglun_danbing.png"
     },
     {
       "rank": 14,
-      "name": "台中逢甲・官芝霖炭烤大腸包小腸",
+      "name": "官芝霖大腸包小腸",
       "enName": "Guan Zhi Lin Taiwanese Sausage in Rice Sausage",
       "city": "台中市西屯區逢甲路",
       "rate": "4.8★",
@@ -977,11 +977,11 @@ const RANKINGS_FULL_DATA = {
       "desc": "炭烤糯米腸劃開塞入厚切黑豬肉香腸、醃小黃瓜、酸菜、嫩薑與花生粉，特製紙筒旋轉即食不沾手，香氣層次極致豐富。",
       "price": "NT$ 65",
       "ctaType": "dining",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Small_sausage_in_large_sausage_2004-09-05.jpg/960px-Small_sausage_in_large_sausage_2004-09-05.jpg"
+      "img": "assets/ranking_guanzhilin_sausage.png"
     },
     {
       "rank": 15,
-      "name": "台中一中・一中豐仁冰酸梅冰沙",
+      "name": "一中豐仁冰",
       "enName": "Fengren Shaved Ice With Pickled Plum Taichung",
       "city": "台中市北區育才街",
       "rate": "4.8★",
@@ -990,11 +990,11 @@ const RANKINGS_FULL_DATA = {
       "desc": "冬天穿大衣也甘願吃！自製古法酸梅冰沙為底，鋪上蜜煮至鬆軟綿密的大紅豆，再挖入一球香濃手工牛奶冰淇淋，鹹甜酸甘絕頂滋味。",
       "price": "NT$ 50 - 60",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_fengren_ice.png"
     },
     {
       "rank": 16,
-      "name": "台南花園・二師兄三杯滷味小鳥蛋",
+      "name": "台南花園二師兄古早味滷味",
       "enName": "Second Brother Sanbei Braised Delicacies Tainan",
       "city": "台南市北區花園夜市 / 大東夜市",
       "rate": "4.9★",
@@ -1003,7 +1003,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "大老遠就能聞到黑麻油、老薑與蒜頭熱炒的濃烈三杯香！每顆鵪鶉蛋與雞翅被炒至醬黑發亮、皮Q肉韌，甜鹹交織極其下飯下酒。",
       "price": "NT$ 50 - 100",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1579684947550-22e945225d9a?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_ershixiong_luwei.png"
     },
     {
       "rank": 17,
@@ -1016,11 +1016,11 @@ const RANKINGS_FULL_DATA = {
       "desc": "雞排炸至金黃酥脆後，移至炭火網上刷滿台南特有甘甜蜜汁醬，炭火炙烤帶出微焦香氣，外皮甜脆肉質厚實多汁。",
       "price": "NT$ 85",
       "ctaType": "dining",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Angel_Chicken_Cutlet_Ruifeng_Store%2C_2026_%2802%29.jpg/960px-Angel_Chicken_Cutlet_Ruifeng_Store%2C_2026_%2802%29.jpg"
+      "img": "assets/ranking_tongda_chicken.png"
     },
     {
       "rank": 18,
-      "name": "高雄瑞豐・天使超厚切爆汁大雞排",
+      "name": "天使雞排-瑞豐店",
       "enName": "Angel Giant Thick-Cut Crispy Chicken Ruifeng",
       "city": "高雄市鼓山區裕誠路瑞豐夜市",
       "rate": "4.9★",
@@ -1029,20 +1029,20 @@ const RANKINGS_FULL_DATA = {
       "desc": "瑞豐夜市天天大排長龍！薄脆如餅乾的特調麵衣緊鎖住鮮美雞汁，厚度驚人卻無比嫩滑，是高雄自由行必吃罪惡宵夜代表。",
       "price": "NT$ 95",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_angel_chicken.png"
     },
     {
       "rank": 19,
-      "name": "高雄瑞豐・方臉師傅蒜香大黑豆干",
+      "name": "蒜香豆干 瑞豐夜市第三排",
       "enName": "Master Fang Garlic Braised Tofu Ruifeng Market",
-      "city": "高雄市左營區瑞豐夜市",
+      "city": "高雄市左營區瑞豐夜市第三排",
       "rate": "4.8★",
       "tag": "慢火滾燉飽滿氣孔 · 狂撒現切青蔥與生蒜",
       "highlight": "必吃：三杯蒜香豆干、招牌滷米血",
       "desc": "大黑豆干在老滷鍋中慢煮出密密麻麻氣孔，咬下爆出滾燙滷汁！鋪上如小山般的生碎蒜與新鮮青蔥，蒜香濃烈過癮至極。",
       "price": "NT$ 65 - 80",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_garlic_tofu.png"
     },
     {
       "rank": 20,
@@ -1055,7 +1055,7 @@ const RANKINGS_FULL_DATA = {
       "desc": "六合夜市最知名地標！精選當季高甜度紅肉木瓜，加入整瓶高品質純鮮奶現點現打，不加一滴水，口感綿滑濃醇宛如冰淇淋。",
       "price": "NT$ 70",
       "ctaType": "dining",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/202001_A_cup_of_papaya_milk_bought_at_Liouho_Night_Market%2C_Kaohsiung.jpg/960px-202001_A_cup_of_papaya_milk_bought_at_Liouho_Night_Market%2C_Kaohsiung.jpg"
+      "img": "assets/ranking_zhenlaopai_papaya.png"
     }
   ],
   "bbq": [
@@ -1332,23 +1332,10 @@ const RANKINGS_FULL_DATA = {
       "desc": "台北歷史最悠久的清真牛肉麵！大塊厚實牛肉燉煮軟嫩，牛骨高湯醇香清爽無腥羶，吸引各國穆斯林旅客專程拜訪。",
       "price": "NT$ 150 - 220",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_qingzhen_beef_noodle.png"
     },
     {
       "rank": 2,
-      "name": "回館清真新疆餐廳",
-      "enName": "Hui Guan Xinjiang Halal Restaurant Taipei",
-      "city": "台北市大安區光復南路",
-      "rate": "4.8★",
-      "tag": "正宗清真認證新疆料理 · 孜然香料與手抓羊肉",
-      "highlight": "必吃：手抓羊肉飯、大盤雞、羊肉串、饢餅",
-      "desc": "官方 Halal 認證！老闆遵循回民古法烹調，孜然羊肉外酥裡嫩，大盤雞搭配現拉皮帶麵吸飽香辣湯汁，風味地道。",
-      "price": "NT$ 400 - 800",
-      "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
-    },
-    {
-      "rank": 3,
       "name": "小小樹食（Little Tree Food）",
       "enName": "Little Tree Food Michelin Green Star Vegetarian",
       "city": "台北市大安區大安路 / 敦南店",
@@ -1358,10 +1345,10 @@ const RANKINGS_FULL_DATA = {
       "desc": "連續斬獲米其林綠星殊榮！將台灣小農在地有機蔬果融合加州現代料理，環境如同溫室花園，顛覆大眾對素食的刻板印象。",
       "price": "NT$ 400 - 800",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_littletree_food.png"
     },
     {
-      "rank": 4,
+      "rank": 3,
       "name": "養心茶樓（Yang Shin Vegetarian）",
       "enName": "Yang Shin Full Vegetarian Dim Sum Specialist",
       "city": "台北市中山區松江路",
@@ -1371,10 +1358,10 @@ const RANKINGS_FULL_DATA = {
       "desc": "百道精緻素港點！外皮層層酥脆化口的蘿蔔絲餅、晶瑩剔透蔬菜水晶餃，每逢假日座無虛席，長輩與外國家庭一致推崇。",
       "price": "NT$ 450 - 750",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_yangshin_tea.png"
     },
     {
-      "rank": 5,
+      "rank": 4,
       "name": "Herbivore Vegan Cuisine",
       "enName": "Herbivore Pure Vegan American & Fusion Cuisine",
       "city": "台北市信義區新光三越 A4",
@@ -1384,10 +1371,10 @@ const RANKINGS_FULL_DATA = {
       "desc": "信義區外籍商務與歐美旅人最愛！純植物手工肉排口感扎實多汁，起司與甜點皆為天然堅果腰果發酵製作，純淨無負擔。",
       "price": "NT$ 450 - 850",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_herbivore_vegan.png"
     },
     {
-      "rank": 6,
+      "rank": 5,
       "name": "張家清真黃牛肉麵館",
       "enName": "Chang's Halal Beef Noodles Ximending",
       "city": "台北市大同區延平南路",
@@ -1397,10 +1384,10 @@ const RANKINGS_FULL_DATA = {
       "desc": "緊鄰西門町商圈，經過嚴格 Halal 屠宰認證的在地老滋味。現包現煎的牛肉水煎包底部金黃焦脆，肉餡鮮美甘甜。",
       "price": "NT$ 120 - 200",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_zhangjia_beef_noodle.png"
     },
     {
-      "rank": 7,
+      "rank": 6,
       "name": "熱浪島南洋蔬食茶堂",
       "enName": "Red Sun Island Southeast Asian Vegan Taichung",
       "city": "台中市南屯區向上路三段",
@@ -1410,10 +1397,10 @@ const RANKINGS_FULL_DATA = {
       "desc": "佔地千坪附設兒童沙坑！將肉骨茶、叻沙、沙嗲串以全素食材重現，濃烈南洋香料香氣逼人，東南亞旅客驚呼神還原。",
       "price": "NT$ 350 - 600",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_redsun_island.png"
     },
     {
-      "rank": 8,
+      "rank": 7,
       "name": "空也素麵館",
       "enName": "Kong Ye Vegetarian Noodle Taichung Qingjingze",
       "city": "台中市西區朝富路",
@@ -1423,23 +1410,23 @@ const RANKINGS_FULL_DATA = {
       "desc": "日式枯山水庭園造景，靜謐禪意悠揚。清爽滋養的松露素麵湯底溫潤甘美，素小菜做工細膩雅致，用餐極為舒心放鬆。",
       "price": "NT$ 180 - 320",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_kongye_noodle.png"
+    },
+    {
+      "rank": 8,
+      "name": "小印度清真館 博館總店",
+      "enName": "Little India Halal Restaurant Taichung",
+      "city": "台中市西區博館三街60號",
+      "rate": "4.8★",
+      "tag": "台中科博館旁正宗 Halal 清真認證 · 巴基斯坦與北印度名廚",
+      "highlight": "必吃：坦都里炭烤雞腿、印式蒜香烤餅 Naan、香料羊肉咖哩",
+      "desc": "台中最具代表性的老字號清真印度料理總店！獲得官方 Halal 清真嚴格認證，多種天然中東香料慢熬濃郁咖哩，搭配現桿窯烤出爐的熱騰騰甩餅，香氣迷人道地。",
+      "price": "NT$ 280 - 550",
+      "ctaType": "dining",
+      "img": "assets/ranking_little_india.png"
     },
     {
       "rank": 9,
-      "name": "阿里印度清真料理",
-      "enName": "Ali Pakistan & Indian Halal Cuisine Taichung",
-      "city": "台中市中區綠川西街",
-      "rate": "4.7★",
-      "tag": "台中綠川旁純正 Halal 印度咖哩 · 窯烤甩餅 Naan",
-      "highlight": "必吃：坦都里烤羊排、印式奶油烤餅、鷹嘴豆咖哩",
-      "desc": "由巴基斯坦與印度籍廚師掌杓，香料由中東直接進口，獲官方清真嚴格認證。窯烤餅金黃酥軟，咖哩濃郁香辣正宗。",
-      "price": "NT$ 250 - 500",
-      "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
-    },
-    {
-      "rank": 10,
       "name": "太郎中華拉麵（Taro Vegan Ramen）",
       "enName": "Taro Pure Vegan Rich Soy Milk Ramen Tainan",
       "city": "台南市中西區新美街",
@@ -1449,10 +1436,10 @@ const RANKINGS_FULL_DATA = {
       "desc": "日本老闆定居台南創辦！無蛋無奶無動物油脂，以慢火慢熬的濃縮日本豆乳作為湯底，醇厚濃郁度完全不輸傳統豚骨拉麵！",
       "price": "NT$ 200 - 280",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_taro_ramen.png"
     },
     {
-      "rank": 11,
+      "rank": 10,
       "name": "赤崁璽樓（Chi-Kan West House）",
       "enName": "Chi-Kan West House Heritage Vegetarian Dining",
       "city": "台南市中西區西門路二段",
@@ -1462,23 +1449,23 @@ const RANKINGS_FULL_DATA = {
       "desc": "建於日治時期的中西合璧豪宅洋樓，雕花鐵窗與復古地磚美不勝收。主廚將台南在地古早味以純素手法改良，優雅尊貴。",
       "price": "NT$ 500 - 1,200",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_chikan_xilou.png"
+    },
+    {
+      "rank": 11,
+      "name": "高雄清真潮州牛雜餐廳",
+      "enName": "Kaohsiung Halal Chaozhou Beef Offal Restaurant",
+      "city": "高雄市苓雅區福德三路340號",
+      "rate": "4.8★",
+      "tag": "高雄清真寺旁官方 Halal 認證名店 · 潮州古法全牛料理",
+      "highlight": "必吃：潮州紅燒牛雜湯、手工爆汁牛肉餡餅、清真沙茶炒牛肉",
+      "desc": "緊鄰高雄清真寺的穆斯林指標名店！嚴格遵循清真認證溫體台灣牛肉，招牌潮州牛雜湯底清甜醇厚、牛肚牛筋軟嫩彈牙，現煎手工牛肉餡餅與捲餅更是每桌必點。",
+      "price": "NT$ 150 - 400",
+      "ctaType": "dining",
+      "img": "assets/ranking_kaohsiung_chaozhou_halal.png"
     },
     {
       "rank": 12,
-      "name": "Chen's Halal Kitchen 清真牛肉餐館",
-      "enName": "Chen's Halal Kitchen Kaohsiung Sinsing",
-      "city": "高雄市新興區中正三路",
-      "rate": "4.8★",
-      "tag": "高雄清真認證代表名店 · 招牌紅燒牛腩煲",
-      "highlight": "必吃：清真牛雜湯、新疆香辣手抓羊肉、家常牛肉捲餅",
-      "desc": "南台灣穆斯林指名度第一！嚴格選用檢疫與清真儀式牛肉，牛雜處理乾淨脆嫩，牛腩煲軟爛入味，湯頭清甜回甘。",
-      "price": "NT$ 200 - 450",
-      "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
-    },
-    {
-      "rank": 13,
       "name": "迪立印度清真健康料理",
       "enName": "Deli Indian Halal Healthy Food Kaohsiung",
       "city": "高雄市苓雅區中正二路",
@@ -1488,10 +1475,10 @@ const RANKINGS_FULL_DATA = {
       "desc": "主廚堅持少油低鹽的天然香料料理，多種咖哩可自由選擇純素或羊肉雞肉，烤餅現點現甩香氣逼人，口味道地正宗。",
       "price": "NT$ 300 - 600",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_deli_indian.png"
     },
     {
-      "rank": 14,
+      "rank": 13,
       "name": "原素食府（Yuan Vegetarian Buffet）",
       "enName": "Yuan Grand Vegetarian Buffet Banqiao New Taipei",
       "city": "新北市板橋區府中路",
@@ -1501,10 +1488,10 @@ const RANKINGS_FULL_DATA = {
       "desc": "佔地寬廣的氣派百匯餐廳！從新鮮生菜沙拉、日式素生魚片、義式披薩到中式熱炒應有盡有，是全家大小茹素聚餐首選。",
       "price": "NT$ 400 - 650",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_yuan_vegetarian.png"
     },
     {
-      "rank": 15,
+      "rank": 14,
       "name": "上善豆家 DeliSoys",
       "enName": "DeliSoys Handcrafted Soy Milk & Tofu Delicacies",
       "city": "台北市大安區復興南路一段",
@@ -1514,10 +1501,10 @@ const RANKINGS_FULL_DATA = {
       "desc": "堅持使用非基改有機黃豆，每日現磨現煮。店員在吧台當面撈起如絲綢般的新鮮熱豆皮，沾上甘醇醬油膏，豆香純淨撲鼻。",
       "price": "NT$ 300 - 550",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_delisoys.png"
     },
     {
-      "rank": 16,
+      "rank": 15,
       "name": "果然匯 蔬食宴（Fruitful Food）",
       "enName": "Fruitful Food Global Cuisine Vegetarian Buffet",
       "city": "新北市板橋 / 台北明曜 / 全台門市",
@@ -1527,10 +1514,10 @@ const RANKINGS_FULL_DATA = {
       "desc": "結合各國風味的五星級蔬食 Buffet！招牌厚切猴頭菇排彈牙如牛排，松露燉飯香氣馥郁，甜點區自製冰淇淋與蛋糕極具水準。",
       "price": "NT$ 598 - 688",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_fruitful_food.png"
     },
     {
-      "rank": 17,
+      "rank": 16,
       "name": "人間擺夷蔬食風味館",
       "enName": "Ren Jian Yunnan Baiyi Ethnic Vegetarian Cuisine",
       "city": "宜蘭縣羅東鎮民生東路",
@@ -1540,10 +1527,10 @@ const RANKINGS_FULL_DATA = {
       "desc": "全台罕見的滇緬少數民族蔬食！大量使用新鮮香茅、刺芫荽、檸檬葉等天然草本香料，酸甜香辣極度開胃下飯。",
       "price": "NT$ 250 - 450",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_renjian_baiyi.png"
     },
     {
-      "rank": 18,
+      "rank": 17,
       "name": "綠色大地純素健康生活館",
       "enName": "Green Earth Pure Vegan Lifestyle Hualien City",
       "city": "花蓮市國聯二路",
@@ -1553,10 +1540,10 @@ const RANKINGS_FULL_DATA = {
       "desc": "鄰近花蓮火車站，老闆用心推廣花蓮純素生活，選用在地阿美族刺蔥與小農野菜入菜，口味清爽少油少鹽，宛如回家吃飯。",
       "price": "NT$ 180 - 320",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_green_earth.png"
     },
     {
-      "rank": 19,
+      "rank": 18,
       "name": "草民 Tsao Min",
       "enName": "Tsao Min Local Organic Farm-to-Table Brunch Taitung",
       "city": "台東市強國街",
@@ -1566,20 +1553,20 @@ const RANKINGS_FULL_DATA = {
       "desc": "隱身台東市老屋庭院，四周種滿綠意植栽。早餐盤滿載台東在地友善小農無毒鮮蔬與自製手工麵包，是東海岸慢活早晨的極品。",
       "price": "NT$ 200 - 360",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_tsaomin.png"
     },
     {
-      "rank": 20,
-      "name": "波波俱樂部純素披薩",
-      "enName": "Bobo Club Vegan-Friendly Artisanal Pizza Kenting",
-      "city": "屏東縣恆春鎮恆南路",
+      "rank": 19,
+      "name": "蔬軾 Creative Vegetarian",
+      "enName": "Shu Shi Creative Vegetarian Pizza & Risotto Taipei",
+      "city": "台北市中山區農安街 / 信義安和店",
       "rate": "4.8★",
-      "tag": "南台灣渡假風手工柴燒窯烤披薩 · 友善蔬食聚落",
-      "highlight": "必吃：松露野菇純素起司披薩、恆春洋蔥烤鮮蔬",
-      "desc": "恆春老鎮上的時髦餐酒空間！引進進口純素發酵乳酪，搭配義大利進口窯爐高溫烘烤出豹紋薄脆餅皮，外國衝浪客愛店。",
-      "price": "NT$ 350 - 600",
+      "tag": "義法創意摩登蔬食美學 · 手工薄脆披薩與松露燉飯",
+      "highlight": "必吃：創意手工薄脆蔬食披薩、黑松露野菇燉飯、風乾番茄沙拉",
+      "desc": "打破素食框架的質感義法蔬食名店！嚴選台灣當令無毒鮮蔬與頂級進口乳酪，手工現烤薄脆披薩撒滿芝麻葉與起司刨片，擺盤如藝術品般精緻迷人。",
+      "price": "NT$ 400 - 750",
       "ctaType": "dining",
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop"
+      "img": "assets/ranking_shushi_creative.png"
     }
   ],
   "tea": [

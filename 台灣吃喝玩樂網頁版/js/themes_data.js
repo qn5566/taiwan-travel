@@ -1951,22 +1951,22 @@ const THEMES_COMPLETE_DATA = [
         "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
       },
       {
-        "name": "逢甲夜市官芝霖炭烤大腸包小腸",
+        "name": "官芝霖大腸包小腸",
         "subCategory": "market",
         "subName": "🍢 夜市小吃",
         "en": "Fengjia Guanzhilin Sausage in Rice Sausage",
         "tag": "台中西屯 · 夜市必吃",
         "desc": "台灣經典街頭美食元祖，炭火烤香糯米腸包入多汁香腸，加入酸菜碎蒜小黃瓜。",
-        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
+        "img": "assets/ranking_guanzhilin_sausage.png"
       },
       {
-        "name": "台南花園夜市二師兄熱炒三杯米血",
+        "name": "台南花園二師兄古早味滷味",
         "subCategory": "market",
         "subName": "🍢 夜市小吃",
         "en": "Garden Night Market Second Brother Three-Cup",
         "tag": "台南北區 · 夜市必吃",
         "desc": "巨型大鐵鍋現炒三杯米血與鳥蛋，濃郁麻油老薑冰糖醬汁香氣四溢排隊數十米。",
-        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
+        "img": "assets/ranking_ershixiong_luwei.png"
       },
       {
         "name": "台南花園夜市統大先炸後烤炭烤雞排",
@@ -1975,16 +1975,16 @@ const THEMES_COMPLETE_DATA = [
         "en": "Garden Market Tongda Crispy BBQ Chicken",
         "tag": "台南北區 · 夜市必吃",
         "desc": "先裹粉高溫酥炸鎖住肉汁，再刷上台南靈魂微甜蜜汁炭火慢烤焦香誘人。",
-        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
+        "img": "assets/ranking_tongda_chicken.png"
       },
       {
-        "name": "高雄瑞豐夜市天使厚切超爆汁雞排",
+        "name": "天使雞排-瑞豐店",
         "subCategory": "market",
         "subName": "🍢 夜市小吃",
         "en": "Ruifeng Angel Extra Thick Crispy Chicken",
         "tag": "高雄左營 · 夜市必吃",
         "desc": "厚度超越兩公分的特厚溫體雞胸肉，金黃酥脆薄皮咬下湯汁四溢全台聞名。",
-        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop"
+        "img": "assets/ranking_angel_chicken.png"
       },
       {
         "name": "高雄六合夜市莊記海產鮮蝦鮑魚粥",
