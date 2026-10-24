@@ -336,111 +336,84 @@
 
 
   <!-- =========================================================
-       ⚓ 10. 品牌介紹與專題導覽頁尾 (Taiwan Roam Brand & Quick Links Footer)
+       ⚓ 10. 網頁版全寬品牌頁尾 (Web Portal Brand Footer)
        ========================================================= -->
-  <footer class="site-footer" style="background: #F8FAFC; border-top: 1.5px solid #E2E8F0; padding: 64px 0 56px 0; margin-top: 0; color: #0F172A;">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; max-width: 1060px; margin: 0 auto;">
+  <footer class="site-footer" style="background: linear-gradient(180deg, #0F172A 0%, #090E1A 100%); border-top: 1px solid #1E293B; padding: 56px 0 32px 0; margin-top: 0; color: #F8FAFC; position: relative; overflow: hidden;">
+    <!-- 底部微光氛圍裝飾 -->
+    <div style="position: absolute; top: -120px; left: 15%; width: 420px; height: 240px; background: radial-gradient(circle, rgba(2, 132, 199, 0.14) 0%, transparent 70%); pointer-events: none;"></div>
+
+    <div class="container" style="position: relative; z-index: 1;">
+      <!-- 第一排：左邊品牌故事與合作洽詢 ＋ 右邊專題導覽快速連結（橫向一排展開） -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 56px; flex-wrap: wrap; padding-bottom: 40px; border-bottom: 1px solid rgba(148, 163, 184, 0.16);">
         
-        <!-- 左側：品牌介紹白色圓角卡片（比照參考圖設計） -->
-        <div style="background: #FFFFFF; border-radius: 28px; border: 1.5px solid #E2E8F0; padding: 36px 32px 28px; box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04); text-align: center;">
-          <!-- 1. 頂部第一行：LOGO + 台灣吃喝玩樂 Taiwan Roam -->
-          <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 18px; white-space: nowrap;">
-            <img src="assets/taiwan_roam_logo.png" alt="Taiwan Roam App Icon" style="width: 42px; height: 42px; border-radius: 11px; object-fit: cover; box-shadow: 0 2px 8px rgba(0,0,0,0.08); flex-shrink: 0;">
-            <div style="display: flex; align-items: baseline; gap: 10px; white-space: nowrap;">
-              <span style="font-size: 21px; font-weight: 900; color: #0F172A; letter-spacing: -0.2px;">台灣吃喝玩樂</span>
-              <span style="font-size: 14px; font-weight: 800; color: #0284C7; letter-spacing: 0.5px;">Taiwan Roam</span>
+        <!-- 左側：品牌核心理念與合作按鈕 -->
+        <div style="flex: 1.3; min-width: 320px; max-width: 580px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <img src="assets/taiwan_roam_logo.png" alt="Taiwan Roam" style="width: 44px; height: 44px; border-radius: 12px; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+            <div style="display: flex; align-items: baseline; gap: 10px;">
+              <span style="font-size: 22px; font-weight: 900; color: #FFFFFF; letter-spacing: -0.3px;">台灣吃喝玩樂</span>
+              <span style="font-size: 13.5px; font-weight: 800; color: #38BDF8; letter-spacing: 0.8px; text-transform: uppercase;">Taiwan Roam</span>
             </div>
           </div>
 
-          <!-- 2. 核心大標題 ＆ 英文理念 ＆ 敘事文案 -->
-          <div style="margin-bottom: 22px;">
-            <h2 style="font-size: 21px; font-weight: 900; color: #0F172A; margin: 0 0 8px; letter-spacing: -0.3px; line-height: 1.35;">
-              探索最純粹的島嶼景點冒險
-            </h2>
-            <div style="font-size: 13px; color: #64748B; font-weight: 700; letter-spacing: 0.4px; margin-bottom: 14px; line-height: 1.4;">
-              Curating Taiwan’s Authentic Travel Aesthetics &amp; Island Stories
-            </div>
-            <p style="font-size: 14px; color: #475569; line-height: 1.8; margin: 0 auto; max-width: 420px; font-weight: 500;">
-              山海相擁，巷弄有光。豐富的小島風情、道地美食與人文藝術。<br>
-              準備好你的行囊，一起走進最迷人的台灣探險！
-            </p>
+          <h3 style="font-size: 20px; font-weight: 900; color: #FFFFFF; margin: 0 0 6px 0; letter-spacing: -0.2px; font-family: 'Noto Serif TC', serif;">
+            探索最純粹的島嶼景點冒險
+          </h3>
+          <div style="font-size: 12.5px; color: #38BDF8; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 12px;">
+            Curating Taiwan’s Authentic Travel Aesthetics &amp; Island Stories
           </div>
+          <p style="font-size: 13.5px; color: #94A3B8; line-height: 1.75; margin: 0 0 22px 0; font-weight: 400;">
+            山海相擁，巷弄有光。豐富的小島風情、道地美食與人文藝術。準備好你的行囊，一起走進最迷人的台灣探險！
+          </p>
 
-          <!-- 3. 品牌合作洽詢按鈕 -->
-          <div style="margin-bottom: 22px;">
-            <a href="mailto:himydream.studio0220@gmail.com?subject=%E3%80%90%E5%93%81%E7%89%8C%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2%E3%80%91%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82%20Taiwan%20Roam%20%E5%95%86%E6%A5%AD%E5%90%88%E4%BD%9C" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: #FFFFFF; text-decoration: none; font-size: 13.5px; font-weight: 800; padding: 11px 28px; border-radius: 9999px; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18); transition: all 0.2s ease;">
+          <!-- 合作洽詢與工作室徽章橫排 -->
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <a href="mailto:himydream.studio0220@gmail.com?subject=%E3%80%90%E5%93%81%E7%89%8C%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2%E3%80%91%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82%20Taiwan%20Roam%20%E5%95%86%E6%A5%AD%E5%90%88%E4%BD%9C" 
+               style="display: inline-flex; align-items: center; gap: 7px; background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%); color: #FFFFFF; text-decoration: none; font-size: 13px; font-weight: 800; padding: 9px 22px; border-radius: 9999px; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3); transition: all 0.2s ease;">
               <span>🤝</span>
               <span>品牌合作洽詢</span>
-              <span style="font-size: 12px; opacity: 0.85;">(來信洽談)</span>
+              <span style="font-size: 11.5px; opacity: 0.9;">(來信洽談)</span>
             </a>
-          </div>
 
-          <!-- 4. 最底部：PRODUCED BY HiMyDream STUDIO 與版權宣告 -->
-          <div style="padding-top: 16px; border-top: 1px solid #F1F5F9; display: flex; flex-direction: column; align-items: center; gap: 8px;">
-            <a href="https://himydream.me/studio/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 6px 16px; border-radius: 9999px; text-decoration: none; transition: all 0.15s ease;" title="造訪 HiMyDream STUDIO 官方網站">
-              <span style="font-size: 10.5px; font-weight: 800; color: #64748B; letter-spacing: 0.4px;">PRODUCED BY</span>
-              <span style="font-size: 12px; font-weight: 900; color: #0F172A;">HiMyDream STUDIO</span>
-              <span style="font-size: 12px; color: #0284C7; font-weight: 900;">↗</span>
+            <a href="https://himydream.me/studio/" target="_blank" rel="noopener noreferrer" 
+               style="display: inline-flex; align-items: center; gap: 6px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(148, 163, 184, 0.24); padding: 8px 16px; border-radius: 9999px; text-decoration: none; transition: all 0.2s ease;" title="造訪 HiMyDream STUDIO 官方網站">
+              <span style="font-size: 10.5px; font-weight: 800; color: #94A3B8; letter-spacing: 0.5px;">PRODUCED BY</span>
+              <span style="font-size: 12px; font-weight: 900; color: #FFFFFF;">HiMyDream STUDIO</span>
+              <span style="font-size: 12px; color: #38BDF8; font-weight: 900;">↗</span>
             </a>
-            <div style="font-size: 11.5px; color: #94A3B8; margin-top: 2px; letter-spacing: 0.3px;">
-              © Taiwan Roam · HiMyDream STUDIO · All Rights Reserved
-            </div>
           </div>
         </div>
 
-        <!-- 右側：重點快速連結（專題導覽） -->
-        <div style="background: #FFFFFF; border-radius: 28px; border: 1.5px solid #E2E8F0; padding: 36px 36px; box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);">
-          <div style="font-size: 18px; font-weight: 900; color: #0F172A; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1.5px solid #F1F5F9; display: flex; align-items: center; gap: 8px;">
-            <span style="color: #0284C7;">🧭</span>
+        <!-- 右側：專題導覽快速連結（無外框、俐落雙欄頁尾導覽） -->
+        <div style="flex: 1; min-width: 280px; max-width: 460px;">
+          <div style="font-size: 14px; font-weight: 900; color: #FFFFFF; letter-spacing: 1px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;">
+            <span style="color: #38BDF8;">🧭</span>
             <span>專題導覽</span>
+            <span style="font-size: 11px; color: #64748B; font-weight: 700; letter-spacing: 1.5px;">QUICK LINKS</span>
           </div>
-          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
-            <li>
-              <a href="#trending-top6" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 12px; background: #F8FAFC; color: #334155; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s ease;">
-                <span>台灣熱門 Top 6 活動</span>
-                <span style="color: #0284C7; font-size: 13px;">➔</span>
-              </a>
-            </li>
-            <li>
-              <a href="themes.html" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 12px; background: #F8FAFC; color: #334155; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s ease;">
-                <span>18 大深度探索主題</span>
-                <span style="color: #0284C7; font-size: 13px;">➔</span>
-              </a>
-            </li>
-            <li>
-              <a href="spots.html" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 12px; background: #F8FAFC; color: #334155; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s ease;">
-                <span>全台 22 縣市景點瀑布流</span>
-                <span style="color: #0284C7; font-size: 13px;">➔</span>
-              </a>
-            </li>
-            <li>
-              <a href="michelin.html" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 12px; background: #F8FAFC; color: #334155; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s ease;">
-                <span>米其林星級與必比登美食</span>
-                <span style="color: #0284C7; font-size: 13px;">➔</span>
-              </a>
-            </li>
-            <li>
-              <a href="cafe.html" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 12px; background: #F8FAFC; color: #334155; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s ease;">
-                <span>台灣必去特色咖啡店散策</span>
-                <span style="color: #0284C7; font-size: 13px;">➔</span>
-              </a>
-            </li>
-            <li>
-              <a href="cafe.html?tab=weekend-hop" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 12px; background: #F8FAFC; color: #334155; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s ease;">
-                <span>週末探店專欄文章</span>
-                <span style="color: #0284C7; font-size: 13px;">➔</span>
-              </a>
-            </li>
-            <li>
-              <a href="community.html" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 12px; background: #F8FAFC; color: #334155; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s ease;">
-                <span>旅人留言討論專區</span>
-                <span style="color: #0284C7; font-size: 13px;">➔</span>
-              </a>
-            </li>
+          <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 24px;">
+            <li><a href="#trending-top6" style="color: #CBD5E1; font-size: 13.5px; font-weight: 600; text-decoration: none; transition: color 0.2s;">台灣熱門 Top 6 活動</a></li>
+            <li><a href="themes.html" style="color: #CBD5E1; font-size: 13.5px; font-weight: 600; text-decoration: none; transition: color 0.2s;">18 大深度探索主題</a></li>
+            <li><a href="spots.html" style="color: #CBD5E1; font-size: 13.5px; font-weight: 600; text-decoration: none; transition: color 0.2s;">全台 22 縣市景點瀑布流</a></li>
+            <li><a href="michelin.html" style="color: #CBD5E1; font-size: 13.5px; font-weight: 600; text-decoration: none; transition: color 0.2s;">米其林星級與必比登美食</a></li>
+            <li><a href="cafe.html" style="color: #CBD5E1; font-size: 13.5px; font-weight: 600; text-decoration: none; transition: color 0.2s;">台灣必去特色咖啡店散策</a></li>
+            <li><a href="cafe.html?tab=weekend-hop" style="color: #CBD5E1; font-size: 13.5px; font-weight: 600; text-decoration: none; transition: color 0.2s;">週末探店專欄文章</a></li>
+            <li><a href="community.html" style="color: #CBD5E1; font-size: 13.5px; font-weight: 600; text-decoration: none; transition: color 0.2s;">旅人留言討論專區</a></li>
           </ul>
         </div>
 
+      </div>
+
+      <!-- 第二排：最底部品牌版權列 (Bottom Brand Signature Row) -->
+      <div style="padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12px; color: #64748B;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="color: #94A3B8; font-weight: 700;">© Taiwan Roam · HiMyDream STUDIO</span>
+          <span>·</span>
+          <span>All Rights Reserved</span>
+        </div>
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 2px; color: #475569; text-transform: uppercase;">
+          TAIWAN ROAM ‧ AUTHENTIC ISLAND STORIES
+        </div>
       </div>
     </div>
   </footer>
