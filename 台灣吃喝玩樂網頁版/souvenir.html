@@ -108,12 +108,12 @@
       </nav>
 
       <div class="header-right-tools">
-        <a href="https://www.ubereats.com/tw" 
+        <a href="https://www.ubereats.com/tw/store/%E8%90%AC%E5%AE%B6%E7%A6%8F-%E4%B8%AD%E5%A3%A2%E5%BA%97/ASIUe5lNQs-FehYeumejiQ/0122147b-994d-42cf-857a-161eba67a389/31909b2b-51dc-557b-99cd-92353ae05d12?diningMode=DELIVERY&ps=1&scats=31909b2b-51dc-557b-99cd-92353ae05d12&scatsubs=" 
            target="_blank" 
            rel="noopener noreferrer" 
            class="btn-cta-primary" 
            style="padding: 9px 18px; font-size: 13px; text-decoration: none; background: linear-gradient(135deg, #16A34A 0%, #15803D 100%);">
-          🛵 Uber Eats 外送 ➔
+          🛵 萬家福休閒零嘴外送 ➔
         </a>
       </div>
     </div>
@@ -148,23 +148,73 @@
   <section class="section-padding" style="background: #F8FAFC;">
     <div class="container">
       
-      <!-- 痛點解法橫幅 -->
-      <div class="souvenir-painpoint-banner">
-        <div>
-          <div style="font-size: 17px; font-weight: 900; color: #7C2D12; margin-bottom: 4px;">
-            🛵 外國旅客＆自由行痛點救星：Uber Eats ＆ 電商外送，專人直送飯店代收！
+      <!-- 痛點解法與最近萬家福分店智慧定位橫幅 -->
+      <div class="souvenir-painpoint-banner" style="flex-direction: column; align-items: stretch; gap: 16px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+          <div style="flex: 1; min-width: 280px;">
+            <div style="font-size: 17px; font-weight: 900; color: #7C2D12; margin-bottom: 4px;">
+              🛵 外國旅客＆自由行痛點救星：Uber Eats 自動對應最近「萬家福（家樂福）」直送飯店！
+            </div>
+            <div style="font-size: 13px; color: #9A3412; line-height: 1.55;">
+              不用在大熱天排隊 2 小時搶佳德或小潘，也不用扛大包小包逛超市！下方每個品項皆已對照<strong>鳳梨酥、牛軋糖、蛋黃酥、黑糖麻糬禮盒</strong>等關鍵字，自動跳轉距離您目前位置最近的<strong>萬家福分店</strong>與<strong>休閒零嘴選單</strong>直送飯店。
+            </div>
           </div>
-          <div style="font-size: 13px; color: #9A3412; line-height: 1.55;">
-            不用在大熱天排隊 2 小時搶佳德或小潘，也不用扛大包小包逛超市！直接用 Uber Eats 點購伴手禮名店、家樂福超市零嘴與在地美食直送飯店，輕鬆去機場。
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <a id="banner-snack-menu-link"
+               href="https://www.ubereats.com/tw/store/%E8%90%AC%E5%AE%B6%E7%A6%8F-%E4%B8%AD%E5%A3%A2%E5%BA%97/ASIUe5lNQs-FehYeumejiQ/0122147b-994d-42cf-857a-161eba67a389/31909b2b-51dc-557b-99cd-92353ae05d12?diningMode=DELIVERY&ps=1&scats=31909b2b-51dc-557b-99cd-92353ae05d12&scatsubs=" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-action" 
+               style="background: linear-gradient(135deg, #16A34A 0%, #15803D 100%); color: #FFFFFF; padding: 10px 18px; font-size: 13px; font-weight: 800; border-radius: 12px; text-decoration: none; white-space: nowrap;">
+              🛒 萬家福「休閒零嘴」選單 ➔
+            </a>
           </div>
         </div>
-        <a href="https://www.ubereats.com/tw" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="btn-action" 
-           style="background: linear-gradient(135deg, #16A34A 0%, #15803D 100%); color: #FFFFFF; padding: 10px 20px; font-size: 13px; font-weight: 800; border-radius: 12px; text-decoration: none; white-space: nowrap;">
-          🛵 Uber Eats 飯店外送 ➔
-        </a>
+
+        <!-- GPS 自動定位距離目前位置最近的萬家福分店控制列 -->
+        <div style="background: rgba(255, 255, 255, 0.88); border: 1px solid #FED7AA; border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <span style="background: #EA580C; color: #FFFFFF; font-size: 11.5px; font-weight: 800; padding: 4px 10px; border-radius: 999px;">📍 目前對應分店</span>
+            <span id="nearest-branch-status" style="font-size: 13.5px; font-weight: 800; color: #7C2D12;">
+              全台自動定位最近「萬家福」分店（依您所在位置配對）
+            </span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <button type="button" onclick="detectNearestWanjiafu()" style="background: #FFF7ED; border: 1.5px solid #EA580C; color: #EA580C; font-size: 12.5px; font-weight: 800; padding: 6px 14px; border-radius: 999px; cursor: pointer; transition: all 0.2s;">
+              🎯 GPS 定位離我最近的萬家福
+            </button>
+            <select id="wanjiafu-branch-select" onchange="onSelectWanjiafuBranch(this.value)" style="padding: 6px 12px; border-radius: 999px; border: 1px solid #FDBA74; font-size: 12.5px; font-weight: 700; color: #7C2D12; background: #FFFFFF; outline: none; cursor: pointer;">
+              <option value="萬家福">🌐 自動配對最近萬家福分店</option>
+              <option value="萬家福 中壢店">📍 萬家福-中壢店 (桃園中壢/青埔)</option>
+              <option value="萬家福 經國店">📍 萬家福-經國店 (桃園區/藝文特區)</option>
+              <option value="萬家福 桂林店">📍 萬家福-桂林店 (台北西門町/萬華 24H)</option>
+              <option value="萬家福 重慶店">📍 萬家福-重慶店 (台北車站/大同/中山)</option>
+              <option value="萬家福 大直店">📍 萬家福-大直店 (台北中山/大直)</option>
+              <option value="萬家福 內湖店">📍 萬家福-內湖店 (台北內湖/南港)</option>
+              <option value="萬家福 天母店">📍 萬家福-天母店 (台北士林/北投)</option>
+              <option value="萬家福 重新店">📍 萬家福-重新店 (新北三重/新莊)</option>
+              <option value="萬家福 板橋店">📍 萬家福-板橋店 (新北板橋車站)</option>
+              <option value="萬家福 新店店">📍 萬家福-新店店 (新北新店/碧潭)</option>
+              <option value="萬家福 淡新店">📍 萬家福-淡新店 (新北淡水)</option>
+              <option value="萬家福 竹北店">📍 萬家福-竹北店 (新竹竹北)</option>
+              <option value="萬家福 青海店">📍 萬家福-青海店 (台中逢甲/西屯 24H)</option>
+              <option value="萬家福 文心店">📍 萬家福-文心店 (台中市政/南屯)</option>
+              <option value="萬家福 德安店">📍 萬家福-德安店 (台中車站/東區)</option>
+              <option value="萬家福 彰化店">📍 萬家福-彰化店 (彰化市)</option>
+              <option value="萬家福 南投店">📍 萬家福-南投店 (南投市/日月潭順遊)</option>
+              <option value="萬家福 嘉義店">📍 萬家福-嘉義店 (嘉義市)</option>
+              <option value="萬家福 安平店">📍 萬家福-安平店 (台南中西區/安平)</option>
+              <option value="萬家福 中華店">📍 萬家福-中華店 (台南東區/永康)</option>
+              <option value="萬家福 愛河店">📍 萬家福-愛河店 (高雄鹽埕/愛河)</option>
+              <option value="萬家福 鼎山店">📍 萬家福-鼎山店 (高雄左營/三民 24H)</option>
+              <option value="萬家福 成功店">📍 萬家福-成功店 (高雄前鎮/亞灣)</option>
+              <option value="萬家福 屏東店">📍 萬家福-屏東店 (屏東市)</option>
+              <option value="萬家福 宜蘭店">📍 萬家福-宜蘭店 (宜蘭市/礁溪)</option>
+              <option value="萬家福 花蓮店">📍 萬家福-花蓮店 (花蓮市)</option>
+              <option value="萬家福 台東店">📍 萬家福-台東店 (台東市)</option>
+            </select>
+          </div>
+        </div>
       </div>
 
       <!-- 5 大分類按鈕列 -->
@@ -198,6 +248,103 @@
   <script src="js/souvenirs_data.js"></script>
   <script>
     let activeCatId = 'pastry';
+    let currentBranchQuery = '萬家福';
+    let currentBranchLabel = '最近萬家福';
+
+    const DEFAULT_SNACK_MENU_URL = "https://www.ubereats.com/tw/store/%E8%90%AC%E5%AE%B6%E7%A6%8F-%E4%B8%AD%E5%A3%A2%E5%BA%97/ASIUe5lNQs-FehYeumejiQ/0122147b-994d-42cf-857a-161eba67a389/31909b2b-51dc-557b-99cd-92353ae05d12?diningMode=DELIVERY&ps=1&scats=31909b2b-51dc-557b-99cd-92353ae05d12&scatsubs=";
+
+    const WANJIAFU_BRANCHES = [
+      { name: "萬家福 中壢店", short: "萬家福-中壢店", lat: 24.9565, lng: 121.2405, directSnackUrl: DEFAULT_SNACK_MENU_URL },
+      { name: "萬家福 經國店", short: "萬家福-經國店", lat: 25.0190, lng: 121.3055 },
+      { name: "萬家福 桂林店", short: "萬家福-桂林店", lat: 25.0381, lng: 121.5060 },
+      { name: "萬家福 重慶店", short: "萬家福-重慶店", lat: 25.0630, lng: 121.5136 },
+      { name: "萬家福 大直店", short: "萬家福-大直店", lat: 25.0825, lng: 121.5582 },
+      { name: "萬家福 內湖店", short: "萬家福-內湖店", lat: 25.0628, lng: 121.5745 },
+      { name: "萬家福 天母店", short: "萬家福-天母店", lat: 25.1055, lng: 121.5226 },
+      { name: "萬家福 重新店", short: "萬家福-重新店", lat: 25.0468, lng: 121.4720 },
+      { name: "萬家福 板橋店", short: "萬家福-板橋店", lat: 25.0145, lng: 121.4780 },
+      { name: "萬家福 新店店", short: "萬家福-新店店", lat: 24.9752, lng: 121.5468 },
+      { name: "萬家福 淡新店", short: "萬家福-淡新店", lat: 25.1882, lng: 121.4435 },
+      { name: "萬家福 竹北店", short: "萬家福-竹北店", lat: 24.8268, lng: 121.0125 },
+      { name: "萬家福 青海店", short: "萬家福-青海店", lat: 24.1705, lng: 120.6450 },
+      { name: "萬家福 文心店", short: "萬家福-文心店", lat: 24.1520, lng: 120.6468 },
+      { name: "萬家福 德安店", short: "萬家福-德安店", lat: 24.1362, lng: 120.6875 },
+      { name: "萬家福 彰化店", short: "萬家福-彰化店", lat: 24.0910, lng: 120.5370 },
+      { name: "萬家福 南投店", short: "萬家福-南投店", lat: 23.9085, lng: 120.6895 },
+      { name: "萬家福 嘉義店", short: "萬家福-嘉義店", lat: 23.4708, lng: 120.4325 },
+      { name: "萬家福 安平店", short: "萬家福-安平店", lat: 22.9968, lng: 120.1865 },
+      { name: "萬家福 中華店", short: "萬家福-中華店", lat: 23.0052, lng: 120.2348 },
+      { name: "萬家福 愛河店", short: "萬家福-愛河店", lat: 22.6410, lng: 120.2895 },
+      { name: "萬家福 鼎山店", short: "萬家福-鼎山店", lat: 22.6552, lng: 120.3175 },
+      { name: "萬家福 成功店", short: "萬家福-成功店", lat: 22.6050, lng: 120.3015 },
+      { name: "萬家福 屏東店", short: "萬家福-屏東店", lat: 22.6825, lng: 120.4955 },
+      { name: "萬家福 宜蘭店", short: "萬家福-宜蘭店", lat: 24.7540, lng: 121.7478 },
+      { name: "萬家福 花蓮店", short: "萬家福-花蓮店", lat: 24.0165, lng: 121.6085 },
+      { name: "萬家福 台東店", short: "萬家福-台東店", lat: 22.7538, lng: 121.1475 }
+    ];
+
+    function calcDistanceKm(lat1, lng1, lat2, lng2) {
+      const R = 6371;
+      const dLat = (lat2 - lat1) * Math.PI / 180;
+      const dLng = (lng2 - lng1) * Math.PI / 180;
+      const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLng / 2) * Math.sin(dLng / 2);
+      return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    }
+
+    function detectNearestWanjiafu(silent = false) {
+      const statusEl = document.getElementById('nearest-branch-status');
+      if (!navigator.geolocation) {
+        if (!silent && statusEl) statusEl.textContent = '您的瀏覽器不支援定位，可由右側選單手動選擇最近萬家福分店';
+        return;
+      }
+      if (!silent && statusEl) {
+        statusEl.textContent = '🛰️ 正在偵測距離您目前位置最近的「萬家福」分店...';
+      }
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const { latitude, longitude } = pos.coords;
+          let nearest = WANJIAFU_BRANCHES[0];
+          let minKm = Infinity;
+          WANJIAFU_BRANCHES.forEach(b => {
+            const d = calcDistanceKm(latitude, longitude, b.lat, b.lng);
+            if (d < minKm) {
+              minKm = d;
+              nearest = b;
+            }
+          });
+          currentBranchQuery = nearest.name;
+          currentBranchLabel = nearest.short;
+          const selectEl = document.getElementById('wanjiafu-branch-select');
+          if (selectEl) selectEl.value = nearest.name;
+          if (statusEl) {
+            statusEl.innerHTML = `已鎖定距離您最近：<strong>${nearest.short}</strong>（約 ${minKm.toFixed(1)} km）· 點擊品項直達該店對應商品`;
+          }
+          renderCategoryProducts(activeCatId, document.getElementById('souvenir-search-input')?.value.trim() || '');
+        },
+        () => {
+          if (!silent && statusEl) {
+            statusEl.textContent = '請允許位置權限或由右側下拉選單選擇最近「萬家福」分店（預設由 Uber Eats 自動定位）';
+          }
+        },
+        { enableHighAccuracy: false, timeout: 6000, maximumAge: 300000 }
+      );
+    }
+
+    function onSelectWanjiafuBranch(val) {
+      currentBranchQuery = val;
+      currentBranchLabel = val === '萬家福' ? '最近萬家福' : val.replace(' ', '-');
+      const statusEl = document.getElementById('nearest-branch-status');
+      if (statusEl) {
+        if (val === '萬家福') {
+          statusEl.textContent = '全台自動定位最近「萬家福」分店（依您所在位置配對）';
+        } else {
+          statusEl.innerHTML = `已指定分店：<strong>${currentBranchLabel}</strong> · 點擊下方品項立即跳轉該分店對應商品與休閒零嘴選單`;
+        }
+      }
+      renderCategoryProducts(activeCatId, document.getElementById('souvenir-search-input')?.value.trim() || '');
+    }
 
     function initSouvenirPage() {
       if (typeof SOUVENIR_CATEGORIES_DATA === 'undefined') return;
@@ -213,6 +360,8 @@
       }).join('');
 
       renderCategoryProducts(activeCatId);
+      // 載入時自動嘗試靜默定位最近的萬家福分店
+      detectNearestWanjiafu(true);
     }
 
     function switchSouvenirCategory(catId) {
@@ -227,6 +376,16 @@
       const cat = SOUVENIR_CATEGORIES_DATA.find(c => c.id === catId);
       if (!cat) return;
 
+      const snackMenuHref = (currentBranchQuery === '萬家福' || currentBranchQuery === '萬家福 中壢店')
+        ? DEFAULT_SNACK_MENU_URL
+        : `https://www.ubereats.com/tw/search?q=${encodeURIComponent(currentBranchQuery + ' 休閒零嘴')}`;
+
+      const bannerSnackEl = document.getElementById('banner-snack-menu-link');
+      if (bannerSnackEl) {
+        bannerSnackEl.href = snackMenuHref;
+        bannerSnackEl.innerHTML = `🛒 ${currentBranchLabel}「休閒零嘴」選單 ➔`;
+      }
+
       // 更新說明盒
       const infoBox = document.getElementById('souvenir-cat-info');
       infoBox.innerHTML = `
@@ -240,9 +399,14 @@
             ${cat.desc} ‧ 轉化管道：<strong>${cat.channel}</strong>
           </div>
         </div>
-        <a href="${cat.defaultUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding: 8px 18px; font-size: 13px;">
-          ${cat.cta}
-        </a>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <a href="${snackMenuHref}" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: #FFF7ED; border: 1.5px solid #EA580C; color: #EA580C; padding: 8px 16px; font-size: 13px; font-weight: 800; text-decoration: none; border-radius: 999px;">
+            🛒 ${currentBranchLabel}休閒零嘴選單
+          </a>
+          <a href="${cat.defaultUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding: 8px 18px; font-size: 13px;">
+            ${cat.cta}
+          </a>
+        </div>
       `;
 
       // 渲染商品
@@ -255,7 +419,8 @@
           it.name.toLowerCase().includes(kw) || 
           it.brand.toLowerCase().includes(kw) || 
           it.origin.toLowerCase().includes(kw) ||
-          it.desc.toLowerCase().includes(kw)
+          it.desc.toLowerCase().includes(kw) ||
+          (it.carrefourKeyword && it.carrefourKeyword.toLowerCase().includes(kw))
         );
       }
 
@@ -266,6 +431,9 @@
 
       grid.innerHTML = items.map(item => {
         const isTop3 = item.rank <= 3;
+        const kw = item.carrefourKeyword || item.name;
+        const dynamicItemUrl = `https://www.ubereats.com/tw/search?q=${encodeURIComponent(currentBranchQuery + ' ' + kw)}`;
+        const shortKw = kw.split(' ')[0];
         return `
           <div class="souvenir-card">
             <div class="souvenir-img-wrap">
@@ -282,7 +450,7 @@
                 <div style="font-size: 11px; color: #94A3B8; margin-bottom: 8px;">${item.enName}</div>
                 <p style="font-size: 12.5px; color: #475569; line-height: 1.5; margin-bottom: 12px;">${item.desc}</p>
                 <div style="font-size: 11px; color: #166534; background: #DCFCE7; padding: 3px 8px; border-radius: 6px; font-weight: 700; display: inline-block; margin-bottom: 14px;">
-                  ${item.painPoint}
+                  📍 對照「${kw}」· 跳轉${currentBranchLabel}直送飯店
                 </div>
               </div>
 
@@ -291,9 +459,14 @@
                   <span style="font-size: 16px; font-weight: 900; color: #E11D48;">${item.price}</span>
                   <span style="font-size: 12px; color: #94A3B8;">${item.rating} (${item.reviews})</span>
                 </div>
-                <a href="${item.buyUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="width: 100%; justify-content: center; padding: 10px; font-size: 13px; font-weight: 800; text-decoration: none;">
-                  ${item.ctaText}
-                </a>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <a href="${dynamicItemUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="width: 100%; justify-content: center; padding: 10px; font-size: 13px; font-weight: 800; text-decoration: none;">
+                    🛵 ${currentBranchLabel} · 買「${shortKw}」➔
+                  </a>
+                  <a href="${snackMenuHref}" target="_blank" rel="noopener noreferrer" style="width: 100%; text-align: center; padding: 6px 8px; font-size: 11.5px; font-weight: 700; color: #EA580C; background: #FFF7ED; border: 1px solid #FED7AA; border-radius: 8px; text-decoration: none;">
+                    🛒 進入${currentBranchLabel}「休閒零嘴」選單 ➔
+                  </a>
+                </div>
               </div>
             </div>
           </div>
