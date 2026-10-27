@@ -606,10 +606,13 @@
     .hop-longform-article .ticket-action-btn.teal { background: #2A8C82; }
     .hop-longform-article .ticket-action-btn.amber { background: #D97706; }
     .hop-longform-article .ticket-action-btn.coral { background: #C85A32; }
+    .hop-longform-article .ticket-action-btn.brick { background: #C04A2A; }
+    .hop-longform-article .ticket-action-btn.tea { background: #3F6244; }
     .hop-longform-article .place-badge.tea { color: #15803D; background: #DCFCE7; }
     .hop-longform-article .place-badge.snack { color: #B45309; background: #FEF3C7; }
     .hop-longform-article .place-badge.michelin { color: #991B1B; background: #FEE2E2; }
     .hop-longform-article .place-badge.duck { color: #C2410C; background: #FFEDD5; }
+    .hop-longform-article .place-badge.noodle { color: #C2410C; background: #FFEDD5; }
     .hop-longform-article .place-badge.bar { color: #7C2D12; background: #FFEDD5; }
     .hop-longform-article .place-badge.cafe { color: #0369A1; background: #E0F2FE; }
     .hop-longform-article .place-btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -1755,7 +1758,7 @@
       const latestArticles = allPlaces.filter(p => p.isLatest);
       const latestArticle = latestArticles[0] || allPlaces[0];
       const moreLatestArticles = latestArticles.slice(1, 6);
-      const popularArticles = allPlaces.filter(p => p.isPopular).slice(0, 5);
+      const popularArticles = allPlaces.filter(p => p.isPopular).slice(0, 6);
 
       if (!latestArticle) {
         showcaseEl.innerHTML = "";
