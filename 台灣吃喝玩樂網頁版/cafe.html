@@ -609,6 +609,8 @@
     .hop-longform-article .ticket-action-btn.brick { background: #C04A2A; }
     .hop-longform-article .ticket-action-btn.tea { background: #3F6244; }
     .hop-longform-article .ticket-action-btn.blue { background: #0284C7; }
+    .hop-longform-article .ticket-action-btn.orange { background: #C2410C; }
+    .hop-longform-article .ticket-action-btn.green { background: #1B4D3E; }
     .hop-longform-article .place-badge.tea { color: #15803D; background: #DCFCE7; }
     .hop-longform-article .place-badge.snack { color: #B45309; background: #FEF3C7; }
     .hop-longform-article .place-badge.michelin { color: #991B1B; background: #FEE2E2; }
@@ -624,6 +626,10 @@
     .hop-longform-article .place-badge.hotel { color: #1D4ED8; background: #DBEAFE; }
     .hop-longform-article .place-badge.spa { color: #0E7490; background: #CCFBF1; }
     .hop-longform-article .place-badge.surf { color: #0369A1; background: #E0F2FE; }
+    .hop-longform-article .place-badge.sea { color: #0284C7; background: #E0F2FE; }
+    .hop-longform-article .place-badge.mountain { color: #15803D; background: #DCFCE7; }
+    .hop-longform-article .place-badge.market { color: #7C2D12; background: #FEF3C7; }
+    .hop-longform-article .place-badge.camp { color: #0E7490; background: #CCFBF1; }
     .hop-longform-article .place-btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
     .hop-longform-article .place-footer-btn { flex: 1; white-space: nowrap; }
     .hop-longform-article .place-footer-btn.reserve {
@@ -2127,6 +2133,29 @@
 
     /* 專欄內餐廳、茶店、美食、咖啡卡牌專屬照片與特色餐點圖鑑 */
     const PLACE_PHOTO_SPOTLIGHT_MAP = {
+      // Vol. 09 新竹篇 (21 家)
+      "沒有名字的甜點專賣": { img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=700&auto=format&fit=crop", type: "🍰 香山海岸甜點", dish: "🍰 農田小徑老宅・焦糖鹽之花生乳捲與巴斯克乳酪" },
+      "LUAU・柴寮披薩": { img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=700&auto=format&fit=crop", type: "🍕 精靈木構柴燒", dish: "🍕 龍眼木炭火窯烤薄脆手工披薩・燉牛肉海鮮濃湯" },
+      "海角咖啡（南寮海岸驛站）": { img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop", type: "🌊 巨大風車第一排", dish: "☕ 17公里海岸綠色隧道・西西里氣泡咖啡看金色夕陽" },
+      "日見森嵐": { img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&auto=format&fit=crop", type: "📸 懸空透明天空步道", dish: "☁️ 正對油羅溪谷雲霧繚繞・香醇冰滴咖啡與手作鬆餅" },
+      "六號花園": { img: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=700&auto=format&fit=crop", type: "🌿 森林紅磚溫室", dish: "🍗 原生竹林歐風小屋・迷迭香烤雞腿排與草本司康" },
+      "上山喝咖啡": { img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&auto=format&fit=crop", type: "⛰️ 無欄杆露天山景", dish: "🍃 大山背逃學步道・水洗耶加雪菲手沖配檸檬磅蛋糕" },
+      "彼刻義式餐酒館（Piccola Enoteca）": { img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=700&auto=format&fit=crop", type: "⭐ 義大利紅蝦評鑑", dish: "🥩 招牌跳進嘴裡肉排・手桿義大利麵佐頂級橄欖油" },
+      "Piccolo Angolo 唯星法式料理": { img: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=700&auto=format&fit=crop", type: "⭐ 當代極致法餐", dish: "🍷 國際星級主廚團隊・高山時蔬、黑松露與澎湖鮮魚" },
+      "新竹國賓大飯店・八方燴": { img: "https://images.unsplash.com/photo-1518492104633-130d0cc84637?w=700&auto=format&fit=crop", type: "🏛️ 挑高千坪中庭", dish: "🥩 12樓挑高中庭自然光・爐烤頂級牛排與現煎生食干貝" },
+      "廟口鴨香飯": { img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=700&auto=format&fit=crop", type: "🦆 城隍廟排隊王", dish: "🥚 金黃純鴨油手撕煙燻鴨肉・半熟流心荷包蛋胡椒香" },
+      "北門炸粿": { img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=700&auto=format&fit=crop", type: "🧄 傳承百年四代", dish: "🥢 米漿現點現炸薄脆外皮・招牌蒜頭肉與鮮蚵仔嗲" },
+      "西市汕頭館（總店）": { img: "https://images.unsplash.com/photo-1547592180-85f173990554?w=700&auto=format&fit=crop", type: "🍲 炭火沙茶牛肉爐", dish: "🥩 獨門自炒沙茶醬・牛骨高湯涮溫體黃牛與沙茶炒麵" },
+      "原夜市鴨肉麵": { img: "https://images.unsplash.com/photo-1555126634-323283e090fa?w=700&auto=format&fit=crop", type: "🍜 靈魂煙燻琥珀湯", dish: "🦆 大鼎爆炒油麵吸飽鑊氣・招牌炒鴨血與煙燻鴨肉切盤" },
+      "老段純真牛肉麵": { img: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=700&auto=format&fit=crop", type: "🥩 眷村四川麻辣", dish: "🍜 牛大骨牛油慢火翻炒・半筋半肉牛腱肉與手工刀削麵" },
+      "葉大鵬 傳統手工潤餅": { img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=700&auto=format&fit=crop", type: "🌯 百年老攤手工潤餅", dish: "🌯 現擦香Q薄餅皮・滿滿蔬菜、酥脆蛋酥與現磨花生粉" },
+      "東門市場": { img: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=700&auto=format&fit=crop", type: "🏮 百年菜市霓虹", dish: "🏮 老市場深夜轉身・日式居酒屋、泰式料理與精釀啤酒" },
+      "新竹中央市場（西門公有市場）": { img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=700&auto=format&fit=crop", type: "🥟 傳奇糯米水餃", dish: "🥣 純手工糯米揉製鹹湯圓・大骨清湯海量茼蒿與油蔥酥" },
+      "竹蓮市場": { img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop", type: "🏬 示範現代化早市", dish: "🥟 全空調冷氣熟食大廳・客家大湯圓、紅燒肉與古早米粉" },
+      "會來尖石溫泉渡假村": { img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop", type: "♨️ 尖石峇里島溫泉", dish: "🌊 油羅溪畔碳酸氫鈉美人湯・巨石露天風呂與水上滑梯" },
+      "天然谷溫泉會館": { img: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=700&auto=format&fit=crop", type: "🏞️ 錦屏峽谷天然原湯", dish: "🐟 峽谷天然純淨原湯・清幽戶外池與現烤高山鱒魚" },
+      "司馬庫斯部落露營區 & 神木群": { img: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=700&auto=format&fit=crop", type: "🌲 上帝的部落神木", dish: "🌌 海拔1500公尺泰雅聖境・2500年巨木群與無光害銀河" },
+
       // Vol. 08 宜蘭篇 (33 家)
       "黑宅 Black House": { img: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=700&auto=format&fit=crop", type: "🍳 稻田黑色穀倉", dish: "🥐 法國長棍佐蕈菇嫩蛋・爐烤牛小排早午餐與自家烘豆" },
       "日光私廚 景觀餐廳": { img: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=700&auto=format&fit=crop", type: "🌿 綠建築私廚", dish: "🥗 小農無毒蔬果・低溫舒肥雞胸早午餐盤與大草皮" },
