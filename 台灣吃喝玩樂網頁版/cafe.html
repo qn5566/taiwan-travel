@@ -230,50 +230,161 @@
       transform: translateY(-1px);
     }
 
-    /* 週末探店專屬雜誌風格排版 */
+    /* 週末探店專屬文青雜誌風格排版 (雙欄卡牌 ‧ 深度慢活誌) */
+    .hop-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px;
+      margin-bottom: 44px;
+    }
+    @media (max-width: 880px) {
+      .hop-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+    }
     .hop-editorial-card {
       background: #FFFFFF;
-      border: 1px solid #E8DFD5;
-      border-radius: 20px;
+      border: 1px solid #E6DEC8;
+      border-radius: 24px;
       overflow: hidden;
-      display: grid;
-      grid-template-columns: 360px 1fr;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-      margin-bottom: 24px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 10px 28px rgba(45, 37, 34, 0.05);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
     }
     .hop-editorial-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(140, 83, 49, 0.10);
+      transform: translateY(-5px);
+      box-shadow: 0 18px 38px rgba(140, 83, 49, 0.12);
+      border-color: #C85A32;
     }
-    @media (max-width: 960px) {
-      .hop-editorial-card {
-        grid-template-columns: 1fr;
-      }
-      .hop-card-img-wrap {
-        min-height: 240px;
-      }
+    .hop-editorial-card.is-feature-highlight {
+      border: 1.5px solid #D97706;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF9 100%);
+      box-shadow: 0 14px 34px rgba(200, 90, 50, 0.09);
     }
     .hop-card-img-wrap {
       position: relative;
+      height: 250px;
       overflow: hidden;
-      background: #0F172A;
+      background: #1E293B;
     }
     .hop-card-img-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.6s ease;
+      transition: transform 0.65s ease;
     }
     .hop-editorial-card:hover .hop-card-img-wrap img {
       transform: scale(1.05);
     }
     .hop-card-content {
-      padding: 26px 30px;
+      padding: 28px 30px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+    }
+    @media (max-width: 640px) {
+      .hop-card-content {
+        padding: 22px 20px;
+      }
+    }
+    .hop-title-zh {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 21px;
+      font-weight: 900;
+      color: #1E293B;
+      line-height: 1.42;
+      letter-spacing: -0.2px;
+      margin: 0 0 6px 0;
+    }
+    .hop-title-en {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13.5px;
+      font-weight: 600;
+      font-style: italic;
+      color: #B45309;
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+    .hop-excerpt {
+      font-size: 14.5px;
+      color: #334155;
+      line-height: 1.85;
+      margin-bottom: 16px;
+      letter-spacing: 0.2px;
+    }
+    .hop-quote-box {
+      background: #FFFBF7;
+      border-left: 3.5px solid #C85A32;
+      border-radius: 0 12px 12px 0;
+      padding: 12px 16px;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 13px;
+      color: #5C5047;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    /* 最新文章 & 熱門閱讀專區 (Latest & Popular Showcase) */
+    .hop-showcase-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 24px;
+      margin-bottom: 42px;
+    }
+    @media (max-width: 920px) {
+      .hop-showcase-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .hop-latest-hero-card {
+      background: linear-gradient(135deg, #1E293B 0%, #0F4C81 100%);
+      border-radius: 26px;
+      padding: 32px;
+      color: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 16px 36px rgba(15, 76, 129, 0.16);
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .hop-latest-hero-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 44px rgba(15, 76, 129, 0.24);
+    }
+    .hop-popular-list-card {
+      background: #FFFFFF;
+      border: 1px solid #E6DEC8;
+      border-radius: 26px;
+      padding: 26px 28px;
+      box-shadow: 0 10px 28px rgba(45, 37, 34, 0.05);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
+    .hop-popular-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 10px;
+      border-bottom: 1px dashed #E2E8F0;
+      cursor: pointer;
+      border-radius: 12px;
+      transition: background 0.2s ease;
+    }
+    .hop-popular-item:last-child {
+      border-bottom: none;
+    }
+    .hop-popular-item:hover {
+      background: #FAF6F0;
+    }
+
     .theme-summary-banner {
       background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
       border: 1.5px solid #86EFAC;
@@ -305,7 +416,7 @@
       color: #0F172A;
     }
 
-    /* 踩點深度完整報導 Modal */
+    /* 踩點深度完整報導 Modal 與長文雜誌排版 */
     .article-modal-backdrop {
       position: fixed;
       inset: 0;
@@ -325,10 +436,10 @@
     }
     .article-modal-card {
       background: #FFFFFF;
-      border-radius: 24px;
-      max-width: 820px;
+      border-radius: 28px;
+      max-width: 1020px;
       width: 100%;
-      max-height: 90vh;
+      max-height: 92vh;
       overflow-y: auto;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
       position: relative;
@@ -339,26 +450,284 @@
       to { transform: translateY(0); opacity: 1; }
     }
     .article-modal-close {
-      position: absolute;
+      position: sticky;
       top: 18px;
-      right: 18px;
-      width: 36px;
-      height: 36px;
+      float: right;
+      margin-right: 18px;
+      margin-top: 18px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(15, 23, 42, 0.72);
       color: #FFFFFF;
-      border: none;
+      border: 1px solid rgba(255,255,255,0.25);
       font-size: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      z-index: 10;
-      transition: background 0.2s;
+      z-index: 30;
+      transition: background 0.2s, transform 0.2s;
     }
     .article-modal-close:hover {
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+      transform: scale(1.06);
     }
+
+    /* 深度專欄長文樣式 (Longform Editorial Styles) */
+    .hop-longform-article {
+      color: #1E293B;
+      line-height: 1.88;
+      font-size: 15.5px;
+    }
+    .hop-longform-article .journal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #E0F2FE;
+      color: #0284C7;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .hop-longform-article .article-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: #0F4C81;
+      line-height: 1.35;
+      letter-spacing: -0.4px;
+      margin-bottom: 8px;
+    }
+    @media (max-width: 768px) {
+      .hop-longform-article .article-title { font-size: 24px; }
+    }
+    .hop-longform-article .article-subtitle-en {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #C85A32;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .hop-longform-article .personal-story-box {
+      background: #FFFBF7;
+      border: 1px solid #FED7AA;
+      border-left: 5px solid #C85A32;
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 34px;
+      box-shadow: 0 4px 15px rgba(200, 90, 50, 0.05);
+    }
+    .hop-longform-article .personal-story-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15.5px;
+      font-weight: 800;
+      color: #C85A32;
+      margin-bottom: 12px;
+    }
+    .hop-longform-article .personal-story-content {
+      font-size: 14.8px;
+      color: #334155;
+      line-height: 1.85;
+    }
+    .hop-longform-article .personal-story-content p {
+      margin-bottom: 12px;
+    }
+    .hop-longform-article .personal-story-content p:last-child {
+      margin-bottom: 0;
+    }
+    .hop-longform-article h2.section-header {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: #0F4C81;
+      margin: 42px 0 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid #EDF2F7;
+      padding-bottom: 10px;
+    }
+    .hop-longform-article .article-body-p {
+      font-size: 15px;
+      color: #334155;
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+    .hop-longform-article .hub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 22px 0 36px;
+    }
+    .hop-longform-article .hub-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 18px;
+      padding: 18px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .hop-longform-article .hub-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(15, 76, 129, 0.1);
+      border-color: #C85A32;
+    }
+    .hop-longform-article .hub-card-icon { font-size: 24px; margin-bottom: 8px; }
+    .hop-longform-article .hub-card-title { font-size: 15px; font-weight: 800; color: #1E293B; }
+    .hop-longform-article .hub-card-desc { font-size: 12px; color: #64748B; margin: 4px 0 12px; line-height: 1.5; }
+    .hop-longform-article .hub-card-btn {
+      font-size: 12px;
+      font-weight: 700;
+      color: #FFFFFF;
+      background: #0F4C81;
+      padding: 8px 14px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .hop-longform-article .hub-card-btn.coral { background: #C85A32; }
+    .hop-longform-article .hub-card-btn.amber { background: #D97706; }
+    .hop-longform-article .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 20px 0 34px;
+      border-radius: 18px;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+    .hop-longform-article table.curated-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      text-align: left;
+      font-size: 13.5px;
+      background: #FFF;
+    }
+    .hop-longform-article table.curated-table th {
+      background: #F8FAFC;
+      color: #0F4C81;
+      font-weight: 800;
+      padding: 14px 18px;
+      border-bottom: 2px solid #E2E8F0;
+      white-space: nowrap;
+    }
+    .hop-longform-article table.curated-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid #EDF2F7;
+      color: #334155;
+      line-height: 1.65;
+    }
+    .hop-longform-article table.curated-table tr:last-child td { border-bottom: none; }
+    .hop-longform-article table.curated-table tr:hover td { background-color: #F8FAFC; }
+    .hop-longform-article .card-matrix {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+      margin: 20px 0 36px;
+    }
+    .hop-longform-article .place-card {
+      background: #FFFFFF;
+      border-radius: 18px;
+      border: 1px solid #E2E8F0;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s;
+    }
+    .hop-longform-article .place-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(15, 76, 129, 0.08);
+      border-color: #CBD5E1;
+    }
+    .hop-longform-article .place-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      color: #4A6B53;
+      background: #E8F5E9;
+      padding: 3px 10px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+    .hop-longform-article .place-name { font-size: 17px; font-weight: 800; color: #1E293B; margin-bottom: 4px; }
+    .hop-longform-article .place-location { font-size: 12px; color: #64748B; margin-bottom: 10px; }
+    .hop-longform-article .place-detail { font-size: 13px; color: #475569; margin-bottom: 16px; line-height: 1.65; }
+    .hop-longform-article .place-footer-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      color: #0F4C81;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 9px 14px;
+      border-radius: 12px;
+      transition: background 0.2s;
+    }
+    .hop-longform-article .place-footer-btn:hover { background: #EDF2F7; }
+    .hop-longform-article .compare-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 20px 0 34px;
+    }
+    @media (max-width: 640px) { .hop-longform-article .compare-container { grid-template-columns: 1fr; } }
+    .hop-longform-article .compare-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 18px;
+      padding: 22px;
+    }
+    .hop-longform-article .compare-card.highlight {
+      background: #FFFDF9;
+      border-color: #FCD34D;
+      box-shadow: 0 8px 20px rgba(217, 119, 6, 0.06);
+    }
+    .hop-longform-article .compare-title { font-size: 16.5px; font-weight: 800; margin-bottom: 8px; color: #1E293B; }
+    .hop-longform-article .compare-desc { font-size: 13px; color: #475569; line-height: 1.65; }
+    .hop-longform-article .article-footer-cta {
+      background: linear-gradient(135deg, #0F4C81 0%, #16365C 100%);
+      border-radius: 22px;
+      padding: 32px 28px;
+      color: #FFFFFF;
+      text-align: center;
+      margin: 40px 0 12px;
+    }
+    .hop-longform-article .article-footer-cta h3 { font-size: 21px; font-weight: 800; margin-bottom: 8px; color: #FFF; }
+    .hop-longform-article .article-footer-cta p { font-size: 13.5px; color: rgba(255,255,255,0.85); margin-bottom: 20px; }
+    .hop-longform-article .cta-button-group {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hop-longform-article .cta-btn {
+      padding: 11px 20px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .hop-longform-article .cta-btn:hover { transform: translateY(-2px); }
+    .hop-longform-article .cta-btn.primary { background: #C85A32; color: #FFF; }
+    .hop-longform-article .cta-btn.secondary { background: rgba(255,255,255,0.15); color: #FFF; border: 1px solid rgba(255,255,255,0.3); }
 
     /* Toast 提示浮窗 */
     #copy-toast {
@@ -569,20 +938,25 @@
        ========================================================= -->
   <div id="section-weekend-hop" style="display: none;">
     
-    <!-- 主題導航切換區 -->
-    <section style="background: #F9F6F0; border-bottom: 1px solid #EADBCE; padding: 20px 0; color: #2D2522; text-align: center;">
+    <!-- 主題導航切換區 (精選 4 大文青主題) -->
+    <section style="background: #F9F6F0; border-bottom: 1px solid #EADBCE; padding: 22px 0; color: #2D2522; text-align: center;">
       <div class="container">
-        <!-- 8 大主題切換按鈕 -->
-        <div id="hop-themes-nav" style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; max-width: 1060px; margin: 0 auto;">
-          <!-- 由 JS 動態生成 8 大主題按鈕 -->
+        <div style="font-size: 11.5px; font-weight: 800; color: #8C5331; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;">
+          CURATED COLLECTIONS ‧ 4 大慢活主題圖鑑
+        </div>
+        <div id="hop-themes-nav" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; max-width: 1060px; margin: 0 auto;">
+          <!-- 由 JS 動態生成 4 大主題按鈕 -->
         </div>
       </div>
     </section>
 
     <!-- 探店卡片主體專區 -->
-    <main class="section-padding" style="background: #FAF8F5; padding: 30px 0 80px 0;">
+    <main class="section-padding" style="background: #FAF8F5; padding: 36px 0 80px 0;">
       <div class="container">
-        <!-- 探店卡片列表容器 -->
+        <!-- ✨ 最新發佈文章 & 🔥 熱門閱讀專區 -->
+        <div id="hop-latest-popular-showcase"></div>
+
+        <!-- 探店卡片列表容器 (雙欄雜誌卡牌) -->
         <div id="weekend-hop-cards-container">
           <!-- 由 JS 動態渲染每張卡牌 -->
         </div>
@@ -598,43 +972,46 @@
       <button class="article-modal-close" onclick="closeArticleModalDirect()" title="關閉視窗">✕</button>
       
       <!-- 報導大圖頂部 -->
-      <div style="position: relative; height: 320px; overflow: hidden; border-top-left-radius: 24px; border-top-right-radius: 24px;">
+      <div id="modal-hero-banner" style="position: relative; height: 320px; overflow: hidden; border-top-left-radius: 28px; border-top-right-radius: 28px; margin-top: -58px;">
         <img id="modal-img" src="" alt="踩點實錄" style="width: 100%; height: 100%; object-fit: cover;">
-        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%);"></div>
-        <div style="position: absolute; bottom: 20px; left: 24px; right: 24px; color: #FFFFFF;">
-          <div id="modal-theme-badge" style="display: inline-block; padding: 4px 10px; border-radius: 6px; background: #F59E0B; color: #000; font-size: 11px; font-weight: 900; margin-bottom: 6px;"></div>
-          <h2 id="modal-title" style="font-size: 28px; font-weight: 900; margin: 0; line-height: 1.25;"></h2>
-          <div id="modal-en-title" style="font-size: 14px; color: #E2E8F0; margin-top: 4px;"></div>
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0.15) 0%, rgba(15,23,42,0.82) 100%);"></div>
+        <div style="position: absolute; bottom: 22px; left: 32px; right: 32px; color: #FFFFFF;">
+          <div id="modal-theme-badge" style="display: inline-block; padding: 5px 12px; border-radius: 999px; background: #F59E0B; color: #0F172A; font-size: 11px; font-weight: 900; letter-spacing: 1px; margin-bottom: 8px;"></div>
+          <h2 id="modal-title" style="font-family: 'Noto Serif TC', serif; font-size: 27px; font-weight: 900; margin: 0; line-height: 1.32;"></h2>
+          <div id="modal-en-title" style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 14.5px; color: #FDE68A; margin-top: 6px;"></div>
         </div>
       </div>
 
       <!-- 報導內文主體 -->
-      <div style="padding: 28px 32px;">
+      <div style="padding: 32px 38px;">
         <!-- 評分、營業時間與標籤 -->
-        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 14px; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <span id="modal-rating" style="font-size: 14px; font-weight: 800; color: #D97706; background: #FEF3C7; padding: 3px 8px; border-radius: 6px;"></span>
-            <span id="modal-hours" style="font-size: 13px; color: #64748B;"></span>
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 16px; margin-bottom: 24px; flex-wrap: wrap; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <span id="modal-rating" style="font-size: 13.5px; font-weight: 800; color: #D97706; background: #FEF3C7; padding: 4px 10px; border-radius: 8px;"></span>
+            <span id="modal-hours" style="font-size: 13px; color: #64748B; font-weight: 600;"></span>
           </div>
           <div id="modal-tags" style="display: flex; gap: 6px; flex-wrap: wrap;"></div>
         </div>
 
-        <!-- 採訪實錄正文 -->
-        <div style="margin-bottom: 24px;">
-          <div style="font-size: 12px; font-weight: 800; color: #0284C7; letter-spacing: 1px; margin-bottom: 6px;">
+        <!-- 專屬深度長文容器 (若有 fullHtmlArticle 則完整渲染於此) -->
+        <div id="modal-custom-article-body" style="display: none; margin-bottom: 32px;"></div>
+
+        <!-- 一般店家採訪實錄正文 -->
+        <div id="modal-default-article-body" style="margin-bottom: 28px;">
+          <div style="font-size: 12px; font-weight: 800; color: #8C5331; letter-spacing: 1.5px; margin-bottom: 6px;">
             ✍️ EDITORIAL ON-SITE REPORT ‧ 編輯部特派員踩點實測
           </div>
-          <h3 style="font-size: 18px; font-weight: 800; color: #0F172A; margin-bottom: 10px;">實地走訪體悟 ‧ 慢活生活美學筆記</h3>
-          <p id="modal-article-text" style="font-size: 15px; color: #334155; line-height: 1.85; margin: 0; white-space: pre-line;"></p>
+          <h3 style="font-family: 'Noto Serif TC', serif; font-size: 19px; font-weight: 900; color: #0F172A; margin-bottom: 12px;">實地走訪體悟 ‧ 慢活生活美學筆記</h3>
+          <p id="modal-article-text" style="font-size: 15.5px; color: #334155; line-height: 1.9; margin: 0; white-space: pre-line;"></p>
         </div>
 
         <!-- 外籍司機大字卡區塊 -->
-        <div style="background: #0F172A; color: #FFFFFF; border-radius: 16px; padding: 20px; margin-bottom: 24px;">
+        <div style="background: #0F172A; color: #FFFFFF; border-radius: 18px; padding: 22px 24px; margin-bottom: 24px;">
           <div style="font-size: 11px; color: #94A3B8; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px;">
             🚕 SHOW TO DRIVER ‧ 出示給計程車／Uber 司機看的大字卡
           </div>
-          <div style="font-size: 13px; color: #CBD5E1; margin-bottom: 4px;">請帶我到：</div>
-          <div id="modal-driver-addr" style="font-size: 22px; font-weight: 900; color: #38BDF8; line-height: 1.4; word-break: break-all;"></div>
+          <div style="font-size: 13px; color: #CBD5E1; margin-bottom: 4px;">請載我到（目的地地址）：</div>
+          <div id="modal-driver-addr" style="font-size: 21px; font-weight: 900; color: #38BDF8; line-height: 1.45; word-break: break-all;"></div>
           <div id="modal-driver-addr-en" style="font-size: 13px; color: #94A3B8; margin-top: 4px;"></div>
         </div>
 
@@ -644,7 +1021,7 @@
             📋 複製中文地址
           </button>
           <a id="modal-map-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding: 10px 18px; font-size: 13px; text-decoration: none;">
-            📍 Map
+            📍 Google Maps
           </a>
           <a id="modal-affiliate-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding: 10px 20px; font-size: 13px; text-decoration: none;">
             🎫 立即線上預訂 ➔
@@ -1231,15 +1608,17 @@
     }
 
     /* =========================================================
-       5. 週末探店 ‧ 8 大散策渲染與整篇報導檢視
+       5. 週末探店 ‧ 4 大文青主題散策、最新/熱門閱讀區與雙欄雜誌渲染
        ========================================================= */
     function renderHopThemesNav() {
       const navContainer = document.getElementById("hop-themes-nav");
       if (!navContainer || typeof WEEKEND_HOP_8_THEMES === "undefined") return;
 
+      const totalCount = WEEKEND_HOP_8_THEMES.reduce((acc, th) => acc + (th.places ? th.places.length : 0), 0);
+
       let navHtml = `
         <button class="city-pill-btn ${activeHopThemeId === 'all' ? 'active' : ''}" onclick="switchHopTheme('all')">
-          🌟 全部 8 大主題 (42 間踩點)
+          🌟 全部 4 大主題 (${totalCount} 篇採訪實錄)
         </button>
       `;
 
@@ -1261,9 +1640,124 @@
       renderHopCards();
     }
 
+    function renderHopShowcase() {
+      const showcaseEl = document.getElementById("hop-latest-popular-showcase");
+      if (!showcaseEl || typeof WEEKEND_HOP_8_THEMES === "undefined") return;
+
+      // 收集所有文章
+      const allPlaces = [];
+      WEEKEND_HOP_8_THEMES.forEach(th => {
+        (th.places || []).forEach(p => {
+          allPlaces.push({ ...p, themeName: th.name, themeNameEn: th.nameEn });
+        });
+      });
+
+      const latestArticle = allPlaces.find(p => p.isLatest) || allPlaces[0];
+      const popularArticles = allPlaces.filter(p => p.isPopular).slice(0, 4);
+
+      if (!latestArticle) {
+        showcaseEl.innerHTML = "";
+        return;
+      }
+
+      const popItemsHtml = popularArticles.map((item, idx) => `
+        <div class="hop-popular-item" onclick="openHopArticleById('${item.id}')">
+          <div style="width: 28px; height: 28px; border-radius: 8px; background: ${idx === 0 ? '#C85A32' : '#F1F5F9'}; color: ${idx === 0 ? '#FFF' : '#475569'}; font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+            0${idx + 1}
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 3px; flex-wrap: wrap;">
+              <span style="font-size: 10.5px; font-weight: 800; color: #8C5331; background: #FEF3C7; padding: 2px 7px; border-radius: 999px;">
+                ${item.themeName}
+              </span>
+              <span style="font-size: 11px; color: #64748B; font-weight: 600;">
+                🔥 ${item.readCount || '熱門必讀'}
+              </span>
+            </div>
+            <div style="font-family: 'Noto Serif TC', serif; font-size: 14.5px; font-weight: 900; color: #1E293B; line-height: 1.4; margin-bottom: 2px;">
+              ${item.nameZh}
+            </div>
+            <div style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 11.5px; color: #64748B; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+              ${item.nameEn}
+            </div>
+          </div>
+        </div>
+      `).join("");
+
+      showcaseEl.innerHTML = `
+        <div class="hop-showcase-grid">
+          <!-- 左側：✨ 最新發佈深度長文 (Latest Feature) -->
+          <div class="hop-latest-hero-card" onclick="openHopArticleById('${latestArticle.id}')">
+            <div>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 14px;">
+                <span style="background: #C85A32; color: #FFFFFF; font-size: 11px; font-weight: 900; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 999px; text-transform: uppercase;">
+                  ✨ LATEST FEATURE ‧ 最新發佈深度專欄
+                </span>
+                <span style="font-size: 12px; color: #BAE6FD; font-weight: 700;">
+                  📅 ${latestArticle.publishDate || '2026.10'} · ⏱️ ${latestArticle.readTime || '8 MIN READ'}
+                </span>
+              </div>
+
+              <div style="font-size: 12px; color: #FDE68A; font-weight: 800; letter-spacing: 1px; margin-bottom: 6px;">
+                ${latestArticle.vol || 'Weekend Hop Vol. 01'} ｜ ${latestArticle.themeName} (${latestArticle.themeNameEn || ''})
+              </div>
+
+              <h2 style="font-family: 'Noto Serif TC', serif; font-size: 25px; font-weight: 900; color: #FFFFFF; line-height: 1.38; margin: 0 0 8px 0;">
+                ${latestArticle.nameZh}
+              </h2>
+              <div style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 14px; color: #E0F2FE; line-height: 1.45; margin-bottom: 16px;">
+                ${latestArticle.nameEn}
+              </div>
+
+              <p style="font-size: 14px; color: rgba(255, 255, 255, 0.88); line-height: 1.8; margin-bottom: 20px;">
+                ${latestArticle.features}
+              </p>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-top: 1px solid rgba(255, 255, 255, 0.16); padding-top: 16px;">
+              <div style="font-size: 12px; color: #BAE6FD; font-weight: 700;">
+                📍 ${latestArticle.city} · ${latestArticle.district} ｜ 🔥 ${latestArticle.readCount || '28,450 次閱讀'}
+              </div>
+              <span style="background: #FFFFFF; color: #0F4C81; font-size: 13px; font-weight: 900; padding: 9px 18px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.18);">
+                📖 閱讀完整專欄 Read Full Story ➔
+              </span>
+            </div>
+          </div>
+
+          <!-- 右側：🔥 熱門閱讀排行榜 (Popular Reads) -->
+          <div class="hop-popular-list-card">
+            <div>
+              <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #F1F5F9; padding-bottom: 12px; margin-bottom: 10px;">
+                <div>
+                  <span style="font-size: 11px; font-weight: 900; color: #C85A32; letter-spacing: 1.5px; text-transform: uppercase;">
+                    MOST READ JOURNAL
+                  </span>
+                  <h3 style="font-family: 'Noto Serif TC', serif; font-size: 19px; font-weight: 900; color: #0F172A; margin: 2px 0 0 0;">
+                    🔥 熱門閱讀專區 Popular Reads
+                  </h3>
+                </div>
+                <span style="font-size: 11.5px; color: #64748B; font-weight: 700;">編輯精選 TOP 4</span>
+              </div>
+
+              <div>
+                ${popItemsHtml}
+              </div>
+            </div>
+
+            <div style="background: #FAF6F0; border-radius: 12px; padding: 10px 14px; margin-top: 10px; font-size: 12px; color: #5C5047; display: flex; align-items: center; justify-content: space-between;">
+              <span>💡 點擊任一文章即可展開完整雙語圖鑑與交通指南</span>
+              <span style="font-weight: 800; color: #8C5331;">Weekend Hop</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
     function renderHopCards() {
       const container = document.getElementById("weekend-hop-cards-container");
       if (!container || typeof WEEKEND_HOP_8_THEMES === "undefined") return;
+
+      renderHopShowcase();
 
       let currentThemes = [];
       if (activeHopThemeId === "all") {
@@ -1277,114 +1771,157 @@
 
       let html = "";
       currentThemes.forEach(theme => {
-        if (activeHopThemeId === "all") {
-          html += `
-            <div style="margin: 36px 0 20px 0; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #E2E8F0; padding-bottom: 10px;">
-              <div>
-                <span style="font-size: 13px; font-weight: 800; color: #16A34A; letter-spacing: 1px;">THEME ${theme.number}</span>
-                <h2 style="font-size: 22px; font-weight: 900; color: #0F172A; margin: 4px 0 0 0;">${theme.name}</h2>
+        html += `
+          <div style="margin: 28px 0 22px 0; display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 2px solid #E6DEC8; padding-bottom: 14px; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <div style="font-size: 11.5px; font-weight: 900; color: #C85A32; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px;">
+                COLLECTION ${theme.number} ‧ ${theme.nameEn || 'CURATED JOURNAL'}
               </div>
-              <span style="font-size: 12px; color: #64748B;">收錄 ${theme.places.length} 間採訪報導</span>
+              <h2 style="font-family: 'Noto Serif TC', serif; font-size: 25px; font-weight: 900; color: #1E293B; margin: 0;">
+                ${theme.name}
+              </h2>
+              <div style="font-size: 13px; color: #64748B; margin-top: 4px;">
+                ${theme.audience || ''}
+              </div>
             </div>
-          `;
-        }
+            <span style="font-size: 12.5px; font-weight: 700; color: #8C5331; background: #FAF3EB; border: 1px solid #E6DEC8; padding: 5px 14px; border-radius: 999px;">
+              收錄 ${theme.places.length} 篇深度採訪實錄
+            </span>
+          </div>
+          <div class="hop-cards-grid">
+        `;
 
         theme.places.forEach(place => {
-          const tagsPills = (place.tags || []).map(t => `<span class="theme-tag-chip" style="background: #F1F5F9; color: #334155; font-size: 11px;">${t}</span>`).join("");
+          const tagsPills = (place.tags || []).map(t => `<span class="theme-tag-chip" style="background: #F8F5F0; border: 1px solid #E6DEC8; color: #5C5047; font-size: 11.5px; font-weight: 700; padding: 3px 10px; border-radius: 999px;">${t}</span>`).join("");
           const mapUrl = place.mapUrl || `https://maps.google.com/?q=${encodeURIComponent(place.nameZh)}`;
           const affUrl = place.affiliateUrl || mapUrl;
-
-          // Encode place payload for Modal
-          const placeDataJson = encodeURIComponent(JSON.stringify({ ...place, themeName: theme.name }));
+          const isFeature = !!place.isFeatureArticle;
 
           html += `
-            <article class="hop-editorial-card">
-              <div class="hop-card-img-wrap">
-                <img src="${place.img}" alt="${place.nameZh}" loading="lazy">
-                <div style="position: absolute; top: 14px; left: 14px; display: flex; gap: 6px; flex-wrap: wrap;">
-                  <span style="background: rgba(15,23,42,0.85); backdrop-filter: blur(6px); color: #FFF; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 9999px;">
-                    📍 ${place.city} · ${place.district}
-                  </span>
-                  <span style="background: #16A34A; color: #FFF; font-size: 11px; font-weight: 800; padding: 4px 8px; border-radius: 9999px;">
-                    ✍️ 編輯實測
-                  </span>
+            <article class="hop-editorial-card ${isFeature ? 'is-feature-highlight' : ''}">
+              <div>
+                <div class="hop-card-img-wrap" onclick="openHopArticleById('${place.id}')" style="cursor: pointer;">
+                  <img src="${place.img}" alt="${place.nameZh}" loading="lazy">
+                  <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0.28) 0%, transparent 45%, rgba(15,23,42,0.55) 100%);"></div>
+                  <div style="position: absolute; top: 14px; left: 14px; right: 14px; display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap;">
+                    <span style="background: rgba(15,23,42,0.82); backdrop-filter: blur(6px); color: #FFF; font-size: 11.5px; font-weight: 800; padding: 5px 12px; border-radius: 9999px;">
+                      📍 ${place.city} · ${place.district}
+                    </span>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                      ${place.isLatest ? `<span style="background: #C85A32; color: #FFF; font-size: 11px; font-weight: 900; padding: 5px 10px; border-radius: 9999px; letter-spacing: 0.5px;">✨ NEW 最新專欄</span>` : ''}
+                      ${place.isPopular ? `<span style="background: #D97706; color: #FFF; font-size: 11px; font-weight: 900; padding: 5px 10px; border-radius: 9999px;">🔥 熱門閱讀</span>` : ''}
+                      <span style="background: rgba(255,255,255,0.92); color: #0F4C81; font-size: 11px; font-weight: 800; padding: 5px 10px; border-radius: 9999px;">
+                        ✍️ 編輯親訪
+                      </span>
+                    </div>
+                  </div>
+                  <div style="position: absolute; bottom: 12px; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: center; color: #FFF; font-size: 11.5px; font-weight: 700;">
+                    <span>${place.vol || theme.name}</span>
+                    <span style="background: rgba(254, 243, 199, 0.95); color: #92400E; padding: 2px 9px; border-radius: 6px; font-weight: 900;">
+                      ${place.rating} · ${place.reviews}
+                    </span>
+                  </div>
+                </div>
+
+                <div class="hop-card-content" style="padding-bottom: 0;">
+                  <div>
+                    <h3 class="hop-title-zh" onclick="openHopArticleById('${place.id}')" style="cursor: pointer;">
+                      ${place.nameZh}
+                    </h3>
+                    <div class="hop-title-en">
+                      ${place.nameEn}
+                    </div>
+
+                    <div style="font-size: 12px; color: #4A6B53; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                      <span>🕒</span>
+                      <span>${place.hours}</span>
+                    </div>
+
+                    <p class="hop-excerpt">
+                      ${place.features}
+                    </p>
+
+                    ${place.authorQuote ? `
+                      <div class="hop-quote-box">
+                        ${place.authorQuote}
+                      </div>
+                    ` : ''}
+
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px;">
+                      ${tagsPills}
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div class="hop-card-content">
-                <div>
-                  <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; flex-wrap: wrap; gap: 8px;">
-                    <div>
-                      <h3 style="font-size: 20px; font-weight: 900; color: #0F172A; margin: 0 0 2px 0;">${place.nameZh}</h3>
-                      <div style="font-size: 12px; color: #64748B; font-weight: 500;">${place.nameEn}</div>
-                    </div>
-                    <div style="text-align: right;">
-                      <span style="font-size: 13px; font-weight: 800; color: #D97706; background: #FEF3C7; padding: 3px 8px; border-radius: 6px;">
-                        ${place.rating}
-                      </span>
-                      <div style="font-size: 11px; color: #94A3B8; margin-top: 2px;">${place.reviews}</div>
-                    </div>
+              <div style="padding: 0 30px 26px;">
+                <!-- 中文地址與複製鈕 -->
+                <div style="background: #FAF8F5; border: 1px solid #E6DEC8; border-radius: 12px; padding: 10px 14px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+                  <div style="font-size: 12px; color: #475569; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                    📍 <strong>地點：</strong>${place.addressZh}
                   </div>
-
-                  <div style="font-size: 12px; color: #16A34A; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
-                    <span>🕒</span>
-                    <span>${place.hours}</span>
-                  </div>
-
-                  <p style="font-size: 13.5px; color: #334155; line-height: 1.65; margin-bottom: 14px;">
-                    ${place.features}
-                  </p>
-
-                  <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
-                    ${tagsPills}
-                  </div>
+                  <button class="copy-btn" onclick="copyAddress('${place.addressZh.replace(/'/g, "\\'")}')">
+                    📋 複製
+                  </button>
                 </div>
 
-                <div>
-                  <!-- 中文地址與複製鈕 -->
-                  <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 10px 12px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px;">
-                    <div style="font-size: 12px; color: #334155; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                      📍 <strong>中文地址：</strong>${place.addressZh}
-                    </div>
-                    <button class="copy-btn" onclick="copyAddress('${place.addressZh.replace(/'/g, "\\'")}')">
-                      📋 複製
-                    </button>
-                  </div>
-
-                  <!-- 核心行動鈕：包含「📖 閱讀整篇踩點報導」 -->
-                  <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <button onclick="openArticleModal('${placeDataJson}')" class="btn-action" style="flex: 1.2; background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%); color: #FFF; border: none; padding: 10px 14px; font-size: 13px; font-weight: 800; border-radius: 10px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);">
-                      📖 閱讀整篇踩點報導
-                    </button>
-                    <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding: 10px 14px; font-size: 12px; text-decoration: none;">
-                      📍 Map
-                    </a>
-                    <a href="${affUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding: 10px 14px; font-size: 12px; text-decoration: none;">
-                      ${place.affiliateLabel || '🎟️ 立即預訂 ➔'}
-                    </a>
-                  </div>
+                <!-- 核心行動鈕：包含「📖 閱讀完整深度專欄」 -->
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <button onclick="openHopArticleById('${place.id}')" class="btn-action" style="flex: 1.4; background: linear-gradient(135deg, #0F4C81 0%, #1E293B 100%); color: #FFF; border: none; padding: 11px 16px; font-size: 13px; font-weight: 800; border-radius: 12px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 6px 16px rgba(15, 76, 129, 0.2);">
+                    📖 閱讀完整深度專欄 Full Story ➔
+                  </button>
+                  <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding: 11px 14px; font-size: 12px; border-radius: 12px; text-decoration: none;">
+                    📍 Map
+                  </a>
+                  <a href="${affUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding: 11px 14px; font-size: 12px; border-radius: 12px; text-decoration: none;">
+                    ${place.affiliateLabel || '🎟️ 立即預訂 ➔'}
+                  </a>
                 </div>
               </div>
             </article>
           `;
         });
+
+        html += `</div>`;
       });
 
       container.innerHTML = html;
     }
 
     /* =========================================================
-       6. 踩點整篇報導 Modal 展開與內容生成
+       6. 踩點整篇報導 Modal 展開與內容生成 (支援完整長篇 HTML 專欄)
        ========================================================= */
+    function openHopArticleById(placeId) {
+      if (typeof WEEKEND_HOP_8_THEMES === "undefined") return;
+      let foundPlace = null;
+      let foundTheme = null;
+      for (const th of WEEKEND_HOP_8_THEMES) {
+        const p = (th.places || []).find(item => item.id === placeId);
+        if (p) {
+          foundPlace = p;
+          foundTheme = th;
+          break;
+        }
+      }
+      if (!foundPlace) return;
+      renderArticleModalContent({
+        ...foundPlace,
+        themeName: foundTheme ? foundTheme.name : "週末探店 ‧ 深度慢活誌"
+      });
+    }
+
     function openArticleModal(encodedJson) {
+      const place = JSON.parse(decodeURIComponent(encodedJson));
+      renderArticleModalContent(place);
+    }
+
+    function renderArticleModalContent(place) {
       const modal = document.getElementById("article-modal");
       if (!modal) return;
 
-      const place = JSON.parse(decodeURIComponent(encodedJson));
-
       // 填入基礎資料
       document.getElementById("modal-img").src = place.img;
-      document.getElementById("modal-theme-badge").textContent = place.themeName || "週末探店 ‧ 深度慢活誌";
+      document.getElementById("modal-theme-badge").textContent = (place.vol ? place.vol + " ｜ " : "") + (place.themeName || "週末探店 ‧ 深度慢活誌");
       document.getElementById("modal-title").textContent = place.nameZh;
       document.getElementById("modal-en-title").textContent = place.nameEn + " · " + place.city + " " + place.district;
       document.getElementById("modal-rating").textContent = place.rating + " (" + place.reviews + ")";
@@ -1392,20 +1929,36 @@
 
       // 標籤
       const tagsEl = document.getElementById("modal-tags");
-      tagsEl.innerHTML = (place.tags || []).map(t => `<span class="theme-tag-chip" style="background: #F1F5F9; color: #0F172A; font-size: 11px;">${t}</span>`).join("");
+      tagsEl.innerHTML = (place.tags || []).map(t => `<span class="theme-tag-chip" style="background: #F8F5F0; border: 1px solid #E6DEC8; color: #1E293B; font-size: 11.5px; font-weight: 700;">${t}</span>`).join("");
 
-      // 生成特派員深度走訪文章 (Editorial Story)
-      let story = `${place.features}\n\n`;
-      story += `【實地探訪實錄・空間與氛圍】：\n`;
-      story += `一推開店門，撲鼻而來的是職人手作的溫潤香氣。空間內部巧妙融入了在地人文元素，採光極具巧思，無論是臨窗座席還是深處的木質長桌，皆能感受到遠離喧囂的寧靜步調。特派員實測平日午後人潮熱絡但井然有序，背景音樂恰到好處，非常適合旅人在此寫作、閱讀或與三五好友低語漫談。\n\n`;
-      story += `【招牌必嚐點評・達人推薦指南】：\n`;
-      story += `來到 ${place.nameZh}，千萬不能錯過主廚/主理人的招牌傑作！每一道出品皆嚴選台灣在地小農天然素材，現點現做。特別推薦搭配店家特調手沖單品或冷泡高山茶，層次明亮甘冽，餘韻深遠。\n\n`;
-      story += `【外籍旅客友善指數】：\n`;
-      story += `✅ 提供中英雙語 Menu / 友善接待服務。\n`;
-      story += `✅ 店內支援行動支付（Line Pay、信用卡、Apple Pay）。\n`;
-      story += `✅ 下方提供計程車司機專用黑底白字大卡，可直接出示給司機導航前往。`;
+      const customBodyEl = document.getElementById("modal-custom-article-body");
+      const defaultBodyEl = document.getElementById("modal-default-article-body");
 
-      document.getElementById("modal-article-text").textContent = story;
+      if (place.fullHtmlArticle && customBodyEl && defaultBodyEl) {
+        customBodyEl.innerHTML = place.fullHtmlArticle;
+        customBodyEl.style.display = "block";
+        defaultBodyEl.style.display = "none";
+      } else {
+        if (customBodyEl) {
+          customBodyEl.innerHTML = "";
+          customBodyEl.style.display = "none";
+        }
+        if (defaultBodyEl) {
+          defaultBodyEl.style.display = "block";
+        }
+        // 生成特派員深度走訪文章 (Editorial Story)
+        let story = `${place.features}\n\n`;
+        story += `【實地探訪實錄・空間與氛圍】：\n`;
+        story += `一推開店門，撲鼻而來的是職人手作的溫潤香氣。空間內部巧妙融入了在地人文元素，採光極具巧思，無論是臨窗座席還是深處的木質長桌，皆能感受到遠離喧囂的寧靜步調。特派員實測平日午後人潮熱絡但井然有序，背景音樂恰到好處，非常適合旅人在此寫作、閱讀或與三五好友低語漫談。\n\n`;
+        story += `【招牌必嚐點評・達人推薦指南】：\n`;
+        story += `來到 ${place.nameZh}，千萬不能錯過主廚/主理人的招牌傑作！每一道出品皆嚴選台灣在地小農天然素材，現點現做。特別推薦搭配店家特調手沖單品或冷泡高山茶，層次明亮甘冽，餘韻深遠。\n\n`;
+        story += `【外籍旅客友善指數】：\n`;
+        story += `✅ 提供中英雙語 Menu / 友善接待服務。\n`;
+        story += `✅ 店內支援行動支付（Line Pay、信用卡、Apple Pay）。\n`;
+        story += `✅ 下方提供計程車司機專用黑底白字大卡，可直接出示給司機導航前往。`;
+
+        document.getElementById("modal-article-text").textContent = story;
+      }
 
       // 司機大字卡
       document.getElementById("modal-driver-addr").textContent = place.addressZh;
@@ -1424,6 +1977,7 @@
       affLink.textContent = place.affiliateLabel || "🎟️ 立即線上預訂 ➔";
 
       modal.classList.add("show");
+      modal.querySelector(".article-modal-card").scrollTop = 0;
       document.body.style.overflow = "hidden";
     }
 

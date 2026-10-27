@@ -11461,19 +11461,290 @@ const BIB_GOURMAND_DATA = [
 // 7.0 週末探店 8 大主題特色店家圖鑑 (含外國人友善雙語與分潤)
 const WEEKEND_HOP_8_THEMES = [
   {
-    "id": "theme_1",
+    "id": "theme_deep_travel",
     "number": "01",
-    "name": "🍵 台灣茶館與茶空間",
-    "nameEn": "Taiwanese Tea Houses & Modern Tea Spaces",
-    "audience": "歐美、日韓旅客深度體驗、文青慢活",
+    "name": "🗺️ 台灣深度旅行",
+    "nameEn": "Taiwan Deep Travel & Slow Escapes",
+    "audience": "山海鐵道漫遊、親子森呼吸、秘境建築與文化慢旅",
     "tags": [
-      "🍵 現泡壺茶",
-      "🪟 山海景觀",
-      "🌿 日式榻榻米",
-      "🥧 精緻茶點",
-      "🌐 雙語茶道"
+      "🚂 百年森林鐵道",
+      "🌲 高山雲海茶席",
+      "🌊 海岸私房秘境",
+      "🎨 建築美學體驗"
     ],
-    "affiliateIntro": "奧丁丁 (linkgo) 採茶手作體驗 ＋ affclkr 茶具選物 ＋ Trip.com 景區飯店",
+    "affiliateIntro": "Klook 包車自由行 ＋ Trip.com 景觀旅宿 ＋ 奧丁丁在地茶席體驗",
+    "places": [
+      {
+        "id": "hop_deep_alishan_01",
+        "vol": "Weekend Hop Vol. 01",
+        "isFeatureArticle": true,
+        "isLatest": true,
+        "isPopular": true,
+        "readCount": "28,450 次閱讀",
+        "publishDate": "2026.10.27",
+        "readTime": "8 MIN READ",
+        "nameZh": "雲海之巔的慢速呼吸：阿里山林業鐵路全線通車，與山麓聚落茶香避世指南",
+        "nameEn": "The Mist, The Rails, The Mountain Soul: Complete Alishan Forest Railway & Foothill Retreat Guide",
+        "rating": "★ 4.9",
+        "reviews": "深度特輯 · 編輯親訪",
+        "hours": "全線通車 · 3 天 2 夜慢活指南（林鐵建議乘車前 14 天 06:00 預訂）",
+        "city": "嘉義縣",
+        "district": "阿里山鄉 · 竹崎 · 梅山",
+        "addressZh": "嘉義縣阿里山鄉中正村59號（阿里山國家森林遊樂區／奮起湖／石棹茶區）",
+        "addressEn": "No. 59, Zhongzheng Vil., Alishan Township, Chiayi County (Alishan Forest Recreation Area)",
+        "tags": [
+          "🚂 林鐵全線通車",
+          "🌲 千年紅檜神木",
+          "☕ 山麓秘境咖啡",
+          "🌅 小笠原山日出",
+          "🗓️ 3天2夜排程"
+        ],
+        "features": "來過無數次阿里山的真情告白：從單身追曙光到帶著孩子露營淨化心靈。完整收錄阿里山林鐵全線通車歷史與四大螺旋工法、紅檜巨木科學樹齡、5 大必吃山味（奮起湖雅湖便當／Hana 廚房／山賓石頭火鍋／游芭絲鄒宴／阿嬤草仔粿）、3 間雲海咖啡莊園，以及小笠原山追日出評比與 3 天 2 夜慢活排程表。",
+        "authorQuote": "「雨中的阿里山宛如走進宮崎駿動畫般的夢幻森林仙境，耳邊伴隨著清脆的鳥鳴，呼吸著滿滿濕潤新鮮的空氣，心裡平時累積的煩躁與雜念瞬間全被洗滌一空。」",
+        "mapUrl": "https://maps.google.com/?q=阿里山國家森林遊樂區",
+        "affiliateLabel": "🚗 預約阿里山包車與住宿 ➔",
+        "affiliateUrl": "https://www.klook.com/?aid=123436",
+        "img": "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=1000&auto=format&fit=crop",
+        "fullHtmlArticle": "<div class=\"hop-longform-article\">\n  <!-- 頂部徽章與中英雙語標題 -->\n  <div class=\"journal-badge\">Weekend Hop Vol. 01 ｜ 台灣深度旅行 · 慢活採訪實錄</div>\n  <h1 class=\"article-title\">雲海之巔的慢速呼吸：阿里山林業鐵路全線通車，與山麓聚落茶香避世指南</h1>\n  <div class=\"article-subtitle-en\">The Mist, The Rails, The Mountain Soul: Complete Alishan Forest Railway &amp; Foothill Retreat Guide</div>\n\n  <!-- 作者真實心境文案（已校對潤飾錯字） -->\n  <div class=\"personal-story-box\">\n    <div class=\"personal-story-header\">\n      <span>✍️</span> <strong>旅人手記：來過無數次阿里山，每一次都有新的領悟</strong>\n    </div>\n    <div class=\"personal-story-content\">\n      <p>\n        來過阿里山很多次，從單身一人、到結伴同行、再到現在牽著孩子的手，每次上山玩的感受都全然不同。以前年輕時來到阿里山，總是一股腦為了追逐破曉日出，覺得新的一年看見第一道曙光照亮山頭，就是一個充滿力量的美好開始。\n      </p>\n      <p>\n        如今有了家庭，我更喜歡帶著孩子們到阿里山露營，真切地沉浸在森林的芬多精與大自然裡。每次開車上來，老實說都會覺得阿里山的山路真的很有挑戰性，而且每次造訪的路況景致都在變；但也正因為穿梭在層層疊疊的林道間，不管是自己開車或是預約包車，都能讓人更深切地感受到大自然的壯闊與奧妙。\n      </p>\n      <p>\n        山上的天氣變化極快。我記得有一次二月上山，夜裡超級冷，但當晚出去散步時，夜空晴空萬里，星光透澈乾淨得像灑滿鑽石；原本滿心期待隔天能迎來燦爛曙光，天亮時迎來的卻是綿綿細雨。那天我們穿著雨衣漫步在阿里山步道上，雖然地上的雨水帶著濕冷，但雨中的阿里山卻美得令人屏息——那是一種宛如走進「宮崎駿動畫」般的夢幻森林仙境，耳邊伴隨著清脆的鳥鳴，呼吸著滿滿濕潤新鮮的空氣。在園區完全禁止車輛通行的步道裡，只有難得的寧靜，心裡平時累積的煩躁與雜念瞬間全被洗滌一空。這也是為什麼，我每年都渴望回到這裡好好「淨化」一次自己。\n      </p>\n      <p>\n        除了高山露營與茶園漫步，我們每次來一定會品嚐山裡的野菜與原民柴燒美味；帶著孩子到奮起湖走走也是保留節目，這裡有小朋友最著迷的古老小火車，還有許多免費又悠閒的景點。手牽著手走在平交道鐵軌旁，看著小火車穿梭而過，空氣中飄散著老建築特有的檜木芳香；午後再帶孩子一起遠眺翻騰的阿里山雲海——那真的是全台灣最壯觀的景致，彷彿整個人輕柔躺在雲朵之巔。強烈建議大家一定要找一家舒適的景觀民宿或飯店住上一晚，晚上走出來散散步、聽聽大自然的風聲蟲鳴，仰望無光害的透澈星空，這才是阿里山最真實的靈魂。\n      </p>\n    </div>\n  </div>\n\n  <!-- 快速預約樞紐與分潤通道 -->\n  <div class=\"hub-grid\">\n    <a href=\"https://www.klook.com/?aid=123436\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"hub-card\">\n      <div>\n        <div class=\"hub-card-icon\">🚗</div>\n        <div class=\"hub-card-title\">嘉義阿里山包車直達</div>\n        <div class=\"hub-card-desc\">高鐵站接駁 / 免開難走山路 / 隨停二延平雲海</div>\n      </div>\n      <div class=\"hub-card-btn coral\">Klook 官方預約 ➔</div>\n    </a>\n\n    <a href=\"https://www.trip.com/?Allianceid=9507030&amp;SID=325761227&amp;trip_sub3=D20272275\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"hub-card\">\n      <div>\n        <div class=\"hub-card-icon\">🏨</div>\n        <div class=\"hub-card-title\">園區與石棹茶園旅宿</div>\n        <div class=\"hub-card-desc\">阿里山賓館 / 森林閣 / 雲海景觀民宿即時比價</div>\n      </div>\n      <div class=\"hub-card-btn\">Trip.com 訂房 ➔</div>\n    </a>\n\n    <a href=\"https://linkgo.one/s/ikCjF\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"hub-card\">\n      <div>\n        <div class=\"hub-card-icon\">🍵</div>\n        <div class=\"hub-card-title\">茶山小農手作茶席</div>\n        <div class=\"hub-card-desc\">走入石棹茶之道，由茶師親授手作工夫茶席</div>\n      </div>\n      <div class=\"hub-card-btn amber\">奧丁丁在地預約 ➔</div>\n    </a>\n\n    <a href=\"https://linkgo.one/s/qYLKx\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"hub-card\">\n      <div>\n        <div class=\"hub-card-icon\">🛵</div>\n        <div class=\"hub-card-title\">市區伴手禮外送直達</div>\n        <div class=\"hub-card-desc\">下榻飯店免排隊！Uber Eats 火速外送</div>\n      </div>\n      <div class=\"hub-card-btn\">開啟 Uber Eats ➔</div>\n    </a>\n  </div>\n\n  <!-- 第一章：百年林鐵歷史與螺旋工法 -->\n  <h2 class=\"section-header\"><span>🚂</span> 百年林鐵全線通車：歷史、四大螺旋工法與票務解密</h2>\n  <p class=\"article-body-p\">\n    阿里山林業鐵路始建於 1912 年（日治時期明治 45 年），全長 71.4 公里。它不只是全台唯一的登山窄軌鐵道，更因應嚴苛高山地形匯聚了世界四大鐵道工法：<strong>獨立山螺旋登山線</strong>（繞山三圈爬升）、<strong>之字形折返（Switchback）</strong>、<strong>特殊 Shay 蒸汽機車直立汽缸</strong>，以及在短短幾十公里內由熱帶龍眼竹林一路垂直攀升至溫帶紅檜巨木林。\n  </p>\n\n  <div class=\"table-container\">\n    <table class=\"curated-table\">\n      <thead>\n        <tr>\n          <th>鐵路支線 / 區間</th>\n          <th>行駛海拔與路段</th>\n          <th>核心視覺看點</th>\n          <th>購票秘技與注意事項</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <td><strong>林鐵本線（全線重啟）</strong></td>\n          <td>30m ➔ 2,216m<br>(嘉義車站 ➔ 阿里山車站)</td>\n          <td>穿越 49 座隧道、獨立山螺旋線、樟腦寮折返線</td>\n          <td>乘車日前 14 天上午 06:00 準時於林鐵官網搶票；每日直達班次限量。</td>\n        </tr>\n        <tr>\n          <td><strong>祝山觀日支線</strong></td>\n          <td>2,216m ➔ 2,451m<br>(阿里山車站 ➔ 祝山車站)</td>\n          <td>全台海拔最高鐵路車站，破曉時分直擊玉山群峰金黃晨曦</td>\n          <td>每日 13:00–16:00 於阿里山車站現場預售隔日車票；發車時間依日出調整。</td>\n        </tr>\n        <tr>\n          <td><strong>神木森林支線</strong></td>\n          <td>2,216m ➔ 2,138m<br>(阿里山車站 ➔ 神木車站)</td>\n          <td>古樸全檜木車廂穿梭於巨木綠蔭與青苔林道之間</td>\n          <td>班次密集（約 30 分鐘一班），可現場刷悠遊卡入閘，推薦單程搭車、單程健行。</td>\n        </tr>\n        <tr>\n          <td><strong>沼平賞櫻支線</strong></td>\n          <td>2,216m ➔ 2,274m<br>(阿里山車站 ➔ 沼平車站)</td>\n          <td>櫻花鐵道核心地標、直達阿里山閣飯店與姊妹潭步道口</td>\n          <td>春季櫻花季極熱門，平日適合隨到隨搭漫步沼平公園。</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n\n  <!-- 第二章：神木年齡科學考證與森林生態 -->\n  <h2 class=\"section-header\"><span>🌲</span> 森林裡住著幾歲的樹？巨木科學樹齡與高山生態</h2>\n  <p class=\"article-body-p\">\n    過去旅遊書籍常標註神木有「兩千歲、三千歲」，近年林務局（林業及自然保育署）與學術研究團隊以專業生長錐鑽取樹芯，並結合 DNA 遺傳檢測，證實了多數紅檜神木其實是「多株幼苗根系聚合生長」而成的複合巨木，進而公布了科學嚴謹的真實年齡：\n  </p>\n\n  <div class=\"table-container\">\n    <table class=\"curated-table\">\n      <thead>\n        <tr>\n          <th>巨木名稱 / 編號</th>\n          <th>樹種</th>\n          <th>科學檢定年齡</th>\n          <th>過去預估年齡</th>\n          <th>步道位置與參觀重點</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <td><strong>巨木群 2 號巨木</strong></td>\n          <td>紅檜</td>\n          <td><strong>約 1,515 歲</strong>（全園最高齡）</td>\n          <td>無科學紀錄</td>\n          <td>巨木群棧道第一期，樹幹胸圍達 12.3 公尺，蒼勁挺拔。</td>\n        </tr>\n        <tr>\n          <td><strong>香林神木（光武檜）</strong></td>\n          <td>紅檜</td>\n          <td><strong>約 626 歲</strong></td>\n          <td>原誤估 2,300 歲</td>\n          <td>慈雲寺旁受鎮宮上方，由兩株紅檜融合，是園區第二代神木代表。</td>\n        </tr>\n        <tr>\n          <td><strong>水山巨木</strong></td>\n          <td>紅檜</td>\n          <td><strong>約 1,081 歲</strong></td>\n          <td>原預估 1,200 歲</td>\n          <td>沿水山廢棄舊鐵道漫步 1.6 公里，遊客稀少，被譽為最靜謐的神木。</td>\n        </tr>\n        <tr>\n          <td><strong>千歲檜</strong></td>\n          <td>紅檜</td>\n          <td><strong>約 821 歲</strong></td>\n          <td>原誤估 2,000 歲</td>\n          <td>巨木棧道必經，雙叉分枝如高舉雙手向天祈福，姿態極具張力。</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n\n  <!-- 第三章：特色美食 5 選卡牌 -->\n  <h2 class=\"section-header\"><span>🍱</span> 山味漫嚐：阿里山經典特色美饌 5 選</h2>\n  <div class=\"card-matrix\">\n    <div class=\"place-card\">\n      <div>\n        <span class=\"place-badge\">老街傳奇便當</span>\n        <h3 class=\"place-name\">奮起湖雅湖鐵路便當</h3>\n        <p class=\"place-location\">📍 竹崎鄉奮起湖老街口</p>\n        <p class=\"place-detail\">古法木盒盛裝，甘蔗慢滷厚排骨與無骨雞腿雙主菜，佐以高山鮮脆龍鬚菜與茶葉蛋，米飯粒粒分明透著古早柴火香。</p>\n      </div>\n      <a href=\"https://maps.google.com/?q=奮起湖雅湖鐵路便當\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"place-footer-btn\">🗺️ 開啟 Google Maps 導航</a>\n    </div>\n\n    <div class=\"place-card\">\n      <div>\n        <span class=\"place-badge\">鄒族 × 南非柴燒</span>\n        <h3 class=\"place-name\">Hana 廚房（來吉部落）</h3>\n        <p class=\"place-location\">📍 阿里山鄉來吉部落 2 樓</p>\n        <p class=\"place-detail\">由南非女孩與鄒族青年共創的深山餐廳。自製柴燒天然酵母披薩、香烤山豬肉佐迷迭香生菜沙拉，景觀面向壯麗懸崖。</p>\n      </div>\n      <a href=\"https://maps.google.com/?q=Hana廚房\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"place-footer-btn\">🗺️ 開啟 Google Maps 導航</a>\n    </div>\n\n    <div class=\"place-card\">\n      <div>\n        <span class=\"place-badge\">高海拔暖胃首選</span>\n        <h3 class=\"place-name\">山賓餐廳（石頭火鍋）</h3>\n        <p class=\"place-location\">📍 阿里山森林園區商圈</p>\n        <p class=\"place-detail\">氣溫驟降時的救贖！傳統黑鐵鍋以麻油扁魚爆香高湯，加入堆成小山的高山甘甜高麗菜與排骨酥，是登山客夜間必排熱門名店。</p>\n      </div>\n      <a href=\"https://maps.google.com/?q=阿里山山賓餐廳\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"place-footer-btn\">🗺️ 開啟 Google Maps 導航</a>\n    </div>\n\n    <div class=\"place-card\">\n      <div>\n        <span class=\"place-badge\">山美露天炭火</span>\n        <h3 class=\"place-name\">游芭絲鄒宴餐廳（YUPASU）</h3>\n        <p class=\"place-location\">📍 阿里山鄉山美村（近達娜伊谷）</p>\n        <p class=\"place-detail\">原木大圓烤盤懸掛煙燻香腸與脆皮山豬肉，搭配清爽的山芹菜煎蛋與竹筒小米飯，露天座位正對深谷綠意。</p>\n      </div>\n      <a href=\"https://maps.google.com/?q=游芭絲鄒宴餐廳\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"place-footer-btn\">🗺️ 開啟 Google Maps 導航</a>\n    </div>\n\n    <div class=\"place-card\">\n      <div>\n        <span class=\"place-badge\">半世紀純米手工</span>\n        <h3 class=\"place-name\">街仔尾阿嬤草仔粿</h3>\n        <p class=\"place-location\">📍 奮起湖老街下腳處 7 號</p>\n        <p class=\"place-detail\">每日以純鼠麴草慢揉糯米外皮，內餡填滿爆炒高山轎篙筍丁、蝦米與絞肉。出蒸籠時草香四溢，是絕佳健行登山乾糧。</p>\n      </div>\n      <a href=\"https://maps.google.com/?q=街仔尾阿嬤草仔粿\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"place-footer-btn\">🗺️ 開啟 Google Maps 導航</a>\n    </div>\n  </div>\n\n  <!-- 第四章：特色咖啡館卡牌 -->\n  <h2 class=\"section-header\"><span>☕</span> 雲海畔的咖啡香：台 18 線與山麓咖啡莊園 3 選</h2>\n  <div class=\"card-matrix\">\n    <div class=\"place-card\">\n      <div>\n        <span class=\"place-badge\">全國烘焙冠亞軍</span>\n        <h3 class=\"place-name\">璟隆咖啡莊園</h3>\n        <p class=\"place-location\">📍 番路鄉隙頂（台 18 線 55K 處）</p>\n        <p class=\"place-detail\">正對象山茶園壯闊視野。招牌 SL34 日曬單品手沖，散發明亮深色莓果與蜜餞酸甜；搭配手作焦糖昭和布丁，是在隙頂等候雲海的最佳落腳點。</p>\n      </div>\n      <a href=\"https://maps.google.com/?q=璟隆咖啡莊園\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"place-footer-btn\">🗺️ 開啟 Google Maps 導航</a>\n    </div>\n\n    <div class=\"place-card\">\n      <div>\n        <span class=\"place-badge\">部落童話石砌聚落</span>\n        <h3 class=\"place-name\">阿將的家 23 咖啡館</h3>\n        <p class=\"place-location\">📍 阿里山鄉樂野村（海拔 1,200m）</p>\n        <p class=\"place-detail\">鄒族夫婦耗時多年以天然石塊與廢棄檜木堆疊而成。環境如宮崎駿動畫場景，手沖藝伎咖啡甘甜細膩，附現烤酥脆小米鬆餅。</p>\n      </div>\n      <a href=\"https://maps.google.com/?q=阿將的家23咖啡館\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"place-footer-btn\">🗺️ 開啟 Google Maps 導航</a>\n    </div>\n\n    <div class=\"place-card\">\n      <div>\n        <span class=\"place-badge\">無邊框茶田畫卷</span>\n        <h3 class=\"place-name\">霧裡村 喫茶會所</h3>\n        <p class=\"place-location\">📍 梅山鄉太和村（近樟樹湖）</p>\n        <p class=\"place-detail\">三面超大落地玻璃正對層疊起伏的階梯茶園。提供自家產高山金萱冷泡茶、精品熱手沖與茶香戚風蛋糕，雲霧翻湧時如置身仙境。</p>\n      </div>\n      <a href=\"https://maps.google.com/?q=霧裡村喫茶會所\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"place-footer-btn\">🗺️ 開啟 Google Maps 導航</a>\n    </div>\n  </div>\n\n  <!-- 第五章：追日出全攻略比較 -->\n  <h2 class=\"section-header\"><span>🌅</span> 追日出全攻略：小笠原山 360 度環景 vs 祝山觀景台</h2>\n  <div class=\"compare-container\">\n    <div class=\"compare-card\">\n      <h3 class=\"compare-title\">祝山觀景台（站前經典）</h3>\n      <p class=\"compare-desc\">\n        • <strong>步行時間</strong>：祝山火車站出站後步行 1 分鐘即達。<br>\n        • <strong>優勢</strong>：出站極快、現場有公廁與熱飲茶葉蛋攤販，適合長輩或同行幼童。<br>\n        • <strong>劣勢</strong>：人潮極度密集，拍照易受前排人群與右側樹冠遮擋，晨光視野角度約 180 度。\n      </p>\n    </div>\n\n    <div class=\"compare-card highlight\">\n      <h3 class=\"compare-title\">⭐ 小笠原山觀景台（推薦首選）</h3>\n      <p class=\"compare-desc\">\n        • <strong>步行時間</strong>：祝山出站後沿木棧道緩步上行約 12–15 分鐘。<br>\n        • <strong>優勢</strong>：坐擁 <strong>360 度全開闊無死角環景</strong>！正對玉山主峰，晨光破曉時金芒灑落山脊，幸運時能在草坡旁巧遇國寶帝雉覓食。<br>\n        • <strong>劣勢</strong>：清晨氣溫僅 6–10°C，木棧道稍有晨露微滑，需備妥防風保暖帽與抓地運動鞋。\n      </p>\n    </div>\n  </div>\n\n  <!-- 第六章：深度 3 天 2 夜行程規劃表 -->\n  <h2 class=\"section-header\"><span>🗓️</span> 慢活節奏：阿里山 3 天 2 夜經典排程表</h2>\n  <div class=\"table-container\">\n    <table class=\"curated-table\">\n      <thead>\n        <tr>\n          <th>天數</th>\n          <th>時間動線</th>\n          <th>深度體驗行程內容</th>\n          <th>推薦餐食與交通串接</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <td><strong>Day 1</strong></td>\n          <td>09:00 嘉義市出發<br>➔ 11:30 奮起湖老街<br>➔ 15:00 阿里山園區</td>\n          <td>搭乘林鐵本線螺旋攀升；抵達奮起湖漫步檜木老街、走訪杉林步道；下午入園進駐飯店，傍晚於慈雲寺觀景台欣賞落日晚霞與壯麗雲瀑。</td>\n          <td>午餐：奮起湖鐵路便當<br>晚餐：山賓餐廳石頭火鍋<br>交通：<a href=\"https://www.klook.com/?aid=123436\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:#C85A32;font-weight:700;\">預約高鐵包車接送</a></td>\n        </tr>\n        <tr>\n          <td><strong>Day 2</strong></td>\n          <td>04:30 祝山觀日火車<br>➔ 06:00 小笠原山日出<br>➔ 09:00 巨木群步道<br>➔ 14:30 樂野部落</td>\n          <td>搭乘祝山線小火車迎接玉山晨曦；沿松針步道漫步回沼平公園；踏上巨木群棧道拜訪 1,515 歲的 2 號巨木與神木車站；午後專車前往樂野「阿將的家」品啜手沖藝伎。</td>\n          <td>早餐：祝山熱薑茶與包子<br>下午茶：阿將的家手沖咖啡<br>晚餐：游芭絲鄒宴餐廳炭烤<br>住宿：<a href=\"https://www.trip.com/?Allianceid=9507030&amp;SID=325761227&amp;trip_sub3=D20272275\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:#0F4C81;font-weight:700;\">石棹雲海民宿比價</a></td>\n        </tr>\n        <tr>\n          <td><strong>Day 3</strong></td>\n          <td>09:30 石棹茶之道<br>➔ 11:30 隙頂咖啡午茶<br>➔ 14:00 二延平步道<br>➔ 16:30 嘉義高鐵站</td>\n          <td>沿著石棹茶園階梯步道漫步，感受雲霧隨風拂過茶樹葉梢；中午至璟隆咖啡莊園品嚐單品與昭和布丁；短暫停留二延平步道俯瞰公路大景，舒緩賦歸。</td>\n          <td>午餐：茶鄉家常無菜單<br>點心：璟隆咖啡莊園手作甜點<br>交通：預約專車直達嘉義高鐵站</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n\n  <!-- 底部行動呼籲區 -->\n  <div class=\"article-footer-cta\">\n    <h3>規劃你的阿里山慢旅記憶</h3>\n    <p>告別走馬看花與山路轉乘困擾，透過經認證的管道提前鎖定專屬包車、高山旅宿與茶席體驗。</p>\n    <div class=\"cta-button-group\">\n      <a href=\"https://www.klook.com/?aid=123436\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"cta-btn primary\">🚗 預約嘉義高鐵包車自由行</a>\n      <a href=\"https://www.trip.com/?Allianceid=9507030&amp;SID=325761227&amp;trip_sub3=D20272275\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"cta-btn secondary\">🏨 查詢阿里山與石棹飯店空房</a>\n      <a href=\"https://linkgo.one/s/qYLKx\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"cta-btn secondary\">🛵 Uber Eats 美食外送到飯店</a>\n    </div>\n  </div>\n</div>"
+      },
+      {
+        "id": "hop_7_1",
+        "nameZh": "鼻頭角稜谷步道",
+        "nameEn": "Bitou Cape Trail New Taipei",
+        "rating": "★ 4.8",
+        "reviews": "6,800 則評價",
+        "hours": "全天開放 (建議日間行走)",
+        "city": "新北市",
+        "district": "瑞芳區",
+        "addressZh": "新北市瑞芳區鼻頭路",
+        "addressEn": "Bitou Rd., Ruifang Dist., New Taipei City",
+        "tags": [
+          "🌊 台版小萬里長城",
+          "🌅 360 度海景山稜",
+          "🚗 鼻頭漁港停車"
+        ],
+        "features": "被美譽為「台版萬里長城」的絕美海稜步道！依傍著太平洋陡峭山稜線蜿蜒起伏，一側是湛藍深邃的大海，另一側是翠綠山脈，木棧道盡頭更有迷彩聽濤咖啡館。",
+        "mapUrl": "https://maps.google.com/?q=鼻頭角稜谷步道",
+        "affiliateLabel": "🚗 預約九份東北角一日包車 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E4%B9%9D%E4%BB%BD%E5%8C%85%E8%BB%8A&aid=123436",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop",
+        "isPopular": true,
+        "readCount": "17,640 次閱讀"
+      },
+      {
+        "id": "hop_7_2",
+        "nameZh": "火炎山自然保留區",
+        "nameEn": "Huoyan Mountain Grand Canyon Miaoli",
+        "rating": "★ 4.7",
+        "reviews": "5,400 則評價",
+        "hours": "全天開放 (環狀步道約 3.5 小時)",
+        "city": "苗栗縣",
+        "district": "三義鄉／苑裡鎮交界",
+        "addressZh": "苗栗縣三義鄉／苑裡鎮交界（台13線旁步道口）",
+        "addressEn": "Sanyi Township / Yuanli Township Border, Miaoli County",
+        "tags": [
+          "🌾 台版美國大峽谷",
+          "🌅 壯觀赭紅惡地",
+          "🚗 台13線停車場"
+        ],
+        "features": "震撼全網的「台版美國大峽谷」！礫岩地層經長期風化雨蝕，形成尖銳如筍的赭紅絕壁峽谷，落日時分在夕陽映照下有如熊熊燃燒的火燄山，地質景觀無比壯麗。",
+        "mapUrl": "https://maps.google.com/?q=火炎山登山步道",
+        "affiliateLabel": "🚗 Trip.com 全台租車自駕比價 ➔",
+        "affiliateUrl": "https://trip.com?Allianceid=9507030&SID=325761227&trip_sub1=CarRental",
+        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_7_3",
+        "nameZh": "高美濕地木棧道",
+        "nameEn": "Gaomei Wetlands Boardwalk Taichung",
+        "rating": "★ 4.8",
+        "reviews": "18,900 則評價",
+        "hours": "09:00 - 18:30 (依漲退潮開放)",
+        "city": "台中市",
+        "district": "清水區",
+        "addressZh": "台中市清水區美堤街",
+        "addressEn": "Meiti St., Qingshui Dist., Taichung City",
+        "tags": [
+          "🌅 全台最美落日倒影",
+          "🌾 巨大白色風車陣",
+          "🦀 生態泥灘天空之鏡"
+        ],
+        "features": "世界級天空之鏡日落景觀！延伸數百公尺的木棧道直達泥灘心臟地帶，一排潔白風車與夕陽金黃餘暉倒映在如鏡水面，彈塗魚與招潮蟹在腳下穿梭。",
+        "mapUrl": "https://maps.google.com/?q=高美濕地木棧道",
+        "affiliateLabel": "🎟️ Klook 台中高美半日遊 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/activity/13214-gaomei-wetland-taichung/?aid=123436",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_7_4",
+        "nameZh": "清水斷崖 坂下海灣",
+        "nameEn": "Qingshui Cliff Sakashita Bay Hualien",
+        "rating": "★ 4.9",
+        "reviews": "9,800 則評價",
+        "hours": "全天開放 (蘇花公路旁)",
+        "city": "花蓮縣",
+        "district": "秀林鄉",
+        "addressZh": "花蓮縣秀林鄉蘇花公路（崇德隧道北口旁）",
+        "addressEn": "Suhua Highway, Xiulin Township, Hualien County",
+        "tags": [
+          "🌊 千米絕壁直插深藍",
+          "🌅 日出立槳 SUP",
+          "🚗 觀景平台附車位"
+        ],
+        "features": "台灣八大奇景之首！千公尺高拔的大理石絕壁直插入深邃太平洋，海水因深度呈現翡翠綠至琉璃藍的夢幻漸層，晨曦時分在海面上划立式划槳（SUP）更是畢生難忘體驗。",
+        "mapUrl": "https://maps.google.com/?q=清水斷崖",
+        "affiliateLabel": "🎟️ Klook 清水斷崖 SUP 日出團 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E6%B8%85%E6%B0%B4%E6%96%B7%E5%B4%96&aid=123436",
+        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_7_5",
+        "nameZh": "太麻里多良車站",
+        "nameEn": "Duoliang Station Taitung",
+        "rating": "★ 4.7",
+        "reviews": "8,200 則評價",
+        "hours": "07:00 - 18:00 (清潔費入園)",
+        "city": "台東縣",
+        "district": "太麻里鄉",
+        "addressZh": "台東縣太麻里鄉瀧溪路8-1號",
+        "addressEn": "No. 8-1, Longxi Rd., Taimali Township, Taitung County",
+        "tags": [
+          "🌊 全台最美靠海車站",
+          "🛤️ 鮮紅鐵道欄杆",
+          "🚗 南迴公路旁"
+        ],
+        "features": "被旅人公認為「全台灣最美靠海車站」！鮮紅色鐵欄杆座落懸崖高台，當紅色柴油火車從隧道穿出呼嘯而過，背後是無邊無際的太平洋蔚藍波濤，構圖如日系動漫般詩意浪漫。",
+        "mapUrl": "https://maps.google.com/?q=多良車站",
+        "affiliateLabel": "🚗 預訂台東花東海岸包車 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E6%9D%B1%E5%8C%85%E8%BB%8A&aid=123436",
+        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_8_1",
+        "nameZh": "國立故宮博物院",
+        "nameEn": "National Palace Museum Taipei",
+        "rating": "★ 4.8",
+        "reviews": "36,000 則評價",
+        "hours": "09:00 - 17:00 (週一公休)",
+        "city": "台北市",
+        "district": "士林區",
+        "addressZh": "台北市士林區至善路二段221號",
+        "addressEn": "No. 221, Sec. 2, Zhishan Rd., Shilin Dist., Taipei City",
+        "tags": [
+          "🎨 世界級歷史珍藏",
+          "🌐 多語系語音導覽",
+          "👶 親子無障礙友善",
+          "🌧️ 全天候恆溫空調"
+        ],
+        "features": "世界四大博物館之一！珍藏近七十萬件中華歷代宮廷皇家稀世珍寶，翠玉白菜、肉形石、毛公鼎鎮館之寶必看，全館恆溫空調無障礙環境，雨天首選文化殿堂。",
+        "mapUrl": "https://maps.google.com/?q=國立故宮博物院",
+        "affiliateLabel": "🎟️ Klook 故宮門票快速通關 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/activity/1659-national-palace-museum-taipei/?aid=123436",
+        "img": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_8_2",
+        "nameZh": "新北市立十三行博物館",
+        "nameEn": "Shihsanhang Museum of Archaeology",
+        "rating": "★ 4.7",
+        "reviews": "7,800 則評價",
+        "hours": "09:30 - 17:00 (首週一休館)",
+        "city": "新北市",
+        "district": "八里區",
+        "addressZh": "新北市八里區博物館路200號",
+        "addressEn": "No. 200, Bowuguan Rd., Bali Dist., New Taipei City",
+        "tags": [
+          "🎨 考古歷史互動",
+          "👶 親子室內沙坑放電",
+          "📐 傾斜清水模打卡"
+        ],
+        "features": "北台灣第一座考古數位博物館！建築象徵海島山稜與鐵甲船，標誌性傾斜八角的清水模樓梯是極致打卡點，常設鐵器時代互動出土體驗，深受親子家庭喜愛。",
+        "mapUrl": "https://maps.google.com/?q=十三行博物館",
+        "affiliateLabel": "🎟️ Klook 預訂十三行優惠門票 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8D%81%E4%B8%89%E8%A1%8C%E5%8D%9A%E7%89%A9%E9%A4%A8&aid=123436",
+        "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_8_3",
+        "nameZh": "奇美博物館",
+        "nameEn": "Chimei Museum Tainan",
+        "rating": "★ 4.9",
+        "reviews": "31,000 則評價",
+        "hours": "09:30 - 17:30 (週三公休)",
+        "city": "台南市",
+        "district": "仁德區",
+        "addressZh": "台南市仁德區文華路二段66號",
+        "addressEn": "No. 66, Sec. 2, Wenhua Rd., Rende Dist., Tainan City",
+        "tags": [
+          "🎨 羅馬圓頂古典殿堂",
+          "👶 親子動物標本廳",
+          "🌐 世界級名琴珍藏"
+        ],
+        "features": "媲美歐洲凡爾賽宮的壯闊白色宮殿！館內藏有全球數量最多的名貴史特拉底瓦里小提琴、逼真如生的全球哺乳動物標本大廳、以及文藝復興至十九世紀西洋雕塑油畫。",
+        "mapUrl": "https://maps.google.com/?q=奇美博物館",
+        "affiliateLabel": "🎟️ Klook 奇美博物館門票即買即用 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/activity/7901-chimei-museum-ticket-tainan/?aid=123436",
+        "img": "https://images.unsplash.com/photo-1528164344705-475426879c0d?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_8_4",
+        "nameZh": "台南市美術館 2 館",
+        "nameEn": "Tainan Art Museum Building 2",
+        "rating": "★ 4.7",
+        "reviews": "14,500 則評價",
+        "hours": "10:00 - 18:00 (週一休館 / 週六延長至 21:00)",
+        "city": "台南市",
+        "district": "中西區",
+        "addressZh": "台南市中西區忠義路二段1號",
+        "addressEn": "No. 1, Sec. 2, Zhongyi Rd., West Central Dist., Tainan City",
+        "tags": [
+          "🎨 當代藝術展演",
+          "🌿 鳳凰花碎形天頂",
+          "☕ 頂樓景觀咖啡館"
+        ],
+        "features": "由普立茲克建築獎得主坂茂操刀設計！純白五角形建築堆疊交錯，碎形幾何遮蔭屋頂將南台灣陽光幻化為如樹蔭灑落的柔和光影，雨天更添一份詩意。",
+        "mapUrl": "https://maps.google.com/?q=台南市美術館2館",
+        "affiliateLabel": "🎟️ Klook 台南市美術館雙館聯票 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/activity/27702-tainan-art-museum-ticket/?aid=123436",
+        "img": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_8_5",
+        "nameZh": "衛武營國家藝術文化中心",
+        "nameEn": "National Kaohsiung Center for the Arts (Weiwuying)",
+        "rating": "★ 4.9",
+        "reviews": "16,800 則評價",
+        "hours": "11:00 - 21:00 (全天開放走廊)",
+        "city": "高雄市",
+        "district": "鳳山區",
+        "addressZh": "高雄市鳳山區三多一路1號",
+        "addressEn": "No. 1, Sanduo 1st Rd., Fengshan Dist., Kaohsiung City",
+        "tags": [
+          "🎨 全球最大單一屋頂劇院",
+          "🏭 前衛流線建築",
+          "👶 親子樹冠大廳"
+        ],
+        "features": "全球最大單一屋頂表演藝術中心！荷蘭建築團隊以老榕樹群盤根錯節為靈感，白色波浪曲面鋼構震撼壯麗，室內樹冠大廳無樑柱流動穿梭，雨天漫步無比愜意舒適。",
+        "mapUrl": "https://maps.google.com/?q=衛武營國家藝術文化中心",
+        "affiliateLabel": "🚄 預訂台灣高鐵聯票直達高雄 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E9%AB%98%E9%90%B5&aid=123436",
+        "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=800&auto=format&fit=crop"
+      }
+    ]
+  },
+  {
+    "id": "theme_tea_select",
+    "number": "02",
+    "name": "🍵 台灣茶館與慢活選物",
+    "nameEn": "Taiwanese Tea Houses & Indie Bookstores",
+    "audience": "老宅品茗、榻榻米茶空間、獨立書店與生活器物選品",
+    "tags": [
+      "🍵 現泡台灣高山茶",
+      "🌿 古蹟日式茶屋",
+      "📚 獨立書店沙龍",
+      "🏺 職人陶藝選物"
+    ],
+    "affiliateIntro": "奧丁丁採茶手作茶席 ＋ Klook 茶道體驗 ＋ 在地文創伴手禮",
     "places": [
       {
         "id": "hop_1_1",
@@ -11496,7 +11767,9 @@ const WEEKEND_HOP_8_THEMES = [
         "mapUrl": "https://maps.google.com/?q=紫藤廬+Wistaria+Tea+House",
         "affiliateLabel": "🍵 預約茶道體驗 ➔",
         "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E7%B4%AB%E8%97%A4%E5%BB%AC&aid=123436",
-        "img": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=800&auto=format&fit=crop"
+        "img": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=800&auto=format&fit=crop",
+        "isPopular": true,
+        "readCount": "19,820 次閱讀"
       },
       {
         "id": "hop_1_2",
@@ -11519,7 +11792,9 @@ const WEEKEND_HOP_8_THEMES = [
         "mapUrl": "https://maps.google.com/?q=九份阿妹茶樓",
         "affiliateLabel": "🎟️ Klook 預訂阿妹茶樓品茗 ➔",
         "affiliateUrl": "https://www.klook.com/zh-TW/activity/8741-amei-tea-house-jiufen-taipei/?aid=123436",
-        "img": "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=800&auto=format&fit=crop"
+        "img": "https://images.unsplash.com/photo-1508873696983-2df5293cb395?w=800&auto=format&fit=crop",
+        "isPopular": true,
+        "readCount": "22,150 次閱讀"
       },
       {
         "id": "hop_1_3",
@@ -11612,23 +11887,370 @@ const WEEKEND_HOP_8_THEMES = [
         "affiliateLabel": "🏨 Trip.com 查台南古都住宿 ➔",
         "affiliateUrl": "https://trip.com?Allianceid=9507030&SID=325761227&trip_sub1=TainanHotel",
         "img": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_4_1",
+        "nameZh": "地衣荒物 Earthing Way",
+        "nameEn": "Earthing Way Dadaocheng",
+        "rating": "★ 4.8",
+        "reviews": "890 則評價",
+        "hours": "10:30 - 19:30 (大稻埕老街)",
+        "city": "台北市",
+        "district": "大同區",
+        "addressZh": "台北市大同區民樂街34號",
+        "addressEn": "No. 34, Minle St., Datong Dist., Taipei City",
+        "tags": [
+          "🏺 台灣原生工藝",
+          "👜 自然植物染手作",
+          "🌿 質樸美學選物"
+        ],
+        "features": "座落迪化街旁民樂街的深邃美學老屋！蒐羅台灣在地陶藝、竹編、銅器、苧麻編織與原住民手工藝，讓每一件生活器皿都蘊含著土地的呼吸與觸感。",
+        "mapUrl": "https://maps.google.com/?q=地衣荒物+Earthing+Way",
+        "affiliateLabel": "🏺 affclkr 質感選物導購 ➔",
+        "affiliateUrl": "https://affckr.site/track/clicks/6826/c627c2bc9b0428dbf18eec23d62e9d47266c4cdf2aabebf20f62b413234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+        "img": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_4_2",
+        "nameZh": "小器生活空間",
+        "nameEn": "Xiao Qi Living Chifeng",
+        "rating": "★ 4.7",
+        "reviews": "1,120 則評價",
+        "hours": "12:00 - 20:00 (赤峰街商圈)",
+        "city": "台北市",
+        "district": "大同區",
+        "addressZh": "台北市大同區赤峰街29號",
+        "addressEn": "No. 29, Chifeng St., Datong Dist., Taipei City",
+        "tags": [
+          "🏺 日台生活食器",
+          "☕ 選物兼美學",
+          "🚶 捷運中山站"
+        ],
+        "features": "赤峰街文青聚落靈魂地標！純白淨透玻璃櫥窗展示日台職人手作陶碗、玻璃杯皿、木質餐具與手染圍裙，將餐桌上的微小時光轉化為藝術儀式感。",
+        "mapUrl": "https://maps.google.com/?q=小器生活空間+赤峰街",
+        "affiliateLabel": "🚶 中山赤峰街散步指南 ➔",
+        "affiliateUrl": "ranking.html?cat=walk",
+        "img": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_4_3",
+        "nameZh": "朋丁 Pon Ding",
+        "nameEn": "Pon Ding Art Space & Bookstore",
+        "rating": "★ 4.8",
+        "reviews": "1,340 則評價",
+        "hours": "12:00 - 19:00 (週一公休)",
+        "city": "台北市",
+        "district": "中山區",
+        "addressZh": "台北市中山區中山北路一段53巷6號",
+        "addressEn": "No. 6, Lane 53, Sec. 1, Zhongshan N. Rd., Zhongshan Dist., Taipei City",
+        "tags": [
+          "📚 獨立藝術雜誌",
+          "☕ 三層樓藝廊咖啡",
+          "🚶 近台北車站"
+        ],
+        "features": "由三層老公寓改造的獨立藝術空間！一樓陳列來自世界各地的獨立出版刊物、小誌（Zine）與精品咖啡，二三樓為當代新銳藝術展演與講座空間。",
+        "mapUrl": "https://maps.google.com/?q=朋丁+Pon+Ding",
+        "affiliateLabel": "☕ 探索全台風格咖啡店 ➔",
+        "affiliateUrl": "cafe.html",
+        "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_4_4",
+        "nameZh": "綠光計畫范特喜文創聚落",
+        "nameEn": "Fantasy Green Ray Taichung",
+        "rating": "★ 4.6",
+        "reviews": "5,600 則評價",
+        "hours": "10:00 - 18:00 (中興一巷)",
+        "city": "台中市",
+        "district": "西區",
+        "addressZh": "台中市西區中興一巷2號-26號",
+        "addressEn": "No. 2-26, Zhongxing 1st Ln., West Dist., Taichung City",
+        "tags": [
+          "🏺 手作原創皮革",
+          "🌿 老宿舍綠植爬藤",
+          "☕ 獨立小店聚落"
+        ],
+        "features": "自來水公司老眷村宿舍再生聚落！保留老紅磚牆與二樓空中綠意步道，匯聚金工飾品、手造皮件、插畫布包與特色小甜點店，充滿慢活生活氣息。",
+        "mapUrl": "https://maps.google.com/?q=綠光計畫范特喜文創聚落",
+        "affiliateLabel": "🚗 預訂台中包車漫遊 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E4%B8%AD%E5%8C%85%E8%BB%8A&aid=123436",
+        "img": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_4_5",
+        "nameZh": "聚珍臺灣",
+        "nameEn": "GJ Taiwan Bookstore Tainan",
+        "rating": "★ 4.9",
+        "reviews": "980 則評價",
+        "hours": "11:00 - 19:00 (林百貨旁)",
+        "city": "台南市",
+        "district": "中西區",
+        "addressZh": "台南市中西區青年路（台南林百貨周邊）",
+        "addressEn": "Qingnian Rd., West Central Dist., Tainan City",
+        "tags": [
+          "📚 台灣文史典藏",
+          "🏺 古地圖復刻",
+          "🚶 林百貨周邊"
+        ],
+        "features": "外國旅人深度認識台灣歷史的最佳窗口！專注於台灣老照片、日治時期地圖復刻、文史書籍與文創商品，讓旅人在紙頁墨香中穿梭台灣古今風貌。",
+        "mapUrl": "https://maps.google.com/?q=聚珍臺灣+台南",
+        "affiliateLabel": "🏨 訂台南特色文青旅宿 ➔",
+        "affiliateUrl": "https://affone.me/s/bQeO4",
+        "img": "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=800&auto=format&fit=crop"
       }
     ]
   },
   {
-    "id": "theme_2",
-    "number": "02",
-    "name": "🌙 深夜食堂與微醺地圖",
-    "nameEn": "Midnight Dining & Speakeasy Bars",
-    "audience": "夜貓族、日韓年輕旅客（晚上 9 點後）",
+    "id": "theme_local_flavors",
+    "number": "03",
+    "name": "🍢 經典台味與夜市早餐",
+    "nameEn": "Authentic Taiwan Breakfast & Night Markets",
+    "audience": "炭烤燒餅豆漿、百年老市場早午餐、米其林必比登夜市圖鑑",
     "tags": [
-      "🍸 亞洲 50 大",
-      "🍢 日式居酒屋",
-      "🍲 深夜牛肉湯",
-      "🏮 秘境酒吧",
-      "🚶 捷運直達"
+      "🥖 炭香古早味早餐",
+      "🥣 手工鹹豆漿油條",
+      "🍢 必比登夜市名攤",
+      "🍧 古法冰品甜湯"
     ],
-    "affiliateIntro": "affckr 台灣訂餐（subid_2=日本報報）＋ 55688 叫車直達",
+    "affiliateIntro": "Klook 夜市美食通票 ＋ Uber Eats 飯店外送直達",
+    "places": [
+      {
+        "id": "hop_3_1",
+        "nameZh": "阜杭豆漿",
+        "nameEn": "Fu Hang Soy Milk Taipei",
+        "rating": "★ 4.6",
+        "reviews": "14,800 則評價",
+        "hours": "05:30 - 12:30 (週一公休 / 米其林必比登)",
+        "city": "台北市",
+        "district": "中正區",
+        "addressZh": "台北市中正區忠孝東路一段108號2樓（華山市場）",
+        "addressEn": "2F, Huashan Market, No. 108, Sec. 1, Zhongxiao E. Rd., Zhongzheng Dist., Taipei City",
+        "tags": [
+          "🥖 厚燒餅夾蛋夾油條",
+          "🥣 焦香鹹豆漿",
+          "⏰ 05:30 開門",
+          "🚶 捷運善導寺站"
+        ],
+        "features": "連年榮獲米其林必比登推介的台灣早餐頂流！古法炭烤厚燒餅外酥內軟、帶淡淡蔥花鹹香，招牌鹹豆漿凝結如嫩豆腐花佐現炸老油條與香辣油。",
+        "mapUrl": "https://maps.google.com/?q=阜杭豆漿",
+        "affiliateLabel": "🎟️ Klook 阜杭免排隊直送 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E9%98%9C%E6%9D%AD%E8%B1%86%E6%BC%BF&aid=123436",
+        "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_3_2",
+        "nameZh": "鼎元豆漿",
+        "nameEn": "Ding Yuan Soy Milk Taipei",
+        "rating": "★ 4.5",
+        "reviews": "4,120 則評價",
+        "hours": "04:30 - 11:30 (日本觀光客指名)",
+        "city": "台北市",
+        "district": "中正區",
+        "addressZh": "台北市中正區金華街30-1號",
+        "addressEn": "No. 30-1, Jinhua St., Zhongzheng Dist., Taipei City",
+        "tags": [
+          "🥟 爆汁小籠湯包",
+          "🥖 蟹殼黃燒餅",
+          "🌐 日英語友善",
+          "🚶 近中正紀念堂"
+        ],
+        "features": "日本各大旅遊書強烈推薦的中正區老字號！現包現蒸小籠湯包皮薄餡多、湯汁濃郁，蟹殼黃與甜酥餅層次豐富，服務人員具外語點餐友善經驗。",
+        "mapUrl": "https://maps.google.com/?q=鼎元豆漿",
+        "affiliateLabel": "🚗 台北市區半日包車 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E5%8C%97%E5%8C%85%E8%BB%8A&aid=123436",
+        "img": "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_3_3",
+        "nameZh": "天津苟不理湯包（信義街無名湯包）",
+        "nameEn": "Gou Bu Li Soup Dumplings Taichung",
+        "rating": "★ 4.6",
+        "reviews": "6,300 則評價",
+        "hours": "05:30 - 11:30 (週一公休)",
+        "city": "台中市",
+        "district": "東區",
+        "addressZh": "台中市東區信義街63號",
+        "addressEn": "No. 63, Xinyi St., East Dist., Taichung City",
+        "tags": [
+          "🥟 巨型爆漿湯包",
+          "🍳 蔥花荷包蛋",
+          "🥣 自助豆漿紅茶暢飲"
+        ],
+        "features": "台中在地排隊超人氣大湯包！每顆湯包飽滿如肉包，手桿厚麵皮吸飽肉汁，咬開瞬間鮮甜湯汁爆噴，店內自助式裝豆漿、紅茶更是極致爽快。",
+        "mapUrl": "https://maps.google.com/?q=天津苟不理湯包",
+        "affiliateLabel": "🚗 預訂台中市區接送包車 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E4%B8%AD%E5%8C%85%E8%BB%8A&aid=123436",
+        "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_3_4",
+        "nameZh": "六千泓佐牛肉湯",
+        "nameEn": "Liu Qian Beef Soup Tainan",
+        "rating": "★ 4.7",
+        "reviews": "4,780 則評價",
+        "hours": "05:00 - 賣完為止 (通常 08:30 售罄)",
+        "city": "台南市",
+        "district": "中西區",
+        "addressZh": "台南市中西區海安路一段63號",
+        "addressEn": "No. 63, Sec. 1, Hai'an Rd., West Central Dist., Tainan City",
+        "tags": [
+          "🥣 晨光第一鍋原湯",
+          "🥩 現切溫體牛",
+          "⏰ 清晨 5 點開賣"
+        ],
+        "features": "台南最熱血的清晨朝聖排隊儀式！凌晨 4 點便有旅人拿號碼牌，只為喝上一口「第一鍋」最清澈純粹的牛骨牛髓精華原湯，肉質軟嫩如絲。",
+        "mapUrl": "https://maps.google.com/?q=六千泓佐牛肉湯",
+        "affiliateLabel": "🏨 訂海安路散步飯店 ➔",
+        "affiliateUrl": "https://affone.me/s/bQeO4",
+        "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_3_5",
+        "nameZh": "興隆居",
+        "nameEn": "Xing Long Ju Kaohsiung",
+        "rating": "★ 4.5",
+        "reviews": "7,800 則評價",
+        "hours": "04:30 - 11:30 (週一公休)",
+        "city": "高雄市",
+        "district": "前金區",
+        "addressZh": "高雄市前金區六合二路186號",
+        "addressEn": "No. 186, Liuhe 2nd Rd., Qianjin Dist., Kaohsiung City",
+        "tags": [
+          "🥟 多汁高麗菜湯包",
+          "🥖 炭火燒餅油條",
+          "🚶 近市議會站"
+        ],
+        "features": "飄香近七十年的港都傳統早餐王者！現包現蒸多汁大湯包，內餡裹滿脆甜梨山高麗菜與鮮豬肉末，咬下湯汁四溢，炭烤老麵脆燒餅配杏仁茶更是絕配。",
+        "mapUrl": "https://maps.google.com/?q=興隆居",
+        "affiliateLabel": "🚄 預訂台灣高鐵 75 折車票 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E9%AB%98%E9%90%B5&aid=123436",
+        "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_5_1",
+        "nameZh": "寧夏夜市「劉芋仔蛋黃芋餅」",
+        "nameEn": "Liu Yu Zi Fried Taro Balls Ningxia",
+        "rating": "★ 4.6",
+        "reviews": "3,400 則評價",
+        "hours": "17:30 - 24:00 (必比登排隊王)",
+        "city": "台北市",
+        "district": "大同區",
+        "addressZh": "台北市大同區寧夏路（攤位 091）",
+        "addressEn": "Stall 091, Ningxia Rd., Datong Dist., Taipei City",
+        "tags": [
+          "🌟 必比登推介",
+          "🍧 酥炸香芋肉鬆",
+          "🚶 捷運雙連站"
+        ],
+        "features": "連續多年入選米其林必比登！現包現炸高雄甲仙檳榔心芋泥，包裹鹹香黑豬肉脯與整顆流油鹹蛋黃，外皮金黃薄脆、內餡軟糯甘甜噴香。",
+        "mapUrl": "https://maps.google.com/?q=劉芋仔蛋黃芋餅",
+        "affiliateLabel": "🎟️ Klook 寧夏夜市美食券 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%AF%A7%E5%A4%8F%E5%A4%9C%E5%B8%82&aid=123436",
+        "img": "assets/ranking_taro_ball.png"
+      },
+      {
+        "id": "hop_5_2",
+        "nameZh": "士林夜市「海友十全排骨」",
+        "nameEn": "Hai You Ribs Shilin Night Market",
+        "rating": "★ 4.5",
+        "reviews": "4,100 則評價",
+        "hours": "14:30 - 23:30 (週四公休)",
+        "city": "台北市",
+        "district": "士林區",
+        "addressZh": "台北市士林區大東路49號",
+        "addressEn": "No. 49, Dadong Rd., Shilin Dist., Taipei City",
+        "tags": [
+          "🌟 必比登推介",
+          "🥩 十全溫補排骨",
+          "🚶 捷運劍潭站"
+        ],
+        "features": "傳承四十餘年的藥膳燉排骨老店！以熟地、當歸、枸杞等十餘種名貴中藥慢火慢燉，湯頭濃黑甘醇溫潤不燥，排骨肉質軟嫩一抿即骨肉分離。",
+        "mapUrl": "https://maps.google.com/?q=海友十全排骨",
+        "affiliateLabel": "💊 買酵素保護腸胃好隊友 ➔",
+        "affiliateUrl": "https://affckr.site/track/clicks/5891/c627c2bc9b0428dbf188ec23d62e9d47266c4cdf2aabebf10f69b313234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+        "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_5_3",
+        "nameZh": "逢甲夜市「明倫蛋餅」",
+        "nameEn": "Minglun Egg Pancake Fengjia",
+        "rating": "★ 4.6",
+        "reviews": "5,200 則評價",
+        "hours": "15:00 - 01:00 AM (逢甲福星路口)",
+        "city": "台中市",
+        "district": "西屯區",
+        "addressZh": "台中市西屯區福星路546號",
+        "addressEn": "No. 546, Fuxing Rd., Xitun Dist., Taichung City",
+        "tags": [
+          "🍳 傳統粉漿餅皮",
+          "🥤 特製甜辣醬",
+          "🚶 逢甲商圈核心"
+        ],
+        "features": "源自彰化員林民國 67 年的老名攤！堅持傳統粉漿現淋煎烤，餅皮薄Q帶淡淡甜香，打入新鮮蔥花蛋後抹上靈魂甜辣醬，熱氣騰騰捲起咬下無比過癮。",
+        "mapUrl": "https://maps.google.com/?q=明倫蛋餅+逢甲",
+        "affiliateLabel": "🏨 訂逢甲夜市周邊住宿 ➔",
+        "affiliateUrl": "https://affone.me/s/bQeO4",
+        "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_5_4",
+        "nameZh": "花園夜市「二師兄古早味滷味」",
+        "nameEn": "Er Shi Xiong Braised Dishes Tainan",
+        "rating": "★ 4.7",
+        "reviews": "6,100 則評價",
+        "hours": "每週四、六、日 17:30 - 24:00",
+        "city": "台南市",
+        "district": "北區",
+        "addressZh": "台南市北區海安路三段（花園夜市內）",
+        "addressEn": "Sec. 3, Hai'an Rd., North Dist., Tainan City",
+        "tags": [
+          "🥩 現場大鍋三杯翻炒",
+          "🧋 蜜汁七里香",
+          "⏰ 夜市限定"
+        ],
+        "features": "花園夜市現場最壯觀的烹調盛景！數口大鍋現場慢火翻炒三杯黑糖米血、原汁小鳥蛋、蜜汁七里香與雞翅，濃油赤醬香氣飄散數十米，排隊人潮綿延。",
+        "mapUrl": "https://maps.google.com/?q=二師兄古早味滷味",
+        "affiliateLabel": "🚗 台南夜市包車直達 ➔",
+        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E5%8D%97%E5%8C%85%E8%BB%8A&aid=123436",
+        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop"
+      },
+      {
+        "id": "hop_5_5",
+        "nameZh": "瑞豐夜市「天使大雞排」",
+        "nameEn": "Angel Chicken Chop Ruifeng",
+        "rating": "★ 4.7",
+        "reviews": "4,300 則評價",
+        "hours": "18:00 - 00:30 (週一三公休)",
+        "city": "高雄市",
+        "district": "鼓山區",
+        "addressZh": "高雄市鼓山區裕誠路（瑞豐夜市內）",
+        "addressEn": "Yucheng Rd., Gushan Dist., Kaohsiung City",
+        "tags": [
+          "🥩 厚切多汁脆皮",
+          "🚶 捷運巨蛋站",
+          "🌟 港都排隊傳奇"
+        ],
+        "features": "南台灣排隊巨型雞排指標！厚度超過 2 公分溫體雞胸肉，裹上特調酥脆漿粉高溫鎖汁，撕開瞬間熱氣白煙與鮮甜雞汁直流，酥脆椒鹽風味令人吮指回味。",
+        "mapUrl": "https://maps.google.com/?q=天使大雞排+瑞豐夜市",
+        "affiliateLabel": "🏨 訂高雄巨蛋周邊飯店 ➔",
+        "affiliateUrl": "https://trip.com?Allianceid=9507030&SID=325761227&trip_sub1=KaohsiungHotel",
+        "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&auto=format&fit=crop"
+      }
+    ]
+  },
+  {
+    "id": "theme_night_sweets",
+    "number": "04",
+    "name": "🌙 深夜微醺與手作甜點",
+    "nameEn": "Late-Night Diners & Artisanal Sweets",
+    "audience": "亞洲 50 大酒吧、日式老宅居酒屋、法式千層與大人味深夜咖啡",
+    "tags": [
+      "🍸 台灣茶酒特調",
+      "🍢 炭火串燒居酒屋",
+      "🍰 法式手作烘焙",
+      "🍮 深夜大人味布丁"
+    ],
+    "affiliateIntro": "Klook 微醺酒吧通行證 ＋ 人氣甜點禮盒外送",
     "places": [
       {
         "id": "hop_2_1",
@@ -11762,407 +12384,7 @@ const WEEKEND_HOP_8_THEMES = [
         "affiliateLabel": "🚕 55688 高雄叫車直達 ➔",
         "affiliateUrl": "https://www.55688.com.tw/",
         "img": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800&auto=format&fit=crop"
-      }
-    ]
-  },
-  {
-    "id": "theme_3",
-    "number": "03",
-    "name": "🥖 經典台式傳統早餐",
-    "nameEn": "Classic Taiwanese Traditional Breakfast",
-    "audience": "國外旅客來台必吃、早起吃貨行程",
-    "tags": [
-      "🥖 酥脆油條燒餅",
-      "🥣 招牌鹹豆漿",
-      "🥟 爆汁小籠包",
-      "🍳 傳統粉漿蛋餅",
-      "⏰ 清晨開門"
-    ],
-    "affiliateIntro": "affckr / Klook 鼎泰豐/早餐免排隊套餐券 ＋ 市區包車",
-    "places": [
-      {
-        "id": "hop_3_1",
-        "nameZh": "阜杭豆漿",
-        "nameEn": "Fu Hang Soy Milk Taipei",
-        "rating": "★ 4.6",
-        "reviews": "14,800 則評價",
-        "hours": "05:30 - 12:30 (週一公休 / 米其林必比登)",
-        "city": "台北市",
-        "district": "中正區",
-        "addressZh": "台北市中正區忠孝東路一段108號2樓（華山市場）",
-        "addressEn": "2F, Huashan Market, No. 108, Sec. 1, Zhongxiao E. Rd., Zhongzheng Dist., Taipei City",
-        "tags": [
-          "🥖 厚燒餅夾蛋夾油條",
-          "🥣 焦香鹹豆漿",
-          "⏰ 05:30 開門",
-          "🚶 捷運善導寺站"
-        ],
-        "features": "連年榮獲米其林必比登推介的台灣早餐頂流！古法炭烤厚燒餅外酥內軟、帶淡淡蔥花鹹香，招牌鹹豆漿凝結如嫩豆腐花佐現炸老油條與香辣油。",
-        "mapUrl": "https://maps.google.com/?q=阜杭豆漿",
-        "affiliateLabel": "🎟️ Klook 阜杭免排隊直送 ➔",
-        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E9%98%9C%E6%9D%AD%E8%B1%86%E6%BC%BF&aid=123436",
-        "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&auto=format&fit=crop"
       },
-      {
-        "id": "hop_3_2",
-        "nameZh": "鼎元豆漿",
-        "nameEn": "Ding Yuan Soy Milk Taipei",
-        "rating": "★ 4.5",
-        "reviews": "4,120 則評價",
-        "hours": "04:30 - 11:30 (日本觀光客指名)",
-        "city": "台北市",
-        "district": "中正區",
-        "addressZh": "台北市中正區金華街30-1號",
-        "addressEn": "No. 30-1, Jinhua St., Zhongzheng Dist., Taipei City",
-        "tags": [
-          "🥟 爆汁小籠湯包",
-          "🥖 蟹殼黃燒餅",
-          "🌐 日英語友善",
-          "🚶 近中正紀念堂"
-        ],
-        "features": "日本各大旅遊書強烈推薦的中正區老字號！現包現蒸小籠湯包皮薄餡多、湯汁濃郁，蟹殼黃與甜酥餅層次豐富，服務人員具外語點餐友善經驗。",
-        "mapUrl": "https://maps.google.com/?q=鼎元豆漿",
-        "affiliateLabel": "🚗 台北市區半日包車 ➔",
-        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E5%8C%97%E5%8C%85%E8%BB%8A&aid=123436",
-        "img": "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_3_3",
-        "nameZh": "天津苟不理湯包（信義街無名湯包）",
-        "nameEn": "Gou Bu Li Soup Dumplings Taichung",
-        "rating": "★ 4.6",
-        "reviews": "6,300 則評價",
-        "hours": "05:30 - 11:30 (週一公休)",
-        "city": "台中市",
-        "district": "東區",
-        "addressZh": "台中市東區信義街63號",
-        "addressEn": "No. 63, Xinyi St., East Dist., Taichung City",
-        "tags": [
-          "🥟 巨型爆漿湯包",
-          "🍳 蔥花荷包蛋",
-          "🥣 自助豆漿紅茶暢飲"
-        ],
-        "features": "台中在地排隊超人氣大湯包！每顆湯包飽滿如肉包，手桿厚麵皮吸飽肉汁，咬開瞬間鮮甜湯汁爆噴，店內自助式裝豆漿、紅茶更是極致爽快。",
-        "mapUrl": "https://maps.google.com/?q=天津苟不理湯包",
-        "affiliateLabel": "🚗 預訂台中市區接送包車 ➔",
-        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E4%B8%AD%E5%8C%85%E8%BB%8A&aid=123436",
-        "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_3_4",
-        "nameZh": "六千泓佐牛肉湯",
-        "nameEn": "Liu Qian Beef Soup Tainan",
-        "rating": "★ 4.7",
-        "reviews": "4,780 則評價",
-        "hours": "05:00 - 賣完為止 (通常 08:30 售罄)",
-        "city": "台南市",
-        "district": "中西區",
-        "addressZh": "台南市中西區海安路一段63號",
-        "addressEn": "No. 63, Sec. 1, Hai'an Rd., West Central Dist., Tainan City",
-        "tags": [
-          "🥣 晨光第一鍋原湯",
-          "🥩 現切溫體牛",
-          "⏰ 清晨 5 點開賣"
-        ],
-        "features": "台南最熱血的清晨朝聖排隊儀式！凌晨 4 點便有旅人拿號碼牌，只為喝上一口「第一鍋」最清澈純粹的牛骨牛髓精華原湯，肉質軟嫩如絲。",
-        "mapUrl": "https://maps.google.com/?q=六千泓佐牛肉湯",
-        "affiliateLabel": "🏨 訂海安路散步飯店 ➔",
-        "affiliateUrl": "https://affone.me/s/bQeO4",
-        "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_3_5",
-        "nameZh": "興隆居",
-        "nameEn": "Xing Long Ju Kaohsiung",
-        "rating": "★ 4.5",
-        "reviews": "7,800 則評價",
-        "hours": "04:30 - 11:30 (週一公休)",
-        "city": "高雄市",
-        "district": "前金區",
-        "addressZh": "高雄市前金區六合二路186號",
-        "addressEn": "No. 186, Liuhe 2nd Rd., Qianjin Dist., Kaohsiung City",
-        "tags": [
-          "🥟 多汁高麗菜湯包",
-          "🥖 炭火燒餅油條",
-          "🚶 近市議會站"
-        ],
-        "features": "飄香近七十年的港都傳統早餐王者！現包現蒸多汁大湯包，內餡裹滿脆甜梨山高麗菜與鮮豬肉末，咬下湯汁四溢，炭烤老麵脆燒餅配杏仁茶更是絕配。",
-        "mapUrl": "https://maps.google.com/?q=興隆居",
-        "affiliateLabel": "🚄 預訂台灣高鐵 75 折車票 ➔",
-        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E9%AB%98%E9%90%B5&aid=123436",
-        "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&auto=format&fit=crop"
-      }
-    ]
-  },
-  {
-    "id": "theme_4",
-    "number": "04",
-    "name": "🏺 文青選物與獨立書店",
-    "nameEn": "Select Shops & Independent Bookstores",
-    "audience": "赤峰街、大稻埕散策者、生活美學愛好者",
-    "tags": [
-      "🏺 台灣在地工藝",
-      "📚 獨立書店雜誌",
-      "👜 原創布包服飾",
-      "🌿 植栽雜貨",
-      "☕ 選物兼咖啡"
-    ],
-    "affiliateIntro": "affclkr 質感選物線上導購（subid_1=台灣吃喝玩樂）",
-    "places": [
-      {
-        "id": "hop_4_1",
-        "nameZh": "地衣荒物 Earthing Way",
-        "nameEn": "Earthing Way Dadaocheng",
-        "rating": "★ 4.8",
-        "reviews": "890 則評價",
-        "hours": "10:30 - 19:30 (大稻埕老街)",
-        "city": "台北市",
-        "district": "大同區",
-        "addressZh": "台北市大同區民樂街34號",
-        "addressEn": "No. 34, Minle St., Datong Dist., Taipei City",
-        "tags": [
-          "🏺 台灣原生工藝",
-          "👜 自然植物染手作",
-          "🌿 質樸美學選物"
-        ],
-        "features": "座落迪化街旁民樂街的深邃美學老屋！蒐羅台灣在地陶藝、竹編、銅器、苧麻編織與原住民手工藝，讓每一件生活器皿都蘊含著土地的呼吸與觸感。",
-        "mapUrl": "https://maps.google.com/?q=地衣荒物+Earthing+Way",
-        "affiliateLabel": "🏺 affclkr 質感選物導購 ➔",
-        "affiliateUrl": "https://affckr.site/track/clicks/6826/c627c2bc9b0428dbf18eec23d62e9d47266c4cdf2aabebf20f62b413234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "img": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_4_2",
-        "nameZh": "小器生活空間",
-        "nameEn": "Xiao Qi Living Chifeng",
-        "rating": "★ 4.7",
-        "reviews": "1,120 則評價",
-        "hours": "12:00 - 20:00 (赤峰街商圈)",
-        "city": "台北市",
-        "district": "大同區",
-        "addressZh": "台北市大同區赤峰街29號",
-        "addressEn": "No. 29, Chifeng St., Datong Dist., Taipei City",
-        "tags": [
-          "🏺 日台生活食器",
-          "☕ 選物兼美學",
-          "🚶 捷運中山站"
-        ],
-        "features": "赤峰街文青聚落靈魂地標！純白淨透玻璃櫥窗展示日台職人手作陶碗、玻璃杯皿、木質餐具與手染圍裙，將餐桌上的微小時光轉化為藝術儀式感。",
-        "mapUrl": "https://maps.google.com/?q=小器生活空間+赤峰街",
-        "affiliateLabel": "🚶 中山赤峰街散步指南 ➔",
-        "affiliateUrl": "ranking.html?cat=walk",
-        "img": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_4_3",
-        "nameZh": "朋丁 Pon Ding",
-        "nameEn": "Pon Ding Art Space & Bookstore",
-        "rating": "★ 4.8",
-        "reviews": "1,340 則評價",
-        "hours": "12:00 - 19:00 (週一公休)",
-        "city": "台北市",
-        "district": "中山區",
-        "addressZh": "台北市中山區中山北路一段53巷6號",
-        "addressEn": "No. 6, Lane 53, Sec. 1, Zhongshan N. Rd., Zhongshan Dist., Taipei City",
-        "tags": [
-          "📚 獨立藝術雜誌",
-          "☕ 三層樓藝廊咖啡",
-          "🚶 近台北車站"
-        ],
-        "features": "由三層老公寓改造的獨立藝術空間！一樓陳列來自世界各地的獨立出版刊物、小誌（Zine）與精品咖啡，二三樓為當代新銳藝術展演與講座空間。",
-        "mapUrl": "https://maps.google.com/?q=朋丁+Pon+Ding",
-        "affiliateLabel": "☕ 探索全台風格咖啡店 ➔",
-        "affiliateUrl": "cafe.html",
-        "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_4_4",
-        "nameZh": "綠光計畫范特喜文創聚落",
-        "nameEn": "Fantasy Green Ray Taichung",
-        "rating": "★ 4.6",
-        "reviews": "5,600 則評價",
-        "hours": "10:00 - 18:00 (中興一巷)",
-        "city": "台中市",
-        "district": "西區",
-        "addressZh": "台中市西區中興一巷2號-26號",
-        "addressEn": "No. 2-26, Zhongxing 1st Ln., West Dist., Taichung City",
-        "tags": [
-          "🏺 手作原創皮革",
-          "🌿 老宿舍綠植爬藤",
-          "☕ 獨立小店聚落"
-        ],
-        "features": "自來水公司老眷村宿舍再生聚落！保留老紅磚牆與二樓空中綠意步道，匯聚金工飾品、手造皮件、插畫布包與特色小甜點店，充滿慢活生活氣息。",
-        "mapUrl": "https://maps.google.com/?q=綠光計畫范特喜文創聚落",
-        "affiliateLabel": "🚗 預訂台中包車漫遊 ➔",
-        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E4%B8%AD%E5%8C%85%E8%BB%8A&aid=123436",
-        "img": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_4_5",
-        "nameZh": "聚珍臺灣",
-        "nameEn": "GJ Taiwan Bookstore Tainan",
-        "rating": "★ 4.9",
-        "reviews": "980 則評價",
-        "hours": "11:00 - 19:00 (林百貨旁)",
-        "city": "台南市",
-        "district": "中西區",
-        "addressZh": "台南市中西區青年路（台南林百貨周邊）",
-        "addressEn": "Qingnian Rd., West Central Dist., Tainan City",
-        "tags": [
-          "📚 台灣文史典藏",
-          "🏺 古地圖復刻",
-          "🚶 林百貨周邊"
-        ],
-        "features": "外國旅人深度認識台灣歷史的最佳窗口！專注於台灣老照片、日治時期地圖復刻、文史書籍與文創商品，讓旅人在紙頁墨香中穿梭台灣古今風貌。",
-        "mapUrl": "https://maps.google.com/?q=聚珍臺灣+台南",
-        "affiliateLabel": "🏨 訂台南特色文青旅宿 ➔",
-        "affiliateUrl": "https://affone.me/s/bQeO4",
-        "img": "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=800&auto=format&fit=crop"
-      }
-    ]
-  },
-  {
-    "id": "theme_5",
-    "number": "05",
-    "name": "🍢 夜市必吃攤位圖鑑",
-    "nameEn": "Taiwan Iconic Night Market Food Guide",
-    "audience": "來台第 1 剛需！各縣市必比登與在地老攤",
-    "tags": [
-      "🌟 必比登推介",
-      "🥩 酥炸肉食",
-      "🦪 現炒海鮮",
-      "🍧 傳統甜品冰品",
-      "🥤 解膩冬瓜茶"
-    ],
-    "affiliateIntro": "afftkr 健胃酵素益生菌（吃大餐神隊友）＋ Klook 夜市千歲宴/美食券",
-    "places": [
-      {
-        "id": "hop_5_1",
-        "nameZh": "寧夏夜市「劉芋仔蛋黃芋餅」",
-        "nameEn": "Liu Yu Zi Fried Taro Balls Ningxia",
-        "rating": "★ 4.6",
-        "reviews": "3,400 則評價",
-        "hours": "17:30 - 24:00 (必比登排隊王)",
-        "city": "台北市",
-        "district": "大同區",
-        "addressZh": "台北市大同區寧夏路（攤位 091）",
-        "addressEn": "Stall 091, Ningxia Rd., Datong Dist., Taipei City",
-        "tags": [
-          "🌟 必比登推介",
-          "🍧 酥炸香芋肉鬆",
-          "🚶 捷運雙連站"
-        ],
-        "features": "連續多年入選米其林必比登！現包現炸高雄甲仙檳榔心芋泥，包裹鹹香黑豬肉脯與整顆流油鹹蛋黃，外皮金黃薄脆、內餡軟糯甘甜噴香。",
-        "mapUrl": "https://maps.google.com/?q=劉芋仔蛋黃芋餅",
-        "affiliateLabel": "🎟️ Klook 寧夏夜市美食券 ➔",
-        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%AF%A7%E5%A4%8F%E5%A4%9C%E5%B8%82&aid=123436",
-        "img": "assets/ranking_taro_ball.png"
-      },
-      {
-        "id": "hop_5_2",
-        "nameZh": "士林夜市「海友十全排骨」",
-        "nameEn": "Hai You Ribs Shilin Night Market",
-        "rating": "★ 4.5",
-        "reviews": "4,100 則評價",
-        "hours": "14:30 - 23:30 (週四公休)",
-        "city": "台北市",
-        "district": "士林區",
-        "addressZh": "台北市士林區大東路49號",
-        "addressEn": "No. 49, Dadong Rd., Shilin Dist., Taipei City",
-        "tags": [
-          "🌟 必比登推介",
-          "🥩 十全溫補排骨",
-          "🚶 捷運劍潭站"
-        ],
-        "features": "傳承四十餘年的藥膳燉排骨老店！以熟地、當歸、枸杞等十餘種名貴中藥慢火慢燉，湯頭濃黑甘醇溫潤不燥，排骨肉質軟嫩一抿即骨肉分離。",
-        "mapUrl": "https://maps.google.com/?q=海友十全排骨",
-        "affiliateLabel": "💊 買酵素保護腸胃好隊友 ➔",
-        "affiliateUrl": "https://affckr.site/track/clicks/5891/c627c2bc9b0428dbf188ec23d62e9d47266c4cdf2aabebf10f69b313234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
-        "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_5_3",
-        "nameZh": "逢甲夜市「明倫蛋餅」",
-        "nameEn": "Minglun Egg Pancake Fengjia",
-        "rating": "★ 4.6",
-        "reviews": "5,200 則評價",
-        "hours": "15:00 - 01:00 AM (逢甲福星路口)",
-        "city": "台中市",
-        "district": "西屯區",
-        "addressZh": "台中市西屯區福星路546號",
-        "addressEn": "No. 546, Fuxing Rd., Xitun Dist., Taichung City",
-        "tags": [
-          "🍳 傳統粉漿餅皮",
-          "🥤 特製甜辣醬",
-          "🚶 逢甲商圈核心"
-        ],
-        "features": "源自彰化員林民國 67 年的老名攤！堅持傳統粉漿現淋煎烤，餅皮薄Q帶淡淡甜香，打入新鮮蔥花蛋後抹上靈魂甜辣醬，熱氣騰騰捲起咬下無比過癮。",
-        "mapUrl": "https://maps.google.com/?q=明倫蛋餅+逢甲",
-        "affiliateLabel": "🏨 訂逢甲夜市周邊住宿 ➔",
-        "affiliateUrl": "https://affone.me/s/bQeO4",
-        "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_5_4",
-        "nameZh": "花園夜市「二師兄古早味滷味」",
-        "nameEn": "Er Shi Xiong Braised Dishes Tainan",
-        "rating": "★ 4.7",
-        "reviews": "6,100 則評價",
-        "hours": "每週四、六、日 17:30 - 24:00",
-        "city": "台南市",
-        "district": "北區",
-        "addressZh": "台南市北區海安路三段（花園夜市內）",
-        "addressEn": "Sec. 3, Hai'an Rd., North Dist., Tainan City",
-        "tags": [
-          "🥩 現場大鍋三杯翻炒",
-          "🧋 蜜汁七里香",
-          "⏰ 夜市限定"
-        ],
-        "features": "花園夜市現場最壯觀的烹調盛景！數口大鍋現場慢火翻炒三杯黑糖米血、原汁小鳥蛋、蜜汁七里香與雞翅，濃油赤醬香氣飄散數十米，排隊人潮綿延。",
-        "mapUrl": "https://maps.google.com/?q=二師兄古早味滷味",
-        "affiliateLabel": "🚗 台南夜市包車直達 ➔",
-        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E5%8D%97%E5%8C%85%E8%BB%8A&aid=123436",
-        "img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_5_5",
-        "nameZh": "瑞豐夜市「天使大雞排」",
-        "nameEn": "Angel Chicken Chop Ruifeng",
-        "rating": "★ 4.7",
-        "reviews": "4,300 則評價",
-        "hours": "18:00 - 00:30 (週一三公休)",
-        "city": "高雄市",
-        "district": "鼓山區",
-        "addressZh": "高雄市鼓山區裕誠路（瑞豐夜市內）",
-        "addressEn": "Yucheng Rd., Gushan Dist., Kaohsiung City",
-        "tags": [
-          "🥩 厚切多汁脆皮",
-          "🚶 捷運巨蛋站",
-          "🌟 港都排隊傳奇"
-        ],
-        "features": "南台灣排隊巨型雞排指標！厚度超過 2 公分溫體雞胸肉，裹上特調酥脆漿粉高溫鎖汁，撕開瞬間熱氣白煙與鮮甜雞汁直流，酥脆椒鹽風味令人吮指回味。",
-        "mapUrl": "https://maps.google.com/?q=天使大雞排+瑞豐夜市",
-        "affiliateLabel": "🏨 訂高雄巨蛋周邊飯店 ➔",
-        "affiliateUrl": "https://trip.com?Allianceid=9507030&SID=325761227&trip_sub1=KaohsiungHotel",
-        "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&auto=format&fit=crop"
-      }
-    ]
-  },
-  {
-    "id": "theme_6",
-    "number": "06",
-    "name": "🍰 手作烘焙與極致甜點",
-    "nameEn": "Artisanal Bakeries & Haute Desserts",
-    "audience": "下午茶朝聖族、女性好友同行、甜品控",
-    "tags": [
-      "🥐 極致可頌酸種",
-      "🍮 昭和焦糖布丁",
-      "🧁 千層蛋糕",
-      "🌰 濃郁肉桂捲",
-      "🥭 季節鮮果"
-    ],
-    "affiliateIntro": "affckr 甜點下午茶預付餐券 ＋ Uber Eats 伴手禮直送飯店",
-    "places": [
       {
         "id": "hop_6_1",
         "nameZh": "法朋烘焙甜點坊 Le Ruban",
@@ -12272,261 +12494,6 @@ const WEEKEND_HOP_8_THEMES = [
         "affiliateLabel": "🏨 訂安平港邊海景旅宿 ➔",
         "affiliateUrl": "https://affone.me/s/bQeO4",
         "img": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&auto=format&fit=crop"
-      }
-    ]
-  },
-  {
-    "id": "theme_7",
-    "number": "07",
-    "name": "🌊 拍照打卡私房秘境",
-    "nameEn": "Scenic Hidden Photo Spots",
-    "audience": "IG/小紅書攝影愛好者、租車自駕族",
-    "tags": [
-      "🌊 斷崖蔚藍海景",
-      "🌅 夕陽日落景觀",
-      "🌾 季節稻浪落羽松",
-      "🛤️ 鐵道秘境",
-      "🚗 附停車場"
-    ],
-    "affiliateIntro": "Klook / Trip.com 租車自駕比價、包車一日遊直達秘境",
-    "places": [
-      {
-        "id": "hop_7_1",
-        "nameZh": "鼻頭角稜谷步道",
-        "nameEn": "Bitou Cape Trail New Taipei",
-        "rating": "★ 4.8",
-        "reviews": "6,800 則評價",
-        "hours": "全天開放 (建議日間行走)",
-        "city": "新北市",
-        "district": "瑞芳區",
-        "addressZh": "新北市瑞芳區鼻頭路",
-        "addressEn": "Bitou Rd., Ruifang Dist., New Taipei City",
-        "tags": [
-          "🌊 台版小萬里長城",
-          "🌅 360 度海景山稜",
-          "🚗 鼻頭漁港停車"
-        ],
-        "features": "被美譽為「台版萬里長城」的絕美海稜步道！依傍著太平洋陡峭山稜線蜿蜒起伏，一側是湛藍深邃的大海，另一側是翠綠山脈，木棧道盡頭更有迷彩聽濤咖啡館。",
-        "mapUrl": "https://maps.google.com/?q=鼻頭角稜谷步道",
-        "affiliateLabel": "🚗 預約九份東北角一日包車 ➔",
-        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E4%B9%9D%E4%BB%BD%E5%8C%85%E8%BB%8A&aid=123436",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_7_2",
-        "nameZh": "火炎山自然保留區",
-        "nameEn": "Huoyan Mountain Grand Canyon Miaoli",
-        "rating": "★ 4.7",
-        "reviews": "5,400 則評價",
-        "hours": "全天開放 (環狀步道約 3.5 小時)",
-        "city": "苗栗縣",
-        "district": "三義鄉／苑裡鎮交界",
-        "addressZh": "苗栗縣三義鄉／苑裡鎮交界（台13線旁步道口）",
-        "addressEn": "Sanyi Township / Yuanli Township Border, Miaoli County",
-        "tags": [
-          "🌾 台版美國大峽谷",
-          "🌅 壯觀赭紅惡地",
-          "🚗 台13線停車場"
-        ],
-        "features": "震撼全網的「台版美國大峽谷」！礫岩地層經長期風化雨蝕，形成尖銳如筍的赭紅絕壁峽谷，落日時分在夕陽映照下有如熊熊燃燒的火燄山，地質景觀無比壯麗。",
-        "mapUrl": "https://maps.google.com/?q=火炎山登山步道",
-        "affiliateLabel": "🚗 Trip.com 全台租車自駕比價 ➔",
-        "affiliateUrl": "https://trip.com?Allianceid=9507030&SID=325761227&trip_sub1=CarRental",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_7_3",
-        "nameZh": "高美濕地木棧道",
-        "nameEn": "Gaomei Wetlands Boardwalk Taichung",
-        "rating": "★ 4.8",
-        "reviews": "18,900 則評價",
-        "hours": "09:00 - 18:30 (依漲退潮開放)",
-        "city": "台中市",
-        "district": "清水區",
-        "addressZh": "台中市清水區美堤街",
-        "addressEn": "Meiti St., Qingshui Dist., Taichung City",
-        "tags": [
-          "🌅 全台最美落日倒影",
-          "🌾 巨大白色風車陣",
-          "🦀 生態泥灘天空之鏡"
-        ],
-        "features": "世界級天空之鏡日落景觀！延伸數百公尺的木棧道直達泥灘心臟地帶，一排潔白風車與夕陽金黃餘暉倒映在如鏡水面，彈塗魚與招潮蟹在腳下穿梭。",
-        "mapUrl": "https://maps.google.com/?q=高美濕地木棧道",
-        "affiliateLabel": "🎟️ Klook 台中高美半日遊 ➔",
-        "affiliateUrl": "https://www.klook.com/zh-TW/activity/13214-gaomei-wetland-taichung/?aid=123436",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_7_4",
-        "nameZh": "清水斷崖 坂下海灣",
-        "nameEn": "Qingshui Cliff Sakashita Bay Hualien",
-        "rating": "★ 4.9",
-        "reviews": "9,800 則評價",
-        "hours": "全天開放 (蘇花公路旁)",
-        "city": "花蓮縣",
-        "district": "秀林鄉",
-        "addressZh": "花蓮縣秀林鄉蘇花公路（崇德隧道北口旁）",
-        "addressEn": "Suhua Highway, Xiulin Township, Hualien County",
-        "tags": [
-          "🌊 千米絕壁直插深藍",
-          "🌅 日出立槳 SUP",
-          "🚗 觀景平台附車位"
-        ],
-        "features": "台灣八大奇景之首！千公尺高拔的大理石絕壁直插入深邃太平洋，海水因深度呈現翡翠綠至琉璃藍的夢幻漸層，晨曦時分在海面上划立式划槳（SUP）更是畢生難忘體驗。",
-        "mapUrl": "https://maps.google.com/?q=清水斷崖",
-        "affiliateLabel": "🎟️ Klook 清水斷崖 SUP 日出團 ➔",
-        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E6%B8%85%E6%B0%B4%E6%96%B7%E5%B4%96&aid=123436",
-        "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_7_5",
-        "nameZh": "太麻里多良車站",
-        "nameEn": "Duoliang Station Taitung",
-        "rating": "★ 4.7",
-        "reviews": "8,200 則評價",
-        "hours": "07:00 - 18:00 (清潔費入園)",
-        "city": "台東縣",
-        "district": "太麻里鄉",
-        "addressZh": "台東縣太麻里鄉瀧溪路8-1號",
-        "addressEn": "No. 8-1, Longxi Rd., Taimali Township, Taitung County",
-        "tags": [
-          "🌊 全台最美靠海車站",
-          "🛤️ 鮮紅鐵道欄杆",
-          "🚗 南迴公路旁"
-        ],
-        "features": "被旅人公認為「全台灣最美靠海車站」！鮮紅色鐵欄杆座落懸崖高台，當紅色柴油火車從隧道穿出呼嘯而過，背後是無邊無際的太平洋蔚藍波濤，構圖如日系動漫般詩意浪漫。",
-        "mapUrl": "https://maps.google.com/?q=多良車站",
-        "affiliateLabel": "🚗 預訂台東花東海岸包車 ➔",
-        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8F%B0%E6%9D%B1%E5%8C%85%E8%BB%8A&aid=123436",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&auto=format&fit=crop"
-      }
-    ]
-  },
-  {
-    "id": "theme_8",
-    "number": "08",
-    "name": "🎨 雨天備案與文化體驗",
-    "nameEn": "Rainy Day & Cultural Venues",
-    "audience": "梅雨季、高溫避暑、親子家庭無障礙",
-    "tags": [
-      "🎨 頂級美術館",
-      "🏺 體驗工坊 DIY",
-      "🏭 文創園區老倉庫",
-      "🛒 特色地下商圈",
-      "👶 親子室內放電"
-    ],
-    "affiliateIntro": "Klook 博物館門票即買即用（故宮/奇美/海生館）＋ 高鐵聯票",
-    "places": [
-      {
-        "id": "hop_8_1",
-        "nameZh": "國立故宮博物院",
-        "nameEn": "National Palace Museum Taipei",
-        "rating": "★ 4.8",
-        "reviews": "36,000 則評價",
-        "hours": "09:00 - 17:00 (週一公休)",
-        "city": "台北市",
-        "district": "士林區",
-        "addressZh": "台北市士林區至善路二段221號",
-        "addressEn": "No. 221, Sec. 2, Zhishan Rd., Shilin Dist., Taipei City",
-        "tags": [
-          "🎨 世界級歷史珍藏",
-          "🌐 多語系語音導覽",
-          "👶 親子無障礙友善",
-          "🌧️ 全天候恆溫空調"
-        ],
-        "features": "世界四大博物館之一！珍藏近七十萬件中華歷代宮廷皇家稀世珍寶，翠玉白菜、肉形石、毛公鼎鎮館之寶必看，全館恆溫空調無障礙環境，雨天首選文化殿堂。",
-        "mapUrl": "https://maps.google.com/?q=國立故宮博物院",
-        "affiliateLabel": "🎟️ Klook 故宮門票快速通關 ➔",
-        "affiliateUrl": "https://www.klook.com/zh-TW/activity/1659-national-palace-museum-taipei/?aid=123436",
-        "img": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_8_2",
-        "nameZh": "新北市立十三行博物館",
-        "nameEn": "Shihsanhang Museum of Archaeology",
-        "rating": "★ 4.7",
-        "reviews": "7,800 則評價",
-        "hours": "09:30 - 17:00 (首週一休館)",
-        "city": "新北市",
-        "district": "八里區",
-        "addressZh": "新北市八里區博物館路200號",
-        "addressEn": "No. 200, Bowuguan Rd., Bali Dist., New Taipei City",
-        "tags": [
-          "🎨 考古歷史互動",
-          "👶 親子室內沙坑放電",
-          "📐 傾斜清水模打卡"
-        ],
-        "features": "北台灣第一座考古數位博物館！建築象徵海島山稜與鐵甲船，標誌性傾斜八角的清水模樓梯是極致打卡點，常設鐵器時代互動出土體驗，深受親子家庭喜愛。",
-        "mapUrl": "https://maps.google.com/?q=十三行博物館",
-        "affiliateLabel": "🎟️ Klook 預訂十三行優惠門票 ➔",
-        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E5%8D%81%E4%B8%89%E8%A1%8C%E5%8D%9A%E7%89%A9%E9%A4%A8&aid=123436",
-        "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_8_3",
-        "nameZh": "奇美博物館",
-        "nameEn": "Chimei Museum Tainan",
-        "rating": "★ 4.9",
-        "reviews": "31,000 則評價",
-        "hours": "09:30 - 17:30 (週三公休)",
-        "city": "台南市",
-        "district": "仁德區",
-        "addressZh": "台南市仁德區文華路二段66號",
-        "addressEn": "No. 66, Sec. 2, Wenhua Rd., Rende Dist., Tainan City",
-        "tags": [
-          "🎨 羅馬圓頂古典殿堂",
-          "👶 親子動物標本廳",
-          "🌐 世界級名琴珍藏"
-        ],
-        "features": "媲美歐洲凡爾賽宮的壯闊白色宮殿！館內藏有全球數量最多的名貴史特拉底瓦里小提琴、逼真如生的全球哺乳動物標本大廳、以及文藝復興至十九世紀西洋雕塑油畫。",
-        "mapUrl": "https://maps.google.com/?q=奇美博物館",
-        "affiliateLabel": "🎟️ Klook 奇美博物館門票即買即用 ➔",
-        "affiliateUrl": "https://www.klook.com/zh-TW/activity/7901-chimei-museum-ticket-tainan/?aid=123436",
-        "img": "https://images.unsplash.com/photo-1528164344705-475426879c0d?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_8_4",
-        "nameZh": "台南市美術館 2 館",
-        "nameEn": "Tainan Art Museum Building 2",
-        "rating": "★ 4.7",
-        "reviews": "14,500 則評價",
-        "hours": "10:00 - 18:00 (週一休館 / 週六延長至 21:00)",
-        "city": "台南市",
-        "district": "中西區",
-        "addressZh": "台南市中西區忠義路二段1號",
-        "addressEn": "No. 1, Sec. 2, Zhongyi Rd., West Central Dist., Tainan City",
-        "tags": [
-          "🎨 當代藝術展演",
-          "🌿 鳳凰花碎形天頂",
-          "☕ 頂樓景觀咖啡館"
-        ],
-        "features": "由普立茲克建築獎得主坂茂操刀設計！純白五角形建築堆疊交錯，碎形幾何遮蔭屋頂將南台灣陽光幻化為如樹蔭灑落的柔和光影，雨天更添一份詩意。",
-        "mapUrl": "https://maps.google.com/?q=台南市美術館2館",
-        "affiliateLabel": "🎟️ Klook 台南市美術館雙館聯票 ➔",
-        "affiliateUrl": "https://www.klook.com/zh-TW/activity/27702-tainan-art-museum-ticket/?aid=123436",
-        "img": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&auto=format&fit=crop"
-      },
-      {
-        "id": "hop_8_5",
-        "nameZh": "衛武營國家藝術文化中心",
-        "nameEn": "National Kaohsiung Center for the Arts (Weiwuying)",
-        "rating": "★ 4.9",
-        "reviews": "16,800 則評價",
-        "hours": "11:00 - 21:00 (全天開放走廊)",
-        "city": "高雄市",
-        "district": "鳳山區",
-        "addressZh": "高雄市鳳山區三多一路1號",
-        "addressEn": "No. 1, Sanduo 1st Rd., Fengshan Dist., Kaohsiung City",
-        "tags": [
-          "🎨 全球最大單一屋頂劇院",
-          "🏭 前衛流線建築",
-          "👶 親子樹冠大廳"
-        ],
-        "features": "全球最大單一屋頂表演藝術中心！荷蘭建築團隊以老榕樹群盤根錯節為靈感，白色波浪曲面鋼構震撼壯麗，室內樹冠大廳無樑柱流動穿梭，雨天漫步無比愜意舒適。",
-        "mapUrl": "https://maps.google.com/?q=衛武營國家藝術文化中心",
-        "affiliateLabel": "🚄 預訂台灣高鐵聯票直達高雄 ➔",
-        "affiliateUrl": "https://www.klook.com/zh-TW/search/result/?query=%E9%AB%98%E9%90%B5&aid=123436",
-        "img": "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=800&auto=format&fit=crop"
       }
     ]
   }
