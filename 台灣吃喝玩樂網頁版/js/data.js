@@ -11815,7 +11815,7 @@ const WEEKEND_HOP_8_THEMES = [
         "mapUrl": "https://maps.google.com/?q=火炎山登山步道",
         "affiliateLabel": "🚗 Trip.com 全台租車自駕比價 ➔",
         "affiliateUrl": "https://trip.com?Allianceid=9507030&SID=325761227&trip_sub1=CarRental",
-        "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&auto=format&fit=crop"
+        "img": "assets/huoyanshan_canyon.jpg"
       },
       {
         "id": "hop_7_3",
