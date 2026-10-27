@@ -608,6 +608,7 @@
     .hop-longform-article .ticket-action-btn.coral { background: #C85A32; }
     .hop-longform-article .ticket-action-btn.brick { background: #C04A2A; }
     .hop-longform-article .ticket-action-btn.tea { background: #3F6244; }
+    .hop-longform-article .ticket-action-btn.blue { background: #0284C7; }
     .hop-longform-article .place-badge.tea { color: #15803D; background: #DCFCE7; }
     .hop-longform-article .place-badge.snack { color: #B45309; background: #FEF3C7; }
     .hop-longform-article .place-badge.michelin { color: #991B1B; background: #FEE2E2; }
@@ -619,6 +620,10 @@
     .hop-longform-article .place-badge.ice { color: #0284C7; background: #E0F2FE; }
     .hop-longform-article .place-badge.rental { color: #2563EB; background: #DBEAFE; }
     .hop-longform-article .place-badge.indigenous { color: #15803D; background: #DCFCE7; }
+    .hop-longform-article .place-badge.brunch { color: #854D0E; background: #FEF9C3; }
+    .hop-longform-article .place-badge.hotel { color: #1D4ED8; background: #DBEAFE; }
+    .hop-longform-article .place-badge.spa { color: #0E7490; background: #CCFBF1; }
+    .hop-longform-article .place-badge.surf { color: #0369A1; background: #E0F2FE; }
     .hop-longform-article .place-btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
     .hop-longform-article .place-footer-btn { flex: 1; white-space: nowrap; }
     .hop-longform-article .place-footer-btn.reserve {
@@ -627,6 +632,9 @@
       color: #E11D48;
     }
     .hop-longform-article .place-footer-btn.reserve:hover { background: #FFE4E6; }
+    .hop-longform-article .place-footer-btn.ubereats { background: #F0FDF4; border-color: #BBF7D0; color: #15803D; }
+    .hop-longform-article .place-footer-btn.booking { background: #EFF6FF; border-color: #BFDBFE; color: #1D4ED8; }
+    .hop-longform-article .place-footer-btn.klook { background: #FFF7ED; border-color: #FFEDD5; color: #C2410C; }
     .hop-longform-article .english-tips-section {
       background: #111E2E;
       color: #E2E8F0;
@@ -2119,6 +2127,41 @@
 
     /* 專欄內餐廳、茶店、美食、咖啡卡牌專屬照片與特色餐點圖鑑 */
     const PLACE_PHOTO_SPOTLIGHT_MAP = {
+      // Vol. 08 宜蘭篇 (33 家)
+      "黑宅 Black House": { img: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=700&auto=format&fit=crop", type: "🍳 稻田黑色穀倉", dish: "🥐 法國長棍佐蕈菇嫩蛋・爐烤牛小排早午餐與自家烘豆" },
+      "日光私廚 景觀餐廳": { img: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=700&auto=format&fit=crop", type: "🌿 綠建築私廚", dish: "🥗 小農無毒蔬果・低溫舒肥雞胸早午餐盤與大草皮" },
+      "初陽早午餐": { img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=700&auto=format&fit=crop", type: "🥞 羅東人氣晨食", dish: "🥓 手作酥皮千層三星蔥培根蛋餅・花生熔岩厚牛堡" },
+      "光宅": { img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=700&auto=format&fit=crop", type: "🏡 日式老宅庭院", dish: "🍵 黑麥軟法烤時蔬早午餐・招牌流心抹茶小戚風蛋糕" },
+      "好森咖啡 x 註書店": { img: "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=700&auto=format&fit=crop", type: "📚 獨立書店慢食", dish: "🥖 有機豆腐與慢烤歐包輕食盤・無麩質純素友善書香空間" },
+      "正好鮮肉小籠湯包": { img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=700&auto=format&fit=crop", type: "🥟 爆汁三星蔥", dish: "🥟 現桿薄皮包裹滿滿三星蔥花溫體豬・輕咬爆出甘甜蔥湯" },
+      "蘭城晶英酒店（Silks Place Yilan）": { img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=700&auto=format&fit=crop", type: "🏎️ 親子飯店王者", dish: "🏎️ 客房走廊兒童電動賽車道・芬朵奇堡巨型氣墊溜滑梯" },
+      "礁溪寒沐酒店（Mu Jiao Xi Hotel）": { img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop", type: "♨️ 寒舍美學湯泉", dish: "♨️ 房內獨立美人湯池・樂未央兒童攀爬網與戶外溫水泳池" },
+      "綠舞國際觀光飯店": { img: "https://images.unsplash.com/photo-1528164344705-475426879c0d?w=700&auto=format&fit=crop", type: "👘 日式庭園水豚", dish: "🌿 浴衣漫步日式小橋流水・近距離餵食水豚、柯爾鴨與羊駝" },
+      "礁溪老爺酒店（Hotel Royal Chiaohsi）": { img: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=700&auto=format&fit=crop", type: "🏞️ 無邊際野天風呂", dish: "🏞️ 五峰旗山腰俯瞰蘭陽平原・無邊際溫泉泳池與推桿高爾夫" },
+      "川湯春天旗艦館": { img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=700&auto=format&fit=crop", type: "🎠 卡茲童樂園", dish: "🚗 緊鄰礁溪火車站・卡丁車賽道、互動球池與石砌大湯屋" },
+      "宜蘭悅川酒店（The Walden Hotel）": { img: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=700&auto=format&fit=crop", type: "🚂 繪本童玩飯店", dish: "🚂 綠野仙蹤童玩館電動小火車、碰碰車與滿牆童書繪本" },
+      "礁溪長榮鳳凰酒店": { img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop", type: "🌊 千坪慢活SPA", dish: "🦆 兒童水上溜滑梯池・百隻黃色小鴨溫泉池與空中溫水泳池" },
+      "川湯春天旗艦館（SPA 溫泉露天水樂園）": { img: "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=700&auto=format&fit=crop", type: "🎢 兩層樓滑水道", dish: "🌊 兩層樓弧形溫泉旋轉滑水道・六福湯與精油氣泡按摩池" },
+      "中天溫泉渡假飯店": { img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=700&auto=format&fit=crop", type: "🏛️ 巴洛克水療池", dish: "💦 晴天泉水療樂園兒童戲水滑梯・超音波水療床與景觀湯池" },
+      "柯氏蔥油餅": { img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=700&auto=format&fit=crop", type: "🫓 礁溪排隊地標", dish: "🥚 1970年老麵糰半煎半炸・外酥膨鬆內爆三星蔥香加蛋" },
+      "白水豆花（礁溪創始店）": { img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=700&auto=format&fit=crop", type: "🍨 雪山湧泉豆花", dish: "🥜 純淨雪山泉水鹽滷豆花・現刨麥芽花生糖碎佐鮮採香菜" },
+      "北門蒜味肉羹（阿娘給的）": { img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=700&auto=format&fit=crop", type: "🥣 傳承半世紀", dish: "🧄 海量爆香大蒜末濃醇羹湯・手切豬胛心肉裹薄漿肉羹" },
+      "饗宴鐵板燒": { img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=700&auto=format&fit=crop", type: "🍽️ 無菜單鐵板燒鼻祖", dish: "🐟 當日進港野生紅喉魚、活黑鮑與帕瑪森起司包裹海膽魚卵" },
+      "宜蘭渡小月餐廳": { img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop", type: "🏮 國宴級手路菜", dish: "🍲 國寶名廚掌杓・金黃酥嫩招牌糕渣、西魯肉與手作棗餅" },
+      "野餐 Pic-Nic 原木炭烤": { img: "https://images.unsplash.com/photo-1558030006-450675393462?w=700&auto=format&fit=crop", type: "🔥 原木柴燒私廚", dish: "🦆 龍眼木與相思木大火炭烤櫻桃鴨腿・隱世森林預約制饗宴" },
+      "G90 Bar（老宅微醺沙龍）": { img: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=700&auto=format&fit=crop", type: "🍸 紅磚老宅酒吧", dish: "🍊 日治磚造老屋・宜蘭金棗蜜餞、溫泉番茄與冬山茶特調" },
+      "麥 Mai 居酒屋餐酒": { img: "https://images.unsplash.com/photo-1574096079513-d8259312b785?w=700&auto=format&fit=crop", type: "🍢 日系炭烤餐酒", dish: "🍺 現流生魚片與明太子雞肉串・日本地酒與在地小農精釀" },
+      "The Hangout 浪人吧": { img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=700&auto=format&fit=crop", type: "🏖️ 烏石港海灘吧", dish: "🍹 衝浪板露天木棧道・熱帶萊姆朗姆莫希托與墨西哥塔可" },
+      "蕃薯衝浪俱樂部": { img: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=700&auto=format&fit=crop", type: "🏄 烏石港老字號", dish: "🌊 國家級教練1對1新手起乘教學・長短板租借與完善淋浴" },
+      "極酷衝浪俱樂部（G-Cool Surf）": { img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop", type: "📸 雙獅海灘跟拍", dish: "🏄 專業水下高清衝浪跟拍・防磨衣浪板租賃與浪人青旅" },
+      "喬治衝浪店（George Surf）": { img: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=700&auto=format&fit=crop", type: "🤙 美式手工削板", dish: "🏄 店主手工削製經典單鰭長板・進階短板指導與器材交流" },
+      "滿山望海": { img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop", type: "🌊 外澳第一排", dish: "🏝️ 峇里島風無窗框正對龜山島・冰萃單品配巴斯克乳酪蛋糕" },
+      "灆咖啡 Seaview Coffee": { img: "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=700&auto=format&fit=crop", type: "🐾 海景玻璃屋", dish: "🌊 大坑濱海單車道純白玻璃屋・手作披薩、果昔與毛孩看海座" },
+      "九號咖啡（外澳館）": { img: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700&auto=format&fit=crop", type: "🏖️ 鮮黃沙灘地標", dish: "🧇 外澳沙灘入口附沖沙池・挑高落地窗看衝浪配現烤鬆餅" },
+      "格上租車（宜蘭 / 礁溪站前門市）": { img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop", type: "🚗 宜蘭礁溪雙據點", dish: "🚗 出火車站即達・五人座至八人座休旅車況新穎附全險" },
+      "和運租車（宜蘭站前門市）": { img: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=700&auto=format&fit=crop", type: "🚙 甲租乙還高彈性", dish: "🚙 支援宜蘭取車、台北或花蓮還車・跨縣市山海自駕首選" },
+      "胖草 / 宜蘭站前機車租賃": { img: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=700&auto=format&fit=crop", type: "🛵 站前2分鐘取車", dish: "🛵 125cc與Gogoro電動車・隨車贈安全帽內襯、手機架與雨衣" },
+
       // Vol. 07 花蓮篇 (15 家)
       "海崖谷 HAYAKU": { img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop", type: "🌊 懸崖海景", dish: "🌊 太平洋階梯露台與野奢帳篷・西西里咖啡配莓果鬆餅" },
       "山度空間": { img: "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=700&auto=format&fit=crop", type: "📸 泡泡鞦韆", dish: "🫧 透明玻璃圓形海景鞦韆・特調冰萃咖啡與輕食三明治" },
