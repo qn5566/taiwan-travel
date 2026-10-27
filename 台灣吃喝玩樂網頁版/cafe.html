@@ -611,6 +611,7 @@
     .hop-longform-article .place-badge.michelin { color: #991B1B; background: #FEE2E2; }
     .hop-longform-article .place-badge.duck { color: #C2410C; background: #FFEDD5; }
     .hop-longform-article .place-badge.bar { color: #7C2D12; background: #FFEDD5; }
+    .hop-longform-article .place-badge.cafe { color: #0369A1; background: #E0F2FE; }
     .hop-longform-article .place-btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
     .hop-longform-article .place-footer-btn { flex: 1; white-space: nowrap; }
     .hop-longform-article .place-footer-btn.reserve {
@@ -1753,8 +1754,8 @@
 
       const latestArticles = allPlaces.filter(p => p.isLatest);
       const latestArticle = latestArticles[0] || allPlaces[0];
-      const moreLatestArticles = latestArticles.slice(1, 4);
-      const popularArticles = allPlaces.filter(p => p.isPopular).slice(0, 4);
+      const moreLatestArticles = latestArticles.slice(1, 6);
+      const popularArticles = allPlaces.filter(p => p.isPopular).slice(0, 5);
 
       if (!latestArticle) {
         showcaseEl.innerHTML = "";
