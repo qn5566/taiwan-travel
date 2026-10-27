@@ -613,6 +613,7 @@
     .hop-longform-article .place-badge.michelin { color: #991B1B; background: #FEE2E2; }
     .hop-longform-article .place-badge.duck { color: #C2410C; background: #FFEDD5; }
     .hop-longform-article .place-badge.noodle { color: #C2410C; background: #FFEDD5; }
+    .hop-longform-article .place-badge.seafood { color: #C2410C; background: #FFEDD5; }
     .hop-longform-article .place-badge.bar { color: #7C2D12; background: #FFEDD5; }
     .hop-longform-article .place-badge.cafe { color: #0369A1; background: #E0F2FE; }
     .hop-longform-article .place-btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -735,25 +736,89 @@
     .hop-longform-article table.curated-table tr:hover td { background-color: #F8FAFC; }
     .hop-longform-article .card-matrix {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 18px;
-      margin: 20px 0 36px;
+      grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+      gap: 20px;
+      margin: 22px 0 38px;
     }
     .hop-longform-article .place-card {
       background: #FFFFFF;
-      border-radius: 18px;
+      border-radius: 20px;
       border: 1px solid #E2E8F0;
       padding: 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.25s;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s, border-color 0.28s;
+      overflow: hidden;
+    }
+    .hop-longform-article .place-card.has-top-photo {
+      padding: 0;
     }
     .hop-longform-article .place-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 28px rgba(15, 76, 129, 0.08);
+      transform: translateY(-5px);
+      box-shadow: 0 16px 32px rgba(15, 76, 129, 0.11);
       border-color: #CBD5E1;
+    }
+    .hop-longform-article .place-card-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 185px;
+      overflow: hidden;
+      background: #F1F5F9;
+      flex-shrink: 0;
+    }
+    .hop-longform-article .place-card-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hop-longform-article .place-card:hover .place-card-photo {
+      transform: scale(1.07);
+    }
+    .hop-longform-article .place-card-img-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15,23,42,0.18) 0%, transparent 42%, rgba(15,23,42,0.78) 100%);
+      pointer-events: none;
+    }
+    .hop-longform-article .place-card-type-pill {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.76);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      color: #F8FAFC;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.22);
+      letter-spacing: 0.3px;
+    }
+    .hop-longform-article .place-dish-spotlight {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      right: 12px;
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.35;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+    }
+    .hop-longform-article .place-card-body {
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
     }
     .hop-longform-article .place-badge {
       display: inline-block;
@@ -765,9 +830,9 @@
       border-radius: 8px;
       margin-bottom: 8px;
     }
-    .hop-longform-article .place-name { font-size: 17px; font-weight: 800; color: #1E293B; margin-bottom: 4px; }
-    .hop-longform-article .place-location { font-size: 12px; color: #64748B; margin-bottom: 10px; }
-    .hop-longform-article .place-detail { font-size: 13px; color: #475569; margin-bottom: 16px; line-height: 1.65; }
+    .hop-longform-article .place-name { font-size: 17.5px; font-weight: 900; color: #1E293B; margin-bottom: 4px; font-family: 'Noto Serif TC', serif; }
+    .hop-longform-article .place-location { font-size: 12px; color: #64748B; margin-bottom: 10px; font-weight: 600; }
+    .hop-longform-article .place-detail { font-size: 13px; color: #475569; margin-bottom: 16px; line-height: 1.68; }
     .hop-longform-article .place-footer-btn {
       display: flex;
       align-items: center;
@@ -1772,10 +1837,11 @@
           </div>
           <div style="display: flex; flex-direction: column; gap: 8px;">
             ${moreLatestArticles.map(item => `
-              <div onclick="event.stopPropagation(); openHopArticleById('${item.id}')" style="background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.10)'">
-                <div style="min-width: 0;">
+              <div onclick="event.stopPropagation(); openHopArticleById('${item.id}')" style="background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 10px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.10)'">
+                <img src="${item.img}" alt="${item.nameZh}" loading="lazy" style="width: 44px; height: 44px; border-radius: 8px; object-fit: cover; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.25);">
+                <div style="min-width: 0; flex: 1;">
                   <div style="font-size: 11px; color: #BAE6FD; font-weight: 700;">${item.vol || 'Weekend Hop'} · 📍 ${item.city}</div>
-                  <div style="font-family: 'Noto Serif TC', serif; font-size: 14px; font-weight: 900; color: #FFFFFF; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${item.nameZh}</div>
+                  <div style="font-family: 'Noto Serif TC', serif; font-size: 13.5px; font-weight: 900; color: #FFFFFF; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${item.nameZh}</div>
                 </div>
                 <span style="font-size: 11.5px; font-weight: 800; color: #FDE68A; white-space: nowrap;">閱讀 ➔</span>
               </div>
@@ -1786,8 +1852,11 @@
 
       const popItemsHtml = popularArticles.map((item, idx) => `
         <div class="hop-popular-item" onclick="openHopArticleById('${item.id}')">
-          <div style="width: 28px; height: 28px; border-radius: 8px; background: ${idx === 0 ? '#C85A32' : '#F1F5F9'}; color: ${idx === 0 ? '#FFF' : '#475569'}; font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
-            0${idx + 1}
+          <div style="position: relative; width: 58px; height: 58px; border-radius: 12px; overflow: hidden; flex-shrink: 0; border: 1px solid #E2E8F0;">
+            <img src="${item.img}" alt="${item.nameZh}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 3px; left: 3px; background: ${idx === 0 ? '#C85A32' : 'rgba(15,23,42,0.82)'}; color: #FFF; font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: 10px; padding: 1px 5px; border-radius: 5px;">
+              0${idx + 1}
+            </span>
           </div>
           <div style="flex: 1; min-width: 0;">
             <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 3px; flex-wrap: wrap;">
@@ -1813,27 +1882,30 @@
           <!-- 左側：✨ 最新發佈深度長文 (Latest Feature) -->
           <div class="hop-latest-hero-card" onclick="openHopArticleById('${latestArticle.id}')">
             <div>
-              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 14px;">
-                <span style="background: #C85A32; color: #FFFFFF; font-size: 11px; font-weight: 900; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 999px; text-transform: uppercase;">
-                  ✨ LATEST FEATURE ‧ 最新發佈深度專欄
-                </span>
-                <span style="font-size: 12px; color: #BAE6FD; font-weight: 700;">
-                  📅 ${latestArticle.publishDate || '2026.10'} · ⏱️ ${latestArticle.readTime || '8 MIN READ'}
-                </span>
+              <div style="position: relative; width: 100%; height: 190px; border-radius: 16px; overflow: hidden; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.2);">
+                <img src="${latestArticle.img}" alt="${latestArticle.nameZh}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0.45) 0%, transparent 45%, rgba(15,23,42,0.75) 100%);"></div>
+                <div style="position: absolute; top: 12px; left: 12px; right: 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;">
+                  <span style="background: #C85A32; color: #FFFFFF; font-size: 11px; font-weight: 900; letter-spacing: 1.2px; padding: 5px 12px; border-radius: 999px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(0,0,0,0.25);">
+                    ✨ LATEST FEATURE ‧ 最新發佈深度專欄
+                  </span>
+                  <span style="background: rgba(15,23,42,0.75); backdrop-filter: blur(6px); color: #BAE6FD; font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: 999px;">
+                    📅 ${latestArticle.publishDate || '2026.10'} · ⏱️ ${latestArticle.readTime || '8 MIN READ'}
+                  </span>
+                </div>
+                <div style="position: absolute; bottom: 10px; left: 14px; font-size: 12px; color: #FDE68A; font-weight: 800; letter-spacing: 0.8px;">
+                  ${latestArticle.vol || 'Weekend Hop Vol. 01'} ｜ ${latestArticle.themeName} (${latestArticle.themeNameEn || ''})
+                </div>
               </div>
 
-              <div style="font-size: 12px; color: #FDE68A; font-weight: 800; letter-spacing: 1px; margin-bottom: 6px;">
-                ${latestArticle.vol || 'Weekend Hop Vol. 01'} ｜ ${latestArticle.themeName} (${latestArticle.themeNameEn || ''})
-              </div>
-
-              <h2 style="font-family: 'Noto Serif TC', serif; font-size: 25px; font-weight: 900; color: #FFFFFF; line-height: 1.38; margin: 0 0 8px 0;">
+              <h2 style="font-family: 'Noto Serif TC', serif; font-size: 24px; font-weight: 900; color: #FFFFFF; line-height: 1.38; margin: 0 0 8px 0;">
                 ${latestArticle.nameZh}
               </h2>
-              <div style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 14px; color: #E0F2FE; line-height: 1.45; margin-bottom: 16px;">
+              <div style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 14px; color: #E0F2FE; line-height: 1.45; margin-bottom: 14px;">
                 ${latestArticle.nameEn}
               </div>
 
-              <p style="font-size: 14px; color: rgba(255, 255, 255, 0.88); line-height: 1.8; margin-bottom: 20px;">
+              <p style="font-size: 13.8px; color: rgba(255, 255, 255, 0.88); line-height: 1.78; margin-bottom: 18px;">
                 ${latestArticle.features}
               </p>
             </div>
@@ -2042,6 +2114,181 @@
       renderArticleModalContent(place);
     }
 
+    /* 專欄內餐廳、茶店、美食、咖啡卡牌專屬照片與特色餐點圖鑑 */
+    const PLACE_PHOTO_SPOTLIGHT_MAP = {
+      // Vol. 06 台南篇 (21 家)
+      "葉家小卷米粉": { img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=700&auto=format&fit=crop", type: "🍽️ 特色餐點", dish: "🦑 鮮燙厚切透抽小卷・甘甜糙米粗米粉" },
+      "恭仔肉燥意麵": { img: "https://images.unsplash.com/photo-1555126634-323283e090fa?w=700&auto=format&fit=crop", type: "🍽️ 特色餐點", dish: "🍜 紅蔥肉燥手工扁意麵＋手作扁食湯" },
+      "阿江炒鱔魚": { img: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=700&auto=format&fit=crop", type: "🔥 鑊氣名菜", dish: "🔥 炭火高溫爆炒脆彈鱔魚意麵" },
+      "邱家小卷米粉": { img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=700&auto=format&fit=crop", type: "🍽️ 特色餐點", dish: "🥣 大鍋滾沸帶卵鮮彈小卷湯米粉" },
+      "民生路無名意麵": { img: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=700&auto=format&fit=crop", type: "🌙 深夜食堂", dish: "🥢 香濃豬油黑麻醬乾麵＋入味滷大腸" },
+      "國華街老牌川味牛肉麵": { img: "https://images.unsplash.com/photo-1547592180-85f173990554?w=700&auto=format&fit=crop", type: "🥩 招牌湯麵", dish: "🥩 花椒慢火燉熬半筋半肉紅燒牛肉麵" },
+      "奉茶・來坐": { img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=700&auto=format&fit=crop", type: "🍵 茶席空間", dish: "🍵 古樸二樓茶席・凍頂烏龍與東方美人茶食" },
+      "窄門咖啡（老屋茶座）": { img: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=700&auto=format&fit=crop", type: "📸 店家空間", dish: "🪟 38公分窄巷秘境・正對孔廟綠蔭老木窗" },
+      "隱肆好茶": { img: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=700&auto=format&fit=crop", type: "🧊 特色茶飲", dish: "🍃 蝸牛巷老宅・台灣單一莊園定溫冷萃原葉茶" },
+      "衛屋茶事 Sputnik Lab": { img: "https://images.unsplash.com/photo-1528164344705-475426879c0d?w=700&auto=format&fit=crop", type: "📸 店家空間", dish: "🌿 昭和枯山水榻榻米茶室・現刷宇治抹茶和菓子" },
+      "雙全紅茶": { img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=700&auto=format&fit=crop", type: "🥤 招牌茶飲", dish: "🥤 1949年傳奇雪克杯手搖綿密泡沫濃紅茶" },
+      "聚珍臺灣茶空間": { img: "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=700&auto=format&fit=crop", type: "📚 書店茶席", dish: "📖 台灣文史圖書環繞・坪林包種茶佐古早味椪餅" },
+      "PARIPARI apt.": { img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=700&auto=format&fit=crop", type: "🍮 招牌甜點", dish: "🍮 昭和墨綠磁磚老洋樓・水洗單品佐焦糖布丁" },
+      "Kadoya 喫茶店": { img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=700&auto=format&fit=crop", type: "🧁 招牌甜點", dish: "🧁 昭和旋轉木吧台・招牌李桃可麗露與栗子泡芙" },
+      "StableNice BLDG.": { img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&auto=format&fit=crop", type: "📸 店家空間", dish: "🏛️ 老印刷廠原木紅磚天井・自家烘焙精品手沖" },
+      "鬼咖啡": { img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=700&auto=format&fit=crop", type: "☕ 深夜手沖", dish: "🌙 木構老宅二樓榻榻米・極致安靜深焙單品" },
+      "甘單咖啡": { img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=700&auto=format&fit=crop", type: "📸 店家空間", dish: "🪟 開隆宮廟埕老鐵花窗立面・自家烘焙冰拿鐵" },
+      "蝸牛巷綠意咖啡（巷弄慢飲）": { img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&auto=format&fit=crop", type: "🍰 空間與甜點", dish: "🌿 文學步道綠植庭園・冰滴咖啡配巴斯克乳酪" },
+      "阿霞飯店": { img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=700&auto=format&fit=crop", type: "🦀 國宴名菜", dish: "🦀 爆膏紅蟳米糕＋手工蝦棗、粉腸與烏魚子拼盤" },
+      "筑馨居": { img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop", type: "🏮 清代老宅菜", dish: "🥩 1876年閩南老街屋・慢火東坡肉與無刺虱目魚肚" },
+      "博仁堂": { img: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=700&auto=format&fit=crop", type: "🍲 必比登藥膳", dish: "🍲 五代百子櫃老中藥鋪・原盅十全大補排骨湯" },
+
+      // Vol. 05 北海岸與九份篇 (12 家)
+      "我們在海邊": { img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop", type: "🌊 海景空間", dish: "🌊 兩層挑高無框海景窗・黃金曼巴手沖配焦糖戚風" },
+      "靠北過日子（Q.B.Days）": { img: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700&auto=format&fit=crop", type: "🏄 露台與餐點", dish: "🦑 中角灣衝浪海景露台・香濃小卷烏龍麵與鬆餅" },
+      "Papa 在三芝": { img: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=700&auto=format&fit=crop", type: "🌿 秘境空間", dish: "🏡 山坡玻璃溫室與綠植老屋・自家烘豆配起司蛋糕" },
+      "白日夢 Tea & Cafe": { img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&auto=format&fit=crop", type: "🏫 廢校看海", dish: "🍰 小學教室懷舊木課桌看海・手作千層蛋糕配高山茶" },
+      "洋荳子咖啡館（Young Door）": { img: "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=700&auto=format&fit=crop", type: "🏛️ 藍白海景", dish: "🌊 地中海藍白拱門180度海景・冰滴咖啡配檸檬蛋糕" },
+      "野事草店 Wild Herbs": { img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=700&auto=format&fit=crop", type: "🍵 純白茶廊", dish: "🌿 九份山林採集藥草茶席・金山地瓜野事雞蛋糕" },
+      "阿柑姨芋圓": { img: "assets/ranking_taro_ball.png", type: "🍧 招牌甜點", dish: "🍧 手搓大甲芋圓金山地瓜圓・九份山海長廊觀景座" },
+      "阿蘭草仔粿": { img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=700&auto=format&fit=crop", type: "🍡 老街名物", dish: "🌱 天然鼠麴草Q彈外皮・鹹香菜脯米與甜紅豆草仔粿" },
+      "金包里鴨肉（金山鴨肉）": { img: "https://images.unsplash.com/photo-1518492104633-130d0cc84637?w=700&auto=format&fit=crop", type: "🦆 廟口名菜", dish: "🦆 廣安宮廟埕端菜奇景・現切土番鴨肉與炒海瓜子" },
+      "巧宴海鮮小館（龜吼漁港）": { img: "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=700&auto=format&fit=crop", type: "🦀 現撈萬里蟹", dish: "🦀 當日現撈清蒸花蟹三點蟹・招牌海膽蒸蛋" },
+      "靖瑜平價海鮮（萬里龜吼）": { img: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=700&auto=format&fit=crop", type: "🦐 港邊鮮味", dish: "🍳 桂花蛋香翻炒萬里蟹・川燙活小卷與綜合生魚片" },
+      "望海巷石頭火鍋（二館）": { img: "https://images.unsplash.com/photo-1547592180-85f173990554?w=700&auto=format&fit=crop", type: "🍲 海景火鍋", dish: "🍲 潮境海景第一排・麻油爆香石頭鍋涮現流小卷明蝦" },
+
+      // Vol. 04 台北篇 (11 家)
+      "鼎泰豐（信義旗艦店）": { img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=700&auto=format&fit=crop", type: "🥟 國際名菜", dish: "🥟 黃金18摺爆汁小籠包・金黃排骨蛋炒飯" },
+      "小王煮瓜": { img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=700&auto=format&fit=crop", type: "🍚 必比登推介", dish: "🍚 膠質黏嘴黑金滷肉飯＋清甜瓜仔肉排骨湯" },
+      "阜杭豆漿": { img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=700&auto=format&fit=crop", type: "🥖 經典早餐", dish: "🥖 古法炭烤厚燒餅夾油條・蝦米油條碎鹹豆漿" },
+      "金蓬萊遵古台菜": { img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop", type: "⭐ 米其林一星", dish: "🍖 傳承三代北投酒家菜・金黃酥脆特製排骨酥" },
+      "施家鮮肉湯圓": { img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=700&auto=format&fit=crop", type: "🥣 必比登湯圓", dish: "🥣 純糯米手工爆汁黑豬鮮肉湯圓・茼蒿大骨湯" },
+      "Simple Kaffa 興波咖啡（旗艦館）": { img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&auto=format&fit=crop", type: "🏆 冠軍咖啡", dish: "☕ WBC世界冠軍水洗藝伎手沖・原味地瓜生乳捲" },
+      "ASW Tea House": { img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=700&auto=format&fit=crop", type: "🍵 洋樓茶館", dish: "🪟 迪化街百年藥房二樓・台茶18號紅玉佐現烤司康" },
+      "小器生活空間（赤峰店）": { img: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=700&auto=format&fit=crop", type: "🍮 選物與甜點", dish: "🍮 日台職人器皿展售・純手工焦糖昭和布丁" },
+      "Bar Mood 吧沐": { img: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=700&auto=format&fit=crop", type: "🍸 亞洲50大", dish: "🍸 隱藏門沙龍酒吧・台灣高山茶與在地花果雞尾酒" },
+      "紫藤廬 Wistaria Tea House": { img: "https://images.unsplash.com/photo-1528164344705-475426879c0d?w=700&auto=format&fit=crop", type: "🏮 市定古蹟", dish: "🍵 百年紫藤日式木造榻榻米・正統高山烏龍工夫茶" },
+      "Draft Land（忠孝總店）": { img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=700&auto=format&fit=crop", type: "🥂 汲飲調酒", dish: "🥂 亞洲汲飲式調酒鼻祖・鐵觀音與桂花烏龍特調" },
+
+      // Vol. 03 高雄篇 (17 家)
+      "樺達奶茶（鹽埕總店）": { img: "https://images.unsplash.com/photo-1558857563-b37cf5a452ef?w=700&auto=format&fit=crop", type: "🧋 奶茶鼻祖", dish: "🧋 不加冰塊濃醇樺達奶茶・普洱紅茶鮮乳美容奶茶" },
+      "双妃奶茶": { img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=700&auto=format&fit=crop", type: "🧋 珍珠厚奶", dish: "🧋 新樂街排隊老鋪・免費加Q彈手工珍珠厚鮮奶茶" },
+      "老江紅茶牛奶（南台總店）": { img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=700&auto=format&fit=crop", type: "🥪 炭焙絕配", dish: "🥪 古法炭焙紅茶撞高牧鮮乳＋半熟流心火腿蛋吐司" },
+      "雋 GEN": { img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=700&auto=format&fit=crop", type: "⭐ 米其林一星", dish: "🍽️ 粵菜名廚陳泰榮掌杓・古法金錢雞與鮑汁焗花膠" },
+      "承 Sho": { img: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=700&auto=format&fit=crop", type: "⭐ 米其林一星", dish: "🍣 東京傳奇Den姐妹店・台灣山海旬野菜板前懷石" },
+      "Haili": { img: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=700&auto=format&fit=crop", type: "⭐ 米其林一星", dish: "🍷 正統法餐醬汁工藝揉合南台灣海港現撈漁獲" },
+      "鴨肉珍": { img: "https://images.unsplash.com/photo-1518492104633-130d0cc84637?w=700&auto=format&fit=crop", type: "🦆 必比登推介", dish: "🦆 紅糖煙燻鴨肉切盤＋手切滷肉燥鴨肉飯與下水湯" },
+      "鴨肉本（二哥的店）": { img: "https://images.unsplash.com/photo-1547496502-affa22d38842?w=700&auto=format&fit=crop", type: "🦆 老饕口袋", dish: "🦆 獨門甘草甜麵醬厚切煙燻鴨肉・中藥清香鴨血糕" },
+      "正昌鴨肉飯": { img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=700&auto=format&fit=crop", type: "🍚 鴨肉飯首選", dish: "🍚 金黃純鴨油紅蔥頭醬汁・鋪滿去骨煙燻鴨肉絲飯" },
+      "七賢鴨肉飯": { img: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=700&auto=format&fit=crop", type: "🥣 九十載老店", dish: "🥣 1937年創立・鮮嫩白切鴨肉絲飯配乳白當歸鴨湯" },
+      "極品當歸鴨": { img: "https://images.unsplash.com/photo-1555126634-323283e090fa?w=700&auto=format&fit=crop", type: "🌙 宵夜名物", dish: "🍜 當歸鴨肉紅麵線＋炙烤煙燻鴨腿與乾煎米血" },
+      "NOW & THEN by nybc": { img: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=700&auto=format&fit=crop", type: "🏭 挑高倉庫", dish: "🥞 駁二大義倉庫挑高工業風・澳式早午餐與法式吐司" },
+      "海岸線咖啡（旗津店）": { img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop", type: "⚓ 水岸第一排", dish: "⚓ 旗津老造船廠看漁船穿梭・手沖單品配西西里氣泡" },
+      "卡啡那 CAFFAINA（文化探索館）": { img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&auto=format&fit=crop", type: "🏛️ 歐風挑高", dish: "🧁 歌劇院級挑高兩層樓書牆・現烤手工法式舒芙蕾" },
+      "高流珊瑚礁群景觀咖啡": { img: "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=700&auto=format&fit=crop", type: "🌉 港灣視野", dish: "🌉 正對大港橋15:00水平旋轉・愛河灣水岸冰滴冷萃" },
+      "新濱・駅前（百年銀行咖啡）": { img: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=700&auto=format&fit=crop", type: "🏦 百年銀行", dish: "🏦 日治三和銀行百年鋼鐵金庫・金庫封存冰滴配可頌" },
+      "萊加呵 Nine J（柴山海景咖啡）": { img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop", type: "🌅 懸崖落日", dish: "🌅 柴山海岸懸崖露天階梯座・180度海景落日氣泡飲" },
+
+      // Vol. 02 日月潭篇 (11 家)
+      "阿婆茶葉蛋（金盆阿嬤）": { img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=700&auto=format&fit=crop", type: "🥚 碼頭名物", dish: "🥚 台茶18號紅玉紅茶與野生香菇慢火滷製茶葉蛋" },
+      "伊達邵手工現打麻糬（杜太太）": { img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=700&auto=format&fit=crop", type: "🍡 手搗麻糬", dish: "🍡 純糯米每日現蒸現搗・無糖花生粉與黑芝麻麻糬" },
+      "邵族傳統風味餐：支部山產": { img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=700&auto=format&fit=crop", type: "🌿 邵族山味", dish: "🐟 邵族刺蔥煎蛋・清蒸總統魚、石板山豬肉與小米飯" },
+      "湖妹手作草仔粿": { img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=700&auto=format&fit=crop", type: "🌱 草本米食", dish: "🌱 新鮮艾草糯米外皮・爆炒菜脯米香菇黑豬肉草仔粿" },
+      "涵碧樓東方餐廳": { img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop", type: "🍽️ 湖景奢華", dish: "🍖 涵碧半島水岸第一排・招牌阿薩姆紅茶無錫排骨" },
+      "朝霧茶莊・TEA18 朝霧紅茶": { img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=700&auto=format&fit=crop", type: "🍵 紅玉茶席", dish: "🍦 現沖冷萃台茶18號紅玉紅茶＋手工阿薩姆冰淇淋" },
+      "蠻荒咖啡 Desolate Coffee": { img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&auto=format&fit=crop", type: "🪟 玻璃屋美學", dish: "☕ 大片穿透玻璃與原木交織・耶加雪菲手沖配生乳酪" },
+      "先得月 Tea Bar": { img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&auto=format&fit=crop", type: "🌊 碼頭湖景", dish: "🌊 朝霧碼頭無遮蔽水岸・頂級紅玉單株手沖配千層" },
+      "湖の怪物 咖啡": { img: "https://images.unsplash.com/photo-1528164344705-475426879c0d?w=700&auto=format&fit=crop", type: "🐢 日式老屋", dish: "🍵 日式侘寂木造榻榻米・手作烤紅龜粿佐宇治抹茶" },
+      "向山咖啡館（惠蓀咖啡向山店）": { img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&auto=format&fit=crop", type: "🏛️ 清水模水池", dish: "🏛️ 團紀彥清水模無邊際水池倒影・台灣惠蓀莊園手沖" },
+      "鹿篙咖啡莊園 Lugo Cafe": { img: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=700&auto=format&fit=crop", type: "⛰️ 山谷茶園", dish: "🌿 360度階梯茶園懸挑玻璃平台・莊園自烘台灣咖啡" },
+
+      // Vol. 01 阿里山篇 (8 家)
+      "奮起湖雅湖鐵路便當": { img: "https://images.unsplash.com/photo-1547496502-affa22d38842?w=700&auto=format&fit=crop", type: "🍱 老街木盒", dish: "🍱 古法木盒雙主菜・甘蔗慢滷厚排骨與無骨雞腿便當" },
+      "Hana 廚房（來吉部落）": { img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=700&auto=format&fit=crop", type: "🍕 部落柴燒", dish: "🍕 南非×鄒族深山廚房・柴燒天然酵母披薩與烤山豬肉" },
+      "山賓餐廳（石頭火鍋）": { img: "https://images.unsplash.com/photo-1547592180-85f173990554?w=700&auto=format&fit=crop", type: "🍲 高山暖鍋", dish: "🍲 黑鐵鍋麻油扁魚爆香高湯・高山甘甜高麗菜排骨鍋" },
+      "游芭絲鄒宴餐廳（YUPASU）": { img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=700&auto=format&fit=crop", type: "🔥 原木炭烤", dish: "🔥 山谷露天原木大烤盤・煙燻香腸、山豬肉與竹筒飯" },
+      "街仔尾阿嬤草仔粿": { img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=700&auto=format&fit=crop", type: "🍡 奮起湖名物", dish: "🌱 純鼠麴草慢揉糯米皮・爆炒高山轎篙筍丁蝦米內餡" },
+      "璟隆咖啡莊園": { img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&auto=format&fit=crop", type: "☕ 雲海莊園", dish: "☁️ 隙頂茶園雲海第一排・SL34日曬手沖配焦糖布丁" },
+      "阿將的家 23 咖啡館": { img: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=700&auto=format&fit=crop", type: "🏡 石砌童話", dish: "🪨 鄒族手作石頭檜木童話聚落・藝伎手沖佐小米鬆餅" },
+      "霧裡村 喫茶會所": { img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=700&auto=format&fit=crop", type: "🍵 無框茶田", dish: "🍃 三面落地窗正對階梯茶園・高山金萱冷泡配茶戚風" }
+    };
+
+    function getPlaceCardVisualMeta(nameText, badgeText, detailText, badgeClass) {
+      const cleanName = (nameText || "").trim();
+      if (PLACE_PHOTO_SPOTLIGHT_MAP[cleanName]) {
+        return PLACE_PHOTO_SPOTLIGHT_MAP[cleanName];
+      }
+      // 模糊匹配店名關鍵字
+      for (const [k, val] of Object.entries(PLACE_PHOTO_SPOTLIGHT_MAP)) {
+        if (cleanName.includes(k) || k.includes(cleanName)) {
+          return val;
+        }
+      }
+      // 智慧關鍵字分類備援 (給未來新增文章自動配圖)
+      const combined = `${cleanName} ${badgeText} ${detailText} ${badgeClass}`;
+      if (combined.includes("海鮮") || combined.includes("蟹") || combined.includes("seafood")) {
+        return { img: "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=700&auto=format&fit=crop", type: "🦀 現撈海味", dish: "🦀 港邊產地現撈活海鮮與招牌熱炒" };
+      }
+      if (combined.includes("麵") || combined.includes("noodle")) {
+        return { img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=700&auto=format&fit=crop", type: "🍜 招牌麵食", dish: "🍜 在地慢火熬湯與手作獨門麵食" };
+      }
+      if (combined.includes("鴨") || combined.includes("duck")) {
+        return { img: "https://images.unsplash.com/photo-1518492104633-130d0cc84637?w=700&auto=format&fit=crop", type: "🦆 招牌鴨肉", dish: "🦆 古法煙燻多汁鴨肉與獨門醬汁" };
+      }
+      if (combined.includes("酒吧") || combined.includes("調酒") || combined.includes("bar")) {
+        return { img: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=700&auto=format&fit=crop", type: "🍸 特色調酒", dish: "🍸 台灣茶韻與當季鮮果職人雞尾酒" };
+      }
+      if (combined.includes("茶") || combined.includes("tea")) {
+        return { img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=700&auto=format&fit=crop", type: "🍵 茶席空間", dish: "🍵 台灣單一產區原葉工夫茶與手作茶點" };
+      }
+      if (combined.includes("米其林") || combined.includes("michelin")) {
+        return { img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=700&auto=format&fit=crop", type: "⭐ 星級名菜", dish: "🍽️ 米其林評鑑主廚招牌手路名菜" };
+      }
+      if (combined.includes("海") || combined.includes("灣")) {
+        return { img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop", type: "🌊 海景空間", dish: "🌊 海景第一排視野與手作精品咖啡甜點" };
+      }
+      if (combined.includes("咖啡") || combined.includes("cafe")) {
+        return { img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&auto=format&fit=crop", type: "☕ 店家空間", dish: "☕ 質感空間採光與自家烘焙單品手沖" };
+      }
+      return { img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop", type: "🍽️ 招牌必嚐", dish: "🍽️ 在地職人手作風味料理與特色空間" };
+    }
+
+    function enhanceLongformPlaceCards(containerEl) {
+      if (!containerEl) return;
+      const cards = containerEl.querySelectorAll(".place-card");
+      cards.forEach(card => {
+        if (card.classList.contains("has-top-photo")) return;
+        const nameEl = card.querySelector(".place-name");
+        const badgeEl = card.querySelector(".place-badge");
+        const detailEl = card.querySelector(".place-detail");
+        const nameText = nameEl ? nameEl.textContent.trim() : "";
+        const badgeText = badgeEl ? badgeEl.textContent.trim() : "";
+        const detailText = detailEl ? detailEl.textContent.trim() : "";
+        const badgeClass = badgeEl ? badgeEl.className : "";
+
+        const meta = getPlaceCardVisualMeta(nameText, badgeText, detailText, badgeClass);
+
+        // 建立頂部店家照片 / 特色餐點視覺區
+        const imgWrap = document.createElement("div");
+        imgWrap.className = "place-card-img-wrap";
+        imgWrap.innerHTML = `
+          <img src="${meta.img}" alt="${nameText}" loading="lazy" class="place-card-photo">
+          <div class="place-card-img-gradient"></div>
+          <span class="place-card-type-pill">${meta.type}</span>
+          <div class="place-dish-spotlight">
+            <span>${meta.dish}</span>
+          </div>
+        `;
+
+        // 將原本卡牌內容包進 .place-card-body
+        const bodyWrap = document.createElement("div");
+        bodyWrap.className = "place-card-body";
+        while (card.firstChild) {
+          bodyWrap.appendChild(card.firstChild);
+        }
+
+        card.classList.add("has-top-photo");
+        card.appendChild(imgWrap);
+        card.appendChild(bodyWrap);
+      });
+    }
+
     function renderArticleModalContent(place) {
       const modal = document.getElementById("article-modal");
       if (!modal) return;
@@ -2063,6 +2310,7 @@
 
       if (place.fullHtmlArticle && customBodyEl && defaultBodyEl) {
         customBodyEl.innerHTML = place.fullHtmlArticle;
+        enhanceLongformPlaceCards(customBodyEl);
         customBodyEl.style.display = "block";
         defaultBodyEl.style.display = "none";
       } else {
