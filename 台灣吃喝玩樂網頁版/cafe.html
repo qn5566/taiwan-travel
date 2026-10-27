@@ -543,6 +543,95 @@
     .hop-longform-article .personal-story-content p:last-child {
       margin-bottom: 0;
     }
+    .hop-longform-article .personal-reflection-box {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-left: 5px solid #2A8C82;
+      border-radius: 18px;
+      padding: 24px 28px;
+      margin-bottom: 34px;
+      box-shadow: 0 4px 16px rgba(42, 140, 130, 0.05);
+    }
+    .hop-longform-article .reflection-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15.5px;
+      font-weight: 800;
+      color: #2A8C82;
+      margin-bottom: 12px;
+    }
+    .hop-longform-article .reflection-content {
+      font-size: 14.8px;
+      color: #334155;
+      line-height: 1.85;
+    }
+    .hop-longform-article .reflection-content p { margin-bottom: 12px; }
+    .hop-longform-article .reflection-content p:last-child { margin-bottom: 0; }
+    .hop-longform-article .tickets-hub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 22px 0 36px;
+    }
+    .hop-longform-article .ticket-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 18px;
+      padding: 18px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .hop-longform-article .ticket-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(14, 90, 119, 0.12);
+      border-color: #2A8C82;
+    }
+    .hop-longform-article .ticket-icon { font-size: 25px; margin-bottom: 8px; }
+    .hop-longform-article .ticket-title { font-size: 15px; font-weight: 800; color: #1E293B; }
+    .hop-longform-article .ticket-desc { font-size: 12px; color: #64748B; margin: 4px 0 12px; line-height: 1.5; }
+    .hop-longform-article .ticket-action-btn {
+      font-size: 12px;
+      font-weight: 700;
+      color: #FFFFFF;
+      background: #0E5A77;
+      padding: 8px 12px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .hop-longform-article .ticket-action-btn.teal { background: #2A8C82; }
+    .hop-longform-article .ticket-action-btn.amber { background: #D97706; }
+    .hop-longform-article .ticket-action-btn.coral { background: #C85A32; }
+    .hop-longform-article .place-badge.tea { color: #15803D; background: #DCFCE7; }
+    .hop-longform-article .place-badge.snack { color: #B45309; background: #FEF3C7; }
+    .hop-longform-article .place-btn-row { display: flex; gap: 8px; }
+    .hop-longform-article .english-tips-section {
+      background: #111E2E;
+      color: #E2E8F0;
+      border-radius: 22px;
+      padding: 32px;
+      margin-top: 42px;
+    }
+    .hop-longform-article .english-tips-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 14px;
+    }
+    .hop-longform-article .english-tips-title { font-size: 19px; font-weight: 800; color: #38BDF8; letter-spacing: 0.5px; margin: 0; }
+    .hop-longform-article .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+    .hop-longform-article .tip-item h4 { font-size: 14px; font-weight: 700; color: #F8FAFC; margin: 0 0 6px 0; }
+    .hop-longform-article .tip-item p { font-size: 12.5px; color: #94A3B8; line-height: 1.65; margin: 0; }
     .hop-longform-article h2.section-header {
       font-family: 'Noto Serif TC', serif;
       font-size: 22px;
@@ -1652,13 +1741,34 @@
         });
       });
 
-      const latestArticle = allPlaces.find(p => p.isLatest) || allPlaces[0];
+      const latestArticles = allPlaces.filter(p => p.isLatest);
+      const latestArticle = latestArticles[0] || allPlaces[0];
+      const moreLatestArticles = latestArticles.slice(1, 4);
       const popularArticles = allPlaces.filter(p => p.isPopular).slice(0, 4);
 
       if (!latestArticle) {
         showcaseEl.innerHTML = "";
         return;
       }
+
+      const moreLatestHtml = moreLatestArticles.length > 0 ? `
+        <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.16);">
+          <div style="font-size: 11px; font-weight: 800; color: #FDE68A; letter-spacing: 1.2px; margin-bottom: 8px;">
+            📚 近期同步發佈深度專欄 RECENTLY PUBLISHED
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            ${moreLatestArticles.map(item => `
+              <div onclick="event.stopPropagation(); openHopArticleById('${item.id}')" style="background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.10)'">
+                <div style="min-width: 0;">
+                  <div style="font-size: 11px; color: #BAE6FD; font-weight: 700;">${item.vol || 'Weekend Hop'} · 📍 ${item.city}</div>
+                  <div style="font-family: 'Noto Serif TC', serif; font-size: 14px; font-weight: 900; color: #FFFFFF; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${item.nameZh}</div>
+                </div>
+                <span style="font-size: 11.5px; font-weight: 800; color: #FDE68A; white-space: nowrap;">閱讀 ➔</span>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      ` : '';
 
       const popItemsHtml = popularArticles.map((item, idx) => `
         <div class="hop-popular-item" onclick="openHopArticleById('${item.id}')">
@@ -1714,13 +1824,16 @@
               </p>
             </div>
 
-            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-top: 1px solid rgba(255, 255, 255, 0.16); padding-top: 16px;">
-              <div style="font-size: 12px; color: #BAE6FD; font-weight: 700;">
-                📍 ${latestArticle.city} · ${latestArticle.district} ｜ 🔥 ${latestArticle.readCount || '28,450 次閱讀'}
+            <div>
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-top: 1px solid rgba(255, 255, 255, 0.16); padding-top: 16px;">
+                <div style="font-size: 12px; color: #BAE6FD; font-weight: 700;">
+                  📍 ${latestArticle.city} · ${latestArticle.district} ｜ 🔥 ${latestArticle.readCount || '28,450 次閱讀'}
+                </div>
+                <span style="background: #FFFFFF; color: #0F4C81; font-size: 13px; font-weight: 900; padding: 9px 18px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.18);">
+                  📖 閱讀完整專欄 Read Full Story ➔
+                </span>
               </div>
-              <span style="background: #FFFFFF; color: #0F4C81; font-size: 13px; font-weight: 900; padding: 9px 18px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.18);">
-                📖 閱讀完整專欄 Read Full Story ➔
-              </span>
+              ${moreLatestHtml}
             </div>
           </div>
 
