@@ -616,6 +616,9 @@
     .hop-longform-article .place-badge.seafood { color: #C2410C; background: #FFEDD5; }
     .hop-longform-article .place-badge.bar { color: #7C2D12; background: #FFEDD5; }
     .hop-longform-article .place-badge.cafe { color: #0369A1; background: #E0F2FE; }
+    .hop-longform-article .place-badge.ice { color: #0284C7; background: #E0F2FE; }
+    .hop-longform-article .place-badge.rental { color: #2563EB; background: #DBEAFE; }
+    .hop-longform-article .place-badge.indigenous { color: #15803D; background: #DCFCE7; }
     .hop-longform-article .place-btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
     .hop-longform-article .place-footer-btn { flex: 1; white-space: nowrap; }
     .hop-longform-article .place-footer-btn.reserve {
@@ -2116,6 +2119,23 @@
 
     /* 專欄內餐廳、茶店、美食、咖啡卡牌專屬照片與特色餐點圖鑑 */
     const PLACE_PHOTO_SPOTLIGHT_MAP = {
+      // Vol. 07 花蓮篇 (15 家)
+      "海崖谷 HAYAKU": { img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop", type: "🌊 懸崖海景", dish: "🌊 太平洋階梯露台與野奢帳篷・西西里咖啡配莓果鬆餅" },
+      "山度空間": { img: "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=700&auto=format&fit=crop", type: "📸 泡泡鞦韆", dish: "🫧 透明玻璃圓形海景鞦韆・特調冰萃咖啡與輕食三明治" },
+      "原野牧場": { img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&auto=format&fit=crop", type: "☕ 羊奶咖啡", dish: "🌊 七星潭漂流木海景窗・招牌香濃羊奶拿鐵配起司蛋糕" },
+      "佳興冰果室": { img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=700&auto=format&fit=crop", type: "🍋 招牌檸檬汁", dish: "🍋 連皮帶肉慢磨煉乳黃金檸檬汁＋大碗料多什錦炒麵" },
+      "正當冰（花蓮總店）": { img: "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=700&auto=format&fit=crop", type: "🍨 小農冰淇淋", dish: "🍨 純天然無添加手作冰・甲仙香芋、百香果與蜜香紅茶" },
+      "花蓮觀光糖廠冰品部（光復糖廠）": { img: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=700&auto=format&fit=crop", type: "🍦 百年糖廠冰", dish: "🍦 日治木造宿舍群・招牌月明冰與紅豆鮮奶脆餅冰淇淋" },
+      "達基力部落屋": { img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=700&auto=format&fit=crop", type: "🎨 部落無菜單", dish: "🔥 太魯閣族木雕藝廊・柴燒煙燻山豬肉、刺蔥香腸與香蕉飯" },
+      "欣欣麵館": { img: "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=700&auto=format&fit=crop", type: "🦞 生猛海鮮殿堂", dish: "🦞 滿櫃現撈龍蝦九孔鮑・金黃飛魚卵沙拉與澎湃鮮魚火鍋" },
+      "花蓮翰品酒店・怡園中餐廳": { img: "https://images.unsplash.com/photo-1518492104633-130d0cc84637?w=700&auto=format&fit=crop", type: "⭐ 星級中菜宴", dish: "🦆 五星主廚產地風土宴・皮脆油亮招牌櫻桃烤鴨多吃" },
+      "格上租車（花蓮火車站站前店）": { img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop", type: "🚗 站前自駕租車", dish: "🚗 花蓮站步行2分鐘・新穎五至八人座休旅全險自駕" },
+      "和運租車（花蓮站前門市）": { img: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=700&auto=format&fit=crop", type: "🚙 跨區甲租乙還", dish: "🚙 支援花蓮取車、台東或台北還車・快速透明取還車" },
+      "胖草機車租借（花蓮站前旗艦店）": { img: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=700&auto=format&fit=crop", type: "🛵 站前人氣租車", dish: "🛵 125cc與Gogoro電動車・隨車附乾淨帽襯、手機架與雨衣" },
+      "達基力原民柴燒風味餐廳": { img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop", type: "🔥 原木柴燒宴", dish: "🔥 正對蘇花斷崖海景・原木大圓烤盤慢燻黑豬肉與刺蔥蒸魚" },
+      "巴奇克野生菜料理坊（Pacik）": { img: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=700&auto=format&fit=crop", type: "🌿 野菜十全鍋", dish: "🌿 阿美族頭目採集數十種原生野菜・炭烤鹹豬肉與鮮魚野菜鍋" },
+      "紅瓦屋老地方文化美食館": { img: "https://images.unsplash.com/photo-1547592180-85f173990554?w=700&auto=format&fit=crop", type: "🪨 阿美石頭火鍋", dish: "🪨 滾燙火山白大理石塊投入檳榔葉鞘鍋・原木鹽烤鮮魚" },
+
       // Vol. 06 台南篇 (21 家)
       "葉家小卷米粉": { img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=700&auto=format&fit=crop", type: "🍽️ 特色餐點", dish: "🦑 鮮燙厚切透抽小卷・甘甜糙米粗米粉" },
       "恭仔肉燥意麵": { img: "https://images.unsplash.com/photo-1555126634-323283e090fa?w=700&auto=format&fit=crop", type: "🍽️ 特色餐點", dish: "🍜 紅蔥肉燥手工扁意麵＋手作扁食湯" },
