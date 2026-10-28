@@ -713,34 +713,48 @@ function executeSearch(query) {
    7. 收藏清單與事件綁定 (Favorites & Event Listeners)
    ========================================================= */
 function toggleFavorite(spotName, btnEl) {
-  const index = userFavorites.indexOf(spotName);
-  const isFavorited = (index === -1);
-
-  if (!isFavorited) {
-    userFavorites.splice(index, 1);
-  } else {
-    userFavorites.push(spotName);
+  let spotObj = null;
+  if (typeof ALL_SPOTS_DATA !== "undefined") {
+    spotObj = ALL_SPOTS_DATA.find(s => s.name === spotName);
   }
-  localStorage.setItem("tw_roam_web_favs", JSON.stringify(userFavorites));
-  updateFavBadge();
-
-  if (btnEl) {
-    const isEn = (typeof currentLang !== "undefined" && currentLang === "en");
-    if (isFavorited) {
-      btnEl.classList.add("active");
-      const img = btnEl.querySelector(".fav-sparkle-icon");
-      if (img) img.classList.add("active");
-      triggerHeartSparkleEffect(btnEl, true);
-      showCuteToast(isEn ? `Saved to favorites!` : `已將「${spotName}」加入收藏！`, "💖");
-    } else {
-      btnEl.classList.remove("active");
-      const img = btnEl.querySelector(".fav-sparkle-icon");
-      if (img) img.classList.remove("active");
-      triggerHeartSparkleEffect(btnEl, false);
-      showCuteToast(isEn ? `Removed from favorites` : `已取消收藏「${spotName}」`, "🤍");
-    }
+  if (!spotObj) {
+    spotObj = {
+      id: "spot_" + spotName,
+      name: spotName,
+      category: "spot",
+      categoryLabel: "景點",
+      city: "全台",
+      img: "assets/icon_lantern.png",
+      rating: "★ 4.9",
+      desc: "編輯部推薦熱門景點",
+      klookUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSearchUrl(spotName) : "https://www.klook.com/?aid=106452",
+      tripUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getTripSearchUrl(spotName) : "https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275",
+      mapUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(spotName) : `https://maps.google.com/?q=${encodeURIComponent(spotName)}`
+    };
   } else {
-    renderWaterfallCards();
+    spotObj = {
+      id: "spot_" + spotObj.name,
+      name: spotObj.name,
+      category: "spot",
+      categoryLabel: "景點",
+      city: spotObj.city,
+      img: spotObj.img,
+      rating: spotObj.rate ? `★ ${spotObj.rate}` : "★ 4.9",
+      desc: spotObj.desc || "",
+      klookUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getTourUrl(spotObj.activityId || "1874-jiufen-shifen-day-tour-taipei") : "https://www.klook.com/?aid=106452",
+      tripUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getHotelUrl(spotObj.name) : "https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275",
+      mapUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(spotObj.name) : `https://maps.google.com/?q=${encodeURIComponent(spotObj.name)}`
+    };
+  }
+
+  if (typeof FavoritesManager !== "undefined") {
+    FavoritesManager.toggle(spotObj, btnEl);
+    userFavorites = FavoritesManager.items.map(i => i.name);
+  } else {
+    const idx = userFavorites.indexOf(spotName);
+    if (idx === -1) userFavorites.push(spotName);
+    else userFavorites.splice(idx, 1);
+    localStorage.setItem("tw_roam_web_favs", JSON.stringify(userFavorites));
   }
 }
 

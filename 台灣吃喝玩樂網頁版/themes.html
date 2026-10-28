@@ -70,6 +70,12 @@
       }
     }
   </style>
+  <!-- Technical SEO: Canonical & Hreflang Multi-language Alternate Links -->
+  <link rel="canonical" href="https://taiwanroam.tw/themes.html" />
+  <link rel="alternate" hreflang="zh-TW" href="https://taiwanroam.tw/themes.html" />
+  <link rel="alternate" hreflang="en" href="https://taiwanroam.tw/themes.html?lang=en" />
+  <link rel="alternate" hreflang="ja" href="https://taiwanroam.tw/themes.html?lang=ja" />
+  <link rel="alternate" hreflang="x-default" href="https://taiwanroam.tw/themes.html" />
 </head>
 <body>
 
@@ -251,6 +257,7 @@
 
   <!-- 引用腳本 -->
   <script src="js/affiliate.js"></script>
+  <script src="js/favorites.js"></script>
   <script src="js/data.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/themes_data.js"></script>
@@ -1257,12 +1264,51 @@
     // 收藏愛心點擊特效
     function toggleThemeSpotFav(spotName, btnEl, event) {
       if (event) event.stopPropagation();
-      btnEl.classList.toggle("active");
+      let spotObj = null;
+      if (typeof THEMES_DATA !== "undefined") {
+        for (const t of THEMES_DATA) {
+          if (t.spots) {
+            const found = t.spots.find(s => s.name === spotName);
+            if (found) {
+              spotObj = {
+                id: 'spot_' + found.name,
+                name: found.name,
+                category: 'spot',
+                categoryLabel: '景點',
+                city: t.title || '主題行程',
+                img: found.img || 'assets/icon_lantern.png',
+                rating: '★ 4.9',
+                desc: found.desc || found.en || '',
+                klookUrl: t.bookingCta ? (t.bookingCta.charter || t.bookingCta.tour) : 'https://www.klook.com/?aid=106452',
+                tripUrl: t.bookingCta ? t.bookingCta.hotel : 'https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275',
+                mapUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(found.name)}`
+              };
+              break;
+            }
+          }
+        }
+      }
+      if (!spotObj) {
+        spotObj = {
+          id: 'spot_' + spotName,
+          name: spotName,
+          category: 'spot',
+          categoryLabel: '景點',
+          city: '主題行程',
+          img: 'assets/icon_lantern.png',
+          rating: '★ 4.9',
+          desc: '精選深度行程景點',
+          klookUrl: 'https://www.klook.com/?aid=106452',
+          tripUrl: 'https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275',
+          mapUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spotName)}`
+        };
+      }
 
-      btnEl.style.transform = "scale(1.28)";
-      setTimeout(() => {
-        btnEl.style.transform = "scale(1)";
-      }, 250);
+      if (typeof FavoritesManager !== "undefined") {
+        FavoritesManager.toggle(spotObj, btnEl);
+      } else {
+        btnEl.classList.toggle("active");
+      }
     }
 
     // 8 大全新極速輕量化背景動態特效 (8 Lightweight High-Performance Ambient FX)
