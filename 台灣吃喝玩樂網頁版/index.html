@@ -19,6 +19,30 @@
 </head>
 <body>
 
+  <!-- =========================================================
+       🌐 置頂國際化語系快捷列 (Global Top Language Bar)
+       ========================================================= -->
+  <div class="top-lang-bar">
+    <div class="container top-lang-inner">
+      <div class="top-lang-label">
+        <span>🇹🇼</span> 台灣吃喝玩樂 ‧ TAIWAN ROAM OFFICIAL
+      </div>
+      <!-- 右側簡潔語言下拉選單 -->
+      <div class="clean-lang-select-wrap">
+        <span style="font-size: 13px;">🌐</span>
+        <select id="global-lang-select" class="clean-lang-select" onchange="switchLanguage(this.value)">
+          <option value="zh-TW">繁體中文 (Traditional Chinese)</option>
+          <option value="en">English (International)</option>
+          <option value="ja">日本語 (Japanese)</option>
+          <option value="ko">한국어 (Korean)</option>
+          <option value="vi">Tiếng Việt</option>
+          <option value="th">ภาษาไทย</option>
+          <option value="id">Bahasa Indonesia</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
   <!-- 🌌 全站淡淡藍綠極光動態背景 -->
   <div class="aurora-bg-ambient">
     <div class="aurora-blob-1"></div>
@@ -54,8 +78,8 @@
         </ul>
       </nav>
 
-      <!-- 右側工具區：伴手禮精選小按鈕 -->
-      <div class="header-right-tools">
+      <!-- 右側工具區：伴手禮精選按鈕 (語系已統一收納於最頂部置頂快捷列) -->
+      <div class="header-right-tools" style="display: flex; align-items: center; gap: 10px;">
         <a href="souvenir.html" 
            class="btn-cta-primary" 
            style="padding: 7px 15px; font-size: 12.5px; font-weight: 800; border-radius: 9999px; text-decoration: none;">
@@ -100,21 +124,21 @@
                 <span class="hero-tab-en">Flights</span>
               </span>
             </a>
-            <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
+            <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
               <span class="hero-tab-icon">🚗</span>
               <span class="hero-tab-text">
                 <span class="hero-tab-zh">包車</span>
                 <span class="hero-tab-en">Private Charter</span>
               </span>
             </a>
-            <a href="https://www.klook.com/zh-TW/airport-transfers/?aid=123436" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
+            <a href="https://www.klook.com/zh-TW/airport-transfers/?aid=106452" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
               <span class="hero-tab-icon">🚐</span>
               <span class="hero-tab-text">
                 <span class="hero-tab-zh">接送</span>
                 <span class="hero-tab-en">Airport Transfer</span>
               </span>
             </a>
-            <a href="https://www.klook.com/zh-TW/wifi-sim-card/?aid=123436" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
+            <a href="https://www.klook.com/zh-TW/wifi-sim-card/?aid=106452" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
               <span class="hero-tab-icon">📶</span>
               <span class="hero-tab-text">
                 <span class="hero-tab-zh">網卡</span>
@@ -432,7 +456,7 @@
             <li><a href="themes.html?theme=roadtrip" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">🚗 台灣旅遊包車推薦行程</a></li>
             <li><a href="themes.html?theme=islands&sub=diving" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">🐢 跳島浮潛和海龜</a></li>
             <li><a href="themes.html?theme=northcoast&sub=railway" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">🚂 火車鐵道之旅</a></li>
-            <li><a href="cafe.html?tab=weekend-hop" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">📖 週末探店專欄文章</a></li>
+            <li><a href="cafe.html?tab=weekend-hop" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">📖 深度慢活採訪實錄</a></li>
           </ul>
         </div>
 

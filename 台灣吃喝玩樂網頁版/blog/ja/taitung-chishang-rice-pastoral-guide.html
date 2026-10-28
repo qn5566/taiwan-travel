@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【台東・大地の詩】黄金色の稲穂がそよぐ楽園：伯朗大道のサイクリング、絶品池上弁当と気球が舞う絶景台地 ｜ 台湾漫遊 Taiwan Roam</title>
+  <meta name="description" content="東台湾・台東の完全散策ガイド。電柱のない黄金色の稲浪「伯朗大道」、金城武の樹、木箱の本格池上弁当、鹿野高台の熱気球、都蘭部落の先住民族アート、Klook貸切チャーター＆Trip.comリゾート宿予約まで徹底網羅。">
+  <meta name="keywords" content="台東 観光, 池上 伯朗大道, 金城武の樹, 池上弁当, 鹿野高台 気球, 都蘭 カフェ, 知本温泉, Klook 台東 チャーター">
+  <style>
+    :root {
+      --bg-cream: #FDFBF7;
+      --card-bg: #FFFFFF;
+      --rice-gold: #C08A3E;
+      --taitung-blue: #1B4D3E;
+      --earth-brown: #5C3D2E;
+      --warm-amber: #D97706;
+      --slate-dark: #2C3E50;
+      --muted-gray: #7F8C8D;
+      --border-light: #EADBC8;
+      --shadow-soft: 0 10px 28px rgba(27, 77, 62, 0.08);
+      --radius-round: 20px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    .article-container { max-width: 1080px; margin: 40px auto 0; background: var(--card-bg); border-radius: 32px; border: 1px solid var(--border-light); padding: 48px; box-shadow: var(--shadow-soft); }
+    @media (max-width: 768px) { .article-container { padding: 22px; border-radius: 20px; margin-top: 16px; } }
+    .journal-badge { display: inline-flex; align-items: center; gap: 6px; background: #FEF3C7; color: #B45309; font-size: 12px; font-weight: 800; padding: 6px 16px; border-radius: 999px; text-transform: uppercase; margin-bottom: 16px; }
+    .article-title { font-size: 32px; font-weight: 900; color: var(--taitung-blue); line-height: 1.4; margin-bottom: 8px; }
+    .article-subtitle-jp { font-size: 15px; font-weight: 600; color: var(--rice-gold); margin-bottom: 24px; font-style: italic; }
+    .history-card { background: #F8FAF9; border-radius: 18px; border: 1px solid var(--border-light); padding: 26px 30px; margin-bottom: 30px; }
+    .history-title { font-size: 16px; font-weight: 800; color: var(--taitung-blue); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .history-text { font-size: 14px; color: #4A5568; line-height: 1.85; }
+    .personal-reflection-box { background: #FFFDF9; border-left: 5px solid var(--rice-gold); border-radius: 18px; padding: 26px 30px; margin-bottom: 36px; box-shadow: 0 4px 16px rgba(192, 138, 62, 0.05); }
+    .reflection-header { font-size: 15px; font-weight: 800; color: var(--rice-gold); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .reflection-content { font-size: 14.5px; color: #334155; line-height: 1.9; }
+    h2.section-header { font-size: 22px; font-weight: 800; color: var(--taitung-blue); margin: 48px 0 20px; border-bottom: 2px solid #E2E8F0; padding-bottom: 12px; }
+    .tickets-hub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin: 24px 0 36px; }
+    .ticket-card { background: #FFF; border: 1px solid var(--border-light); border-radius: var(--radius-round); padding: 18px; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+    .ticket-card:hover { transform: translateY(-4px); border-color: var(--rice-gold); box-shadow: 0 12px 24px rgba(27, 77, 62, 0.12); }
+    .ticket-action-btn { font-size: 12px; font-weight: 700; color: #FFF; background: var(--taitung-blue); padding: 8px 12px; border-radius: 10px; text-align: center; margin-top: 12px; }
+    
+    .place-card { background: #FFF; border-radius: var(--radius-round); border: 1px solid var(--border-light); padding: 22px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 6px 18px rgba(0,0,0,0.03); }
+    .place-badge { display: inline-block; font-size: 11px; font-weight: 800; padding: 3px 10px; border-radius: 8px; margin-bottom: 8px; background: #FEF3C7; color: #B45309; }
+    .place-name { font-size: 18px; font-weight: 800; color: var(--slate-dark); margin-bottom: 4px; }
+    .place-location { font-size: 12px; color: var(--muted-gray); margin-bottom: 12px; }
+    .place-detail { font-size: 13px; color: #475569; margin-bottom: 18px; line-height: 1.65; }
+    .place-btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .place-footer-btn { flex: 1; text-align: center; padding: 9px 12px; border-radius: 12px; font-size: 12px; font-weight: 700; text-decoration: none; border: 1px solid var(--border-light); background: #F8FAFC; color: var(--taitung-blue); }
+    .walk-route-card { background: #FDF9F5; border-left: 4px solid var(--rice-gold); border-radius: 14px; padding: 20px 24px; margin-bottom: 36px; font-size: 13.5px; color: #334155; line-height: 1.85; }
+    .walk-route-title { font-size: 14px; font-weight: 800; color: var(--taitung-blue); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .table-container { width: 100%; overflow-x: auto; margin: 24px 0 36px; border-radius: 18px; border: 1px solid var(--border-light); }
+    table.curated-table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; font-size: 14px; background: #FFF; }
+    table.curated-table th { background: #FAF9F6; color: var(--taitung-blue); font-weight: 800; padding: 16px 20px; border-bottom: 2px solid var(--border-light); }
+    table.curated-table td { padding: 16px 20px; border-bottom: 1px solid #F4EAE1; color: #334155; }
+    .tips-section { background: var(--taitung-blue); color: #ECF0F1; border-radius: 24px; padding: 36px; margin-top: 50px; }
+    .tips-title { font-size: 19px; font-weight: 800; color: #F5B041; margin-bottom: 16px; }
+    .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .tip-item h4 { font-size: 14px; font-weight: 700; color: #FFF; margin-bottom: 6px; }
+    .tip-item p { font-size: 12.5px; color: #CBD5E1; line-height: 1.65; }
+    .article-footer-cta { background: linear-gradient(135deg, #1B4D3E 0%, #0B241D 100%); border-radius: 24px; padding: 36px; color: #FFF; text-align: center; margin-top: 40px; }
+    .cta-btn { display: inline-block; padding: 12px 24px; border-radius: 14px; font-size: 13px; font-weight: 800; text-decoration: none; margin: 6px; }
+    .cta-btn.primary { background: var(--rice-gold); color: #FFF; }
+    .cta-btn.secondary { background: rgba(255,255,255,0.15); color: #FFF; border: 1px solid rgba(255,255,255,0.3); }
+  
+    body { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif; background: var(--bg-cream); color: var(--slate-dark); line-height: 2.15 !important; letter-spacing: 0.04em !important; padding: 0 16px 80px; }
+    p, .reflection-content, .history-text, .place-detail, .walk-route-card { line-height: 2.15 !important; letter-spacing: 0.04em !important; }
+    .card-matrix { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 20px !important; margin: 24px 0 16px !important; }
+    @media (max-width: 640px) { .card-matrix { grid-template-columns: 1fr !important; } }
+
+  </style>
+  <link rel="canonical" href="https://taiwanroam.tw/ja/blog/taitung-chishang-rice-pastoral-guide">
+</head>
+<body>
+<article class="article-container">
+  <div class="journal-badge">週末探店 Vol. 13 ｜ 東台湾・田園大自然紀行</div>
+  <h1 class="article-title">【台東・大地の詩】黄金色の稲穂がそよぐ楽園：伯朗大道のサイクリング、絶品池上弁当と気球が舞う絶景台地</h1>
+  <div class="article-subtitle-jp">The Whispering Rice Terraces: Pastoral Cycling, Indigenous Beats & Thermal Valleys</div>
+
+  <div class="history-card">
+    <div class="history-title"><span>🌾</span> <strong>雪山と断層が生んだ穀倉地帯：日本統治時代の移民開拓と池上米の誇り</strong></div>
+    <div class="history-text">
+      中央山脈と海岸山脈に挟まれた花東縦谷。新武呂渓の清らかな伏流水と、豊かな日照、そして激しい寒暖差がもたらすミネラル土壌は、日本統治時代に「天皇への献上米」として名を馳せた最高峰のコシヒカリ（池上米）を育みました。電柱が一本も視界を遮らない果てしない水田風景が広がる「伯朗大道」、アミ族やパイワン族が築いた都蘭の自然共生コミュニティ、そして鹿野高台の広大な茶畑——。大自然のリズムに身を委ね、五感を解き放つスローライフの聖地です。
+    </div>
+  </div>
+
+  <div class="personal-reflection-box">
+    <div class="reflection-header"><span>✍️</span> <strong>旅人手記：風の音と稲穂のざわめきだけが響く道——電動自転車で駆け抜けた、忘れられない黄金色の午後</strong></div>
+    <div class="reflection-content">
+      <p>台東を訪れると、都会がいかに人工的な音で溢れていたかに気付かされます。秋の収穫直前、池上の伯朗大道を自転車で走ったときの感動は、今でも私の旅のハイライトです。見渡す限り黄金色に輝く稲穂が波のように揺れ、遠くの青い山並みから吹き降りる風が心地よく頬を撫でていく。</p>
+      <p>「金城武の樹」の木陰で冷たい高山烏龍茶を一口飲み、昔ながらの木製折箱に入った熱々の池上弁当を頬張る。一粒一粒が輝き、冷めても驚くほど甘くてもちもちした白米の味は、日本の旅行者にも必ず感動していただけるはずです。夜になれば知本温泉の滑らかな重曹泉に身を沈め、満天の天の川を仰ぎ見る。これ以上ない贅沢な時間がここにあります。</p>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>🎟️</span> 台東旅を快適にする予約ハブ：Klookチャーター・温泉宿・Uber Eats</h2>
+  <div class="tickets-hub-grid">
+    <a href="https://www.klook.com/?aid=106452" target="_blank" class="ticket-card">
+      <div>
+        <div style="font-size:24px;">🚐</div>
+        <div style="font-weight:800; margin-top:6px;">台東駅・空港 ⇌ 池上・鹿野 貸切チャーター車</div>
+        <div style="font-size:12px; color:#64748B; margin-top:4px;">縦谷線の長距離移動も安心！荷物をトランクに載せたまま伯朗大道や三仙台へ直行</div>
+      </div>
+      <div class="ticket-action-btn">Klook 貸切車を予約 ➔</div>
+    </a>
+    <a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="ticket-card">
+      <div>
+        <div style="font-size:24px;">♨️</div>
+        <div style="font-weight:800; margin-top:6px;">知本温泉リゾート＆田園ヴィラ最安値検索</div>
+        <div style="font-size:12px; color:#64748B; margin-top:4px;">ロイヤル知本（知本老爺酒店）や池上のデザイナーズヴィラを比較予約</div>
+      </div>
+      <div class="ticket-action-btn" style="background:var(--rice-gold);">Trip.com 宿検索 ➔</div>
+    </a>
+    <a href="https://onelink.one/s/YoWYV" target="_blank" class="ticket-card">
+      <div>
+        <div style="font-size:24px;">🛵</div>
+        <div style="font-weight:800; margin-top:6px;">ホテルの部屋へ！台東ローカルデリバリー</div>
+        <div style="font-size:12px; color:#64748B; margin-top:4px;">名物の米苔目（ライスヌードル）や果肉たっぷり釈迦頭アイスをお届け</div>
+      </div>
+      <div class="ticket-action-btn">Uber Eats を開く ➔</div>
+    </a>
+  </div>
+
+  <h2 class="section-header"><span>☕</span> 稲波と山並みを眺める絶景カフェ 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">田んぼの真ん中 ｜ 昔の製茶所を再生した文化空間</span>
+        <h3 class="place-name">大池豆皮店（Da Chi Tofu Skin）</h3>
+        <p class="place-location">📍 台湾台東県池上郷大池村大埔路39-2号</p>
+        <p class="place-detail">朝露の中で薪火を使って作る伝統の生湯葉専門店。鉄板でカリッと香ばしく焼き上げた豆包（揚げ湯葉）に特製醤油ダレをかけ、濃厚な豆乳とともにいただく朝の行列必至カフェ。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=大池豆皮店" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">旧製糖工場のアートカフェ ｜ 先住民族の手仕事</span>
+        <h3 class="place-name">都蘭糖廠珈琲館（Dulan Sugar Factory）</h3>
+        <p class="place-location">📍 東河郷都蘭村61号</p>
+        <p class="place-detail">太平洋沿いの廃製糖工場をアーティスト村として再生。漂流木で作られた椅子に腰掛け、手摘みの台東産珈琲やクラフトビールを、生演奏のレゲエや民族音楽とともに楽しめます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=都蘭糖廠" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">牧草地を見渡すテラス ｜ 搾りたて濃厚ミルク</span>
+        <h3 class="place-name">初鹿牧場 カフェテラス（Chulu Ranch）</h3>
+        <p class="place-location">📍 卑南郷明峰村牧場1号</p>
+        <p class="place-detail">緩やかな丘陵に広がる台湾屈指の放牧場。放牧牛の新鮮な生乳で作る極上ミルクソフトクリームとカフェラテを、青い山並みを望むウッドデッキで贅沢に味わえます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=初鹿牧場" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <div class="walk-route-card">
+    <div class="walk-route-title"><span>🚲</span> <strong>【おすすめ散策ルート①】黄金の稲浪を駆け抜ける「伯朗大道〜大坡池サイクリング」</strong></div>
+    池上駅前で屋根付き電動アシスト自転車をレンタル ➔ 電柱のない一本道「伯朗大道」へ ➔ 名優・金城武がCM撮影した「金城武の樹」で記念撮影 ➔ S字カーブが美しい「天堂路」 ➔ 蓮の花が揺れる「大坡池」の湖畔遊歩道を一周。約2時間、映画の世界に入り込んだような爽快ルートです。
+  </div>
+
+  <h2 class="section-header"><span>⭐</span> 風土が育んだ極上グルメ 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">木箱が湿気を吸う ｜ 米粒が立った元祖駅弁</span>
+        <h3 class="place-name">全美行 池上便当（池上駅前総本店）</h3>
+        <p class="place-location">📍 池上郷中正路1号（池上駅正面）</p>
+        <p class="place-detail">木製の薄板折箱を使用することでご飯の余分な水分を吸い、驚くほどもちもちした食感をキープ。サクサクの豚肉揚げ、煮卵、香ばしいチャーシュー、揚げ柴菜がぎっしり詰まった名作。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=全美行池上便當" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">予約困難な隠れ家 ｜ 先住民族の山海コース</span>
+        <h3 class="place-name">達麓岸部落屋（Dalukan Indigenous Food）</h3>
+        <p class="place-location">📍 東河郷都蘭村海岸沿い</p>
+        <p class="place-detail">太平洋の波打ち際に建つ茅葺き高床式レストラン。アミ族の伝統に倣い、バナナの葉の上に盛り付けられた塩焼き豚肉、採れたて地魚の炭火焼き、山菜スープを手づかみでいただく唯一無二の体験。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=達麓岸部落屋" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">ミシュラン選定級 ｜ 70年続くカツオ出汁ライスヌードル</span>
+        <h3 class="place-name">榕樹下米苔目（ロンシューシャー）</h3>
+        <p class="place-location">📍 台東市大同路176号</p>
+        <p class="place-detail">ガジュマルの木の下から始まった老舗。米粉で作るモチモチの極太麺に、台東・成功漁港直送の削り節（柴魚片）と濃厚な豚そぼろダレがたっぷり。立ち上る香ばしさが食欲を刺激します。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=榕樹下米苔目" target="_blank" class="place-footer-btn">🗺️ Google Maps</a><a href="https://onelink.one/s/YoWYV" target="_blank" class="place-footer-btn" style="color:#15803D;">🛵 Uber Eats</a></div>
+    </div>
+  </div>
+
+  <div class="walk-route-card">
+    <div class="walk-route-title"><span>🎈</span> <strong>【おすすめ散策ルート②】大空と茶畑のパノラマ「鹿野高台〜龍田日本移民村散歩」</strong></div>
+    夏には色とりどりの熱気球が空を埋め尽くす「鹿野高台」の芝生展望台へ ➔ 紅茶畑を見下ろしながらパノラマ遊歩道を散策 ➔ 専用車で坂を下り、日本統治時代の整然とした碁盤の目と木造校舎が残る「龍田移民村」のクスノキ並木を自転車で巡る約2.5時間の心洗われるコースです。
+  </div>
+
+  <h2 class="section-header"><span>🥢</span> 台東の看板名物小吃 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">薄皮から肉汁が溢れる ｜ 行列必至の揚げ肉まん</span>
+        <h3 class="place-name">金花軒 卑南包子店</h3>
+        <p class="place-location">📍 台東市更生北路182号</p>
+        <p class="place-detail">地元民が箱買いしていく有名店。ふっくら蒸し上がった生地の中に、ざく切り豚肉とキャベツ、タマネギの旨味が凝縮され、一口噛むとジューシーな熱々スープがこぼれ出します。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=卑南包仔店" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">サクサクのパイ生地 ｜ ネギ油香る看板おやつ</span>
+        <h3 class="place-name">黄記葱油餅（濱海総店）</h3>
+        <p class="place-location">📍 台東市南海路36号（海浜公園前）</p>
+        <p class="place-detail">注文を受けてからラードで香ばしく揚げる特製葱パイ。新鮮な九層塔（台湾バジル）とネギがたっぷりと生地に巻き込まれ、卵を落として半熟に仕上げた熱々は海辺の散歩のお供に最高。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=黃記蔥油餅" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">果肉純度100% ｜ シャーベットのような果実アイス</span>
+        <h3 class="place-name">台東釈迦頭アイス（釈迦頭専門スタンド）</h3>
+        <p class="place-location">📍 台東市内各所・農協直営店</p>
+        <p class="place-detail">台東特産の果物「釈迦頭（カスタードアップル）」。ねっとりと甘く芳醇な果肉をそのまま凍らせたような手作りアイスは、南国・台東でしか味わえない贅沢なデザートです。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=台東釋迦冰" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>🏨</span> 温泉と田園の癒やし宿 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">東台湾屈指の五つ星 ｜ 森に抱かれる天然名湯</span>
+        <h3 class="place-name">ホテル・ロイヤル知本（知本老爺酒店）</h3>
+        <p class="place-location">📍 卑南郷温泉村龍泉路23号</p>
+        <p class="place-detail">大自然に囲まれた最高峰温泉リゾート。無色無臭の滑らかな重曹泉を満喫できる露天風呂「天幕風呂」や、先住民族の伝統舞踊ショー、一流のダイニングで極上の保養ステイを叶えます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="place-footer-btn" style="color:#1D4ED8;">🏨 Trip.com 予約</a><a href="https://maps.google.com/?q=知本老爺酒店" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">田園に佇むヴィラ ｜ プライベート温水プール</span>
+        <h3 class="place-name">日暉国際渡假村 池上（Papago Resort）</h3>
+        <p class="place-location">📍 池上郷新興村新興107号</p>
+        <p class="place-detail">伯朗大道にほど近い広大なリゾート。南欧風の独立型プライベートヴィラや、天然温泉大浴場を備え、専用レンタルサイクルで朝露の稲田へ直接出かけられる抜群の立地。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="place-footer-btn" style="color:#1D4ED8;">🏨 Trip.com 予約</a><a href="https://maps.google.com/?q=日暉國際渡假村" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">台東駅至近 ｜ デザインと文化が融合したアート宿</span>
+        <h3 class="place-name">ザ・ゲイシャホテル 台東（THE GAYA HOTEL 潮渡假酒店）</h3>
+        <p class="place-location">📍 台東市新生路169号（鉄花村すぐ横）</p>
+        <p class="place-detail">屋上のインフィニティプールから鯉魚山と市内を一望。夜は徒歩1分の鉄花村のマーケットへ繰り出せ、観光とお買い物の利便性を極めたスタイリッシュな都市型リゾート。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="place-footer-btn" style="color:#1D4ED8;">🏨 Trip.com 予約</a><a href="https://maps.google.com/?q=THE+GAYA+HOTEL" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>💆</span> 温泉とアロマでほどけるスパ 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">ホテル直営 ｜ 温泉水とオーガニックオイルの融合</span>
+        <h3 class="place-name">知本老爺 寛SPA（QUAN SPA）</h3>
+        <p class="place-location">📍 知本老爺酒店館内</p>
+        <p class="place-detail">静寂な山林を見渡すトリートメントルーム。天然温泉で全身を温めた後、熟練セラピストによるリンパマッサージで長旅の疲労を芯からほぐします。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.klook.com/?aid=106452" target="_blank" class="place-footer-btn" style="color:#C2410C;">💆 Klook スパ予約</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">台東市内 ｜ 痛気持ちいい本格足つぼ</span>
+        <h3 class="place-name">台東足體養生館</h3>
+        <p class="place-location">📍 台東市内中華路周辺</p>
+        <p class="place-detail">サイクリングで疲れた太ももやふくらはぎを的確にほぐす人気サロン。漢方足湯に浸かりながら受ける足つぼ刺激で足の軽さが蘇ります。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.klook.com/?aid=106452" target="_blank" class="place-footer-btn" style="color:#C2410C;">💆 Klook 予約</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">タイ式マッサージ ｜ 筋膜ストレッチ</span>
+        <h3 class="place-name">知本温泉郷 泰式整体院</h3>
+        <p class="place-location">📍 知本温泉街沿い</p>
+        <p class="place-detail">温泉街の中心に位置。入浴後の温まった筋肉をストレッチとツボ押しでケアし、心地よい脱力感とともにぐっすりと眠りに誘います。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.klook.com/?aid=106452" target="_blank" class="place-footer-btn" style="color:#C2410C;">💆 Klook 予約</a></div>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>🛍️</span> 台東のお土産＆ショッピング 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">台東唯一の百貨店 ｜ お土産とレストラン</span>
+        <h3 class="place-name">遠東SOGO / 秀泰生活 台東店（Showtime）</h3>
+        <p class="place-location">📍 台東市新生路93号</p>
+        <p class="place-detail">映画館を併設したモダンな商業施設。台東名産の米製品、乾燥フルーツ、コスメが揃い、夜の散歩の途中に立ち寄るのに最適。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=台東秀泰影城" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">特級コシヒカリの直売 ｜ 真空パック米をお土産に</span>
+        <h3 class="place-name">池上郷農会特産館（金色豊収館）</h3>
+        <p class="place-location">📍 池上郷新興村周辺</p>
+        <p class="place-detail">農協直営のアンテナショップ。厳格な品質基準を満たした最高級池上米の小分けギフトパックや、米で作ったクッキーが豊富に並びます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=金色豐收館" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">先住民族の伝統手仕事 ｜ 織物と天然染め</span>
+        <h3 class="place-name">都蘭手仕事セレクト（Atelier Dulan）</h3>
+        <p class="place-location">📍 東河郷都蘭村沿い</p>
+        <p class="place-detail">アミ族の伝統的な月桃（ゲットウ）の葉で編んだカゴバッグや、天然藍染めのストールなど、ここでしか出会えない作家ものの一点物が揃います。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=都蘭糖廠" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>🍢</span> 夜のランタンと音楽：おすすめ商圏＆夜市 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">ミニ気球の灯りと生演奏 ｜ アートな夜散歩</span>
+        <h3 class="place-name">鉄花新聚落（鉄花村 Tiehua Music Village）</h3>
+        <p class="place-location">📍 台東市新生路135巷26号</p>
+        <p class="place-detail">市民が手描きした無数の小さな熱気球ランタンが夜空を優しく照らす名所。芝生広場では毎夜インディーズバンドの生演奏が響き、クラフトマーケットが並びます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=鐵花新聚落" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">木・金・土限定開催 ｜ 地元民でごった返す美食ロード</span>
+        <h3 class="place-name">台東観光夜市（正気路夜市）</h3>
+        <p class="place-location">📍 台東市正気路沿い</p>
+        <p class="place-detail">週末に開催される台東最大の夜市。サクサクのパイナップルエビ団子、焼きトウモロコシ、東山鴨頭など、新鮮な地元食材を使った熱々屋台がひしめきます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=台東觀光夜市" target="_blank" class="place-footer-btn">🗺️ Google Maps</a><a href="https://onelink.one/s/YoWYV" target="_blank" class="place-footer-btn" style="color:#15803D;">🛵 Uber Eats</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">駅前レトロストリート ｜ 自転車屋と老舗食堂</span>
+        <h3 class="place-name">池上駅前老街商圏</h3>
+        <p class="place-location">📍 池上郷中正路周辺</p>
+        <p class="place-detail">池上駅を降りてすぐに広がる穏やかな通り。全美行をはじめとする伝統弁当屋や手作り豆花店が並び、昔懐かしい昭和の田舎町のような情緒を味わえます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=池上火車站" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <section class="tips-section">
+    <div class="tips-title">💡 台東の旅を120%楽しむためのトラベルメモ</div>
+    <div class="tips-grid">
+      <div class="tip-item">
+        <h4>1. 伯朗大道の車両進入規制</h4>
+        <p>景観と安全保護のため、一般自動車やバイクの進入は終日禁止されています。池上駅前で「屋根付き電動アシスト自転車（二人乗り〜四人乗り）」をレンタルして回るのが最も快適です。</p>
+      </div>
+      <div class="tip-item">
+        <h4>2. 花東特急列車の手配</h4>
+        <p>台北から台東までは特急EMU3000型（新自強号）で約3時間半。人気のビジネスクラス「騰雲座艙」は車内で無料のハーゲンダッツやお弁当が提供されるため、早期予約がおすすめです。</p>
+      </div>
+      <div class="tip-item">
+        <h4>3. 台湾国際熱気球フェスティバルの時期</h4>
+        <p>鹿野高台の熱気球フェスは毎年<strong>7月〜8月</strong>に開催されます。清朝05:30または夕方17:00の係留飛行がベストタイム。周辺ホテルは半年前に満室になるため早めの計画を。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="article-footer-cta">
+    <h3>風と稲穂が歌う、大自然の桃源郷・台東へ</h3>
+    <p>快適な貸切チャーター車・温泉リゾート宿・特急列車を手配して、心洗われる休日を。</p>
+    <a href="https://www.klook.com/?aid=106452" target="_blank" class="cta-btn primary">🚐 Klookで台東チャーターを予約</a>
+    <a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="cta-btn secondary">🏨 Trip.comで台東の宿を探す</a>
+  </div>
+
+  <!-- 公式ブランドフッター -->
+  <div class="brand-showcase-footer" style="margin-top: 50px; padding: 32px 28px; background: linear-gradient(135deg, #FEF9C3 0%, #FEF3C7 100%); border: 1.5px solid #FDE047; border-radius: 24px; text-align: center; box-shadow: 0 8px 24px rgba(27, 77, 62, 0.06);">
+    <div style="font-size: 13px; font-weight: 800; color: #B45309; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;">
+      🌸 TAIWAN ROAM OFFICIAL EDITORIAL ‧ 台湾漫遊編集部
+    </div>
+    <h3 style="font-size: 20px; font-weight: 900; color: #0F172A; margin: 0 0 10px 0;">
+      台湾吃喝玩樂 ‧ 現地特派員が紡ぐ、極上の台湾紀行
+    </h3>
+    <p style="font-size: 14px; color: #475569; line-height: 2.15; margin: 0 auto 20px auto; max-width: 760px;">
+      黄金色の稲穂がそよぐ池上・伯朗大道から、木箱の本格池上弁当、鹿野高台の熱気球、都蘭のアートヴィレッジ、知本温泉まで。台湾漫遊（Taiwan Roam）編集部が日本人旅行者のために厳選した台東完全ガイドブック。専用チャーター車、温泉リゾート、田園サイクリング情報をお届けします。
+    </p>
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <a href="../../cafe.html" style="padding: 10px 22px; border-radius: 12px; background: #1B4D3E; color: #FFFFFF; font-size: 13px; font-weight: 700; text-decoration: none;">☕ カフェ・週末探店トップへ</a>
+      <a href="../../index.html" style="padding: 10px 22px; border-radius: 12px; background: #FFFFFF; border: 1px solid #CBD5E1; color: #334155; font-size: 13px; font-weight: 700; text-decoration: none;">🏠 台湾吃喝玩樂 トップ</a>
+    </div>
+  </div>
+
+</article>
+</body>
+</html>

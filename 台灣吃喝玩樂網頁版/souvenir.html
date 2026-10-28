@@ -162,19 +162,20 @@
         </div>
       </div>
 
-      <!-- 5 大分類按鈕列 -->
-      <div class="souvenir-cat-tabs" id="souvenir-tabs-wrap">
-        <!-- 由 JS 動態生成分類按鈕 -->
+      <!-- 伴手禮全品項總覽標題 -->
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; padding-bottom: 14px; border-bottom: 2px solid #FED7AA;">
+        <div>
+          <div style="font-size: 11.5px; font-weight: 900; color: #EA580C; letter-spacing: 2px; text-transform: uppercase;">ALL CURATED TAIWAN SOUVENIRS</div>
+          <h2 style="font-size: 22px; font-weight: 900; color: #0F172A; margin: 4px 0 0;">🎁 台灣必買名產與特產伴手禮 (直接顯示全部 · 官方直配飯店)</h2>
+        </div>
+        <div style="font-size: 13px; font-weight: 800; color: #C2410C; background: #FFF7ED; border: 1px solid #FFEDD5; padding: 6px 14px; border-radius: 999px;">
+          ✨ 共收錄 26 款冠軍人氣伴手禮
+        </div>
       </div>
 
-      <!-- 分類說明盒 -->
-      <div id="souvenir-cat-info" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 18px; padding: 20px 24px; margin-bottom: 32px; box-shadow: var(--shadow-sm); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
-        <!-- 由 JS 動態更新 -->
-      </div>
-
-      <!-- 20 個商品排行榜網格 -->
+      <!-- 26 個商品排行榜網格 (直接顯示全部) -->
       <div class="souvenir-grid" id="souvenir-products-grid">
-        <!-- 由 JS 動態渲染 SOUVENIR_CATEGORIES_DATA -->
+        <!-- 由 JS 動態渲染全部 SOUVENIR_CATEGORIES_DATA -->
       </div>
 
     </div>
@@ -251,7 +252,7 @@
             <li><a href="themes.html?theme=roadtrip" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">🚗 台灣旅遊包車推薦行程</a></li>
             <li><a href="themes.html?theme=islands&sub=diving" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">🐢 跳島浮潛和海龜</a></li>
             <li><a href="themes.html?theme=northcoast&sub=railway" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">🚂 火車鐵道之旅</a></li>
-            <li><a href="cafe.html?tab=weekend-hop" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">📖 週末探店專欄文章</a></li>
+            <li><a href="cafe.html?tab=weekend-hop" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">📖 深度慢活採訪實錄</a></li>
           </ul>
         </div>
 
@@ -339,68 +340,45 @@
       );
     }
 
+    let allSouvenirProducts = [];
+
+    function getAllSouvenirProductsList() {
+      if (typeof SOUVENIR_CATEGORIES_DATA === 'undefined') return [];
+      const list = [];
+      SOUVENIR_CATEGORIES_DATA.forEach(cat => {
+        (cat.items || []).forEach(it => {
+          list.push({
+            ...it,
+            catId: cat.id,
+            catName: cat.name,
+            catIcon: cat.icon
+          });
+        });
+      });
+      return list;
+    }
+
     function initSouvenirPage() {
       if (typeof SOUVENIR_CATEGORIES_DATA === 'undefined') return;
-
-      const urlParams = new URLSearchParams(window.location.search);
-      const catParam = urlParams.get('cat');
-      if (catParam && SOUVENIR_CATEGORIES_DATA.some(c => c.id === catParam)) {
-        activeCatId = catParam;
-      }
-
-      const tabsWrap = document.getElementById('souvenir-tabs-wrap');
-      tabsWrap.innerHTML = SOUVENIR_CATEGORIES_DATA.map(cat => {
-        return `
-          <button type="button" class="souvenir-cat-btn ${cat.id === activeCatId ? 'active' : ''}" onclick="switchSouvenirCategory('${cat.id}')">
-            <span>${cat.icon}</span>
-            <span>${cat.name}</span>
-          </button>
-        `;
-      }).join('');
-
-      renderCategoryProducts(activeCatId);
+      allSouvenirProducts = getAllSouvenirProductsList();
+      renderAllProducts();
       detectNearestBranchSilently();
     }
 
-    function switchSouvenirCategory(catId) {
-      activeCatId = catId;
-      document.querySelectorAll('.souvenir-cat-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('onclick').includes(catId));
-      });
-      renderCategoryProducts(catId);
-    }
-
-    function renderCategoryProducts(catId, searchKeyword = '') {
-      const cat = SOUVENIR_CATEGORIES_DATA.find(c => c.id === catId);
-      if (!cat) return;
-
-      // 更新說明盒（純淨品牌感，移除轉化管道與多餘外送按鈕）
-      const infoBox = document.getElementById('souvenir-cat-info');
-      infoBox.innerHTML = `
-        <div>
-          <div style="font-size: 16px; font-weight: 800; color: #0F172A; display: flex; align-items: center; gap: 8px;">
-            <span>${cat.icon}</span>
-            <span>${cat.name}</span>
-            <span style="font-size: 11px; background: #FFF7ED; color: #C2410C; border: 1px solid #FED7AA; padding: 2px 10px; border-radius: 999px; font-weight: 800;">${cat.badge}</span>
-          </div>
-          <div style="font-size: 13.5px; color: #475569; margin-top: 6px; line-height: 1.6;">
-            ${cat.desc}
-          </div>
-        </div>
-      `;
-
-      // 渲染商品
+    function renderAllProducts(searchKeyword = '') {
       const grid = document.getElementById('souvenir-products-grid');
-      let items = cat.items;
+      if (!grid) return;
+
+      let items = allSouvenirProducts;
 
       if (searchKeyword) {
         const kw = searchKeyword.toLowerCase();
         items = items.filter(it => 
-          it.name.toLowerCase().includes(kw) || 
-          it.brand.toLowerCase().includes(kw) || 
-          it.origin.toLowerCase().includes(kw) ||
-          it.desc.toLowerCase().includes(kw) ||
-          (it.carrefourKeyword && it.carrefourKeyword.toLowerCase().includes(kw))
+          (it.name && it.name.toLowerCase().includes(kw)) || 
+          (it.brand && it.brand.toLowerCase().includes(kw)) || 
+          (it.origin && it.origin.toLowerCase().includes(kw)) ||
+          (it.desc && it.desc.toLowerCase().includes(kw)) ||
+          (it.catName && it.catName.toLowerCase().includes(kw))
         );
       }
 
@@ -409,15 +387,23 @@
         return;
       }
 
-      grid.innerHTML = items.map(item => {
-        const isTop3 = item.rank <= 3;
-        const kw = item.carrefourKeyword || item.name;
-        const dynamicItemUrl = `https://www.ubereats.com/tw/search?q=${encodeURIComponent(currentBranchQuery + ' ' + kw)}`;
+      grid.innerHTML = items.map((item, idx) => {
+        const isTop3 = (idx < 3);
+        const isKlook = item.isKlook || (item.buyUrl && item.buyUrl.includes('klook.com'));
+        const btnStyle = isKlook 
+          ? 'background: linear-gradient(135deg, #FF5B00 0%, #E04E00 100%); color: #FFFFFF; box-shadow: 0 4px 14px rgba(224, 78, 0, 0.28);'
+          : 'background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: #FFFFFF;';
+        const btnText = item.ctaText || (isKlook ? '🛍️ 訂購直送飯店 ➔' : '🛵 訂購外送 ➔');
+        const targetUrl = item.buyUrl || 'https://onelink.one/s/YoWYV';
+
         return `
           <div class="souvenir-card">
             <div class="souvenir-img-wrap">
               <img src="${item.img}" alt="${item.name}" loading="lazy">
-              <span class="souvenir-rank-badge ${isTop3 ? 'top3' : ''}">No. ${item.rank}</span>
+              <span class="souvenir-rank-badge ${isTop3 ? 'top3' : ''}">No. ${idx + 1}</span>
+              <span style="position: absolute; top: 10px; right: 10px; background: rgba(15, 23, 42, 0.78); backdrop-filter: blur(4px); color: #FFF; font-size: 10.5px; font-weight: 800; padding: 3px 8px; border-radius: 6px;">
+                ${item.catIcon} ${item.catName}
+              </span>
             </div>
             <div class="souvenir-body">
               <div>
@@ -426,13 +412,14 @@
                   <span style="color: #64748B;">📍 ${item.origin}</span>
                 </div>
                 <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; line-height: 1.35; margin-bottom: 4px;">${item.name}</h3>
-                <div style="font-size: 11px; color: #94A3B8; margin-bottom: 8px;">${item.enName}</div>
+                <div style="font-size: 11px; color: #94A3B8; margin-bottom: 8px;">${item.enName || ''}</div>
                 <p style="font-size: 12.5px; color: #475569; line-height: 1.6; margin-bottom: 14px;">${item.desc}</p>
+                <div style="font-size: 13.5px; font-weight: 900; color: #DC2626; margin-bottom: 12px;">${item.price} · <span style="font-size: 11.5px; color: #D97706;">★ ${item.rating || '4.9'}</span></div>
               </div>
 
               <div style="border-top: 1px dashed #E2E8F0; padding-top: 12px;">
-                <a href="${dynamicItemUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="width: 100%; justify-content: center; padding: 10px; font-size: 13px; font-weight: 800; text-decoration: none;">
-                  🛵 外送訂購 ➔
+                <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" style="width: 100%; justify-content: center; padding: 10px; font-size: 13px; font-weight: 800; text-decoration: none; border-radius: 10px; display: inline-flex; align-items: center; gap: 6px; transition: transform 0.2s; ${btnStyle}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  ${btnText}
                 </a>
               </div>
             </div>
@@ -443,7 +430,7 @@
 
     function filterSouvenirs() {
       const kw = document.getElementById('souvenir-search-input').value.trim();
-      renderCategoryProducts(activeCatId, kw);
+      renderAllProducts(kw);
     }
 
     window.addEventListener('DOMContentLoaded', initSouvenirPage);

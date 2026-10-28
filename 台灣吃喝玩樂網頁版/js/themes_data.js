@@ -12,9 +12,9 @@ const THEMES_COMPLETE_DATA = [
     "title": "North Coast Ocean Panorama · Where Waves Kiss Mountains",
     "subtitle": "沿著台 2 線蔚藍海岸線，探索野柳奇岩、九份老街茶香、深澳鐵道與極東岬角日出",
     "bookingCta": {
-      "charter": "https://www.klook.com/zh-TW/car-rentals/?aid=123436",
+      "charter": "https://www.klook.com/zh-TW/car-rentals/?aid=106452",
       "hotel": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227",
-      "tour": "https://www.klook.com/zh-TW/activity/1874-jiufen-shifen-day-tour-taipei/?aid=123436"
+      "tour": "https://www.klook.com/zh-TW/activity/1874-jiufen-shifen-day-tour-taipei/?aid=106452"
     },
     "experiences": [
       {
@@ -181,7 +181,7 @@ const THEMES_COMPLETE_DATA = [
         "day2Plan": "【2日深度雲海行】Day 1: 嘉義林鐵本線穿梭獨立山螺旋鐵道 ➔ 抵達阿里山森林遊樂區夜宿。Day 2: 清晨搭乘祝山線觀日出與無邊際雲海 ➔ 漫步巨木群棧道 ➔ 搭乘神木線悠閒下山。",
         "trainTicketUrl": "https://tw.trip.com/trains/taiwan/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
         "hotelUrl": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "NO.1 人氣鐵路",
           "螺旋登山鐵道",
@@ -202,7 +202,7 @@ const THEMES_COMPLETE_DATA = [
         "day2Plan": "【2日山城山海遊】Day 1: 漫遊平溪支線各小站、深坑石底大溝與煤礦紀念公園，夜宿平溪山居。Day 2: 轉往九份老街與金瓜石陰陽海黃金瀑布，享受北海岸山海絕景。",
         "trainTicketUrl": "https://tw.trip.com/trains/taiwan/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
         "hotelUrl": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "NO.2 人氣鐵路",
           "十分鐵道天燈",
@@ -223,7 +223,7 @@ const THEMES_COMPLETE_DATA = [
         "day2Plan": "【2日南投森呼吸】Day 1: 集集火車站與車埕林業博覽園區慢活，夜宿日月潭湖畔。Day 2: 日月潭搭船環湖與向山遊客中心自行車道，享受水沙連湖光山色。",
         "trainTicketUrl": "https://tw.trip.com/trains/taiwan/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
         "hotelUrl": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "NO.3 人氣鐵路",
           "集集綠色隧道",
@@ -244,7 +244,7 @@ const THEMES_COMPLETE_DATA = [
         "day2Plan": "【2日木雕與溫泉行】Day 1: 舊山線鐵道自行車騎行與木雕老街手作體驗，夜宿泰安溫泉飯店。Day 2: 泰安享受美人湯碳酸氫鈉泉 ➔ 洗水坑豆腐街品嚐黑豆腐。",
         "trainTicketUrl": "https://tw.trip.com/trains/taiwan/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
         "hotelUrl": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "NO.4 人氣鐵路",
           "龍騰斷橋高空",
@@ -265,7 +265,7 @@ const THEMES_COMPLETE_DATA = [
         "day2Plan": "【2日南迴溫泉山海行】Day 1: 多良景觀月台與太麻里金針山健行，夜宿金崙天然野溪溫泉民宿。Day 2: 金崙涵洞秘境看海 ➔ 知本森林遊樂區吸收芬多精。",
         "trainTicketUrl": "https://tw.trip.com/trains/taiwan/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
         "hotelUrl": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "NO.5 人氣鐵路",
           "多良最美月台",
@@ -286,7 +286,7 @@ const THEMES_COMPLETE_DATA = [
         "day2Plan": "【2日花東縱谷田園行】Day 1: 東里車站賞稻浪與玉里客城鐵橋拍火車，夜宿池上稻田民宿。Day 2: 清晨池上伯朗大道騎單車、大坡池泛舟 ➔ 關山環鎮自行車道。",
         "trainTicketUrl": "https://tw.trip.com/trains/taiwan/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
         "hotelUrl": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "NO.6 人氣鐵路",
           "東里黃金稻浪",
@@ -307,7 +307,7 @@ const THEMES_COMPLETE_DATA = [
         "day2Plan": "【2日山海基隆行】Day 1: 八斗子與深澳象鼻岩海岸地質景觀，夜宿基隆港海景飯店逛廟口夜市。Day 2: 和平島地質公園地景泳池戲水 ➔ 正濱漁港彩色屋拍美照。",
         "trainTicketUrl": "https://tw.trip.com/trains/taiwan/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
         "hotelUrl": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "NO.7 人氣鐵路",
           "八斗子臨海站",
@@ -328,7 +328,7 @@ const THEMES_COMPLETE_DATA = [
         "day2Plan": "【2日新竹山林森呼吸】Day 1: 內灣支線鐵道巡禮與水田部落探秘，夜宿尖石鄉溫泉渡假村。Day 2: 尖石青蛙石天空步道健行 ➔ 司馬庫斯神木巨木群壯闊生態行。",
         "trainTicketUrl": "https://tw.trip.com/trains/taiwan/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
         "hotelUrl": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "NO.8 人氣鐵路",
           "合興愛情車站",
@@ -349,7 +349,7 @@ const THEMES_COMPLETE_DATA = [
         "day2Plan": "【2日奢華鐵道假期】Day 1: 搭乘五星美饌鳴日號列車品味時令在地手作大餐，夜宿花蓮五星度假酒店。Day 2: 享受鳴日號包辦之太魯閣私廚迎賓行程與產地餐桌饗宴。",
         "trainTicketUrl": "https://tw.trip.com/trains/taiwan/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
         "hotelUrl": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "NO.9 人氣鐵路",
           "鳴日號五星列車",
@@ -370,7 +370,7 @@ const THEMES_COMPLETE_DATA = [
         "day2Plan": "【2日宜蘭山海溫泉遊】Day 1: 眺望龜山島海線搭車、冬山生態綠舟漫步，夜宿礁溪溫泉飯店泡湯。Day 2: 礁溪林美石磐步道漫步 ➔ 頭城外澳沙灘看衝浪喝海景咖啡。",
         "trainTicketUrl": "https://tw.trip.com/trains/taiwan/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
         "hotelUrl": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "NO.10 人氣鐵路",
           "冬山瓜棚車站",
@@ -387,7 +387,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市中山區 · 《露西》",
         "address": "台北市中山區",
         "desc": "片頭女主角史嘉蕾·喬韓森被反派控制、在大廳電梯口展開驚心動魄交涉的核心代表場景。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《露西》",
           "台北市中山區",
@@ -404,7 +404,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市大同區 · 《露西》",
         "address": "台北市大同區",
         "desc": "女主角在傳統市場混亂生鮮攤位與布市穿梭的槍戰名場面，展現老台北最鮮活強烈的市井張力。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《露西》",
           "台北市大同區",
@@ -421,7 +421,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市信義區 · 《露西》",
         "address": "台北市信義區",
         "desc": "片中多次震撼出現的高空俯瞰、霓虹街景與好萊塢級信義區極速飛車追逐鏡頭。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《露西》",
           "台北市信義區",
@@ -438,7 +438,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "屏東縣恆春鎮 · 《少年Pi的奇幻漂流》",
         "address": "屏東縣恆春鎮",
         "desc": "片尾孟加拉虎理查派克頭也不回走入叢林、Pi 歷劫獲救躺在沙灘上的經典白沙海岸與海浪拍岸絕景。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《少年Pi的奇幻漂流》",
           "屏東縣恆春鎮",
@@ -455,7 +455,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "屏東縣滿州鄉 · 《少年Pi的奇幻漂流》",
         "address": "屏東縣滿州鄉",
         "desc": "片中展現無人奇幻浮島與超現實地貌的奇岩海岸線，風蝕地形與太平洋湛藍潮汐交織。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《少年Pi的奇幻漂流》",
           "屏東縣滿州鄉",
@@ -472,7 +472,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台中市霧峰區 · 《少年Pi的奇幻漂流》",
         "address": "台中市霧峰區",
         "desc": "全片核心的暴風雨海難、夜光鯨魚與海上漂流特效造浪池拍攝地，為台灣影視特效里程碑。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《少年Pi的奇幻漂流》",
           "台中市霧峰區",
@@ -489,7 +489,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "花蓮縣壽豐鄉 · 《沉默》",
         "address": "花蓮縣壽豐鄉",
         "desc": "安德魯·加菲爾德飾演的神父抵達日本海岸、江戶時代村落與波濤拍岸的原始黑色天然沙灘。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《沉默》",
           "花蓮縣壽豐鄉",
@@ -506,7 +506,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "新北市貢寮區 · 《沉默》",
         "address": "新北市貢寮區",
         "desc": "陡峭海蝕絕壁懸崖與海邊登陸場景，重現 17 世紀未開拓島嶼的險峻與莊嚴神聖氛圍。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《沉默》",
           "新北市貢寮區",
@@ -523,7 +523,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市北投區 · 《沉默》",
         "address": "台北市北投區",
         "desc": "霧氣繚繞與硫磺地熱蒸氣升騰的荒野場景，地質地貌宛如異域世界，帶出深沉宗教苦行意象。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《沉默》",
           "台北市北投區",
@@ -540,7 +540,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台南市中西區 · 《想見你》",
         "address": "台南市中西區",
         "desc": "李子維、陳韻如初遇與卡帶穿越時空的核心靈魂場景！復古木門與紅磚街景為全亞洲影迷必訪聖地。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《想見你》",
           "台南市中西區",
@@ -557,7 +557,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台南市南區 · 《想見你》",
         "address": "台南市南區",
         "desc": "主角三人吃鍋燒意麵、加布丁辣醬的經典復古餐飲老店，充滿台灣南部濃厚人情味與青春記憶。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《想見你》",
           "台南市南區",
@@ -574,7 +574,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台南市安平區 · 《想見你》",
         "address": "台南市安平區",
         "desc": "三人漫步、吹海風看夕陽橘光的浪漫海灘，林投樹防風林穿出後的純淨沙灘美不勝收。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《想見你》",
           "台南市安平區",
@@ -591,7 +591,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "新北市淡水區 · 《不能說的秘密》",
         "address": "新北市淡水區",
         "desc": "周杰倫與桂綸鎂穿梭的西班牙紅磚八角樓、古典迴廊琴房，琴鍵穿越時空的絕美青春發源地。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《不能說的秘密》",
           "新北市淡水區",
@@ -608,7 +608,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "新北市淡水區 · 《不能說的秘密》",
         "address": "新北市淡水區",
         "desc": "校園內歷史悠久的西式磚造建築群與青翠大草皮，陽光灑落的長廊如詩如畫。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《不能說的秘密》",
           "新北市淡水區",
@@ -625,7 +625,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "新北市淡水區 · 《不能說的秘密》",
         "address": "新北市淡水區",
         "desc": "男女主角騎腳踏車載女友下課、吃鐵蛋看淡水河落日的濱海步道，浪漫戀愛名場面。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《不能說的秘密》",
           "新北市淡水區",
@@ -642,7 +642,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台南市中西區 · 《青春18×2 通往有你的旅程》",
         "address": "台南市中西區",
         "desc": "男女主角一同觀看經典電影的傳統手繪看板老字號戲院，保留全台最珍貴的膠卷年代手繪風情。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《青春18×2 通往有你的旅程》",
           "台南市中西區",
@@ -659,7 +659,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台南市中西區 · 《青春18×2 通往有你的旅程》",
         "address": "台南市中西區",
         "desc": "Jimmy 與 Ami 逛夜市射氣球、買地瓜球喝冬瓜茶約會的熱鬧現場，在地台南夜間人氣大熱點。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《青春18×2 通往有你的旅程》",
           "台南市中西區",
@@ -676,7 +676,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台南市仁德區 · 《青春18×2 通往有你的旅程》",
         "address": "台南市仁德區",
         "desc": "兩人離別搭車、充滿濃厚日式風情的百年檜木木造老火車站，永保安康紀念車票起點。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《青春18×2 通往有你的旅程》",
           "台南市仁德區",
@@ -693,7 +693,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市信義區 · 《台北追緝令》",
         "address": "台北市信義區",
         "desc": "好萊塢頂級飛車追逐與高難度街頭槍戰場景，摩登都會夜色與大巨蛋現代建築線條極為搶眼。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《台北追緝令》",
           "台北市信義區",
@@ -710,7 +710,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "基隆市安樂區 · 《台北追緝令》",
         "address": "基隆市安樂區",
         "desc": "片中蔚藍海灣景致與沿海超跑狂飆鏡頭，依山傍海的金色沙灘與北海岸壯麗海景。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《台北追緝令》",
           "基隆市安樂區",
@@ -727,7 +727,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市中山區 · 《台北追緝令》",
         "address": "台北市中山區",
         "desc": "片中豪華客房與俯瞰台北夜景的空中宴會廳奢華景觀，盡顯國際都會的華麗質感。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《台北追緝令》",
           "台北市中山區",
@@ -744,7 +744,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台南市歸仁區 · 《十億追殺令》",
         "address": "台南市歸仁區",
         "desc": "日本新幹線無法借拍高難度動作戲，全片高鐵押送死囚的重頭戲全程租借台灣高鐵軌道與車廂拍攝！",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《十億追殺令》",
           "台南市歸仁區",
@@ -761,7 +761,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市萬華區 · 《一千次晚安》",
         "address": "台北市萬華區",
         "desc": "國際影后茱麗葉·畢諾許飾演戰地攝影師，在台灣傳統宮廟香火、雕樑畫棟與市井巷弄拍攝的寫實場景。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《一千次晚安》",
           "台北市萬華區",
@@ -778,7 +778,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市大同區 · 《隱形同盟》與多部跨國合拍片",
         "address": "台北市大同區",
         "desc": "充滿歷史層次的紅磚巴洛克騎樓與南北貨中藥街區，長年為歐美紀錄片與獨立文藝長片指定取景地。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《隱形同盟》與多部跨國合拍片",
           "台北市大同區",
@@ -795,7 +795,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "南投縣仁愛鄉 · 《賽德克·巴萊》",
         "address": "南投縣仁愛鄉",
         "desc": "重現歷史原型的原始森林步道、雲海奇萊與高山溪谷，氣勢磅礴的原鄉史詩風貌。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《賽德克·巴萊》",
           "南投縣仁愛鄉",
@@ -812,7 +812,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "新北市林口區 · 《賽德克·巴萊》",
         "address": "新北市林口區",
         "desc": "劇組依 1930 年代考據打造的整條歷史日式街區、郵便局、武德殿與公學校，重現磅礡歷史。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《賽德克·巴萊》",
           "新北市林口區",
@@ -829,7 +829,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市大安區 · 《一一》",
         "address": "台北市大安區",
         "desc": "片中洋洋走在人行天橋與大安森林公園步道上的經典城市漫遊視角，坎城名作國際影史永恆經典。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《一一》",
           "台北市大安區",
@@ -846,7 +846,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市中山區 · 《一一》",
         "address": "台北市中山區",
         "desc": "片頭開場經典盛大婚宴場景，展現傳統中式宮殿建築的富麗堂皇與人際世故流轉。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《一一》",
           "台北市中山區",
@@ -863,7 +863,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "基隆市仁愛區 · 《千禧曼波》",
         "address": "基隆市仁愛區",
         "desc": "舒淇在迷幻藍色日光燈下回眸抽菸漫步的狹長天橋，已成為全球無數文青影迷來台指定打卡地標。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《千禧曼波》",
           "基隆市仁愛區",
@@ -880,7 +880,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "新北市瑞芳區 · 《悲情城市》",
         "address": "新北市瑞芳區",
         "desc": "石階長廊與層疊紅燈籠茶坊，帶動九份成為國際（尤其日本觀光客）知名朝聖勝地的關鍵電影。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《悲情城市》",
           "新北市瑞芳區",
@@ -897,7 +897,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "新北市瑞芳區 · 《悲情城市》",
         "address": "新北市瑞芳區",
         "desc": "礦業山城荒涼與歷史滄桑感交織的石階地貌，俯瞰陰陽海與無耳茶壺山的絕佳視角。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《悲情城市》",
           "新北市瑞芳區",
@@ -914,7 +914,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "宜蘭縣大同鄉 · 《刺客聶隱娘》",
         "address": "宜蘭縣大同鄉",
         "desc": "雲霧繚繞的千年檜木森林、苔蘚舊鐵軌，呈現極致東方美學與空靈古典山林意境。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《刺客聶隱娘》",
           "宜蘭縣大同鄉",
@@ -931,7 +931,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "宜蘭縣大同鄉 · 《刺客聶隱娘》",
         "address": "宜蘭縣大同鄉",
         "desc": "巨大的千年紅檜神木群與幽深天然林道，展現隱世刺客靜候目標的肅穆武俠風範。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《刺客聶隱娘》",
           "宜蘭縣大同鄉",
@@ -948,7 +948,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市中正區 · 《愛》",
         "address": "台北市中正區",
         "desc": "紅磚歷史倉庫、文青特色咖啡館與市集草皮漫步約會場景，台北文創活力地標。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《愛》",
           "台北市中正區",
@@ -965,7 +965,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "花蓮縣新城鄉 · 《愛》",
         "address": "花蓮縣新城鄉",
         "desc": "男女主角看海沉思、撫平心靈的礫石海灘，圓潤鵝卵石與純白浪花相伴。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《愛》",
           "花蓮縣新城鄉",
@@ -982,7 +982,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "嘉義縣東石鄉 · 《熱帶魚》",
         "address": "嘉義縣東石鄉",
         "desc": "淹水房舍與傳統蚵田，呈現台灣中南部沿海獨特的海平面下生活樣貌與鹽田夕陽奇景。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《熱帶魚》",
           "嘉義縣東石鄉",
@@ -999,7 +999,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市大安區 · 《飲食男女》",
         "address": "台北市大安區",
         "desc": "片中郎雄飾演的國宴主廚與友人品茗長談、充滿濃郁文人氣息與歲月沉澱的日式木造庭園。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《飲食男女》",
           "台北市大安區",
@@ -1016,7 +1016,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市中正區 · 《飲食男女》",
         "address": "台北市中正區",
         "desc": "老父親郎雄每日清晨慢跑晨練的紅牆綠樹外圍人行步道，刻劃台北庶民晨起生活肌理。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《飲食男女》",
           "台北市中正區",
@@ -1033,7 +1033,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "花蓮縣鳳林鎮 · 《黑之牛》",
         "address": "花蓮縣鳳林鎮",
         "desc": "利用台灣東部未經人工修飾的原始水稻田、山澗溪流與泥土小徑，還原古代農耕與人牛深厚羈絆。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《黑之牛》",
           "花蓮縣鳳林鎮",
@@ -1050,7 +1050,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "高雄市左營區 · 《天邊一朵雲》",
         "address": "高雄市左營區",
         "desc": "鮮豔巨大的東方龍虎造景、九曲橋與湖畔涼亭，成為國際藝術名片中辨識度極高的東方魔幻場景。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《天邊一朵雲》",
           "高雄市左營區",
@@ -1094,9 +1094,9 @@ const THEMES_COMPLETE_DATA = [
     "title": "Island Hopping Sanctuary · Sea Turtles, Coral Reefs & Milky Ways",
     "subtitle": "東港碼頭乘浪出海！小琉球與海龜共游、綠島世界級蔚藍潛點、澎湖玄武岩與雙心石滬",
     "bookingCta": {
-      "charter": "https://www.klook.com/zh-TW/car-rentals/?aid=123436",
+      "charter": "https://www.klook.com/zh-TW/car-rentals/?aid=106452",
       "hotel": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227",
-      "tour": "https://www.klook.com/zh-TW/activity/904-penghu-day-tour-magong/?aid=123436"
+      "tour": "https://www.klook.com/zh-TW/activity/904-penghu-day-tour-magong/?aid=106452"
     },
     "experiences": [
       {
@@ -1407,9 +1407,9 @@ const THEMES_COMPLETE_DATA = [
     "title": "Pacific Coast & Emerald Rift Valley · Nature's Grand Theater",
     "subtitle": "馳騁台 9 與台 11 線，穿梭清水斷崖碧海藍天、池上稻浪、金尊衝浪與多良太平洋海景",
     "bookingCta": {
-      "charter": "https://www.klook.com/zh-TW/car-rentals/?aid=123436",
+      "charter": "https://www.klook.com/zh-TW/car-rentals/?aid=106452",
       "hotel": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227",
-      "tour": "https://www.klook.com/zh-TW/activity/1874-jiufen-shifen-day-tour-taipei/?aid=123436"
+      "tour": "https://www.klook.com/zh-TW/activity/1874-jiufen-shifen-day-tour-taipei/?aid=106452"
     },
     "experiences": [
       {
@@ -1720,9 +1720,9 @@ const THEMES_COMPLETE_DATA = [
     "title": "Alpine Wilderness & Glamping Escapes · Walk Above the Clouds",
     "subtitle": "268座三千公尺巨峰官方入山申請入口，親山休閒步道輕鬆走與台灣百岳高山縱走",
     "bookingCta": {
-      "charter": "https://www.klook.com/zh-TW/car-rentals/?aid=123436",
+      "charter": "https://www.klook.com/zh-TW/car-rentals/?aid=106452",
       "hotel": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227",
-      "tour": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436"
+      "tour": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452"
     },
     "experiences": [
       {
@@ -2038,7 +2038,7 @@ const THEMES_COMPLETE_DATA = [
           "一泊四食",
           "Uber Eats 食材外送"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop"
       },
       {
@@ -2055,7 +2055,7 @@ const THEMES_COMPLETE_DATA = [
           "大地旬味",
           "竹編藝術"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
@@ -2072,7 +2072,7 @@ const THEMES_COMPLETE_DATA = [
           "鯉魚潭水庫",
           "星空野炊"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
       },
       {
@@ -2089,7 +2089,7 @@ const THEMES_COMPLETE_DATA = [
           "私廚料理",
           "百年老樹"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop"
       },
       {
@@ -2106,7 +2106,7 @@ const THEMES_COMPLETE_DATA = [
           "職人手作",
           "森林深呼吸"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
@@ -2123,7 +2123,7 @@ const THEMES_COMPLETE_DATA = [
           "雲霧故鄉",
           "星空盛宴"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
       },
       {
@@ -2140,7 +2140,7 @@ const THEMES_COMPLETE_DATA = [
           "燭光晚宴",
           "抓蝦野趣"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=700&auto=format&fit=crop"
       },
       {
@@ -2157,7 +2157,7 @@ const THEMES_COMPLETE_DATA = [
           "波士頓龍蝦",
           "落羽松湖畔"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop"
       },
       {
@@ -2174,7 +2174,7 @@ const THEMES_COMPLETE_DATA = [
           "日月潭周邊",
           "杉木林浴"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
       },
       {
@@ -2191,7 +2191,7 @@ const THEMES_COMPLETE_DATA = [
           "無邊際溫泉",
           "得天公園"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop"
       },
       {
@@ -2208,7 +2208,7 @@ const THEMES_COMPLETE_DATA = [
           "一泊四食",
           "池畔BBQ"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop"
       },
       {
@@ -2225,7 +2225,7 @@ const THEMES_COMPLETE_DATA = [
           "合歡山展望",
           "銀河無光害"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&auto=format&fit=crop"
       },
       {
@@ -2242,7 +2242,7 @@ const THEMES_COMPLETE_DATA = [
           "白色沙灘",
           "潮間帶生態"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
       },
       {
@@ -2259,7 +2259,7 @@ const THEMES_COMPLETE_DATA = [
           "碳酸溫泉",
           "食農體驗"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
       },
       {
@@ -2276,7 +2276,7 @@ const THEMES_COMPLETE_DATA = [
           "微醺山嵐",
           "原木美學"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop"
       },
       {
@@ -2293,7 +2293,7 @@ const THEMES_COMPLETE_DATA = [
           "夕陽風車",
           "生態導覽"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
       },
       {
@@ -2310,7 +2310,7 @@ const THEMES_COMPLETE_DATA = [
           "五星級設施",
           "海景晨曦"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop"
       },
       {
@@ -2327,7 +2327,7 @@ const THEMES_COMPLETE_DATA = [
           "親子放電",
           "星空草地"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop"
       },
       {
@@ -2344,7 +2344,7 @@ const THEMES_COMPLETE_DATA = [
           "印地安神殿",
           "芬多精"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&auto=format&fit=crop"
       },
       {
@@ -2361,7 +2361,7 @@ const THEMES_COMPLETE_DATA = [
           "美式BBQ",
           "落羽松森林"
         ],
-        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436",
+        "campUrl": "https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452",
         "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop"
       }
     ],
@@ -2395,9 +2395,9 @@ const THEMES_COMPLETE_DATA = [
     "title": "Mineral Healing Waters & Family Parkland · Total Body & Soul Reset",
     "subtitle": "北投日式青磺名湯、礁溪美人碳酸泉、關子嶺黑泥漿溫泉與全齡友善親子放電綠野",
     "bookingCta": {
-      "charter": "https://www.klook.com/zh-TW/car-rentals/?aid=123436",
+      "charter": "https://www.klook.com/zh-TW/car-rentals/?aid=106452",
       "hotel": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227",
-      "tour": "https://www.klook.com/zh-TW/activity/904-penghu-day-tour-magong/?aid=123436"
+      "tour": "https://www.klook.com/zh-TW/activity/904-penghu-day-tour-magong/?aid=106452"
     },
     "experiences": [
       {
@@ -2708,9 +2708,9 @@ const THEMES_COMPLETE_DATA = [
     "title": "Sizzling Street Bites & Million-Dollar Views · Taiwan's Night Beat",
     "subtitle": "晚上 9 點後的精采夜生活！排隊搶吃米其林必比登胡椒餅、炸雞排，上山遠眺台北 101 與全島璀璨星河",
     "bookingCta": {
-      "charter": "https://www.klook.com/zh-TW/car-rentals/?aid=123436",
+      "charter": "https://www.klook.com/zh-TW/car-rentals/?aid=106452",
       "hotel": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227",
-      "tour": "https://www.klook.com/zh-TW/activity/904-penghu-day-tour-magong/?aid=123436"
+      "tour": "https://www.klook.com/zh-TW/activity/904-penghu-day-tour-magong/?aid=106452"
     },
     "experiences": [
       {
@@ -3021,9 +3021,9 @@ const THEMES_COMPLETE_DATA = [
     "title": "Sacred Rituals, Lantern Festivals & Cinematic Trails",
     "subtitle": "平溪千盞天燈冉冉升空、大甲媽祖進香萬人空巷、大稻埕百年月老與金馬電影取景地深度漫步",
     "bookingCta": {
-      "charter": "https://www.klook.com/zh-TW/car-rentals/?aid=123436",
+      "charter": "https://www.klook.com/zh-TW/car-rentals/?aid=106452",
       "hotel": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227",
-      "tour": "https://www.klook.com/zh-TW/activity/904-penghu-day-tour-magong/?aid=123436"
+      "tour": "https://www.klook.com/zh-TW/activity/904-penghu-day-tour-magong/?aid=106452"
     },
     "experiences": [
       {
@@ -3258,7 +3258,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市中山區 · 《露西》",
         "address": "台北市中山區",
         "desc": "片頭女主角史嘉蕾·喬韓森被反派控制、在大廳電梯口展開驚心動魄交涉的核心代表場景。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《露西》",
           "台北市中山區",
@@ -3275,7 +3275,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市大同區 · 《露西》",
         "address": "台北市大同區",
         "desc": "女主角在傳統市場混亂生鮮攤位與布市穿梭的槍戰名場面，展現老台北最鮮活強烈的市井張力。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《露西》",
           "台北市大同區",
@@ -3292,7 +3292,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市信義區 · 《露西》",
         "address": "台北市信義區",
         "desc": "片中多次震撼出現的高空俯瞰、霓虹街景與好萊塢級信義區極速飛車追逐鏡頭。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《露西》",
           "台北市信義區",
@@ -3309,7 +3309,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "屏東縣恆春鎮 · 《少年Pi的奇幻漂流》",
         "address": "屏東縣恆春鎮",
         "desc": "片尾孟加拉虎理查派克頭也不回走入叢林、Pi 歷劫獲救躺在沙灘上的經典白沙海岸與海浪拍岸絕景。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《少年Pi的奇幻漂流》",
           "屏東縣恆春鎮",
@@ -3326,7 +3326,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "屏東縣滿州鄉 · 《少年Pi的奇幻漂流》",
         "address": "屏東縣滿州鄉",
         "desc": "片中展現無人奇幻浮島與超現實地貌的奇岩海岸線，風蝕地形與太平洋湛藍潮汐交織。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《少年Pi的奇幻漂流》",
           "屏東縣滿州鄉",
@@ -3343,7 +3343,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台中市霧峰區 · 《少年Pi的奇幻漂流》",
         "address": "台中市霧峰區",
         "desc": "全片核心的暴風雨海難、夜光鯨魚與海上漂流特效造浪池拍攝地，為台灣影視特效里程碑。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《少年Pi的奇幻漂流》",
           "台中市霧峰區",
@@ -3360,7 +3360,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "花蓮縣壽豐鄉 · 《沉默》",
         "address": "花蓮縣壽豐鄉",
         "desc": "安德魯·加菲爾德飾演的神父抵達日本海岸、江戶時代村落與波濤拍岸的原始黑色天然沙灘。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《沉默》",
           "花蓮縣壽豐鄉",
@@ -3377,7 +3377,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "新北市貢寮區 · 《沉默》",
         "address": "新北市貢寮區",
         "desc": "陡峭海蝕絕壁懸崖與海邊登陸場景，重現 17 世紀未開拓島嶼的險峻與莊嚴神聖氛圍。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《沉默》",
           "新北市貢寮區",
@@ -3394,7 +3394,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市北投區 · 《沉默》",
         "address": "台北市北投區",
         "desc": "霧氣繚繞與硫磺地熱蒸氣升騰的荒野場景，地質地貌宛如異域世界，帶出深沉宗教苦行意象。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《沉默》",
           "台北市北投區",
@@ -3411,7 +3411,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台南市中西區 · 《想見你》",
         "address": "台南市中西區",
         "desc": "李子維、陳韻如初遇與卡帶穿越時空的核心靈魂場景！復古木門與紅磚街景為全亞洲影迷必訪聖地。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《想見你》",
           "台南市中西區",
@@ -3428,7 +3428,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台南市南區 · 《想見你》",
         "address": "台南市南區",
         "desc": "主角三人吃鍋燒意麵、加布丁辣醬的經典復古餐飲老店，充滿台灣南部濃厚人情味與青春記憶。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《想見你》",
           "台南市南區",
@@ -3445,7 +3445,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台南市安平區 · 《想見你》",
         "address": "台南市安平區",
         "desc": "三人漫步、吹海風看夕陽橘光的浪漫海灘，林投樹防風林穿出後的純淨沙灘美不勝收。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《想見你》",
           "台南市安平區",
@@ -3462,7 +3462,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "新北市淡水區 · 《不能說的秘密》",
         "address": "新北市淡水區",
         "desc": "周杰倫與桂綸鎂穿梭的西班牙紅磚八角樓、古典迴廊琴房，琴鍵穿越時空的絕美青春發源地。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《不能說的秘密》",
           "新北市淡水區",
@@ -3479,7 +3479,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "新北市淡水區 · 《不能說的秘密》",
         "address": "新北市淡水區",
         "desc": "校園內歷史悠久的西式磚造建築群與青翠大草皮，陽光灑落的長廊如詩如畫。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《不能說的秘密》",
           "新北市淡水區",
@@ -3496,7 +3496,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "新北市淡水區 · 《不能說的秘密》",
         "address": "新北市淡水區",
         "desc": "男女主角騎腳踏車載女友下課、吃鐵蛋看淡水河落日的濱海步道，浪漫戀愛名場面。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《不能說的秘密》",
           "新北市淡水區",
@@ -3513,7 +3513,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台南市中西區 · 《青春18×2 通往有你的旅程》",
         "address": "台南市中西區",
         "desc": "男女主角一同觀看經典電影的傳統手繪看板老字號戲院，保留全台最珍貴的膠卷年代手繪風情。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《青春18×2 通往有你的旅程》",
           "台南市中西區",
@@ -3530,7 +3530,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台南市中西區 · 《青春18×2 通往有你的旅程》",
         "address": "台南市中西區",
         "desc": "Jimmy 與 Ami 逛夜市射氣球、買地瓜球喝冬瓜茶約會的熱鬧現場，在地台南夜間人氣大熱點。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《青春18×2 通往有你的旅程》",
           "台南市中西區",
@@ -3547,7 +3547,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台南市仁德區 · 《青春18×2 通往有你的旅程》",
         "address": "台南市仁德區",
         "desc": "兩人離別搭車、充滿濃厚日式風情的百年檜木木造老火車站，永保安康紀念車票起點。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《青春18×2 通往有你的旅程》",
           "台南市仁德區",
@@ -3564,7 +3564,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市信義區 · 《台北追緝令》",
         "address": "台北市信義區",
         "desc": "好萊塢頂級飛車追逐與高難度街頭槍戰場景，摩登都會夜色與大巨蛋現代建築線條極為搶眼。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《台北追緝令》",
           "台北市信義區",
@@ -3581,7 +3581,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "基隆市安樂區 · 《台北追緝令》",
         "address": "基隆市安樂區",
         "desc": "片中蔚藍海灣景致與沿海超跑狂飆鏡頭，依山傍海的金色沙灘與北海岸壯麗海景。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《台北追緝令》",
           "基隆市安樂區",
@@ -3598,7 +3598,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市中山區 · 《台北追緝令》",
         "address": "台北市中山區",
         "desc": "片中豪華客房與俯瞰台北夜景的空中宴會廳奢華景觀，盡顯國際都會的華麗質感。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《台北追緝令》",
           "台北市中山區",
@@ -3615,7 +3615,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台南市歸仁區 · 《十億追殺令》",
         "address": "台南市歸仁區",
         "desc": "日本新幹線無法借拍高難度動作戲，全片高鐵押送死囚的重頭戲全程租借台灣高鐵軌道與車廂拍攝！",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《十億追殺令》",
           "台南市歸仁區",
@@ -3632,7 +3632,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市萬華區 · 《一千次晚安》",
         "address": "台北市萬華區",
         "desc": "國際影后茱麗葉·畢諾許飾演戰地攝影師，在台灣傳統宮廟香火、雕樑畫棟與市井巷弄拍攝的寫實場景。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《一千次晚安》",
           "台北市萬華區",
@@ -3649,7 +3649,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市大同區 · 《隱形同盟》與多部跨國合拍片",
         "address": "台北市大同區",
         "desc": "充滿歷史層次的紅磚巴洛克騎樓與南北貨中藥街區，長年為歐美紀錄片與獨立文藝長片指定取景地。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《隱形同盟》與多部跨國合拍片",
           "台北市大同區",
@@ -3666,7 +3666,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "南投縣仁愛鄉 · 《賽德克·巴萊》",
         "address": "南投縣仁愛鄉",
         "desc": "重現歷史原型的原始森林步道、雲海奇萊與高山溪谷，氣勢磅礴的原鄉史詩風貌。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《賽德克·巴萊》",
           "南投縣仁愛鄉",
@@ -3683,7 +3683,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "新北市林口區 · 《賽德克·巴萊》",
         "address": "新北市林口區",
         "desc": "劇組依 1930 年代考據打造的整條歷史日式街區、郵便局、武德殿與公學校，重現磅礡歷史。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《賽德克·巴萊》",
           "新北市林口區",
@@ -3700,7 +3700,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市大安區 · 《一一》",
         "address": "台北市大安區",
         "desc": "片中洋洋走在人行天橋與大安森林公園步道上的經典城市漫遊視角，坎城名作國際影史永恆經典。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《一一》",
           "台北市大安區",
@@ -3717,7 +3717,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市中山區 · 《一一》",
         "address": "台北市中山區",
         "desc": "片頭開場經典盛大婚宴場景，展現傳統中式宮殿建築的富麗堂皇與人際世故流轉。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《一一》",
           "台北市中山區",
@@ -3734,7 +3734,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "基隆市仁愛區 · 《千禧曼波》",
         "address": "基隆市仁愛區",
         "desc": "舒淇在迷幻藍色日光燈下回眸抽菸漫步的狹長天橋，已成為全球無數文青影迷來台指定打卡地標。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《千禧曼波》",
           "基隆市仁愛區",
@@ -3751,7 +3751,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "新北市瑞芳區 · 《悲情城市》",
         "address": "新北市瑞芳區",
         "desc": "石階長廊與層疊紅燈籠茶坊，帶動九份成為國際（尤其日本觀光客）知名朝聖勝地的關鍵電影。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《悲情城市》",
           "新北市瑞芳區",
@@ -3768,7 +3768,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "新北市瑞芳區 · 《悲情城市》",
         "address": "新北市瑞芳區",
         "desc": "礦業山城荒涼與歷史滄桑感交織的石階地貌，俯瞰陰陽海與無耳茶壺山的絕佳視角。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《悲情城市》",
           "新北市瑞芳區",
@@ -3785,7 +3785,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "宜蘭縣大同鄉 · 《刺客聶隱娘》",
         "address": "宜蘭縣大同鄉",
         "desc": "雲霧繚繞的千年檜木森林、苔蘚舊鐵軌，呈現極致東方美學與空靈古典山林意境。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《刺客聶隱娘》",
           "宜蘭縣大同鄉",
@@ -3802,7 +3802,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "宜蘭縣大同鄉 · 《刺客聶隱娘》",
         "address": "宜蘭縣大同鄉",
         "desc": "巨大的千年紅檜神木群與幽深天然林道，展現隱世刺客靜候目標的肅穆武俠風範。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《刺客聶隱娘》",
           "宜蘭縣大同鄉",
@@ -3819,7 +3819,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市中正區 · 《愛》",
         "address": "台北市中正區",
         "desc": "紅磚歷史倉庫、文青特色咖啡館與市集草皮漫步約會場景，台北文創活力地標。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《愛》",
           "台北市中正區",
@@ -3836,7 +3836,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "花蓮縣新城鄉 · 《愛》",
         "address": "花蓮縣新城鄉",
         "desc": "男女主角看海沉思、撫平心靈的礫石海灘，圓潤鵝卵石與純白浪花相伴。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《愛》",
           "花蓮縣新城鄉",
@@ -3853,7 +3853,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "嘉義縣東石鄉 · 《熱帶魚》",
         "address": "嘉義縣東石鄉",
         "desc": "淹水房舍與傳統蚵田，呈現台灣中南部沿海獨特的海平面下生活樣貌與鹽田夕陽奇景。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《熱帶魚》",
           "嘉義縣東石鄉",
@@ -3870,7 +3870,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市大安區 · 《飲食男女》",
         "address": "台北市大安區",
         "desc": "片中郎雄飾演的國宴主廚與友人品茗長談、充滿濃郁文人氣息與歲月沉澱的日式木造庭園。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《飲食男女》",
           "台北市大安區",
@@ -3887,7 +3887,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "台北市中正區 · 《飲食男女》",
         "address": "台北市中正區",
         "desc": "老父親郎雄每日清晨慢跑晨練的紅牆綠樹外圍人行步道，刻劃台北庶民晨起生活肌理。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《飲食男女》",
           "台北市中正區",
@@ -3904,7 +3904,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "花蓮縣鳳林鎮 · 《黑之牛》",
         "address": "花蓮縣鳳林鎮",
         "desc": "利用台灣東部未經人工修飾的原始水稻田、山澗溪流與泥土小徑，還原古代農耕與人牛深厚羈絆。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《黑之牛》",
           "花蓮縣鳳林鎮",
@@ -3921,7 +3921,7 @@ const THEMES_COMPLETE_DATA = [
         "tag": "高雄市左營區 · 《天邊一朵雲》",
         "address": "高雄市左營區",
         "desc": "鮮豔巨大的東方龍虎造景、九曲橋與湖畔涼亭，成為國際藝術名片中辨識度極高的東方魔幻場景。",
-        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436",
+        "charterUrl": "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452",
         "tags": [
           "《天邊一朵雲》",
           "高雄市左營區",
@@ -3970,9 +3970,9 @@ const THEMES_COMPLETE_DATA = [
     "title": "Grand Island Circuit & Stadium Passions · Chase Horizons",
     "subtitle": "自駕台灣四極點公路：極北富貴角、極東三貂角、極南鵝鑾鼻、極西國聖燈塔，巡迴各大城市球場熱血應援！",
     "bookingCta": {
-      "charter": "https://www.klook.com/zh-TW/car-rentals/?aid=123436",
+      "charter": "https://www.klook.com/zh-TW/car-rentals/?aid=106452",
       "hotel": "https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227",
-      "tour": "https://www.klook.com/zh-TW/activity/904-penghu-day-tour-magong/?aid=123436"
+      "tour": "https://www.klook.com/zh-TW/activity/904-penghu-day-tour-magong/?aid=106452"
     },
     "experiences": [
       {

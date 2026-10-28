@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【平溪・ローカル線の旅】願いを乗せて空へ舞う天燈：レトロな木造駅舎、十分瀑布の迫力と猫の街・猴硐散歩 ｜ 台湾漫遊 Taiwan Roam</title>
+  <meta name="description" content="台北近郊の炭鉱鉄道・平溪線の完全散策ガイド。十分老街での天燈（ランタン）上げ体験、台湾のナイアガラ「十分瀑布」、猫村・猴硐の木造遺産、菁桐の木造終着駅、Klook貸切チャーター車予約まで徹底網羅。">
+  <meta name="keywords" content="平渓線 観光, 十分 ランタン上げ, 十分滝, 猴硐 猫村, 菁桐 木造駅舎, 平渓 鉄道, Klook 平渓 チャーター">
+  <style>
+    :root {
+      --bg-cream: #FDFBF7;
+      --card-bg: #FFFFFF;
+      --lantern-orange: #E05A47;
+      --rail-navy: #1B365D;
+      --forest-green: #2B580C;
+      --amber-gold: #D4A373;
+      --slate-dark: #2C3E50;
+      --muted-gray: #7F8C8D;
+      --border-light: #EADBC8;
+      --shadow-soft: 0 10px 28px rgba(224, 90, 71, 0.08);
+      --radius-round: 20px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    .article-container { max-width: 1080px; margin: 40px auto 0; background: var(--card-bg); border-radius: 32px; border: 1px solid var(--border-light); padding: 48px; box-shadow: var(--shadow-soft); }
+    @media (max-width: 768px) { .article-container { padding: 22px; border-radius: 20px; margin-top: 16px; } }
+    .journal-badge { display: inline-flex; align-items: center; gap: 6px; background: #FEE2E2; color: #991B1B; font-size: 12px; font-weight: 800; padding: 6px 16px; border-radius: 999px; text-transform: uppercase; margin-bottom: 16px; }
+    .article-title { font-size: 32px; font-weight: 900; color: var(--rail-navy); line-height: 1.4; margin-bottom: 8px; }
+    .article-subtitle-jp { font-size: 15px; font-weight: 600; color: var(--lantern-orange); margin-bottom: 24px; font-style: italic; }
+    .history-card { background: #F8FAFC; border-radius: 18px; border: 1px solid var(--border-light); padding: 26px 30px; margin-bottom: 30px; }
+    .history-title { font-size: 16px; font-weight: 800; color: var(--rail-navy); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .history-text { font-size: 14px; color: #4A5568; line-height: 1.85; }
+    .personal-reflection-box { background: #FFFDF9; border-left: 5px solid var(--lantern-orange); border-radius: 18px; padding: 26px 30px; margin-bottom: 36px; box-shadow: 0 4px 16px rgba(224, 90, 71, 0.05); }
+    .reflection-header { font-size: 15px; font-weight: 800; color: var(--lantern-orange); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .reflection-content { font-size: 14.5px; color: #334155; line-height: 1.9; }
+    h2.section-header { font-size: 22px; font-weight: 800; color: var(--rail-navy); margin: 48px 0 20px; border-bottom: 2px solid #E2E8F0; padding-bottom: 12px; }
+    .tickets-hub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin: 24px 0 36px; }
+    .ticket-card { background: #FFF; border: 1px solid var(--border-light); border-radius: var(--radius-round); padding: 18px; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+    .ticket-card:hover { transform: translateY(-4px); border-color: var(--lantern-orange); box-shadow: 0 12px 24px rgba(27, 54, 93, 0.12); }
+    .ticket-action-btn { font-size: 12px; font-weight: 700; color: #FFF; background: var(--rail-navy); padding: 8px 12px; border-radius: 10px; text-align: center; margin-top: 12px; }
+    
+    .place-card { background: #FFF; border-radius: var(--radius-round); border: 1px solid var(--border-light); padding: 22px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 6px 18px rgba(0,0,0,0.03); }
+    .place-badge { display: inline-block; font-size: 11px; font-weight: 800; padding: 3px 10px; border-radius: 8px; margin-bottom: 8px; background: #FFEDD5; color: #C2410C; }
+    .place-name { font-size: 18px; font-weight: 800; color: var(--slate-dark); margin-bottom: 4px; }
+    .place-location { font-size: 12px; color: var(--muted-gray); margin-bottom: 12px; }
+    .place-detail { font-size: 13px; color: #475569; margin-bottom: 18px; line-height: 1.65; }
+    .place-btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .place-footer-btn { flex: 1; text-align: center; padding: 9px 12px; border-radius: 12px; font-size: 12px; font-weight: 700; text-decoration: none; border: 1px solid var(--border-light); background: #F8FAFC; color: var(--rail-navy); }
+    .walk-route-card { background: #F4F8FA; border-left: 4px solid var(--lantern-orange); border-radius: 14px; padding: 20px 24px; margin-bottom: 36px; font-size: 13.5px; color: #334155; line-height: 1.85; }
+    .walk-route-title { font-size: 14px; font-weight: 800; color: var(--rail-navy); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .tips-section { background: var(--rail-navy); color: #ECF0F1; border-radius: 24px; padding: 36px; margin-top: 50px; }
+    .tips-title { font-size: 19px; font-weight: 800; color: #F5B041; margin-bottom: 16px; }
+    .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .tip-item h4 { font-size: 14px; font-weight: 700; color: #FFF; margin-bottom: 6px; }
+    .tip-item p { font-size: 12.5px; color: #CBD5E1; line-height: 1.65; }
+    .article-footer-cta { background: linear-gradient(135deg, #1B365D 0%, #0D1B2E 100%); border-radius: 24px; padding: 36px; color: #FFF; text-align: center; margin-top: 40px; }
+    .cta-btn { display: inline-block; padding: 12px 24px; border-radius: 14px; font-size: 13px; font-weight: 800; text-decoration: none; margin: 6px; }
+    .cta-btn.primary { background: var(--lantern-orange); color: #FFF; }
+    .cta-btn.secondary { background: rgba(255,255,255,0.15); color: #FFF; border: 1px solid rgba(255,255,255,0.3); }
+  
+    body { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif; background: var(--bg-cream); color: var(--slate-dark); line-height: 2.15 !important; letter-spacing: 0.04em !important; padding: 0 16px 80px; }
+    p, .reflection-content, .history-text, .place-detail, .walk-route-card { line-height: 2.15 !important; letter-spacing: 0.04em !important; }
+    .card-matrix { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 20px !important; margin: 24px 0 16px !important; }
+    @media (max-width: 640px) { .card-matrix { grid-template-columns: 1fr !important; } }
+
+  </style>
+  <link rel="canonical" href="https://taiwanroam.tw/ja/blog/pingxi-historic-railway-sky-lantern-guide">
+</head>
+<body>
+<article class="article-container">
+  <div class="journal-badge">週末探店 Vol. 14 ｜ 鉄道遺産・祈りのローカル線</div>
+  <h1 class="article-title">【平溪・ローカル線の旅】願いを乗せて空へ舞う天燈：レトロな木造駅舎、十分瀑布の迫力と猫の街・猴硐散歩</h1>
+  <div class="article-subtitle-jp">Lanterns in the Twilight Sky: Historic Mining Rails, Roaring Waterfalls & Feline Havens</div>
+
+  <div class="history-card">
+    <div class="history-title"><span>🚂</span> <strong>1921年開通：炭鉱を運んだ私設鉄道と、山里に受け継がれる無病息災の祈り</strong></div>
+    <div class="history-text">
+      基隆河の深い渓谷に沿って敷設された平渓線。もともとは日本統治時代の1921年、三井鉱山などが開発した優良な石炭を運ぶ「石底線」として建設されました。かつて石炭の黒いダイヤで潤った町は、閉山とともに静寂を取り戻しましたが、かつて盗賊の襲撃を知らせる通信手段だった「天燈（ランタン）」が、元宵節の祈願行事として発展。線路すれすれに立ち並ぶレトロな木造商店街や、日本統治時代の木造駅舎（菁桐駅）が奇跡的に残り、世界中の旅人をノスタルジーの渦へと巻き込んでいます。
+    </div>
+  </div>
+
+  <div class="personal-reflection-box">
+    <div class="reflection-header"><span>✍️</span> <strong>旅人手記：線路の上で筆を執り、夜空へ祈りを放つ——夕暮れの十分で胸が熱くなった瞬間</strong></div>
+    <div class="reflection-content">
+      <p>平渓線を訪れるたび、線路と人々の生活の近さに驚かされます。列車が通り過ぎた直後、観光客や地元の人々が自然と線路の上に集まり、色とりどりの天燈にそれぞれの母国語で健康や家族への願いをしたためる。筆を置いたあと、バーナーの熱気で膨らんだランタンからそっと手を放すと、ふわりと浮かび上がり、山あいの夕暮れ空へと小さく吸い込まれていく。</p>
+      <p>その無数の灯りを見上げていると、言葉や国籍の違いを超えて、誰もが誰かの幸せを祈っているという温かい連帯感に胸が熱くなります。迫力満点の十分瀑布のマイナスイオンを浴び、猫たちがのんびりと日向ぼっこする猴硐の木造天橋を歩く——。都会の喧騒を完全に忘れさせてくれる、台湾で最も情緒深い鉄道の旅です。</p>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>🎟️</span> 平渓旅をスムーズにする予約ハブ：Klookチャーター車・ホテル・Uber Eats</h2>
+  <div class="tickets-hub-grid">
+    <a href="https://www.klook.com/?aid=106452" target="_blank" class="ticket-card">
+      <div>
+        <div style="font-size:24px;">🚐</div>
+        <div style="font-weight:800; margin-top:6px;">台北市内 ⇌ 十分・九份・平溪 1日貸切チャーター</div>
+        <div style="font-size:12px; color:#64748B; margin-top:4px;">1時間に1本のローカル線の混雑を回避！雨の日も傘を差さずに滝とランタンを制覇</div>
+      </div>
+      <div class="ticket-action-btn">Klook 貸切車を予約 ➔</div>
+    </a>
+    <a href="https://www.klook.com/?aid=106452" target="_blank" class="ticket-card">
+      <div>
+        <div style="font-size:24px;">🏮</div>
+        <div style="font-weight:800; margin-top:6px;">十分・伝統天燈上げ体験チケット予約</div>
+        <div style="font-size:12px; color:#64748B; margin-top:4px;">四色・八色の願い別ランタン！スタッフによる写真・動画撮影サポート確約</div>
+      </div>
+      <div class="ticket-action-btn" style="background:var(--lantern-orange);">天燈上げ体験予約 ➔</div>
+    </a>
+    <a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="ticket-card">
+      <div>
+        <div style="font-size:24px;">🏨</div>
+        <div style="font-weight:800; margin-top:6px;">九份・瑞芳周辺の眺望宿最安値比較</div>
+        <div style="font-size:12px; color:#64748B; margin-top:4px;">平渓線観光の拠点に最適！山城の夜景が見える隠れ家民宿を検索</div>
+      </div>
+      <div class="ticket-action-btn" style="background:var(--forest-green);">Trip.com 宿検索 ➔</div>
+    </a>
+  </div>
+
+  <h2 class="section-header"><span>☕</span> 渓谷と線路沿いの隠れ家カフェ 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">線路の真横 ｜ 列車が目の前を通り過ぎる特等席</span>
+        <h3 class="place-name">十分・走馬看花 咖啡（Walking & Watching）</h3>
+        <p class="place-location">📍 新北市平渓区十分街沿い</p>
+        <p class="place-detail">窓際席からわずか数十センチの距離をディーゼル列車が走り抜ける迫力！深煎りハンドドリップ珈琲や、台湾産の冬瓜茶を使った特製カフェラテでホッとひと息つけます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=走馬看花咖啡十分" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">猫村の高台 ｜ 看板猫が出迎える木造カフェ</span>
+        <h3 class="place-name">217咖啡（猴硐猫村 217 Cafe）</h3>
+        <p class="place-location">📍 瑞芳区柴寮路217号（猴硐山腹）</p>
+        <p class="place-detail">猫村の階段を登った先にある静かなテラス。愛らしい猫たちが足元をすり抜ける中で、自家製ワッフルや冷たいレモンコーヒーをいただきながら、旧炭鉱の山並みを見渡せます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=217咖啡猴硐" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">炭鉱遺産の木造茶寮 ｜ 昭和の日本家屋</span>
+        <h3 class="place-name">菁桐・台陽倶楽部（真山珈琲）</h3>
+        <p class="place-location">📍 平渓区菁桐街沿い</p>
+        <p class="place-detail">かつて炭鉱の幹部をもてなした高級迎賓館（国の登録有形文化財）。畳敷きの大広間から手入れされた日本庭園を眺め、本格的な台湾茶やサイフォン珈琲を優雅に味わえます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=菁桐台陽礦業公司" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <div class="walk-route-card">
+    <div class="walk-route-title"><span>🌊</span> <strong>【おすすめ散策ルート①】台湾のナイアガラへ「十分駅〜十分瀑布マイナスイオン歩道」</strong></div>
+    十分駅で列車を見送る ➔ 十分老街でランタン上げ体験 ➔ 渓谷沿いに整備された木造遊歩道（約20分） ➔ 吊り橋を渡り、落差20m・幅40mの壮大な「十分瀑布」へ。水煙の中に現れる美しい虹とエメラルドグリーンの滝壺を間近で鑑賞する約2時間の定番コースです。
+  </div>
+
+  <h2 class="section-header"><span>⭐</span> 山里の滋味深い名物料理 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">創業半世紀 ｜ 渓流の恵みと放牧地鶏</span>
+        <h3 class="place-name">平渓榕樹下小吃店（ガジュマルの木の下）</h3>
+        <p class="place-location">📍 平渓区平渓街沿い</p>
+        <p class="place-detail">平渓駅前の大木の下で地元民に愛される名店。黄金色に蒸し上げられた地鶏（放山鶏）の肉質はプリプリで甘みがあり、シャキシャキの山菜炒めや手作り肉団子スープが絶品。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=平溪榕樹下小吃" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">炭鉱夫のスタミナ飯 ｜ 厚切り豚バラ角煮</span>
+        <h3 class="place-name">紅宝礦工食堂（菁桐駅前）</h3>
+        <p class="place-location">📍 平渓区菁桐街58号</p>
+        <p class="place-detail">かつての炭鉱事務所を改装。アルミ製の弁当箱で提供される「鉱工弁当」は、甘辛いタレでじっくり煮込んだ大きな豚スペアリブと煮卵が入り、旅情をそそる人気メニューです。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=紅寶礦工食堂" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">薬膳の温もり ｜ 自家製ゴマ油鶏スープ</span>
+        <h3 class="place-name">阿媽的古早味（十分老街奥）</h3>
+        <p class="place-location">📍 平渓区十分老街</p>
+        <p class="place-detail">台湾のおばあちゃんの家庭の味。生姜と純正黒ゴマ油でじっくり煮込んだ地鶏スープは、肌寒い雨の日に体を芯から温めてくれます。素朴な切り干し大根の卵焼きも必食。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=阿媽的古早味十分" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <div class="walk-route-card">
+    <div class="walk-route-title"><span>🐱</span> <strong>【おすすめ散策ルート②】猫と炭鉱遺産に出会う「猴硐駅〜猫村・運炭橋ノスタルジー」</strong></div>
+    猴硐駅の猫型跨線橋を渡り「猴硐猫村」へ ➔ 壁画や猫小屋が並ぶ路地で可愛い猫たちと触れ合う ➔ 駅前の巨大な選炭工場跡を見学 ➔ トロッコ軌道が残る「運炭橋」を渡り、かつての鉱山トンネルを巡る約1.5時間の心癒やされるルートです。
+  </div>
+
+  <h2 class="section-header"><span>🥢</span> 平渓線の名物ローカル小吃 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">手羽先にご飯を詰めた ｜ 炭火焼きのジューシーB級グルメ</span>
+        <h3 class="place-name">溜哥 焼肉手羽先おこわ（溜哥燒烤雞翅包飯）</h3>
+        <p class="place-location">📍 十分老街踏切横</p>
+        <p class="place-detail">骨を抜いた大ぶりの手羽先の中に、特製の味付けもち米をぎっしり詰め、炭火で香ばしくタレ焼き。外の皮はパリッと、中はジューシーで食べ歩き人気No.1。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=溜哥燒烤雞翅包飯" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">炭火の香ばしさ ｜ ニンニクを挟んで食べる黒豚ソーセージ</span>
+        <h3 class="place-name">平渓故事香腸（炭火黒豚ソーセージ）</h3>
+        <p class="place-location">📍 平渓老街入口</p>
+        <p class="place-detail">新鮮な黒豚肉を詰めた手作りソーセージ。炭火でじっくり焼き上げ、切り込みに生ニンニクや高菜、ワサビを挟んで食べるのが台湾通の豪快なスタイル。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=平溪故事香腸" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">手作りタロイモ団子 ｜ 昔ながらの温かいぜんざい</span>
+        <h3 class="place-name">菁桐楊家 伝統タロイモ団子（楊家芋圓）</h3>
+        <p class="place-location">📍 菁桐駅前老街</p>
+        <p class="place-detail">九份に負けないモチモチの手作り芋団子。熱い紅豆湯（ぜんざい）に浮かべた素朴な甘みは、レトロな木造駅舎を眺めながらいただくのにぴったりのデザートです。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=菁桐楊家芋圓" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>🏨</span> 周辺のおすすめ宿 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">平渓線観光の拠点 ｜ 瑞芳駅前のモダンホテル</span>
+        <h3 class="place-name">瑞芳宿心（Ruifang Station Hotel）</h3>
+        <p class="place-location">📍 瑞芳駅東口徒歩2分</p>
+        <p class="place-detail">平渓線と九份へのバスが直結する瑞芳駅すぐ。荷物を預けて身軽に観光できる最高の立地と、清潔で快適な客室を備え、鉄道旅のリピーターに大人気。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="place-footer-btn" style="color:#1D4ED8;">🏨 Trip.com 予約</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">平渓の山あいに佇む ｜ 緑に包まれるプライベートヴィラ</span>
+        <h3 class="place-name">平渓山居 自然民宿（Mountain Villa）</h3>
+        <p class="place-location">📍 平渓区山間部</p>
+        <p class="place-detail">観光客の去った夜の静寂を満喫。夜空に遠く舞うランタンの光をバルコニーから眺め、朝は鳥の声で目覚める大人の隠れ家的リトリート。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="place-footer-btn" style="color:#1D4ED8;">🏨 Trip.com 予約</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">九份の絶景を望む ｜ 貸切車ですぐアクセス</span>
+        <h3 class="place-name">九份山経（Jiufen Jing Hua）</h3>
+        <p class="place-location">📍 新北市瑞芳区基山街204号</p>
+        <p class="place-detail">平渓観光の後に専用車で宿泊先へ直行！赤提灯が灯る夜の九份山城と海を部屋から独り占めできる、洗練されたデザインホテル。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="place-footer-btn" style="color:#1D4ED8;">🏨 Trip.com 予約</a></div>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>💆</span> 散策後の足腰リフレッシュ：周辺スパ 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">瑞芳駅前 ｜ 痛気持ちいい本格足つぼ</span>
+        <h3 class="place-name">瑞芳駅前足体養生館</h3>
+        <p class="place-location">📍 瑞芳駅前広場周辺</p>
+        <p class="place-detail">滝までの遊歩道を歩き回った脚に！漢方足湯とツボ刺激で、ふくらはぎの張りとむくみをスッキリと解消します。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.klook.com/?aid=106452" target="_blank" class="place-footer-btn" style="color:#C2410C;">💆 Klook 予約</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">九份山城 ｜ 絶景を望むアロママッサージ</span>
+        <h3 class="place-name">九份山城リラクゼーションSPA</h3>
+        <p class="place-location">📍 九份老街周辺</p>
+        <p class="place-detail">オーガニック精油を用いたオールハンドのトリートメント。山と海の風を感じながら全身の緊張を解きほぐします。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.klook.com/?aid=106452" target="_blank" class="place-footer-btn" style="color:#C2410C;">💆 Klook 予約</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">台北駅戻り時 ｜ 確かな手技の老舗サロン</span>
+        <h3 class="place-name">指舞春秋足體養生會館（駅前店）</h3>
+        <p class="place-location">📍 台北駅前</p>
+        <p class="place-detail">平渓から台北市内へ戻ってから立ち寄れる好立地。熟練技師の指圧で一日観光の疲れをリセット。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.klook.com/?aid=106452" target="_blank" class="place-footer-btn" style="color:#C2410C;">💆 Klook 予約</a></div>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>🛍️</span> 鉄道みやげ＆ショッピング 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">竹筒に願いを書く ｜ 菁桐名物の祈願竹</span>
+        <h3 class="place-name">菁桐鉄道故事館（Railway Story House）</h3>
+        <p class="place-location">📍 菁桐駅前</p>
+        <p class="place-detail">ミニチュア木製天燈ストラップや切符を模した絵馬、鉄道ポストカードなど、平渓線の歴史が詰まった記念品ショップ。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=菁桐鐵道故事館" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">猫グッズ専門 ｜ 愛猫家必見のハンドメイド雑貨</span>
+        <h3 class="place-name">猫村商事（猴硐猫村ショップ）</h3>
+        <p class="place-location">📍 猴硐駅前通り</p>
+        <p class="place-detail">台湾のデザイナーが手がけた猫モチーフの靴下、トートバッグ、パイナップルケーキなど、猫好きにはたまらないセレクト。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=猴硐貓村" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">伝統工芸 ｜ ミニチュアLED天燈</span>
+        <h3 class="place-name">十分ランタン民芸館</h3>
+        <p class="place-location">📍 十分老街沿い</p>
+        <p class="place-detail">実際に夜空へ飛ばしたランタンと同じ配色のミニチュアキーホルダー。LEDで光るタイプはお土産として大人気。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=十分老街" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>🍢</span> 沿線の看板商圏 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">線路と街が一体化 ｜ 世界中の旅人が集う</span>
+        <h3 class="place-name">十分老街商圏</h3>
+        <p class="place-location">📍 十分駅直結</p>
+        <p class="place-detail">踏切の音とともに列車が軒先をかすめる世界的な名所。ランタン上げ、食べ歩き、お土産屋が一本道に密集しています。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=十分老街" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">昭和の静けさ ｜ 映画のロケ地となった木造街</span>
+        <h3 class="place-name">菁桐老街商圏</h3>
+        <p class="place-location">📍 菁桐駅前</p>
+        <p class="place-detail">平渓線の終着駅。無数の願いが書かれた竹筒が線路沿いに吊るされ、古い木造の街並みをゆったり散策できます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=菁桐老街" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">高架橋の下のレトロ ｜ 地元の穏やかな暮らし</span>
+        <h3 class="place-name">平渓老街商圏</h3>
+        <p class="place-location">📍 平渓駅前</p>
+        <p class="place-detail">坂道の上に線路が通る立体的な景観。観光地化されすぎず、昔ながらの金物屋や理髪店が残る情緒ある通りです。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=平溪老街" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <section class="tips-section">
+    <div class="tips-title">💡 平渓線の旅を120%楽しむためのトラベルメモ</div>
+    <div class="tips-grid">
+      <div class="tip-item">
+        <h4>1. 列車の運行ダイヤ（1時間に1本）</h4>
+        <p>平渓線は全線単線のため、列車は<strong>約1時間に1本</strong>しか運行していません。時刻表を事前に確認して行動するか、時間を気にせず観光したい場合は<strong>Klookのプライベート貸切車</strong>が圧倒的に便利です。</p>
+      </div>
+      <div class="tip-item">
+        <h4>2. 線路内の歩行マナー</h4>
+        <p>十分老街では線路上でのランタン上げが伝統的に行われていますが、列車接近を知らせるホイッスルが鳴ったら速やかに線路外の黄色い線の内側へ退避してください。</p>
+      </div>
+      <div class="tip-item">
+        <h4>3. 天燈の色と願いの意味</h4>
+        <p>赤（健康・開運）、黄（金運・財運）、青（仕事・学業）、ピンク（恋愛・良縁）など色によって意味が異なります。4つの願いを一度に祈れる「四色天燈」が一番人気です。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="article-footer-cta">
+    <h3>願いを乗せて夜空へ舞う、祈りの山里・平渓へ</h3>
+    <p>快適な貸切チャーター車・天燈上げ体験チケットを手配して、一生心に残るランタンの夜を。</p>
+    <a href="https://www.klook.com/?aid=106452" target="_blank" class="cta-btn primary">🚐 Klookで平渓・十分チャーターを予約</a>
+    <a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="cta-btn secondary">🏨 Trip.comで周辺の宿を探す</a>
+  </div>
+
+  <!-- 公式ブランドフッター -->
+  <div class="brand-showcase-footer" style="margin-top: 50px; padding: 32px 28px; background: linear-gradient(135deg, #FEF2F2 0%, #FFF7ED 100%); border: 1.5px solid #FECACA; border-radius: 24px; text-align: center; box-shadow: 0 8px 24px rgba(27, 77, 62, 0.06);">
+    <div style="font-size: 13px; font-weight: 800; color: #DC2626; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;">
+      🌸 TAIWAN ROAM OFFICIAL EDITORIAL ‧ 台湾漫遊編集部
+    </div>
+    <h3 style="font-size: 20px; font-weight: 900; color: #0F172A; margin: 0 0 10px 0;">
+      台湾吃喝玩樂 ‧ 現地特派員が紡ぐ、極上の台湾紀行
+    </h3>
+    <p style="font-size: 14px; color: #475569; line-height: 2.15; margin: 0 auto 20px auto; max-width: 760px;">
+      渓谷沿いを走る炭鉱鉄道・平溪線。線路すれすれで願いを放つ十分の天燈上げから、台湾のナイアガラ十分瀑布、猫村・猴硐の木造遺産まで。台湾漫遊（Taiwan Roam）編集部が日本人旅行者のために厳選したローカル線完全散策ガイドブック。専用チャーター車、天燈上げ体験、宿泊情報をお届けします。
+    </p>
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <a href="../../cafe.html" style="padding: 10px 22px; border-radius: 12px; background: #1B365D; color: #FFFFFF; font-size: 13px; font-weight: 700; text-decoration: none;">☕ カフェ・週末探店トップへ</a>
+      <a href="../../index.html" style="padding: 10px 22px; border-radius: 12px; background: #FFFFFF; border: 1px solid #CBD5E1; color: #334155; font-size: 13px; font-weight: 700; text-decoration: none;">🏠 台湾吃喝玩樂 トップ</a>
+    </div>
+  </div>
+
+</article>
+</body>
+</html>

@@ -39,13 +39,16 @@ function renderTrendingSection() {
   const isEn = (currentLang === "en");
 
   container.innerHTML = TOP_ACTIVITIES_6.map(item => {
-    const klookUrl = AFFILIATE_HUB.getTourUrl(item.activityId);
+    const klookUrl = (typeof AFFILIATE_HUB !== "undefined" && AFFILIATE_HUB.getTourUrl) 
+      ? AFFILIATE_HUB.getTourUrl(item.activityId) 
+      : `https://www.klook.com/zh-TW/activity/${item.activityId}/?aid=106452`;
     const title = (isEn && item.enName) ? item.enName : item.name;
     const ctaText = isEn ? "Book ➔" : "預定去 ➔";
+    const fallbackImg = item.localImg || item.img;
     return `
       <div class="pill-card-item" onclick="window.open('${klookUrl}', '_blank')" title="${title}" style="cursor: pointer;">
         <div class="pill-window">
-          <img src="${item.img}" alt="${title}" loading="lazy">
+          <img src="${item.img}" alt="${title}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackImg}';">
           <div class="pill-window-overlay"></div>
         </div>
         <div class="pill-info-block">

@@ -327,6 +327,11 @@ function switchLanguage(lang) {
   });
 
   const isEn = (lang === "en");
+  const isJa = (lang === "ja");
+
+  if (typeof switchWeekendHopLanguage === "function") {
+    switchWeekendHopLanguage(isJa ? "ja" : (isEn ? "en" : "zh"));
+  }
 
   // 2. 品牌與導航
   const brandNameEl = document.querySelector(".brand-name");
@@ -339,17 +344,18 @@ function switchLanguage(lang) {
   }
 
   const navItems = document.querySelectorAll(".nav-menu .nav-item a");
+  const navJa = ["ホーム", "特集テーマ", "観光スポット", "ランキング", "台湾みやげ", "カフェ巡り", "ミシュラン", "コミュニティ"];
   const navEn = ["Home", "Themes", "City Spots", "Rankings", "Souvenirs", "Cafe Map", "Michelin Guide", "Community"];
   const navZh = ["首頁", "精選主題", "城市景點", "排行榜", "伴手禮直送", "全台咖啡地圖", "米其林指南", "留言討論"];
   if (navItems.length >= 8) {
     navItems.forEach((item, idx) => {
-      item.textContent = isEn ? navEn[idx] : navZh[idx];
+      item.textContent = isJa ? navJa[idx] : (isEn ? navEn[idx] : navZh[idx]);
     });
   }
 
   const ctaBtn = document.querySelector(".header-right-tools .btn-cta-primary");
   if (ctaBtn) {
-    ctaBtn.textContent = isEn ? "🛍️ Souvenirs Delivery" : "🛍️ 伴手禮直送";
+    ctaBtn.textContent = isJa ? "🛍️ 台湾みやげ直送" : (isEn ? "🛍️ Souvenirs Delivery" : "🛍️ 伴手禮直送");
   }
 
   // 3. Hero 英雄區塊 (日雜散步小確幸風格)
@@ -505,5 +511,9 @@ function switchLanguage(lang) {
   }
   if (typeof renderWaterfallSection === "function") {
     renderWaterfallSection();
+  }
+  if (typeof switchWeekendHopLanguage === "function") {
+    const hopLang = lang.startsWith("en") ? "en" : (lang.startsWith("ja") ? "ja" : "zh");
+    switchWeekendHopLanguage(hopLang);
   }
 }

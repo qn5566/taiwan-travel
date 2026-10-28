@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【嘉義・昭和の木都】ヒノキが香るレトロタウン：伝統の火雞肉飯、ミシュラン林聰明砂鍋魚頭と文化路夜市 ｜ 台湾漫遊 Taiwan Roam</title>
+  <meta name="description" content="日本統治時代のヒノキ建築群が残る「木都・嘉義」の完全散策ガイド。檜意森活村、阿里山車庫園区、本場の絶品ターキーライス、ミシュラン林聰明砂鍋魚頭、古民家カフェ、Klook送迎＆ホテル予約まで徹底網羅。">
+  <meta name="keywords" content="嘉義 観光, 檜意森活村, 嘉義 火雞肉飯, 林聰明砂鍋魚頭 ミシュラン, 文化路夜市, 嘉義 カフェ レトロ, Klook 嘉義 チャーター車">
+  <style>
+    :root {
+      --bg-cream: #FDFBF7;
+      --card-bg: #FFFFFF;
+      --wood-brown: #5C3D2E;
+      --cypress-gold: #C08A3E;
+      --turkey-red: #B83B26;
+      --slate-dark: #2C3E50;
+      --border-light: #EADBC8;
+      --shadow-soft: 0 10px 28px rgba(92, 61, 46, 0.08);
+      --radius-round: 20px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    .article-container { max-width: 1080px; margin: 40px auto 0; background: var(--card-bg); border-radius: 32px; border: 1px solid var(--border-light); padding: 48px; box-shadow: var(--shadow-soft); }
+    @media (max-width: 768px) { .article-container { padding: 22px; border-radius: 20px; margin-top: 16px; } }
+    .journal-badge { display: inline-flex; align-items: center; gap: 6px; background: #FEF3C7; color: #B45309; font-size: 12px; font-weight: 800; padding: 6px 16px; border-radius: 999px; text-transform: uppercase; margin-bottom: 16px; }
+    .article-title { font-size: 32px; font-weight: 900; color: var(--wood-brown); line-height: 1.4; margin-bottom: 8px; }
+    .article-subtitle-jp { font-size: 15px; font-weight: 600; color: var(--turkey-red); margin-bottom: 24px; font-style: italic; }
+    .history-card { background: #F8F9FA; border-radius: 18px; border: 1px solid var(--border-light); padding: 26px 30px; margin-bottom: 30px; }
+    .history-title { font-size: 16px; font-weight: 800; color: var(--wood-brown); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .history-text { font-size: 14px; color: #4A5568; line-height: 1.85; }
+    .personal-reflection-box { background: #FFFDF9; border-left: 5px solid var(--cypress-gold); border-radius: 18px; padding: 26px 30px; margin-bottom: 36px; box-shadow: 0 4px 16px rgba(192, 138, 62, 0.05); }
+    .reflection-header { font-size: 15px; font-weight: 800; color: var(--cypress-gold); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .reflection-content { font-size: 14.5px; color: #334155; line-height: 1.9; }
+    h2.section-header { font-size: 22px; font-weight: 800; color: var(--wood-brown); margin: 48px 0 20px; border-bottom: 2px solid #E2E8F0; padding-bottom: 12px; }
+    .tickets-hub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin: 24px 0 36px; }
+    .ticket-card { background: #FFF; border: 1px solid var(--border-light); border-radius: var(--radius-round); padding: 18px; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+    .ticket-card:hover { transform: translateY(-4px); border-color: var(--turkey-red); box-shadow: 0 12px 24px rgba(92, 61, 46, 0.12); }
+    .ticket-action-btn { font-size: 12px; font-weight: 700; color: #FFF; background: var(--wood-brown); padding: 8px 12px; border-radius: 10px; text-align: center; margin-top: 12px; }
+    
+    .place-card { background: #FFF; border-radius: var(--radius-round); border: 1px solid var(--border-light); padding: 22px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 6px 18px rgba(0,0,0,0.03); }
+    .place-badge { display: inline-block; font-size: 11px; font-weight: 800; padding: 3px 10px; border-radius: 8px; margin-bottom: 8px; background: #FEF3C7; color: #B45309; }
+    .place-name { font-size: 18px; font-weight: 800; color: var(--slate-dark); margin-bottom: 4px; }
+    .place-location { font-size: 12px; color: var(--muted-gray); margin-bottom: 12px; }
+    .place-detail { font-size: 13px; color: #475569; margin-bottom: 18px; line-height: 1.65; }
+    .place-btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .place-footer-btn { flex: 1; text-align: center; padding: 9px 12px; border-radius: 12px; font-size: 12px; font-weight: 700; text-decoration: none; border: 1px solid var(--border-light); background: #F8FAFC; color: var(--wood-brown); }
+    .walk-route-card { background: #FDF9F5; border-left: 4px solid var(--cypress-gold); border-radius: 14px; padding: 20px 24px; margin-bottom: 36px; font-size: 13.5px; color: #334155; line-height: 1.85; }
+    .walk-route-title { font-size: 14px; font-weight: 800; color: var(--wood-brown); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .tips-section { background: var(--wood-brown); color: #ECF0F1; border-radius: 24px; padding: 36px; margin-top: 50px; }
+    .tips-title { font-size: 19px; font-weight: 800; color: #F5B041; margin-bottom: 16px; }
+    .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .tip-item h4 { font-size: 14px; font-weight: 700; color: #FFF; margin-bottom: 6px; }
+    .tip-item p { font-size: 12.5px; color: #CBD5E1; line-height: 1.65; }
+    .article-footer-cta { background: linear-gradient(135deg, #5C3D2E 0%, #301E16 100%); border-radius: 24px; padding: 36px; color: #FFF; text-align: center; margin-top: 40px; }
+    .cta-btn { display: inline-block; padding: 12px 24px; border-radius: 14px; font-size: 13px; font-weight: 800; text-decoration: none; margin: 6px; }
+    .cta-btn.primary { background: var(--turkey-red); color: #FFF; }
+    .cta-btn.secondary { background: rgba(255,255,255,0.15); color: #FFF; border: 1px solid rgba(255,255,255,0.3); }
+  
+    body { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif; background: var(--bg-cream); color: var(--slate-dark); line-height: 2.15 !important; letter-spacing: 0.04em !important; padding: 0 16px 80px; }
+    p, .reflection-content, .history-text, .place-detail, .walk-route-card { line-height: 2.15 !important; letter-spacing: 0.04em !important; }
+    .card-matrix { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 20px !important; margin: 24px 0 16px !important; }
+    @media (max-width: 640px) { .card-matrix { grid-template-columns: 1fr !important; } }
+
+  </style>
+  <link rel="canonical" href="https://taiwanroam.tw/ja/blog/chiayi-hinoki-timber-city-guide">
+</head>
+<body>
+<article class="article-container">
+  <div class="journal-badge">週末探店 Vol. 10 ｜ 昭和木都・ヒノキ建築紀行</div>
+  <h1 class="article-title">【嘉義・昭和の木都】ヒノキが香るレトロタウン：伝統の火雞肉飯、ミシュラン林聰明砂鍋魚頭と文化路夜市</h1>
+  <div class="article-subtitle-jp">The Timber Capital of Taiwan: Japanese Wooden Architecture, Culinary Craft & Cultural Night Markets</div>
+
+  <div class="history-card">
+    <div class="history-title"><span>🪵</span> <strong>阿里山の木材が集積した「木都」：日本統治時代の官舎群と林業都市の栄華</strong></div>
+    <div class="history-text">
+      阿里山で伐採されたタイワンベニヒノキが森林鉄道で運ばれ、台湾最大の木材集積・加工拠点として栄えた嘉義市。かつて街中には製材工場や木工所がひしめき、「木材都市（木都）」と称されました。営林局の職員官舎として建設された日本家屋群は、現在「檜意森活村（Hinoki Village）」として台湾最大の日本式木造建築群として完璧に修復。ヒノキの甘く清らかな芳香が漂う街並みは、日本人旅行者にとって深い安らぎとノスタルジーを感じさせる特別な風景です。
+    </div>
+  </div>
+
+  <div class="personal-reflection-box">
+    <div class="reflection-header"><span>✍️</span> <strong>旅人手記：香ばしいネギ油とターキーの旨味——何度食べても虜になる嘉義のソウルフード探訪</strong></div>
+    <div class="reflection-content">
+      <p>嘉義を訪れる最大の歓び、それは本物の「火雞肉飯（七面鳥肉ご飯）」を味わうことです。台北で食べる鶏肉飯とは全く別物で、手作業で細かく裂かれた七面鳥の肉はしっとりと柔らかく、熱々の白米の上にかけられた黄金色の鶏油と揚げ赤ネギ（紅蔥頭）のタレが渾然一体となり、一口かき込んだ瞬間に思わず笑みがこぼれます。</p>
+      <p>ヒノキの香りに包まれる檜意森活村をのんびり歩き、古い印刷工場や病院をリノベーションしたカフェで丁寧なハンドドリップ珈琲をいただく。夜になれば、活気ある文化路夜市で大鍋がグツグツと煮えたぎる林聰明の砂鍋魚頭を囲む——。素朴で飾り気のない人情味と、古い木造の街並みが織りなす穏やかなリズムに、いつも心が温かく満たされます。</p>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>🎟️</span> 嘉義旅を身軽にする予約ハブ：Klookチャーター車・ホテル・Uber Eats</h2>
+  <div class="tickets-hub-grid">
+    <a href="https://www.klook.com/?aid=106452" target="_blank" class="ticket-card">
+      <div>
+        <div style="font-size:24px;">🚐</div>
+        <div style="font-weight:800; margin-top:6px;">嘉義高鉄駅 ⇌ 嘉義市内・檜意森活村 貸切チャーター</div>
+        <div style="font-size:12px; color:#64748B; margin-top:4px;">高鉄駅から市内へ直行！故宮南院や阿里山山麓のスポットも効率よく周遊</div>
+      </div>
+      <div class="ticket-action-btn">Klook 貸切車を予約 ➔</div>
+    </a>
+    <a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="ticket-card">
+      <div>
+        <div style="font-size:24px;">🏨</div>
+        <div style="font-weight:800; margin-top:6px;">嘉義市内デザインホテル最安値検索</div>
+        <div style="font-size:12px; color:#64748B; margin-top:4px;">天成文旅・絵日之丘や耐斯王子大飯店など、快適ステイを約束する人気宿を比較</div>
+      </div>
+      <div class="ticket-action-btn" style="background:var(--cypress-gold);">Trip.com 宿検索 ➔</div>
+    </a>
+    <a href="https://onelink.one/s/YoWYV" target="_blank" class="ticket-card">
+      <div>
+        <div style="font-size:24px;">🛵</div>
+        <div style="font-weight:800; margin-top:6px;">ホテルの客室へ名物を直行デリバリー！</div>
+        <div style="font-size:12px; color:#64748B; margin-top:4px;">行列に並ばずに！名店の火雞肉飯や御香屋のグレープフルーツ緑茶をお部屋へ</div>
+      </div>
+      <div class="ticket-action-btn">Uber Eats を開く ➔</div>
+    </a>
+  </div>
+
+  <h2 class="section-header"><span>☕</span> ヒノキと古民家のレトロカフェ 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">昭和の外科医院を再生 ｜ 畳敷きの静寂</span>
+        <h3 class="place-name">霜空珈琲（Shimo Sora）</h3>
+        <p class="place-location">📍 嘉義市西区国華街132号</p>
+        <p class="place-detail">古い医院建築の細長いアプローチを抜けると広がる、無駄を削ぎ落とした侘寂の空間。季節のフルーツを使ったデザートプレートと、深煎りネルドリップ珈琲が芸術的な調和を奏でます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=霜空珈琲" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">デザイン清水モールド ｜ 建築とマドレーヌ</span>
+        <h3 class="place-name">木更 Mugeneration</h3>
+        <p class="place-location">📍 嘉義市東区成仁街189号</p>
+        <p class="place-detail">アートギャラリーのような洗練されたコンクリート空間。名物の手焼きマドレーヌや濃厚なクラシック焼きプリン、香ばしいエスプレッソトニックがクリエイターたちを惹きつけます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=木更Mugeneration" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">60年代の木造老舗印刷所 ｜ 活版印刷のぬくもり</span>
+        <h3 class="place-name">秘氏珈琲（嘉義秘氏）</h3>
+        <p class="place-location">📍 嘉義市西区興達路周辺</p>
+        <p class="place-detail">古き良き日本の昭和喫茶を再現。高い木製天井とレトロなステンドグラスの下で、マスターがサイフォンで淹れる薫り高い珈琲を味わいながらタイムスリップ気分に浸れます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=嘉義秘氏咖啡" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <div class="walk-route-card">
+    <div class="walk-route-title"><span>🚶</span> <strong>【おすすめ散策ルート①】ヒノキの香りに包まれる「木都ヘリテージ・建築散歩」</strong></div>
+    台湾最大の木造日本家屋群「檜意森活村（ヒノキ村）」で工芸品や浴衣体験 ➔ 森林鉄道のSLが憩う「阿里山車庫園区」 ➔ 木造の旧駅舎「北門駅（ティファニーブルーの木造駅）」 ➔ 昭和の製材所跡「嘉義製材所」で巨大木材加工の歴史に触れる。約2.5時間、林業都市の記憶を巡る平坦で心地よいコースです。
+  </div>
+
+  <h2 class="section-header"><span>⭐</span> ミシュラン推薦＆至高の火雞肉飯 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">ミシュランビブグルマン ｜ 10時間煮込む濃厚魚頭鍋</span>
+        <h3 class="place-name">林聰明沙鍋魚頭（中正総店）</h3>
+        <p class="place-location">📍 嘉義市東区中正路361号</p>
+        <p class="place-detail">Netflix『ストリート・グルメを求めて』で世界に知られた70年の伝説店。大鍋で豚骨スープ、白菜、湯葉、キクラゲ、特製サチャ醤とともに煮込んだ魚の頭揚げ鍋は、甘みとコクが凝縮した唯一無二の味わい。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=林聰明沙鍋魚頭" target="_blank" class="place-footer-btn">🗺️ Google Maps</a><a href="https://onelink.one/s/YoWYV" target="_blank" class="place-footer-btn" style="color:#15803D;">🛵 Uber Eats</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">地元民熱烈支持 ｜ 炭火ネギ油香る七面鳥肉飯</span>
+        <h3 class="place-name">民主火雞肉飯（ミンジュー・ターキーライス）</h3>
+        <p class="place-location">📍 嘉義市東区民族路149号</p>
+        <p class="place-detail">自家製の香ばしい油蔥酥（揚げエシャロット）と特製七面鳥オイルがご飯にしっかり絡む極上の一杯。ジューシーなモモ肉スライスと半熟目玉焼きを崩して混ぜて食べるのが地元流です。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=民主火雞肉飯" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">早朝から売り切れ ｜ 七面鳥モモ肉の角切りが絶品</span>
+        <h3 class="place-name">阿楼師火雞肉飯（アーロウシー）</h3>
+        <p class="place-location">📍 嘉義市東区延平街102号</p>
+        <p class="place-detail">夕方から深夜にかけて行列が途切れない名店。弾力のある七面鳥肉が惜しみなく盛られ、あっさりしながらも深いコクのあるタレが絶妙。濃厚な味噌汁と一緒に味わうのが定番です。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=阿樓師火雞肉飯" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <div class="walk-route-card">
+    <div class="walk-route-title"><span>🏮</span> <strong>【おすすめ散策ルート②】ローカルの夜気と美味に浸る「文化路夜市〜噴水広場食べ歩き」</strong></div>
+    夕暮れに嘉義のランドマーク「中央噴水池」へ ➔ 歩行者天国になった「文化路夜市」へ繰り出す ➔ 林聰明で熱々の沙鍋魚頭を堪能 ➔ 「源興御香屋」で生搾り果肉たっぷりの紅鑽グレープフルーツ緑茶をテイクアウト ➔ 屋台街で方塊酥（四角パイ）をお土産に選ぶ約2時間の賑やかなナイトコースです。
+  </div>
+
+  <h2 class="section-header"><span>🥢</span> 嘉義庶民の看板小吃 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">果肉たっぷり ｜ 嘉義で一番並ぶ伝説のティースタンド</span>
+        <h3 class="place-name">源興御香屋（噴水本店）</h3>
+        <p class="place-location">📍 嘉義市西区中山路321号</p>
+        <p class="place-detail">名物の「紅鑽葡萄柚緑茶（ルビーグレープフルーツ緑茶）」は、カップの半分近くが生搾り果肉で埋め尽くされ、梅干しの酸味が爽やかなアクセント。嘉義に来たら必ず飲みたい一杯。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=源興御香屋" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">豆乳を注ぐ伝統スイーツ ｜ なめらか手作り豆花</span>
+        <h3 class="place-name">阿娥豆花（アーウドウホア）</h3>
+        <p class="place-location">📍 嘉義市東区延平街沿い</p>
+        <p class="place-detail">一般的な黒糖シロップではなく、熱いまたは冷たい「濃厚豆乳」を注いでいただくのが嘉義伝統スタイル。柔らかく煮込まれたピーナッツと口の中でとろける豆花の素朴な甘みが絶品。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=阿娥豆花" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">手包みクレープ ｜ 具沢山な温かい台湾風春巻き</span>
+        <h3 class="place-name">東門潤餅（ドンメン・ルンビン）</h3>
+        <p class="place-location">📍 嘉義市東区東門市場内</p>
+        <p class="place-detail">薄くてもっちりした手焼き皮で、キャベツ、豚肉、干し豆腐、ピーナッツ粉、砂糖をたっぷり包んだ伝統食。野菜のシャキシャキ感とピーナッツの香ばしさが一口ごとに広がります。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=東門潤餅" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>🏨</span> 嘉義市内のおすすめデザイン宿 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">白亜のデザイナーズ ｜ ファミリー絶賛のホテル</span>
+        <h3 class="place-name">天成文旅・絵日之丘（Sun-Dia Hotel）</h3>
+        <p class="place-location">📍 嘉義市東区大雅路一段888号</p>
+        <p class="place-detail">積み木を重ねたような真っ白な幾何学外観。広々とした客室、無料の駄菓子バーやキッズプレイルームを備え、デザイン性と居心地の良さを両立した大人気ホテルです。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="place-footer-btn" style="color:#1D4ED8;">🏨 Trip.com 予約</a><a href="https://maps.google.com/?q=天成文旅繪日之丘" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">五つ星の格式 ｜ 日本のプリンスホテル提携</span>
+        <h3 class="place-name">耐斯王子大飯店（Nice Prince Hotel）</h3>
+        <p class="place-location">📍 嘉義市東区忠孝路600号</p>
+        <p class="place-detail">阿里山の先住民族文化をデザインに取り入れた五つ星ホテル。ショッピングモールに直結し、広々とした客室と上質な日本語対応でシニアや家族連れにも安心の滞在を提供します。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="place-footer-btn" style="color:#1D4ED8;">🏨 Trip.com 予約</a><a href="https://maps.google.com/?q=耐斯王子大飯店" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">文化路夜市徒歩2分 ｜ 観光に最高のロケーション</span>
+        <h3 class="place-name">ランディスホテル嘉義（嘉義兆品酒店）</h3>
+        <p class="place-location">📍 嘉義市西区文化路257号</p>
+        <p class="place-detail">文化路夜市まで歩いてすぐ。夜遅くまでグルメを満喫したい旅行者に最適。清潔で落ち着いた客室と美味しい朝食ビュッフェが揃い、コストパフォーマンス抜群です。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="place-footer-btn" style="color:#1D4ED8;">🏨 Trip.com 予約</a><a href="https://maps.google.com/?q=兆品酒店嘉義" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>💆</span> 散策後の足腰リフレッシュ：嘉義おすすめスパ 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">台湾屈指の名店 ｜ 痛気持ちいい本格足つぼ</span>
+        <h3 class="place-name">健康村足体養生館（嘉義店）</h3>
+        <p class="place-location">📍 嘉義市西区周辺</p>
+        <p class="place-detail">明るく清潔な空間で、漢方薬湯に足を浸しながら熟練の技師による足つぼケア。足裏の反射区を的確に刺激し、街歩きで疲れた脚を軽やかにリフレッシュします。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.klook.com/?aid=106452" target="_blank" class="place-footer-btn" style="color:#C2410C;">💆 Klook 予約</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">アロマ香る癒やし ｜ 女性専用個室完備</span>
+        <h3 class="place-name">嘉義静心SPA美学館</h3>
+        <p class="place-location">📍 嘉義市東区大雅路</p>
+        <p class="place-detail">オーガニックアロマオイルを使用した全身リンパマッサージ。静寂に包まれたサロンで、旅の移動による肩こりやむくみを優しく解きほぐします。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.klook.com/?aid=106452" target="_blank" class="place-footer-btn" style="color:#C2410C;">💆 Klook 予約</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">深夜まで営業 ｜ 文化路夜市散策のあとに</span>
+        <h3 class="place-name">老手足體養生館（文化店）</h3>
+        <p class="place-location">📍 文化路夜市そば</p>
+        <p class="place-detail">夜市で美味しいものを食べ歩いたあと、そのまま歩いて立ち寄れる抜群の立地。手頃な価格で本格的なフットマッサージを受けられます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.klook.com/?aid=106452" target="_blank" class="place-footer-btn" style="color:#C2410C;">💆 Klook 予約</a></div>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>🛍️</span> デパート＆ショッピング 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">垂楊路のランドマーク ｜ お土産とファッション</span>
+        <h3 class="place-name">遠東百貨 嘉義店</h3>
+        <p class="place-location">📍 嘉義市西区垂楊路537号</p>
+        <p class="place-detail">地下の食品館には嘉義名物の福義軒クラッカーや有名茶舗が揃い、涼しい館内で快適にお土産選びが楽しめます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=遠東百貨嘉義店" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">日系ブランド充実 ｜ レストラン街</span>
+        <h3 class="place-name">新光三越 嘉義垂楊店</h3>
+        <p class="place-location">📍 嘉義市西区垂楊路726号</p>
+        <p class="place-detail">カフェやレストラン、日本のコスメブランドも入居する都市型デパート。お買い物の合間の休憩に便利です。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=新光三越嘉義垂楊店" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">ホテル直結 ｜ 嘉義北部最大のモール</span>
+        <h3 class="place-name">耐斯広場時尚百貨（Nice Plaza）</h3>
+        <p class="place-location">📍 嘉義市東区忠孝路600号</p>
+        <p class="place-detail">ホテルに隣接し、広大な吹き抜けに多彩なショップが入居。檜意森活村からも近く観光ルートに組み込みやすい施設。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=耐斯廣場" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>🍢</span> 嘉義のおすすめ三大商圏＆夜市 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">完全歩行者天国 ｜ 台湾有数の美食ストリート</span>
+        <h3 class="place-name">文化路観光夜市</h3>
+        <p class="place-location">📍 嘉義市東区文化路沿い</p>
+        <p class="place-detail">夜になると車が遮断され、中央に屋台が立ち並ぶ活気ある夜市。林聰明沙鍋魚頭、豆乳豆花、炭火鶏肉飯など名物が勢揃い。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=文化路夜市" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">日本統治時代の木造官舎街 ｜ 文創ショップが集う</span>
+        <h3 class="place-name">檜意森活村商圏</h3>
+        <p class="place-location">📍 嘉義市東区林森東路1号</p>
+        <p class="place-detail">29棟の日本家屋に、台湾茶房、伝統スイーツ、手染め布工房、パイナップルケーキ店が点在する人気の文化商圏。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=檜意森活村" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">昭和の台所 ｜ 朝から賑わうローカル市場</span>
+        <h3 class="place-name">嘉義東市場商圏</h3>
+        <p class="place-location">📍 嘉義市東区中正路周辺</p>
+        <p class="place-detail">「嘉義人の台所」と呼ばれる百年市場。朝早くから熱々の牛モツスープ、手作り米粉、豚肉つみれスープを求める地元民で賑わいます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=嘉義東市場" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <section class="tips-section">
+    <div class="tips-title">💡 木都・嘉義を心ゆくまで楽しむためのトラベルメモ</div>
+    <div class="tips-grid">
+      <div class="tip-item">
+        <h4>1. 火雞肉飯の注文テクニック</h4>
+        <p>胸肉を使った「肉絲（細切り）」と、モモ肉を使った弾力ある「肉片（スライス）」があります。肉の旨味をしっかり味わいたい方は「火雞肉片飯」を指差し注文するのが通です。</p>
+      </div>
+      <div class="tip-item">
+        <h4>2. 林聰明沙鍋魚頭の並び方</h4>
+        <p>夕方以降は数時間待ちになることも珍しくありません。店頭の機械で整理番号（號碼牌）を早めに取得し、待ち時間を利用して文化路夜市や周辺のカフェを散策するのが賢明です。</p>
+      </div>
+      <div class="tip-item">
+        <h4>3. 高鉄嘉義駅から市内へのアクセス</h4>
+        <p>新幹線（高鉄）の嘉義駅は市内から車で約20分。高鉄利用者は無料の「BRTシャトルバス」で市内へ直行できるほか、荷物が多い場合は<strong>Klookのプライベート送迎車</strong>が便利です。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="article-footer-cta">
+    <h3>ヒノキと温もりが息づく、昭和の木都・嘉義へ</h3>
+    <p>新幹線割引・専用チャーター車・ホテルを予約して、心満たされるグルメと建築の旅を。</p>
+    <a href="https://www.klook.com/?aid=106452" target="_blank" class="cta-btn primary">🚐 Klookで嘉義チャーターを予約</a>
+    <a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="cta-btn secondary">🏨 Trip.comで嘉義の宿を探す</a>
+  </div>
+
+  <!-- 公式ブランドフッター -->
+  <div class="brand-showcase-footer" style="margin-top: 50px; padding: 32px 28px; background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%); border: 1.5px solid #FDE68A; border-radius: 24px; text-align: center; box-shadow: 0 8px 24px rgba(92, 61, 46, 0.06);">
+    <div style="font-size: 13px; font-weight: 800; color: #B45309; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;">
+      🌸 TAIWAN ROAM OFFICIAL EDITORIAL ‧ 台湾漫遊編集部
+    </div>
+    <h3 style="font-size: 20px; font-weight: 900; color: #0F172A; margin: 0 0 10px 0;">
+      台湾吃喝玩樂 ‧ 現地特派員が紡ぐ、極上の台湾紀行
+    </h3>
+    <p style="font-size: 14px; color: #475569; line-height: 2.15; margin: 0 auto 20px auto; max-width: 760px;">
+      日本統治時代のヒノキ建築群が残る「木都・嘉義」。檜意森活村から本場の絶品ターキーライス、ミシュラン推薦の林聰明砂鍋魚頭、古民家カフェまで。台湾漫遊（Taiwan Roam）編集部が日本人旅行者のために厳選した嘉義散策ガイドブック。専用チャーター車、高鉄送迎、ホテル情報をお届けします。
+    </p>
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <a href="../../cafe.html" style="padding: 10px 22px; border-radius: 12px; background: #5C3D2E; color: #FFFFFF; font-size: 13px; font-weight: 700; text-decoration: none;">☕ カフェ・週末探店トップへ</a>
+      <a href="../../index.html" style="padding: 10px 22px; border-radius: 12px; background: #FFFFFF; border: 1px solid #CBD5E1; color: #334155; font-size: 13px; font-weight: 700; text-decoration: none;">🏠 台湾吃喝玩樂 トップ</a>
+    </div>
+  </div>
+
+</article>
+</body>
+</html>

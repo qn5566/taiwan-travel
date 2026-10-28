@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【花蓮・太平洋の秘境】大理石峡谷とコバルトブルーの海：七星潭の波音、先住民族の焚き火料理と絶景断崖 ｜ 台湾漫遊 Taiwan Roam</title>
+  <meta name="description" content="台湾東海岸の秘境・花蓮と太魯閣峡谷の完全散策ガイド。中央山脈が守る大自然、清水断崖、七星潭の青灰色の丸石ビーチ、離岸流・一発波（瘋狗浪）の注意点、アミ族の伝統料理、Klookチャーター＆ホテル予約まで徹底網羅。">
+  <meta name="keywords" content="花蓮 観光, 太魯閣峡谷, 七星潭, 清水断崖, 花蓮 カフェ 海景, 原住民 料理 花蓮, シルクスプレイス太魯閣, Klook 花蓮 チャーター">
+  <style>
+    :root {
+      --bg-cream: #FDFBF7;
+      --card-bg: #FFFFFF;
+      --pacific-blue: #0284C7;
+      --deep-ocean: #0C4A6E;
+      --marble-stone: #475569;
+      --warning-red: #DC2626;
+      --amber-gold: #D97706;
+      --slate-dark: #2C3E50;
+      --border-light: #EADBC8;
+      --shadow-soft: 0 10px 28px rgba(12, 74, 110, 0.08);
+      --radius-round: 20px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    .article-container { max-width: 1080px; margin: 40px auto 0; background: var(--card-bg); border-radius: 32px; border: 1px solid var(--border-light); padding: 48px; box-shadow: var(--shadow-soft); }
+    @media (max-width: 768px) { .article-container { padding: 22px; border-radius: 20px; margin-top: 16px; } }
+    .journal-badge { display: inline-flex; align-items: center; gap: 6px; background: #E0F2FE; color: #0369A1; font-size: 12px; font-weight: 800; padding: 6px 16px; border-radius: 999px; text-transform: uppercase; margin-bottom: 16px; }
+    .article-title { font-size: 32px; font-weight: 900; color: var(--deep-ocean); line-height: 1.4; margin-bottom: 8px; }
+    .article-subtitle-jp { font-size: 15px; font-weight: 600; color: var(--pacific-blue); margin-bottom: 24px; font-style: italic; }
+    .history-card { background: #F8FAFC; border-radius: 18px; border: 1px solid var(--border-light); padding: 26px 30px; margin-bottom: 30px; }
+    .history-title { font-size: 16px; font-weight: 800; color: var(--deep-ocean); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .history-text { font-size: 14px; color: #4A5568; line-height: 1.85; }
+    .personal-reflection-box { background: #FFFDF9; border-left: 5px solid var(--pacific-blue); border-radius: 18px; padding: 26px 30px; margin-bottom: 24px; box-shadow: 0 4px 16px rgba(2, 132, 199, 0.05); }
+    .reflection-header { font-size: 15px; font-weight: 800; color: var(--deep-ocean); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .reflection-content { font-size: 14.5px; color: #334155; line-height: 1.9; }
+    .callout-hazard { background: #FEF2F2; border: 1px solid #FECACA; border-left: 5px solid var(--warning-red); border-radius: 16px; padding: 20px 24px; margin-bottom: 36px; font-size: 13.5px; color: #991B1B; line-height: 1.8; }
+    h2.section-header { font-size: 22px; font-weight: 800; color: var(--deep-ocean); margin: 48px 0 20px; border-bottom: 2px solid #E2E8F0; padding-bottom: 12px; }
+    .tickets-hub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin: 24px 0 36px; }
+    .ticket-card { background: #FFF; border: 1px solid var(--border-light); border-radius: var(--radius-round); padding: 18px; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+    .ticket-card:hover { transform: translateY(-4px); border-color: var(--pacific-blue); box-shadow: 0 12px 24px rgba(12, 74, 110, 0.12); }
+    .ticket-action-btn { font-size: 12px; font-weight: 700; color: #FFF; background: var(--deep-ocean); padding: 8px 12px; border-radius: 10px; text-align: center; margin-top: 12px; }
+    
+    .place-card { background: #FFF; border-radius: var(--radius-round); border: 1px solid var(--border-light); padding: 22px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 6px 18px rgba(0,0,0,0.03); }
+    .place-badge { display: inline-block; font-size: 11px; font-weight: 800; padding: 3px 10px; border-radius: 8px; margin-bottom: 8px; background: #E0F2FE; color: #0369A1; }
+    .place-name { font-size: 18px; font-weight: 800; color: var(--slate-dark); margin-bottom: 4px; }
+    .place-location { font-size: 12px; color: #7F8C8D; margin-bottom: 12px; }
+    .place-detail { font-size: 13px; color: #475569; margin-bottom: 18px; line-height: 1.65; }
+    .place-btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .place-footer-btn { flex: 1; text-align: center; padding: 9px 12px; border-radius: 12px; font-size: 12px; font-weight: 700; text-decoration: none; border: 1px solid var(--border-light); background: #F8FAFC; color: var(--deep-ocean); }
+    .walk-route-card { background: #F4F8FA; border-left: 4px solid var(--pacific-blue); border-radius: 14px; padding: 20px 24px; margin-bottom: 36px; font-size: 13.5px; color: #334155; line-height: 1.85; }
+    .walk-route-title { font-size: 14px; font-weight: 800; color: var(--deep-ocean); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .tips-section { background: var(--deep-ocean); color: #ECF0F1; border-radius: 24px; padding: 36px; margin-top: 50px; }
+    .tips-title { font-size: 19px; font-weight: 800; color: #F5B041; margin-bottom: 16px; }
+    .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .tip-item h4 { font-size: 14px; font-weight: 700; color: #FFF; margin-bottom: 6px; }
+    .tip-item p { font-size: 12.5px; color: #CBD5E1; line-height: 1.65; }
+    .article-footer-cta { background: linear-gradient(135deg, #0C4A6E 0%, #06233B 100%); border-radius: 24px; padding: 36px; color: #FFF; text-align: center; margin-top: 40px; }
+    .cta-btn { display: inline-block; padding: 12px 24px; border-radius: 14px; font-size: 13px; font-weight: 800; text-decoration: none; margin: 6px; }
+    .cta-btn.primary { background: #E05A47; color: #FFF; }
+    .cta-btn.secondary { background: rgba(255,255,255,0.15); color: #FFF; border: 1px solid rgba(255,255,255,0.3); }
+  
+    body { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif; background: var(--bg-cream); color: var(--slate-dark); line-height: 2.15 !important; letter-spacing: 0.04em !important; padding: 0 16px 80px; }
+    p, .reflection-content, .history-text, .place-detail, .walk-route-card { line-height: 2.15 !important; letter-spacing: 0.04em !important; }
+    .card-matrix { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 20px !important; margin: 24px 0 16px !important; }
+    @media (max-width: 640px) { .card-matrix { grid-template-columns: 1fr !important; } }
+
+  </style>
+  <link rel="canonical" href="https://taiwanroam.tw/ja/blog/hualien-pacific-taroko-guide">
+</head>
+<body>
+<article class="article-container">
+  <div class="journal-badge">週末探店 Vol. 11 ｜ 台湾東海岸・大理石峡谷紀行</div>
+  <h1 class="article-title">【花蓮・太平洋の秘境】大理石峡谷とコバルトブルーの海：七星潭の波音、先住民族の焚き火料理と絶景断崖</h1>
+  <div class="article-subtitle-jp">Where Mountains Plunge into the Ocean Abyss: Marble Gorges, Deadly Rogue Waves & Wild Hearth</div>
+
+  <div class="history-card">
+    <div class="history-title"><span>⛰️</span> <strong>中央山脈が創り出した「護国の要塞」と、数億年の地殻変動が削った純白の回廊</strong></div>
+    <div class="history-text">
+      フィリピン海プレートとユーラシアプレートが激しく衝突し、3,000メートル級の険峰が海から垂直にそびえ立つ花蓮。中央山脈は「護国神山」として猛烈な台風を遮り、島を守り続けてきました。立霧渓が気の遠くなる歳月をかけて大理石の岩盤を深さ千メートルまで下切侵食した「太魯閣（タロコ）峡谷」は、まさに地球の力そのもの。また、アミ族が海神と祖霊に祈りを捧げる「海祭場」の文化や、清水断崖の深い紺碧の海など、西部とは完全に異なる圧倒的なダイナミズムを誇ります。
+    </div>
+  </div>
+
+  <div class="personal-reflection-box">
+    <div class="reflection-header"><span>✍️</span> <strong>旅人手記：欧米のバックパッカーが集まる楽園——切り立つ断崖、隠れ家岩、そして先住民族の温もり</strong></div>
+    <div class="reflection-content">
+      <p>近年、花蓮を訪れるたびに驚かされるのは、街や山道に数多くの欧米人トラベラーが溢れ、まるで異国に迷い込んだような開放的な空気が流れていることです。独身時代は車を走らせて断崖絶壁のスリルを味わったり、エメラルドグリーンの渓谷滝に飛び込んだりしていましたが、子どもができてからは、のんびりと海崖谷で潮風を浴び、七星潭の丸石を積み上げる穏やかな時間を楽しんでいます。</p>
+      <p>花蓮には知られざる絶景がまだまだ隠されています。例えばアミ族の伝統的な海祭場からススキの茂みを10分ほど抜けると現れる「横顔岩（人臉側面岩）」の秘境。地震が多い地勢ではありますが、それゆえに手つかずの大自然が息づき、何度訪れても畏敬の念と癒やしを与えてくれる、私にとって台湾で最も魂が震える場所です。</p>
+    </div>
+  </div>
+
+  <div class="callout-hazard">
+    ⚠️ <strong>【重要・七星潭の一発波（瘋狗浪）警戒】</strong><br>
+    七星潭は砂浜ではなく、数メートル先が深さ数十メートルの海溝へと急激に落ち込む「急深型海岸」です。沖合で増幅された予想不能な巨大高波「瘋狗浪（ローグウェーブ）」が、乾いた砂浜の上まで一瞬で押し寄せ、旅行者が引き波に巻き込まれる事故が後を絶ちません。<strong>絶対に波打ち際に近づいたり海に入ったりせず、安全な乾いた小石ゾーンに座って海を鑑賞してください。</strong>
+  </div>
+
+  <h2 class="section-header"><span>🎟️</span> 花蓮の旅を安全・快適にする予約ハブ：Klookチャーター・ホテル・Uber Eats</h2>
+  <div class="tickets-hub-grid">
+    <a href="https://www.klook.com/?aid=106452" target="_blank" class="ticket-card">
+      <div>
+        <div style="font-size:24px;">🚐</div>
+        <div style="font-weight:800; margin-top:6px;">花蓮駅 ⇌ 太魯閣・清水断崖 貸切チャーター車</div>
+        <div style="font-size:12px; color:#64748B; margin-top:4px;">山道や落石エリアも熟練ドライバーが安全案内！燕子口・九曲洞・砂卡礑を完全踏破</div>
+      </div>
+      <div class="ticket-action-btn">Klook 貸切車を予約 ➔</div>
+    </a>
+    <a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="ticket-card">
+      <div>
+        <div style="font-size:24px;">🏨</div>
+        <div style="font-weight:800; margin-top:6px;">太魯閣の峡谷ホテル＆太平洋オーシャンビュー宿</div>
+        <div style="font-size:12px; color:#64748B; margin-top:4px;">シルクスプレイス太魯閣（晶英）や七星潭ホテルなど、絶景リゾート宿を最安値比較</div>
+      </div>
+      <div class="ticket-action-btn" style="background:var(--pacific-blue);">Trip.com 宿検索 ➔</div>
+    </a>
+    <a href="https://onelink.one/s/YoWYV" target="_blank" class="ticket-card">
+      <div>
+        <div style="font-size:24px;">🛵</div>
+        <div style="font-weight:800; margin-top:6px;">ホテルの部屋へ！花蓮名物デリバリー</div>
+        <div style="font-size:12px; color:#64748B; margin-top:4px;">行列に並ばずに！熱々の炸弾葱油餅（半熟卵入り葱パイ）や蒸し餃子をお届け</div>
+      </div>
+      <div class="ticket-action-btn">Uber Eats を開く ➔</div>
+    </a>
+  </div>
+
+  <h2 class="section-header"><span>☕</span> 太平洋を見下ろす絶景カフェ 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">断崖のグランピング風 ｜ 180度パノラマテラス</span>
+        <h3 class="place-name">海崖谷（HAYAKU Glamping Cafe）</h3>
+        <p class="place-location">📍 花蓮県寿豊郷塩寮大坑51-5号</p>
+        <p class="place-detail">海岸沿いの崖の上に広がるラグジュアリーなオープンエアカフェ。カラフルなクッションソファに寝転びながら、目の前に広がる真っ青な太平洋の白波と潮風を全身で楽しめます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=海崖谷" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">透明バブルブランコ ｜ フォトジェニックの聖地</span>
+        <h3 class="place-name">山度空間（Mountain & Ocean Space）</h3>
+        <p class="place-location">📍 寿豊郷塩寮大坑57号</p>
+        <p class="place-detail">海崖谷の隣、森の坂道を登った先に広がる展望デッキ。透明な球体ブランコに座って空と海が溶け合う写真を撮ることができ、自家製フルーツティーで爽やかな喉越しを味わえます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=山度空間" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">七星潭を見渡す高台 ｜ 濃厚な羊乳珈琲</span>
+        <h3 class="place-name">原野牧場（Yuanyeh Farm Cafe）</h3>
+        <p class="place-location">📍 新城郷大漢村七星街9号</p>
+        <p class="place-detail">流木で組まれた温もりある木造ロッジ。大きなガラス窓の向こうには七星潭の丸石ビーチが広がり、自社牧場のフレッシュな山羊ミルクで作る特製カプチーノとチーズケーキが名物。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=原野牧場" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <div class="walk-route-card">
+    <div class="walk-route-title"><span>🚶</span> <strong>【おすすめ散策ルート①】大理石の回廊を歩く「太魯閣・燕子口〜砂卡礑エメラルド歩道」</strong></div>
+    専用車で太魯閣国家公園へ ➔ ヘルメットを着用し「燕子口歩道」の洞窟から大理石の峡谷と立霧渓の急流を見下ろす ➔ 碧緑色の澄み切った清流沿いに木道が続く「砂卡礑歩道」へ。岩肌の美しい地層のうねりとマイナスイオンを浴びながら歩く約2時間の神秘のルートです。
+  </div>
+
+  <h2 class="section-header"><span>⭐</span> 先住民族の焚き火料理＆極上海鮮 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">タロコ族の木彫工房 ｜ 薪焼きイノシシ肉</span>
+        <h3 class="place-name">達基力部落屋（Dageeli Restaurant）</h3>
+        <p class="place-location">📍 秀林郷崇徳村下台地96号（太魯閣入口近く）</p>
+        <p class="place-detail">先住民族の伝統技法を受け継ぐアートレストラン。薪の直火で炙ったジューシーな豚バラ肉、自生する野生山菜（過猫）、バナナの葉で包んだモチ米ご飯など、大地の力強い味わいを堪能できます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=達基力部落屋" target="_blank" class="place-footer-btn">🗺️ Google Maps</a><a href="https://www.klook.com/?aid=106452" target="_blank" class="place-footer-btn" style="color:#C2410C;">🚐 貸切車手配</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">麺屋の顔をした鮮魚店 ｜ 煮魚とハマグリ山盛り</span>
+        <h3 class="place-name">欣欣麵館（XinXin Seafood）</h3>
+        <p class="place-location">📍 花蓮市民国路125号</p>
+        <p class="place-detail">「麺屋だけど麺だけ頼むとお断り」というユニークな看板で知られる超人気海鮮食堂。店頭に並ぶその日の朝獲れ地魚、山盛りの茹でエビ、タコの湯引きを豪快かつリーズナブルに味わえます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=欣欣麵館" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">アミ族の薬草文化 ｜ 旬の野生山菜鍋</span>
+        <h3 class="place-name">バチク野生菜料理坊（巴奇克原住民野生菜）</h3>
+        <p class="place-location">📍 寿豊郷塩寮海岸</p>
+        <p class="place-detail">アミ族の女性たちが山から採集してきた十数種類の薬効ある野生山菜を、旨味たっぷりの地鶏スープでサッとくぐらせていただく名物料理。苦味の奥にある爽やかな甘みに体が芯からデトックスされます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=巴奇克原住民野菜料理坊" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <div class="walk-route-card">
+    <div class="walk-route-title"><span>🌊</span> <strong>【おすすめ散策ルート②】青い海と丸石の波音「七星潭〜新城老街スロー散歩」</strong></div>
+    七星潭の乾いた高台ベンチで太平洋の波音と丸石が擦れ合う「シャラシャラ」という音に耳を傾ける（高波に注意） ➔ 新城老街へ移動し、古民家を活用した「練習曲書店」を覗く ➔ 老舗「佳興氷果室」でレモン皮ごと搾った甘酸っぱい名物レモンジュースで喉を潤す約1.5時間の爽快コースです。
+  </div>
+
+  <h2 class="section-header"><span>🥢</span> 花蓮名物ローカル小吃 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">皮ごと丸搾り ｜ 練乳入りのまろやかレモン汁</span>
+        <h3 class="place-name">佳興冰果室（新城老街）</h3>
+        <p class="place-location">📍 新城郷博愛路22号</p>
+        <p class="place-detail">無農薬レモンを皮ごと搾り、隠し味に練乳を加えることで苦味を消し、驚くほどまろやかでコクのある酸味を実現した伝説のドリンク。具沢山の海鮮焼きそばと一緒に味わうのが定番。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=佳興冰果室" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">半熟卵がトロリ ｜ 揚げたて熱々の看板葱パイ</span>
+        <h3 class="place-name">炸弾葱油餅（黄車・復興街）</h3>
+        <p class="place-location">📍 花蓮市復興街102号</p>
+        <p class="place-detail">高温の油で揚げ膨らんだサクサクのパイ生地の中に、トロトロの半熟卵が閉じ込められています。特製のニンニク甘辛ダレをたっぷり塗って、火傷に気をつけながら一口かじる至福の味。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=炸彈蔥油餅黃車" target="_blank" class="place-footer-btn">🗺️ Google Maps</a><a href="https://onelink.one/s/YoWYV" target="_blank" class="place-footer-btn" style="color:#15803D;">🛵 Uber Eats</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">手包み蒸したて小籠包 ｜ 一口サイズのジューシー肉まん</span>
+        <h3 class="place-name">公正包子店（仁愛街新店舗）</h3>
+        <p class="place-location">📍 花蓮市仁愛街46号</p>
+        <p class="place-detail">薄皮の小籠包とは異なり、ふかふかの肉まん生地で豚肉餡を包んだ一口肉まん（小籠包）。甘みのある肉汁がじゅわっと染み出し、1個5元前後という驚異の安さで何個でも食べられます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=公正包子店" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>🏨</span> 峡谷と海に抱かれる特選リゾート宿 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">太魯閣峡谷唯一の五つ星 ｜ 屋上温水峡谷プール</span>
+        <h3 class="place-name">太魯閣晶英酒店（Silks Place Taroko）</h3>
+        <p class="place-location">📍 秀林郷天祥路18号</p>
+        <p class="place-detail">大理石の峡谷と立霧渓の清流に三方を囲まれた最高峰ホテル。屋上の温水インフィニティプールから見上げる峡谷の断崖、夜の屋外星空映画館や焚き火バーなど、唯一無二の滞在を約束します。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="place-footer-btn" style="color:#1D4ED8;">🏨 Trip.com 予約</a><a href="https://maps.google.com/?q=太魯閣晶英酒店" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">全室バルコニーから海を一望 ｜ 七星潭の波音で目覚める</span>
+        <h3 class="place-name">七星潭渡假飯店（Hotel Seashine）</h3>
+        <p class="place-location">📍 新城郷明潭街10号</p>
+        <p class="place-detail">七星潭ビーチの目の前に位置。南欧風のテラコッタ建築から太平洋の日の出を鑑賞できます。無料レンタル自転車を借りて、朝の潮風を感じながら海岸サイクリングロードを走るのに最適。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="place-footer-btn" style="color:#1D4ED8;">🏨 Trip.com 予約</a><a href="https://maps.google.com/?q=七星潭渡假飯店" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">バリ島風ラグジュアリー ｜ プライベートプール付きヴィラ</span>
+        <h3 class="place-name">花蓮スワンバレーリゾート（スロースイート）</h3>
+        <p class="place-location">📍 寿豊郷塩寮海岸</p>
+        <p class="place-detail">広大な太平洋を正面に望むプライベートヴィラ。南国の植物に囲まれたプライベートジャグジーでくつろぎながら、波の音と満天の星空に包まれる大人の隠れ家リゾートです。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="place-footer-btn" style="color:#1D4ED8;">🏨 Trip.com 予約</a></div>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>💆</span> トレッキングの疲れをほぐす：花蓮スパ 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">峡谷ホテル直営 ｜ 極上アロママッサージ</span>
+        <h3 class="place-name">太魯閣晶英 沐蘭SPA（Wellspring Spa）</h3>
+        <p class="place-location">📍 シルクスプレイス太魯閣館内</p>
+        <p class="place-detail">峡谷の自然音を聴きながら受ける完全個室トリートメント。天然精油を用いたリンパマッサージとハーブティーで、太魯閣トレッキング後の筋肉疲労を究極の技術で鎮静させます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.klook.com/?aid=106452" target="_blank" class="place-footer-btn" style="color:#C2410C;">💆 Klook スパ予約</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">花蓮駅前すぐ ｜ 痛気持ちいい本格足つぼ</span>
+        <h3 class="place-name">大瀚足體養生會館（花蓮站前旗艦店）</h3>
+        <p class="place-location">📍 花蓮駅東口徒歩3分</p>
+        <p class="place-detail">電車に乗る前後に立ち寄れる抜群の立地。清潔で広々とした店内で、漢方足湯に浸かりながら熟練の足つぼ刺激を受けられます。山歩きで張った足腰がすっきりリセット。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.klook.com/?aid=106452" target="_blank" class="place-footer-btn" style="color:#C2410C;">💆 Klook 予約</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">アジアンリゾート風 ｜ 深夜まで営業</span>
+        <h3 class="place-name">足松養生会館（花蓮店）</h3>
+        <p class="place-location">📍 花蓮市中正路周辺</p>
+        <p class="place-detail">東大門夜市からほど近い人気サロン。日式とタイ式の手技を組み合わせた全身指圧と足湯マッサージで、夜市歩きのあとのリフレッシュに最適です。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://www.klook.com/?aid=106452" target="_blank" class="place-footer-btn" style="color:#C2410C;">💆 Klook 予約</a></div>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>🛍️</span> 花蓮のお土産＆ショッピング 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">花蓮最大のショッピングモール ｜ デパ地下グルメ</span>
+        <h3 class="place-name">遠東百貨 花蓮店（Far Eastern）</h3>
+        <p class="place-location">📍 花蓮市和平路581号</p>
+        <p class="place-detail">花蓮市内唯一のフルスケールデパート。地下には花蓮名物の剥皮辣椒（青唐辛子の醤油漬け）や、花蓮薯、銘茶を取り扱う特産品コーナーが充実。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=遠東百貨花蓮店" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">伝統手づくり餅 ｜ アズキ・ピーナッツ餡がぎっしり</span>
+        <h3 class="place-name">曽記麻糬（ツォンジー・ムーチー 総本店）</h3>
+        <p class="place-location">📍 花蓮駅前および市内各所</p>
+        <p class="place-detail">花蓮名物といえば柔らかい手作りモチ！毎日店頭で職人がつき立てのモチ米で新鮮な黒ゴマや小豆を包み込みます。賞味期限当日の出来立て生モチは格別の柔らかさ。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=曾記麻糬" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">日本統治時代の木造将校宿舎群 ｜ 文創セレクトショップ</span>
+        <h3 class="place-name">将軍府1936 園区（歴史建築群）</h3>
+        <p class="place-location">📍 花蓮市中正路622号</p>
+        <p class="place-detail">ヒノキ造りの日本軍将校宿舎を美しく再生した話題のカルチャーパーク。地元アーティストの陶芸や手織り布、台湾クラフトビールや珈琲スタンドが集まるお洒落な散策スポット。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=將軍府1936" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <h2 class="section-header"><span>🍢</span> 夜の熱気と原住民グルメ：おすすめ夜市＆商圏 3選</h2>
+  <div class="card-matrix">
+    <div class="place-card">
+      <div>
+        <span class="place-badge">東台湾最大の夜の祭典 ｜ 四大エリアが合体した巨大夜市</span>
+        <h3 class="place-name">東大門国際観光夜市</h3>
+        <p class="place-location">📍 花蓮市中山路50号</p>
+        <p class="place-detail">敷地が広く歩道が石畳で舗装された清潔な夜市。「原住民一条街」では竹筒ご飯や焼きイノシシ肉、「福町夜市」では新鮮なフルーツジュースや海鮮焼きが楽しめます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=東大門夜市" target="_blank" class="place-footer-btn">🗺️ Google Maps</a><a href="https://onelink.one/s/YoWYV" target="_blank" class="place-footer-btn" style="color:#15803D;">🛵 Uber Eats</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">グルメ激戦区 ｜ 花蓮の老舗飲食店が密集する交差点</span>
+        <h3 class="place-name">花蓮ゴールデントライアングル商圏（金三角）</h3>
+        <p class="place-location">📍 中正路・中華路・中山路の三角地帯</p>
+        <p class="place-detail">花蓮の旧市街の中心。夜遅くまで賑わうワンタン（扁食）の名店、肉まん屋、お土産屋が集中し、歩いて食べ歩きとお買い物をするのに最高のエリアです。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=花蓮金三角商圈" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+    <div class="place-card">
+      <div>
+        <span class="place-badge">レトロな写真館とお茶 ｜ ノスタルジックな古道</span>
+        <h3 class="place-name">新城老街商圏</h3>
+        <p class="place-location">📍 新城郷博愛路周辺（太魯閣駅寄り）</p>
+        <p class="place-detail">太魯閣の玄関口に位置する静かな老街。日本統治時代の神社跡（新城天主堂）や、佳興氷果室、古書店が点在し、のんびりと昭和のタイムスリップ気分に浸れます。</p>
+      </div>
+      <div class="place-btn-row"><a href="https://maps.google.com/?q=新城老街" target="_blank" class="place-footer-btn">🗺️ Google Maps</a></div>
+    </div>
+  </div>
+
+  <section class="tips-section">
+    <div class="tips-title">💡 花蓮・太魯閣の旅を120%安全に楽しむためのトラベルメモ</div>
+    <div class="tips-grid">
+      <div class="tip-item">
+        <h4>1. 太魯閣峡谷のヘルメット着用</h4>
+        <p>地震や雨水による自然の落石を防ぐため、燕子口や九曲洞など特定歩道では貸出ヘルメットの着用が推奨・義務付けられています。歩行中は必ず頭上と足元に注意を払いましょう。</p>
+      </div>
+      <div class="tip-item">
+        <h4>2. 台湾東部特有の「小黒蚊（ヌカカ）」対策</h4>
+        <p>渓流沿いや草むらには「小黒蚊」と呼ばれる極小の吸血昆虫がいます。一般的な蚊よけは効きにくいため、DEETやイカリジン配合の強力な虫除けスプレーを持参し、長ズボンを着用してください。</p>
+      </div>
+      <div class="tip-item">
+        <h4>3. 台鉄チケットの事前確保</h4>
+        <p>台北から花蓮を結ぶ特急列車（新自強号・普悠瑪号）は乗車日の28日前（金曜は30日前）に発売されます。満席になりやすいため、Trip.com等で早めにシートを確保しましょう。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="article-footer-cta">
+    <h3>地球の息吹とコバルトブルーの絶景・花蓮へ</h3>
+    <p>安全な専用チャーター車・峡谷五つ星ホテル・列車チケットを手配して、一生心に残る東海岸の旅へ。</p>
+    <a href="https://www.klook.com/?aid=106452" target="_blank" class="cta-btn primary">🚐 Klookで太魯閣チャーターを予約</a>
+    <a href="https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="cta-btn secondary">🏨 Trip.comで花蓮の宿を探す</a>
+  </div>
+
+  <!-- 公式ブランドフッター -->
+  <div class="brand-showcase-footer" style="margin-top: 50px; padding: 32px 28px; background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border: 1.5px solid #BAE6FD; border-radius: 24px; text-align: center; box-shadow: 0 8px 24px rgba(12, 74, 110, 0.06);">
+    <div style="font-size: 13px; font-weight: 800; color: #0284C7; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;">
+      🌸 TAIWAN ROAM OFFICIAL EDITORIAL ‧ 台湾漫遊編集部
+    </div>
+    <h3 style="font-size: 20px; font-weight: 900; color: #0F172A; margin: 0 0 10px 0;">
+      台湾吃喝玩樂 ‧ 現地特派員が紡ぐ、極上の台湾紀行
+    </h3>
+    <p style="font-size: 14px; color: #475569; line-height: 2.15; margin: 0 auto 20px auto; max-width: 760px;">
+      フィリピン海プレートが削り出した太魯閣峡谷の大理石回廊から、七星潭の波音、清水断崖の深い紺碧の海、先住民族アミ族・タロコ族の伝統料理まで。台湾漫遊（Taiwan Roam）編集部が日本人旅行者のために厳選した花蓮完全ガイドブック。専用チャーター車、峡谷五つ星ホテル、安全な旅行情報をお届けします。
+    </p>
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <a href="../../cafe.html" style="padding: 10px 22px; border-radius: 12px; background: #0C4A6E; color: #FFFFFF; font-size: 13px; font-weight: 700; text-decoration: none;">☕ カフェ・週末探店トップへ</a>
+      <a href="../../index.html" style="padding: 10px 22px; border-radius: 12px; background: #FFFFFF; border: 1px solid #CBD5E1; color: #334155; font-size: 13px; font-weight: 700; text-decoration: none;">🏠 台湾吃喝玩樂 トップ</a>
+    </div>
+  </div>
+
+</article>
+</body>
+</html>

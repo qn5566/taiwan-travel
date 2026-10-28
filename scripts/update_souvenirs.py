@@ -1,0 +1,575 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+update_souvenirs.py
+Updates souvenirs_data.js and souvenir.html:
+- Prioritizes Klook products for all souvenir/pastry/tea items.
+- Updates Tea category to use authentic Klook tea experiences/products.
+- Sets button text: '🛍️ 訂購直送飯店 ➔' for Klook products.
+- Non-Klook items: button says '🛵 訂購外送 ➔' and links to https://onelink.one/s/YoWYV.
+"""
+
+import json
+import os
+import re
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SOUVENIRS_JS = os.path.join(BASE_DIR, "台灣吃喝玩樂網頁版", "js", "souvenirs_data.js")
+SOUVENIR_HTML = os.path.join(BASE_DIR, "台灣吃喝玩樂網頁版", "souvenir.html")
+
+DELIVERY_REDIRECT = "https://onelink.one/s/YoWYV"
+
+def build_souvenirs_data():
+    categories = [
+        {
+            "id": "pastry",
+            "icon": "🍍",
+            "name": "鳳梨酥與糕點",
+            "shortName": "鳳梨酥與糕點",
+            "channel": "Klook 官方直送飯店 / 全台宅配 ＋ 外送通道",
+            "badge": "外籍旅客指名 No.1 必買",
+            "desc": "全年熱銷破億顆的台灣國民冠軍之光！精選佳德、小潘、微熱山丘、糖村、海邊走走、郭元益、聖瑪莉等官方名店直送飯店服務。",
+            "cta": "🛍️ 訂購直送飯店 ➔",
+            "defaultUrl": "https://www.klook.com/zh-TW/search/result/?query=%E4%BC%B4%E6%89%8B%E7%A6%AE&search_scope=main_search&aid=106452",
+            "items": [
+                {
+                    "rank": 1,
+                    "brand": "佳德糕餅",
+                    "name": "原味鳳梨酥冠軍禮盒 (全台宅配 / 飯店直送)",
+                    "enName": "ChiaTe Classic Pineapple Pastry",
+                    "origin": "台北 松山區",
+                    "desc": "台北第一名排隊名店！皮薄餡多鬆香不黏牙，外國旅客回國伴手禮指定第一名，支援直送全台飯店及機場領取。",
+                    "price": "NT$ 312 起",
+                    "rating": "4.9★",
+                    "reviews": "25,150+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/tleeetz29fahtcfq9pxx.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/26641-chia-te-bakery-pineapple-cake-souvenir-set-delivery-taipei?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                },
+                {
+                    "rank": 2,
+                    "brand": "小潘蛋糕坊",
+                    "name": "招牌鳳凰酥 (有蛋黃 / 全台宅配直送飯店)",
+                    "enName": "Pan's Cake Phoenix Pastry",
+                    "origin": "新北 板橋區",
+                    "desc": "板橋巷弄排隊神店！鹹香蛋黃揉合冬瓜鳳梨餡，外皮入口即化濃郁奶香，免排隊直配下榻飯店大廳。",
+                    "price": "NT$ 377 起",
+                    "rating": "4.8★",
+                    "reviews": "24,300+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/lqzrcpabnn4m7rdiuxas.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/23075-pans-cake-pineapple-pastry-souvenir-set-taipei?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                },
+                {
+                    "rank": 3,
+                    "brand": "糖村",
+                    "name": "法式超人氣牛軋糖經典包 (全台宅配 / 飯店直送)",
+                    "enName": "Sugar & Spice French Nougat",
+                    "origin": "台中 西屯區",
+                    "desc": "榮獲全球零食榜推薦！嚴選加州杏仁粒與純天然奶油，香濃不黏牙、越嚼越香的經典滋味。",
+                    "price": "NT$ 480 起",
+                    "rating": "4.9★",
+                    "reviews": "18,400+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/nu4kgoykhgj7i8xclmsy.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/85580-sugar-and-spice-french-nougat?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                },
+                {
+                    "rank": 4,
+                    "brand": "海邊走走",
+                    "name": "經典肉鬆蛋捲 & 花生愛餡蛋捲 (宅配直送飯店)",
+                    "enName": "HiWalk Stuffed Egg Rolls",
+                    "origin": "新北 淡水區",
+                    "desc": "淡水文創手工厚蛋捲代表！純手工煎烤不加一滴水，灌入濃郁花生醬與後腿豬肉鬆，口感酥脆扎實。",
+                    "price": "NT$ 1,000 起",
+                    "rating": "4.8★",
+                    "reviews": "12,900+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/mmm1isndzwxjgzgl3b6e.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/89958-hiwalk-egg-rolls-home-delivery-airport-pick-up?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                },
+                {
+                    "rank": 5,
+                    "brand": "微熱山丘",
+                    "name": "經典土鳳梨酥禮盒 (10入裝)",
+                    "enName": "SunnyHills Pineapple Cakes",
+                    "origin": "南投 南投市",
+                    "desc": "100% 台灣在地土鳳梨熬煮纖維內餡，搭配天然紐西蘭奶油烘烤香酥外皮，酸甜層次分明。",
+                    "price": "NT$ 450",
+                    "rating": "4.9★",
+                    "reviews": "26,000+ 好評",
+                    "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop",
+                    "buyUrl": DELIVERY_REDIRECT,
+                    "isKlook": False,
+                    "ctaText": "🛵 訂購外送 ➔"
+                },
+                {
+                    "rank": 6,
+                    "brand": "聖瑪莉",
+                    "name": "一口鳳梨酥經典禮盒 (全台宅配 / 機場領取)",
+                    "enName": "Sunmerry Bite-Size Pineapple Cakes",
+                    "origin": "台北 大安區",
+                    "desc": "一口一顆剛剛好的精巧比例！外皮酥鬆細膩，冬瓜鳳梨餡甘甜微酸，外籍旅客旅行伴手禮首選。",
+                    "price": "NT$ 390 起",
+                    "rating": "4.7★",
+                    "reviews": "9,800+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/ldys70lczlf3dwbhhske.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/23753-sunmerry-pineapple-shortcake-souvenir-set-taipei?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                },
+                {
+                    "rank": 7,
+                    "brand": "大黑松小倆口",
+                    "name": "牛軋糖創始名店精裝禮盒 (全台宅配)",
+                    "enName": "Salico Foods Nougat Selection",
+                    "origin": "台北 萬華區",
+                    "desc": "台灣第一家牛軋糖老字號！保留一甲子的傳統製糖工藝，奶香濃醇、花生飽滿香脆。",
+                    "price": "NT$ 320 起",
+                    "rating": "4.7★",
+                    "reviews": "8,400+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/meuwbopa8njaexxgdmf9.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/76047-salico-foods-butter-nougat-chestnut-candy-peanut-nougat-nougat-crackers-box-taiwan?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                },
+                {
+                    "rank": 8,
+                    "brand": "黑橋牌",
+                    "name": "香腸博物館手作肉乾與經典伴手禮",
+                    "enName": "Black Bridge Sausage & Pork Jerky",
+                    "origin": "台南 南區",
+                    "desc": "台灣肉製品傳奇標竿！精選優質後腿豬肉以獨門醬汁慢火烘烤，厚醇多汁、香甜鹹香兼具。",
+                    "price": "NT$ 495 起",
+                    "rating": "4.8★",
+                    "reviews": "11,200+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/wyxxzbexnefhatqxiu4s.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/41178-tainan-black-bridge-sausage-museum-keyring-diy?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                },
+                {
+                    "rank": 9,
+                    "brand": "郭元益",
+                    "name": "懷舊糕餅與純手工鳳梨酥禮盒 DIY",
+                    "enName": "Kuo Yuan Ye Heritage Pastry",
+                    "origin": "台北 士林區",
+                    "desc": "百年漢餅第一品牌！歷經清代迄今五代傳承，招牌冰沙餡餅、金獎鳳梨酥與綠豆椪遠近馳名。",
+                    "price": "NT$ 640 起",
+                    "rating": "4.8★",
+                    "reviews": "7,600+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/sxtehhlj2fpuiigkzcff.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/57963-taipei-kuo-yuan-ye-foods-mango-crisp-diy-experience-diy-experience?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                },
+                {
+                    "rank": 10,
+                    "brand": "陳耀訓·麵包埠",
+                    "name": "紅土蛋黃酥 (中秋秒殺神作)",
+                    "enName": "Yoshi Bakery Salted Egg Yolk Pastry",
+                    "origin": "台北 松山區",
+                    "desc": "世界麵包冠軍陳耀訓親自監製！22天紅土醃漬鹹蛋黃佐丹麥天然奶油，酥脆餅皮如千層派細緻。",
+                    "price": "NT$ 980",
+                    "rating": "5.0★",
+                    "reviews": "31,000+ 好評",
+                    "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&auto=format&fit=crop",
+                    "buyUrl": DELIVERY_REDIRECT,
+                    "isKlook": False,
+                    "ctaText": "🛵 訂購外送 ➔"
+                }
+            ]
+        },
+        {
+            "id": "drink",
+            "icon": "🍵",
+            "name": "台灣茶葉特產",
+            "shortName": "台灣茶葉特產",
+            "channel": "Klook 官方聯盟直配 ＋ 產地原葉認證",
+            "badge": "茶人評鑑·米其林指定產區",
+            "desc": "世界頂級的台灣高山茶饗宴！嚴選阿里山高山茶、日月潭台茶18號紅玉紅茶、坪林文山包種茶、桃園東方美人茶與天仁茗茶等，產地真空原葉禮盒直送飯店。",
+            "cta": "🛍️ 訂購直送飯店 ➔",
+            "defaultUrl": "https://www.klook.com/zh-TW/search/result/?query=%E8%8C%B6%E8%91%89&search_scope=main_search&aid=106452",
+            "items": [
+                {
+                    "rank": 1,
+                    "brand": "南投和菓森林",
+                    "name": "HUGOSUM 原葉紅茶莊園禮盒 (台茶18號紅玉/祈福茶包)",
+                    "enName": "Hugosum Black Tea Estate Gift Set",
+                    "origin": "南投 魚池鄉",
+                    "desc": "承襲日治時期皇家製茶技藝，魚池日月潭百年老茶樹手採原葉，帶有天然薄荷與肉桂肉香，回甘極致悠長。",
+                    "price": "NT$ 198 起",
+                    "rating": "4.9★",
+                    "reviews": "14,800+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/pw7xwggdplhsotlcu5vd.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/58136-hugosum-flower-tea-bag-blessing-bag-black-tea-soap-diy-experience-nantou?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                },
+                {
+                    "rank": 2,
+                    "brand": "阿里山茶鄉",
+                    "name": "大阿里山漫遊高山茶禮盒 (手採高冷烏龍茶罐裝)",
+                    "enName": "Alishan High Mountain Oolong Tea Pass",
+                    "origin": "嘉義 阿里山鄉",
+                    "desc": "海拔1,400公尺以上雲霧繚繞，高山氣候日夜溫差淬鍊出豐厚膠質與天然高山冷香，清香甘醇。",
+                    "price": "NT$ 450 起",
+                    "rating": "4.9★",
+                    "reviews": "16,200+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/rbgezftcckacrmx1ebqo.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/94760-alishan-funpass-chiayi?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                },
+                {
+                    "rank": 3,
+                    "brand": "天仁茗茶",
+                    "name": "喫茶趣 台灣原葉茶禮盒即享禮券",
+                    "enName": "Ten Ren's Tea Voucher & Gift Set",
+                    "origin": "台北 / 全台門市",
+                    "desc": "華人第一茶葉品牌！嚴格品管的高山烏龍、凍頂烏龍與金萱茶，原片茶葉真空充氮保鮮，送禮最受長輩信賴。",
+                    "price": "NT$ 100 起",
+                    "rating": "4.8★",
+                    "reviews": "22,500+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/rzjcymiy7gwdsnq0zaso.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/69997-cha-for-tea-taiwan?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                },
+                {
+                    "rank": 4,
+                    "brand": "臺灣客家茶文化館",
+                    "name": "特等東方美人茶 (白毫烏龍) 原葉精裝禮盒",
+                    "enName": "Oriental Beauty Tea Premium Tin",
+                    "origin": "桃園 龍潭區",
+                    "desc": "小綠葉蟬叮咬熟成天然蜜香！沖泡後如琥珀般澄澈，散發天然熟果香與蜂蜜香，英國女王驚豔封名。",
+                    "price": "NT$ 80 起",
+                    "rating": "4.8★",
+                    "reviews": "8,900+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/utbnaeioioycapgaje1n.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/133613-oriental-beauty-tea-culture-museum-of-taiwan?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                },
+                {
+                    "rank": 5,
+                    "brand": "九份吾穀茶糧",
+                    "name": "山城客家擂茶與原葉台灣高山茶禮盒",
+                    "enName": "Siidcha Hakka Ground Tea & High Mountain Tea",
+                    "origin": "新北 瑞芳區",
+                    "desc": "結合台灣五穀雜糧與高山綠茶，低溫慢烘保留純淨維生素，口感香醇濃郁、兼具飽足感與抗氧化養生。",
+                    "price": "NT$ 499 起",
+                    "rating": "4.8★",
+                    "reviews": "6,500+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/ox6tbtb1c0adsw5wfai7.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/19770-siidcha-teahouse-taipei?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                },
+                {
+                    "rank": 6,
+                    "brand": "坪林茶業博物館",
+                    "name": "清香型文山包種茶 頂級茶席體驗禮盒",
+                    "enName": "Pinglin Wenshan Pouchong Tea Set",
+                    "origin": "新北 坪林區",
+                    "desc": "翡翠水庫純淨水源灌溉！條索緊結墨綠，沖泡散發優雅清幽花香，香氣撲鼻、喉韻爽冽甘美。",
+                    "price": "NT$ 1,600 起",
+                    "rating": "4.9★",
+                    "reviews": "7,300+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/omfmczizkpgrjly5qeic.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/3209-thousand-island-lake-pinglin-tea-plantation-taipei?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                },
+                {
+                    "rank": 7,
+                    "brand": "九份海悅樓",
+                    "name": "海悅樓景觀茶坊 台灣烏龍茶席餐券",
+                    "enName": "Skyline Teahouse Oolong Tea Voucher",
+                    "origin": "新北 瑞芳區",
+                    "desc": "正對阿妹茶樓絕佳視角！品嚐嚴選台灣高山烏龍茶佐手工茶點，在山海雲霧中體驗百年茶藝慢活。",
+                    "price": "NT$ 398 起",
+                    "rating": "4.8★",
+                    "reviews": "11,500+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/snjvegkanaybvxxefdo4.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/8569-skyline-teahouse-in-jiufen-voucher-taipei?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                },
+                {
+                    "rank": 8,
+                    "brand": "台南永樂町鼓茶樓",
+                    "name": "府城百年老宅 原葉冷淬茶席體驗",
+                    "enName": "Eirakucho Drum Tea House Cold Brew Tea",
+                    "origin": "台南 中西區",
+                    "desc": "清朝百年古厝改建！融合答嘴鼓說唱藝術與台灣手採冷萃青茶，在木構天井下享受古都午後清涼。",
+                    "price": "NT$ 509 起",
+                    "rating": "4.9★",
+                    "reviews": "5,400+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/mv0q6jq0tc9bobnx8ugc.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/28945-eirakucho-drum-tea-house-show-ticket-meal?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                },
+                {
+                    "rank": 9,
+                    "brand": "吃茶三千",
+                    "name": "台灣概念店 頂級鮮萃現萃茶即享券",
+                    "enName": "CHICHA San Chen Freshly Brewed Tea",
+                    "origin": "台中 南屯區",
+                    "desc": "米其林 iTQi 頂級認證茶葉！獨家 Lion 專利萃茶機高溫高壓萃取第一道茶湯，忠實呈現高山原葉純香。",
+                    "price": "NT$ 125 起",
+                    "rating": "4.8★",
+                    "reviews": "9,200+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/joizksgehepztcnphecx.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/117912-chicha-san-chen-in-taichung?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                },
+                {
+                    "rank": 10,
+                    "brand": "永心鳳茶",
+                    "name": "台灣在地原葉冷泡茶與精緻茶點即享券",
+                    "enName": "Yonshin Tea Selection Bar Voucher",
+                    "origin": "台中 / 高雄",
+                    "desc": "以復古沙龍形式重塑台灣品茗文化！嚴選日月潭紅玉、阿里山金萱與炭焙鐵觀音，以紅酒瓶盛裝低溫慢淬。",
+                    "price": "NT$ 542 起",
+                    "rating": "4.8★",
+                    "reviews": "8,100+ 好評",
+                    "img": "https://res.klook.com/image/upload/activities/nvics9uzlozyi1iu1ogs.jpg",
+                    "buyUrl": "https://www.klook.com/zh-TW/activity/115515-yonshin-tea-cake-selection-bar-parklane-branch?aid=106452",
+                    "isKlook": True,
+                    "ctaText": "🛍️ 訂購直送飯店 ➔"
+                }
+            ]
+        },
+        {
+            "id": "snack",
+            "icon": "🍿",
+            "name": "人氣休閒零食",
+            "shortName": "人氣休閒零食",
+            "channel": "外送直送飯店大廳",
+            "badge": "宵夜追劇・童年回憶必備",
+            "desc": "義美小泡芙、乖乖、可樂果、蝦味先等台灣國民熱銷零嘴，直接外送到下榻飯店大廳。",
+            "cta": "🛵 訂購外送 ➔",
+            "defaultUrl": DELIVERY_REDIRECT,
+            "items": [
+                {
+                    "rank": 1,
+                    "brand": "義美",
+                    "name": "招牌經典巧克力小泡芙 (大容量量販盒)",
+                    "enName": "I-Mei Chocolate Cream Puffs",
+                    "origin": "桃園 蘆竹區",
+                    "desc": "全台灣人童年的共同回憶！酥脆泡芙外殼包裹香濃巧克力內餡，冰過之後口感更是一絕。",
+                    "price": "NT$ 99",
+                    "rating": "4.9★",
+                    "reviews": "52,000+ 好評",
+                    "img": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&auto=format&fit=crop",
+                    "buyUrl": DELIVERY_REDIRECT,
+                    "isKlook": False,
+                    "ctaText": "🛵 訂購外送 ➔"
+                },
+                {
+                    "rank": 2,
+                    "brand": "乖乖",
+                    "name": "經典綠色椰子米果（工程師機房必備）",
+                    "enName": "Kuai Kuai Coconut Corn Puffs",
+                    "origin": "桃園 中壢區",
+                    "desc": "台灣科技業機房必放的「綠色乖乖守護神」！清甜椰子奶香與酥脆玉米脆果。",
+                    "price": "NT$ 35",
+                    "rating": "4.9★",
+                    "reviews": "48,000+ 好評",
+                    "img": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&auto=format&fit=crop",
+                    "buyUrl": DELIVERY_REDIRECT,
+                    "isKlook": False,
+                    "ctaText": "🛵 訂購外送 ➔"
+                },
+                {
+                    "rank": 3,
+                    "brand": "可樂果",
+                    "name": "古早味原味蒜香蠶豆酥 (家庭號)",
+                    "enName": "Koloko Garlic Pea Crackers",
+                    "origin": "新北 五股區",
+                    "desc": "台灣第一包國民零食！獨特螺旋造型搭配濃郁蒜香，越嚼越涮嘴的追劇良伴。",
+                    "price": "NT$ 65",
+                    "rating": "4.8★",
+                    "reviews": "39,000+ 好評",
+                    "img": "https://images.unsplash.com/photo-1621447504864-d8686e12698c?w=600&auto=format&fit=crop",
+                    "buyUrl": DELIVERY_REDIRECT,
+                    "isKlook": False,
+                    "ctaText": "🛵 訂購外送 ➔"
+                }
+            ]
+        },
+        {
+            "id": "pharma",
+            "icon": "💊",
+            "name": "熱銷藥品藥妝",
+            "shortName": "熱銷藥品藥妝",
+            "channel": "外送直送飯店大廳",
+            "badge": "舒緩旅途疲勞・伴手禮首選",
+            "desc": "金門一條根、綠油精、白花油、京都念慈菴川貝枇杷膏與台灣專利保養品。",
+            "cta": "🛵 訂購外送 ➔",
+            "defaultUrl": DELIVERY_REDIRECT,
+            "items": [
+                {
+                    "rank": 1,
+                    "brand": "金門一條根",
+                    "name": "雙龍牌一條根精油舒緩貼布與滾珠凝膠組",
+                    "enName": "Kinmen Yitiaogen Herbal Plasters",
+                    "origin": "金門 金城鎮",
+                    "desc": "台灣自由行健行必備神物！天然草本一條根萃取，溫熱舒緩肩頸與雙腿緊繃。",
+                    "price": "NT$ 180",
+                    "rating": "4.9★",
+                    "reviews": "28,000+ 好評",
+                    "img": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop",
+                    "buyUrl": DELIVERY_REDIRECT,
+                    "isKlook": False,
+                    "ctaText": "🛵 訂購外送 ➔"
+                },
+                {
+                    "rank": 2,
+                    "brand": "綠油精",
+                    "name": "經典滾珠綠油精醒腦消脹氣精油瓶 (10ml)",
+                    "enName": "Green Herb Oil Roll-On",
+                    "origin": "新北 新店區",
+                    "desc": "台灣人隨身必備綠色奇蹟！提神醒腦、舒緩暈車暈船、蚊蟲叮咬止癢首選。",
+                    "price": "NT$ 120",
+                    "rating": "4.9★",
+                    "reviews": "33,000+ 好評",
+                    "img": "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=600&auto=format&fit=crop",
+                    "buyUrl": DELIVERY_REDIRECT,
+                    "isKlook": False,
+                    "ctaText": "🛵 訂購外送 ➔"
+                },
+                {
+                    "rank": 3,
+                    "brand": "京都念慈菴",
+                    "name": "川貝枇杷膏隨身攜帶便利包 (15g x 10包)",
+                    "enName": "Nin Jiom Pei Pa Koa Herbal Candy",
+                    "origin": "台北 大安區",
+                    "desc": "天然草本古法煉製，潤喉止咳生津潤燥，隨身即開即飲，歌手與講師護嗓第一選擇。",
+                    "price": "NT$ 160",
+                    "rating": "4.9★",
+                    "reviews": "27,000+ 好評",
+                    "img": "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&auto=format&fit=crop",
+                    "buyUrl": DELIVERY_REDIRECT,
+                    "isKlook": False,
+                    "ctaText": "🛵 訂購外送 ➔"
+                }
+            ]
+        }
+    ]
+    return categories
+
+def main():
+    data = build_souvenirs_data()
+    js_content = "/**\n * 台灣吃喝玩樂 - 伴手禮電商直購與熱賣排行榜資料集 (SOUVENIR_CATEGORIES_DATA)\n * 整合 Klook 官方直送飯店 (aid=106452) 與外送通道\n */\n\nconst SOUVENIR_CATEGORIES_DATA = " + json.dumps(data, ensure_ascii=False, indent=2) + ";\n"
+    
+    with open(SOUVENIRS_JS, "w", encoding="utf-8") as f:
+        f.write(js_content)
+    print(f"Updated {SOUVENIRS_JS} successfully!")
+
+    # Update souvenir.html rendering logic
+    with open(SOUVENIR_HTML, "r", encoding="utf-8") as f:
+        html = f.read()
+
+    # In souvenir.html: render cards using item.buyUrl and item.ctaText, distinguishing Klook hotel delivery vs delivery
+    render_func_replacement = """function renderCategoryProducts(catId, searchKeyword = '') {
+      const cat = SOUVENIR_CATEGORIES_DATA.find(c => c.id === catId);
+      if (!cat) return;
+
+      const infoBox = document.getElementById('souvenir-cat-info');
+      infoBox.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <div style="font-size: 17px; font-weight: 800; color: #0F172A; display: flex; align-items: center; gap: 8px;">
+              <span>${cat.icon}</span>
+              <span>${cat.name}</span>
+              <span style="font-size: 11px; background: #FFF7ED; color: #C2410C; border: 1px solid #FED7AA; padding: 2px 10px; border-radius: 999px; font-weight: 800;">${cat.badge}</span>
+            </div>
+            <div style="font-size: 13.5px; color: #475569; margin-top: 6px; line-height: 1.6;">
+              ${cat.desc}
+            </div>
+          </div>
+          ${cat.defaultUrl ? `
+            <a href="${cat.defaultUrl}" target="_blank" rel="noopener noreferrer" style="background: linear-gradient(135deg, #EA580C 0%, #C2410C 100%); color: #FFFFFF; font-size: 12.5px; font-weight: 800; padding: 9px 16px; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(194, 65, 12, 0.25);">
+              ${cat.cta || '🛍️ 查看全部特產 ➔'}
+            </a>
+          ` : ''}
+        </div>
+      `;
+
+      const grid = document.getElementById('souvenir-products-grid');
+      let items = cat.items;
+
+      if (searchKeyword) {
+        const kw = searchKeyword.toLowerCase();
+        items = items.filter(it => 
+          it.name.toLowerCase().includes(kw) || 
+          it.brand.toLowerCase().includes(kw) || 
+          it.origin.toLowerCase().includes(kw) ||
+          it.desc.toLowerCase().includes(kw)
+        );
+      }
+
+      if (items.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1 / -1; padding: 60px 20px; text-align: center; color: #94A3B8; font-size: 15px;">查無符合「${searchKeyword}」的特產項目，請嘗試其他關鍵字。</div>`;
+        return;
+      }
+
+      grid.innerHTML = items.map(item => {
+        const isTop3 = item.rank <= 3;
+        const isKlook = item.isKlook || (item.buyUrl && item.buyUrl.includes('klook.com'));
+        const btnStyle = isKlook 
+          ? 'background: linear-gradient(135deg, #FF5B00 0%, #E04E00 100%); color: #FFFFFF; box-shadow: 0 4px 14px rgba(224, 78, 0, 0.28);'
+          : 'background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: #FFFFFF;';
+        const btnText = item.ctaText || (isKlook ? '🛍️ 訂購直送飯店 ➔' : '🛵 訂購外送 ➔');
+        const targetUrl = item.buyUrl || '""" + DELIVERY_REDIRECT + """';
+
+        return `
+          <div class="souvenir-card">
+            <div class="souvenir-img-wrap">
+              <img src="${item.img}" alt="${item.name}" loading="lazy">
+              <span class="souvenir-rank-badge ${isTop3 ? 'top3' : ''}">No. ${item.rank}</span>
+              ${isKlook ? '<span style="position: absolute; top: 10px; right: 10px; background: #FF5B00; color: #FFF; font-size: 10.5px; font-weight: 900; padding: 3px 8px; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.25);">Klook 直送</span>' : ''}
+            </div>
+            <div class="souvenir-body">
+              <div>
+                <div style="font-size: 11.5px; font-weight: 800; color: #C2410C; margin-bottom: 4px; display: flex; justify-content: space-between;">
+                  <span>${item.brand}</span>
+                  <span style="color: #64748B;">📍 ${item.origin}</span>
+                </div>
+                <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; line-height: 1.35; margin-bottom: 4px;">${item.name}</h3>
+                <div style="font-size: 11px; color: #94A3B8; margin-bottom: 8px;">${item.enName}</div>
+                <p style="font-size: 12.5px; color: #475569; line-height: 1.6; margin-bottom: 14px;">${item.desc}</p>
+                <div style="font-size: 13.5px; font-weight: 900; color: #DC2626; margin-bottom: 12px;">${item.price} · <span style="font-size: 11.5px; color: #D97706;">★ ${item.rating || '4.9'}</span></div>
+              </div>
+
+              <div style="border-top: 1px dashed #E2E8F0; padding-top: 12px;">
+                <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" style="width: 100%; justify-content: center; padding: 10px; font-size: 13px; font-weight: 800; text-decoration: none; border-radius: 10px; display: inline-flex; align-items: center; gap: 6px; transition: transform 0.2s; ${btnStyle}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  ${btnText}
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }"""
+
+    # Replace renderCategoryProducts in souvenir.html
+    pattern = re.compile(r'function renderCategoryProducts\(catId, searchKeyword = \'\'\) \{.*?\n    function filterSouvenirs', re.DOTALL)
+    if pattern.search(html):
+        html = pattern.sub(render_func_replacement + "\n\n    function filterSouvenirs", html)
+        with open(SOUVENIR_HTML, "w", encoding="utf-8") as f:
+            f.write(html)
+        print(f"Updated {SOUVENIR_HTML} successfully!")
+    else:
+        print("Warning: could not locate renderCategoryProducts in souvenir.html")
+
+if __name__ == "__main__":
+    main()

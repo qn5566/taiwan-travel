@@ -10,7 +10,7 @@ const AFFILIATE_HUB = {
   contactEmail: "himydream.studio0220@gmail.com",
 
   // 12. Klook 官方聯盟
-  klookAid: "123436",
+  klookAid: "106452",
 
   // 11. Trip.com 官方聯盟
   tripAllianceId: "9507030",
@@ -23,7 +23,7 @@ const AFFILIATE_HUB = {
   bookingAffoneBase: "https://affone.me/s/bQeO4",
 
   // 01. 露營生鮮食材箱 (Uber Eats 外送直配)
-  campingFreshFoodUrl: "https://www.ubereats.com/tw/search?q=%E7%83%A4%E8%82%89%E7%94%9F%E9%AE%AE",
+  campingFreshFoodUrl: "https://onelink.one/s/YoWYV",
 
   // 02. 教育學習綜合平台 (vbtrax)
   educationLearningUrl: "https://vbtrax.com/track/clicks/9445/c627c2bc9b0428dbf189ec23d62e9d47266c4cdf2aabebfd0364b713234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
@@ -38,7 +38,7 @@ const AFFILIATE_HUB = {
   lifestyleShopUrl: "https://affclkr.online/track/clicks/5686/c627c2bf910421d7fb8dec23d62e9d47266c4cdf2aabebf10168b413234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
 
   // 06. Uber Eats 萬家福「休閒零嘴」與伴手禮外送直送飯店
-  wanjiafuLatestUrl: "https://www.ubereats.com/tw/store/%E8%90%AC%E5%AE%B6%E7%A6%8F-%E4%B8%AD%E5%A3%A2%E5%BA%97/ASIUe5lNQs-FehYeumejiQ/0122147b-994d-42cf-857a-161eba67a389/31909b2b-51dc-557b-99cd-92353ae05d12?diningMode=DELIVERY&ps=1&scats=31909b2b-51dc-557b-99cd-92353ae05d12&scatsubs=",
+  wanjiafuLatestUrl: "https://onelink.one/s/YoWYV",
 
   // 07. 台灣訂餐與優惠餐券 (affckr)
   diningVoucherUrl: "https://affckr.site/track/clicks/4127/c627c2bc980126defc88ec23d62e9d47266c4cdf2aabebf00662b513234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
@@ -53,7 +53,7 @@ const AFFILIATE_HUB = {
   cosmeticsPharmaUrl: "https://afflink.one/s/3WAKW",
 
   // 13. 台灣上網網卡 / eSIM (Klook 官方聯盟)
-  simOptionsUrl: "https://www.klook.com/zh-TW/wifi-sim-card/?aid=123436",
+  simOptionsUrl: "https://www.klook.com/zh-TW/wifi-sim-card/?aid=106452",
 
   // Booking 特定飯店專屬短網址映射表（可隨時擴增）
   customBookingLinks: {

@@ -229,7 +229,7 @@
             <li><a href="themes.html?theme=roadtrip" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">🚗 台灣旅遊包車推薦行程</a></li>
             <li><a href="themes.html?theme=islands&sub=diving" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">🐢 跳島浮潛和海龜</a></li>
             <li><a href="themes.html?theme=northcoast&sub=railway" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">🚂 火車鐵道之旅</a></li>
-            <li><a href="cafe.html?tab=weekend-hop" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">📖 週末探店專欄文章</a></li>
+            <li><a href="cafe.html?tab=weekend-hop" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">📖 深度慢活採訪實錄</a></li>
           </ul>
         </div>
 
@@ -905,7 +905,7 @@
 
           <!-- 快捷行動按鈕組 -->
           <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 18px;">
-            <a href="${currentSubCatId === 'railway' || currentSubCatId === 'cinema' ? 'https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436' : theme.bookingCta.charter}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="width: 100%; justify-content: center; padding: 11px; font-size: 13px; font-weight: 800; text-decoration: none;">
+            <a href="${currentSubCatId === 'railway' || currentSubCatId === 'cinema' ? 'https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452' : theme.bookingCta.charter}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="width: 100%; justify-content: center; padding: 11px; font-size: 13px; font-weight: 800; text-decoration: none;">
               🚗 ${currentSubCatId === 'railway' ? '鐵道包車接送' : (currentSubCatId === 'cinema' ? '影迷包車直達' : '預約專屬包車')}
             </a>
             ${currentSubCatId === 'railway' ? `
@@ -1012,7 +1012,7 @@
             </div>
             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
               <a href="https://tw.trip.com/trains/taiwan/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275" target="_blank" rel="noopener noreferrer" style="background: #0284C7; color: #FFF; font-size: 11.5px; font-weight: 800; padding: 6px 12px; border-radius: 9999px; text-decoration: none;">🎟️ 預訂火車票 ➔</a>
-              <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436" target="_blank" rel="noopener noreferrer" style="background: #FFF; border: 1px solid #0284C7; color: #0284C7; font-size: 11.5px; font-weight: 800; padding: 6px 12px; border-radius: 9999px; text-decoration: none;">🚗 鐵道包車接送</a>
+              <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452" target="_blank" rel="noopener noreferrer" style="background: #FFF; border: 1px solid #0284C7; color: #0284C7; font-size: 11.5px; font-weight: 800; padding: 6px 12px; border-radius: 9999px; text-decoration: none;">🚗 鐵道包車接送</a>
             </div>
           </div>
         `;
@@ -1029,7 +1029,7 @@
                 <div style="font-size: 15px; font-weight: 900; color: #0F172A;">🎬 影視朝聖攻略景點 · 20 部曾來台取景的國際影視名作</div>
                 <div style="font-size: 12px; color: #475569; margin-top: 2px;">🎞️ 篩選電影作品：共 ${allCinemaSpots.length} 個實景朝聖取景地（目前顯示 ${visibleSpots.length} 處）</div>
               </div>
-              <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436" target="_blank" rel="noopener noreferrer" style="background: #0284C7; color: #FFF; font-size: 11.5px; font-weight: 800; padding: 6px 14px; border-radius: 9999px; text-decoration: none;">🚗 包車直達取景地</a>
+              <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452" target="_blank" rel="noopener noreferrer" style="background: #0284C7; color: #FFF; font-size: 11.5px; font-weight: 800; padding: 6px 14px; border-radius: 9999px; text-decoration: none;">🚗 包車直達取景地</a>
             </div>
             <div style="display: flex; gap: 6px; flex-wrap: wrap;">
               <button type="button" onclick="selectMovieFilter('all')" style="padding: 4px 10px; border-radius: 9999px; font-size: 11.5px; font-weight: 800; cursor: pointer; border: 1px solid ${currentMovieFilter === 'all' ? '#0284C7' : '#CBD5E1'}; background: ${currentMovieFilter === 'all' ? '#0284C7' : '#F8FAFC'}; color: ${currentMovieFilter === 'all' ? '#FFFFFF' : '#334155'};">
@@ -1150,13 +1150,13 @@
           actionsRowHtml = `
             <a href="${spot.trainTicketUrl || 'https://tw.trip.com/trains/taiwan/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275'}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav">🎟️ 車票</a>
             <a href="${spot.hotelUrl || 'https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227&trip_sub1=&trip_sub3=D20272275'}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room">🏨 住宿</a>
-            <a href="${spot.charterUrl || 'https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436'}" target="_blank" rel="noopener noreferrer" class="btn-action btn-charter-unified">🚗 包車</a>
+            <a href="${spot.charterUrl || 'https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452'}" target="_blank" rel="noopener noreferrer" class="btn-action btn-charter-unified">🚗 包車</a>
           `;
         } else if (spot.subCategory === 'cinema') {
           actionsRowHtml = `
             <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav">📍 Map</a>
             <a href="${theme.bookingCta.hotel}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room">🏨 住宿</a>
-            <a href="${spot.charterUrl || 'https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436'}" target="_blank" rel="noopener noreferrer" class="btn-action btn-charter-unified">🚗 包車</a>
+            <a href="${spot.charterUrl || 'https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452'}" target="_blank" rel="noopener noreferrer" class="btn-action btn-charter-unified">🚗 包車</a>
           `;
         } else if (spot.permitUrl) {
           actionsRowHtml = `
@@ -1167,7 +1167,7 @@
         } else if (spot.subCategory === 'camping') {
           actionsRowHtml = `
             <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav">📍 Map</a>
-            <a href="${spot.campUrl || 'https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=123436'}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room">⛺ 營位</a>
+            <a href="${spot.campUrl || 'https://www.klook.com/zh-TW/activity/51234-glamping-taiwan/?aid=106452'}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room">⛺ 營位</a>
             <a href="https://www.ubereats.com/tw/search?q=%E7%83%A4%E8%82%89%E7%94%9F%E9%AE%AE" target="_blank" rel="noopener noreferrer" class="btn-action btn-charter-unified">🥩 食材</a>
           `;
         } else {

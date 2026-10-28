@@ -272,7 +272,7 @@
             <li><a href="themes.html?theme=roadtrip" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">🚗 台灣旅遊包車推薦行程</a></li>
             <li><a href="themes.html?theme=islands&sub=diving" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">🐢 跳島浮潛和海龜</a></li>
             <li><a href="themes.html?theme=northcoast&sub=railway" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">🚂 火車鐵道之旅</a></li>
-            <li><a href="cafe.html?tab=weekend-hop" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">📖 週末探店專欄文章</a></li>
+            <li><a href="cafe.html?tab=weekend-hop" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">📖 深度慢活採訪實錄</a></li>
           </ul>
         </div>
 
@@ -472,7 +472,7 @@
 
       container.innerHTML = filtered.map(item => {
         const hotelUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getHotelUrl(item.city + " " + item.name) : "#";
-        const charterUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getCharterUrl(item.city) : "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436";
+        const charterUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getCharterUrl(item.city) : "https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452";
         const mapUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(item.name) : `https://maps.google.com/?q=${encodeURIComponent(item.name)}`;
 
         return `
