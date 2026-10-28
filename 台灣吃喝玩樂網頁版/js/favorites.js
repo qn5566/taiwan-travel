@@ -245,11 +245,13 @@
     },
 
     syncActiveButtons: function () {
-      document.querySelectorAll("[data-fav-name], [data-fav-id]").forEach(btn => {
+      document.querySelectorAll("[data-fav-name], [data-fav-id], .waterfall-fav-btn").forEach(btn => {
         const id = btn.getAttribute("data-fav-id");
         const name = btn.getAttribute("data-fav-name");
         const active = (id && this.isFavorited(id)) || (name && this.isFavorited(name));
         btn.classList.toggle("active", !!active);
+        const icon = btn.querySelector(".fav-sparkle-icon");
+        if (icon) icon.classList.toggle("active", !!active);
       });
     },
 
@@ -626,6 +628,57 @@
       const style = document.createElement("style");
       style.id = "tw-fav-styles";
       style.textContent = `
+        
+        /* 首頁同款水晶閃光愛心按鈕 (Homepage Match Sparkling Heart Button) */
+        .waterfall-fav-btn {
+          position: absolute;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          border: 1.5px solid rgba(226, 232, 240, 0.85);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+          box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+          padding: 0;
+          z-index: 4;
+        }
+        .waterfall-fav-btn:hover {
+          transform: scale(1.12);
+          background: #FFFFFF;
+          box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18);
+        }
+        .fav-sparkle-icon {
+          width: 17px !important;
+          height: 17px !important;
+          max-width: 17px !important;
+          max-height: 17px !important;
+          object-fit: contain;
+          transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+          filter: grayscale(100%) opacity(0.32);
+          pointer-events: none;
+          display: block;
+        }
+        .waterfall-fav-btn:hover .fav-sparkle-icon {
+          filter: grayscale(30%) opacity(0.7);
+        }
+        .waterfall-fav-btn.active {
+          background: #FFF1F2 !important;
+          border-color: #FDA4AF !important;
+          box-shadow: 0 4px 14px rgba(244, 63, 94, 0.25) !important;
+        }
+        .fav-sparkle-icon.active,
+        .waterfall-fav-btn.active .fav-sparkle-icon {
+          filter: none !important;
+          opacity: 1 !important;
+          transform: scale(1.08) !important;
+        }
+
         /* 懸浮按鈕 */
         .fav-floating-btn {
           position: fixed;

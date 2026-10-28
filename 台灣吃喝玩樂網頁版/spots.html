@@ -485,28 +485,27 @@
         return `
           <div class="spot-card-6col">
             <div class="spot-img-wrap">
-              <!-- ❤️ 離線收藏按鈕 -->
+              <!-- ❤️ 首頁同款收藏愛心 -->
               <button type="button" 
-                      class="card-fav-btn ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}" 
+                      class="waterfall-fav-btn ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}" 
                       data-fav-name="${item.name.replace(/"/g, '&quot;')}"
                       onclick="event.stopPropagation(); FavoritesManager.toggle({
-                        id: 'spot_' + '${item.name.replace(/'/g, "\\'")}',
-                        name: '${item.name.replace(/'/g, "\\'")}',
+                        id: 'spot_' + '${item.name.replace(/'/g, "\'")}',
+                        name: '${item.name.replace(/'/g, "\'")}',
                         category: 'spot',
                         categoryLabel: '景點',
                         city: '${item.city}',
                         img: '${item.img}',
                         rating: '${item.rate || '4.9★'}',
-                        desc: '${(item.desc || '').replace(/'/g, "\\'").replace(/\n/g, ' ')}',
+                        desc: '${(item.desc || '').replace(/'/g, "\'").replace(/
+/g, ' ')}',
                         klookUrl: '${charterUrl}',
                         tripUrl: '${hotelUrl}',
                         mapUrl: '${mapUrl}'
                       }, this);" 
                       title="收藏景點"
-                      style="top: 6px; right: 6px; width: 30px; height: 30px;">
-                <svg viewBox="0 0 24 24" fill="${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? '#E11D48' : 'none'}" stroke="${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? '#E11D48' : '#64748B'}" stroke-width="2" style="width: 15px; height: 15px;">
-                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                </svg>
+                      style="position: absolute; bottom: 8px; right: 8px; width: 32px; height: 32px; z-index: 3;">
+                <img src="assets/icon_heart_sparkle.png" alt="favorite" class="fav-sparkle-icon ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}">
               </button>
               <img src="${item.img}" alt="${item.name}" loading="lazy">
               <span style="position: absolute; top: 8px; left: 8px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #FFF; font-size: 10.5px; font-weight: 800; padding: 2px 7px; border-radius: 6px;">

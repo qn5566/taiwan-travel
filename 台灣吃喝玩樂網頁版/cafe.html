@@ -2287,30 +2287,29 @@
         return `
           <div class="cafe-card">
             <div class="cafe-img-wrap">
-              <!-- ❤️ 離線收藏咖啡館 -->
+              <!-- ❤️ 首頁同款收藏愛心 -->
               <button type="button" 
-                      class="card-fav-btn ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}" 
+                      class="waterfall-fav-btn ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}" 
                       data-fav-name="${item.name.replace(/"/g, '&quot;')}"
                       onclick="event.stopPropagation(); FavoritesManager.toggle({
-                        id: 'cafe_' + '${item.name.replace(/'/g, "\\'")}',
-                        name: '${item.name.replace(/'/g, "\\'")}',
+                        id: 'cafe_' + '${item.name.replace(/'/g, "\'")}',
+                        name: '${item.name.replace(/'/g, "\'")}',
                         category: 'cafe',
                         categoryLabel: '咖啡',
                         city: '${item.city}',
                         district: '${item.district || ''}',
                         img: '${item.img}',
                         rating: '${item.rate || '4.9★'}',
-                        desc: '${(item.features || item.desc || '').replace(/'/g, "\\'").replace(/\n/g, ' ')}',
+                        desc: '${(item.features || item.desc || '').replace(/'/g, "\'").replace(/
+/g, ' ')}',
                         tags: ${JSON.stringify(item.tags || [])},
-                        klookUrl: typeof AFFILIATE_HUB !== 'undefined' ? AFFILIATE_HUB.getSearchUrl('${item.name.replace(/'/g, "\\'")}') : 'https://www.klook.com/?aid=106452',
+                        klookUrl: typeof AFFILIATE_HUB !== 'undefined' ? AFFILIATE_HUB.getSearchUrl('${item.name.replace(/'/g, "\'")}') : 'https://www.klook.com/?aid=106452',
                         tripUrl: '${hotelUrl}',
                         mapUrl: '${mapUrl}'
                       }, this);" 
                       title="收藏咖啡館"
-                      style="top: 10px; right: 10px; width: 32px; height: 32px;">
-                <svg viewBox="0 0 24 24" fill="${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? '#E11D48' : 'none'}" stroke="${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? '#E11D48' : '#64748B'}" stroke-width="2" style="width: 16px; height: 16px;">
-                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                </svg>
+                      style="position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; z-index: 3;">
+                <img src="assets/icon_heart_sparkle.png" alt="favorite" class="fav-sparkle-icon ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}">
               </button>
               <img src="${item.img}" alt="${item.name}" loading="lazy">
               <span style="position: absolute; top: 12px; left: 12px; background: rgba(15,23,42,0.85); backdrop-filter: blur(6px); color: #fff; font-size: 11px; font-weight: 800; padding: 4px 8px; border-radius: 6px;">
