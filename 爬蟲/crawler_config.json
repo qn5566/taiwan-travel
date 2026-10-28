@@ -1,0 +1,24 @@
+{
+  "headers": {
+    "_pt": "786b52ce-bdf9-4915-bf63-08078cebcd26",
+    "accept": "application/json; charset=utf-8",
+    "accept-language": "zh-TW",
+    "content-type": "application/json",
+    "origin": "https://affiliate.klook.com",
+    "referer": "https://affiliate.klook.com/zh-TW/my_ads/product_explorer",
+    "sec-ch-ua": "\"Google Chrome\";v=\"155\", \"Chromium\";v=\"155\", \"Not(A:Brand\";v=\"24\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"macOS\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "x-csrf-token": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEwNjQ1Mn0.e2tegKoFSY6A_ut2svtn5H5BdEx8UIirioHa1y8NpPY",
+    "x-klook-host": "affiliate.klook.com",
+    "x-klook-kepler-id": "786b52ce-bdf9-4915-bf63-08078cebcd26",
+    "x-klook-market": "global",
+    "x-platform": "desktop"
+  },
+  "cookie": "__lt__cid.c83939be=7b4e5bda-3675-4099-9f99-6cb8452c011f; _fwb=133VeB8X4RiAxIOVyPUU9v3.1729005852080; _tt_enable_cookie=1; dable_uid=69372506.1716963655290; _ttp=l1QhC_8bjTrkQSbLvCQ-DHG_7Vc.tt.1; _twpid=tw.1772783777792.261455978386152076; _cq_duid=1.1773847069.kuWyHXU6pZpqc7Im; _tgpc=0d5359a3-2ea6-4ea9-9871-efc8fcc9e096; _tglksd=eyJzIjoiY2YzZDNjMDAtMDQ4Yi00Mjk3LWI3MjAtZjY4OWEzNjU3YTlkIiwic3QiOjE3ODQxMDI2OTIyODYsInNvZCI6ImhpbXlkcmVhbS5tZSIsInNvZHQiOjE3ODQxMDI2OTc3MTQsInNvZHMiOiJjIiwic29kc3QiOjE3ODQxMDI2OTc3MTQsImciOiJDandLQ0Fqd21KalNCaEItRWl3QWtaZ3hpeWl4MG5yQ0E2RzFndGtMT3ViSFhWOGRISjAzRTE3QlBndXlaTWlra0RCa2FDcnVNR05OWEJvQ3plNFFBdkRfQndFIiwiZ3QiOjE3ODMwNDMyNzcwNjN9; _gcl_au=1.1.935419343.1788336006; _cq_suid=1.1792122182.IWaHd3mzUzwIzEil; kepler_id=786b52ce-bdf9-4915-bf63-08078cebcd26; _yjsu_yjad=1792243802.8c6415cb-e8ae-45f0-b9e8-a7330c1ed1f3; _gcl_aw=GCL.1792380980.CjwKCAjw3NHWBhANEiwAtpwId_QhLFHK2aQF7kgzzoDIus6ni-i8IA1swzUd-xXRHRrw4jEe1qng-RoCEGcQAvD_BwE; _gcl_gs=2.1.k1$i1792380978$u150308588; _gac_UA-86696233-1=1.1792380980.CjwKCAjw3NHWBhANEiwAtpwId_QhLFHK2aQF7kgzzoDIus6ni-i8IA1swzUd-xXRHRrw4jEe1qng-RoCEGcQAvD_BwE; _hjSessionUser_6492762=eyJpZCI6IjZmMmJjZjk3LWVkMGMtNTlmYi1hZjMzLWUxNzQ1MzlmMjkzYiIsImNyZWF0ZWQiOjE3OTI1MDA5OTg1MzcsImV4aXN0aW5nIjp0cnVlfQ==; _cq_session=80.1792635443829.kESCnt9DqUaFRx5A.1792636041384; _twsid=1792635368125-190754840.20.1792636041389; _uetvid=033d0e701e8d11ef9344f1b59b29a7d1; _ga_FW3CMDM313=GS2.1.s1792635368$o204$g1$t1792636041$j60$l0$h0; _ga_HSY7KJ18X2=GS2.1.s1792635368$o190$g1$t1792636041$j60$l0$h0; _cq_s=e922ccdae3e5d3ee5d64f2b18f667d82.GSld/7iKMBYT8o5e:l9Y1MkSg3OjogWQ1ExDdxBPLcHgMUzUWo13SIoGsZxI2X08SAl2EU+IgBxqjnN7M3twq+HV2oSlUHrccsrEy8p4THPv+cfBw9nGpO7AyU1qoS2JcAMszJ5jSDdN3zB31W9YEvqLR+c49gyuOvHvZykv2QtCfDR9/5qqMIMg56YJW9ThicnPcFLpc3YLZX0L3vhE9y9XnsQsibhf5M1xByg==:0DRbNuSQASX1qDw+C1Mpdg==; ttcsid_C1SIFQUHLSU5AAHCT7H0=1792635443864::jf44PPhdUQWD_x-ZYG4j.146.1792636042306.1; ttcsid=1792635363258::RY5mfUc2ZslICxna8Nh_.147.1792636042306.0::1.675374.678361::9859.2.846.356::83656.16.425; _ga_V8S4KC8ZXR=GS2.1.s1792635368$o188$g1$t1792636042$j59$l0$h2095157383; forterToken=a60396a809fd403abc924887f2ad62a7_1792636041879__UDF43-m4_21ck_; _cfuvid=hLLCfEJpvHNXy3RXs4n_DtagJvgjY.9j7jJnUh7Vh1k-1793105026.2000313-1.0.1.1-46pWASHtab2hdXrUfd939FPXWLDhZlJIAOTLq6UoqEY; _ga=GA1.2.325620124.1717077636; _gid=GA1.2.922881215.1793105027; klk_rdc=TW; islogin=true; sess=30775c16ca4e2f7ae9acfcb35878f83f; uid=106452; kuid=119844460; CSRF-TOKEN=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEwNjQ1Mn0.e2tegKoFSY6A_ut2svtn5H5BdEx8UIirioHa1y8NpPY; locale=zh-TW; datadome=Y3U1gVMLp5OdJbSvBA5aZrIMKD_bvHhNG8UZEhLq1wMve8s62jD1~FpCfWGx2nrcMtRXocb17ohCu22fHLElUuE24bKCmD~JGQSzVVkzgz2wvJiifjMQAazYrkrM4f~H",
+  "affiliate_id": "106452"
+}
