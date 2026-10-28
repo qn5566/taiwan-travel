@@ -40,7 +40,7 @@
 | **09** | **奧丁丁在地深度體驗**| `MODULE_AFFILIATE_OWLRING_EXPERIENCE` | `https://linkgo.one/s/ikCjF` | 花東部落文化行腳、百岳嚮導團、小農採茶體驗 |
 | **10** | **化妝品藥品備用通道**| `MODULE_AFFILIATE_COSMETICS_PHARMA` | `https://afflink.one/s/3WAKW` | 開架美妝藥品導購備用通道、行前清單醫美保養品 |
 | **11** | **Trip.com 官方聯盟** | 官方旗艦通道 | Allianceid=9507030&SID=325761227&trip_sub3=D20272275 | ✈️ 查機票比價、高鐵特惠、國內外訂房比價 |
-| **12** | **Klook 官方聯盟** | 官方旗艦通道 | `?aid=123436` | 🎟️ 預定行程、🚗 包車一日遊、高鐵聯票、機場接送 |
+| **12** | **Klook 官方聯盟** | 官方旗艦通道 | `?aid=106452` | 🎟️ 預定行程、🚗 包車一日遊、高鐵聯票、機場接送 |
 | **13** | **SimOptions 網卡** | 官方推薦通道 | `https://www.simoptions.com/zh/` | 📶 台灣 eSIM 網卡、外國旅客來台行前上網指南 |
 | **14** | **官方商務窗口** | HiMyDream Studio | `himydream.studio0220@gmail.com` | 全站頁尾聯絡、商務異業合作洽談、資料勘誤 |
 
