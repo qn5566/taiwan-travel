@@ -1103,8 +1103,7 @@
                         city: '${displayRegion}',
                         img: '${cardImg}',
                         rating: '${item.rate || item.rating || '4.9★'}',
-                        desc: '${(item.highlight || item.desc || '').replace(/'/g, "\'").replace(/
-/g, ' ')}',
+                        desc: '${(item.highlight || item.desc || '').replace(/'/g, "\\'").replace(/\r?\n/g, ' ')}',
                         klookUrl: typeof AFFILIATE_HUB !== 'undefined' ? AFFILIATE_HUB.getSearchUrl('${item.name.replace(/'/g, "\'")}') : 'https://www.klook.com/?aid=106452',
                         tripUrl: typeof AFFILIATE_HUB !== 'undefined' ? AFFILIATE_HUB.getTripSearchUrl('${item.name.replace(/'/g, "\'")}') : 'https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275',
                         mapUrl: '${mapUrl}'

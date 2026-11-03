@@ -497,8 +497,7 @@
                         city: '${item.city}',
                         img: '${item.img}',
                         rating: '${item.rate || '4.9★'}',
-                        desc: '${(item.desc || '').replace(/'/g, "\'").replace(/
-/g, ' ')}',
+                        desc: '${(item.desc || '').replace(/'/g, "\\'").replace(/\r?\n/g, ' ')}',
                         klookUrl: '${charterUrl}',
                         tripUrl: '${hotelUrl}',
                         mapUrl: '${mapUrl}'

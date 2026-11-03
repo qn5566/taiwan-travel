@@ -3,9 +3,12 @@ use strict;
 use warnings;
 use IO::Socket::INET;
 use File::Basename;
+use Cwd 'abs_path';
 
 my $port = 8081;
-my $root = "/Users/nanaminanami/Documents/HiMyDream/台灣吃喝玩樂/app";
+# 優先指向「台灣吃喝玩樂網頁版」，若不存在則回退到目前目錄
+my $default_dir = -d './台灣吃喝玩樂網頁版' ? './台灣吃喝玩樂網頁版' : (-d './app' ? './app' : '.');
+my $root = abs_path($ENV{WEB_ROOT} || $default_dir);
 
 my $server = IO::Socket::INET->new(
     LocalAddr => '127.0.0.1',

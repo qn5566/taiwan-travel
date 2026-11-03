@@ -2300,8 +2300,7 @@
                         district: '${item.district || ''}',
                         img: '${item.img}',
                         rating: '${item.rate || '4.9★'}',
-                        desc: '${(item.features || item.desc || '').replace(/'/g, "\'").replace(/
-/g, ' ')}',
+                        desc: '${(item.features || item.desc || '').replace(/'/g, "\\'").replace(/\r?\n/g, ' ')}',
                         tags: ${JSON.stringify(item.tags || [])},
                         klookUrl: typeof AFFILIATE_HUB !== 'undefined' ? AFFILIATE_HUB.getSearchUrl('${item.name.replace(/'/g, "\'")}') : 'https://www.klook.com/?aid=106452',
                         tripUrl: '${hotelUrl}',
