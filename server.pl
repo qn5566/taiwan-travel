@@ -6,8 +6,8 @@ use File::Basename;
 use Cwd 'abs_path';
 
 my $port = 8081;
-# 優先指向「台灣吃喝玩樂網頁版」，若不存在則回退到目前目錄
-my $default_dir = -d './台灣吃喝玩樂網頁版' ? './台灣吃喝玩樂網頁版' : (-d './app' ? './app' : '.');
+# 網站檔案已移至根目錄，直接從目前目錄提供服務
+my $default_dir = '.';
 my $root = abs_path($ENV{WEB_ROOT} || $default_dir);
 
 my $server = IO::Socket::INET->new(
