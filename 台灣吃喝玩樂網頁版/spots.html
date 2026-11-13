@@ -301,6 +301,7 @@
   <script src="js/affiliate.js"></script>
   <script src="js/favorites.js"></script>
   <script src="js/data.js"></script>
+  <script src="js/content_loader.js"></script>
   <script>
     let activeZone = "全部";
     let activeCity = "全部";
@@ -369,7 +370,8 @@
       }
     ];
 
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", async () => {
+      await loadSpotsContent();
       renderRegionButtons();
       renderCitySubButtons();
       setupSearch();

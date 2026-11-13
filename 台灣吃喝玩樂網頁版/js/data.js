@@ -12,7 +12,7 @@
  */
 
 // 1. Top 1-6 台灣熱門活動景點 (膠囊藥丸拱門形)
-const TOP_ACTIVITIES_6 = [
+var TOP_ACTIVITIES_6 = [
   {
     "rank": 1,
     "name": "野柳＆九份老街＆十分天燈一日遊",
@@ -118,7 +118,7 @@ const TOP_ACTIVITIES_6 = [
 ];
 
 // 2. 18 大主題專區
-const THEMES_DATA = [
+var THEMES_DATA = [
   {
     "id": "huadong",
     "name": "🏞️ 花東縱谷慢活遊",
@@ -284,7 +284,7 @@ const THEMES_DATA = [
 ];
 
 // 3. 7 大排行榜全整合集合
-const RANKINGS_DATA = {
+var RANKINGS_DATA = {
   drinks: [
     {
       "rank": 1,
@@ -1927,7 +1927,7 @@ const FAMILY_TOP20_DATA = RANKINGS_DATA.family;
 const MALL_TOP10_DATA = RANKINGS_DATA.mall;
 
 // 4. 全部景點瀑布流資料集 (Masonry Waterfall, 涵蓋全台縣市)
-const ALL_SPOTS_DATA = [
+var ALL_SPOTS_DATA = [
   {
     "id": 1,
     "name": "台北 101 高空觀景台",
@@ -2407,7 +2407,7 @@ const ALL_SPOTS_DATA = [
 ];
 
 // 5. 全台縣市精選特色咖啡店資料庫 (含營業中、地址、照片、特徵標籤)
-const TAIWAN_CAFES_DATA = [
+var TAIWAN_CAFES_DATA = [
   {
     "id": "cafe_1",
     "name": "興波咖啡 旗艦店",
@@ -10864,7 +10864,7 @@ const CAFE_FEATURE_TOP20 = {
 };
 
 // 6. 米其林星級與必比登推介名單
-const TAIPEI_MICHELIN_STARS_DATA = [
+var TAIPEI_MICHELIN_STARS_DATA = [
       // 一、 頂級三星與指標二星 (極致宴客與高端聚餐)
       {
         id: "star-1",
@@ -11174,7 +11174,7 @@ const TAIPEI_MICHELIN_STARS_DATA = [
       }
     ];
 
-const BIB_GOURMAND_DATA = [
+var BIB_GOURMAND_DATA = [
       // 🏙️ 台北 7 家
       {
         id: "bib-1",
@@ -11815,7 +11815,7 @@ const WEEKEND_HOP_8_THEMES = [
 ];
 
 // 7. 週末探店專欄部落格文章 (一排一個文章顯示，含景點詳細資訊盒)
-const BLOG_ARTICLES_DATA = [
+var BLOG_ARTICLES_DATA = [
   {
     "id": "blog-1",
     "title": "台北赤峰街週末漫步散策：躲進老洋房天井裡的冠軍手沖與焦糖布丁",

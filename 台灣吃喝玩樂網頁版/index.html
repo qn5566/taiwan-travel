@@ -36,7 +36,7 @@
       <!-- 右側簡潔語言下拉選單 -->
       <div class="clean-lang-select-wrap">
         <span style="font-size: 13px;">🌐</span>
-        <select id="global-lang-select" class="clean-lang-select" onchange="switchLanguage(this.value)">
+        <select id="global-lang-select" class="clean-lang-select">
           <option value="zh-TW">繁體中文 (Traditional Chinese)</option>
           <option value="en">English (International)</option>
           <option value="ja">日本語 (Japanese)</option>
@@ -44,6 +44,10 @@
           <option value="vi">Tiếng Việt</option>
           <option value="th">ภาษาไทย</option>
           <option value="id">Bahasa Indonesia</option>
+          <option value="ms">Bahasa Melayu (Malay)</option>
+          <option value="fil">Filipino</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+          <option value="es">Español (Spanish)</option>
         </select>
       </div>
     </div>
@@ -436,7 +440,7 @@
             <a href="mailto:himydream.studio0220@gmail.com?subject=%E3%80%90%E5%93%81%E7%89%8C%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2%E3%80%91%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82%20Taiwan%20Roam%20%E5%95%86%E6%A5%AD%E5%90%88%E4%BD%9C" 
                style="display: inline-flex; align-items: center; gap: 7px; background: linear-gradient(135deg, #0284C7 0%, #6366F1 100%); color: #FFFFFF; text-decoration: none; font-size: 13px; font-weight: 800; padding: 9px 22px; border-radius: 9999px; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.28); transition: all 0.2s ease;">
               <span>🤝</span>
-              <span>品牌合作洽詢</span>
+              <span id="footer-contact-label">品牌合作洽詢</span>
               <span style="font-size: 11.5px; opacity: 0.92;">(來信洽談)</span>
             </a>
 
@@ -452,10 +456,10 @@
         <!-- 右側：專題導覽 QUICK LINKS -->
         <div style="flex: 1; min-width: 280px; max-width: 440px;">
           <div style="font-size: 14.5px; font-weight: 900; color: #0C4A6E; letter-spacing: 0.8px; margin-bottom: 16px; display: flex; align-items: baseline; gap: 8px;">
-            <span>🧭 專題導覽</span>
+            <span>🧭&nbsp;</span><span id="footer-quick-links-title">專題導覽</span>
             <span style="font-size: 11px; color: #4F46E5; font-weight: 800; letter-spacing: 1.5px; opacity: 0.85;">QUICK LINKS</span>
           </div>
-          <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px;">
+          <ul id="footer-quick-links" style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px;">
             <li><a href="spots.html" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">📍 全台景點</a></li>
             <li><a href="michelin.html" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">🌟 米其林星級與必比登美食</a></li>
             <li><a href="cafe.html" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;">☕ 精選咖啡店</a></li>
@@ -487,6 +491,7 @@
   <script src="js/favorites.js"></script>
   <script src="js/data.js"></script>
   <script src="js/i18n.js"></script>
+  <script src="js/content_loader.js"></script>
   <script src="js/app.js"></script>
 
   <script>

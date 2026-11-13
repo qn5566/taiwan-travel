@@ -617,6 +617,7 @@
   <script src="js/affiliate.js"></script>
   <script src="js/favorites.js"></script>
   <script src="js/rankings_full_data.js"></script>
+  <script src="js/content_loader.js"></script>
   <script>
     let currentScenario = "all";
     let currentTopicId = "drinks";
@@ -624,7 +625,8 @@
     let pageSize = 10;
     let searchKeyword = "";
 
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", async () => {
+      await loadRankingsContent();
       // Check URL query parameters (e.g. ?cat=drinks or ?topic=nightmarket or ?scenario=food)
       const urlParams = new URLSearchParams(window.location.search);
       const scenarioParam = urlParams.get("scenario");

@@ -297,168 +297,719 @@ const WEB_I18N = {
     sectionSpotsDesc: "ได้รับการยกย่องจากนักเดินทางทั่วโลก ธรรมชาติและโบราณสถาน",
     favTitle: "รายการโปรดของฉัน",
     favEmpty: "ยังไม่มีสถานที่ที่บันทึกไว้ สำรวจและแตะหัวใจเพื่อบันทึก!"
+  },
+  "vi": {
+    brandName: "Taiwan Roam",
+    brandBadge: "Cổng Thông Tin Chính Thức",
+    brandSubtext: "TAIWAN WANDERLUST PORTAL",
+    navHome: "Trang chủ",
+    navThemes: "16 Chủ đề",
+    navDrinks: "Top 20 Trà Sữa",
+    navSpots: "Top 20 Điểm Đến",
+    navRegions: "22 Vùng",
+    navSouvenir: "Quà Lưu Niệm",
+    heroTagline: "✨ Cổng du lịch Đài Loan 2026 · Điểm đến, trà sữa & trải nghiệm địa phương",
+    heroTitle1: "Khám phá vẻ đẹp tuyệt vời của Đài Loan",
+    heroTitle2: "Núi rừng, biển cả, suối nước nóng & lòng hiếu khách",
+    heroSubtitle: "Khám phá 16 chủ đề, Top 20 trà sữa, xe riêng có tài xế và khách sạn suối nước nóng.",
+    searchPlaceholder: "Tìm điểm đến, quán trà sữa, suối nước nóng hoặc chợ đêm...",
+    searchBtn: "Bắt đầu khám phá",
+    btnTour: "🎟️ Đặt Tour",
+    btnCharter: "🚗 Xe Riêng",
+    btnHotel: "🏨 Đặt Khách Sạn",
+    btnHotelAlt: "🏨 Tìm Phòng",
+    btnFlight: "✈️ Vé Máy Bay",
+    btnMap: "📍 Bản Đồ",
+    btnSouvenir: "🛍️ Quà Lưu Niệm",
+    serviceFlight: "Vé máy bay",
+    serviceFlightDesc: "Chuyến bay nội địa & quốc tế",
+    serviceCharter: "Thuê xe riêng",
+    serviceCharterDesc: "Tài xế riêng cả ngày",
+    serviceAirport: "Đưa đón sân bay",
+    serviceAirportDesc: "Đào Viên / Tùng Sơn",
+    serviceHsr: "Tàu cao tốc Đài Loan",
+    serviceHsrDesc: "Giảm 15% mọi tuyến",
+    serviceSouvenir: "Giao quà lưu niệm",
+    serviceSouvenirDesc: "Giao tận khách sạn",
+    sectionThemesTitle: "🗺️ 16 Chủ đề du lịch nổi bật",
+    sectionThemesDesc: "Từ đảo núi lửa, chợ đêm đến suối nước nóng, khám phá sâu Đài Loan.",
+    sectionDrinksTitle: "🧋 Top 20 thương hiệu trà sữa Đài Loan",
+    sectionDrinksDesc: "Vương quốc trà sữa! Đồ uống đặc trưng và gợi ý đường/đá.",
+    sectionSpotsTitle: "🏆 Top 20 điểm đến không thể bỏ qua",
+    sectionSpotsDesc: "Được du khách toàn cầu yêu thích. Kỳ quan thiên nhiên & di sản văn hóa.",
+    favTitle: "Danh sách yêu thích",
+    favEmpty: "Chưa có điểm nào được lưu. Hãy khám phá và chạm vào trái tim để lưu!"
+  },
+  "ms": {
+    brandName: "Taiwan Roam",
+    brandBadge: "Portal Web Rasmi",
+    brandSubtext: "TAIWAN WANDERLUST PORTAL",
+    navHome: "Laman Utama",
+    navThemes: "16 Tema",
+    navDrinks: "Top 20 Boba",
+    navSpots: "Top 20 Destinasi",
+    navRegions: "22 Wilayah",
+    navSouvenir: "Cenderamata",
+    heroTagline: "✨ Portal Pelancongan Taiwan 2026 · Destinasi, Boba & Pengalaman Tempatan",
+    heroTitle1: "Terokai Keindahan Luar Biasa Taiwan",
+    heroTitle2: "Gunung, Pantai, Mata Air Panas & Kemesraan",
+    heroSubtitle: "Terokai 16 tema, Top 20 jenama boba, pemandu peribadi dan hotel mata air panas.",
+    searchPlaceholder: "Cari destinasi, kedai boba, mata air panas atau pasar malam...",
+    searchBtn: "Mula Terokai",
+    btnTour: "🎟️ Tempah Lawatan",
+    btnCharter: "🚗 Kereta Persendirian",
+    btnHotel: "🏨 Tempah Hotel",
+    btnHotelAlt: "🏨 Cari Bilik",
+    btnFlight: "✈️ Penerbangan",
+    btnMap: "📍 Peta",
+    btnSouvenir: "🛍️ Cenderamata",
+    serviceFlight: "Penerbangan",
+    serviceFlightDesc: "Penerbangan & Pulau",
+    serviceCharter: "Kereta Persendirian",
+    serviceCharterDesc: "Pemandu peribadi",
+    serviceAirport: "Pengangkutan Lapangan Terbang",
+    serviceAirportDesc: "Taoyuan / Songshan",
+    serviceHsr: "Kereta Laju Taiwan",
+    serviceHsrDesc: "Diskaun 15%",
+    serviceSouvenir: "Penghantaran Cenderamata",
+    serviceSouvenirDesc: "Hantar terus ke hotel",
+    sectionThemesTitle: "🗺️ 16 Sorotan Tema Pelancongan",
+    sectionThemesDesc: "Dari pulau gunung berapi ke pasar malam dan mata air panas.",
+    sectionDrinksTitle: "🧋 Top 20 Jenama Boba Taiwan",
+    sectionDrinksDesc: "Kerajaan teh buih! Minuman istimewa yang disyorkan.",
+    sectionSpotsTitle: "🏆 Top 20 Destinasi Wajib Lawat",
+    sectionSpotsDesc: "Dipuji pelancong seluruh dunia. Keajaiban alam & sejarah.",
+    favTitle: "Senarai Kegemaran Saya",
+    favEmpty: "Tiada tempat disimpan. Terokai dan ketik ikon hati untuk simpan!"
+  },
+  "fil": {
+    brandName: "Taiwan Roam",
+    brandBadge: "Opisyal na Web Portal",
+    brandSubtext: "TAIWAN WANDERLUST PORTAL",
+    navHome: "Home",
+    navThemes: "16 Tema",
+    navDrinks: "Top 20 Boba",
+    navSpots: "Top 20 Destinasyon",
+    navRegions: "22 Rehiyon",
+    navSouvenir: "Pasabuy",
+    heroTagline: "✨ 2026 Taiwan Travel Portal · Destinasyon, Boba at Lokal na Karanasan",
+    heroTitle1: "Tuklasin ang Ganda ng Taiwan",
+    heroTitle2: "Bundok, Baybayin, Hot Spring at Mainit na Pagtanggap",
+    heroSubtitle: "I-explore ang 16 na tema, Top 20 boba, pribadong driver at hot spring hotel.",
+    searchPlaceholder: "Maghanap ng destinasyon, boba shop, hot spring o night market...",
+    searchBtn: "Simulan ang Pag-explore",
+    btnTour: "🎟️ Mag-book ng Tour",
+    btnCharter: "🚗 Pribadong Kotse",
+    btnHotel: "🏨 Mag-book ng Hotel",
+    btnHotelAlt: "🏨 Maghanap ng Kwarto",
+    btnFlight: "✈️ Flights",
+    btnMap: "📍 Mapa",
+    btnSouvenir: "🛍️ Pasabuy",
+    serviceFlight: "Flights",
+    serviceFlightDesc: "Flights at Island Hopping",
+    serviceCharter: "Pribadong Kotse",
+    serviceCharterDesc: "Pribadong driver",
+    serviceAirport: "Airport Transfer",
+    serviceAirportDesc: "Taoyuan / Songshan",
+    serviceHsr: "Taiwan HSR",
+    serviceHsrDesc: "15% Discount",
+    serviceSouvenir: "Pasabuy Delivery",
+    serviceSouvenirDesc: "Ipadala sa hotel",
+    sectionThemesTitle: "🗺️ 16 Tampok na Tema sa Paglalakbay",
+    sectionThemesDesc: "Mula sa bulkanikong isla hanggang night market at hot spring.",
+    sectionDrinksTitle: "🧋 Top 20 Boba Brands ng Taiwan",
+    sectionDrinksDesc: "Ang kaharian ng bubble tea! Mga signature na inumin.",
+    sectionSpotsTitle: "🏆 Top 20 Dapat Bisitahing Destinasyon",
+    sectionSpotsDesc: "Pinupuri ng mga manlalakbay sa buong mundo. Likas na ganda at kasaysayan.",
+    favTitle: "Aking Mga Paborito",
+    favEmpty: "Wala pang naka-save. Mag-explore at pindutin ang puso para mag-save!"
+  },
+  "hi": {
+    brandName: "Taiwan Roam",
+    brandBadge: "आधिकारिक वेब पोर्टल",
+    brandSubtext: "TAIWAN WANDERLUST PORTAL",
+    navHome: "होम",
+    navThemes: "16 थीम",
+    navDrinks: "टॉप 20 बोबा",
+    navSpots: "टॉप 20 स्थल",
+    navRegions: "22 क्षेत्र",
+    navSouvenir: "स्मृति चिन्ह",
+    heroTagline: "✨ 2026 ताइवान यात्रा पोर्टल · स्थल, बोबा और स्थानीय अनुभव",
+    heroTitle1: "ताइवान की अद्भुत सुंदरता की खोज करें",
+    heroTitle2: "पहाड़, तट, गर्म पानी के झरने और आतिथ्य",
+    heroSubtitle: "16 थीम, टॉप 20 बोबा, निजी चालक और हॉट स्प्रिंग होटल का अन्वेषण करें।",
+    searchPlaceholder: "स्थल, बोबा शॉप, हॉट स्प्रिंग या नाइट मार्केट खोजें...",
+    searchBtn: "खोज शुरू करें",
+    btnTour: "🎟️ टूर बुक करें",
+    btnCharter: "🚗 निजी कार",
+    btnHotel: "🏨 होटल बुक करें",
+    btnHotelAlt: "🏨 कमरा खोजें",
+    btnFlight: "✈️ उड़ानें",
+    btnMap: "📍 मैप",
+    btnSouvenir: "🛍️ स्मृति चिन्ह",
+    serviceFlight: "उड़ानें",
+    serviceFlightDesc: "उड़ानें और द्वीप",
+    serviceCharter: "निजी कार",
+    serviceCharterDesc: "निजी चालक",
+    serviceAirport: "एयरपोर्ट ट्रांसफर",
+    serviceAirportDesc: "ताओयुआन / सोंगशान",
+    serviceHsr: "ताइवान हाई-स्पीड रेल",
+    serviceHsrDesc: "15% छूट",
+    serviceSouvenir: "स्मृति चिन्ह डिलीवरी",
+    serviceSouvenirDesc: "होटल तक डिलीवरी",
+    sectionThemesTitle: "🗺️ 16 प्रमुख यात्रा थीम",
+    sectionThemesDesc: "ज्वालामुखी द्वीप से लेकर नाइट मार्केट और हॉट स्प्रिंग तक।",
+    sectionDrinksTitle: "🧋 ताइवान के टॉप 20 बोबा ब्रांड",
+    sectionDrinksDesc: "बबल टी का साम्राज्य! पसंदीदा सिग्नेचर ड्रिंक।",
+    sectionSpotsTitle: "🏆 टॉप 20 ज़रूर घूमने वाले स्थल",
+    sectionSpotsDesc: "दुनिया भर के यात्रियों द्वारा सराहा गया। प्राकृतिक अजूबे और इतिहास।",
+    favTitle: "मेरी पसंदीदा सूची",
+    favEmpty: "अभी कोई स्थल सहेजा नहीं गया। खोजें और दिल पर टैप करके सहेजें!"
+  },
+  "id": {
+    brandName: "Taiwan Roam",
+    brandBadge: "Portal Web Resmi",
+    brandSubtext: "TAIWAN WANDERLUST PORTAL",
+    navHome: "Beranda",
+    navThemes: "16 Tema",
+    navDrinks: "Top 20 Boba",
+    navSpots: "Top 20 Destinasi",
+    navRegions: "22 Wilayah",
+    navSouvenir: "Oleh-oleh",
+    heroTagline: "✨ Portal Wisata Taiwan 2026 · Destinasi, Boba & Pengalaman Lokal",
+    heroTitle1: "Temukan Pesona Menakjubkan Taiwan",
+    heroTitle2: "Pegunungan, Pantai, Mata Air Panas & Keramahan",
+    heroSubtitle: "Jelajahi 16 tema, Top 20 boba, mobil pribadi dengan sopir, dan hotel mata air panas.",
+    searchPlaceholder: "Cari destinasi, kedai boba, mata air panas atau pasar malam...",
+    searchBtn: "Mulai Jelajah",
+    btnTour: "🎟️ Pesan Tur",
+    btnCharter: "🚗 Mobil Pribadi",
+    btnHotel: "🏨 Pesan Hotel",
+    btnHotelAlt: "🏨 Cari Kamar",
+    btnFlight: "✈️ Penerbangan",
+    btnMap: "📍 Peta",
+    btnSouvenir: "🛍️ Oleh-oleh",
+    serviceFlight: "Penerbangan",
+    serviceFlightDesc: "Penerbangan & Pulau",
+    serviceCharter: "Mobil Pribadi",
+    serviceCharterDesc: "Sopir pribadi",
+    serviceAirport: "Transfer Bandara",
+    serviceAirportDesc: "Taoyuan / Songshan",
+    serviceHsr: "Kereta Cepat Taiwan",
+    serviceHsrDesc: "Diskon 15%",
+    serviceSouvenir: "Pengiriman Oleh-oleh",
+    serviceSouvenirDesc: "Kirim langsung ke hotel",
+    sectionThemesTitle: "🗺️ 16 Sorotan Tema Wisata",
+    sectionThemesDesc: "Dari pulau vulkanik hingga pasar malam dan mata air panas.",
+    sectionDrinksTitle: "🧋 Top 20 Merek Boba Taiwan",
+    sectionDrinksDesc: "Kerajaan bubble tea! Minuman khas yang direkomendasikan.",
+    sectionSpotsTitle: "🏆 Top 20 Destinasi Wajib Kunjungi",
+    sectionSpotsDesc: "Dipuji wisatawan dunia. Keajaiban alam & warisan budaya.",
+    favTitle: "Daftar Favorit Saya",
+    favEmpty: "Belum ada tempat tersimpan. Jelajahi dan ketuk ikon hati untuk menyimpan!"
+  }
+};
+
+const WEB_CHROME_I18N = {
+  "zh-TW": {
+    navRankings: "排行榜",
+    navCafe: "全台咖啡與米其林",
+    navCommunity: "留言討論",
+    heroZakkaTitle: "今天，想在台灣哪裡吃喝玩樂？",
+    heroZakkaLead: "把好心情裝進行囊。追一杯手沖的香氣、探一口街角的夜市煙火，漫步這座被山海擁抱的島嶼。",
+    tabFlight: "✈️ 搜機票 Flights",
+    tabCharter: "🚗 預約包車 Private Charter",
+    tabAirport: "🚐 機場接送 Airport Transfer",
+    tabEsim: "📶 台灣網卡 eSIM",
+    tabRankings: "🏆 熱門榜單 Rankings",
+    tabSouvenir: "🛍️ 伴手禮直送 Souvenirs",
+    colMichelinTitle: "米其林指南名店",
+    colMichelinSubtitle: "星級名饌與全台必比登推薦",
+    colCafeTitle: "全台風格咖啡圖鑑",
+    colCafeSubtitle: "330間巷弄老宅與手沖海景",
+    colForeignersTitle: "外國人必看專區",
+    colForeignersSubtitle: "司機大字卡 ‧ 伴手禮直寄",
+    trendingTitle: "台灣一日遊行程推薦",
+    trendingSub: "TAIWAN DAY TOURS & CHARTERS",
+    trendingDesc: "人氣排行行程，外國人最愛台灣的跟團包車",
+    themesTitle: "精選旅行主題",
+    citySpotsTitle: "全台城市與景點探索",
+    footerContactLabel: "品牌合作洽詢",
+    footerQuickLinks: "專題導覽",
+    footerBottom: "© 2026 台灣吃喝玩樂 TAIWAN ROAM. All Rights Reserved. Powered by HiMyDream Studio.",
+    footerQuickLinkItems: ["📍 全台景點", "🌟 米其林星級與必比登美食", "☕ 精選咖啡店", "🚗 台灣旅遊包車推薦行程", "🐢 跳島浮潛和海龜", "🚂 火車鐵道之旅", "📖 深度慢活採訪實錄"],
+    themeCards: [
+      { title: "⛰️ 露營登山", desc: "星空露營車與高山極光。", tag: "百岳星空 ➔" },
+      { title: "🏝️ 離島跳島", desc: "綠島蘭嶼與海龜浮潛。", tag: "海龜跳島 ➔" },
+      { title: "☕ 風格咖啡", desc: "22 縣市 330 間名店。", tag: "330 名店 ➔" },
+      { title: "🍢 花火小吃", desc: "必比登小吃與璀璨煙火。", tag: "米其林攤 ➔" },
+      { title: "🥩 美饌燒肉", desc: "和牛炭烤米其林星選。", tag: "星級燒肉 ➔" },
+      { title: "♨️ 溫泉舒活", desc: "北投白磺礁溪名湯白霧。", tag: "名湯白霧 ➔" },
+      { title: "🚗 環島壯遊", desc: "夢幻森林螢火蟲自駕。", tag: "公路自駕 ➔" }
+    ]
+  },
+  "en": {
+    navRankings: "Rankings",
+    navCafe: "Cafes & Michelin",
+    navCommunity: "Community",
+    heroZakkaTitle: "Where shall we wander & taste across Taiwan today?",
+    heroZakkaLead: "Pack your happiest mood. Follow the aroma of pour-over coffee, savor night market street food, and wander through this island embraced by mountain and sea.",
+    tabFlight: "✈️ Flights",
+    tabCharter: "🚗 Private Charter",
+    tabAirport: "🚐 Airport Transfer",
+    tabEsim: "📶 Taiwan eSIM",
+    tabRankings: "🏆 Rankings",
+    tabSouvenir: "🛍️ Souvenirs",
+    colMichelinTitle: "Michelin Star & Bib Gourmand",
+    colMichelinSubtitle: "Starred fine dining & local street food",
+    colCafeTitle: "Taiwan Curated Cafe Atlas",
+    colCafeSubtitle: "330 historic hideouts & sea views",
+    colForeignersTitle: "Foreign Travelers Guide",
+    colForeignersSubtitle: "Taxi flashcards · Souvenirs delivery",
+    trendingTitle: "Taiwan Day Tours & Charters",
+    trendingSub: "TOP 6 BESTSELLING DAY TRIPS & CHARTERS",
+    trendingDesc: "Most popular chartered & guided day trips loved by international travelers",
+    themesTitle: "Curated Travel Themes",
+    citySpotsTitle: "Explore Taiwan Cities & Attractions",
+    footerContactLabel: "Business Partnership",
+    footerQuickLinks: "Quick Links",
+    footerBottom: "© 2026 Taiwan Roam. All Rights Reserved. Powered by HiMyDream Studio.",
+    footerQuickLinkItems: ["📍 All Taiwan Spots", "🌟 Michelin Stars & Bib Gourmand", "☕ Curated Cafes", "🚗 Taiwan Charter Tours", "🐢 Island Hopping & Sea Turtles", "🚂 Scenic Train Journeys", "📖 In-depth Editorial Stories"],
+    themeCards: [
+      { title: "⛰️ Camping & Hiking", desc: "Starlit camping cars & alpine views.", tag: "Alpine Stars ➔" },
+      { title: "🏝️ Island Hopping", desc: "Green Island, Orchid Island & turtle snorkeling.", tag: "Turtle Hopping ➔" },
+      { title: "☕ Style Cafes", desc: "330 cafes across 22 cities.", tag: "330 Cafes ➔" },
+      { title: "🍢 Night Market Bites", desc: "Bib Gourmand snacks & dazzling fireworks.", tag: "Michelin Stalls ➔" },
+      { title: "🥩 Gourmet BBQ", desc: "Wagyu charcoal-grilled, Michelin-starred.", tag: "Star BBQ ➔" },
+      { title: "♨️ Hot Spring Spa", desc: "Beitou white sulfur & Jiaoxi famous springs.", tag: "Famous Springs ➔" },
+      { title: "🚗 Round-Taiwan Drive", desc: "Dreamy forests & fireflies self-drive.", tag: "Road Trip ➔" }
+    ]
+  },
+  "ja": {
+    navRankings: "ランキング",
+    navCafe: "カフェ＆ミシュラン",
+    navCommunity: "コミュニティ",
+    heroZakkaTitle: "今日は台湾のどこで食べて遊ぼう？",
+    heroZakkaLead: "楽しい気分を鞄に詰めて。ハンドドリップの香りを追い、夜市の屋台を味わい、山海に抱かれたこの島を散策しよう。",
+    tabFlight: "✈️ 航空券検索",
+    tabCharter: "🚗 チャーター車",
+    tabAirport: "🚐 空港送迎",
+    tabEsim: "📶 台湾eSIM",
+    tabRankings: "🏆 ランキング",
+    tabSouvenir: "🛍️ お土産直送",
+    colMichelinTitle: "ミシュラン＆ビブグルマン",
+    colMichelinSubtitle: "星付き名店と地元の屋台グルメ",
+    colCafeTitle: "台湾カフェ図鑑",
+    colCafeSubtitle: "330軒の路地裏・古民家と海景カフェ",
+    colForeignersTitle: "外国人向けガイド",
+    colForeignersSubtitle: "タクシー指さしカード・お土産直送",
+    trendingTitle: "台湾日帰りツアー",
+    trendingSub: "TOP 6 人気日帰りツアー＆チャーター",
+    trendingDesc: "外国人に人気のチャーター・ガイド付き日帰りツアー",
+    themesTitle: "おすすめ旅行テーマ",
+    citySpotsTitle: "台湾の都市と観光スポット",
+    footerContactLabel: "ブランド提携",
+    footerQuickLinks: "クイックリンク",
+    footerBottom: "© 2026 台湾吃喝玩楽 TAIWAN ROAM. All Rights Reserved. Powered by HiMyDream Studio.",
+    footerQuickLinkItems: ["📍 台湾の観光スポット", "🌟 ミシュラン星とビブグルマン", "☕ おすすめカフェ", "🚗 台湾チャーター旅行", "🐢 離島ホッピングとウミガメ", "🚂 鉄道の旅", "📖 深掘り取材記事"],
+    themeCards: [
+      { title: "⛰️ キャンプ＆登山", desc: "星空キャンピングカーと高山の絶景。", tag: "高山絶景 ➔" },
+      { title: "🏝️ 離島ホッピング", desc: "緑島・蘭嶼とウミガメシュノーケル。", tag: "ウミガメ ➔" },
+      { title: "☕ スタイルカフェ", desc: "22都市330店舗。", tag: "330店舗 ➔" },
+      { title: "🍢 夜市グルメ", desc: "ビブグルマン小吃と花火。", tag: "ミシュラン屋台 ➔" },
+      { title: "🥩 美食焼肉", desc: "和牛炭火焼きミシュラン星。", tag: "星付き焼肉 ➔" },
+      { title: "♨️ 温泉リラックス", desc: "北投白濁・礁渓名湯。", tag: "名湯めぐり ➔" },
+      { title: "🚗 台湾一周", desc: "夢の森と蛍のドライブ。", tag: "ロードトリップ ➔" }
+    ]
+  },
+  "ko": {
+    navRankings: "랭킹",
+    navCafe: "카페 & 미슐랭",
+    navCommunity: "커뮤니티",
+    heroZakkaTitle: "오늘은 대만 어디에서 즐길까요?",
+    heroZakkaLead: "기분 좋게 떠나보세요. 핸드드립 향기를 따라, 야시장 먹거리를 맛보고 산과 바다가 품은 섬을 거닐어 보세요.",
+    tabFlight: "✈️ 항공권",
+    tabCharter: "🚗 프라이빗 카",
+    tabAirport: "🚐 공항 픽업",
+    tabEsim: "📶 대만 eSIM",
+    tabRankings: "🏆 랭킹",
+    tabSouvenir: "🛍️ 기념품",
+    colMichelinTitle: "미슐랭 & 빕구르망",
+    colMichelinSubtitle: "스타 레스토랑과 현지 길거리 음식",
+    colCafeTitle: "대만 카페 아틀라스",
+    colCafeSubtitle: "330곳의 골목 옛집과 오션뷰",
+    colForeignersTitle: "외국인 전용 가이드",
+    colForeignersSubtitle: "택시 대화 카드 · 기념품 배송",
+    trendingTitle: "대만 당일치기 투어",
+    trendingSub: "TOP 6 베스트셀러 당일 투어",
+    trendingDesc: "외국인에게 인기 있는 전세차 및 가이드 투어",
+    themesTitle: "추천 여행 테마",
+    citySpotsTitle: "대만 도시와 명소 둘러보기",
+    footerContactLabel: "브랜드 제휴",
+    footerQuickLinks: "바로가기",
+    footerBottom: "© 2026 Taiwan Roam. All Rights Reserved. Powered by HiMyDream Studio.",
+    footerQuickLinkItems: ["📍 대만 명소", "🌟 미슐랭 스타 & 빕구르망", "☕ 추천 카페", "🚗 대만 전세차 투어", "🐢 섬 호핑 & 바다거북", "🚂 기차 여행", "📖 심층 취재 기사"],
+    themeCards: [
+      { title: "⛰️ 캠핑 & 등산", desc: "별빛 캠핑카와 고산 절경.", tag: "고산 절경 ➔" },
+      { title: "🏝️ 섬 호핑", desc: "그린아일랜드·란위와 바다거북 스노클링.", tag: "거북 호핑 ➔" },
+      { title: "☕ 스타일 카페", desc: "22개 도시 330곳.", tag: "330곳 ➔" },
+      { title: "🍢 야시장 먹거리", desc: "빕구르망 간식과 화려한 불꽃.", tag: "미슐랭 포장마차 ➔" },
+      { title: "🥩 미식 바비큐", desc: "와규 숯불구이 미슐랭 스타.", tag: "스타 바비큐 ➔" },
+      { title: "♨️ 온천 힐링", desc: "베이터우 백황천·자오시 명탕.", tag: "명탕 순례 ➔" },
+      { title: "🚗 대만 일주", desc: "꿈같은 숲과 반딧불 드라이브.", tag: "로드트립 ➔" }
+    ]
+  },
+  "vi": {
+    navRankings: "Xếp hạng",
+    navCafe: "Cà phê & Michelin",
+    navCommunity: "Cộng đồng",
+    heroZakkaTitle: "Hôm nay bạn muốn ăn gì, chơi gì ở Đài Loan?",
+    heroZakkaLead: "Mang theo tâm trạng vui vẻ. Đuổi theo hương cà phê pha tay, thưởng thức món ăn chợ đêm và dạo bước trên hòn đảo ôm trọn núi và biển.",
+    tabFlight: "✈️ Vé máy bay",
+    tabCharter: "🚗 Xe riêng",
+    tabAirport: "🚐 Đưa đón sân bay",
+    tabEsim: "📶 eSIM Đài Loan",
+    tabRankings: "🏆 Xếp hạng",
+    tabSouvenir: "🛍️ Quà lưu niệm",
+    colMichelinTitle: "Michelin & Bib Gourmand",
+    colMichelinSubtitle: "Nhà hàng gắn sao và món đường phố",
+    colCafeTitle: "Bản đồ cà phê Đài Loan",
+    colCafeSubtitle: "330 quán cổ và view biển",
+    colForeignersTitle: "Cẩm nang cho người nước ngoài",
+    colForeignersSubtitle: "Thẻ đối thoại taxi · Giao quà",
+    trendingTitle: "Tour trong ngày Đài Loan",
+    trendingSub: "TOP 6 TOUR TRONG NGÀY BÁN CHẠY",
+    trendingDesc: "Tour xe riêng và có hướng dẫn được du khách yêu thích",
+    themesTitle: "Chủ đề du lịch nổi bật",
+    citySpotsTitle: "Khám phá thành phố và điểm đến",
+    footerContactLabel: "Hợp tác thương hiệu",
+    footerQuickLinks: "Liên kết nhanh",
+    footerBottom: "© 2026 Taiwan Roam. All Rights Reserved. Powered by HiMyDream Studio.",
+    footerQuickLinkItems: ["📍 Điểm đến Đài Loan", "🌟 Sao Michelin & Bib Gourmand", "☕ Cà phê chọn lọc", "🚗 Tour xe riêng Đài Loan", "🐢 Island hopping & rùa biển", "🚂 Hành trình tàu hỏa", "📖 Bài viết chuyên sâu"],
+    themeCards: [
+      { title: "⛰️ Cắm trại & Leo núi", desc: "Xe cắm trại dưới sao và cảnh núi cao.", tag: "Sao núi cao ➔" },
+      { title: "🏝️ Đảo Hopping", desc: "Đảo Xanh, Lan Tự và lặn ngắm rùa.", tag: "Rùa biển ➔" },
+      { title: "☕ Cà phê phong cách", desc: "330 quán tại 22 thành phố.", tag: "330 quán ➔" },
+      { title: "🍢 Món chợ đêm", desc: "Món Bib Gourmand và pháo hoa rực rỡ.", tag: "Gian Michelin ➔" },
+      { title: "🥩 Thịt nướng cao cấp", desc: "Bò wagyu nướng than đạt sao Michelin.", tag: "Nướng sao ➔" },
+      { title: "♨️ Suối nước nóng", desc: "Suối lưu huỳnh Beitou & Jiaoxi.", tag: "Suối nổi tiếng ➔" },
+      { title: "🚗 Vòng quanh Đài Loan", desc: "Rừng mộng mơ và đom đóm tự lái.", tag: "Tự lái ➔" }
+    ]
+  },
+  "th": {
+    navRankings: "จัดอันดับ",
+    navCafe: "คาเฟ่ & มิชลิน",
+    navCommunity: "ชุมชน",
+    heroZakkaTitle: "วันนี้อยากไปกินเล่นที่ไหนในไต้หวันดี?",
+    heroZakkaLead: "แพ็กความสุขไปด้วย ตามกลิ่นกาแฟดริป ลิ้มรสอาหารตลาดกลางคืน และเดินเล่นบนเกาะที่โอบล้อมด้วยภูเขาและทะเล",
+    tabFlight: "✈️ เที่ยวบิน",
+    tabCharter: "🚗 รถเหมา",
+    tabAirport: "🚐 รับส่งสนามบิน",
+    tabEsim: "📶 eSIM ไต้หวัน",
+    tabRankings: "🏆 จัดอันดับ",
+    tabSouvenir: "🛍️ ของฝาก",
+    colMichelinTitle: "มิชลิน & บิบกูร์มองด์",
+    colMichelinSubtitle: "ร้านดาวและอาหารริมทาง",
+    colCafeTitle: "แผนที่คาเฟ่ไต้หวัน",
+    colCafeSubtitle: "330 ร้านบ้านเก่าและวิวทะเล",
+    colForeignersTitle: "คู่มือชาวต่างชาติ",
+    colForeignersSubtitle: "การ์ดคุยแท็กซี่ · ส่งของฝาก",
+    trendingTitle: "ทัวร์หนึ่งวันไต้หวัน",
+    trendingSub: "TOP 6 ทัวร์หนึ่งวันยอดนิยม",
+    trendingDesc: "ทัวร์เหมาพร้อมไกด์ที่ชาวต่างชาติชื่นชอบ",
+    themesTitle: "ธีมท่องเที่ยวแนะนำ",
+    citySpotsTitle: "สำรวจเมืองและสถานที่ไต้หวัน",
+    footerContactLabel: "ร่วมมือแบรนด์",
+    footerQuickLinks: "ลิงก์ด่วน",
+    footerBottom: "© 2026 Taiwan Roam. All Rights Reserved. Powered by HiMyDream Studio.",
+    footerQuickLinkItems: ["📍 สถานที่ท่องเที่ยวไต้หวัน", "🌟 มิชลินสตาร์ & บิบกูร์มองด์", "☕ คาเฟ่แนะนำ", "🚗 ทัวร์รถเหมาไต้หวัน", "🐢 กระโดดเกาะ & เต่าทะเล", "🚂 ทริปรถไฟ", "📖 บทความเจาะลึก"],
+    themeCards: [
+      { title: "⛰️ ตั้งแคมป์ & ปีนเขา", desc: "รถแคมป์ใต้ดาวและวิวภูเขาสูง.", tag: "ดาวบนยอดเขา ➔" },
+      { title: "🏝️ กระโดดเกาะ", desc: "เกาะกรีน เกาะหลานอวี่ และดำน้ำดูเต่า.", tag: "เต่าทะเล ➔" },
+      { title: "☕ คาเฟ่สไตล์", desc: "330 ร้านใน 22 เมือง.", tag: "330 ร้าน ➔" },
+      { title: "🍢 ของกินตลาดกลางคืน", desc: "ของกินบิบกูร์มองด์และพลุไฟ.", tag: "ร้านมิชลิน ➔" },
+      { title: "🥩 ปิ้งย่างพรีเมียม", desc: "วากิวย่างถ่านระดับมิชลิน.", tag: "ย่างระดับดาว ➔" },
+      { title: "♨️ ออนเซ็น", desc: "เป่ยโถว เจียวซี น้ำพุร้อนดัง.", tag: "ออนเซ็นชื่อดัง ➔" },
+      { title: "🚗 ขับรอบไต้หวัน", desc: "ป่าในฝันและหิ่งห้อย.", tag: "ทริปขับรถ ➔" }
+    ]
+  },
+  "id": {
+    navRankings: "Peringkat",
+    navCafe: "Kafe & Michelin",
+    navCommunity: "Komunitas",
+    heroZakkaTitle: "Mau makan dan main ke mana di Taiwan hari ini?",
+    heroZakkaLead: "Bawa suasana hati yang bahagia. Ikuti aroma kopi seduh, nikmati jajanan pasar malam, dan berjalan di pulau yang dipeluk gunung dan laut.",
+    tabFlight: "✈️ Penerbangan",
+    tabCharter: "🚗 Mobil Pribadi",
+    tabAirport: "🚐 Transfer Bandara",
+    tabEsim: "📶 eSIM Taiwan",
+    tabRankings: "🏆 Peringkat",
+    tabSouvenir: "🛍️ Oleh-oleh",
+    colMichelinTitle: "Michelin & Bib Gourmand",
+    colMichelinSubtitle: "Restoran berbintang dan jajanan jalanan",
+    colCafeTitle: "Atlas Kafe Taiwan",
+    colCafeSubtitle: "330 kafe rumah tua dan pemandangan laut",
+    colForeignersTitle: "Panduan Wisatawan Asing",
+    colForeignersSubtitle: "Kartu taksi · Kirim oleh-oleh",
+    trendingTitle: "Tur Sehari Taiwan",
+    trendingSub: "TOP 6 TUR SEHARI TERLARIS",
+    trendingDesc: "Tur mobil sewaan dan berpemandu favorit wisatawan",
+    themesTitle: "Tema Wisata Pilihan",
+    citySpotsTitle: "Jelajahi Kota & Tempat Wisata",
+    footerContactLabel: "Kemitraan Merek",
+    footerQuickLinks: "Tautan Cepat",
+    footerBottom: "© 2026 Taiwan Roam. All Rights Reserved. Powered by HiMyDream Studio.",
+    footerQuickLinkItems: ["📍 Tempat Wisata Taiwan", "🌟 Bintang Michelin & Bib Gourmand", "☕ Kafe Pilihan", "🚗 Tur Mobil Taiwan", "🐢 Island Hopping & Penyu", "🚂 Perjalanan Kereta", "📖 Artikel Mendalam"],
+    themeCards: [
+      { title: "⛰️ Camping & Hiking", desc: "Mobil camping di bawah bintang dan pemandangan pegunungan.", tag: "Bintang Gunung ➔" },
+      { title: "🏝️ Island Hopping", desc: "Green Island, Orchid Island & snorkeling penyu.", tag: "Penyu ➔" },
+      { title: "☕ Kafe Bergaya", desc: "330 kafe di 22 kota.", tag: "330 Kafe ➔" },
+      { title: "🍢 Jajanan Pasar Malam", desc: "Camilan Bib Gourmand & kembang api.", tag: "Gerai Michelin ➔" },
+      { title: "🥩 BBQ Premium", desc: "Wagyu panggang arang bintang Michelin.", tag: "BBQ Bintang ➔" },
+      { title: "♨️ Pemandian Air Panas", desc: "Beitou sulfur putih & Jiaoxi.", tag: "Air Panas Terkenal ➔" },
+      { title: "🚗 Keliling Taiwan", desc: "Hutan impian & kunang-kunang.", tag: "Road Trip ➔" }
+    ]
+  },
+  "ms": {
+    navRankings: "Kedudukan",
+    navCafe: "Kafe & Michelin",
+    navCommunity: "Komuniti",
+    heroZakkaTitle: "Hari ini nak makan dan main di mana di Taiwan?",
+    heroZakkaLead: "Bawa mood gembira. Ikut aroma kopi tuang, nikmati makanan pasar malam, dan bersiar di pulau yang dipeluk gunung dan laut.",
+    tabFlight: "✈️ Penerbangan",
+    tabCharter: "🚗 Kereta Persendirian",
+    tabAirport: "🚐 Transfer Lapangan Terbang",
+    tabEsim: "📶 eSIM Taiwan",
+    tabRankings: "🏆 Kedudukan",
+    tabSouvenir: "🛍️ Cenderamata",
+    colMichelinTitle: "Michelin & Bib Gourmand",
+    colMichelinSubtitle: "Restoran berbintang dan makanan jalanan",
+    colCafeTitle: "Atlas Kafe Taiwan",
+    colCafeSubtitle: "330 kafe rumah lama dan pemandangan laut",
+    colForeignersTitle: "Panduan Pelancong Asing",
+    colForeignersSubtitle: "Kad teksi · Hantar cenderamata",
+    trendingTitle: "Lawatan Sehari Taiwan",
+    trendingSub: "TOP 6 LAWATAN SEHARI TERLARIS",
+    trendingDesc: "Lawatan kereta sewa dan berpemandu kegemaran pelancong",
+    themesTitle: "Tema Perjalanan Pilihan",
+    citySpotsTitle: "Terokai Bandar & Tarikan",
+    footerContactLabel: "Kerjasama Jenama",
+    footerQuickLinks: "Pautan Pantas",
+    footerBottom: "© 2026 Taiwan Roam. All Rights Reserved. Powered by HiMyDream Studio.",
+    footerQuickLinkItems: ["📍 Destinasi Taiwan", "🌟 Bintang Michelin & Bib Gourmand", "☕ Kafe Pilihan", "🚗 Lawatan Kereta Taiwan", "🐢 Island Hopping & Penyu", "🚂 Perjalanan Kereta Api", "📖 Artikel Mendalam"],
+    themeCards: [
+      { title: "⛰️ Perkhemahan & Mendaki", desc: "Kereta khemah bawah bintang dan pemandangan gunung.", tag: "Bintang Gunung ➔" },
+      { title: "🏝️ Island Hopping", desc: "Pulau Hijau, Pulau Lanyu & snorkeling penyu.", tag: "Penyu ➔" },
+      { title: "☕ Kafe Bergaya", desc: "330 kafe di 22 bandar.", tag: "330 Kafe ➔" },
+      { title: "🍢 Makanan Pasar Malam", desc: "Snek Bib Gourmand & bunga api.", tag: "Gerai Michelin ➔" },
+      { title: "🥩 BBQ Premium", desc: "Wagyu panggang arang bintang Michelin.", tag: "BBQ Bintang ➔" },
+      { title: "♨️ Kolam Air Panas", desc: "Beitou sulfur putih & Jiaoxi.", tag: "Air Panas Terkenal ➔" },
+      { title: "🚗 Jelajah Taiwan", desc: "Hutan impian & kunang-kunang.", tag: "Road Trip ➔" }
+    ]
+  },
+  "fil": {
+    navRankings: "Ranggo",
+    navCafe: "Kape & Michelin",
+    navCommunity: "Komunidad",
+    heroZakkaTitle: "Saan tayo kakain at maglilibot sa Taiwan ngayon?",
+    heroZakkaLead: "Dala ang masayang pakiramdam. Sundan ang aroma ng pour-over na kape, tikman ang street food sa night market, at maglakad sa islang yakap ng bundok at dagat.",
+    tabFlight: "✈️ Flights",
+    tabCharter: "🚗 Pribadong Kotse",
+    tabAirport: "🚐 Airport Transfer",
+    tabEsim: "📶 Taiwan eSIM",
+    tabRankings: "🏆 Ranggo",
+    tabSouvenir: "🛍️ Pasabuy",
+    colMichelinTitle: "Michelin & Bib Gourmand",
+    colMichelinSubtitle: "Starred na kainan at lokal na street food",
+    colCafeTitle: "Atlas ng Kape sa Taiwan",
+    colCafeSubtitle: "330 lumang bahay na kape at sea view",
+    colForeignersTitle: "Gabay para sa Dayuhan",
+    colForeignersSubtitle: "Taxi flashcards · Pasabuy delivery",
+    trendingTitle: "Day Tour sa Taiwan",
+    trendingSub: "TOP 6 MABILIS MAUBOS NA DAY TOURS",
+    trendingDesc: "Paboritong chartered at guided na tour ng mga manlalakbay",
+    themesTitle: "Mga Piniling Tema sa Paglalakbay",
+    citySpotsTitle: "Tuklasin ang mga Lungsod at Atraksyon",
+    footerContactLabel: "Brand Partnership",
+    footerQuickLinks: "Mabilisang Link",
+    footerBottom: "© 2026 Taiwan Roam. All Rights Reserved. Powered by HiMyDream Studio.",
+    footerQuickLinkItems: ["📍 Mga Destinasyon sa Taiwan", "🌟 Michelin Stars & Bib Gourmand", "☕ Mga Piling Kape", "🚗 Taiwan Charter Tours", "🐢 Island Hopping & Pawikan", "🚂 Paglalakbay sa Tren", "📖 Malalim na Artikulo"],
+    themeCards: [
+      { title: "⛰️ Camping & Hiking", desc: "Camping sa ilalim ng bituin at tanawin ng bundok.", tag: "Bituin sa Bundok ➔" },
+      { title: "🏝️ Island Hopping", desc: "Green Island, Orchid Island at snorkeling ng pawikan.", tag: "Pawikan ➔" },
+      { title: "☕ Mga Styling Kape", desc: "330 cafe sa 22 siyudad.", tag: "330 Cafe ➔" },
+      { title: "🍢 Pagkain sa Night Market", desc: "Bib Gourmand meryenda at paputok.", tag: "Michelin Stall ➔" },
+      { title: "🥩 Premium BBQ", desc: "Wagyu inihaw, Michelin-starred.", tag: "Star BBQ ➔" },
+      { title: "♨️ Hot Spring", desc: "Beitou white sulfur at Jiaoxi.", tag: "Sikat na Hot Spring ➔" },
+      { title: "🚗 Ikot-Taiwan Drive", desc: "Pangarap na gubat at alitaptap.", tag: "Road Trip ➔" }
+    ]
+  },
+  "hi": {
+    navRankings: "रैंकिंग",
+    navCafe: "कैफ़े & मिशेलिन",
+    navCommunity: "समुदाय",
+    heroZakkaTitle: "आज ताइवान में कहाँ खाएँ और घूमें?",
+    heroZakkaLead: "खुशमिज़ाज़ मन लेकर चलें। पोर-ओवर कॉफ़ी की खुशबू का पीछा करें, नाइट मार्केट का स्ट्रीट फ़ूड चखें और पहाड़-समुद्र से घिरे इस द्वीप पर घूमें।",
+    tabFlight: "✈️ उड़ानें",
+    tabCharter: "🚗 निजी कार",
+    tabAirport: "🚐 एयरपोर्ट ट्रांसफर",
+    tabEsim: "📶 ताइवान eSIM",
+    tabRankings: "🏆 रैंकिंग",
+    tabSouvenir: "🛍️ स्मृति चिन्ह",
+    colMichelinTitle: "मिशेलिन & बिब गुरमां",
+    colMichelinSubtitle: "स्टार रेस्तरां और स्थानीय स्ट्रीट फ़ूड",
+    colCafeTitle: "ताइवान कैफ़े एटलस",
+    colCafeSubtitle: "330 पुराने घर और समुद्र दृश्य वाले कैफ़े",
+    colForeignersTitle: "विदेशी यात्रियों की मार्गदर्शिका",
+    colForeignersSubtitle: "टैक्सी फ्लैशकार्ड · स्मृति चिन्ह डिलीवरी",
+    trendingTitle: "ताइवान डे टूर",
+    trendingSub: "TOP 6 सबसे ज़्यादा बिकने वाले डे टूर",
+    trendingDesc: "यात्रियों के पसंदीदा चार्टर्ड और गाइडेड टूर",
+    themesTitle: "पसंदीदा यात्रा थीम",
+    citySpotsTitle: "शहर और आकर्षण खोजें",
+    footerContactLabel: "ब्रांड साझेदारी",
+    footerQuickLinks: "क्विक लिंक",
+    footerBottom: "© 2026 Taiwan Roam. All Rights Reserved. Powered by HiMyDream Studio.",
+    footerQuickLinkItems: ["📍 ताइवान के स्थल", "🌟 मिशेलिन स्टार & बिब गुरमां", "☕ चुनिंदा कैफ़े", "🚗 ताइवान चार्टर टूर", "🐢 आइलैंड होपिंग & कछुआ", "🚂 ट्रेन यात्रा", "📖 गहन लेख"],
+    themeCards: [
+      { title: "⛰️ कैंपिंग & हाइकिंग", desc: "तारों भरे कैंपिंग और पहाड़ी नज़ारे।", tag: "पहाड़ी सितारे ➔" },
+      { title: "🏝️ आइलैंड होपिंग", desc: "ग्रीन आइलैंड, ओर्किड आइलैंड और कछुआ स्नॉर्कलिंग।", tag: "कछुआ ➔" },
+      { title: "☕ स्टाइल कैफ़े", desc: "22 शहरों के 330 कैफ़े।", tag: "330 कैफ़े ➔" },
+      { title: "🍢 नाइट मार्केट भोजन", desc: "बिब गुरमां स्नैक्स और आतिशबाज़ी।", tag: "मिशेलिन स्टॉल ➔" },
+      { title: "🥩 प्रीमियम BBQ", desc: "मिशेलिन-स्टार वाग्यू चारकोल ग्रिल।", tag: "स्टार BBQ ➔" },
+      { title: "♨️ हॉट स्प्रिंग", desc: "बेइटोउ सफ़ेद सल्फर और जियाओक्सी।", tag: "मशहूर हॉट स्प्रिंग ➔" },
+      { title: "🚗 ताइवान राउंड ट्रिप", desc: "सपनों भरे जंगल और जुगनू ड्राइव।", tag: "रोड ट्रिप ➔" }
+    ]
+  },
+  "es": {
+    navRankings: "Rankings",
+    navCafe: "Cafés y Michelin",
+    navCommunity: "Comunidad",
+    heroZakkaTitle: "¿Dónde comer y pasear hoy por Taiwán?",
+    heroZakkaLead: "Empaca tu mejor ánimo. Sigue el aroma del café de vertido, saborea la comida callejera del mercado nocturno y pasea por esta isla abrazada por montaña y mar.",
+    tabFlight: "✈️ Vuelos",
+    tabCharter: "🚗 Coche Privado",
+    tabAirport: "🚐 Traslado al Aeropuerto",
+    tabEsim: "📶 eSIM Taiwán",
+    tabRankings: "🏆 Rankings",
+    tabSouvenir: "🛍️ Recuerdos",
+    colMichelinTitle: "Michelin y Bib Gourmand",
+    colMichelinSubtitle: "Restaurantes con estrella y comida callejera",
+    colCafeTitle: "Atlas de Cafés de Taiwán",
+    colCafeSubtitle: "330 cafés en casas antiguas con vistas al mar",
+    colForeignersTitle: "Guía para Extranjeros",
+    colForeignersSubtitle: "Tarjetas para taxis · Envío de recuerdos",
+    trendingTitle: "Tours de un día por Taiwán",
+    trendingSub: "TOP 6 TOURS DE UN DÍA MÁS VENDIDOS",
+    trendingDesc: "Tours chárter y guiados favoritos de los viajeros",
+    themesTitle: "Temas de viaje destacados",
+    citySpotsTitle: "Explora ciudades y atracciones",
+    footerContactLabel: "Colaboración de Marca",
+    footerQuickLinks: "Enlaces Rápidos",
+    footerBottom: "© 2026 Taiwan Roam. All Rights Reserved. Powered by HiMyDream Studio.",
+    footerQuickLinkItems: ["📍 Destinos de Taiwán", "🌟 Estrellas Michelin y Bib Gourmand", "☕ Cafés Seleccionados", "🚗 Tours Chárter por Taiwán", "🐢 Salto de Islas y Tortugas", "🚂 Rutas en Tren", "📖 Artículos en Profundidad"],
+    themeCards: [
+      { title: "⛰️ Camping y Senderismo", desc: "Autocaravanas bajo las estrellas y vistas alpinas.", tag: "Estrellas Alpinas ➔" },
+      { title: "🏝️ Salto de Islas", desc: "Isla Verde, Orquídea y snorkel con tortugas.", tag: "Tortugas ➔" },
+      { title: "☕ Cafés con Estilo", desc: "330 cafés en 22 ciudades.", tag: "330 Cafés ➔" },
+      { title: "🍢 Bocados Nocturnos", desc: "Tapas Bib Gourmand y fuegos artificiales.", tag: "Puestos Michelin ➔" },
+      { title: "🥩 Barbacoa Gourmet", desc: "Wagyu a la brasa con estrella Michelin.", tag: "BBQ Estrella ➔" },
+      { title: "♨️ Aguas Termales", desc: "Beitou y las famosas termas de Jiaoxi.", tag: "Termas Famosas ➔" },
+      { title: "🚗 Vuelta a Taiwán", desc: "Bosques de ensueño y luciérnagas en coche.", tag: "Ruta en Coche ➔" }
+    ]
   }
 };
 
 /**
- * 台灣吃喝玩樂網頁版 - 國際化語系切換執行函數 (Bilingual Engine)
+ * 台灣吃喝玩樂網頁版 - 國際化語系切換執行函數 (Dictionary-driven Engine)
  */
-function switchLanguage(lang) {
+async function switchLanguage(lang) {
   if (!lang) lang = "zh-TW";
-  if (typeof currentLang !== "undefined") {
-    currentLang = lang;
-  }
-  try {
-    localStorage.setItem("taiwan_travel_lang", lang);
-  } catch (e) {}
+  if (typeof currentLang !== "undefined") currentLang = lang;
+  try { localStorage.setItem("taiwan_travel_lang", lang); } catch (e) {}
 
-  // 1. 同步右側語言下拉選單狀態
+  const core = WEB_I18N[lang] || WEB_I18N.en || WEB_I18N["zh-TW"];
+  const chrome = WEB_CHROME_I18N[lang] || WEB_CHROME_I18N.en || WEB_CHROME_I18N["zh-TW"];
+
+  // 1. 同步語言下拉選單狀態
   document.querySelectorAll("#global-lang-select, .header-lang-select, .clean-lang-select").forEach(sel => {
     sel.value = lang;
   });
-
   document.querySelectorAll(".lang-pill").forEach(btn => {
     const onclickStr = btn.getAttribute("onclick") || "";
-    if (onclickStr.includes(`'${lang}'`)) {
-      btn.classList.add("active");
-    } else {
-      btn.classList.remove("active");
-    }
+    if (onclickStr.includes(`'${lang}'`)) btn.classList.add("active");
+    else btn.classList.remove("active");
   });
-
-  const isEn = (lang === "en");
-  const isJa = (lang === "ja");
-
-  if (typeof switchWeekendHopLanguage === "function") {
-    switchWeekendHopLanguage(isJa ? "ja" : (isEn ? "en" : "zh"));
-  }
 
   // 2. 品牌與導航
   const brandNameEl = document.querySelector(".brand-name");
-  if (brandNameEl) {
-    brandNameEl.textContent = isEn ? "Taiwan Roam" : "台灣吃喝玩樂";
-  }
+  if (brandNameEl) brandNameEl.textContent = core.brandName;
   const brandSubtextEl = document.querySelector(".brand-subtext");
-  if (brandSubtextEl) {
-    brandSubtextEl.textContent = "TAIWAN ROAM";
-  }
+  if (brandSubtextEl) brandSubtextEl.textContent = core.brandSubtext;
 
   const navItems = document.querySelectorAll(".nav-menu .nav-item a");
-  const navJa = ["ホーム", "特集テーマ", "観光スポット", "ランキング", "台湾みやげ", "カフェ巡り", "ミシュラン", "コミュニティ"];
-  const navEn = ["Home", "Themes", "City Spots", "Rankings", "Souvenirs", "Cafe Map", "Michelin Guide", "Community"];
-  const navZh = ["首頁", "精選主題", "城市景點", "排行榜", "伴手禮直送", "全台咖啡地圖", "米其林指南", "留言討論"];
-  if (navItems.length >= 8) {
-    navItems.forEach((item, idx) => {
-      item.textContent = isJa ? navJa[idx] : (isEn ? navEn[idx] : navZh[idx]);
-    });
-  }
+  const navLabels = [core.navHome, core.navThemes, core.navSpots, chrome.navRankings, chrome.navCafe, chrome.navCommunity];
+  navItems.forEach((item, idx) => {
+    if (navLabels[idx] != null) item.textContent = navLabels[idx];
+  });
 
   const ctaBtn = document.querySelector(".header-right-tools .btn-cta-primary");
-  if (ctaBtn) {
-    ctaBtn.textContent = isJa ? "🛍️ 台湾みやげ直送" : (isEn ? "🛍️ Souvenirs Delivery" : "🛍️ 伴手禮直送");
-  }
+  if (ctaBtn) ctaBtn.textContent = core.btnSouvenir;
 
-  // 3. Hero 英雄區塊 (日雜散步小確幸風格)
+  // 3. Hero 英雄區塊
   const heroZakkaTitle = document.querySelector(".hero-zakka-title");
-  if (heroZakkaTitle) {
-    heroZakkaTitle.textContent = isEn ? "Where shall we wander & taste across Taiwan today?" : "今天，想在台灣哪裡吃喝玩樂？";
-  }
-  const heroZakkaSubtitle = document.querySelector(".hero-zakka-subtitle");
-  if (heroZakkaSubtitle) {
-    heroZakkaSubtitle.textContent = "S I P • B I T E • W A N D E R • R E P E A T";
-  }
+  if (heroZakkaTitle) heroZakkaTitle.textContent = chrome.heroZakkaTitle;
   const heroZakkaLead = document.querySelector(".hero-zakka-lead");
-  if (heroZakkaLead) {
-    heroZakkaLead.textContent = isEn
-      ? "Pack your happiest mood. Follow the aroma of pour-over coffee, savor night market street food, and wander through this island embraced by mountain and sea."
-      : "把好心情裝進行囊。追一杯手沖的香氣、探一口街角的夜市煙火，漫步這座被山海擁抱的島嶼。";
-  }
+  if (heroZakkaLead) heroZakkaLead.textContent = chrome.heroZakkaLead;
 
-  // Hero Service Tabs
   const serviceTabs = document.querySelectorAll(".hero-service-tab");
-  const tabEn = ["✈️ Flights", "🚗 Private Charter", "🚐 Airport Transfer", "📶 Taiwan eSIM", "🏆 Rankings", "🛍️ Souvenirs"];
-  const tabZh = ["✈️ 搜機票 Flights", "🚗 預約包車 Private Charter", "🚐 機場接送 Airport Transfer", "📶 台灣網卡 eSIM", "🏆 熱門榜單 Rankings", "🛍️ 伴手禮直送 Souvenirs"];
-  if (serviceTabs.length >= 6) {
-    serviceTabs.forEach((tab, idx) => {
-      tab.textContent = isEn ? tabEn[idx] : tabZh[idx];
-    });
-  }
+  const tabLabels = [chrome.tabFlight, chrome.tabCharter, chrome.tabAirport, chrome.tabEsim, chrome.tabRankings, chrome.tabSouvenir];
+  serviceTabs.forEach((tab, idx) => {
+    if (tabLabels[idx] != null) tab.textContent = tabLabels[idx];
+  });
 
-  // 搜尋列
   const searchInput = document.getElementById("hero-main-search");
-  if (searchInput) {
-    searchInput.placeholder = isEn 
-      ? "Search top attractions, cities, boba, cafes, hot springs (e.g. Taipei 101, Jiufen)..."
-      : "搜尋全台熱門景點、城市、美食或主題（如：台北 101、九份、咖啡廳、溫泉）...";
-  }
+  if (searchInput) searchInput.placeholder = core.searchPlaceholder;
   const searchBtn = document.getElementById("hero-search-btn");
-  if (searchBtn) {
-    searchBtn.textContent = isEn ? "Search Taiwan" : "探索台灣 Search";
-  }
+  if (searchBtn) searchBtn.textContent = core.searchBtn;
 
-  // Hero 3 分格 (米其林 ‧ 咖啡 ‧ 外國人)
+  // Hero 3 分格
   const michelinCol = document.querySelector(".michelin-col");
   if (michelinCol) {
     const t = michelinCol.querySelector(".featured-col-title");
     const s = michelinCol.querySelector(".featured-col-subtitle");
-    if (t) t.textContent = isEn ? "Michelin Star & Bib Gourmand" : "米其林指南名店";
-    if (s) s.textContent = isEn ? "Starred fine dining & local street food" : "星級名饌與全台必比登推薦";
+    if (t) t.textContent = chrome.colMichelinTitle;
+    if (s) s.textContent = chrome.colMichelinSubtitle;
   }
   const cafeCol = document.querySelector(".cafe-col");
   if (cafeCol) {
     const t = cafeCol.querySelector(".featured-col-title");
     const s = cafeCol.querySelector(".featured-col-subtitle");
-    if (t) t.textContent = isEn ? "Taiwan Curated Cafe Atlas" : "全台風格咖啡圖鑑";
-    if (s) s.textContent = isEn ? "330 historic hideouts & sea views" : "330間巷弄老宅與手沖海景";
+    if (t) t.textContent = chrome.colCafeTitle;
+    if (s) s.textContent = chrome.colCafeSubtitle;
   }
   const forCol = document.querySelector(".foreigners-col");
   if (forCol) {
     const t = forCol.querySelector(".featured-col-title");
     const s = forCol.querySelector(".featured-col-subtitle");
-    if (t) t.textContent = isEn ? "Foreign Travelers Guide" : "外國人必看專區";
-    if (s) s.textContent = isEn ? "Taxi flashcards · Souvenirs delivery" : "司機大字卡 ‧ 伴手禮直寄";
+    if (t) t.textContent = chrome.colForeignersTitle;
+    if (s) s.textContent = chrome.colForeignersSubtitle;
   }
 
-  // 4. 第一區塊：Top 6
+  // 4. Top 6 區塊
   const trendingTitle = document.querySelector("#trending-top6 h2");
-  if (trendingTitle) {
-    trendingTitle.textContent = isEn ? "Taiwan Day Tours & Charters" : "台灣一日遊行程推薦";
-  }
+  if (trendingTitle) trendingTitle.textContent = chrome.trendingTitle;
   const trendingSub = document.querySelector("#trending-top6 .trending-title-wrap div");
-  if (trendingSub) {
-    trendingSub.textContent = isEn ? "TOP 6 BESTSELLING DAY TRIPS & CHARTERS" : "TAIWAN DAY TOURS & CHARTERS";
-  }
+  if (trendingSub) trendingSub.textContent = chrome.trendingSub;
   const trendingDesc = document.querySelector("#trending-top6 .trending-title-wrap p");
-  if (trendingDesc) {
-    trendingDesc.textContent = isEn
-      ? "Most popular chartered & guided day trips loved by international travelers"
-      : "人氣排行行程，外國人最愛台灣的跟團包車";
-  }
+  if (trendingDesc) trendingDesc.textContent = chrome.trendingDesc;
 
-  // 5. 第二區塊：精選旅行主題
+  // 5. 精選旅行主題
   const themesTitle = document.querySelector("#themes h2");
-  if (themesTitle) {
-    themesTitle.textContent = isEn ? "Curated Travel Themes" : "精選旅行主題";
-  }
+  if (themesTitle) themesTitle.textContent = chrome.themesTitle;
   const themeCards = document.querySelectorAll("#themes .theme-card");
-  const themeDataEn = [
-    { title: "CPBL Baseball", desc: "Taipei Dome, Intercontinental & Xinzhuang! Passionate cheering squads.", tag: "6 Stadiums ➔" },
-    { title: "Glamping & BBQ Fresh", desc: "Luxury starry tents & wagyu seafood foodboxes delivered directly to your campsite.", tag: "Direct Delivery ➔" },
-    { title: "Curated Cafes", desc: "330 curated cafes across 22 cities! Outlets, pour-overs, heritage & coastal views.", tag: "330 Top Cafes ➔" },
-    { title: "Michelin Guide", desc: "Le Palais 3-Stars, Taïrroir 2-Stars, logy, plus nationwide Bib Gourmand street delicacies.", tag: "Stars & Bib ➔" },
-    { title: "Thermal Springs & Spa", desc: "Beitou white sulfur springs, Jiaoxi beauty baths, Zhiben Royal & Asahi saltwater.", tag: "Springs Guide ➔" },
-    { title: "Night Market Foodies", desc: "Ningxia banquet, Fengjia egg crepes, and Tainan Garden Night Market braised specialties.", tag: "Street Legends ➔" }
-  ];
-  const themeDataZh = [
-    { title: "職棒經典應援", desc: "台北大巨蛋、洲際、新莊！全球最狂啦啦隊熱血應援。", tag: "6 大主場館 ➔" },
-    { title: "露營生鮮野炊", desc: "免搭帳奢華星空帳篷，和牛海陸食材箱一鍵直配營位。", tag: "免備料直配 ➔" },
-    { title: "全台風格咖啡", desc: "全台 22 縣市 330 間名店！插頭、手沖、老宅與海景景觀。", tag: "330 間名店 ➔" },
-    { title: "米其林指南", desc: "頤宮三星、態芮二星、logy 與全台必比登排隊街頭小吃。", tag: "摘星與必比登 ➔" },
-    { title: "極致溫泉舒活", desc: "北投加賀屋白磺、礁溪美人湯、知本老爺與朝日海底溫泉。", tag: "全台名湯巡禮 ➔" },
-    { title: "夜市老饕圖鑑", desc: "寧夏夜市千歲宴、逢甲明倫蛋餅、台南花園夜市大鍋滷味。", tag: "夜市排隊王 ➔" }
-  ];
   themeCards.forEach((card, idx) => {
-    const data = isEn ? themeDataEn[idx] : themeDataZh[idx];
+    const data = chrome.themeCards[idx];
     if (data) {
       const h3 = card.querySelector("h3");
       const p = card.querySelector("p");
@@ -469,49 +1020,38 @@ function switchLanguage(lang) {
     }
   });
 
-  // 6. 第三區塊：全台城市與景點探索
+  // 6. 城市與景點探索
   const citySpotsTitle = document.querySelector("#city-spots h2");
-  if (citySpotsTitle) {
-    citySpotsTitle.textContent = isEn ? "Explore Taiwan Cities & Attractions" : "全台城市與景點探索";
-  }
+  if (citySpotsTitle) citySpotsTitle.textContent = chrome.citySpotsTitle;
 
-  // 7. 頁尾翻譯
-  const footerBrand = document.querySelector(".footer-brand-col div div div:first-child");
-  if (footerBrand) {
-    footerBrand.textContent = isEn ? "Taiwan Roam" : "台灣吃喝玩樂";
-  }
-  const footerDesc = document.querySelector(".footer-brand-col p");
-  if (footerDesc) {
-    footerDesc.textContent = isEn
-      ? "Official travel portal by HiMyDream Studio. The curated one-stop Taiwan independent travel guide for international travelers."
-      : "HiMyDream Studio 官方維護旗艦入口網。專為歐美、日韓、東南亞及全球旅人打造的一站式台灣旅遊自由行指南。";
-  }
-  const footerContact = document.querySelector(".footer-brand-col div[style*='font-size: 12px']");
-  if (footerContact) {
-    footerContact.innerHTML = isEn
-      ? `Business Partnership / Contact Email:<br><a href="mailto:himydream.studio0220@gmail.com" style="color: var(--cyan-primary); font-weight: 700;">himydream.studio0220@gmail.com</a>`
-      : `商務異業合作 / 資料勘誤信箱：<br><a href="mailto:himydream.studio0220@gmail.com" style="color: var(--cyan-primary); font-weight: 700;">himydream.studio0220@gmail.com</a>`;
-  }
-  const colTitles = document.querySelectorAll(".footer-links-col .footer-col-title");
-  if (colTitles.length >= 3) {
-    colTitles[0].textContent = isEn ? "Curated Portals" : "專題導覽";
-    colTitles[1].textContent = isEn ? "Travel Hub" : "旅遊服務樞紐";
-    colTitles[2].textContent = isEn ? "Languages" : "國際化語系";
-  }
-  const footerBottom = document.querySelector(".footer-bottom-bar div:first-child");
-  if (footerBottom) {
-    footerBottom.textContent = isEn
-      ? "© 2026 Taiwan Roam. All Rights Reserved. Powered by HiMyDream Studio."
-      : "© 2026 台灣吃喝玩樂 TAIWAN ROAM. All Rights Reserved. Powered by HiMyDream Studio.";
-  }
+  // 7. 頁尾 (僅翻譯具穩定 selector 的功能性文字；多語品牌宣言為設計元素維持原樣)
+  const footerContact = document.getElementById("footer-contact-label");
+  if (footerContact) footerContact.textContent = chrome.footerContactLabel;
+  const footerQuickLinks = document.getElementById("footer-quick-links-title");
+  if (footerQuickLinks) footerQuickLinks.textContent = chrome.footerQuickLinks;
+  const footerBottom = document.getElementById("footer-copyright");
+  if (footerBottom) footerBottom.textContent = chrome.footerBottom;
 
-  // 8. 重新執行 JS 渲染邏輯
-  if (typeof renderTrendingSection === "function") {
-    renderTrendingSection();
-  }
-  if (typeof renderWaterfallSection === "function") {
-    renderWaterfallSection();
-  }
+  const footerQuickLinkEls = document.querySelectorAll("#footer-quick-links a");
+  footerQuickLinkEls.forEach((link, idx) => {
+    if (chrome.footerQuickLinkItems && chrome.footerQuickLinkItems[idx] != null) {
+      link.textContent = chrome.footerQuickLinkItems[idx];
+    }
+  });
+
+  // 8. 重新抓取後端內容（對應語系）並重渲染各動態區塊
+  if (typeof loadActivitiesContent === "function") await loadActivitiesContent(lang);
+  if (typeof loadThemeGridContent === "function") await loadThemeGridContent(lang);
+  if (typeof loadSpotsContent === "function") await loadSpotsContent(lang);
+  if (typeof loadHomeRankingsContent === "function") await loadHomeRankingsContent(lang);
+  if (typeof loadHomeBlogContent === "function") await loadHomeBlogContent(lang);
+
+  if (typeof renderTrendingSection === "function") renderTrendingSection();
+  if (typeof renderThemesSection === "function") renderThemesSection();
+  if (typeof renderWaterfallSection === "function") renderWaterfallSection();
+  if (typeof renderRankingsSection === "function") renderRankingsSection();
+  if (typeof renderBlogSection === "function") renderBlogSection();
+
   if (typeof switchWeekendHopLanguage === "function") {
     const hopLang = lang.startsWith("en") ? "en" : (lang.startsWith("ja") ? "ja" : "zh");
     switchWeekendHopLanguage(hopLang);

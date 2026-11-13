@@ -1,5 +1,5 @@
 // 8 大核心旗艦深度主題資料庫
-const THEMES_COMPLETE_DATA = [
+var THEMES_COMPLETE_DATA = [
   {
     "id": "northcoast",
     "icon": "🌊",

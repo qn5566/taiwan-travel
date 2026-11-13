@@ -16,14 +16,23 @@ let currentRankingTab = "drinks";
 let userFavorites = JSON.parse(localStorage.getItem("tw_roam_web_favs") || '["台北 101 高空觀景台", "九份老街與阿妹茶樓", "Simple Kaffa 興波咖啡旗艦店"]');
 
 // 頁面加載完成後初始化
-document.addEventListener("DOMContentLoaded", () => {
-  localStorage.removeItem("taiwan_travel_lang");
-  currentLang = "zh-TW";
-  renderTrendingSection();
-  renderThemesSection();
-  renderWaterfallSection();
-  renderRankingsSection();
-  renderBlogSection();
+document.addEventListener("DOMContentLoaded", async () => {
+  const initialLang = (typeof getWebLang === "function") ? getWebLang() : "zh-TW";
+  currentLang = initialLang;
+  if (typeof switchLanguage === "function") {
+    await switchLanguage(initialLang);
+  } else {
+    await loadActivitiesContent(initialLang);
+    await loadThemeGridContent(initialLang);
+    await loadSpotsContent(initialLang);
+    await loadHomeRankingsContent(initialLang);
+    await loadHomeBlogContent(initialLang);
+    renderTrendingSection();
+    renderThemesSection();
+    renderWaterfallSection();
+    renderRankingsSection();
+    renderBlogSection();
+  }
   setupSearchHub();
   setupEventListeners();
   updateFavBadge();

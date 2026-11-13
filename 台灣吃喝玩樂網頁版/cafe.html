@@ -1538,6 +1538,10 @@
           <option value="vi">Tiếng Việt</option>
           <option value="th">ภาษาไทย</option>
           <option value="id">Bahasa Indonesia</option>
+          <option value="ms">Bahasa Melayu</option>
+          <option value="fil">Filipino</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+          <option value="es">Español</option>
         </select>
       </div>
     </div>
@@ -1744,7 +1748,7 @@
 
         <!-- 質感雙語切換膠囊 (Luxury Segmented Switcher) -->
         <div style="display: flex; justify-content: center; margin-bottom: 20px;">
-          <div style="display: inline-flex; align-items: center; background: #FFFFFF; padding: 5px; border-radius: 999px; box-shadow: 0 4px 18px rgba(45,37,34,0.08); border: 1.5px solid #E2D7CB; gap: 6px;">
+          <div style="display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center; background: #FFFFFF; padding: 5px; border-radius: 999px; box-shadow: 0 4px 18px rgba(45,37,34,0.08); border: 1.5px solid #E2D7CB; gap: 6px;">
             <button id="hop-lang-zh" class="hop-lang-tab-btn active" onclick="switchWeekendHopLanguage('zh')" style="padding: 8px 20px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: linear-gradient(135deg, #A85A32 0%, #7C361A 100%); color: #FFFFFF; box-shadow: 0 3px 10px rgba(124, 54, 26, 0.25);">
               🇹🇼 繁體中文
             </button>
@@ -1753,6 +1757,30 @@
             </button>
             <button id="hop-lang-ja" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('ja')" style="padding: 8px 20px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
               🇯🇵 日本語
+            </button>
+            <button id="hop-lang-ko" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('ko')" style="padding: 8px 16px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
+              🇰🇷 한국어
+            </button>
+            <button id="hop-lang-vi" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('vi')" style="padding: 8px 16px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
+              🇻🇳 Tiếng Việt
+            </button>
+            <button id="hop-lang-th" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('th')" style="padding: 8px 16px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
+              🇹🇭 ไทย
+            </button>
+            <button id="hop-lang-id" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('id')" style="padding: 8px 16px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
+              🇮🇩 Bahasa Indonesia
+            </button>
+            <button id="hop-lang-ms" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('ms')" style="padding: 8px 16px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
+              🇲🇾 Bahasa Melayu
+            </button>
+            <button id="hop-lang-fil" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('fil')" style="padding: 8px 16px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
+              🇵🇭 Filipino
+            </button>
+            <button id="hop-lang-hi" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('hi')" style="padding: 8px 16px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
+              🇮🇳 हिन्दी
+            </button>
+            <button id="hop-lang-es" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('es')" style="padding: 8px 16px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
+              🇪🇸 Español
             </button>
           </div>
         </div>
@@ -1943,6 +1971,8 @@
   <script src="js/favorites.js"></script>
   <script src="js/data.js"></script>
   <script src="js/weekend_hop_i18n.js"></script>
+  <script src="js/weekend_hop_i18n_extra.js"></script>
+  <script src="js/content_loader.js"></script>
   <script>
     // 頁面主 Tab 狀態 ('coffee-map' 或 'weekend-hop')
     let currentMainTab = "coffee-map";
@@ -1998,7 +2028,9 @@
     // 米其林分類狀態
     let currentMichCategory = "all";
 
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", async () => {
+      await loadCafesContent();
+      await loadMichelinContent();
       // 讀取 URL 參數決定初始分頁 (?tab=weekend-hop 或 ?tab=michelin-guide 或 ?tab=coffee-map)
       const urlParams = new URLSearchParams(window.location.search);
       const initialTab = urlParams.get("tab");
@@ -2450,82 +2482,60 @@
        ========================================================= */
     let currentHopLang = 'zh';
 
+    const HOP_LANG_LABELS = {
+      zh: { title: "深度慢活採訪實錄", subtitle: "以熱愛出發，實地踩點山海與人文動線。不只是旅行，更是與島嶼呼吸的生活提案。" },
+      en: { title: "The Definitive Island Journals ‧ 72-Hour Expeditions", subtitle: "From sacred alpine canopies to deep Pacific swells — authentic Taiwan curated with heartfelt slow living." },
+      ja: { title: "【台湾漫遊】深度慢活取材実録", subtitle: "歴史ある問屋街からエメラルドグリーンの海岸線まで、現地編集部が厳選した台湾極上ガイド。" },
+      ko: { title: "심층 생활 취재 기록", subtitle: "산과 바다, 사람의 이야기를 직접 발로 뛰며 전하는 대만 여행 가이드." },
+      vi: { title: "Ký sự khám phá địa phương", subtitle: "Tự mình khám phá núi non, biển cả và nhịp sống con người Đài Loan." },
+      th: { title: "บันทึกการท่องเที่ยวเชิงลึก", subtitle: "ออกเดินสำรวจภูเขา ทะเล และวิถีชีวิตผู้คนไต้หวันด้วยตนเอง" },
+      id: { title: "Jurnal Eksplorasi Lokal", subtitle: "Menjelajahi pegunungan, laut, dan kehidupan masyarakat Taiwan secara langsung." },
+      ms: { title: "Jurnal Penerokaan Setempat", subtitle: "Meneroka gunung, laut, dan kehidupan masyarakat Taiwan secara langsung." },
+      fil: { title: "Journal ng Lokal na Paggalugad", subtitle: "Tuklasin ang bundok, dagat, at buhay ng mga tao sa Taiwan." },
+      hi: { title: "गहन स्थानीय अन्वेषण", subtitle: "ताइवान के पहाड़, समुद्र और यहाँ के लोगों की जीवनशैली को करीब से खोजें।" },
+      es: { title: "Crónicas de exploración local", subtitle: "Descubre montañas, mar y la vida de la gente de Taiwán de primera mano." }
+    };
+
     function switchWeekendHopLanguage(lang) {
       currentHopLang = lang;
-      const isEn = lang === 'en';
-      const isJa = lang === 'ja';
+      const label = HOP_LANG_LABELS[lang] || HOP_LANG_LABELS.zh;
 
       // 同步頂部簡潔下拉選單 (單一頂部語言切換)
       const globalSelect = document.getElementById('global-lang-select');
       if (globalSelect) {
-        if (isJa) globalSelect.value = 'ja';
-        else if (isEn) globalSelect.value = 'en';
-        else globalSelect.value = 'zh-TW';
+        const targetValue = lang === 'zh' ? 'zh-TW' : lang;
+        if (globalSelect.querySelector(`option[value="${targetValue}"]`)) {
+          globalSelect.value = targetValue;
+        } else {
+          globalSelect.value = 'zh-TW';
+        }
       }
-      localStorage.setItem('taiwan_travel_lang', isJa ? 'ja' : (isEn ? 'en' : 'zh-TW'));
+      localStorage.setItem('taiwan_travel_lang', lang === 'zh' ? 'zh-TW' : lang);
 
       // 更新頂部標題與副標
       const titleEl = document.getElementById('hop-section-title');
       const subtitleEl = document.getElementById('hop-section-subtitle');
-      if (titleEl) {
-        if (isJa) {
-          titleEl.textContent = '【台湾漫遊】深度慢活取材実録';
-        } else if (isEn) {
-          titleEl.textContent = 'The Definitive Island Journals ‧ 72-Hour Expeditions';
-        } else {
-          titleEl.textContent = '深度慢活採訪實錄';
-        }
-      }
-      if (subtitleEl) {
-        if (isJa) {
-          subtitleEl.textContent = '歴史ある問屋街からエメラルドグリーンの海岸線まで、現地編集部が厳選した台湾極上ガイド。';
-        } else if (isEn) {
-          subtitleEl.textContent = 'From sacred alpine canopies to deep Pacific swells — authentic Taiwan curated with heartfelt slow living.';
-        } else {
-          subtitleEl.textContent = '以熱愛出發，實地踩點山海與人文動線。不只是旅行，更是與島嶼呼吸的生活提案。';
-        }
-      }
+      if (titleEl) titleEl.textContent = label.title;
+      if (subtitleEl) subtitleEl.textContent = label.subtitle;
 
       // 更新語系按鈕樣式
-      const zhBtn = document.getElementById('hop-lang-zh');
-      const enBtn = document.getElementById('hop-lang-en');
-      const jaBtn = document.getElementById('hop-lang-ja');
-
-      const resetBtn = (btn) => {
-        if (!btn) return;
-        btn.style.background = 'transparent';
-        btn.style.color = '#475569';
-        btn.style.boxShadow = 'none';
-        btn.classList.remove('active');
-      };
-
-      const setBtnActive = (btn, gradient, shadow) => {
-        if (!btn) return;
-        btn.style.background = gradient;
-        btn.style.color = '#FFFFFF';
-        btn.style.boxShadow = shadow;
-        btn.classList.add('active');
-      };
-
-      resetBtn(zhBtn);
-      resetBtn(enBtn);
-      resetBtn(jaBtn);
-
-      if (lang === 'zh') {
-        setBtnActive(zhBtn, 'linear-gradient(135deg, #A85A32 0%, #7C361A 100%)', '0 3px 10px rgba(124, 54, 26, 0.25)');
-      } else if (lang === 'en') {
-        setBtnActive(enBtn, 'linear-gradient(135deg, #A85A32 0%, #7C361A 100%)', '0 3px 10px rgba(124, 54, 26, 0.25)');
-      } else if (lang === 'ja') {
-        setBtnActive(jaBtn, 'linear-gradient(135deg, #A93226 0%, #78281F 100%)', '0 3px 10px rgba(169, 50, 38, 0.28)');
-      }
+      const buttons = document.querySelectorAll(".hop-lang-tab-btn");
+      buttons.forEach(btn => {
+        const onclick = btn.getAttribute("onclick") || "";
+        const matches = onclick.includes(`'${lang}'`);
+        btn.classList.toggle("active", matches);
+        btn.style.background = matches ? "linear-gradient(135deg, #A85A32 0%, #7C361A 100%)" : "transparent";
+        btn.style.color = matches ? "#FFFFFF" : "#475569";
+        btn.style.boxShadow = matches ? "0 3px 10px rgba(124, 54, 26, 0.25)" : "none";
+      });
 
       renderHopCards();
     }
 
     function switchWeekendHopLanguageFromTop(val) {
-      let hopLang = 'zh';
-      if (val === 'ja' || val.startsWith('ja')) hopLang = 'ja';
-      else if (val === 'en' || val.startsWith('en')) hopLang = 'en';
+      const supported = ['zh', 'en', 'ja', 'ko', 'vi', 'th', 'id', 'ms', 'fil', 'hi', 'es'];
+      let hopLang = val === 'zh-TW' ? 'zh' : val;
+      if (!supported.includes(hopLang)) hopLang = 'zh';
       switchWeekendHopLanguage(hopLang);
     }
 

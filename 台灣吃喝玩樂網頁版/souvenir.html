@@ -281,6 +281,7 @@
   <script src="js/affiliate.js"></script>
   <script src="js/favorites.js"></script>
   <script src="js/souvenirs_data.js"></script>
+  <script src="js/content_loader.js"></script>
   <script>
     let activeCatId = 'pastry';
     let currentBranchQuery = '萬家福';
@@ -440,7 +441,10 @@
       renderAllProducts(kw);
     }
 
-    window.addEventListener('DOMContentLoaded', initSouvenirPage);
+    window.addEventListener('DOMContentLoaded', async () => {
+      await loadSouvenirsContent();
+      initSouvenirPage();
+    });
   </script>
 </body>
 </html>

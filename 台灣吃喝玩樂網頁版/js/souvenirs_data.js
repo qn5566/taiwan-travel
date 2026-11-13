@@ -3,7 +3,7 @@
  * 整合 Klook 官方直送飯店 (aid=106452) 與外送通道
  */
 
-const SOUVENIR_CATEGORIES_DATA = [
+var SOUVENIR_CATEGORIES_DATA = [
   {
     "id": "pastry",
     "icon": "🍍",

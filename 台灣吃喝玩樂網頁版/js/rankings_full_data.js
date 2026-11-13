@@ -4,7 +4,7 @@
  * 專門解決外國自由行旅客「怕踩雷、不知道買什麼」的痛點，串接專屬高轉化變現通道。
  */
 
-const RANKINGS_TOPICS_META = [
+var RANKINGS_TOPICS_META = [
   {
     "id": "drinks",
     "num": "01",
@@ -271,7 +271,7 @@ const RANKINGS_TOPICS_META = [
   }
 ];
 
-const RANKINGS_FULL_DATA = {
+var RANKINGS_FULL_DATA = {
   "drinks": [
     {
       "rank": 1,

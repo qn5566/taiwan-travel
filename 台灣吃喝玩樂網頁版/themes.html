@@ -261,6 +261,7 @@
   <script src="js/data.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/themes_data.js"></script>
+  <script src="js/content_loader.js"></script>
 
   <script>
     let currentThemeIndex = 0; // 當前選中主題索引 (0 ~ 7)
@@ -1554,7 +1555,10 @@
       };
     }
 
-    window.addEventListener("DOMContentLoaded", initThemesPage);
+    window.addEventListener("DOMContentLoaded", async () => {
+      await loadThemesContent();
+      initThemesPage();
+    });
 
   </script>
 </body>
