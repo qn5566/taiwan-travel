@@ -1,0 +1,3 @@
+1. 前端選單沒有多國語言.
+2. 首頁的 "hero-service-tabs-row" 選單的內柔溢出.
+3. city-region-tabs 沒有多國語言.
