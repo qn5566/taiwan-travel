@@ -601,12 +601,12 @@ const WEB_CHROME_I18N = {
     navCommunity: "留言討論",
     heroZakkaTitle: "今天，想在台灣哪裡吃喝玩樂？",
     heroZakkaLead: "把好心情裝進行囊。追一杯手沖的香氣、探一口街角的夜市煙火，漫步這座被山海擁抱的島嶼。",
-    tabFlight: "搜機票 Flights",
-    tabCharter: "預約包車 Private Charter",
-    tabAirport: "機場接送 Airport Transfer",
-    tabEsim: "台灣網卡 eSIM",
-    tabRankings: "熱門榜單 Rankings",
-    tabSouvenir: "伴手禮直送 Souvenirs",
+    tabFlightZh: "機票", tabFlightEn: "Flights",
+    tabCharterZh: "包車", tabCharterEn: "Charter",
+    tabAirportZh: "接送", tabAirportEn: "Transfer",
+    tabEsimZh: "網卡", tabEsimEn: "eSIM",
+    tabRankingsZh: "榜單", tabRankingsEn: "Rankings",
+    tabHopZh: "探店", tabHopEn: "Hop",
     colMichelinTitle: "米其林指南名店",
     colMichelinSubtitle: "星級名饌與全台必比登推薦",
     colCafeTitle: "全台風格咖啡圖鑑",
@@ -1043,9 +1043,23 @@ async function switchLanguage(lang) {
   if (heroZakkaLead) heroZakkaLead.textContent = chrome.heroZakkaLead;
 
   const serviceTabs = document.querySelectorAll(".hero-service-tab");
-  const tabLabels = [chrome.tabFlight, chrome.tabCharter, chrome.tabAirport, chrome.tabEsim, chrome.tabRankings, core.navJournals];
+  const tabDefs = [
+    { zh: chrome.tabFlightZh || "機票", en: chrome.tabFlightEn || "Flights" },
+    { zh: chrome.tabCharterZh || "包車", en: chrome.tabCharterEn || "Charter" },
+    { zh: chrome.tabAirportZh || "接送", en: chrome.tabAirportEn || "Transfer" },
+    { zh: chrome.tabEsimZh || "網卡", en: chrome.tabEsimEn || "eSIM" },
+    { zh: chrome.tabRankingsZh || "榜單", en: chrome.tabRankingsEn || "Rankings" },
+    { zh: chrome.tabHopZh || "探店", en: chrome.tabHopEn || "Hop" }
+  ];
   serviceTabs.forEach((tab, idx) => {
-    if (tabLabels[idx] != null) tab.textContent = tabLabels[idx];
+    const zhEl = tab.querySelector(".hero-tab-zh");
+    const enEl = tab.querySelector(".hero-tab-en");
+    if (zhEl && enEl && tabDefs[idx]) {
+      zhEl.textContent = tabDefs[idx].zh;
+      enEl.textContent = tabDefs[idx].en;
+    } else if (tabDefs[idx]) {
+      tab.innerHTML = `<span class="hero-tab-text"><span class="hero-tab-zh">${tabDefs[idx].zh}</span><span class="hero-tab-en">${tabDefs[idx].en}</span></span>`;
+    }
   });
 
   const searchInput = document.getElementById("hero-main-search");
