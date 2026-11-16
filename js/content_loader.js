@@ -8,7 +8,7 @@
  *   檔案：themes.json / rankings.json / cafes.json / michelin.json /
  *        souvenirs.json / blog.json / charter.json
  */
-window.CONTENT_BASE_URL = 'https://raw.githubusercontent.com/qn5566/ActivityEvent/main/content';
+window.CONTENT_BASE_URL = window.CONTENT_BASE_URL || 'https://raw.githubusercontent.com/qn5566/ActivityEvent/main/content';
 
 // 前端語系 -> 後端 content 語系資料夾代碼
 const WEB_TO_CONTENT_LANG = {
@@ -175,16 +175,30 @@ async function loadActivitiesContent(lang) {
 }
 
 /** 抓取 spots.json 並覆寫 ALL_SPOTS_DATA */
+let spotsRequestId = 0;
 async function loadSpotsContent(lang) {
+  const requestId = ++spotsRequestId;
   try {
-    const data = await fetchContentJson('spots.json', lang);
-    if (Array.isArray(data) && data.length) {
-      window.ALL_SPOTS_DATA = data;
-      return true;
-    }
-    return false;
+    const contentLang = mapToContentLang(lang || getWebLang());
+    const [localized, chinese] = await Promise.allSettled([
+      fetchContentJson('spots.json', lang),
+      contentLang === 'zh' ? Promise.resolve(null) : fetchContentJson('spots.json', 'zh-TW')
+    ]);
+    const base = chinese.status === 'fulfilled' && Array.isArray(chinese.value) && chinese.value.length
+      ? chinese.value : SpotExplorer.bundled;
+    const data = localized.status === 'fulfilled' ? localized.value : base;
+    let spots = SpotExplorer.normalize(data, contentLang === 'zh' ? data : base);
+    const fromRemote = localized.status === 'fulfilled' && spots.length > 0;
+    if (!spots.length) spots = SpotExplorer.normalize(base);
+    if (!spots.length) throw new Error('No valid spot records');
+    if (requestId !== spotsRequestId) return false;
+    window.ALL_SPOTS_DATA = spots;
+    return fromRemote;
   } catch (e) {
     console.warn('[content-loader] spots.json 載入失敗，回退本地資料：', e && e.message);
+    if (requestId === spotsRequestId && typeof SpotExplorer !== 'undefined') {
+      window.ALL_SPOTS_DATA = SpotExplorer.normalize(SpotExplorer.bundled);
+    }
     return false;
   }
 }

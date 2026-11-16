@@ -19,6 +19,7 @@ let userFavorites = JSON.parse(localStorage.getItem("tw_roam_web_favs") || '["�
 document.addEventListener("DOMContentLoaded", async () => {
   const initialLang = (typeof getWebLang === "function") ? getWebLang() : "zh-TW";
   currentLang = initialLang;
+  renderWaterfallSection();
   if (typeof switchLanguage === "function") {
     await switchLanguage(initialLang);
   } else {
@@ -220,12 +221,7 @@ function renderCityRegionTabs() {
 
 function selectRegion(regionId) {
   currentRegion = regionId;
-  const regObj = TAIWAN_REGIONS_CONFIG.find(r => r.id === regionId);
-  if (regObj && regObj.cities.length > 0) {
-    currentCityFilter = regObj.cities[0].key;
-  } else {
-    currentCityFilter = "全部";
-  }
+  currentCityFilter = "全部";
   renderCityRegionTabs();
   renderCitySubChips();
   renderWaterfallCards();
@@ -235,12 +231,9 @@ function renderCitySubChips() {
   const chipsContainer = document.getElementById("city-subchips-container");
   if (!chipsContainer) return;
 
-  const regObj = TAIWAN_REGIONS_CONFIG.find(r => r.id === currentRegion);
-  if (!regObj) return;
-
   const isEn = (currentLang === "en");
 
-  chipsContainer.innerHTML = regObj.cities.map(city => {
+  chipsContainer.innerHTML = SpotExplorer.getCities(currentRegion).map(city => {
     const isActive = currentCityFilter === city.key ? "active" : "";
     const label = isEn ? city.en : city.name;
     return `
@@ -267,23 +260,10 @@ function renderWaterfallCards() {
   const isEn = (currentLang === "en");
 
   const filteredSpots = ALL_SPOTS_DATA.filter(item => {
-    if (currentCityFilter === "全部" || currentCityFilter === "全部景點") return true;
-    if (currentCityFilter === "全部北部") {
-      return ["台北", "新北", "基隆", "桃園", "新竹"].some(c => item.city.includes(c));
+    if (currentCityFilter.startsWith("全部")) {
+      return SpotExplorer.matchesRegion(item, currentRegion);
     }
-    if (currentCityFilter === "全部中部") {
-      return ["台中", "苗栗", "彰化", "南投", "雲林"].some(c => item.city.includes(c));
-    }
-    if (currentCityFilter === "全部南部") {
-      return ["台南", "高雄", "嘉義", "屏東"].some(c => item.city.includes(c));
-    }
-    if (currentCityFilter === "全部東部") {
-      return ["宜蘭", "花蓮", "台東"].some(c => item.city.includes(c));
-    }
-    if (currentCityFilter === "全部離島") {
-      return ["澎湖", "金門", "連江", "馬祖"].some(c => item.city.includes(c));
-    }
-    return item.city.includes(currentCityFilter.replace("縣", "").replace("市", ""));
+    return SpotExplorer.matchesCity(item, currentCityFilter);
   });
 
   if (filteredSpots.length === 0) {
@@ -299,8 +279,7 @@ function renderWaterfallCards() {
 
   container.innerHTML = filteredSpots.map((item, idx) => {
     const isFav = userFavorites.includes(item.name);
-    const tourUrl = AFFILIATE_HUB.getTourUrl(item.activityId || "1874-jiufen-shifen-day-tour-taipei");
-    const hotelUrl = AFFILIATE_HUB.getHotelUrl(item.name);
+    const escape = SpotExplorer.escapeHtml;
 
     // 依縣市自動賦予多彩分類膠囊
     let catClass = "cat-nature";
@@ -323,32 +302,30 @@ function renderWaterfallCards() {
     const avatar = reviewerAvatars[idx % reviewerAvatars.length];
     const views = (8.5 + (idx % 12) * 1.3).toFixed(1) + "k";
 
-    const stayLabel = isEn ? "⏱️ Stay 2-3h" : "⏱️ 建議停留 2-3h";
+    const stayLabel = escape(item.duration || (isEn ? "See venue information" : "依景點資訊為準"));
     const authorLabel = isEn ? "Editor's Pick" : "精選打卡推薦";
     const viewsLabel = isEn ? `🔥 ${views} visited` : `🔥 ${views} 旅人探訪`;
-    const hotelLabel = isEn ? "🏨 Hotels" : "🏨 查訂房";
-    const bookLabel = isEn ? "Book ➔" : "預訂 ➔";
 
     return `
       <div class="spot-img3-card">
         <div class="spot-img3-media-wrap">
-          <img src="${item.img}" alt="${item.name}" loading="lazy">
+          <img src="${escape(item.img)}" alt="${escape(item.name)}" loading="lazy">
           <span class="spot-img3-category-pill ${catClass}">${catPillText}</span>
-          <button type="button" class="waterfall-fav-btn ${isFav ? "active" : ""}" onclick="toggleFavorite('${item.name.replace(/'/g, "\\'")}', this)" title="${isEn ? 'Save' : '收藏景點'}" style="position: absolute; bottom: 12px; right: 12px; z-index: 3;">
+          <button type="button" class="waterfall-fav-btn ${isFav ? "active" : ""}" data-spot-favorite="${escape(item.name)}" title="${isEn ? 'Save' : '收藏景點'}" style="position: absolute; bottom: 12px; right: 12px; z-index: 3;">
             <img src="assets/icon_heart_sparkle.png" alt="favorite" class="fav-sparkle-icon ${isFav ? 'active' : ''}">
           </button>
         </div>
         <div class="spot-img3-body">
           <div>
             <div class="spot-img3-date-line">
-              <span>📍 ${item.city}</span>
+              <span>📍 ${escape(item.city)}</span>
               <span>·</span>
               <span>${stayLabel}</span>
               <span>·</span>
-              <span style="color: #F59E0B; font-weight: 800;">★ ${item.rate || "4.9"}</span>
+              <span style="color: #F59E0B; font-weight: 800;">★ ${escape(item.rate || "—")}</span>
             </div>
-            <h3 class="spot-img3-title">${item.name}</h3>
-            <p class="spot-img3-desc">${item.desc}</p>
+            <h3 class="spot-img3-title">${escape(item.name)}</h3>
+            <p class="spot-img3-desc">${escape(item.desc)}</p>
           </div>
           <div class="spot-img3-footer">
             <div class="spot-img3-author-wrap">
@@ -358,14 +335,7 @@ function renderWaterfallCards() {
                 <div style="font-size: 11px; color: #94A3B8;">${viewsLabel}</div>
               </div>
             </div>
-            <div style="display: flex; gap: 8px;">
-              <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="spot-hotel-btn">
-                ${hotelLabel}
-              </a>
-              <a href="${tourUrl}" target="_blank" rel="noopener noreferrer" class="spot-img3-cta-btn">
-                ${bookLabel}
-              </a>
-            </div>
+            ${SpotExplorer.actions(item)}
           </div>
         </div>
       </div>
@@ -662,6 +632,7 @@ function setupSearchHub() {
 
 function executeSearch(query) {
   if (!query) {
+    currentRegion = "all";
     currentCityFilter = "全部";
     renderWaterfallSection();
     return;
@@ -669,51 +640,22 @@ function executeSearch(query) {
   const wf = document.getElementById("city-spots");
   if (wf) wf.scrollIntoView({ behavior: "smooth" });
 
+  currentRegion = "all";
+  currentCityFilter = "全部";
+  renderWaterfallSection();
   const container = document.getElementById("waterfall-cards-container");
-  if (!container || typeof ALL_SPOTS_DATA === "undefined") return;
-
-  const results = ALL_SPOTS_DATA.filter(item => {
-    return item.name.includes(query) || item.city.includes(query) || item.desc.includes(query);
+  const needle = query.toLocaleLowerCase().replace(/臺/g, "台");
+  const cards = container?.querySelectorAll(".spot-img3-card") || [];
+  let count = 0;
+  cards.forEach((card, index) => {
+    const spot = ALL_SPOTS_DATA[index];
+    const cityEn = SpotExplorer.cities.find(city => city.key === spot.city)?.en;
+    const text = [spot.name, spot.nameZh, spot.city, spot.displayCity, cityEn, spot.desc].join(" ").toLocaleLowerCase().replace(/臺/g, "台");
+    card.hidden = !text.includes(needle);
+    if (!card.hidden) count++;
   });
-
-  if (results.length === 0) {
-    container.innerHTML = `
-      <div style="grid-column: 1/-1; padding: 60px 20px; text-align: center; color: var(--text-muted);">
-        <div style="font-size: 40px; margin-bottom: 12px;">🔍</div>
-        <div style="font-size: 18px; font-weight: 700;">找不到與「${query}」相關的景點</div>
-        <p style="margin-top: 6px; font-size: 14px;">試試搜尋「台北」、「日月潭」或「溫泉」吧！</p>
-      </div>
-    `;
-  } else {
-    container.innerHTML = results.map(item => {
-      const isFav = userFavorites.includes(item.name);
-      const tourUrl = AFFILIATE_HUB.getTourUrl(item.activityId || "1874-jiufen-shifen-day-tour-taipei");
-      const hotelUrl = AFFILIATE_HUB.getHotelUrl(item.name);
-      const mapUrl = AFFILIATE_HUB.getMapUrl(item.name);
-      return `
-        <div class="waterfall-card aspect-wide">
-          <div class="waterfall-media-wrap">
-            <img src="${item.img}" alt="${item.name}">
-            <button type="button" class="waterfall-fav-btn ${isFav ? "active" : ""}" onclick="toggleFavorite('${item.name.replace(/'/g, "\\'")}', this)">
-              <img src="assets/icon_heart_sparkle.png" alt="favorite" class="fav-sparkle-icon ${isFav ? 'active' : ''}">
-            </button>
-          </div>
-          <div class="waterfall-body">
-            <div class="waterfall-meta-header">
-              <span class="waterfall-city-tag">📍 ${item.city}</span>
-              <span class="waterfall-rate">${item.rate}</span>
-            </div>
-            <h3 class="waterfall-title">${item.name}</h3>
-            <p class="waterfall-desc">${item.desc}</p>
-            <div class="card-action-group" style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-top:auto;">
-              <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav">📍 Map</a>
-              <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room">🏨 住宿</a>
-              <a href="${AFFILIATE_HUB.getCharterUrl(item.city)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-charter-unified">🚗 包車</a>
-            </div>
-          </div>
-        </div>
-      `;
-    }).join("");
+  if (!count && container) {
+    container.innerHTML = `<p class="spot-explorer-empty">找不到符合「${SpotExplorer.escapeHtml(query)}」的景點，請試試其他城市或關鍵字。</p>`;
   }
 }
 
@@ -740,6 +682,7 @@ function toggleFavorite(spotName, btnEl) {
       mapUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(spotName) : `https://maps.google.com/?q=${encodeURIComponent(spotName)}`
     };
   } else {
+    const urls = SpotExplorer.links(spotObj);
     spotObj = {
       id: "spot_" + spotObj.name,
       name: spotObj.name,
@@ -749,9 +692,9 @@ function toggleFavorite(spotName, btnEl) {
       img: spotObj.img,
       rating: spotObj.rate ? `★ ${spotObj.rate}` : "★ 4.9",
       desc: spotObj.desc || "",
-      klookUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getTourUrl(spotObj.activityId || "1874-jiufen-shifen-day-tour-taipei") : "https://www.klook.com/?aid=106452",
-      tripUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getHotelUrl(spotObj.name) : "https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275",
-      mapUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(spotObj.name) : `https://maps.google.com/?q=${encodeURIComponent(spotObj.name)}`
+      klookUrl: urls.tour,
+      tripUrl: urls.hotel,
+      mapUrl: urls.map
     };
   }
 

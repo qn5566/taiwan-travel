@@ -11,6 +11,7 @@ const AFFILIATE_HUB = {
 
   // 12. Klook 官方聯盟
   klookAid: "106452",
+  spotKlookAid: "123436",
 
   // 11. Trip.com 官方聯盟
   tripAllianceId: "9507030",
@@ -77,6 +78,23 @@ const AFFILIATE_HUB = {
   /** Klook 關鍵字搜尋預約 */
   getSearchUrl: function(keyword = "") {
     return `https://www.klook.com/zh-TW/search/result/?keyword=${encodeURIComponent(keyword)}&aid=${this.klookAid}`;
+  },
+
+  /** City explorer: preserve a spot's product URL and apply its assigned partner ID. */
+  getSpotTourUrl: function(spot) {
+    const target = spot.ticketUrl || spot.klookUrl || spot.activityId;
+    if (target) {
+      try {
+        const value = String(target);
+        const url = new URL(/^\d+(?:-[a-z0-9-]+)?$/i.test(value)
+          ? `https://www.klook.com/zh-TW/activity/${value}/` : value);
+        if (url.protocol === "https:" && /(^|\.)klook\.com$/.test(url.hostname)) {
+          url.searchParams.set("aid", this.spotKlookAid);
+          return url.href;
+        }
+      } catch (e) {}
+    }
+    return `https://www.klook.com/zh-TW/search/result/?keyword=${encodeURIComponent(spot.nameZh || spot.name)}&aid=${this.spotKlookAid}`;
   },
 
   /** Trip.com 飯店/溫泉搜尋比價 */

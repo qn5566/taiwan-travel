@@ -64,3 +64,15 @@
 
 語言選項與切換行為集中在此模組；導覽文字字典仍由 `js/i18n.js` 管理。模組會自動插入語系列並依實際高度設定導覽列的置頂偏移，支援手機尺寸。切換語言會保留目前路徑、其他查詢參數與錨點，更新 `?lang=` 後重新載入。語系優先順序為網址、`localStorage`、繁體中文；內容翻譯沿用各頁既有載入機制，尚未翻譯的靜態文案不會自動翻譯。
 
+## 城市與景點資料
+
+首頁與 `spots.html` 共用 `js/spots.js`，須在 `js/data.js` 之後、`js/content_loader.js` 之前載入。`loadSpotsContent(lang)` 讀取 `${CONTENT_BASE_URL}/${語系}/spots.json`，預設來源為 `https://raw.githubusercontent.com/qn5566/ActivityEvent/main/content`。如需更換來源，可在載入 content loader 前設定 `window.CONTENT_BASE_URL`。
+
+JSON 可為陣列或 `{ spots: [...] }`、`{ items: [...] }`、`{ data: [...] }`。每筆需有 `name` 及 `city`／`county`，建議提供穩定 `id`、`desc`、`img`、`duration`、`activityId` 或 `ticketUrl`。各語系應使用相同 ID；非中文資料會搭配中文資料取得固定縣市值及司機卡中文名稱、地址。可直接提供 `nameZh`、`addressZh`、`mapUrl` 或 `lat`／`lng`。沒有地址時不會產生虛構地址，司機卡會提示以地圖確認。
+
+縣市膠囊固定以全部、台北市、桃園市、花蓮縣、台南市優先，再列出其餘縣市；篩選在記憶體中執行。資料尚未載入或失敗時，使用 `data.js` 內建景點。首頁各區獨立載入，景點不需等待其他內容完成。
+
+此區的 Klook 使用 `AFFILIATE_HUB.spotKlookAid = 123436`；住宿使用 Trip.com 的 `Allianceid=9507030`，並保留 SID 與 trip_sub3；餐券優惠沿用分潤中樞的 affckr 連結。卡片與收藏資料使用同一組景點連結。
+
+驗證：`node --test scripts/test_spots.cjs`（不需安裝套件）。
+
