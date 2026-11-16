@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1400">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>台灣城市景點全覽 - 22 縣市瀑布流探索 ｜ 台灣吃喝玩樂 Taiwan Wanderlust</title>
   
   <meta name="description" content="全台 22 縣市熱門與私房景點全覽！不規則瀑布流活潑排版、滑過 3D 微交互動態特效，提供 Klook 預訂行程、包車客製與 Booking 住宿一鍵比價。">
@@ -116,6 +116,7 @@
   <link rel="alternate" hreflang="en" href="https://taiwanroam.tw/spots.html?lang=en" />
   <link rel="alternate" hreflang="ja" href="https://taiwanroam.tw/spots.html?lang=ja" />
   <link rel="alternate" hreflang="x-default" href="https://taiwanroam.tw/spots.html" />
+  <script src="js/global-language-bar.js" defer></script>
 </head>
 <body style="background: #FFFFFF; color: #0F172A;">
 
@@ -132,14 +133,16 @@
         </div>
       </a>
 
-      <nav>
+      <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="開啟選單"><span aria-hidden="true">☰</span></button>
+      <nav id="site-navigation" aria-label="主要導覽">
         <ul class="nav-menu">
-          <li class="nav-item"><a href="index.html">首頁</a></li>
-          <li class="nav-item"><a href="themes.html">精選主題</a></li>
-          <li class="nav-item active"><a href="spots.html">城市景點</a></li>
-          <li class="nav-item"><a href="ranking.html">排行榜</a></li>
-          <li class="nav-item"><a href="cafe.html">全台咖啡與米其林</a></li>
-          <li class="nav-item"><a href="community.html">留言討論</a></li>
+          <li class="nav-item"><a href="index.html" data-nav-key="navHome">首頁</a></li>
+          <li class="nav-item"><a href="themes.html" data-nav-key="navThemes">精選主題</a></li>
+          <li class="nav-item active"><a href="spots.html" data-nav-key="navSpots" aria-current="page">城市景點</a></li>
+          <li class="nav-item"><a href="ranking.html" data-nav-key="navRankings">排行榜</a></li>
+          <li class="nav-item"><a href="cafe.html" data-nav-key="navCafe">全台咖啡與米其林</a></li>
+          <li class="nav-item"><a href="cafe.html?tab=weekend-hop" data-nav-key="navJournals">深度採訪</a></li>
+          <li class="nav-item"><a href="community.html" data-nav-key="navCommunity">留言討論</a></li>
         </ul>
       </nav>
 
@@ -553,5 +556,7 @@
       }).join("");
     }
   </script>
+  <script src="js/i18n.js"></script>
+  <script src="js/navigation.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1400">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>全台風格咖啡圖鑑 ＆ 深度慢活採訪實錄 - 330 間名店風格巡禮 ｜ 台灣吃喝玩樂 Taiwan Wanderlust</title>
   
   <!-- SEO Meta Tags -->
@@ -1517,35 +1517,12 @@
 }
 
   </style>
+  <script src="js/global-language-bar.js" defer></script>
 </head>
 <body>
 
   <!-- 置頂導航列 -->
     <!-- 🌐 置頂繁中/多語系極簡切換條 (Global Top Bar) -->
-  <div class="top-lang-bar">
-    <div class="container top-lang-inner">
-      <div class="top-lang-label">
-        <span>🇹🇼</span> 台灣吃喝玩樂 ‧ TAIWAN ROAM OFFICIAL
-      </div>
-      <!-- 右側簡潔語言下拉選單 (單一頂部語言選單) -->
-      <div class="clean-lang-select-wrap">
-        <span style="font-size: 13px;">🌐</span>
-        <select id="global-lang-select" class="clean-lang-select" onchange="switchWeekendHopLanguageFromTop(this.value)">
-          <option value="zh-TW">繁體中文 (Traditional Chinese)</option>
-          <option value="en">English (International)</option>
-          <option value="ja">日本語 (Japanese)</option>
-          <option value="ko">한국어 (Korean)</option>
-          <option value="vi">Tiếng Việt</option>
-          <option value="th">ภาษาไทย</option>
-          <option value="id">Bahasa Indonesia</option>
-          <option value="ms">Bahasa Melayu</option>
-          <option value="fil">Filipino</option>
-          <option value="hi">हिन्दी (Hindi)</option>
-          <option value="es">Español</option>
-        </select>
-      </div>
-    </div>
-  </div>
 
   <header class="site-header">
     <div class="container header-inner">
@@ -1560,14 +1537,16 @@
       </a>
 
       <!-- 整合後的導航選單 -->
-      <nav>
+      <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="開啟選單"><span aria-hidden="true">☰</span></button>
+      <nav id="site-navigation" aria-label="主要導覽">
         <ul class="nav-menu">
-          <li class="nav-item"><a href="index.html">首頁</a></li>
-          <li class="nav-item"><a href="themes.html">精選主題</a></li>
-          <li class="nav-item"><a href="spots.html">城市景點</a></li>
-          <li class="nav-item"><a href="ranking.html">排行榜</a></li>
-          <li class="nav-item active"><a href="cafe.html">全台咖啡與米其林</a></li>
-          <li class="nav-item"><a href="community.html">留言討論</a></li>
+          <li class="nav-item"><a href="index.html" data-nav-key="navHome">首頁</a></li>
+          <li class="nav-item"><a href="themes.html" data-nav-key="navThemes">精選主題</a></li>
+          <li class="nav-item"><a href="spots.html" data-nav-key="navSpots">城市景點</a></li>
+          <li class="nav-item"><a href="ranking.html" data-nav-key="navRankings">排行榜</a></li>
+          <li class="nav-item active"><a href="cafe.html" data-nav-key="navCafe" aria-current="page">全台咖啡與米其林</a></li>
+          <li class="nav-item"><a href="cafe.html?tab=weekend-hop" data-nav-key="navJournals">深度採訪</a></li>
+          <li class="nav-item"><a href="community.html" data-nav-key="navCommunity">留言討論</a></li>
         </ul>
       </nav>
 
@@ -2066,6 +2045,9 @@
        ========================================================= */
     function switchPageTab(tabName, updateHistory = true) {
       currentMainTab = tabName;
+      if (typeof setSiteNavigationActive === "function") {
+        setSiteNavigationActive(tabName === "weekend-hop" ? "navJournals" : "navCafe");
+      }
       const coffeeSection = document.getElementById("section-coffee-map");
       const michelinSection = document.getElementById("section-michelin-guide");
       const hopSection = document.getElementById("section-weekend-hop");
@@ -2497,21 +2479,24 @@
       es: { title: "Crónicas de exploración local", subtitle: "Descubre montañas, mar y la vida de la gente de Taiwán de primera mano." }
     };
 
-    function switchWeekendHopLanguage(lang) {
+    function switchWeekendHopLanguage(lang, syncGlobal = true) {
       currentHopLang = lang;
       const label = HOP_LANG_LABELS[lang] || HOP_LANG_LABELS.zh;
 
-      // 同步頂部簡潔下拉選單 (單一頂部語言切換)
-      const globalSelect = document.getElementById('global-lang-select');
-      if (globalSelect) {
-        const targetValue = lang === 'zh' ? 'zh-TW' : lang;
-        if (globalSelect.querySelector(`option[value="${targetValue}"]`)) {
-          globalSelect.value = targetValue;
-        } else {
-          globalSelect.value = 'zh-TW';
+      if (syncGlobal) {
+        // 同步頂部簡潔下拉選單 (單一頂部語言切換)
+        const globalSelect = document.getElementById('global-lang-select');
+        if (globalSelect) {
+          const targetValue = lang === 'zh' ? 'zh-TW' : lang;
+          if (globalSelect.querySelector(`option[value="${targetValue}"]`)) {
+            globalSelect.value = targetValue;
+          } else {
+            globalSelect.value = 'zh-TW';
+          }
         }
+        localStorage.setItem('taiwan_travel_lang', lang === 'zh' ? 'zh-TW' : lang);
+        if (typeof updateSiteNavigation === "function") updateSiteNavigation(lang === "zh" ? "zh-TW" : lang);
       }
-      localStorage.setItem('taiwan_travel_lang', lang === 'zh' ? 'zh-TW' : lang);
 
       // 更新頂部標題與副標
       const titleEl = document.getElementById('hop-section-title');
@@ -2531,13 +2516,6 @@
       });
 
       renderHopCards();
-    }
-
-    function switchWeekendHopLanguageFromTop(val) {
-      const supported = ['zh', 'en', 'ja', 'ko', 'vi', 'th', 'id', 'ms', 'fil', 'hi', 'es'];
-      let hopLang = val === 'zh-TW' ? 'zh' : val;
-      if (!supported.includes(hopLang)) hopLang = 'zh';
-      switchWeekendHopLanguage(hopLang);
     }
 
     function getCurrentHopArticles() {
@@ -3298,5 +3276,7 @@
       }, 3000);
     }
   </script>
+  <script src="js/i18n.js"></script>
+  <script src="js/navigation.js"></script>
 </body>
 </html>

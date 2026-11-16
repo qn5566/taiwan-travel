@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     renderBlogSection();
   }
   setupSearchHub();
-  setupEventListeners();
   updateFavBadge();
 });
 
@@ -861,17 +860,4 @@ function renderFavDrawerList() {
       </div>
     `;
   }).join("");
-}
-
-function setupEventListeners() {
-  // 語言選單切換
-  const langSelect = document.getElementById("global-lang-select");
-  if (langSelect) {
-    langSelect.addEventListener("change", (e) => {
-      currentLang = e.target.value;
-      if (typeof switchLanguage === "function") {
-        switchLanguage(currentLang);
-      }
-    });
-  }
 }

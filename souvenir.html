@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1400">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>台灣必買伴手禮直送排行 · 100 大特產飯店代收免提 - 台灣吃喝玩樂</title>
   
   <meta name="description" content="台灣吃喝玩樂【伴手禮直送專區】。合作分潤電商萬家福、台灣熱門藥妝、質感生活選品直營直配！涵蓋鳳梨酥蛋糕、超人氣休閒零食、高山茶葉飲品、台灣製造藥品與送禮好物，退房前專人送達飯店前台。">
@@ -86,6 +86,7 @@
   <link rel="alternate" hreflang="en" href="https://taiwanroam.tw/souvenir.html?lang=en" />
   <link rel="alternate" hreflang="ja" href="https://taiwanroam.tw/souvenir.html?lang=ja" />
   <link rel="alternate" hreflang="x-default" href="https://taiwanroam.tw/souvenir.html" />
+  <script src="js/global-language-bar.js" defer></script>
 </head>
 <body>
 
@@ -102,14 +103,16 @@
         </div>
       </a>
 
-      <nav>
+      <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="開啟選單"><span aria-hidden="true">☰</span></button>
+      <nav id="site-navigation" aria-label="主要導覽">
         <ul class="nav-menu">
-          <li class="nav-item"><a href="index.html">首頁</a></li>
-          <li class="nav-item"><a href="themes.html">精選主題</a></li>
-          <li class="nav-item"><a href="spots.html">城市景點</a></li>
-          <li class="nav-item"><a href="ranking.html">排行榜</a></li>
-          <li class="nav-item"><a href="cafe.html">全台咖啡與米其林</a></li>
-          <li class="nav-item"><a href="community.html">留言討論</a></li>
+          <li class="nav-item"><a href="index.html" data-nav-key="navHome">首頁</a></li>
+          <li class="nav-item"><a href="themes.html" data-nav-key="navThemes">精選主題</a></li>
+          <li class="nav-item"><a href="spots.html" data-nav-key="navSpots">城市景點</a></li>
+          <li class="nav-item"><a href="ranking.html" data-nav-key="navRankings">排行榜</a></li>
+          <li class="nav-item"><a href="cafe.html" data-nav-key="navCafe">全台咖啡與米其林</a></li>
+          <li class="nav-item"><a href="cafe.html?tab=weekend-hop" data-nav-key="navJournals">深度採訪</a></li>
+          <li class="nav-item"><a href="community.html" data-nav-key="navCommunity">留言討論</a></li>
         </ul>
       </nav>
 
@@ -446,5 +449,7 @@
       initSouvenirPage();
     });
   </script>
+  <script src="js/i18n.js"></script>
+  <script src="js/navigation.js"></script>
 </body>
 </html>

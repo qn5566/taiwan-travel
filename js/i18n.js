@@ -5,13 +5,20 @@
 
 const WEB_I18N = {
   "zh-TW": {
+    navMainLabel: "主要導覽",
+    navCloseMenu: "關閉選單",
+    navOpenMenu: "開啟選單",
+    navCommunity: "留言討論",
+    navJournals: "深度採訪",
+    navCafe: "全台咖啡與米其林",
+    navRankings: "排行榜",
     brandName: "台灣吃喝玩樂",
     brandBadge: "Web 官方旗艦",
     brandSubtext: "TAIWAN WANDERLUST PORTAL",
-    navHome: "探索首頁",
-    navThemes: "16 大主題",
+    navHome: "首頁",
+    navThemes: "精選主題",
     navDrinks: "手搖排行 TOP20",
-    navSpots: "人氣景點 TOP20",
+    navSpots: "城市景點",
     navRegions: "22 縣市分區",
     navSouvenir: "伴手禮直送",
     heroTagline: "✨ 2026 台灣旅遊旗艦門戶 · 全方位景點、手搖與在地體驗",
@@ -47,13 +54,20 @@ const WEB_I18N = {
     favEmpty: "目前尚未收藏任何景點，快去探索並點擊愛心收藏吧！"
   },
   "en": {
+    navMainLabel: "Main navigation",
+    navCloseMenu: "Close menu",
+    navOpenMenu: "Open menu",
+    navCommunity: "Community",
+    navJournals: "Journals",
+    navCafe: "Cafes & Michelin",
+    navRankings: "Rankings",
     brandName: "Taiwan Roam",
     brandBadge: "Official Web Portal",
     brandSubtext: "TAIWAN WANDERLUST PORTAL",
     navHome: "Home",
-    navThemes: "16 Themes",
+    navThemes: "Featured Themes",
     navDrinks: "Top 20 Boba",
-    navSpots: "Top 20 Spots",
+    navSpots: "City Attractions",
     navRegions: "22 Regions",
     navSouvenir: "Souvenirs",
     heroTagline: "✨ 2026 Taiwan Travel Flagship · Ultimate Spots, Boba & Local Journeys",
@@ -89,13 +103,20 @@ const WEB_I18N = {
     favEmpty: "No spots saved yet. Explore and tap the heart icon to save!"
   },
   "ja": {
+    navMainLabel: "メインナビゲーション",
+    navCloseMenu: "メニューを閉じる",
+    navOpenMenu: "メニューを開く",
+    navCommunity: "コミュニティ",
+    navJournals: "深く知る取材記",
+    navCafe: "カフェ＆ミシュラン",
+    navRankings: "ランキング",
     brandName: "台湾ワンダーラスト",
     brandBadge: "公式ウェブ旗艦店",
     brandSubtext: "TAIWAN WANDERLUST PORTAL",
     navHome: "ホーム",
-    navThemes: "16のテーマ",
+    navThemes: "厳選テーマ",
     navDrinks: "タピオカ TOP20",
-    navSpots: "名所 TOP20",
+    navSpots: "都市と観光スポット",
     navRegions: "22都市ガイド",
     navSouvenir: "お土産直送",
     heroTagline: "✨ 2026 台湾旅行の総合ポータル · 絶景、タピオカ、伝統文化",
@@ -131,13 +152,20 @@ const WEB_I18N = {
     favEmpty: "まだお気に入りがありません。ハートをタップして保存しましょう！"
   },
   "ko": {
+    navMainLabel: "주요 탐색",
+    navCloseMenu: "메뉴 닫기",
+    navOpenMenu: "메뉴 열기",
+    navCommunity: "커뮤니티",
+    navJournals: "심층 인터뷰",
+    navCafe: "카페 & 미슐랭",
+    navRankings: "랭킹",
     brandName: "대만 여행 허브",
     brandBadge: "웹 공식 포털",
     brandSubtext: "TAIWAN WANDERLUST PORTAL",
     navHome: "홈",
-    navThemes: "16대 테마",
+    navThemes: "추천 테마",
     navDrinks: "버블티 TOP20",
-    navSpots: "명소 TOP20",
+    navSpots: "도시 명소",
     navRegions: "22개 도시",
     navSouvenir: "기념품 배송",
     heroTagline: "✨ 2026 대만 여행 공식 포털 · 명소, 버블티, 온천 완전 정복",
@@ -173,13 +201,20 @@ const WEB_I18N = {
     favEmpty: "보관된 장소가 없습니다. 하트를 눌러 관심 명소를 저장하세요!"
   },
   "es": {
+    navMainLabel: "Navegación principal",
+    navCloseMenu: "Cerrar menú",
+    navOpenMenu: "Abrir menú",
+    navCommunity: "Comunidad",
+    navJournals: "Crónicas a fondo",
+    navCafe: "Cafés y Michelin",
+    navRankings: "Rankings",
     brandName: "Taiwan Roam",
     brandBadge: "Portal Oficial Web",
     brandSubtext: "TAIWAN WANDERLUST PORTAL",
     navHome: "Inicio",
-    navThemes: "16 Temas",
+    navThemes: "Temas destacados",
     navDrinks: "Top 20 Té Boba",
-    navSpots: "Top 20 Destinos",
+    navSpots: "Ciudades y lugares",
     navRegions: "22 Regiones",
     navSouvenir: "Recuerdos",
     heroTagline: "✨ Portal Insignia de Viajes por Taiwán 2026",
@@ -215,13 +250,20 @@ const WEB_I18N = {
     favEmpty: "No hay lugares guardados. ¡Explora y añade tus favoritos!"
   },
   "de": {
+    navMainLabel: "Hauptnavigation",
+    navCloseMenu: "Menü schließen",
+    navOpenMenu: "Menü öffnen",
+    navCommunity: "Community",
+    navJournals: "Reportagen",
+    navCafe: "Cafés & Michelin",
+    navRankings: "Ranglisten",
     brandName: "Taiwan Roam",
     brandBadge: "Offizielles Webportal",
     brandSubtext: "TAIWAN WANDERLUST PORTAL",
     navHome: "Startseite",
-    navThemes: "16 Themen",
+    navThemes: "Ausgewählte Themen",
     navDrinks: "Top 20 Boba-Tee",
-    navSpots: "Top 20 Orte",
+    navSpots: "Städte & Sehenswürdigkeiten",
     navRegions: "22 Regionen",
     navSouvenir: "Souvenirs",
     heroTagline: "✨ 2026 Taiwan Reiseportal · Sehenswürdigkeiten, Boba & Natur",
@@ -257,13 +299,20 @@ const WEB_I18N = {
     favEmpty: "Noch keine Orte gespeichert. Klicke auf das Herz zum Speichern!"
   },
   "th": {
+    navMainLabel: "เมนูหลัก",
+    navCloseMenu: "ปิดเมนู",
+    navOpenMenu: "เปิดเมนู",
+    navCommunity: "พูดคุย",
+    navJournals: "บทสัมภาษณ์เจาะลึก",
+    navCafe: "คาเฟ่และมิชลิน",
+    navRankings: "จัดอันดับ",
     brandName: "ไต้หวันโรห์ม",
     brandBadge: "เว็บพอร์ทัลทางการ",
     brandSubtext: "TAIWAN WANDERLUST PORTAL",
     navHome: "หน้าแรก",
-    navThemes: "16 ธีมท่องเที่ยว",
+    navThemes: "ธีมแนะนำ",
     navDrinks: "ชานมไข่มุก TOP 20",
-    navSpots: "สถานที่ยอดนิยม TOP 20",
+    navSpots: "เมืองและสถานที่ท่องเที่ยว",
     navRegions: "22 จังหวัด",
     navSouvenir: "ของฝากส่งตรง",
     heroTagline: "✨ พอร์ทัลท่องเที่ยวไต้หวัน 2026 · จุดชมวิว ชานมไข่มุก และวัฒนธรรมท้องถิ่น",
@@ -299,13 +348,20 @@ const WEB_I18N = {
     favEmpty: "ยังไม่มีสถานที่ที่บันทึกไว้ สำรวจและแตะหัวใจเพื่อบันทึก!"
   },
   "vi": {
+    navMainLabel: "Điều hướng chính",
+    navCloseMenu: "Đóng menu",
+    navOpenMenu: "Mở menu",
+    navCommunity: "Cộng đồng",
+    navJournals: "Phỏng vấn chuyên sâu",
+    navCafe: "Cà phê & Michelin",
+    navRankings: "Xếp hạng",
     brandName: "Taiwan Roam",
     brandBadge: "Cổng Thông Tin Chính Thức",
     brandSubtext: "TAIWAN WANDERLUST PORTAL",
     navHome: "Trang chủ",
-    navThemes: "16 Chủ đề",
+    navThemes: "Chủ đề nổi bật",
     navDrinks: "Top 20 Trà Sữa",
-    navSpots: "Top 20 Điểm Đến",
+    navSpots: "Thành phố và điểm đến",
     navRegions: "22 Vùng",
     navSouvenir: "Quà Lưu Niệm",
     heroTagline: "✨ Cổng du lịch Đài Loan 2026 · Điểm đến, trà sữa & trải nghiệm địa phương",
@@ -341,13 +397,20 @@ const WEB_I18N = {
     favEmpty: "Chưa có điểm nào được lưu. Hãy khám phá và chạm vào trái tim để lưu!"
   },
   "ms": {
+    navMainLabel: "Navigasi utama",
+    navCloseMenu: "Tutup menu",
+    navOpenMenu: "Buka menu",
+    navCommunity: "Komuniti",
+    navJournals: "Wawancara Mendalam",
+    navCafe: "Kafe & Michelin",
+    navRankings: "Kedudukan",
     brandName: "Taiwan Roam",
     brandBadge: "Portal Web Rasmi",
     brandSubtext: "TAIWAN WANDERLUST PORTAL",
     navHome: "Laman Utama",
-    navThemes: "16 Tema",
+    navThemes: "Tema Pilihan",
     navDrinks: "Top 20 Boba",
-    navSpots: "Top 20 Destinasi",
+    navSpots: "Bandar & Tarikan",
     navRegions: "22 Wilayah",
     navSouvenir: "Cenderamata",
     heroTagline: "✨ Portal Pelancongan Taiwan 2026 · Destinasi, Boba & Pengalaman Tempatan",
@@ -383,13 +446,20 @@ const WEB_I18N = {
     favEmpty: "Tiada tempat disimpan. Terokai dan ketik ikon hati untuk simpan!"
   },
   "fil": {
+    navMainLabel: "Pangunahing nabigasyon",
+    navCloseMenu: "Isara ang menu",
+    navOpenMenu: "Buksan ang menu",
+    navCommunity: "Komunidad",
+    navJournals: "Malalim na Panayam",
+    navCafe: "Kape & Michelin",
+    navRankings: "Ranggo",
     brandName: "Taiwan Roam",
     brandBadge: "Opisyal na Web Portal",
     brandSubtext: "TAIWAN WANDERLUST PORTAL",
     navHome: "Home",
-    navThemes: "16 Tema",
+    navThemes: "Mga Tampok na Tema",
     navDrinks: "Top 20 Boba",
-    navSpots: "Top 20 Destinasyon",
+    navSpots: "Mga Lungsod at Pasyalan",
     navRegions: "22 Rehiyon",
     navSouvenir: "Pasabuy",
     heroTagline: "✨ 2026 Taiwan Travel Portal · Destinasyon, Boba at Lokal na Karanasan",
@@ -425,13 +495,20 @@ const WEB_I18N = {
     favEmpty: "Wala pang naka-save. Mag-explore at pindutin ang puso para mag-save!"
   },
   "hi": {
+    navMainLabel: "मुख्य नेविगेशन",
+    navCloseMenu: "मेन्यू बंद करें",
+    navOpenMenu: "मेन्यू खोलें",
+    navCommunity: "समुदाय",
+    navJournals: "गहन साक्षात्कार",
+    navCafe: "कैफ़े और मिशेलिन",
+    navRankings: "रैंकिंग",
     brandName: "Taiwan Roam",
     brandBadge: "आधिकारिक वेब पोर्टल",
     brandSubtext: "TAIWAN WANDERLUST PORTAL",
     navHome: "होम",
-    navThemes: "16 थीम",
+    navThemes: "चुनिंदा थीम",
     navDrinks: "टॉप 20 बोबा",
-    navSpots: "टॉप 20 स्थल",
+    navSpots: "शहर और दर्शनीय स्थल",
     navRegions: "22 क्षेत्र",
     navSouvenir: "स्मृति चिन्ह",
     heroTagline: "✨ 2026 ताइवान यात्रा पोर्टल · स्थल, बोबा और स्थानीय अनुभव",
@@ -467,13 +544,20 @@ const WEB_I18N = {
     favEmpty: "अभी कोई स्थल सहेजा नहीं गया। खोजें और दिल पर टैप करके सहेजें!"
   },
   "id": {
+    navMainLabel: "Navigasi utama",
+    navCloseMenu: "Tutup menu",
+    navOpenMenu: "Buka menu",
+    navCommunity: "Komunitas",
+    navJournals: "Wawancara Mendalam",
+    navCafe: "Kafe & Michelin",
+    navRankings: "Peringkat",
     brandName: "Taiwan Roam",
     brandBadge: "Portal Web Resmi",
     brandSubtext: "TAIWAN WANDERLUST PORTAL",
     navHome: "Beranda",
-    navThemes: "16 Tema",
+    navThemes: "Tema Pilihan",
     navDrinks: "Top 20 Boba",
-    navSpots: "Top 20 Destinasi",
+    navSpots: "Kota & Tempat Wisata",
     navRegions: "22 Wilayah",
     navSouvenir: "Oleh-oleh",
     heroTagline: "✨ Portal Wisata Taiwan 2026 · Destinasi, Boba & Pengalaman Lokal",
@@ -947,11 +1031,7 @@ async function switchLanguage(lang) {
   const brandSubtextEl = document.querySelector(".brand-subtext");
   if (brandSubtextEl) brandSubtextEl.textContent = core.brandSubtext;
 
-  const navItems = document.querySelectorAll(".nav-menu .nav-item a");
-  const navLabels = [core.navHome, core.navThemes, core.navSpots, chrome.navRankings, chrome.navCafe, chrome.navCommunity];
-  navItems.forEach((item, idx) => {
-    if (navLabels[idx] != null) item.textContent = navLabels[idx];
-  });
+  updateSiteNavigation(lang);
 
   const ctaBtn = document.querySelector(".header-right-tools .btn-cta-primary");
   if (ctaBtn) ctaBtn.textContent = core.btnSouvenir;
@@ -1053,7 +1133,27 @@ async function switchLanguage(lang) {
   if (typeof renderBlogSection === "function") renderBlogSection();
 
   if (typeof switchWeekendHopLanguage === "function") {
-    const hopLang = lang.startsWith("en") ? "en" : (lang.startsWith("ja") ? "ja" : "zh");
-    switchWeekendHopLanguage(hopLang);
+    const hopLang = lang === "zh-TW" ? "zh" : (lang === "de" ? "en" : lang);
+    switchWeekendHopLanguage(hopLang, false);
+  }
+}
+
+
+/** Shared by desktop navigation and the mobile menu. */
+function updateSiteNavigation(lang) {
+  const labels = WEB_I18N[lang] || WEB_I18N.en;
+  document.querySelectorAll("[data-nav-key]").forEach(link => {
+    const label = labels[link.dataset.navKey];
+    if (label) link.textContent = label;
+  });
+  const nav = document.getElementById("site-navigation");
+  if (nav) {
+    nav.setAttribute("aria-label", labels.navMainLabel);
+    nav.dataset.language = lang;
+  }
+  const toggle = document.querySelector(".nav-toggle");
+  if (toggle) {
+    toggle.setAttribute("aria-label", toggle.getAttribute("aria-expanded") === "true"
+      ? labels.navCloseMenu : labels.navOpenMenu);
   }
 }

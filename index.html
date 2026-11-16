@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1400">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>台灣吃喝玩樂 Taiwan Wanderlust - 全台旅遊旗艦官方入口網</title>
   
   <!-- SEO Meta Tags -->
@@ -22,36 +22,13 @@
   <link rel="alternate" hreflang="en" href="https://taiwanroam.tw/?lang=en" />
   <link rel="alternate" hreflang="ja" href="https://taiwanroam.tw/?lang=ja" />
   <link rel="alternate" hreflang="x-default" href="https://taiwanroam.tw/" />
+  <script src="js/global-language-bar.js" defer></script>
 </head>
 <body>
 
   <!-- =========================================================
        🌐 置頂國際化語系快捷列 (Global Top Language Bar)
        ========================================================= -->
-  <div class="top-lang-bar">
-    <div class="container top-lang-inner">
-      <div class="top-lang-label">
-        <span>🇹🇼</span> 台灣吃喝玩樂 ‧ TAIWAN ROAM OFFICIAL
-      </div>
-      <!-- 右側簡潔語言下拉選單 -->
-      <div class="clean-lang-select-wrap">
-        <span style="font-size: 13px;">🌐</span>
-        <select id="global-lang-select" class="clean-lang-select">
-          <option value="zh-TW">繁體中文 (Traditional Chinese)</option>
-          <option value="en">English (International)</option>
-          <option value="ja">日本語 (Japanese)</option>
-          <option value="ko">한국어 (Korean)</option>
-          <option value="vi">Tiếng Việt</option>
-          <option value="th">ภาษาไทย</option>
-          <option value="id">Bahasa Indonesia</option>
-          <option value="ms">Bahasa Melayu (Malay)</option>
-          <option value="fil">Filipino</option>
-          <option value="hi">हिन्दी (Hindi)</option>
-          <option value="es">Español (Spanish)</option>
-        </select>
-      </div>
-    </div>
-  </div>
 
   <!-- 🌌 全站淡淡藍綠極光動態背景 -->
   <div class="aurora-bg-ambient">
@@ -77,14 +54,16 @@
       </a>
 
       <!-- 導航主選單 -->
-      <nav>
+      <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="開啟選單"><span aria-hidden="true">☰</span></button>
+      <nav id="site-navigation" aria-label="主要導覽">
         <ul class="nav-menu">
-          <li class="nav-item active"><a href="index.html">首頁</a></li>
-          <li class="nav-item"><a href="themes.html">精選主題</a></li>
-          <li class="nav-item"><a href="spots.html">城市景點</a></li>
-          <li class="nav-item"><a href="ranking.html">排行榜</a></li>
-          <li class="nav-item"><a href="cafe.html">全台咖啡與米其林</a></li>
-          <li class="nav-item"><a href="community.html">留言討論</a></li>
+          <li class="nav-item active"><a href="index.html" data-nav-key="navHome" aria-current="page">首頁</a></li>
+          <li class="nav-item"><a href="themes.html" data-nav-key="navThemes">精選主題</a></li>
+          <li class="nav-item"><a href="spots.html" data-nav-key="navSpots">城市景點</a></li>
+          <li class="nav-item"><a href="ranking.html" data-nav-key="navRankings">排行榜</a></li>
+          <li class="nav-item"><a href="cafe.html" data-nav-key="navCafe">全台咖啡與米其林</a></li>
+          <li class="nav-item"><a href="cafe.html?tab=weekend-hop" data-nav-key="navJournals">深度採訪</a></li>
+          <li class="nav-item"><a href="community.html" data-nav-key="navCommunity">留言討論</a></li>
         </ul>
       </nav>
 
@@ -519,5 +498,6 @@
       alert('留言發布成功！感謝您的分享！');
     }
   </script>
+  <script src="js/navigation.js"></script>
 </body>
 </html>
