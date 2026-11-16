@@ -66,6 +66,7 @@
   <link rel="alternate" hreflang="en" href="https://taiwanroam.tw/community.html?lang=en" />
   <link rel="alternate" hreflang="ja" href="https://taiwanroam.tw/community.html?lang=ja" />
   <link rel="alternate" hreflang="x-default" href="https://taiwanroam.tw/community.html" />
+  <script src="js/category_i18n.js" defer></script>
   <script src="js/global-language-bar.js" defer></script>
 </head>
 <body>
@@ -97,10 +98,8 @@
       </nav>
 
       <div class="header-right-tools">
-        <a href="souvenir.html" class="btn-cta-primary" style="padding: 9px 18px; font-size: 13px; text-decoration: none;">
-          伴手禮直送
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.meetstudio.event" class="btn-cta-primary" style="padding: 9px 18px; font-size: 13px; text-decoration: none;" onclick="this.href=(/iPad|iPhone|iPod/.test(navigator.userAgent))?'https://apps.apple.com/us/app/id6446348643':'https://play.google.com/store/apps/details?id=com.meetstudio.event';">App 下載</a>
+        <a href="souvenir.html" class="btn-cta-primary" style="padding: 9px 18px; font-size: 13px; text-decoration: none;" data-category-text="ui.btnSouvenir">伴手禮直送</a>
+        <a href="https://play.google.com/store/apps/details?id=com.meetstudio.event" class="btn-cta-primary" style="padding: 9px 18px; font-size: 13px; text-decoration: none;" onclick="this.href=(/iPad|iPhone|iPod/.test(navigator.userAgent))?'https://apps.apple.com/us/app/id6446348643':'https://play.google.com/store/apps/details?id=com.meetstudio.event';" data-category-text="ui.btnDownload">App 下載</a>
       </div>
     </div>
   </header>
@@ -108,25 +107,27 @@
   <!-- 社群 Hero Banner -->
   <section class="section-padding" style="background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%); color: #FFFFFF; text-align: center; padding: 70px 0 50px 0;">
     <div class="container">
-      <h1 class="editorial-hero-title" style="font-size: 40px; font-weight: 900; margin-top: 14px; letter-spacing: -0.5px; font-family: 'Noto Serif TC', serif; margin-bottom: 2px;">
+      <h1 class="editorial-hero-title" style="font-size: 40px; font-weight: 900; margin-top: 14px; letter-spacing: -0.5px; font-family: 'Noto Serif TC', serif; margin-bottom: 2px;" data-category-text="community.title">
         旅人交流與留言討論專區
       </h1>
       <div class="brand-script-en" style="font-size: 34px; color: #7DD3FC; margin-bottom: 8px;">
         Travelers Community & Story Exchange
       </div>
-      <p style="color: #E2E8F0; max-width: 780px; margin: 8px auto 0 auto; font-size: 14.5px; line-height: 1.7;">
-        與來自香港、日本、韓國、新加坡及歐美全球旅人，即時交流台灣在地行程推薦、排隊美食、包車經驗與探店心得！<br>
-        <span class="brand-serif-en" style="font-size: 13.5px; color: #94A3B8; font-weight: 500;">(Real reviews, on-site recommendations & insider travel tips across Taiwan.)</span>
+      <p style="color: #E2E8F0; max-width: 780px; margin: 8px auto 0 auto; font-size: 14.5px; line-height: 1.7;" data-category-text="community.subtitle">
+        與來自香港、日本、韓國、新加坡及歐美全球旅人，即時交流台灣在地行程推薦、排隊美食、包車經驗與探店心得！
+      </p>
+      <p style="margin: 4px auto 0 auto; max-width: 780px;">
+        <span class="brand-serif-en" style="font-size: 13.5px; color: #94A3B8; font-weight: 500;" data-category-text="community.heroEngSubtitle">(Real reviews, on-site recommendations & insider travel tips across Taiwan.)</span>
       </p>
 
       <!-- 話題標籤切換 -->
       <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 28px;">
-        <button class="comment-tag-btn active" data-topic="全部" onclick="filterTopic('全部')">全部話題 (All)</button>
-        <button class="comment-tag-btn" data-topic="行程健檢" onclick="filterTopic('行程健檢')">🗺️ 行程健檢 Q&A</button>
-        <button class="comment-tag-btn" data-topic="美食推薦" onclick="filterTopic('美食推薦')">🧋 排隊美食推薦</button>
-        <button class="comment-tag-btn" data-topic="咖啡探店" onclick="filterTopic('咖啡探店')">☕ 咖啡店真實心得</button>
-        <button class="comment-tag-btn" data-topic="交通包車" onclick="filterTopic('交通包車')">🚗 交通包車指南</button>
-        <button class="comment-tag-btn" data-topic="住宿體驗" onclick="filterTopic('住宿體驗')">🏨 旅宿體驗分享</button>
+        <button class="comment-tag-btn active" data-topic="全部" onclick="filterTopic('全部')" data-category-text="community.allTopics">全部話題 (All)</button>
+        <button class="comment-tag-btn" data-topic="行程健檢" onclick="filterTopic('行程健檢')" data-category-text="community.topicItinerary">🗺️ 行程健檢 Q&A</button>
+        <button class="comment-tag-btn" data-topic="美食推薦" onclick="filterTopic('美食推薦')" data-category-text="community.topicFood">🧋 排隊美食推薦</button>
+        <button class="comment-tag-btn" data-topic="咖啡探店" onclick="filterTopic('咖啡探店')" data-category-text="community.topicCafe">☕ 咖啡店真實心得</button>
+        <button class="comment-tag-btn" data-topic="交通包車" onclick="filterTopic('交通包車')" data-category-text="community.topicCharter">🚗 交通包車指南</button>
+        <button class="comment-tag-btn" data-topic="住宿體驗" onclick="filterTopic('住宿體驗')" data-category-text="community.topicStay">🏨 旅宿體驗分享</button>
       </div>
     </div>
   </section>
@@ -137,27 +138,27 @@
       
       <!-- 留言發布表單 -->
       <div style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 22px; padding: 30px; box-shadow: 0 8px 24px rgba(0,0,0,0.04); margin-bottom: 40px;">
-        <h3 style="font-size: 18px; font-weight: 800; color: #0F172A; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+        <h3 style="font-size: 18px; font-weight: 800; color: #0F172A; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;" data-category-text="community.formTitle">
           <span>✍️</span> 發表新討論或分享你的旅途心得
         </h3>
         
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 14px;">
-          <input type="text" id="comm-name" placeholder="您的暱稱 (例: Kevin)" style="padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 12px; font-size: 14px; outline: none;">
-          <input type="text" id="comm-location" placeholder="居住地 (例: 香港 / 東京)" style="padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 12px; font-size: 14px; outline: none;">
+          <input type="text" id="comm-name" data-category-placeholder="community.namePlaceholder" placeholder="您的暱稱 (例: Kevin)" style="padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 12px; font-size: 14px; outline: none;">
+          <input type="text" id="comm-location" data-category-placeholder="community.locPlaceholder" placeholder="居住地 (例: 香港 / 東京)" style="padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 12px; font-size: 14px; outline: none;">
           <select id="comm-topic" style="padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 12px; font-size: 14px; outline: none; background: #FFF; font-weight: 600;">
-            <option value="行程健檢">🗺️ 行程健檢 Q&A</option>
-            <option value="美食推薦" selected>🧋 排隊美食推薦</option>
-            <option value="咖啡探店">☕ 咖啡店真實心得</option>
-            <option value="交通包車">🚗 交通包車指南</option>
-            <option value="住宿體驗">🏨 旅宿體驗分享</option>
+            <option value="行程健檢" data-category-text="community.topicItinerary">🗺️ 行程健檢 Q&A</option>
+            <option value="美食推薦" selected data-category-text="community.topicFood">🧋 排隊美食推薦</option>
+            <option value="咖啡探店" data-category-text="community.topicCafe">☕ 咖啡店真實心得</option>
+            <option value="交通包車" data-category-text="community.topicCharter">🚗 交通包車指南</option>
+            <option value="住宿體驗" data-category-text="community.topicStay">🏨 旅宿體驗分享</option>
           </select>
         </div>
 
-        <textarea id="comm-content" rows="3" placeholder="請分享您的旅行體驗、給其他旅人的建議或提出您的行程疑問..." style="width: 100%; padding: 14px 16px; border: 1px solid #CBD5E1; border-radius: 14px; font-size: 14px; font-family: inherit; outline: none; margin-bottom: 14px; resize: vertical;"></textarea>
+        <textarea id="comm-content" rows="3" data-category-placeholder="community.contentPlaceholder" placeholder="請分享您的旅行體驗、給其他旅人的建議或提出您的行程疑問..." style="width: 100%; padding: 14px 16px; border: 1px solid #CBD5E1; border-radius: 14px; font-size: 14px; font-family: inherit; outline: none; margin-bottom: 14px; resize: vertical;"></textarea>
         
         <div style="display: flex; justify-content: space-between; align-items: center;">
-          <span style="font-size: 12px; color: #94A3B8;">文明交流，歡迎真實分享台灣在地美好時光</span>
-          <button onclick="postComment()" class="btn-action btn-klook-book" style="padding: 10px 24px; font-size: 13px; font-weight: 800;">
+          <span style="font-size: 12px; color: #94A3B8;" data-category-text="community.formNote">文明交流，歡迎真實分享台灣在地美好時光</span>
+          <button onclick="postComment()" class="btn-action btn-klook-book" style="padding: 10px 24px; font-size: 13px; font-weight: 800;" data-category-text="community.btnPost">
             發布留言 🚀
           </button>
         </div>
@@ -166,9 +167,9 @@
       <!-- 留言列表展示區 -->
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
         <h3 id="comments-header-title" style="font-size: 18px; font-weight: 900; color: #0F172A;">
-          💬 最新交流動態 (<span id="comments-count">0</span>)
+          <span data-category-text="community.feedTitle">💬 最新交流動態</span> (<span id="comments-count">0</span>)
         </h3>
-        <span style="font-size: 12px; color: #64748B;">即時在地回饋 · 已驗證旅人</span>
+        <span style="font-size: 12px; color: #64748B;" data-category-text="community.feedSub">即時在地回饋 · 已驗證旅人</span>
       </div>
 
       <div id="comments-list-box" style="display: flex; flex-direction: column; gap: 16px;">
@@ -345,6 +346,28 @@
       loadComments();
     }
 
+    function getCommT(key, fallback) {
+      if (typeof CategoryUI !== 'undefined') {
+        const val = CategoryUI.t('community.' + key);
+        if (val) return val;
+      }
+      return fallback;
+    }
+
+    function getTopicName(topicKey) {
+      const map = {
+        '行程健檢': 'topicItinerary',
+        '美食推薦': 'topicFood',
+        '咖啡探店': 'topicCafe',
+        '交通包車': 'topicCharter',
+        '住宿體驗': 'topicStay'
+      };
+      if (map[topicKey]) {
+        return getCommT(map[topicKey], topicKey);
+      }
+      return topicKey;
+    }
+
     function loadComments() {
       const container = document.getElementById("comments-list-box");
       const countEl = document.getElementById("comments-count");
@@ -357,7 +380,12 @@
 
       if (countEl) countEl.textContent = filtered.length;
 
+      const usefulLabel = getCommT('useful', '實用');
+      const justNowLabel = getCommT('justNow', '剛剛');
+
       container.innerHTML = filtered.map(c => {
+        const displayTopic = getTopicName(c.topic);
+        const displayTime = (!c.time || c.time === '剛剛') ? justNowLabel : c.time;
         return `
           <div class="comment-card">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
@@ -367,11 +395,11 @@
                 </div>
                 <div>
                   <div style="font-weight: 800; font-size: 14px; color: #0F172A;">${c.name}</div>
-                  <div style="font-size: 11px; color: #64748B;">📍 ${c.location} ‧ ${c.time || '剛剛'}</div>
+                  <div style="font-size: 11px; color: #64748B;">📍 ${c.location} ‧ ${displayTime}</div>
                 </div>
               </div>
               <span style="font-size: 11px; font-weight: 700; color: #0284C7; background: #F0F9FF; border: 1px solid #BAE6FD; padding: 3px 8px; border-radius: 6px;">
-                ${c.topic}
+                ${displayTopic}
               </span>
             </div>
 
@@ -381,7 +409,7 @@
 
             <div style="display: flex; justify-content: flex-end; align-items: center; gap: 14px; font-size: 12px; color: #64748B;">
               <button onclick="likeComment('${c.id}')" style="background: none; border: none; cursor: pointer; color: #64748B; font-size: 12px; display: flex; align-items: center; gap: 4px;">
-                ❤️ 實用 (${c.likes || 0})
+                ❤️ ${usefulLabel} (${c.likes || 0})
               </button>
             </div>
           </div>
@@ -401,16 +429,18 @@
       const content = contentInput.value.trim();
 
       if (!name || !content) {
-        alert("請填寫您的稱呼與留言內容！");
+        alert(getCommT('alertFill', "請填寫您的稱呼與留言內容！"));
         return;
       }
+
+      const defaultUser = getCommT('defaultUser', "全球旅人");
 
       const newComm = {
         id: "c_" + Date.now(),
         name: name,
-        location: loc || "全球旅人",
+        location: loc || defaultUser,
         topic: topic,
-        time: "剛剛",
+        time: getCommT('justNow', "剛剛"),
         likes: 1,
         content: content
       };
@@ -423,7 +453,7 @@
       locInput.value = "";
       contentInput.value = "";
 
-      alert("🎉 留言發布成功！感謝您的分享！");
+      alert(getCommT('alertSuccess', "🎉 留言發布成功！感謝您的分享！"));
       loadComments();
     }
 

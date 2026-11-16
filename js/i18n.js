@@ -34,6 +34,7 @@ const WEB_I18N = {
     btnFlight: "✈️ 查機票",
     btnMap: "📍 Map",
     btnSouvenir: "伴手禮直送",
+    btnDownload: "App 下載",
     serviceFlight: "查機票",
     serviceFlightDesc: "國際與跳島機票",
     serviceCharter: "包車預約",
@@ -83,6 +84,7 @@ const WEB_I18N = {
     btnFlight: "✈️ Flights",
     btnMap: "📍 Google Maps",
     btnSouvenir: "Souvenirs",
+    btnDownload: "Download App",
     serviceFlight: "Search Flights",
     serviceFlightDesc: "Island Hopping & Flights",
     serviceCharter: "Chartered Tour",
@@ -132,6 +134,7 @@ const WEB_I18N = {
     btnFlight: "✈️ 航空券検索",
     btnMap: "📍 マップ案内",
     btnSouvenir: "お土産直送",
+    btnDownload: "アプリをダウンロード",
     serviceFlight: "航空券予約",
     serviceFlightDesc: "離島便・国際線比較",
     serviceCharter: "専用車予約",
@@ -181,6 +184,7 @@ const WEB_I18N = {
     btnFlight: "✈️ 항공권 조회",
     btnMap: "📍 지도 안내",
     btnSouvenir: "기념품 배송",
+    btnDownload: "앱 다운로드",
     serviceFlight: "항공권 검색",
     serviceFlightDesc: "국내선/국제선 비교",
     serviceCharter: "전용차량 투어",
@@ -230,6 +234,7 @@ const WEB_I18N = {
     btnFlight: "✈️ Vuelos",
     btnMap: "📍 Google Maps",
     btnSouvenir: "Recuerdos",
+    btnDownload: "Descargar App",
     serviceFlight: "Vuelos",
     serviceFlightDesc: "Vuelos e Islas",
     serviceCharter: "Coche Privado",
@@ -279,6 +284,7 @@ const WEB_I18N = {
     btnFlight: "✈️ Flüge",
     btnMap: "📍 Google Maps",
     btnSouvenir: "Souvenirs",
+    btnDownload: "App Herunterladen",
     serviceFlight: "Flugsuche",
     serviceFlightDesc: "Flüge & Inseln",
     serviceCharter: "Privater Fahrer",
@@ -328,6 +334,7 @@ const WEB_I18N = {
     btnFlight: "✈️ ค้นหาเที่ยวบิน",
     btnMap: "📍 Google Maps",
     btnSouvenir: "สั่งของฝาก",
+    btnDownload: "ดาวน์โหลดแอป",
     serviceFlight: "จองเที่ยวบิน",
     serviceFlightDesc: "เที่ยวบินข้ามเกาะและระหว่างประเทศ",
     serviceCharter: "จองรถเหมา",
@@ -377,6 +384,7 @@ const WEB_I18N = {
     btnFlight: "✈️ Vé Máy Bay",
     btnMap: "📍 Bản Đồ",
     btnSouvenir: "Quà Lưu Niệm",
+    btnDownload: "Tải Ứng Dụng",
     serviceFlight: "Vé máy bay",
     serviceFlightDesc: "Chuyến bay nội địa & quốc tế",
     serviceCharter: "Thuê xe riêng",
@@ -426,6 +434,7 @@ const WEB_I18N = {
     btnFlight: "✈️ Penerbangan",
     btnMap: "📍 Peta",
     btnSouvenir: "Cenderamata",
+    btnDownload: "Muat Turun Aplikasi",
     serviceFlight: "Penerbangan",
     serviceFlightDesc: "Penerbangan & Pulau",
     serviceCharter: "Kereta Persendirian",
@@ -475,6 +484,7 @@ const WEB_I18N = {
     btnFlight: "✈️ Flights",
     btnMap: "📍 Mapa",
     btnSouvenir: "Pasabuy",
+    btnDownload: "I-download ang App",
     serviceFlight: "Flights",
     serviceFlightDesc: "Flights at Island Hopping",
     serviceCharter: "Pribadong Kotse",
@@ -524,6 +534,7 @@ const WEB_I18N = {
     btnFlight: "✈️ उड़ानें",
     btnMap: "📍 मैप",
     btnSouvenir: "स्मृति चिन्ह",
+    btnDownload: "ऐप डाउनलोड करें",
     serviceFlight: "उड़ानें",
     serviceFlightDesc: "उड़ानें और द्वीप",
     serviceCharter: "निजी कार",
@@ -573,6 +584,7 @@ const WEB_I18N = {
     btnFlight: "✈️ Penerbangan",
     btnMap: "📍 Peta",
     btnSouvenir: "Oleh-oleh",
+    btnDownload: "Unduh Aplikasi",
     serviceFlight: "Penerbangan",
     serviceFlightDesc: "Penerbangan & Pulau",
     serviceCharter: "Mobil Pribadi",
@@ -1033,8 +1045,14 @@ async function switchLanguage(lang) {
 
   updateSiteNavigation(lang);
 
-  const ctaBtn = document.querySelector(".header-right-tools .btn-cta-primary");
-  if (ctaBtn) ctaBtn.textContent = core.btnSouvenir;
+  const souvenirBtn = document.querySelector('.header-right-tools a[href="souvenir.html"]');
+  if (souvenirBtn && core.btnSouvenir) {
+    souvenirBtn.textContent = core.btnSouvenir;
+  }
+  const downloadBtn = document.querySelector('.header-right-tools a[href*="play.google.com"], .header-right-tools a[data-action="download-app"]');
+  if (downloadBtn && core.btnDownload) {
+    downloadBtn.textContent = core.btnDownload;
+  }
 
   // 3. Hero 英雄區塊
   const heroZakkaTitle = document.querySelector(".hero-zakka-title");
@@ -1043,22 +1061,17 @@ async function switchLanguage(lang) {
   if (heroZakkaLead) heroZakkaLead.textContent = chrome.heroZakkaLead;
 
   const serviceTabs = document.querySelectorAll(".hero-service-tab");
-  const tabDefs = [
-    { zh: chrome.tabFlightZh || "機票", en: chrome.tabFlightEn || "Flights" },
-    { zh: chrome.tabCharterZh || "包車", en: chrome.tabCharterEn || "Charter" },
-    { zh: chrome.tabAirportZh || "接送", en: chrome.tabAirportEn || "Transfer" },
-    { zh: chrome.tabEsimZh || "網卡", en: chrome.tabEsimEn || "eSIM" },
-    { zh: chrome.tabRankingsZh || "榜單", en: chrome.tabRankingsEn || "Rankings" },
-    { zh: chrome.tabHopZh || "探店", en: chrome.tabHopEn || "Hop" }
-  ];
+  const heroTabsData = HERO_SERVICE_TABS_I18N[lang] || HERO_SERVICE_TABS_I18N.en || HERO_SERVICE_TABS_I18N["zh-TW"];
   serviceTabs.forEach((tab, idx) => {
+    const item = heroTabsData[idx];
+    if (!item) return;
     const zhEl = tab.querySelector(".hero-tab-zh");
     const enEl = tab.querySelector(".hero-tab-en");
-    if (zhEl && enEl && tabDefs[idx]) {
-      zhEl.textContent = tabDefs[idx].zh;
-      enEl.textContent = tabDefs[idx].en;
-    } else if (tabDefs[idx]) {
-      tab.innerHTML = `<span class="hero-tab-text"><span class="hero-tab-zh">${tabDefs[idx].zh}</span><span class="hero-tab-en">${tabDefs[idx].en}</span></span>`;
+    if (zhEl && enEl) {
+      zhEl.textContent = item.primary;
+      enEl.textContent = item.sub;
+    } else {
+      tab.innerHTML = `<span class="hero-tab-text"><span class="hero-tab-zh">${item.primary}</span><span class="hero-tab-en">${item.sub}</span></span>`;
     }
   });
 
@@ -1154,6 +1167,108 @@ async function switchLanguage(lang) {
 
 
 /** Shared by desktop navigation and the mobile menu. */
+/**
+ * 首頁頂部服務快捷 Tab 標籤多國語言字典 (上排主文字・下排輔助文字)
+ */
+const HERO_SERVICE_TABS_I18N = {
+  "zh-TW": [
+    { primary: "機票", sub: "Flights" },
+    { primary: "包車", sub: "Charter" },
+    { primary: "接送", sub: "Transfer" },
+    { primary: "網卡", sub: "eSIM" },
+    { primary: "榜單", sub: "Rankings" },
+    { primary: "探店", sub: "Hop" }
+  ],
+  "en": [
+    { primary: "Flights", sub: "Air Tickets" },
+    { primary: "Charter", sub: "Private Car" },
+    { primary: "Transfer", sub: "Airport Ride" },
+    { primary: "eSIM", sub: "Data & SIM" },
+    { primary: "Rankings", sub: "TOP Picks" },
+    { primary: "Hop", sub: "Cafes & Bars" }
+  ],
+  "ja": [
+    { primary: "航空券", sub: "Flights" },
+    { primary: "貸切車", sub: "Charter" },
+    { primary: "空港送迎", sub: "Transfer" },
+    { primary: "eSIM", sub: "Data SIM" },
+    { primary: "順位", sub: "Rankings" },
+    { primary: "探訪", sub: "Cafe Hop" }
+  ],
+  "ko": [
+    { primary: "항공권", sub: "Flights" },
+    { primary: "차량대절", sub: "Charter" },
+    { primary: "공항픽업", sub: "Transfer" },
+    { primary: "eSIM", sub: "Data SIM" },
+    { primary: "랭킹", sub: "Rankings" },
+    { primary: "카페투어", sub: "Cafe Hop" }
+  ],
+  "es": [
+    { primary: "Vuelos", sub: "Flights" },
+    { primary: "Chófer", sub: "Charter" },
+    { primary: "Traslado", sub: "Transfer" },
+    { primary: "eSIM", sub: "Data SIM" },
+    { primary: "Rankings", sub: "TOP List" },
+    { primary: "Cafés", sub: "Cafe Hop" }
+  ],
+  "de": [
+    { primary: "Flüge", sub: "Flights" },
+    { primary: "Fahrdienst", sub: "Charter" },
+    { primary: "Transfer", sub: "Airport Ride" },
+    { primary: "eSIM", sub: "Data SIM" },
+    { primary: "Rankings", sub: "TOP List" },
+    { primary: "Café-Tour", sub: "Cafe Hop" }
+  ],
+  "th": [
+    { primary: "ตั๋วบิน", sub: "Flights" },
+    { primary: "รถเหมา", sub: "Charter" },
+    { primary: "รับส่ง", sub: "Transfer" },
+    { primary: "eSIM", sub: "Data SIM" },
+    { primary: "อันดับ", sub: "Rankings" },
+    { primary: "คาเฟ่", sub: "Cafe Hop" }
+  ],
+  "vi": [
+    { primary: "Vé máy bay", sub: "Flights" },
+    { primary: "Xe riêng", sub: "Charter" },
+    { primary: "Đưa đón", sub: "Transfer" },
+    { primary: "eSIM", sub: "Data SIM" },
+    { primary: "Xếp hạng", sub: "Rankings" },
+    { primary: "Khám phá", sub: "Cafe Hop" }
+  ],
+  "ms": [
+    { primary: "Penerbangan", sub: "Flights" },
+    { primary: "Kereta Sewa", sub: "Charter" },
+    { primary: "Transfer", sub: "Airport Ride" },
+    { primary: "eSIM", sub: "Data SIM" },
+    { primary: "Kedudukan", sub: "Rankings" },
+    { primary: "Kafe Hop", sub: "Cafe Hop" }
+  ],
+  "fil": [
+    { primary: "Flights", sub: "Plane Ticket" },
+    { primary: "Kotse", sub: "Charter Car" },
+    { primary: "Transfer", sub: "Airport Ride" },
+    { primary: "eSIM", sub: "Data SIM" },
+    { primary: "Ranggo", sub: "Rankings" },
+    { primary: "Cafe Hop", sub: "Explore" }
+  ],
+  "hi": [
+    { primary: "उड़ानें", sub: "Flights" },
+    { primary: "निजी कार", sub: "Charter" },
+    { primary: "ट्रांसफर", sub: "Airport Ride" },
+    { primary: "eSIM", sub: "Data SIM" },
+    { primary: "रैंकिंग", sub: "Rankings" },
+    { primary: "कैफे टूर", sub: "Cafe Hop" }
+  ],
+  "id": [
+    { primary: "Penerbangan", sub: "Flights" },
+    { primary: "Mobil Sewa", sub: "Charter" },
+    { primary: "Transfer", sub: "Airport Ride" },
+    { primary: "eSIM", sub: "Data SIM" },
+    { primary: "Peringkat", sub: "Rankings" },
+    { primary: "Kafe Hop", sub: "Cafe Hop" }
+  ]
+};
+
 function updateSiteNavigation(lang) {
   const labels = WEB_I18N[lang] || WEB_I18N.en;
   document.querySelectorAll("[data-nav-key]").forEach(link => {
@@ -1169,5 +1284,33 @@ function updateSiteNavigation(lang) {
   if (toggle) {
     toggle.setAttribute("aria-label", toggle.getAttribute("aria-expanded") === "true"
       ? labels.navCloseMenu : labels.navOpenMenu);
+  }
+
+  // Update header right tools buttons across all pages
+  const souvenirBtn = document.querySelector('.header-right-tools a[href="souvenir.html"]');
+  if (souvenirBtn && labels.btnSouvenir) {
+    souvenirBtn.textContent = labels.btnSouvenir;
+  }
+  const downloadBtn = document.querySelector('.header-right-tools a[href*="play.google.com"], .header-right-tools a[data-action="download-app"]');
+  if (downloadBtn && labels.btnDownload) {
+    downloadBtn.textContent = labels.btnDownload;
+  }
+
+  // Update hero-service-tabs-row on pages that have it
+  const serviceTabs = document.querySelectorAll(".hero-service-tab");
+  if (serviceTabs.length) {
+    const heroTabsData = HERO_SERVICE_TABS_I18N[lang] || HERO_SERVICE_TABS_I18N.en || HERO_SERVICE_TABS_I18N["zh-TW"];
+    serviceTabs.forEach((tab, idx) => {
+      const item = heroTabsData[idx];
+      if (!item) return;
+      const zhEl = tab.querySelector(".hero-tab-zh");
+      const enEl = tab.querySelector(".hero-tab-en");
+      if (zhEl && enEl) {
+        zhEl.textContent = item.primary;
+        enEl.textContent = item.sub;
+      } else {
+        tab.innerHTML = `<span class="hero-tab-text"><span class="hero-tab-zh">${item.primary}</span><span class="hero-tab-en">${item.sub}</span></span>`;
+      }
+    });
   }
 }

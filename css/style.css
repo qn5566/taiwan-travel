@@ -2107,6 +2107,7 @@ a {
   border-bottom: 1.5px solid #F1F5F9;
   padding-bottom: 14px;
   width: 100%;
+  box-sizing: border-box;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Firefox */
@@ -2123,7 +2124,8 @@ a {
   align-items: center;
   justify-content: center;
   gap: 4px;
-  padding: 6px 6px;
+  padding: 6px 4px;
+  box-sizing: border-box;
   border-radius: 10px;
   border: 1px solid #F1F5F9;
   background: #F8FAFC;
@@ -2146,6 +2148,8 @@ a {
   align-items: center;
   line-height: 1.15;
   min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .hero-tab-zh {
@@ -2154,6 +2158,9 @@ a {
   color: #0F172A;
   letter-spacing: 0.2px;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .hero-tab-en {
@@ -2162,6 +2169,9 @@ a {
   color: #64748B;
   letter-spacing: 0;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .hero-service-tab:hover {
