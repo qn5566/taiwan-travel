@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>台灣必買伴手禮直送排行 · 100 大特產飯店代收免提 - 台灣吃喝玩樂</title>
-  
+
   <meta name="description" content="台灣吃喝玩樂【伴手禮直送專區】。合作分潤電商萬家福、台灣熱門藥妝、質感生活選品直營直配！涵蓋鳳梨酥蛋糕、超人氣休閒零食、高山茶葉飲品、台灣製造藥品與送禮好物，退房前專人送達飯店前台。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -86,9 +86,10 @@
   <link rel="alternate" hreflang="en" href="https://taiwanroam.tw/souvenir.html?lang=en" />
   <link rel="alternate" hreflang="ja" href="https://taiwanroam.tw/souvenir.html?lang=ja" />
   <link rel="alternate" hreflang="x-default" href="https://taiwanroam.tw/souvenir.html" />
+  <script src="js/category_i18n.js" defer></script>
   <script src="js/global-language-bar.js" defer></script>
 </head>
-<body>
+<body class="category-page">
 
   <!-- 全寬置頂導航列 -->
   <header class="site-header">
@@ -124,20 +125,14 @@
   <section style="background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 48%, #FFE4E6 100%); border-bottom: 1.5px solid #FED7AA; color: #0F172A; padding: 52px 0 44px 0;">
     <div class="container">
       <div style="max-width: 860px; margin: 0 auto; text-align: center;">
-        <h1 class="editorial-hero-title" style="font-size: 40px; font-weight: 900; line-height: 1.25; margin-bottom: 4px; color: #7C2D12; font-family: 'Noto Serif TC', serif;">
+        <h1 class="category-hero-title editorial-hero-title" style="font-size: 40px; font-weight: 900; line-height: 1.25; margin-bottom: 4px; color: #7C2D12; font-family: 'Noto Serif TC', serif;" data-category-text="souvenirs.title">
           台灣必買伴手禮與特產直配
         </h1>
-        <div class="brand-script-en" style="font-size: 34px; color: #EA580C; margin-bottom: 12px;">
-          Taiwan Top 100 Souvenir Rankings &amp; Gift Guide
-        </div>
-        <p style="font-size: 14.5px; color: #7C2D12; line-height: 1.8; margin-bottom: 24px; font-weight: 500;">
-          嚴選<strong>全台百大伴手禮排行榜</strong>！從<strong>全年熱銷破億顆、享譽國際的冠軍之光「台灣鳳梨酥」</strong>，到雲霧繚繞的<strong>阿里山高山茶、日月潭紅玉、鹿谷凍頂烏龍</strong>等知名茶葉產地茗茶，以及各縣市百年餅舖與在地美食特色，為您整理最體面的送禮推薦清單。<br>
-          <span class="brand-serif-en" style="font-size: 13.5px; color: #9A3412; font-weight: 600;">(Discover Taiwan’s iconic Pineapple Cakes, world-renowned High Mountain Oolong Tea, heritage pastries &amp; curated local gifts — with convenient delivery right to your hotel.)</span>
-        </p>
+      <p class="category-hero-subtitle" data-category-text="souvenirs.subtitle">在地好味與特色選物，輕鬆送到飯店。</p>
 
         <!-- 搜尋篩選 -->
         <div style="max-width: 580px; margin: 0 auto; position: relative;">
-          <input type="text" id="souvenir-search-input" placeholder="🔍 搜尋伴手禮名稱、品牌、產地 (例：微熱山丘、阿里山高山茶、蛋黃酥)..." 
+          <input type="text" id="souvenir-search-input" data-category-placeholder="ui.searchSouvenirs" placeholder="🔍 搜尋伴手禮名稱、品牌、產地 (例：微熱山丘、阿里山高山茶、蛋黃酥)..."
                  style="width: 100%; padding: 14px 22px; border-radius: 9999px; border: 1.5px solid #FDBA74; background: #FFFFFF; color: #0F172A; font-size: 14px; outline: none; box-shadow: 0 4px 14px rgba(234, 88, 12, 0.08);"
                  oninput="filterSouvenirs()">
         </div>
@@ -148,7 +143,7 @@
   <!-- 主內容區 -->
   <section class="section-padding" style="background: #F8FAFC;">
     <div class="container">
-      
+
       <!-- 台灣風土名物與送禮美學重點導讀橫幅 -->
       <div class="souvenir-painpoint-banner" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; align-items: stretch;">
         <div style="background: rgba(255, 255, 255, 0.78); border-radius: 14px; padding: 14px 18px; border: 1px solid rgba(253, 186, 116, 0.6);">
@@ -199,7 +194,7 @@
     <div class="container" style="position: relative; z-index: 1;">
       <!-- 第一排：左側品牌中英日宣言與開發團隊用心介紹 ＋ 右側專題導覽快速連結 -->
       <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 52px; flex-wrap: wrap; padding-bottom: 38px; border-bottom: 1px solid rgba(3, 105, 161, 0.16);">
-        
+
         <!-- 左側：品牌核心理念、三語文案、網站使用介紹與開發團隊 -->
         <div style="flex: 1.45; min-width: 320px; max-width: 640px;">
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
@@ -232,14 +227,14 @@
 
           <!-- 合作洽詢與開發團隊徽章橫排 -->
           <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-            <a href="mailto:himydream.studio0220@gmail.com?subject=%E3%80%90%E5%93%81%E7%89%8C%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2%E3%80%91%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82%20Taiwan%20Roam%20%E5%95%86%E6%A5%AD%E5%90%88%E4%BD%9C" 
+            <a href="mailto:himydream.studio0220@gmail.com?subject=%E3%80%90%E5%93%81%E7%89%8C%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2%E3%80%91%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82%20Taiwan%20Roam%20%E5%95%86%E6%A5%AD%E5%90%88%E4%BD%9C"
                style="display: inline-flex; align-items: center; gap: 7px; background: linear-gradient(135deg, #0284C7 0%, #6366F1 100%); color: #FFFFFF; text-decoration: none; font-size: 13px; font-weight: 800; padding: 9px 22px; border-radius: 9999px; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.28); transition: all 0.2s ease;">
               <span>🤝</span>
               <span>品牌合作洽詢</span>
               <span style="font-size: 11.5px; opacity: 0.92;">(來信洽談)</span>
             </a>
 
-            <a href="https://himydream.me/studio/" target="_blank" rel="noopener noreferrer" 
+            <a href="https://himydream.me/studio/" target="_blank" rel="noopener noreferrer"
                style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; border: 1.5px solid #93C5FD; padding: 8px 18px; border-radius: 9999px; text-decoration: none; box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08); transition: all 0.2s ease;" title="造訪 HiMyDream STUDIO 官方網站">
               <span style="font-size: 11.5px; font-weight: 800; color: #0369A1; letter-spacing: 0.5px;">開發團隊</span>
               <span style="font-size: 12.5px; font-weight: 900; color: #0F172A;">HiMyDream STUDIO</span>
@@ -384,9 +379,9 @@
 
       if (searchKeyword) {
         const kw = searchKeyword.toLowerCase();
-        items = items.filter(it => 
-          (it.name && it.name.toLowerCase().includes(kw)) || 
-          (it.brand && it.brand.toLowerCase().includes(kw)) || 
+        items = items.filter(it =>
+          (it.name && it.name.toLowerCase().includes(kw)) ||
+          (it.brand && it.brand.toLowerCase().includes(kw)) ||
           (it.origin && it.origin.toLowerCase().includes(kw)) ||
           (it.desc && it.desc.toLowerCase().includes(kw)) ||
           (it.catName && it.catName.toLowerCase().includes(kw))
@@ -401,7 +396,7 @@
       grid.innerHTML = items.map((item, idx) => {
         const isTop3 = (idx < 3);
         const isKlook = item.isKlook || (item.buyUrl && item.buyUrl.includes('klook.com'));
-        const btnStyle = isKlook 
+        const btnStyle = isKlook
           ? 'background: linear-gradient(135deg, #FF5B00 0%, #E04E00 100%); color: #FFFFFF; box-shadow: 0 4px 14px rgba(224, 78, 0, 0.28);'
           : 'background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: #FFFFFF;';
         const btnText = item.ctaText || (isKlook ? '🛍️ 訂購直送飯店 ➔' : '🛵 訂購外送 ➔');

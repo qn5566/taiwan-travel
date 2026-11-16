@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>全台風格咖啡圖鑑 ＆ 深度慢活採訪實錄 - 330 間名店風格巡禮 ｜ 台灣吃喝玩樂 Taiwan Wanderlust</title>
-  
+
   <!-- SEO Meta Tags -->
   <meta name="description" content="全台風格咖啡圖鑑 Curated Coffee Spaces across Taiwan！精選全台 22 縣市 330 座藏身巷弄與山海間的靈魂角落，手沖、老宅、插座、蔚藍海景與微醺日常。結合編輯部親自走訪實測的「週末探店」生活慢活專題文章，可看整篇報導、Google 地圖導航與預訂。">
   <meta name="keywords" content="全台風格咖啡圖鑑, 台灣咖啡廳推薦, 週末探店, 台北咖啡廳, 台中咖啡廳, 台南老宅咖啡, 手沖咖啡, 不限時咖啡廳, 海景咖啡廳, 插座友善, 植栽老宅, 台灣旅遊">
@@ -72,9 +72,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600;1,700&family=Pinyon+Script&family=Noto+Serif+TC:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  
+
   <link rel="stylesheet" href="css/style.css">
-  
+
   <style>
     /* =========================================================
        📖 頂級日系文青旅遊雜誌風格 (Editorial Lifestyle Aesthetic)
@@ -102,43 +102,48 @@
       letter-spacing: 0.5px;
     }
 
-    /* 三大主專題切換按鈕 (溫潤燕麥奶色膠囊) */
+    /* 三大模式：純文字底線分頁 */
     .tab-switch-container {
       display: inline-flex;
-      background: #EFE8DF;
-      padding: 5px;
-      border-radius: 9999px;
-      border: 1px solid #E2D7CB;
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      border: none;
       margin-top: 22px;
       gap: 5px;
       max-width: 100%;
       flex-wrap: wrap;
       justify-content: center;
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04);
+      box-shadow: none;
     }
     .main-tab-pill {
       display: inline-flex;
       align-items: center;
       gap: 7px;
       padding: 9px 22px;
-      border-radius: 9999px;
+      border-radius: 0;
       font-size: 14px;
       font-weight: 800;
       color: #6C5F56;
       background: transparent;
       border: none;
+      border-bottom: 2px solid transparent;
       cursor: pointer;
-      transition: all 0.25s ease;
+      transition: color 0.2s ease, border-color 0.2s ease;
+      box-shadow: none;
       white-space: nowrap;
     }
     .main-tab-pill:hover {
       color: #2D2522;
-      background: rgba(255, 255, 255, 0.65);
+      border-bottom-color: #C5B6A8;
     }
     .main-tab-pill.active {
-      background: #FFFFFF;
       color: #8C5331;
-      box-shadow: 0 4px 14px rgba(140, 83, 49, 0.16);
+      border-bottom-color: currentColor;
+    }
+    .main-tab-pill:focus-visible {
+      outline: 2px solid #8C5331;
+      outline-offset: 3px;
     }
 
     /* 精簡整合 6 大核心生活風格膠囊 */
@@ -479,7 +484,7 @@
       transform: scale(1.06);
     }
 
-    
+
     /* 台灣歷史文化引言卡牌 (Taiwan Cultural Heritage Intro) */
     .taiwan-heritage-intro-box,
     .hop-longform-article .taiwan-heritage-intro-box {
@@ -1121,7 +1126,7 @@
       transform: translateX(-50%) translateY(0);
       opacity: 1;
     }
-  
+
 /* ========================================================
    UNIVERSAL EDITORIAL ARTICLE & MODAL STYLES (UNIFIED)
    ======================================================== */
@@ -1517,9 +1522,10 @@
 }
 
   </style>
+  <script src="js/category_i18n.js" defer></script>
   <script src="js/global-language-bar.js" defer></script>
 </head>
-<body>
+<body class="category-page">
 
   <!-- 置頂導航列 -->
     <!-- 🌐 置頂繁中/多語系極簡切換條 (Global Top Bar) -->
@@ -1564,32 +1570,20 @@
        ========================================================= -->
   <section class="section-padding" style="background: linear-gradient(180deg, #FAF7F2 0%, #F3EDE4 100%); color: #2D2522; text-align: center; padding: 48px 0 32px 0; border-bottom: 1px solid #EADBCE;">
     <div class="container">
-      
+
       <!-- 主標題（Hero Headline） -->
-      <h1 id="hero-main-title" style="font-size: 42px; font-weight: 900; margin-top: 4px; letter-spacing: -0.5px; margin-bottom: 2px; color: #2D2522; font-family: 'Noto Serif TC', serif;">
+      <h1 id="hero-main-title" class="category-hero-title" data-category-text="coffee.title" style="font-size: 42px; font-weight: 900; margin-top: 4px; letter-spacing: -0.5px; margin-bottom: 2px; color: #2D2522; font-family: 'Noto Serif TC', serif;">
         全台風格咖啡圖鑑
       </h1>
-      <div id="hero-en-title" class="brand-script-en" style="margin-bottom: 10px;">
-        Curated Coffee Spaces across Taiwan
-      </div>
-      
+
       <!-- 副標題 -->
-      <p id="hero-sub-desc" style="color: #6C5F56; max-width: 820px; margin: 0 auto; font-size: 14.5px; line-height: 1.75;">
-        330 座藏身巷弄與山海間的靈魂角落・手沖慢萃、老宅日常、插座友善與微醺時光。<br>
-        <span class="brand-serif-en" style="font-size: 13.5px; color: #8C7A70; font-weight: 500;">(A curated guide to 330 handpicked roasters, quiet hideaways & aesthetic spaces in Taiwan.)</span>
-      </p>
+      <p id="hero-sub-desc" class="category-hero-subtitle" data-category-text="coffee.subtitle">330 座藏身巷弄與山海間的風格咖啡空間。</p>
 
       <!-- 三大核心分頁切換 Tab 標籤列 (主選單) -->
       <div class="tab-switch-container">
-        <button id="btn-tab-coffee" class="main-tab-pill active" onclick="switchPageTab('coffee-map')">
-          咖啡地圖 (330 間名店)
-        </button>
-        <button id="btn-tab-michelin" class="main-tab-pill" onclick="switchPageTab('michelin-guide')">
-          米其林餐廳 (星級與必比登)
-        </button>
-        <button id="btn-tab-weekend" class="main-tab-pill" onclick="switchPageTab('weekend-hop')">
-          深度慢活採訪實錄
-        </button>
+        <button id="btn-tab-coffee" class="main-tab-pill active" onclick="switchPageTab('coffee-map')" data-category-text="ui.coffeeTab">咖啡圖鑑</button>
+        <button id="btn-tab-michelin" class="main-tab-pill" onclick="switchPageTab('michelin-guide')" data-category-text="ui.michelinTab">米其林</button>
+        <button id="btn-tab-weekend" class="main-tab-pill" onclick="switchPageTab('weekend-hop')" data-category-text="ui.journalsTab">深度採訪</button>
       </div>
 
     </div>
@@ -1602,34 +1596,25 @@
     <!-- 搜尋與精簡篩選操作列 -->
     <section style="background: #F9F6F0; border-bottom: 1px solid #EADBCE; padding: 24px 0 28px 0; color: #2D2522;">
       <div class="container">
-        
-        <!-- 現代質感關鍵字搜尋框 -->
-        <div style="max-width: 520px; margin: 0 auto; position: relative;">
-          <input type="text" id="cafe-search-input" placeholder="🔍 搜尋店名、縣市、捷運站、插座或手沖..." 
-            style="width: 100%; padding: 12px 22px; border-radius: 9999px; border: 1.5px solid #E0D4C5; background: #FFFFFF; color: #2D2522; font-size: 14px; outline: none; transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+
+        <!-- 區域選擇與關鍵字搜尋共用一列 -->
+        <div class="cafe-search-bar">
+          <select id="cafe-region-select" data-category-label="ui.regionsLabel" aria-label="地理分區" onchange="setRegion(this.value)">
+            <option value="all" selected>全台灣</option>
+          </select>
+          <input type="text" id="cafe-search-input" data-category-placeholder="ui.searchCoffee" placeholder="搜尋店名、縣市或特色">
         </div>
 
         <!-- 精選 6 大核心生活美學風格膠囊 (整理減少按鈕) -->
         <div style="margin-top: 18px; text-align: center;">
-          <div style="font-size: 11px; color: #8C5331; font-weight: 800; margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase;">
-            🏷️ 風格導航 ‧ LIFESTYLE VIBES
-          </div>
-          <div id="cafe-feature-pills" style="display: flex; gap: 7px; justify-content: center; flex-wrap: wrap; max-width: 900px; margin: 0 auto;">
+          <div id="cafe-feature-pills" role="group" data-category-label="ui.featuresLabel">
             <!-- 由 JS 動態渲染 6 大生活風格膠囊 -->
           </div>
         </div>
 
-        <!-- 6 大地理分區切換藥丸 ＋ 點擊後展開的縣市小按鈕 -->
-        <div style="margin-top: 16px; text-align: center;">
-          <div style="font-size: 11px; color: #9A897F; font-weight: 800; margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase;">
-            📍 地理分區 ‧ REGIONAL SPACES
-          </div>
-          <div id="region-main-tabs" class="region-tabs-row">
-            <!-- 由 JS 動態渲染 6 大地理分區膠囊 -->
-          </div>
-          <div id="subregion-chips-container" style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; max-width: 900px; margin: 12px auto 0 auto;">
-            <!-- 點擊北部/中部/南部/東部/離島後展開縣市按鈕 -->
-          </div>
+        <!-- 選定區域後展開縣市篩選；全台灣不佔用額外列 -->
+        <div id="subregion-chips-container" role="group" data-category-label="ui.regionsLabel" hidden>
+          <!-- 由 JS 動態渲染縣市按鈕 -->
         </div>
 
       </div>
@@ -1644,11 +1629,9 @@
             <span id="cafe-results-count"></span>
             <span id="cafe-current-state"></span>
           </div>
-          
+
           <div style="display: flex; gap: 10px; align-items: center;">
-            <button onclick="resetAllFilters()" class="feature-pill-btn" style="font-size: 12px; padding: 5px 14px; background: #FFFFFF;">
-              🔄 重設所有篩選
-            </button>
+            <button onclick="resetAllFilters()" class="feature-pill-btn" style="font-size: 12px; padding: 5px 14px; background: #FFFFFF;" data-category-text="ui.reset">重設篩選</button>
           </div>
         </div>
 
@@ -1668,14 +1651,11 @@
     <!-- 篩選列 -->
     <section style="background: #F9F6F0; border-bottom: 1px solid #EADBCE; padding: 22px 0 24px 0; color: #2D2522; text-align: center;">
       <div class="container">
-        <div style="font-size: 11px; color: #BE123C; font-weight: 800; margin-bottom: 10px; letter-spacing: 1.5px; text-transform: uppercase;">
-          🏆 星級榮耀與必比登 ‧ 快速篩選
-        </div>
         <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; max-width: 900px; margin: 0 auto;">
-          <button class="mich-pill-btn active" id="btn-mich-all" onclick="filterMichelin('all')">🌟 全部名單 (All)</button>
-          <button class="mich-pill-btn" id="btn-mich-three" onclick="filterMichelin('three_two')">⭐⭐⭐ 三星與二星殿堂</button>
-          <button class="mich-pill-btn" id="btn-mich-one" onclick="filterMichelin('one_star')">⭐ 一星名廚料理</button>
-          <button class="mich-pill-btn" id="btn-mich-bib" onclick="filterMichelin('bib')">🥣 必比登推介在地小吃</button>
+          <button class="mich-pill-btn active" id="btn-mich-all" onclick="filterMichelin('all')" data-category-text="michelinFilters.all">全部</button>
+          <button class="mich-pill-btn" id="btn-mich-three" onclick="filterMichelin('three_two')" data-category-text="michelinFilters.three_two">三星與二星</button>
+          <button class="mich-pill-btn" id="btn-mich-one" onclick="filterMichelin('one_star')" data-category-text="michelinFilters.one_star">一星</button>
+          <button class="mich-pill-btn" id="btn-mich-bib" onclick="filterMichelin('bib')" data-category-text="michelinFilters.bib">必比登</button>
         </div>
       </div>
     </section>
@@ -1685,10 +1665,7 @@
       <div class="container">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; flex-wrap: wrap; gap: 12px;">
           <div>
-            <h2 id="michelin-count-heading" style="font-size: 24px; font-weight: 900; color: #2D2522; margin: 2px 0 0 0; font-family: 'Noto Serif TC', serif;">米其林評鑑名錄</h2>
-          </div>
-          <div id="michelin-count-badge" style="font-size: 13px; color: #766B64;">
-            ✨ 收錄蟬聯三星頤宮、當代法式態芮、logy 與全台排隊必比登小吃
+            <h2 id="michelin-count-heading" data-category-text="michelin.title" style="font-size: 24px; font-weight: 900; color: #2D2522; margin: 2px 0 0 0; font-family: 'Noto Serif TC', serif;">米其林評鑑名錄</h2>
           </div>
         </div>
 
@@ -1704,70 +1681,9 @@
        分頁 3：📰 深度慢活採訪實錄 (Weekend Hop Editorial Tab)
        ========================================================= -->
   <div id="section-weekend-hop" style="display: none;">
-    
+
     <!-- 深度慢活採訪實錄 (國際多語系切換中樞) -->
         <!-- 深度慢活採訪實錄 (雜誌風高質感多語系導覽中樞) -->
-    <section class="hop-editorial-header-section" style="background: linear-gradient(180deg, #FBF9F5 0%, #F5EFEB 100%); border-bottom: 1.5px solid #E4D9CC; padding: 36px 0 28px 0; color: #2D2522; text-align: center; position: relative;">
-      <div class="container">
-        <!-- 頂部文青微型副標 -->
-        <div style="display: inline-flex; align-items: center; gap: 8px; background: #FFFBF7; border: 1px solid #EADBCE; padding: 4px 14px; border-radius: 999px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(140,83,49,0.05);">
-          <span style="font-size: 11px;">✦</span>
-          <span style="font-size: 11px; font-weight: 900; color: #8C5331; letter-spacing: 2px; text-transform: uppercase;">
-            TAIWAN ROAM ‧ EDITORIAL JOURNALS ‧ 慢活踩點誌
-          </span>
-          <span style="font-size: 11px;">✦</span>
-        </div>
-
-        <!-- 主標題與詩意副標 -->
-        <h2 id="hop-section-title" style="font-family: 'Noto Serif TC', serif; font-size: 30px; font-weight: 900; color: #1E293B; letter-spacing: -0.5px; margin: 0 0 8px 0; line-height: 1.35;">
-          深度慢活採訪實錄
-        </h2>
-        <p id="hop-section-subtitle" style="font-size: 14.5px; color: #64748B; max-width: 680px; margin: 0 auto 22px auto; line-height: 1.7; font-weight: 500;">
-          以熱愛出發，實地踩點山海與人文動線。不只是旅行，更是與島嶼呼吸的生活提案。
-        </p>
-
-        <!-- 質感雙語切換膠囊 (Luxury Segmented Switcher) -->
-        <div style="display: flex; justify-content: center; margin-bottom: 20px;">
-          <div style="display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center; background: #FFFFFF; padding: 5px; border-radius: 999px; box-shadow: 0 4px 18px rgba(45,37,34,0.08); border: 1.5px solid #E2D7CB; gap: 6px;">
-            <button id="hop-lang-zh" class="hop-lang-tab-btn active" onclick="switchWeekendHopLanguage('zh')" style="padding: 8px 20px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: linear-gradient(135deg, #A85A32 0%, #7C361A 100%); color: #FFFFFF; box-shadow: 0 3px 10px rgba(124, 54, 26, 0.25);">
-              🇹🇼 繁體中文
-            </button>
-            <button id="hop-lang-en" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('en')" style="padding: 8px 20px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
-              🇺🇸 English
-            </button>
-            <button id="hop-lang-ja" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('ja')" style="padding: 8px 20px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
-              🇯🇵 日本語
-            </button>
-            <button id="hop-lang-ko" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('ko')" style="padding: 8px 16px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
-              🇰🇷 한국어
-            </button>
-            <button id="hop-lang-vi" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('vi')" style="padding: 8px 16px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
-              🇻🇳 Tiếng Việt
-            </button>
-            <button id="hop-lang-th" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('th')" style="padding: 8px 16px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
-              🇹🇭 ไทย
-            </button>
-            <button id="hop-lang-id" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('id')" style="padding: 8px 16px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
-              🇮🇩 Bahasa Indonesia
-            </button>
-            <button id="hop-lang-ms" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('ms')" style="padding: 8px 16px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
-              🇲🇾 Bahasa Melayu
-            </button>
-            <button id="hop-lang-fil" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('fil')" style="padding: 8px 16px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
-              🇵🇭 Filipino
-            </button>
-            <button id="hop-lang-hi" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('hi')" style="padding: 8px 16px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
-              🇮🇳 हिन्दी
-            </button>
-            <button id="hop-lang-es" class="hop-lang-tab-btn" onclick="switchWeekendHopLanguage('es')" style="padding: 8px 16px; font-size: 13px; font-weight: 800; border-radius: 999px; border: none; cursor: pointer; transition: all 0.25s ease; background: transparent; color: #475569;">
-              🇪🇸 Español
-            </button>
-          </div>
-        </div>
-
-
-      </div>
-    </section>
 
     <!-- 探店卡片主體專區 -->
     <main class="section-padding" style="background: #FAF8F5; padding: 36px 0 80px 0;">
@@ -1789,7 +1705,7 @@
   <div id="article-modal" class="article-modal-backdrop" onclick="closeArticleModal(event)">
     <div class="article-modal-card" onclick="event.stopPropagation()">
       <button class="article-modal-close" onclick="closeArticleModalDirect()" title="關閉視窗">✕</button>
-      
+
       <!-- 報導大圖頂部 -->
       <div id="modal-hero-banner" style="position: relative; height: 320px; overflow: hidden; border-top-left-radius: 28px; border-top-right-radius: 28px; margin-top: -58px;">
         <img id="modal-img" src="" alt="踩點實錄" style="width: 100%; height: 100%; object-fit: cover;">
@@ -1865,7 +1781,7 @@
     <div class="container" style="position: relative; z-index: 1;">
       <!-- 第一排：左側品牌中英日宣言與開發團隊用心介紹 ＋ 右側專題導覽快速連結 -->
       <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 52px; flex-wrap: wrap; padding-bottom: 38px; border-bottom: 1px solid rgba(3, 105, 161, 0.16);">
-        
+
         <!-- 左側：品牌核心理念、三語文案、網站使用介紹與開發團隊 -->
         <div style="flex: 1.45; min-width: 320px; max-width: 640px;">
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
@@ -1898,14 +1814,14 @@
 
           <!-- 合作洽詢與開發團隊徽章橫排 -->
           <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-            <a href="mailto:himydream.studio0220@gmail.com?subject=%E3%80%90%E5%93%81%E7%89%8C%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2%E3%80%91%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82%20Taiwan%20Roam%20%E5%95%86%E6%A5%AD%E5%90%88%E4%BD%9C" 
+            <a href="mailto:himydream.studio0220@gmail.com?subject=%E3%80%90%E5%93%81%E7%89%8C%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2%E3%80%91%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82%20Taiwan%20Roam%20%E5%95%86%E6%A5%AD%E5%90%88%E4%BD%9C"
                style="display: inline-flex; align-items: center; gap: 7px; background: linear-gradient(135deg, #0284C7 0%, #6366F1 100%); color: #FFFFFF; text-decoration: none; font-size: 13px; font-weight: 800; padding: 9px 22px; border-radius: 9999px; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.28); transition: all 0.2s ease;">
               <span>🤝</span>
               <span>品牌合作洽詢</span>
               <span style="font-size: 11.5px; opacity: 0.92;">(來信洽談)</span>
             </a>
 
-            <a href="https://himydream.me/studio/" target="_blank" rel="noopener noreferrer" 
+            <a href="https://himydream.me/studio/" target="_blank" rel="noopener noreferrer"
                style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; border: 1.5px solid #93C5FD; padding: 8px 18px; border-radius: 9999px; text-decoration: none; box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08); transition: all 0.2s ease;" title="造訪 HiMyDream STUDIO 官方網站">
               <span style="font-size: 11.5px; font-weight: 800; color: #0369A1; letter-spacing: 0.5px;">開發團隊</span>
               <span style="font-size: 12.5px; font-weight: 900; color: #0F172A;">HiMyDream STUDIO</span>
@@ -1966,40 +1882,35 @@
     // 5 大地理分區與其所屬縣市
     const REGIONS_DATA = {
       north: {
-        name: "北部 North",
         cities: ["台北市", "新北市", "基隆市", "桃園市", "新竹市", "新竹縣", "宜蘭縣"]
       },
       central: {
-        name: "中部 Central",
         cities: ["苗栗縣", "台中市", "彰化縣", "南投縣", "雲林縣"]
       },
       south: {
-        name: "南部 South",
         cities: ["嘉義市", "嘉義縣", "台南市", "高雄市", "屏東縣"]
       },
       east: {
-        name: "東部 East",
         cities: ["花蓮縣", "台東縣"]
       },
       islands: {
-        name: "離島 Islands",
         cities: ["澎湖縣", "金門縣", "連江縣"]
       }
     };
 
-    // 精準 10 大特色雙語膠囊
+    // 特色篩選值與當前語系標籤
     const FEATURE_PILLS_MAP = [
-      { id: "全部", label: "🌟 全部風格 All", tagKey: "全部" },
-      { id: "work", label: "⚡ 插座友善 Work-friendly", tagKey: "有插頭" },
-      { id: "pourover", label: "☕ 職人手沖 Pour-over", tagKey: "手沖咖啡" },
-      { id: "desserts", label: "🍰 招牌甜點 Desserts", tagKey: "甜點好吃" },
-      { id: "vintage", label: "🌿 植栽老宅 Vintage", tagKey: "植栽老宅" },
-      { id: "daylight", label: "☀️ 採光通透 Daylight", tagKey: "採光超好" },
-      { id: "ocean", label: "🌊 蔚藍海景 Ocean View", tagKey: "海景景觀" },
-      { id: "bar", label: "🍷 啡酒微醺 Cafe & Bar", tagKey: "店家可喝酒" },
-      { id: "chat", label: "🗣️ 舒適暢聊 Chat-friendly", tagKey: "適合聊天" },
-      { id: "pet", label: "🐶 寵物友善 Pet-friendly", tagKey: "寵物友善" },
-      { id: "kid", label: "👶 親子放鬆 Kid-friendly", tagKey: "小孩友善" }
+      { id: "全部", tagKey: "全部" },
+      { id: "work", tagKey: "有插頭" },
+      { id: "pourover", tagKey: "手沖咖啡" },
+      { id: "desserts", tagKey: "甜點好吃" },
+      { id: "vintage", tagKey: "植栽老宅" },
+      { id: "daylight", tagKey: "採光超好" },
+      { id: "ocean", tagKey: "海景景觀" },
+      { id: "bar", tagKey: "店家可喝酒" },
+      { id: "chat", tagKey: "適合聊天" },
+      { id: "pet", tagKey: "寵物友善" },
+      { id: "kid", tagKey: "小孩友善" }
     ];
 
     // 週末探店狀態
@@ -2009,8 +1920,6 @@
     let currentMichCategory = "all";
 
     document.addEventListener("DOMContentLoaded", async () => {
-      await loadCafesContent();
-      await loadMichelinContent();
       // 讀取 URL 參數決定初始分頁 (?tab=weekend-hop 或 ?tab=michelin-guide 或 ?tab=coffee-map)
       const urlParams = new URLSearchParams(window.location.search);
       const initialTab = urlParams.get("tab");
@@ -2024,7 +1933,7 @@
 
       // 初始化咖啡地圖組件
       renderFeaturePills();
-      renderRegionMainTabs();
+      renderRegionSelect();
       setupSearch();
       renderCafesList();
 
@@ -2038,6 +1947,10 @@
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") closeArticleModalDirect();
       });
+      await Promise.allSettled([
+        loadCafesContent().then(() => renderCafesList()),
+        loadMichelinContent().then(() => renderMichelinList())
+      ]);
     });
 
     /* =========================================================
@@ -2056,10 +1969,6 @@
       const btnMichelin = document.getElementById("btn-tab-michelin");
       const btnWeekend = document.getElementById("btn-tab-weekend");
 
-      const heroBadge = document.getElementById("hero-badge-pill");
-      const heroTitle = document.getElementById("hero-main-title");
-      const heroEnTitle = document.getElementById("hero-en-title");
-      const heroDesc = document.getElementById("hero-sub-desc");
 
       // 先隱藏所有分頁區塊與樣式
       if (coffeeSection) coffeeSection.style.display = "none";
@@ -2074,52 +1983,25 @@
         if (michelinSection) michelinSection.style.display = "block";
         if (btnMichelin) btnMichelin.classList.add("active");
 
-        if (heroTitle) heroTitle.textContent = "臺灣米其林指南 ‧ 星級殿堂與必比登";
-        if (heroEnTitle) heroEnTitle.textContent = "Michelin Stars & Bib Gourmand Dining Guide";
-        if (heroDesc) {
-          heroDesc.innerHTML = "從蟬聯三星傳奇廣東菜「頤宮」、當代法餐「態芮」，到排隊必比登美味，一站探索台灣名廚殿堂與街頭極致風味。<br><span class='brand-serif-en' style='font-size: 13.5px; color: #8C7A70; font-weight: 500;'>(From 3-star culinary masters to iconic local street food gems across Taiwan.)</span>";
-        }
-
         renderMichelinList();
-
-        if (updateHistory) {
-          const newUrl = window.location.pathname + "?tab=michelin-guide";
-          window.history.pushState({ tab: "michelin-guide" }, "", newUrl);
-        }
       } else if (tabName === "weekend-hop") {
         if (hopSection) hopSection.style.display = "block";
         if (btnWeekend) btnWeekend.classList.add("active");
-
-        if (heroTitle) heroTitle.textContent = "深度慢活採訪實錄";
-        if (heroEnTitle) heroEnTitle.textContent = "Weekend Hop: Authentic Journal of Taiwan Life & Spaces";
-        if (heroDesc) {
-          heroDesc.innerHTML = "小編特派員親自走訪的探店好文<br><span class='brand-serif-en' style='font-size: 13.5px; color: #8C7A70; font-weight: 500;'>(On-Site Stories &amp; Curated Shop Reviews Visited in Person by Our Editors.)</span>";
-        }
-
-        if (updateHistory) {
-          const newUrl = window.location.pathname + "?tab=weekend-hop";
-          window.history.pushState({ tab: "weekend-hop" }, "", newUrl);
-        }
       } else {
         // 預設為全台咖啡地圖 (coffee-map)
         if (coffeeSection) coffeeSection.style.display = "block";
         if (btnCoffee) btnCoffee.classList.add("active");
-
-        if (heroTitle) heroTitle.textContent = "全台風格咖啡圖鑑";
-        if (heroEnTitle) heroEnTitle.textContent = "Curated Coffee Spaces across Taiwan";
-        if (heroDesc) {
-          heroDesc.innerHTML = "330 座藏身巷弄與山海間的靈魂角落・手沖慢萃、老宅日常、插座友善與微醺時光。<br><span class='brand-serif-en' style='font-size: 13.5px; color: #8C7A70; font-weight: 500;'>(A curated guide to 330 handpicked roasters, quiet hideaways & aesthetic spaces in Taiwan.)</span>";
-        }
-
-        if (updateHistory) {
-          const newUrl = window.location.pathname + "?tab=coffee-map";
-          window.history.pushState({ tab: "coffee-map" }, "", newUrl);
-        }
+      }
+      CategoryUI.applyCafeHero(tabName);
+      if (updateHistory) {
+        const nextUrl = new URL(window.location.href);
+        nextUrl.searchParams.set('tab', tabName);
+        window.history.pushState({ tab: tabName }, '', nextUrl.href);
       }
     }
 
     /* =========================================================
-       2. 咖啡地圖組件渲染 (三、精準 10 大特色雙語膠囊)
+       2. 咖啡地圖組件渲染 (三、特色篩選值與當前語系標籤)
        ========================================================= */
     function renderFeaturePills() {
       const container = document.getElementById("cafe-feature-pills");
@@ -2128,8 +2010,8 @@
       container.innerHTML = FEATURE_PILLS_MAP.map(pill => {
         const isAct = activeFeatureTag === pill.tagKey ? "active" : "";
         return `
-          <button class="feature-pill-btn ${isAct}" onclick="setFeatureTag('${pill.tagKey}')">
-            ${pill.label}
+          <button type="button" class="feature-pill-btn ${isAct}" aria-pressed="${activeFeatureTag === pill.tagKey}" onclick="setFeatureTag('${pill.tagKey}')">
+            ${CategoryUI.t('features.' + pill.id)}
           </button>
         `;
       }).join("");
@@ -2142,37 +2024,23 @@
     }
 
     /* =========================================================
-       3. 日系兩段式分區切換 (二、Region Tabs + Sub Chips)
+       3. 區域下拉選單與縣市篩選
        ========================================================= */
-    function renderRegionMainTabs() {
-      const mainContainer = document.getElementById("region-main-tabs");
-      if (!mainContainer) return;
-
-      const mainTabs = [
-        { id: "all", label: "全台 All (330)" },
-        { id: "north", label: "北部 North" },
-        { id: "central", label: "中部 Central" },
-        { id: "south", label: "南部 South" },
-        { id: "east", label: "東部 East" },
-        { id: "islands", label: "離島 Islands" }
-      ];
-
-      mainContainer.innerHTML = mainTabs.map(tab => {
-        const isAct = activeRegion === tab.id ? "active" : "";
-        return `
-          <button class="region-main-pill ${isAct}" onclick="setRegion('${tab.id}')">
-            ${tab.label}
-          </button>
-        `;
-      }).join("");
+    function renderRegionSelect() {
+      const select = document.getElementById("cafe-region-select");
+      if (!select) return;
+      select.innerHTML = ["all", "north", "central", "south", "east", "islands"].map(id =>
+        `<option value="${id}"${activeRegion === id ? ' selected' : ''}>${id === 'all' ? CategoryUI.t('ui.allTaiwan') : CategoryUI.region(id)}</option>`
+      ).join("");
 
       renderSubregionChips();
     }
 
     function setRegion(regionId) {
+      if (regionId !== "all" && !REGIONS_DATA[regionId]) return;
       activeRegion = regionId;
       activeCity = "全部";
-      renderRegionMainTabs();
+      renderRegionSelect();
       renderCafesList();
     }
 
@@ -2180,6 +2048,7 @@
       const subContainer = document.getElementById("subregion-chips-container");
       if (!subContainer) return;
 
+      subContainer.hidden = activeRegion === "all";
       if (activeRegion === "all") {
         subContainer.innerHTML = "";
         return;
@@ -2190,7 +2059,7 @@
 
       let html = `
         <button class="subregion-chip ${activeCity === '全部' ? 'active' : ''}" onclick="setSubCity('全部')">
-          全部${regData.name.split(" ")[0]}
+          ${CategoryUI.t('ui.all')}
         </button>
       `;
 
@@ -2198,7 +2067,7 @@
         const isAct = activeCity === cityName ? "active" : "";
         return `
           <button class="subregion-chip ${isAct}" onclick="setSubCity('${cityName}')">
-            ${cityName}
+            ${CategoryUI.city(cityName)}
           </button>
         `;
       }).join("");
@@ -2229,7 +2098,7 @@
       const input = document.getElementById("cafe-search-input");
       if (input) input.value = "";
       renderFeaturePills();
-      renderRegionMainTabs();
+      renderRegionSelect();
       renderCafesList();
     }
 
@@ -2248,20 +2117,20 @@
         if (activeRegion !== "all") {
           const validCities = REGIONS_DATA[activeRegion].cities;
           if (activeCity === "全部") {
-            if (!validCities.includes(item.city)) return false;
+            if (!validCities.includes(item.filterCity || item.city)) return false;
           } else {
-            if (item.city !== activeCity) return false;
+            if ((item.filterCity || item.city) !== activeCity) return false;
           }
         }
 
         // 2. 特色標籤比對
         if (activeFeatureTag !== "全部") {
-          if (!item.tags || !item.tags.includes(activeFeatureTag)) return false;
+          if (!(item.filterTags || item.tags || []).includes(activeFeatureTag)) return false;
         }
 
         // 3. 關鍵字搜尋比對
         if (searchKeyword) {
-          const matchKeyword = 
+          const matchKeyword =
             item.name.toLowerCase().includes(searchKeyword) ||
             item.city.toLowerCase().includes(searchKeyword) ||
             item.district.toLowerCase().includes(searchKeyword) ||
@@ -2280,11 +2149,9 @@
         container.innerHTML = `
           <div style="grid-column: 1/-1; padding: 70px 20px; text-align: center; color: #64748B; background: #FFFFFF; border-radius: 20px; border: 1px dashed #CBD5E1;">
             <div style="font-size: 44px; margin-bottom: 12px;">☕</div>
-            <div style="font-size: 19px; font-weight: 800; color: #0F172A;">暫無符合當前條件的咖啡館</div>
-            <p style="margin-top: 8px; font-size: 14px;">歡迎切換特色標籤、選擇「全台 All」或調整搜尋關鍵字！</p>
-            <button onclick="resetAllFilters()" class="city-pill-btn" style="margin-top: 18px; font-size: 13px; padding: 8px 20px; background: #0284C7; color: #FFF; border: none;">
-              顯示全部 330 間咖啡店
-            </button>
+            <div style="font-size: 19px; font-weight: 800; color: #0F172A;">${CategoryUI.t('ui.emptyCoffee')}</div>
+            <p style="margin-top: 8px; font-size: 14px;">${CategoryUI.t('ui.emptyHelp')}</p>
+            <button onclick="resetAllFilters()" class="city-pill-btn" style="margin-top: 18px; font-size: 13px; padding: 8px 20px; background: #0284C7; color: #FFF; border: none;" data-category-text="ui.reset">${CategoryUI.t('ui.reset')}</button>
           </div>
         `;
         return;
@@ -2293,18 +2160,18 @@
       container.innerHTML = filtered.map(item => {
         const mapUrl = item.mapUrl || `https://maps.google.com/?q=${encodeURIComponent(item.name)}`;
         const hotelUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getHotelUrl(item.city + " " + item.district + " 住宿") : "#";
-        const tagsHtml = (item.tags || []).map(t => `<span class="cafe-tag-chip">${t}</span>`).join("");
+        const tagsHtml = (item.filterTags || item.tags || []).map(t => `<span class="cafe-tag-chip">${CategoryUI.feature(t)}</span>`).join("");
         const hasPhone = item.phone && item.phone !== "暫無提供";
-        const phoneHtml = hasPhone 
-          ? `<a href="tel:${item.phone}" style="color: #0284C7; text-decoration: none; font-weight: 600;">📞 ${item.phone}</a>` 
+        const phoneHtml = hasPhone
+          ? `<a href="tel:${item.phone}" style="color: #0284C7; text-decoration: none; font-weight: 600;">📞 ${item.phone}</a>`
           : `<span style="color: #94A3B8;">📞 電話暫未公開</span>`;
 
         return `
           <div class="cafe-card">
             <div class="cafe-img-wrap">
               <!-- ❤️ 首頁同款收藏愛心 -->
-              <button type="button" 
-                      class="waterfall-fav-btn ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}" 
+              <button type="button"
+                      class="waterfall-fav-btn ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}"
                       data-fav-name="${item.name.replace(/"/g, '&quot;')}"
                       onclick="event.stopPropagation(); FavoritesManager.toggle({
                         id: 'cafe_' + '${item.name.replace(/'/g, "\'")}',
@@ -2320,7 +2187,7 @@
                         klookUrl: typeof AFFILIATE_HUB !== 'undefined' ? AFFILIATE_HUB.getSearchUrl('${item.name.replace(/'/g, "\'")}') : 'https://www.klook.com/?aid=106452',
                         tripUrl: '${hotelUrl}',
                         mapUrl: '${mapUrl}'
-                      }, this);" 
+                      }, this);"
                       title="收藏咖啡館"
                       style="position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; z-index: 3;">
                 <img src="assets/icon_heart_sparkle.png" alt="favorite" class="fav-sparkle-icon ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}">
@@ -2330,17 +2197,17 @@
                 ${item.city} ‧ ${item.district}
               </span>
             </div>
-            
+
             <div style="padding: 16px; display: flex; flex-direction: column; flex: 1;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                <span style="font-size: 11px; font-weight: 700; color: #0284C7;">${item.city_en || item.city}</span>
+                <span style="font-size: 11px; font-weight: 700; color: #0284C7;">${CategoryUI.city(item.filterCity || item.city)}</span>
                 <span style="font-size: 12px; font-weight: 800; color: #D97706;">⭐ ${item.rate}</span>
               </div>
-              
+
               <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; line-height: 1.35; margin-bottom: 6px;">
                 ${item.name}
               </h3>
-              
+
               <div class="cafe-tag-chips">
                 ${tagsHtml}
               </div>
@@ -2362,7 +2229,7 @@
                   📍 Map
                 </a>
                 <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room" style="text-align: center; padding: 7px 4px; font-size: 11.5px; font-weight: 800; text-decoration: none;">
-                  🏨 住宿
+                  ${CategoryUI.t("ui.hotels")}
                 </a>
               </div>
             </div>
@@ -2409,7 +2276,7 @@
 
       const headingEl = document.getElementById("michelin-count-heading");
       if (headingEl) {
-        headingEl.textContent = `米其林評鑑名錄 (${filtered.length} 間)`;
+        headingEl.textContent = `${CategoryUI.t('michelin.title')} · ${filtered.length}`;
       }
 
       container.innerHTML = filtered.map(item => {
@@ -2525,7 +2392,7 @@
       return [];
     }
 
-    
+
 
     function renderHopCards() {
       const showcaseEl = document.getElementById("hop-latest-popular-showcase");
@@ -2552,12 +2419,12 @@
 
       let html = `
         <div style="max-width: 1220px; margin: 0 auto 48px auto;">
-          
+
           <!-- ==========================================
                1. 頂部左右 50%/50% 平衡展示區 (Showcase Grid)
                ========================================== -->
           <div class="hop-showcase-grid" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; margin-bottom: 44px;">
-            
+
             <!-- 左側 50%：✨ 最新發佈特寫大卡牌 -->
             <div style="background: linear-gradient(135deg, #1E293B 0%, #0F4C81 100%); border-radius: 26px; padding: 32px; color: #FFFFFF; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 12px 36px rgba(15, 76, 129, 0.16); position: relative; overflow: hidden; border: 1.5px solid rgba(255,255,255,0.12);">
               <div>
@@ -2676,7 +2543,7 @@
 
         html += `
           <article class="hop-editorial-card" style="background: #FFFFFF; border-radius: 22px; border: 1.5px solid #EADBCE; overflow: hidden; box-shadow: 0 8px 24px rgba(45, 37, 34, 0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#C85A32'; this.style.boxShadow='0 18px 36px rgba(140, 83, 49, 0.12)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#EADBCE'; this.style.boxShadow='0 8px 24px rgba(45, 37, 34, 0.05)'">
-            
+
             <div>
               <!-- 放大版封面大圖 (高度 240px) -->
               <div onclick="openHopArticleById('${art.id}')" style="position: relative; height: 240px; overflow: hidden; cursor: pointer; background: #0F172A;">

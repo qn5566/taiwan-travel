@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>精選主題 ‧ 深度旅行靈感與短影音景點 - 台灣吃喝玩樂 Taiwan Wanderlust</title>
-  
+
   <meta name="description" content="全方位探索台灣精選旅行主題：花東縱谷海岸、北海岸九份、離島跳島、大巨蛋棒球應援、奢華野奢露營、名湯溫泉散策、夜市美食文化、阿里山登山鐵道。一日遊、二日遊行程動線與 REELS 沉浸式景點小卡牌。">
-  
+
   <!-- Google Fonts: 文青日雜字體 (Noto Serif TC, Pinyon Script, Playfair Display, Cormorant Garamond) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600;1,700&family=Pinyon+Script&family=Noto+Serif+TC:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  
+
   <!-- 全站樣式 -->
   <link rel="stylesheet" href="css/style.css">
-  
+
   <style>
     /* 頂部英雄視覺與文青歐美排版 */
     .themes-hero-wrap {
@@ -76,9 +76,10 @@
   <link rel="alternate" hreflang="en" href="https://taiwanroam.tw/themes.html?lang=en" />
   <link rel="alternate" hreflang="ja" href="https://taiwanroam.tw/themes.html?lang=ja" />
   <link rel="alternate" hreflang="x-default" href="https://taiwanroam.tw/themes.html" />
+  <script src="js/category_i18n.js" defer></script>
   <script src="js/global-language-bar.js" defer></script>
 </head>
-<body>
+<body class="category-page">
 
   <!-- 極光柔和動態背景與主題動態場景粒子系統 -->
   <div class="aurora-bg-ambient">
@@ -130,12 +131,10 @@
        ========================================================= -->
   <section class="themes-hero-wrap">
     <div class="container">
-      <h1 class="themes-hero-title editorial-hero-title" style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: 40px; margin-bottom: 2px;">
+      <h1 class="category-hero-title themes-hero-title editorial-hero-title" style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: 40px; margin-bottom: 2px;" data-category-text="themes.title">
         精選旅行主題探索
       </h1>
-      <div class="brand-script-en" style="font-size: 34px; color: #0284C7; margin-bottom: 8px;">
-        Curated Journey Themes Across Taiwan
-      </div>
+      <p class="category-hero-subtitle" data-category-text="themes.subtitle">從山海到街角，找到下一段旅程。</p>
 
       <!-- 歐美風 3D 弧形扇形卡牌桌 (3D Curved Fanned Arc Deck) -->
       <div class="deck-fan-wrapper">
@@ -147,7 +146,7 @@
       </div>
 
       <!-- 純文字主題標題展演（中文在上、英文在下，無邊框純文字） -->
-      <div class="deck-typography-display" id="deck-theme-title-display"></div>
+
 
       <!-- 透明毛玻璃主題篩選器 -->
       <div class="themes-filter-glass-panel">
@@ -177,7 +176,7 @@
     <div class="container" style="position: relative; z-index: 1;">
       <!-- 第一排：左側品牌中英日宣言與開發團隊用心介紹 ＋ 右側專題導覽快速連結 -->
       <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 52px; flex-wrap: wrap; padding-bottom: 38px; border-bottom: 1px solid rgba(3, 105, 161, 0.16);">
-        
+
         <!-- 左側：品牌核心理念、三語文案、網站使用介紹與開發團隊 -->
         <div style="flex: 1.45; min-width: 320px; max-width: 640px;">
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
@@ -210,14 +209,14 @@
 
           <!-- 合作洽詢與開發團隊徽章橫排 -->
           <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-            <a href="mailto:himydream.studio0220@gmail.com?subject=%E3%80%90%E5%93%81%E7%89%8C%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2%E3%80%91%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82%20Taiwan%20Roam%20%E5%95%86%E6%A5%AD%E5%90%88%E4%BD%9C" 
+            <a href="mailto:himydream.studio0220@gmail.com?subject=%E3%80%90%E5%93%81%E7%89%8C%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2%E3%80%91%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82%20Taiwan%20Roam%20%E5%95%86%E6%A5%AD%E5%90%88%E4%BD%9C"
                style="display: inline-flex; align-items: center; gap: 7px; background: linear-gradient(135deg, #0284C7 0%, #6366F1 100%); color: #FFFFFF; text-decoration: none; font-size: 13px; font-weight: 800; padding: 9px 22px; border-radius: 9999px; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.28); transition: all 0.2s ease;">
               <span>🤝</span>
               <span>品牌合作洽詢</span>
               <span style="font-size: 11.5px; opacity: 0.92;">(來信洽談)</span>
             </a>
 
-            <a href="https://himydream.me/studio/" target="_blank" rel="noopener noreferrer" 
+            <a href="https://himydream.me/studio/" target="_blank" rel="noopener noreferrer"
                style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; border: 1.5px solid #93C5FD; padding: 8px 18px; border-radius: 9999px; text-decoration: none; box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08); transition: all 0.2s ease;" title="造訪 HiMyDream STUDIO 官方網站">
               <span style="font-size: 11.5px; font-weight: 800; color: #0369A1; letter-spacing: 0.5px;">開發團隊</span>
               <span style="font-size: 12.5px; font-weight: 900; color: #0F172A;">HiMyDream STUDIO</span>
@@ -567,7 +566,7 @@
       }
 
       buildDeckDOM();
-      
+
       // 一進入頁面即執行開場「整個攤開」偶對稱展開動畫
       requestAnimationFrame(() => {
         THEMES_COMPLETE_DATA.forEach((_, idx) => {
@@ -577,7 +576,7 @@
           }
         });
         updateDeckPositions();
-        
+
         // 攤開完成後清除 delay，使後續手動點選即時響應無延遲
         setTimeout(() => {
           THEMES_COMPLETE_DATA.forEach((_, idx) => {
@@ -615,10 +614,10 @@
           <div class="fan-card-inner">
             <img src="${t.deckBg}" alt="${t.name}" class="fan-card-bg-img" loading="lazy">
             <div class="fan-card-overlay"></div>
-            
+
             <!-- 頂部膠囊標籤 -->
             <div class="fan-card-top-row">
-              <span class="fan-card-pill">${t.icon} ${t.shortTitle}</span>
+              <span class="fan-card-pill">${CategoryUI.theme(t.id)}</span>
               <span class="fan-card-active-tag">✨ 當前主題</span>
             </div>
 
@@ -750,8 +749,7 @@
         const curTheme = THEMES_COMPLETE_DATA[currentThemeIndex];
         titleDisplay.className = `deck-typography-display theme-${curTheme.id}-active`;
         titleDisplay.innerHTML = `
-          <div class="deck-display-zh">${curTheme.zhTitle}</div>
-          <div class="deck-display-en">${curTheme.enTitle}</div>
+          <div class="deck-display-current">${CategoryUI.theme(curTheme.id)}</div>
         `;
       }
     }
@@ -796,11 +794,11 @@
       pillsContainer.innerHTML = THEMES_COMPLETE_DATA.map((t, idx) => {
         const active = idx === currentThemeIndex;
         return `
-          <button type="button" 
-                  class="glass-theme-btn ${active ? 'active' : ''}" 
+          <button type="button"
+                  class="glass-theme-btn ${active ? 'active' : ''}"
                   onclick="selectThemeByIndex(${idx})"
                   style="cursor: pointer;">
-            ${t.icon} ${t.shortTitle}
+            ${CategoryUI.theme(t.id)}
           </button>
         `;
       }).join('');
@@ -872,10 +870,10 @@
           <!-- 1 日輕旅／2 日漫遊／3 日縱走 簡短按鈕 -->
           <div class="itinerary-segmented-tabs">
             ${plans.map((plan, pIdx) => `
-              <button type="button" 
-                      class="itinerary-tab-btn ${pIdx === currentPlanIndex ? 'active' : ''}" 
+              <button type="button"
+                      class="itinerary-tab-btn ${pIdx === currentPlanIndex ? 'active' : ''}"
                       onclick="switchPlan(${pIdx})">
-                ${shortTabNames[pIdx] || plan.duration || `第 ${pIdx + 1} 方案`}
+                ${CategoryUI.t("ui.plan" + (pIdx + 1)) || plan.duration}
               </button>
             `).join('')}
           </div>
@@ -964,13 +962,13 @@
                 </span>
               </div>
               <h2 style="font-size: 22px; font-weight: 900; color: #FFFFFF; margin: 0 0 6px 0; line-height: 1.35; font-family: 'Noto Serif TC', serif; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">
-                ${theme.title}
+                ${CategoryUI.theme(theme.id)}
               </h2>
               <p style="font-size: 13px; color: rgba(255, 255, 255, 0.9); line-height: 1.5; margin: 0; text-shadow: 0 1px 4px rgba(0,0,0,0.5);">
                 ${theme.subtitle}
               </p>
             </div>
-            
+
             <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; flex-shrink: 0;">
               <a href="${theme.bookingCta.charter}" target="_blank" rel="noopener noreferrer" style="background: #0284C7; color: #FFFFFF; padding: 9px 18px; font-size: 12.5px; font-weight: 800; border-radius: 9999px; text-decoration: none; box-shadow: 0 3px 10px rgba(2, 132, 199, 0.35); transition: all 0.2s; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px;">
                 🚗 預約包車
@@ -1009,8 +1007,8 @@
       if (!theme) return;
 
       // 篩選景點
-      let visibleSpots = (currentSubCatId === "all") 
-        ? theme.spots 
+      let visibleSpots = (currentSubCatId === "all")
+        ? theme.spots
         : theme.spots.filter(s => s.subCategory === currentSubCatId);
 
       // 若為影視朝聖 (cinema)，建立 20 部電影作品篩選器並依所選作品過濾
@@ -1066,7 +1064,7 @@
             <div class="reels-card">
               <img src="${spot.img}" alt="${spot.name}" class="reels-card-bg-img" loading="lazy">
               <div class="reels-card-scrim"></div>
-              
+
               <!-- 頂部標籤與愛心收藏 -->
               <div class="reels-card-top-bar" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
                 <div style="display: flex; flex-direction: column; gap: 5px; align-items: flex-start;">
@@ -1077,9 +1075,9 @@
                     ${spot.tag}
                   </span>
                 </div>
-                <button type="button" 
-                        class="waterfall-fav-btn" 
-                        onclick="toggleThemeSpotFav('${spot.name.replace(/'/g, "\\'")}', this, event)" 
+                <button type="button"
+                        class="waterfall-fav-btn"
+                        onclick="toggleThemeSpotFav('${spot.name.replace(/'/g, "\\'")}', this, event)"
                         title="收藏景點"
                         style="position: relative; width: 34px; height: 34px; background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.9); cursor: pointer;">
                   <img src="assets/icon_heart_sparkle.png" alt="收藏" style="width: 16px; height: 16px; object-fit: contain;">
@@ -1091,24 +1089,24 @@
                 <div class="reels-spot-title">${spot.name}</div>
                 <div class="reels-spot-en">${spot.en}</div>
                 <div class="reels-spot-desc">${spot.desc}</div>
-                
+
                 <!-- 景點小卡牌淡雅三按鈕 -->
                 <div class="reels-card-actions-row">
-                  <a href="${theme.bookingCta.charter}" 
-                     target="_blank" 
-                     rel="noopener noreferrer" 
+                  <a href="${theme.bookingCta.charter}"
+                     target="_blank"
+                     rel="noopener noreferrer"
                      class="reels-soft-btn">
                     🚗 包車
                   </a>
-                  <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}" 
-                     target="_blank" 
-                     rel="noopener noreferrer" 
+                  <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}"
+                     target="_blank"
+                     rel="noopener noreferrer"
                      class="reels-soft-btn">
                     📍 Map
                   </a>
-                  <a href="${theme.bookingCta.tour}" 
-                     target="_blank" 
-                     rel="noopener noreferrer" 
+                  <a href="${theme.bookingCta.tour}"
+                     target="_blank"
+                     rel="noopener noreferrer"
                      class="reels-soft-btn">
                     🎟️ 行程
                   </a>
@@ -1131,8 +1129,8 @@
         ].filter(Boolean);
         const tagsHtml = tagsList.slice(0, 3).map(t => `<span class="theme-editorial-tag-chip">${t}</span>`).join('');
 
-        const statusPill = spot.permitUrl 
-          ? `<span class="theme-spot-status-pill" style="background: #D97706;">📋 需入山申請</span>` 
+        const statusPill = spot.permitUrl
+          ? `<span class="theme-spot-status-pill" style="background: #D97706;">📋 需入山申請</span>`
           : (spot.subCategory === 'railway'
               ? `<span class="theme-spot-status-pill" style="background: #0284C7;">🚂 ${spot.subName}</span>`
               : (spot.subCategory === 'cinema'
@@ -1143,8 +1141,8 @@
           ? `🛤️ 火車路線：${spot.route}`
           : (spot.movieTitle
               ? `🎞️ 作品：${spot.movieTitle}`
-              : (spot.duration 
-                  ? `⏱️ 建議時間：${spot.duration}` 
+              : (spot.duration
+                  ? `⏱️ 建議時間：${spot.duration}`
                   : (spot.altitude ? `⛰️ ${spot.altitude}` : (spot.phone ? `📞 ${spot.phone}` : `✨ ${spot.subName || theme.shortTitle}`))));
 
         // 鐵道專屬 1·2 日遊推薦小卡區塊
@@ -1198,25 +1196,25 @@
                 📍 ${spot.address || spot.tag || spot.city || spot.subName || theme.shortTitle}
               </span>
               ${statusPill}
-              <button type="button" 
-                      class="waterfall-fav-btn" 
-                      onclick="toggleThemeSpotFav('${spot.name.replace(/'/g, "\\'")}', this, event)" 
+              <button type="button"
+                      class="waterfall-fav-btn"
+                      onclick="toggleThemeSpotFav('${spot.name.replace(/'/g, "\\'")}', this, event)"
                       title="收藏景點"
                       style="position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.9); cursor: pointer; z-index: 5;">
                 <img src="assets/icon_heart_sparkle.png" alt="收藏" style="width: 16px; height: 16px; object-fit: contain;">
               </button>
             </div>
-            
+
             <div class="theme-editorial-body">
               <div class="theme-editorial-meta-row">
                 <span class="theme-editorial-en">${spot.en || ''}</span>
                 <span class="theme-editorial-rating">⭐ ${spot.rate || spot.rating || '4.9★'}</span>
               </div>
-              
+
               <h3 class="theme-editorial-title" title="${spot.name}">
                 ${spot.name}
               </h3>
-              
+
               <div class="theme-editorial-tag-chips">
                 ${tagsHtml}
               </div>
@@ -1248,10 +1246,10 @@
         <div class="reels-section-header" style="margin-top: 6px; margin-bottom: 18px; display: flex; align-items: center; justify-content: flex-start; gap: 12px; flex-wrap: wrap;">
           <div class="theme-subcat-inline-row" style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
             ${theme.subCategories.map(sub => `
-              <button type="button" 
-                      class="theme-subcat-mini-btn ${sub.id === currentSubCatId ? 'active' : ''}" 
+              <button type="button"
+                      class="theme-subcat-mini-btn ${sub.id === currentSubCatId ? 'active' : ''}"
                       onclick="selectSubCategory('${sub.id}')">
-                ${sub.name}
+                ${CategoryUI.t("subcategories." + sub.id)}
               </button>
             `).join('')}
           </div>

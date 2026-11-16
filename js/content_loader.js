@@ -101,9 +101,15 @@ async function loadThemesContent(lang) {
 /** 抓取 cafes.json 並覆寫 TAIWAN_CAFES_DATA (失敗則保留本地資料) */
 async function loadCafesContent(lang) {
   try {
-    const data = await fetchContentJson('cafes.json', lang);
+    const contentLang = mapToContentLang(lang || getWebLang());
+    const [localized, chinese] = await Promise.allSettled([
+      fetchContentJson('cafes.json', lang),
+      contentLang === 'zh' ? Promise.resolve(null) : fetchContentJson('cafes.json', 'zh-TW')
+    ]);
+    const data = localized.status === 'fulfilled' ? localized.value : null;
     if (Array.isArray(data) && data.length) {
-      window.TAIWAN_CAFES_DATA = data;
+      const originals = chinese.status === 'fulfilled' && Array.isArray(chinese.value) ? chinese.value : undefined;
+      window.TAIWAN_CAFES_DATA = typeof CategoryUI !== 'undefined' ? CategoryUI.normalizeCafes(data, originals) : data;
       return true;
     }
     return false;

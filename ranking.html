@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>全台吃喝玩樂人氣排行榜 - The Curated Top-Ranked Lists Across Taiwan ｜ 台灣吃喝玩樂 Taiwan Roam</title>
-  
+
   <meta name="description" content="TAIWAN ROAM RANKINGS 旅人權威指標：收錄手搖飲、風格咖啡、米其林必比登夜市、伴手禮、頂級燒肉與百萬夜景，全球自由行旅人的不踩雷指南。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -378,9 +378,10 @@
   <link rel="alternate" hreflang="en" href="https://taiwanroam.tw/ranking.html?lang=en" />
   <link rel="alternate" hreflang="ja" href="https://taiwanroam.tw/ranking.html?lang=ja" />
   <link rel="alternate" hreflang="x-default" href="https://taiwanroam.tw/ranking.html" />
+  <script src="js/category_i18n.js" defer></script>
   <script src="js/global-language-bar.js" defer></script>
 </head>
-<body>
+<body class="category-page">
 
   <!-- 置頂導航列 -->
   <header class="site-header">
@@ -430,18 +431,12 @@
     </div>
 
     <div class="container" style="position: relative; z-index: 2;">
-      
-      <!-- 1. 頁面頂部文青雙語 Header -->
-      <h1 class="ranking-main-title editorial-hero-title" style="font-size: 42px; font-weight: 900; margin-top: 12px; margin-bottom: 4px; letter-spacing: -0.5px; font-family: 'Noto Serif TC', serif; color: #0F172A;">
+
+      <!-- 1. 頁面當前語系標題與副標 -->
+      <h1 class="category-hero-title ranking-main-title editorial-hero-title" style="font-size: 42px; font-weight: 900; margin-top: 12px; margin-bottom: 4px; letter-spacing: -0.5px; font-family: 'Noto Serif TC', serif; color: #0F172A;" data-category-text="rankings.title">
         全台吃喝玩樂人氣排行榜
       </h1>
-      <div style="font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif; font-size: 21px; font-style: italic; font-weight: 700; color: #0284C7; letter-spacing: 0.8px; margin-bottom: 10px;">
-        Curated Top-Ranked Highlights across Taiwan
-      </div>
-      <p class="ranking-main-desc" style="font-size: 15px; max-width: 720px; margin: 0 auto; line-height: 1.7; color: #334155; font-weight: 500;">
-        收錄手搖飲、伴手禮、藥妝、必比登夜市與百萬夜景，全球自由行旅人的不踩雷指南。<br>
-        <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 13.5px; color: #64748B; font-style: italic; font-weight: 600;">(From iconic boba tea and souvenirs to design hostels & scenic escapes.)</span>
-      </p>
+      <p class="category-hero-subtitle" data-category-text="rankings.subtitle">精選美食、景點與旅行靈感。</p>
 
       <!-- 3. 3D 拱形輪播舞台 (Arc Orbit Stage & Center Hero Visual) -->
       <div class="ranking-arc-stage-wrap" id="ranking-arc-stage">
@@ -461,7 +456,7 @@
 
       <!-- 即時關鍵字搜尋框 -->
       <div style="max-width: 560px; margin: 18px auto 0 auto; position: relative; z-index: 10;">
-        <input type="text" id="ranking-search-input" placeholder="🔍 搜尋排行榜名店、英文名稱、推薦品項、外國人標籤..." 
+        <input type="text" id="ranking-search-input" data-category-placeholder="ui.searchRankings" placeholder="🔍 搜尋排行榜名店、英文名稱、推薦品項、外國人標籤..."
           style="width: 100%; padding: 13px 22px; border-radius: 9999px; border: 1.5px solid #BAE6FD; background: #FFFFFF; color: #0F172A; font-size: 14px; outline: none; box-shadow: none !important;">
       </div>
 
@@ -469,20 +464,15 @@
       <div class="ranking-filter-glass-panel">
         <!-- 第一排：5 大情境分類透明膠囊按鈕 (Row 1: Major Category Tabs) -->
         <div class="ranking-category-row" id="category-capsules-bar">
-          <button class="glass-cat-btn active" data-scenario="all" onclick="switchScenario('all')">
-            <span class="cat-zh">全部</span> <span class="cat-en">All</span> <span class="glass-count-badge">12</span>
+          <button class="glass-cat-btn active" data-scenario="all" onclick="switchScenario('all')"><span data-category-text="scenarios.all"></span> <span class="glass-count-badge">12</span>
           </button>
-          <button class="glass-cat-btn" data-scenario="food" onclick="switchScenario('food')">
-            <span>🍽️</span> <span class="cat-zh">美食飲品</span> <span class="glass-count-badge">5</span>
+          <button class="glass-cat-btn" data-scenario="food" onclick="switchScenario('food')"><span data-category-text="scenarios.food"></span> <span class="glass-count-badge">5</span>
           </button>
-          <button class="glass-cat-btn" data-scenario="activity" onclick="switchScenario('activity')">
-            <span>🏞️</span> <span class="cat-zh">景點活動</span> <span class="glass-count-badge">3</span>
+          <button class="glass-cat-btn" data-scenario="activity" onclick="switchScenario('activity')"><span data-category-text="scenarios.activity"></span> <span class="glass-count-badge">3</span>
           </button>
-          <button class="glass-cat-btn" data-scenario="transport_stay" onclick="switchScenario('transport_stay')">
-            <span>🚗</span> <span class="cat-zh">交通旅宿</span> <span class="glass-count-badge">3</span>
+          <button class="glass-cat-btn" data-scenario="transport_stay" onclick="switchScenario('transport_stay')"><span data-category-text="scenarios.transport_stay"></span> <span class="glass-count-badge">3</span>
           </button>
-          <button class="glass-cat-btn" data-scenario="shopping" onclick="switchScenario('shopping')">
-            <span>🛍️</span> <span class="cat-zh">購物採購</span> <span class="glass-count-badge">1</span>
+          <button class="glass-cat-btn" data-scenario="shopping" onclick="switchScenario('shopping')"><span data-category-text="scenarios.shopping"></span> <span class="glass-count-badge">1</span>
           </button>
         </div>
 
@@ -501,7 +491,7 @@
   <!-- 排行榜主列表（分頁展示，支援 5 欄一排） -->
   <section class="section-padding" style="background: #F8FAFC; padding: 45px 0 90px 0;">
     <div class="container" style="max-width: 1460px;">
-      
+
       <!-- 頂部資訊與每頁筆數設定 -->
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; flex-wrap: wrap; gap: 14px;">
         <div>
@@ -512,9 +502,6 @@
             <h2 id="ranking-category-title" class="editorial-hero-title" style="font-size: 24px; font-weight: 900; color: #0F172A; margin: 0; font-family: 'Noto Serif TC', serif;">
               🧋 台灣必喝手搖飲 Top 20
             </h2>
-          </div>
-          <div id="ranking-en-title" style="font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif; font-size: 18px; font-weight: 700; font-style: italic; color: #64748B; letter-spacing: 0.5px; margin-top: 3px; margin-bottom: 6px;">
-            Must-Drink Taiwanese Boba & Tea Brands Top 20
           </div>
           <span id="ranking-page-info" style="display: none;"></span>
         </div>
@@ -536,7 +523,7 @@
     <div class="container" style="position: relative; z-index: 1;">
       <!-- 第一排：左側品牌中英日宣言與開發團隊用心介紹 ＋ 右側專題導覽快速連結 -->
       <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 52px; flex-wrap: wrap; padding-bottom: 38px; border-bottom: 1px solid rgba(3, 105, 161, 0.16);">
-        
+
         <!-- 左側：品牌核心理念、三語文案、網站使用介紹與開發團隊 -->
         <div style="flex: 1.45; min-width: 320px; max-width: 640px;">
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
@@ -569,14 +556,14 @@
 
           <!-- 合作洽詢與開發團隊徽章橫排 -->
           <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-            <a href="mailto:himydream.studio0220@gmail.com?subject=%E3%80%90%E5%93%81%E7%89%8C%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2%E3%80%91%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82%20Taiwan%20Roam%20%E5%95%86%E6%A5%AD%E5%90%88%E4%BD%9C" 
+            <a href="mailto:himydream.studio0220@gmail.com?subject=%E3%80%90%E5%93%81%E7%89%8C%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2%E3%80%91%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82%20Taiwan%20Roam%20%E5%95%86%E6%A5%AD%E5%90%88%E4%BD%9C"
                style="display: inline-flex; align-items: center; gap: 7px; background: linear-gradient(135deg, #0284C7 0%, #6366F1 100%); color: #FFFFFF; text-decoration: none; font-size: 13px; font-weight: 800; padding: 9px 22px; border-radius: 9999px; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.28); transition: all 0.2s ease;">
               <span>🤝</span>
               <span>品牌合作洽詢</span>
               <span style="font-size: 11.5px; opacity: 0.92;">(來信洽談)</span>
             </a>
 
-            <a href="https://himydream.me/studio/" target="_blank" rel="noopener noreferrer" 
+            <a href="https://himydream.me/studio/" target="_blank" rel="noopener noreferrer"
                style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; border: 1.5px solid #93C5FD; padding: 8px 18px; border-radius: 9999px; text-decoration: none; box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08); transition: all 0.2s ease;" title="造訪 HiMyDream STUDIO 官方網站">
               <span style="font-size: 11.5px; font-weight: 800; color: #0369A1; letter-spacing: 0.5px;">開發團隊</span>
               <span style="font-size: 12.5px; font-weight: 900; color: #0F172A;">HiMyDream STUDIO</span>
@@ -679,7 +666,7 @@
         const duration = 4.2 + Math.random() * 5.8;
         const delay = -(Math.random() * 10);
         const driftX = (Math.random() - 0.42) * 55;
-        
+
         dot.style.width = `${size}px`;
         dot.style.height = `${size}px`;
         dot.style.left = `${left}%`;
@@ -688,7 +675,7 @@
         dot.style.animationDuration = `${duration}s`;
         dot.style.animationDelay = `${delay}s`;
         dot.style.setProperty("--drift-x", `${driftX}px`);
-        
+
         container.appendChild(dot);
       }
     }
@@ -710,7 +697,7 @@
         }
       }
       if (watermark && watermark.textContent !== meta.watermark) {
-        watermark.textContent = meta.watermark;
+        watermark.textContent = CategoryUI.topic(meta.id);
       }
     }
 
@@ -725,7 +712,7 @@
     function switchScenario(scenario) {
       currentScenario = scenario;
       renderScenarioBar();
-      
+
       const scenarioTopics = getTopicsForScenario(scenario);
       // 若當前選中的主題不在新情境內，自動切換至新情境的第一個主題
       if (!scenarioTopics.some(t => t.id === currentTopicId)) {
@@ -780,17 +767,16 @@
         tile.style.left = `${x}px`;
         tile.style.top = `${y}px`;
         tile.style.background = t.color;
-        tile.title = t.title;
+        tile.title = CategoryUI.topic(t.id);
 
-        const tileIconHtml = t.iconImg 
+        const tileIconHtml = t.iconImg
           ? `<img src="${t.iconImg}" class="tile-icon-img" alt="${t.zhName}">`
           : `<span class="tile-icon">${t.icon}</span>`;
 
         tile.innerHTML = `
           ${tileIconHtml}
           <span class="tile-label">
-            <span class="tile-zh">${t.zhName || t.shortName}</span>
-            <span class="tile-en">${t.enShort || ''}</span>
+            <span class="tile-current">${CategoryUI.topic(t.id)}</span>
           </span>
         `;
 
@@ -859,18 +845,16 @@
 
       const topics = getTopicsForScenario(currentScenario);
       row.innerHTML = topics.map(t => {
-        const subtopicIconHtml = t.iconImg 
+        const subtopicIconHtml = t.iconImg
           ? `<img src="${t.iconImg}" class="subtopic-icon-img" alt="${t.zhName}">`
           : t.icon;
         return `
-          <button class="glass-subtopic-btn ${t.id === currentTopicId ? 'active' : ''}" 
-                  data-topic="${t.id}" 
+          <button class="glass-subtopic-btn ${t.id === currentTopicId ? 'active' : ''}"
+                  data-topic="${t.id}"
                   onmouseenter="previewTopicHero('${t.id}'); highlightArcTile('${t.id}')"
                   onmouseleave="previewTopicHero(currentTopicId); unhighlightArcTile()"
                   onclick="selectTopic('${t.id}')">
-            <span class="subtopic-icon">${subtopicIconHtml}</span>
-            <span class="subtopic-zh">${t.zhName || t.shortName}</span>
-            <span class="subtopic-en">${t.enShort || ''}</span>
+            <span class="subtopic-current">${CategoryUI.topic(t.id)}</span>
           </button>
         `;
       }).join("");
@@ -908,7 +892,7 @@
       if (watermark) {
         watermark.style.opacity = "0";
         setTimeout(() => {
-          watermark.textContent = meta.watermark;
+          watermark.textContent = CategoryUI.topic(meta.id);
           watermark.style.opacity = "0.05";
         }, 150);
       }
@@ -1040,12 +1024,12 @@
       if (!grid || typeof RANKINGS_FULL_DATA === "undefined" || typeof RANKINGS_TOPICS_META === "undefined") return;
 
       const meta = RANKINGS_TOPICS_META.find(t => t.id === currentTopicId) || RANKINGS_TOPICS_META[0];
-      if (titleEl) titleEl.textContent = meta.title;
+      if (titleEl) titleEl.textContent = CategoryUI.topic(meta.id);
       if (enTitleEl) enTitleEl.textContent = meta.enTitle;
-      if (scenarioBadge) scenarioBadge.textContent = meta.categoryName;
+      if (scenarioBadge) scenarioBadge.textContent = CategoryUI.t("scenarios." + meta.category);
 
       const allItems = RANKINGS_FULL_DATA[currentTopicId] || [];
-      
+
       // Filter by keyword across name, enName, city, tag, highlight, desc
       const filtered = allItems.filter(item => {
         if (!searchKeyword) return true;
@@ -1087,7 +1071,7 @@
             <!-- 頂部卡片縮圖 (左上角寫地區，右上角名次星星徽章) -->
             <div style="position: relative; width: 100%; height: 140px; overflow: hidden; background: #F1F5F9;">
               <img src="${cardImg}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" onerror="this.src='${meta.heroImg}'">
-              
+
               <!-- 📍 卡片上左上寫地區 -->
               <span style="position: absolute; top: 8px; left: 8px; font-size: 10px; font-weight: 800; color: #0369A1; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(4px); padding: 2px 7px; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.14); z-index: 2; max-width: 110px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${displayRegion}">
                 📍 ${displayRegion}
@@ -1098,8 +1082,8 @@
                 <img src="assets/star_rank_badge.png" alt="Star" class="rank-star-img">
                 <span class="rank-star-number ${isDoubleDigit ? 'double-digit' : ''}">${item.rank}</span>
                             <!-- ❤️ 首頁同款收藏愛心 -->
-              <button type="button" 
-                      class="waterfall-fav-btn ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}" 
+              <button type="button"
+                      class="waterfall-fav-btn ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}"
                       data-fav-name="${item.name.replace(/"/g, '&quot;')}"
                       onclick="event.stopPropagation(); const favCat = currentTopicId === 'cafe' ? 'cafe' : (['nightview', 'historic', 'park'].includes(currentTopicId) || meta.category === 'scenic' ? 'spot' : 'restaurant'); const favCatLabel = favCat === 'cafe' ? '咖啡' : (favCat === 'spot' ? '景點' : '餐廳'); FavoritesManager.toggle({
                         id: 'rank_' + '${item.name.replace(/'/g, "\'")}',
@@ -1113,7 +1097,7 @@
                         klookUrl: typeof AFFILIATE_HUB !== 'undefined' ? AFFILIATE_HUB.getSearchUrl('${item.name.replace(/'/g, "\'")}') : 'https://www.klook.com/?aid=106452',
                         tripUrl: typeof AFFILIATE_HUB !== 'undefined' ? AFFILIATE_HUB.getTripSearchUrl('${item.name.replace(/'/g, "\'")}') : 'https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275',
                         mapUrl: '${mapUrl}'
-                      }, this);" 
+                      }, this);"
                       title="收藏此項目"
                       style="position: absolute; bottom: 8px; right: 8px; width: 34px; height: 34px; z-index: 4;">
                 <img src="assets/icon_heart_sparkle.png" alt="favorite" class="fav-sparkle-icon ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}">

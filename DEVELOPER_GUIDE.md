@@ -76,3 +76,13 @@ JSON 可為陣列或 `{ spots: [...] }`、`{ items: [...] }`、`{ data: [...] }`
 
 驗證：`node --test scripts/test_spots.cjs`（不需安裝套件）。
 
+## 分類頁單一語系介面
+
+`cafe.html`、`themes.html`、`spots.html`、`ranking.html` 與 `souvenir.html` 共用 `js/category_i18n.js`，以 `defer` 載入。標題與簡短副標、分頁及篩選文字集中支援繁中、英文、日文、韓文、西班牙文、德文與泰文；其他既有語系暫用英文介面。內容資料仍沿用 content loader 的來源及回退機制。
+
+靜態文字使用 `data-category-text="coffee.title"`，搜尋提示使用 `data-category-placeholder`，無可見標題的篩選群組以 `data-category-label` 保留無障礙名稱。動態按鈕使用 `CategoryUI` 取得當前語系文字。分類頁加上 `category-page`，主標與副標分別使用 `category-hero-title`、`category-hero-subtitle`，避免另加重複英文標題。
+
+咖啡 API 的各語系資料須保留相同 ID；載入時以中文資料對照產生 `filterCity`、`filterTags`，顯示文字可翻譯，篩選鍵維持固定。咖啡、米其林與採訪分頁切換統一呼叫 `CategoryUI.applyCafeHero()` 更新標題。
+
+驗證：`node --test scripts/test_category_ui.cjs scripts/test_spots.cjs`（不需安裝套件）。
+
