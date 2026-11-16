@@ -86,3 +86,6 @@ JSON 可為陣列或 `{ spots: [...] }`、`{ items: [...] }`、`{ data: [...] }`
 
 驗證：`node --test scripts/test_category_ui.cjs scripts/test_spots.cjs`（不需安裝套件）。
 
+咖啡主理人合作入口使用原生 `<dialog>` 與 `js/cafe_partnership.js`，文案位於分類字典的 `partnership`。表單包含店名、縣市區域、聯絡方式三個必填文字欄位，以及探店、數位菜單、品牌廣告三選一的合作項目。驗證後開啟 Gmail 網頁撰寫視窗，自動帶入固定合作信箱 `himydream.studio0220@gmail.com`、店名與合作項目的主旨，以及四項表單資料。使用者須登入 Gmail、確認內容並自行寄出；網站不會宣稱郵件已寄出。若新視窗被阻擋，彈窗提供再次開啟 Gmail 的連結與複製信箱功能。此流程可直接在 GitHub Pages 使用，不需寄信 API 或金鑰。
+
+驗證：`node --test scripts/test_cafe_partnership.cjs`（不會寄出真實郵件）。

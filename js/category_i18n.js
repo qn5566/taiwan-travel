@@ -151,6 +151,28 @@ const CATEGORY_I18N = {
       "temple": "廟會",
       "roadtrip": "環島",
       "sports": "運動"
+    },
+    "partnership": {
+      "entry": "咖啡店主理人專屬 ｜ 免費邀請探店採訪・商業合作 ➔",
+      "title": "邀請編輯部探店 / 商業合作洽談",
+      "intro": "我們為全台具風格的咖啡空間提供「中英日多語系深度採訪專題」與「外國旅客友善數位菜單立牌」服務。",
+      "shop": "咖啡店名稱",
+      "location": "所在縣市與區域",
+      "contact": "聯絡方式（LINE ID / IG 帳號 / Email）",
+      "type": "合作項目勾選",
+      "visit": "免費邀請編輯部實地探店採訪（店家提供飲品甜點體驗招待）",
+      "business": "品牌專題置頂與商業廣告合作",
+      "send": "前往 Gmail 寄出邀請 ➔",
+      "close": "關閉",
+      "mailNote": "填妥後將開啟 Gmail 撰寫視窗，請確認內容並自行寄出。",
+      "subject": "咖啡店探店採訪／合作申請",
+      "locationHint": "例如：台北市中山區",
+      "menu": "外國客友善・多語系數位菜單與櫃檯立牌合作",
+      "copy": "一鍵複製信箱",
+      "copied": "信箱已複製",
+      "copyFailed": "無法自動複製，請手動複製下方信箱。",
+      "mailOpened": "合作郵件已準備好，請在 Gmail 確認並自行寄出。若視窗未開啟，可點擊下方連結。",
+      "gmailLink": "開啟 Gmail 撰寫視窗 ➔"
     }
   },
   "en": {
@@ -304,6 +326,28 @@ const CATEGORY_I18N = {
       "temple": "Temples",
       "roadtrip": "Road trips",
       "sports": "Sports"
+    },
+    "partnership": {
+      "entry": "Café Owners ｜ Invite Us for a Feature & Partnership ➔",
+      "title": "Invite Our Editors / Business Partnerships",
+      "intro": "We offer in-depth features in Chinese, English and Japanese, plus multilingual digital menus and counter displays for international guests.",
+      "shop": "Café name",
+      "location": "City and district",
+      "contact": "Contact (LINE ID / Instagram / Email)",
+      "type": "Partnership option",
+      "visit": "Invite our editors for a free on-site feature (drinks and desserts hosted by the café)",
+      "business": "Featured brand placement and advertising",
+      "send": "Continue to Gmail ➔",
+      "close": "Close",
+      "mailNote": "This opens a Gmail draft. Please review it and send it yourself.",
+      "subject": "Café feature / partnership inquiry",
+      "locationHint": "e.g. Zhongshan District, Taipei",
+      "menu": "Multilingual digital menus and counter displays for international guests",
+      "copy": "Copy email address",
+      "copied": "Email address copied",
+      "copyFailed": "Unable to copy automatically. Please copy the email address below.",
+      "mailOpened": "Your draft is ready. Review and send it in Gmail. If no window opens, use the link below.",
+      "gmailLink": "Open Gmail draft ➔"
     }
   },
   "ja": {
@@ -457,6 +501,28 @@ const CATEGORY_I18N = {
       "temple": "寺廟",
       "roadtrip": "台湾一周",
       "sports": "スポーツ"
+    },
+    "partnership": {
+      "entry": "カフェオーナー様へ ｜ 無料取材・掲載・ビジネス提携のご依頼 ➔",
+      "title": "編集部への取材招待 / ビジネス提携",
+      "intro": "台湾の個性豊かなカフェに、中・英・日による特集取材と、海外のお客様向け多言語デジタルメニュー・店頭案内スタンドを提供しています。",
+      "shop": "カフェ名",
+      "location": "所在地の市・県と地区",
+      "contact": "連絡先（LINE ID / Instagram / メール）",
+      "type": "ご希望の提携内容",
+      "visit": "編集部を無料の現地取材に招待（お店によるドリンク・スイーツのご提供）",
+      "business": "ブランド特集の優先掲載・広告提携",
+      "send": "Gmailで招待を送る ➔",
+      "close": "閉じる",
+      "mailNote": "Gmailの作成画面が開きます。内容を確認のうえ、ご自身で送信してください。",
+      "subject": "カフェ取材・提携のお問い合わせ",
+      "locationHint": "例：台北市中山区",
+      "menu": "海外のお客様向け多言語デジタルメニュー・店頭スタンド",
+      "copy": "メールアドレスをコピー",
+      "copied": "コピーしました",
+      "copyFailed": "自動コピーできません。下のアドレスを手動でコピーしてください。",
+      "mailOpened": "メールの下書きを用意しました。Gmailで確認して送信してください。画面が開かない場合は下のリンクをご利用ください。",
+      "gmailLink": "Gmailの作成画面を開く ➔"
     }
   },
   "ko": {
@@ -610,6 +676,28 @@ const CATEGORY_I18N = {
       "temple": "사원",
       "roadtrip": "일주 여행",
       "sports": "스포츠"
+    },
+    "partnership": {
+      "entry": "카페 사장님 전용 ｜ 무료 탐방 취재 및 제휴 신청 ➔",
+      "title": "편집부 방문 취재 초대 / 비즈니스 제휴",
+      "intro": "대만의 개성 있는 카페를 위해 중국어·영어·일본어 심층 취재 특집과 외국인 친화 다국어 디지털 메뉴 및 카운터 안내판을 제공합니다.",
+      "shop": "카페 이름",
+      "location": "도시 및 지역",
+      "contact": "연락처 (LINE ID / 인스타그램 / 이메일)",
+      "type": "제휴 항목 선택",
+      "visit": "편집부 무료 현장 취재 초대 (매장에서 음료와 디저트 체험 제공)",
+      "business": "브랜드 특집 상단 노출 및 광고 제휴",
+      "send": "Gmail에서 초대 보내기 ➔",
+      "close": "닫기",
+      "mailNote": "Gmail 작성 창이 열립니다. 내용을 확인한 후 직접 전송해 주세요.",
+      "subject": "카페 취재 / 제휴 문의",
+      "locationHint": "예: 타이베이시 중산구",
+      "menu": "외국인 친화 다국어 디지털 메뉴 및 카운터 안내판",
+      "copy": "이메일 주소 복사",
+      "copied": "이메일 주소가 복사되었습니다",
+      "copyFailed": "자동 복사가 불가능합니다. 아래 주소를 직접 복사해 주세요.",
+      "mailOpened": "메일 초안이 준비되었습니다. Gmail에서 확인 후 전송해 주세요. 창이 열리지 않으면 아래 링크를 눌러 주세요.",
+      "gmailLink": "Gmail 작성 창 열기 ➔"
     }
   },
   "es": {
@@ -763,6 +851,28 @@ const CATEGORY_I18N = {
       "temple": "Templos",
       "roadtrip": "Rutas en coche",
       "sports": "Deportes"
+    },
+    "partnership": {
+      "entry": "Para cafeterías ｜ Reportajes gratuitos y colaboraciones ➔",
+      "title": "Invita a la redacción / Colaboraciones",
+      "intro": "Ofrecemos reportajes en chino, inglés y japonés, además de menús digitales multilingües y expositores de mostrador para visitantes internacionales.",
+      "shop": "Nombre del café",
+      "location": "Ciudad y distrito",
+      "contact": "Contacto (LINE ID / Instagram / Email)",
+      "type": "Tipo de colaboración",
+      "visit": "Invitar a la redacción a un reportaje gratuito (el café ofrece bebidas y postres)",
+      "business": "Posicionamiento destacado de marca y publicidad",
+      "send": "Continuar en Gmail ➔",
+      "close": "Cerrar",
+      "mailNote": "Se abrirá un borrador en Gmail. Revísalo y envíalo tú mismo.",
+      "subject": "Consulta sobre reportaje / colaboración",
+      "locationHint": "Ej.: distrito de Zhongshan, Taipéi",
+      "menu": "Menús digitales multilingües y expositores para visitantes internacionales",
+      "copy": "Copiar correo",
+      "copied": "Correo copiado",
+      "copyFailed": "No se pudo copiar. Copia manualmente la dirección de abajo.",
+      "mailOpened": "El borrador está listo. Revísalo y envíalo en Gmail. Si no se abre, usa el enlace de abajo.",
+      "gmailLink": "Abrir borrador en Gmail ➔"
     }
   },
   "de": {
@@ -916,6 +1026,28 @@ const CATEGORY_I18N = {
       "temple": "Tempel",
       "roadtrip": "Rundreisen",
       "sports": "Sport"
+    },
+    "partnership": {
+      "entry": "Für Cafébetreiber ｜ Kostenlose Reportage & Kooperation ➔",
+      "title": "Redaktion einladen / Kooperationen",
+      "intro": "Wir bieten Reportagen auf Chinesisch, Englisch und Japanisch sowie mehrsprachige digitale Speisekarten und Thekenaufsteller für internationale Gäste.",
+      "shop": "Name des Cafés",
+      "location": "Stadt und Bezirk",
+      "contact": "Kontakt (LINE-ID / Instagram / E-Mail)",
+      "type": "Kooperationsangebot",
+      "visit": "Redaktion zur kostenlosen Reportage einladen (Getränke und Desserts werden vom Café gestellt)",
+      "business": "Hervorgehobene Markenbeiträge und Werbung",
+      "send": "Weiter zu Gmail ➔",
+      "close": "Schließen",
+      "mailNote": "Ein Gmail-Entwurf wird geöffnet. Bitte prüfe ihn und sende ihn selbst ab.",
+      "subject": "Anfrage zu Caféreportage / Kooperation",
+      "locationHint": "Z. B. Bezirk Zhongshan, Taipeh",
+      "menu": "Mehrsprachige digitale Speisekarten und Thekenaufsteller",
+      "copy": "E-Mail-Adresse kopieren",
+      "copied": "E-Mail-Adresse kopiert",
+      "copyFailed": "Automatisches Kopieren fehlgeschlagen. Bitte kopiere die Adresse unten.",
+      "mailOpened": "Der Entwurf ist bereit. Prüfe und sende ihn in Gmail. Falls sich kein Fenster öffnet, nutze den Link unten.",
+      "gmailLink": "Gmail-Entwurf öffnen ➔"
     }
   },
   "th": {
@@ -1069,6 +1201,28 @@ const CATEGORY_I18N = {
       "temple": "วัด",
       "roadtrip": "เที่ยวรอบเกาะ",
       "sports": "กีฬา"
+    },
+    "partnership": {
+      "entry": "สำหรับเจ้าของคาเฟ่ ｜ เชิญรีวิวฟรีและร่วมธุรกิจ ➔",
+      "title": "เชิญกองบรรณาธิการเยี่ยมชม / ร่วมธุรกิจ",
+      "intro": "เราจัดทำบทสัมภาษณ์เชิงลึกภาษาจีน อังกฤษ และญี่ปุ่น พร้อมเมนูดิจิทัลหลายภาษาและป้ายตั้งเคาน์เตอร์สำหรับนักท่องเที่ยวต่างชาติให้คาเฟ่ที่มีเอกลักษณ์ทั่วไต้หวัน",
+      "shop": "ชื่อคาเฟ่",
+      "location": "เมืองและเขต",
+      "contact": "ช่องทางติดต่อ (LINE ID / Instagram / Email)",
+      "type": "เลือกความร่วมมือ",
+      "visit": "เชิญทีมงานเยี่ยมชมและสัมภาษณ์ฟรี (ร้านจัดเครื่องดื่มและขนมให้ทดลอง)",
+      "business": "บทความแบรนด์ปักหมุดและโฆษณา",
+      "send": "ไปส่งคำเชิญใน Gmail ➔",
+      "close": "ปิด",
+      "mailNote": "ระบบจะเปิดร่างใน Gmail กรุณาตรวจสอบและส่งด้วยตนเอง",
+      "subject": "สอบถามการสัมภาษณ์คาเฟ่ / ความร่วมมือ",
+      "locationHint": "เช่น เขตจงซาน เมืองไทเป",
+      "menu": "เมนูดิจิทัลหลายภาษาและป้ายเคาน์เตอร์สำหรับลูกค้าต่างชาติ",
+      "copy": "คัดลอกอีเมล",
+      "copied": "คัดลอกอีเมลแล้ว",
+      "copyFailed": "คัดลอกอัตโนมัติไม่ได้ กรุณาคัดลอกที่อยู่ด้านล่างด้วยตนเอง",
+      "mailOpened": "เตรียมร่างอีเมลแล้ว กรุณาตรวจสอบและส่งใน Gmail หากหน้าต่างไม่เปิด ให้กดลิงก์ด้านล่าง",
+      "gmailLink": "เปิดหน้าต่างเขียน Gmail ➔"
     }
   }
 };

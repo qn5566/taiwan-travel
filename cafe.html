@@ -1523,6 +1523,7 @@
 
   </style>
   <script src="js/category_i18n.js" defer></script>
+  <script src="js/cafe_partnership.js" defer></script>
   <script src="js/global-language-bar.js" defer></script>
 </head>
 <body class="category-page">
@@ -1603,6 +1604,10 @@
             <option value="all" selected>全台灣</option>
           </select>
           <input type="text" id="cafe-search-input" data-category-placeholder="ui.searchCoffee" placeholder="搜尋店名、縣市或特色">
+        </div>
+
+        <div class="cafe-partnership-entry-row">
+          <button type="button" id="cafe-partnership-open" class="cafe-partnership-entry" aria-haspopup="dialog" aria-controls="cafe-partnership-dialog" data-category-text="partnership.entry">咖啡店主理人專屬 ｜ 免費邀請探店採訪・商業合作 ➔</button>
         </div>
 
         <!-- 精選 6 大核心生活美學風格膠囊 (整理減少按鈕) -->
@@ -1862,6 +1867,37 @@
       </div>
     </div>
   </footer>
+
+  <dialog id="cafe-partnership-dialog" aria-labelledby="cafe-partnership-title" aria-describedby="cafe-partnership-intro">
+    <div class="cafe-partnership-heading">
+      <h2 id="cafe-partnership-title" data-category-text="partnership.title">邀請編輯部探店 / 商業合作洽談</h2>
+      <button type="button" id="cafe-partnership-close" data-category-label="partnership.close" aria-label="關閉">✕</button>
+    </div>
+    <p id="cafe-partnership-intro" data-category-text="partnership.intro">我們為全台具風格的咖啡空間提供「中英日多語系深度採訪專題」與「外國旅客友善數位菜單立牌」服務。</p>
+    <form id="cafe-partnership-form">
+      <label for="partnership-shop" data-category-text="partnership.shop">咖啡店名稱</label>
+      <input id="partnership-shop" name="shop" type="text" required maxlength="100" autocomplete="organization">
+      <label for="partnership-location" data-category-text="partnership.location">所在縣市與區域</label>
+      <input id="partnership-location" name="location" type="text" required maxlength="100" data-category-placeholder="partnership.locationHint" data-category-label="partnership.location" placeholder="例如：台北市中山區">
+      <label for="partnership-contact" data-category-text="partnership.contact">聯絡方式（LINE ID / IG 帳號 / Email）</label>
+      <input id="partnership-contact" name="contact" type="text" required maxlength="160">
+      <fieldset class="cafe-partnership-options">
+        <legend data-category-text="partnership.type">合作項目勾選</legend>
+        <label><input type="radio" name="type" value="visit" required checked><span data-category-text="partnership.visit">免費邀請編輯部實地探店採訪（店家提供飲品甜點體驗招待）</span></label>
+        <label><input type="radio" name="type" value="menu" required><span data-category-text="partnership.menu">外國客友善・多語系數位菜單與櫃檯立牌合作</span></label>
+        <label><input type="radio" name="type" value="business" required><span data-category-text="partnership.business">品牌專題置頂與商業廣告合作</span></label>
+      </fieldset>
+      <p id="partnership-mail-note" data-category-text="partnership.mailNote">填妥後將開啟 Gmail 撰寫視窗，請確認內容並自行寄出。</p>
+      <button type="submit" class="cafe-partnership-submit" aria-describedby="partnership-mail-note" data-category-text="partnership.send">前往 Gmail 寄出邀請 ➔</button>
+    </form>
+    <p id="partnership-mail-status" role="status" aria-live="polite" hidden></p>
+    <a id="partnership-gmail-link" target="_blank" rel="noopener noreferrer" data-category-text="partnership.gmailLink" hidden>開啟 Gmail 撰寫視窗 ➔</a>
+    <div class="cafe-partnership-contact-row">
+      <a class="cafe-partnership-email" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=himydream.studio0220%40gmail.com" target="_blank" rel="noopener noreferrer">himydream.studio0220@gmail.com</a>
+      <button type="button" id="partnership-copy-email" data-category-text="partnership.copy">一鍵複製信箱</button>
+    </div>
+    <p id="partnership-copy-status" role="status" aria-live="polite"></p>
+  </dialog>
 
   <script src="js/affiliate.js"></script>
   <script src="js/favorites.js"></script>
