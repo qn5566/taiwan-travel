@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+  <!-- Shared site tracking -->
+  <script async src="js/analytics.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>全台風格咖啡圖鑑與米其林 - 330 間名店風格巡禮 ｜ 台灣吃喝玩樂 Taiwan Wanderlust</title>
@@ -70,11 +72,14 @@
   <link rel="stylesheet" href="css/cafe-journals.css">
   <script src="js/city_regions.js" defer></script>
   <script src="js/category_i18n.js" defer></script>
-  <script src="js/cafe_partnership.js" defer></script>
   <script src="js/site-footer.js" defer></script>
   <script src="js/global-language-bar.js" defer></script>
 </head>
 <body class="category-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N38CZ8XN"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- 置頂導航列 -->
     <!-- 🌐 置頂繁中/多語系極簡切換條 (Global Top Bar) -->
@@ -152,7 +157,7 @@
         </div>
 
         <div class="cafe-partnership-entry-row">
-          <button type="button" id="cafe-partnership-open" class="cafe-partnership-entry" aria-haspopup="dialog" aria-controls="cafe-partnership-dialog" data-category-text="partnership.entry">探店邀請與商業合作 ➔</button>
+          <a id="cafe-partnership-open" class="cafe-partnership-entry" href="https://docs.google.com/forms/d/e/1FAIpQLSe5ff2YJAekSHXnYPPIUgrdOTmIzPBD70ArCzRj-8lOfwMbaQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" data-category-text="partnership.entry">探店邀請與商業合作 ➔</a>
         </div>
 
         <!-- 精選 6 大核心生活美學風格膠囊 (整理減少按鈕) -->
@@ -306,36 +311,6 @@
     </div>
   </footer>
 
-  <dialog id="cafe-partnership-dialog" aria-labelledby="cafe-partnership-title" aria-describedby="cafe-partnership-intro">
-    <div class="cafe-partnership-heading">
-      <h2 id="cafe-partnership-title" data-category-text="partnership.title">邀請編輯部探店 / 商業合作洽談</h2>
-      <button type="button" id="cafe-partnership-close" data-category-label="partnership.close" aria-label="關閉">✕</button>
-    </div>
-    <p id="cafe-partnership-intro" data-category-text="partnership.intro">我們為全台具風格的咖啡空間提供「中英日多語系深度採訪專題」與「外國旅客友善數位菜單立牌」服務。</p>
-    <form id="cafe-partnership-form">
-      <label for="partnership-shop" data-category-text="partnership.shop">咖啡店名稱</label>
-      <input id="partnership-shop" name="shop" type="text" required maxlength="100" autocomplete="organization">
-      <label for="partnership-location" data-category-text="partnership.location">所在縣市與區域</label>
-      <input id="partnership-location" name="location" type="text" required maxlength="100" data-category-placeholder="partnership.locationHint" data-category-label="partnership.location" placeholder="例如：台北市中山區">
-      <label for="partnership-contact" data-category-text="partnership.contact">聯絡方式（LINE ID / IG 帳號 / Email）</label>
-      <input id="partnership-contact" name="contact" type="text" required maxlength="160">
-      <fieldset class="cafe-partnership-options">
-        <legend data-category-text="partnership.type">合作項目勾選</legend>
-        <label><input type="radio" name="type" value="visit" required checked><span data-category-text="partnership.visit">免費邀請編輯部實地探店採訪（店家提供飲品甜點體驗招待）</span></label>
-        <label><input type="radio" name="type" value="menu" required><span data-category-text="partnership.menu">外國客友善・多語系數位菜單與櫃檯立牌合作</span></label>
-        <label><input type="radio" name="type" value="business" required><span data-category-text="partnership.business">品牌專題置頂與商業廣告合作</span></label>
-      </fieldset>
-      <p id="partnership-mail-note" data-category-text="partnership.mailNote">填妥後將開啟 Gmail 撰寫視窗，請確認內容並自行寄出。</p>
-      <button type="submit" class="cafe-partnership-submit" aria-describedby="partnership-mail-note" data-category-text="partnership.send">前往 Gmail 寄出邀請 ➔</button>
-    </form>
-    <p id="partnership-mail-status" role="status" aria-live="polite" hidden></p>
-    <a id="partnership-gmail-link" target="_blank" rel="noopener noreferrer" data-category-text="partnership.gmailLink" hidden>開啟 Gmail 撰寫視窗 ➔</a>
-    <div class="cafe-partnership-contact-row">
-      <a class="cafe-partnership-email" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=himydream.studio0220%40gmail.com" target="_blank" rel="noopener noreferrer">himydream.studio0220@gmail.com</a>
-      <button type="button" id="partnership-copy-email" data-category-text="partnership.copy">一鍵複製信箱</button>
-    </div>
-    <p id="partnership-copy-status" role="status" aria-live="polite"></p>
-  </dialog>
 
   <script src="js/affiliate.js"></script>
   <script src="js/favorites_i18n.js"></script>

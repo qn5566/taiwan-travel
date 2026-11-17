@@ -94,9 +94,7 @@
 
 驗證：`node --test scripts/test_category_ui.cjs scripts/test_spots.cjs`（不需安裝套件）。
 
-咖啡主理人合作入口使用原生 `<dialog>` 與 `js/cafe_partnership.js`，文案位於分類字典的 `partnership`。表單包含店名、縣市區域、聯絡方式三個必填文字欄位，以及探店、數位菜單、品牌廣告三選一的合作項目。驗證後開啟 Gmail 網頁撰寫視窗，自動帶入固定合作信箱 `himydream.studio0220@gmail.com`、店名與合作項目的主旨，以及四項表單資料。使用者須登入 Gmail、確認內容並自行寄出；網站不會宣稱郵件已寄出。若新視窗被阻擋，彈窗提供再次開啟 Gmail 的連結與複製信箱功能。此流程可直接在 GitHub Pages 使用，不需寄信 API 或金鑰。
-
-驗證：`node --test scripts/test_cafe_partnership.cjs`（不會寄出真實郵件）。
+咖啡主理人合作入口 `#cafe-partnership-open` 使用連結直接在新分頁開啟 Google 表單（與咖啡文章頁相同表單），保留 `partnership.entry` 多國語言與膠囊樣式。`cafe.html` 不再載入原合作彈窗及 Gmail 表單腳本。
 
 ## 深度採訪獨立頁面
 
@@ -117,3 +115,5 @@
 收藏仍儲存於 `tw_roam_favorites_v2`，並相容 `tw_roam_web_favs` 舊資料；損壞的結構不會阻斷頁面。抽屜刪除使用穩定 ID；顯示文字及 PDF 預覽會跳脫 HTML，網址只接受 HTTP(S)。瀏覽器拒絕 localStorage 時保留本次瀏覽記憶體狀態，提示無法永久儲存。驗證：`node --test scripts/test_favorites.cjs`；瀏覽器須驗證五個主要卡片來源、加入/取消、重新載入、分類搜尋、抽屜刪除、跨分頁同步與 PDF 預覽。
 
 收藏夾介面與 PDF 固定文案集中於 `js/favorites_i18n.js`，支援全站 12 種語言；各頁須先載入字典，再載入 `js/favorites.js`。`updateSiteNavigation(lang)` 呼叫 `FavoritesManager.setLanguage(lang)`，同步更新已開啟的抽屜與 PDF、搜尋提示、分類、愛心輔助文字和操作訊息。切換語系保留收藏、分類及搜尋條件；收藏當時的店名與介紹保留原文，舊資料的中文分類及通用提示則改用目前語系顯示。
+
+全站正式 HTML（根目錄、`blog/` 文章及 `app/index.html`、`app/mobile.html`）在 `<head>` 開頭以 `<script async src="…/js/analytics.js"></script>` 引用共用追蹤入口；根頁使用 `js/analytics.js`、文章使用 `../../js/analytics.js`、App 使用 `../js/analytics.js`，以相對路徑支援 GitHub Pages 專案網址。新增其他追蹤服務或調整追蹤程式統一修改 `js/analytics.js`；檔案有重複載入保護。GTM 容器為 `GTM-N38CZ8XN`，停用 JavaScript 時的 noscript iframe 仍須直接保留在各頁 `<body>` 開頭；更換容器 ID 時同步更新這些 iframe。新正式頁面須加入共用引用及 noscript，備份與預覽檔不加入。GA4 的 Google 標籤與 Measurement ID 須於 GTM 容器內設定並發布；此程式僅安裝容器，不代表 GA4 已設定。避免同時透過共用檔案及 GTM 安裝同一套追蹤，造成重複計算。
