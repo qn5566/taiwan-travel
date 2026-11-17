@@ -706,8 +706,9 @@
         const tagColor = isBib ? "#92400E" : "#9F1239";
         const tagBorder = isBib ? "#FDE68A" : "#FECDD3";
         const cleanName = item.name.replace(/台北\s*｜\s*/, "");
-        const mapUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(cleanName) : `https://maps.google.com/?q=${encodeURIComponent(cleanName)}`;
-        const diningUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getDiningUrl() : "#";
+        const mapQuery = [cleanName, item.address].filter(Boolean).join(" ");
+        const mapUrl = item.mapUrl || (typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(mapQuery) : `https://maps.google.com/?q=${encodeURIComponent(mapQuery)}`);
+        const diningUrl = item.bookingUrl || item.links?.find(link => link.type === "official")?.url || (typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getDiningUrl() : "#");
 
         return `
           <div style="background: #FFFFFF; border: 1px solid #EADBCE; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 18px rgba(74, 62, 57, 0.05); display: flex; flex-direction: column; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">

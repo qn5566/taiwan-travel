@@ -243,8 +243,8 @@
         const isBib = starTag.includes("必比登");
         const tagBg = isBib ? "#FEF3C7" : "#FFE4E6";
         const tagColor = isBib ? "#92400E" : "#BE123C";
-        const mapUrl = AFFILIATE_HUB.getMapUrl(item.name.replace("台北 ｜ ", ""));
-        const diningUrl = AFFILIATE_HUB.getDiningUrl();
+        const mapUrl = item.mapUrl || AFFILIATE_HUB.getMapUrl([item.name.replace("台北 ｜ ", ""), item.address].filter(Boolean).join(' '));
+        const diningUrl = item.bookingUrl || item.links?.find(link => link.type === 'official')?.url || AFFILIATE_HUB.getDiningUrl();
 
         return `
           <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: transform 0.3s ease;">
