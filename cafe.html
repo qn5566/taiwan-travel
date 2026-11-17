@@ -1522,6 +1522,7 @@
 }
 
   </style>
+  <script src="js/city_regions.js" defer></script>
   <script src="js/category_i18n.js" defer></script>
   <script src="js/cafe_partnership.js" defer></script>
   <script src="js/global-language-bar.js" defer></script>
@@ -1982,6 +1983,7 @@
         if (e.key === "Escape") closeArticleModalDirect();
       });
       await Promise.allSettled([
+        CityRegions.load().then(() => { renderRegionSelect(); renderCafesList(); }),
         loadCafesContent().then(() => renderCafesList()),
         loadMichelinContent().then(() => renderMichelinList())
       ]);

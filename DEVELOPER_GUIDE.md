@@ -64,15 +64,23 @@
 
 語言選項與切換行為集中在此模組；導覽文字字典仍由 `js/i18n.js` 管理。模組會自動插入語系列並依實際高度設定導覽列的置頂偏移，支援手機尺寸。切換語言會保留目前路徑、其他查詢參數與錨點，更新 `?lang=` 後重新載入。語系優先順序為網址、`localStorage`、繁體中文；內容翻譯沿用各頁既有載入機制，尚未翻譯的靜態文案不會自動翻譯。
 
+此模組也提供 `window.SiteLoading.begin()`，顯示共用半透明資料載入遮罩，並回傳該工作的結束函數。每個請求須在 `finally` 呼叫結束函數；content loader 與縣市配置請求已接入。多個請求同時執行時，全部結束才會隱藏遮罩；文字依當前語言顯示。從瀏覽器前後頁快取回復時會清除導頁遮罩。驗證：`node --test scripts/test_loading.cjs`。
+
 ## 城市與景點資料
 
-首頁與 `spots.html` 共用 `js/spots.js`，須在 `js/data.js` 之後、`js/content_loader.js` 之前載入。`loadSpotsContent(lang)` 讀取 `${CONTENT_BASE_URL}/${語系}/spots.json`，預設來源為 `https://raw.githubusercontent.com/qn5566/ActivityEvent/main/content`。如需更換來源，可在載入 content loader 前設定 `window.CONTENT_BASE_URL`。
+首頁與 `spots.html` 共用 `js/city_regions.js`、`js/spots.js` 與 `js/content_loader.js`。先載入 city regions，再載入 spots 與 content loader；分類頁以 `defer` 在 `category_i18n.js` 前載入 city regions。
 
-JSON 可為陣列或 `{ spots: [...] }`、`{ items: [...] }`、`{ data: [...] }`。每筆需有 `name` 及 `city`／`county`，建議提供穩定 `id`、`desc`、`img`、`duration`、`activityId` 或 `ticketUrl`。各語系應使用相同 ID；非中文資料會搭配中文資料取得固定縣市值及司機卡中文名稱、地址。可直接提供 `nameZh`、`addressZh`、`mapUrl` 或 `lat`／`lng`。沒有地址時不會產生虛構地址，司機卡會提示以地圖確認。
+景點來源為 `https://raw.githubusercontent.com/qn5566/ActivityEvent/main/data/{lang}/AttractionList.json`，讀取根物件的 `Attractions` 陣列。語言依網址／目前語系映射，例如 `?lang=ko` 使用 `/data/ko/`，`zh-TW` 使用 `/data/zh/`，德文依既有內容回退規則使用 `/data/en/`。非中文內容同時按 `AttractionID` 對照中文來源的 `PostalAddress.City`、景點名稱與地址，以保留完整縣市分群及中文司機字卡；語系檔缺少的 ID 個別回退中文。`AttractionID`、`AttractionName`、`Description` 對應到卡片的 id、name、desc；縣市只從中文對照資料（若可取得）的 `PostalAddress.City` 取得，不能以頂層 city、地址或名稱猜測。`PostalAddress.Town` 與 `StreetAddress` 組合成司機卡地址，`PositionLat`／`PositionLon` 用於 Google Maps，圖片同時接受 `Images[].ImageURL` 與實際資料的 `Images[].URL`。缺少圖片使用本地佔位圖；不虛構評分或停留時間。完整分群可透過 `window.SPOTS_BY_CITY` 取得，鍵名使用 info.json 中的中文縣市名。
 
-縣市膠囊固定以全部、台北市、桃園市、花蓮縣、台南市優先，再列出其餘縣市；篩選在記憶體中執行。資料尚未載入或失敗時，使用 `data.js` 內建景點。首頁各區獨立載入，景點不需等待其他內容完成。
+縣市翻譯唯一來源為 `https://raw.githubusercontent.com/qn5566/ActivityEvent/main/info.json` 的 `regions`，11 種語言以 22 個索引對齊。`CityRegions.localizedName(city, lang)` 接受 `zh-TW`／`zh`，亦處理臺／台寫法；沒有對應語言時回退中文，不從其他字典推測翻譯。因此目前選擇德文時，縣市會使用中文。`CityRegions.zhCityToIndex` 對外提供原始中文名稱到索引的 Map。模組內的離線備份取自同一來源（2026-11-17），遠端資料驗證成功後整批替換；更新備份時須保留所有語系的索引對齊。
 
-此區的 Klook 使用 `AFFILIATE_HUB.spotKlookAid = 123436`；住宿使用 Trip.com 的 `Allianceid=9507030`，並保留 SID 與 trip_sub3；餐券優惠沿用分潤中樞的 affckr 連結。卡片與收藏資料使用同一組景點連結。
+景點語系檔、中文對照檔與 info.json 同時載入；請求快取按完整語系網址分開，重複切換同一語系不會重抓或誤用其他語系的資料。若語系檔失敗，先回退中文；兩者皆失敗才保留現有資料，初次無可用資料時回退 `data.js` 內建景點；縣市翻譯失敗則使用同來源離線備份。如需測試其他來源，分別設定 `window.ATTRACTION_LIST_URL`（可包含 `{lang}` 佔位符）與 `window.CITY_INFO_URL`；其他分類的 `CONTENT_BASE_URL` 不受影響。
+
+縣市篩選鍵固定正規化為「台」字，並保留台北市、桃園市、花蓮縣、台南市優先排序；城市／縣別不合併，包含新竹市／縣、嘉義市／縣。篩選在完整記憶體資料中執行；首頁維持既有分批載入，景點頁每次顯示 48 筆，可按「顯示更多景點」繼續，不會刪減分群資料。
+
+`spots.html` 的主分類只顯示北部、中部、南部、東部、離島，縣市子分類亦不提供「全部」。預設及重設為北部／台北市；切換地區時選取該區第一個縣市。共用 `SpotExplorer.getCities()` 仍保留其他頁面可能使用的「全部」，由景點頁渲染時排除。
+
+此區的 Klook 使用 `AFFILIATE_HUB.spotKlookAid = 123436`；住宿使用 Trip.com 的 `Allianceid=9507030`，並保留 SID 與 trip_sub3。首頁與景點頁卡片暫不顯示餐券優惠連結。卡片與收藏資料使用同一組景點連結。
 
 驗證：`node --test scripts/test_spots.cjs`（不需安裝套件）。
 

@@ -121,68 +121,11 @@ function filterByTheme(themeId) {
 let currentRegion = "north";
 
 const TAIWAN_REGIONS_CONFIG = [
-  {
-    id: "north",
-    name: "北部地區",
-    nameEn: "North Taiwan",
-    icon: "🏙️",
-    cities: [
-      { name: "台北市", en: "Taipei", key: "台北" },
-      { name: "新北市", en: "New Taipei", key: "新北" },
-      { name: "基隆市", en: "Keelung", key: "基隆" },
-      { name: "桃園市", en: "Taoyuan", key: "桃園" },
-      { name: "新竹縣", en: "Hsinchu County", key: "新竹縣" },
-      { name: "新竹市", en: "Hsinchu City", key: "新竹市" }
-    ]
-  },
-  {
-    id: "central",
-    name: "中部地區",
-    nameEn: "Central Taiwan",
-    icon: "🌳",
-    cities: [
-      { name: "台中市", en: "Taichung", key: "台中" },
-      { name: "苗栗縣", en: "Miaoli", key: "苗栗" },
-      { name: "彰化縣", en: "Changhua", key: "彰化" },
-      { name: "南投縣", en: "Nantou", key: "南投" },
-      { name: "雲林縣", en: "Yunlin", key: "雲林" }
-    ]
-  },
-  {
-    id: "south",
-    name: "南部地區",
-    nameEn: "South Taiwan",
-    icon: "🏛️",
-    cities: [
-      { name: "台南市", en: "Tainan", key: "台南" },
-      { name: "高雄市", en: "Kaohsiung", key: "高雄" },
-      { name: "嘉義縣", en: "Chiayi County", key: "嘉義縣" },
-      { name: "嘉義市", en: "Chiayi City", key: "嘉義市" },
-      { name: "屏東縣", en: "Pingtung", key: "屏東" }
-    ]
-  },
-  {
-    id: "east",
-    name: "東部地區",
-    nameEn: "East Taiwan",
-    icon: "🌊",
-    cities: [
-      { name: "宜蘭縣", en: "Yilan", key: "宜蘭" },
-      { name: "花蓮縣", en: "Hualien", key: "花蓮" },
-      { name: "台東縣", en: "Taitung", key: "台東" }
-    ]
-  },
-  {
-    id: "islands",
-    name: "離島地區",
-    nameEn: "Offshore Islands",
-    icon: "🏝️",
-    cities: [
-      { name: "澎湖縣", en: "Penghu", key: "澎湖" },
-      { name: "金門縣", en: "Kinmen", key: "金門" },
-      { name: "連江縣", en: "Matsu", key: "連江" }
-    ]
-  }
+  { id: "north", name: "北部地區", nameEn: "North Taiwan", icon: "🏙️" },
+  { id: "central", name: "中部地區", nameEn: "Central Taiwan", icon: "🌳" },
+  { id: "south", name: "南部地區", nameEn: "South Taiwan", icon: "🏛️" },
+  { id: "east", name: "東部地區", nameEn: "East Taiwan", icon: "🌊" },
+  { id: "islands", name: "離島地區", nameEn: "Offshore Islands", icon: "🏝️" }
 ];
 
 function renderWaterfallSection() {
@@ -213,8 +156,7 @@ function selectRegion(regionId) {
   currentRegion = regionId;
   currentSearchQuery = "";
   // 選擇分區時，預設選取該分區的第一個真實縣市
-  const regConfig = TAIWAN_REGIONS_CONFIG.find(r => r.id === regionId);
-  currentCityFilter = (regConfig && regConfig.cities.length > 0) ? regConfig.cities[0].key : "";
+  currentCityFilter = SpotExplorer.getCities(regionId).find(city => city.key !== "全部")?.key || "";
   waterfallLoadedCount = WATERFALL_PAGE_SIZE;
   renderCityRegionTabs();
   renderCitySubChips();
@@ -234,10 +176,10 @@ function renderCitySubChips() {
 
   chipsContainer.innerHTML = validCities.map(city => {
     const isActive = currentCityFilter === city.key ? "active" : "";
-    const label = isEn ? city.en : city.name;
+    const label = CityRegions.localizedName(city.key, currentLang);
     return `
       <button type="button" class="city-chip-btn ${isActive}" onclick="selectSubCity('${city.key}')">
-        ${label}
+        ${SpotExplorer.escapeHtml(label)}
       </button>
     `;
   }).join("");
@@ -259,7 +201,7 @@ function getFilteredSpots() {
     const needle = currentSearchQuery.toLocaleLowerCase().replace(/臺/g, "台");
     return ALL_SPOTS_DATA.filter(spot => {
       const cityEn = SpotExplorer.cities.find(c => c.key === spot.city)?.en;
-      const text = [spot.name, spot.nameZh, spot.city, spot.displayCity, cityEn, spot.desc].join(" ").toLocaleLowerCase().replace(/臺/g, "台");
+      const text = [spot.name, spot.nameZh, spot.city, spot.displayCity, cityEn, CityRegions.localizedName(spot.city, currentLang), spot.desc].join(" ").toLocaleLowerCase().replace(/臺/g, "台");
       return text.includes(needle);
     });
   }
@@ -294,13 +236,7 @@ function renderSingleSpotCard(item, idx, isEn) {
     catPillText = isEn ? "Scenic Wonder" : "山水勝景 · Scenic Wonder";
   }
 
-  const reviewerAvatars = ["🧑‍💼", "👩‍🎨", "🧳", "✈️", "📸", "☕", "🚴", "🎒"];
-  const avatar = reviewerAvatars[idx % reviewerAvatars.length];
-  const views = (8.5 + (idx % 12) * 1.3).toFixed(1) + "k";
-
   const stayLabel = escape(item.duration || (isEn ? "See venue information" : "依景點資訊為準"));
-  const authorLabel = isEn ? "Editor's Pick" : "精選打卡推薦";
-  const viewsLabel = isEn ? `🔥 ${views} visited` : `🔥 ${views} 旅人探訪`;
 
   return `
     <div class="spot-img3-card">
@@ -314,7 +250,7 @@ function renderSingleSpotCard(item, idx, isEn) {
       <div class="spot-img3-body">
         <div>
           <div class="spot-img3-date-line">
-            <span>📍 ${escape(item.city)}</span>
+            <span>📍 ${escape(CityRegions.localizedName(item.city, currentLang))}</span>
             <span>·</span>
             <span>${stayLabel}</span>
             <span>·</span>
@@ -324,14 +260,7 @@ function renderSingleSpotCard(item, idx, isEn) {
           <p class="spot-img3-desc">${escape(item.desc)}</p>
         </div>
         <div class="spot-img3-footer">
-          <div class="spot-img3-author-wrap">
-            <div class="spot-img3-avatar">${avatar}</div>
-            <div>
-              <div class="spot-img3-author-name">${authorLabel}</div>
-              <div style="font-size: 11px; color: #94A3B8;">${viewsLabel}</div>
-            </div>
-          </div>
-          ${SpotExplorer.actions(item)}
+          ${SpotExplorer.actions(item, true)}
         </div>
       </div>
     </div>

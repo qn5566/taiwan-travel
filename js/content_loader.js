@@ -57,12 +57,14 @@ async function fetchContentJson(filename, lang) {
   const url = `${window.CONTENT_BASE_URL}/${l}/${filename}`;
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), 10000);
+  const finishLoading = window.SiteLoading?.begin();
   try {
     const res = await fetch(url, { signal: ctrl.signal, cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     return await res.json();
   } finally {
     clearTimeout(timer);
+    finishLoading?.();
   }
 }
 
@@ -180,30 +182,60 @@ async function loadActivitiesContent(lang) {
   }
 }
 
-/** 抓取 spots.json 並覆寫 ALL_SPOTS_DATA */
+/** Localized attraction content; Chinese records keep county keys and driver cards stable. */
 let spotsRequestId = 0;
+const attractionRequests = new Map();
+async function fetchAttractions(lang = 'zh') {
+  const contentLang = mapToContentLang(lang);
+  const template = window.ATTRACTION_LIST_URL || 'https://raw.githubusercontent.com/qn5566/ActivityEvent/main/data/{lang}/AttractionList.json';
+  const url = template.replace('{lang}', contentLang);
+  if (!attractionRequests.has(url)) {
+    const request = (async () => {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 20000);
+      const finishLoading = window.SiteLoading?.begin();
+      try {
+        const response = await fetch(url, { signal: controller.signal });
+        if (!response.ok) throw Error('HTTP ' + response.status);
+        const data = await response.json();
+        if (!Array.isArray(data?.Attractions) || !data.Attractions.length) throw Error('Invalid Attractions array');
+        return data;
+      } finally { clearTimeout(timer); finishLoading?.(); }
+    })().catch(error => { attractionRequests.delete(url); throw error; });
+    attractionRequests.set(url, request);
+  }
+  return attractionRequests.get(url);
+}
 async function loadSpotsContent(lang) {
   const requestId = ++spotsRequestId;
+  const contentLang = mapToContentLang(lang || getWebLang());
   try {
-    const contentLang = mapToContentLang(lang || getWebLang());
     const [localized, chinese] = await Promise.allSettled([
-      fetchContentJson('spots.json', lang),
-      contentLang === 'zh' ? Promise.resolve(null) : fetchContentJson('spots.json', 'zh-TW')
+      fetchAttractions(contentLang),
+      contentLang === 'zh' ? Promise.resolve(null) : fetchAttractions('zh'),
+      CityRegions.load()
     ]);
-    const base = chinese.status === 'fulfilled' && Array.isArray(chinese.value) && chinese.value.length
-      ? chinese.value : SpotExplorer.bundled;
-    const data = localized.status === 'fulfilled' ? localized.value : base;
-    let spots = SpotExplorer.normalize(data, contentLang === 'zh' ? data : base);
-    const fromRemote = localized.status === 'fulfilled' && spots.length > 0;
-    if (!spots.length) spots = SpotExplorer.normalize(base);
-    if (!spots.length) throw new Error('No valid spot records');
+    const data = localized.status === 'fulfilled' ? localized.value : null;
+    const base = contentLang === 'zh' ? data : chinese.status === 'fulfilled' ? chinese.value : null;
+    const originals = SpotExplorer.normalize(base, []);
+    const translated = SpotExplorer.normalize(data, base || []);
+    // Preserve Chinese records when a translation file omits an ID.
+    const translatedById = new Map(translated.map(spot => [String(spot.id), spot]));
+    const originalIds = new Set(originals.map(spot => String(spot.id)));
+    const spots = originals.map(spot => translatedById.get(String(spot.id)) || spot)
+      .concat(translated.filter(spot => !originalIds.has(String(spot.id))));
+    if (!spots.length) throw Error('No valid attractions');
     if (requestId !== spotsRequestId) return false;
     window.ALL_SPOTS_DATA = spots;
-    return fromRemote;
+    window.SPOTS_BY_CITY = SpotExplorer.groupByCity(spots);
+    return translated.length > 0;
   } catch (e) {
-    console.warn('[content-loader] spots.json 載入失敗，回退本地資料：', e && e.message);
+    console.warn('[content-loader] AttractionList.json 載入失敗，保留可用資料：', e && e.message);
     if (requestId === spotsRequestId && typeof SpotExplorer !== 'undefined') {
-      window.ALL_SPOTS_DATA = SpotExplorer.normalize(SpotExplorer.bundled);
+      const previous = window.ALL_SPOTS_DATA;
+      const spots = SpotExplorer.normalize(Array.isArray(previous) && previous.length ? previous : SpotExplorer.bundled);
+      window.ALL_SPOTS_DATA = spots;
+      window.SPOTS_BY_CITY = SpotExplorer.groupByCity(spots);
     }
     return false;
   }

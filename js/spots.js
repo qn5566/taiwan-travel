@@ -1,18 +1,15 @@
 /** Shared city keys, backend record normalization and spot card actions. */
 const SpotExplorer = (() => {
+  // Stable filter keys and region classification; all displayed names come from info.json.
   const cities = [
-    ["台北市", "Taipei City", "north"], ["桃園市", "Taoyuan City", "north"],
-    ["花蓮縣", "Hualien County", "east"], ["台南市", "Tainan City", "south"],
-    ["新北市", "New Taipei City", "north"], ["基隆市", "Keelung City", "north"],
-    ["新竹縣", "Hsinchu County", "north"], ["新竹市", "Hsinchu City", "north"],
-    ["苗栗縣", "Miaoli County", "central"], ["台中市", "Taichung City", "central"],
-    ["彰化縣", "Changhua County", "central"], ["南投縣", "Nantou County", "central"],
-    ["雲林縣", "Yunlin County", "central"], ["嘉義縣", "Chiayi County", "south"],
-    ["嘉義市", "Chiayi City", "south"], ["高雄市", "Kaohsiung City", "south"],
-    ["屏東縣", "Pingtung County", "south"], ["宜蘭縣", "Yilan County", "east"],
-    ["台東縣", "Taitung County", "east"], ["澎湖縣", "Penghu County", "islands"],
-    ["金門縣", "Kinmen County", "islands"], ["連江縣", "Lienchiang County", "islands"]
-  ].map(([name, en, region]) => ({ name, en, region, key: name }));
+    ["台北市", "north"], ["桃園市", "north"], ["花蓮縣", "east"], ["台南市", "south"],
+    ["新北市", "north"], ["基隆市", "north"], ["新竹縣", "north"], ["新竹市", "north"],
+    ["苗栗縣", "central"], ["台中市", "central"], ["彰化縣", "central"], ["南投縣", "central"],
+    ["雲林縣", "central"], ["嘉義縣", "south"], ["嘉義市", "south"], ["高雄市", "south"],
+    ["屏東縣", "south"], ["宜蘭縣", "east"], ["台東縣", "east"], ["澎湖縣", "islands"],
+    ["金門縣", "islands"], ["連江縣", "islands"]
+  ].map(([name, region]) => ({ name, region, key: name,
+    get en() { return CityRegions.localizedName(name, 'en'); } }));
   const regions = { north: "北部", central: "中部", south: "南部", east: "東部", islands: "離島" };
   const bundled = typeof ALL_SPOTS_DATA !== "undefined" ? ALL_SPOTS_DATA.slice() : [];
   const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, char => ({
@@ -21,42 +18,69 @@ const SpotExplorer = (() => {
 
   function cityKey(value) {
     const name = String(value || "").trim().replace(/臺/g, "台");
-    const exact = cities.find(city => city.name === name || city.en.toLowerCase() === name.toLowerCase());
-    if (exact) return exact.name;
-    if (["馬祖", "Matsu", "Matsu Islands"].includes(name)) return "連江縣";
-    const short = cities.filter(city => city.name.replace(/[縣市]$/, "") === name || city.en.replace(/ (City|County)$/, "").toLowerCase() === name.toLowerCase());
-    return short.length === 1 ? short[0].name : name;
+    return CityRegions.canonicalName(name).replace(/臺/g, "台");
   }
 
   function records(payload) {
-    const list = Array.isArray(payload) ? payload : payload?.spots || payload?.items || payload?.data;
+    const list = Array.isArray(payload) ? payload : payload?.Attractions || payload?.spots || payload?.items || payload?.data;
     return Array.isArray(list) ? list : [];
   }
 
+  function postalAddress(postal = {}) {
+    postal = postal || {};
+    const city = postal.City || '', town = postal.Town || '', street = postal.StreetAddress || '';
+    if (city && street.replace(/臺/g, '台').startsWith(cityKey(city))) return street;
+    return city + (town && !street.startsWith(town) ? town : '') + street;
+  }
+
   function normalize(payload, chinese = bundled) {
-    const originals = new Map(records(chinese).filter(spot => spot && spot.id != null).map(spot => [String(spot.id), spot]));
-    return records(payload).filter(spot => spot && typeof spot.name === "string" && spot.name.trim() && (spot.city || spot.county)).map(spot => {
-      const base = originals.get(String(spot.id)) || {};
-      const city = cityKey(base.city || base.county || spot.city || spot.county);
+    const sourceIsChinese = !payload?.Language || /^zh/i.test(payload.Language);
+    const originals = new Map(records(chinese).filter(spot => spot && (spot.AttractionID ?? spot.id) != null)
+      .map(spot => [String(spot.AttractionID ?? spot.id), spot]));
+    return records(payload).filter(spot => {
+      if (!spot) return false;
+      const name = spot.AttractionName ?? spot.name;
+      return typeof name === 'string' && name.trim() && (spot.AttractionName != null || spot.city || spot.county);
+    }).map(spot => {
+      const attraction = spot.AttractionName != null;
+      const id = spot.AttractionID ?? spot.id;
+      const base = originals.get(String(id)) || {};
+      const sourceCity = attraction ? base.PostalAddress?.City || spot.PostalAddress?.City || '其他' : base.city || base.county || spot.city || spot.county;
+      const city = cityKey(sourceCity);
       const knownCity = cities.find(entry => entry.name === city);
+      const name = (spot.AttractionName ?? spot.name).trim();
+      const address = attraction ? postalAddress(spot.PostalAddress) : spot.address || '';
+      const candidateImage = attraction ? spot.Images?.find(image => image?.ImageURL || image?.URL) : null;
+      const rawImage = candidateImage?.ImageURL || candidateImage?.URL || spot.img || spot.image || '';
+      const img = /^https?:\/\//i.test(rawImage) || /^assets\//.test(rawImage) ? rawImage : 'assets/spot-placeholder.svg';
       return {
-        ...base, ...spot,
-        id: spot.id ?? `${city}:${spot.name}`,
-        name: spot.name.trim(),
-        nameZh: spot.nameZh || spot.name_zh || base.nameZh || base.name || (/\p{Script=Han}/u.test(spot.name) ? spot.name : ""),
-        addressZh: spot.addressZh || spot.address_zh || base.addressZh || base.address || (/\p{Script=Han}/u.test(spot.address || "") ? spot.address : ""),
-        city, displayCity: spot.city || spot.county,
-        zone: Object.values(regions).includes(base.zone) ? base.zone
-          : Object.values(regions).includes(spot.zone) ? spot.zone
-          : knownCity ? regions[knownCity.region] : "",
-        desc: spot.desc || spot.description || "", img: spot.img || spot.image || "",
-        rate: spot.rate || spot.rating || "", duration: spot.duration || ""
+        ...base, ...spot, id: id ?? `${city}:${name}`, name,
+        nameZh: attraction ? spot.nameZh || base.AttractionName || base.nameZh || (sourceIsChinese ? name : '') : spot.nameZh || spot.name_zh || base.nameZh || base.name || (/\p{Script=Han}/u.test(name) ? name : ''),
+        addressZh: attraction ? spot.addressZh || (base.PostalAddress ? postalAddress(base.PostalAddress) : sourceIsChinese ? address : '') : spot.addressZh || spot.address_zh || base.addressZh || base.address || (/\p{Script=Han}/u.test(address) ? address : ''),
+        address, city, displayCity: CityRegions.canonicalName(sourceCity),
+        zone: !attraction && Object.values(regions).includes(base.zone) ? base.zone
+          : !attraction && Object.values(regions).includes(spot.zone) ? spot.zone
+          : knownCity ? regions[knownCity.region] : '',
+        desc: spot.Description || spot.desc || spot.description || '', img,
+        lat: spot.PositionLat ?? spot.lat ?? spot.latitude,
+        lng: spot.PositionLon ?? spot.lng ?? spot.longitude,
+        tag: Array.isArray(spot.Tags) ? spot.Tags.join(' · ') : spot.tag || '',
+        rate: spot.rate || spot.rating || '', duration: spot.VisitDuration || spot.duration || ''
       };
     });
   }
 
+  function groupByCity(spots) {
+    const grouped = Object.assign(Object.create(null), Object.fromEntries(CityRegions.regions.zh.map(city => [city, []])));
+    for (const spot of spots) {
+      const city = CityRegions.canonicalName(spot.city || spot.PostalAddress?.City || '其他');
+      (grouped[city] ||= []).push(spot);
+    }
+    return grouped;
+  }
+
   function getCities(region = "all") {
-    return [{ name: "全部", en: "All", key: "全部" }, ...cities.filter(city => region === "all" || city.region === region)];
+    return [{ name: "全部", en: "All", key: "全部" }, ...cities.filter(city => region === "all" || city.region === region).map(city => ({ ...city, name: CityRegions.canonicalName(city.key) }))];
   }
 
   function matchesCity(spot, key) {
@@ -86,14 +110,36 @@ const SpotExplorer = (() => {
     };
   }
 
-  function actions(spot) {
+  function actions(spot, compact = false) {
     const urls = links(spot), id = escapeHtml(spot.id);
+    if (compact) {
+      const labels = {
+        'zh-TW': '司機字卡', zh: '司機字卡',
+        en: 'Driver card', ja: '行き先カード',
+        ko: '기사님 카드', th: 'บัตรคนขับ',
+        vi: 'Thẻ tài xế', ms: 'Kad pemandu',
+        fil: 'Card sa drayber', hi: 'ड्राइवर कार्ड',
+        id: 'Kartu sopir', es: 'Para el taxista',
+        de: 'Fahrerkarte'
+      };
+      const lang = typeof getWebLang === 'function' ? getWebLang() : 'zh-TW';
+      const driver = labels[lang] || labels.en;
+      return `<div class="spot-explorer-actions spot-card-actions">
+        <div class="spot-actions-primary">
+          <a class="spot-map-action" href="${escapeHtml(urls.map)}" target="_blank" rel="noopener noreferrer">Google Maps</a>
+          <button type="button" class="spot-driver-button" data-spot-id="${id}">${driver}</button>
+        </div>
+        <div class="spot-actions-secondary">
+          <a href="${escapeHtml(urls.tour)}" target="_blank" rel="noopener noreferrer">Klook</a>
+          <a href="${escapeHtml(urls.hotel)}" target="_blank" rel="noopener noreferrer">Trip.com</a>
+        </div>
+      </div>`;
+    }
     return `<div class="spot-explorer-actions">
       <a href="${escapeHtml(urls.map)}" target="_blank" rel="noopener noreferrer">Google Maps</a>
       <button type="button" class="spot-driver-button" data-spot-id="${id}">Show to Driver</button>
       <a href="${escapeHtml(urls.tour)}" target="_blank" rel="noopener noreferrer">Klook</a>
       <a href="${escapeHtml(urls.hotel)}" target="_blank" rel="noopener noreferrer">Trip.com</a>
-      <a href="${escapeHtml(urls.dining)}" target="_blank" rel="noopener noreferrer">餐券優惠</a>
     </div>`;
   }
 
@@ -134,5 +180,5 @@ const SpotExplorer = (() => {
     }
   });
 
-  return { cities, bundled, normalize, getCities, matchesCity, matchesRegion, cityKey, escapeHtml, links, actions, openDriver };
+  return { cities, bundled, normalize, getCities, groupByCity, matchesCity, matchesRegion, cityKey, escapeHtml, links, actions, openDriver };
 })();

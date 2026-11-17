@@ -38,7 +38,7 @@ test('every supported language has complete short hero and filter labels', () =>
       assert.ok(entry[page].title && entry[page].subtitle, `${lang}/${page}`);
       assert.ok(!/[<>\n]/.test(entry[page].title + entry[page].subtitle));
     }
-    for (const group of ['features', 'regions', 'michelinFilters', 'scenarios', 'themeLabels', 'topicLabels', 'cities', 'subcategories']) {
+    for (const group of ['features', 'regions', 'michelinFilters', 'scenarios', 'themeLabels', 'topicLabels', 'subcategories']) {
       assert.equal(Object.keys(entry[group]).join(','), Object.keys(copy.en[group]).join(','), `${lang}/${group}`);
       assert.ok(Object.values(entry[group]).every(value => typeof value === 'string' && value.trim()));
     }

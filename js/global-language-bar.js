@@ -24,6 +24,45 @@
     return languages.some(([code]) => code === lang) ? lang : "zh-TW";
   }
 
+  const loadingLabels = {
+    'zh-TW': '正在載入資料…', en: 'Loading…', ja: '読み込み中…', ko: '불러오는 중…',
+    vi: 'Đang tải…', th: 'กำลังโหลด…', id: 'Memuat…', ms: 'Sedang memuat…',
+    fil: 'Naglo-load…', hi: 'लोड हो रहा है…', es: 'Cargando…', de: 'Wird geladen…'
+  };
+  const loadingTasks = new Set();
+  function showLoading(lang = getLanguage()) {
+    const token = {};
+    loadingTasks.add(token);
+    let overlay = document.getElementById('site-loading-overlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'site-loading-overlay';
+      overlay.setAttribute('role', 'status');
+      overlay.setAttribute('aria-live', 'polite');
+      overlay.innerHTML = '<span class="site-loading-spinner" aria-hidden="true"></span><span class="site-loading-label"></span>';
+      document.body.append(overlay);
+    }
+    overlay.querySelector('.site-loading-label').textContent = loadingLabels[lang] || loadingLabels.en;
+    overlay.hidden = false;
+    document.documentElement.setAttribute('aria-busy', 'true');
+    // Each request releases its own token; overlapping requests cannot hide one another.
+    return () => {
+      loadingTasks.delete(token);
+      if (!loadingTasks.size) {
+        overlay.hidden = true;
+        document.documentElement.removeAttribute('aria-busy');
+      }
+    };
+  }
+  window.SiteLoading = { begin: showLoading };
+  window.addEventListener('pageshow', event => {
+    if (!event.persisted) return;
+    loadingTasks.clear();
+    const overlay = document.getElementById('site-loading-overlay');
+    if (overlay) overlay.hidden = true;
+    document.documentElement.removeAttribute('aria-busy');
+  });
+
   function mount() {
     if (document.querySelector(".top-lang-bar")) return;
     const bar = document.createElement("div");
@@ -54,6 +93,7 @@
 
     select.addEventListener("change", () => {
       const nextLang = select.value;
+      showLoading(nextLang);
       try { localStorage.setItem("taiwan_travel_lang", nextLang); } catch (e) {}
       // Reload the current page so its existing content loader uses the new language.
       const url = new URL(window.location.href);

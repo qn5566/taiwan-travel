@@ -49,7 +49,7 @@
     @media (max-width: 640px) {
       .spots-grid-6col { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
     }
-    @media (max-width: 380px) {
+    @media (max-width: 520px) {
       .spots-grid-6col { grid-template-columns: 1fr; }
     }
 
@@ -116,6 +116,7 @@
   <link rel="alternate" hreflang="en" href="https://taiwanroam.tw/spots.html?lang=en" />
   <link rel="alternate" hreflang="ja" href="https://taiwanroam.tw/spots.html?lang=ja" />
   <link rel="alternate" hreflang="x-default" href="https://taiwanroam.tw/spots.html" />
+  <script src="js/city_regions.js" defer></script>
   <script src="js/category_i18n.js" defer></script>
   <script src="js/global-language-bar.js" defer></script>
 </head>
@@ -299,72 +300,12 @@
   <script src="js/spots.js"></script>
   <script src="js/content_loader.js"></script>
   <script>
-    let activeZone = "全部";
-    let activeCity = "全部";
+    let activeZone = "北部";
+    let activeCity = "台北市";
     let searchKeyword = "";
 
-    // 精簡整合 6 大核心地理區按鈕 ＋ 對應下層縣市按鈕
-    const REGION_CATEGORIES = [
-      { id: "全部", label: "🌟 全部景點 (All)", cities: [] },
-      {
-        id: "北部",
-        label: "🏙️ 北部景點",
-        cities: [
-          { key: "全部", label: "全部北部" },
-          { key: "台北市", label: "台北市" },
-          { key: "新北市", label: "新北市" },
-          { key: "基隆市", label: "基隆市" },
-          { key: "桃園市", label: "桃園市" },
-          { key: "新竹市", label: "新竹市" },
-          { key: "新竹縣", label: "新竹縣" }
-        ]
-      },
-      {
-        id: "中部",
-        label: "🌿 中部景點",
-        cities: [
-          { key: "全部", label: "全部中部" },
-          { key: "台中市", label: "台中市" },
-          { key: "苗栗縣", label: "苗栗縣" },
-          { key: "彰化縣", label: "彰化縣" },
-          { key: "南投縣", label: "南投縣" },
-          { key: "雲林縣", label: "雲林縣" }
-        ]
-      },
-      {
-        id: "南部",
-        label: "☀️ 南部景點",
-        cities: [
-          { key: "全部", label: "全部南部" },
-          { key: "台南市", label: "台南市" },
-          { key: "高雄市", label: "高雄市" },
-          { key: "嘉義市", label: "嘉義市" },
-          { key: "嘉義縣", label: "嘉義縣" },
-          { key: "屏東縣", label: "屏東縣" }
-        ]
-      },
-      {
-        id: "東部",
-        label: "🌊 東部景點",
-        cities: [
-          { key: "全部", label: "全部東部" },
-          { key: "宜蘭縣", label: "宜蘭縣" },
-          { key: "花蓮縣", label: "花蓮縣" },
-          { key: "台東縣", label: "台東縣" }
-        ]
-      },
-      {
-        id: "離島",
-        label: "🏝️ 離島秘境",
-        cities: [
-          { key: "全部", label: "全部離島" },
-          { key: "澎湖縣", label: "澎湖縣" },
-          { key: "金門縣", label: "金門縣" },
-          { key: "連江縣", label: "連江縣 (馬祖)" },
-          { key: "屏東縣", label: "小琉球" }
-        ]
-      }
-    ];
+    // 地理區與縣市均採單一選取，不提供「全部」。
+    const REGION_CATEGORIES = ["北部", "中部", "南部", "東部", "離島"].map(id => ({ id }));
 
     document.addEventListener("DOMContentLoaded", async () => {
       renderRegionButtons();
@@ -393,7 +334,7 @@
         const isAct = activeZone === reg.id ? "active" : "";
         return `
           <button class="spot-region-pill ${isAct}" onclick="selectRegion('${reg.id}')">
-            ${CategoryUI.region({ '全部': 'all', '北部': 'north', '中部': 'central', '南部': 'south', '東部': 'east', '離島': 'islands' }[reg.id])}
+            ${CategoryUI.region({ '北部': 'north', '中部': 'central', '南部': 'south', '東部': 'east', '離島': 'islands' }[reg.id])}
           </button>
         `;
       }).join("");
@@ -402,21 +343,23 @@
     function renderCitySubButtons() {
       const subContainer = document.getElementById("spots-city-subpills");
       if (!subContainer) return;
-      const region = { '全部': 'all', '北部': 'north', '中部': 'central', '南部': 'south', '東部': 'east', '離島': 'islands' }[activeZone];
+      const region = { '北部': 'north', '中部': 'central', '南部': 'south', '東部': 'east', '離島': 'islands' }[activeZone];
       subContainer.style.display = "flex";
-      subContainer.innerHTML = SpotExplorer.getCities(region).map(c => {
+      subContainer.innerHTML = SpotExplorer.getCities(region).filter(c => c.key !== "全部").map(c => {
         const isAct = activeCity === c.key ? "active" : "";
         return `
           <button class="spot-region-pill ${isAct}" style="font-size: 12.5px; padding: 6px 15px;" onclick="selectCity('${c.key}')">
-            ${c.key === "全部" ? CategoryUI.t("ui.all") : CategoryUI.city(c.name)}
+            ${SpotExplorer.escapeHtml(CityRegions.localizedName(c.key, getWebLang()))}
           </button>
         `;
       }).join("");
     }
 
     function selectRegion(zoneId) {
+      if (!REGION_CATEGORIES.some(region => region.id === zoneId)) return;
       activeZone = zoneId;
-      activeCity = "全部";
+      const region = { '北部': 'north', '中部': 'central', '南部': 'south', '東部': 'east', '離島': 'islands' }[zoneId];
+      activeCity = SpotExplorer.getCities(region).find(city => city.key !== "全部")?.key || "";
       renderRegionButtons();
       renderCitySubButtons();
       renderSpots();
@@ -429,8 +372,8 @@
     }
 
     function resetCityFilter() {
-      activeZone = "全部";
-      activeCity = "全部";
+      activeZone = "北部";
+      activeCity = "台北市";
       searchKeyword = "";
       const input = document.getElementById("spots-search-input");
       if (input) input.value = "";
@@ -439,18 +382,20 @@
       renderSpots();
     }
 
-    function renderSpots() {
+    function renderSpots(limit = 48) {
       const container = document.getElementById("spots-grid-container");
       const countEl = document.getElementById("spots-count-text");
       const cityEl = document.getElementById("spots-current-city");
       if (!container || typeof ALL_SPOTS_DATA === "undefined") return;
 
       const filtered = ALL_SPOTS_DATA.filter(item => {
-        const matchZone = activeZone === "全部" || item.zone === activeZone;
+        const matchZone = item.zone === activeZone;
         const matchCity = SpotExplorer.matchesCity(item, activeCity);
         const matchKeyword = !searchKeyword ||
           item.name.toLowerCase().includes(searchKeyword) ||
           item.city.toLowerCase().includes(searchKeyword) ||
+          CityRegions.localizedName(item.city, getWebLang()).toLocaleLowerCase().includes(searchKeyword) ||
+          CityRegions.localizedName(item.city, 'en').toLowerCase().includes(searchKeyword) ||
           (item.desc && item.desc.toLowerCase().includes(searchKeyword)) ||
           (item.tag && item.tag.toLowerCase().includes(searchKeyword));
         return matchZone && matchCity && matchKeyword;
@@ -471,9 +416,9 @@
         return;
       }
 
-      container.innerHTML = filtered.map(item => {
+      container.innerHTML = filtered.slice(0, limit).map(item => {
         const escape = SpotExplorer.escapeHtml;
-        const { hotel: hotelUrl, tour: charterUrl, map: mapUrl } = SpotExplorer.links(item);
+        const tags = (Array.isArray(item.Tags) ? item.Tags : (item.tag || '').split(' · ')).filter(Boolean).slice(0, 2);
 
         return `
           <div class="spot-card-6col">
@@ -489,36 +434,40 @@
               </button>
               <img src="${escape(item.img)}" alt="${escape(item.name)}" loading="lazy">
               <span style="position: absolute; top: 8px; left: 8px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #FFF; font-size: 10.5px; font-weight: 800; padding: 2px 7px; border-radius: 6px;">
-                ${escape(item.city)}
+                ${escape(CityRegions.localizedName(item.city, getWebLang()))}
               </span>
-              <span style="position: absolute; bottom: 8px; right: 8px; background: rgba(255, 255, 255, 0.95); color: #D97706; font-size: 10.5px; font-weight: 800; padding: 2px 6px; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
-                ${item.rate || "4.9★"}
-              </span>
+              ${item.rate ? `<span class="spot-card-rating">${escape(item.rate)}</span>` : ''}
             </div>
 
-            <div style="padding: 12px; display: flex; flex-direction: column; flex: 1;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                <span style="font-size: 10.5px; font-weight: 800; color: #0284C7; background: #F0F9FF; padding: 2px 6px; border-radius: 4px;">
-                  ${item.tag || "熱門景點"}
-                </span>
-                <span style="font-size: 10.5px; color: #64748B;">
-                  ${item.duration || "2小時"}
-                </span>
-              </div>
+            <div class="spot-card-body">
+              ${tags.length || item.duration ? `<div class="spot-card-meta">
+                <div class="spot-card-tags">${tags.map(tag => `<span title="${escape(tag)}">${escape(tag)}</span>`).join('')}</div>
+                ${item.duration ? `<span class="spot-card-duration">${escape(item.duration)}</span>` : ''}
+              </div>` : ''}
 
-              <h3 style="font-size: 13.5px; font-weight: 900; color: #0F172A; margin: 4px 0 6px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.35;" title="${escape(item.name)}">
+              <h3 class="spot-card-title" title="${escape(item.name)}">
                 ${escape(item.name)}
               </h3>
 
-              <p style="font-size: 11.5px; color: #64748B; line-height: 1.5; margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; flex: 1;" title="${escape(item.desc)}">
+              <p class="spot-card-desc" title="${escape(item.desc)}">
                 ${escape(item.desc)}
               </p>
 
-              ${SpotExplorer.actions(item)}
+              ${SpotExplorer.actions(item, true)}
             </div>
           </div>
         `;
       }).join("");
+      if (filtered.length > limit) {
+        const more = document.createElement('button');
+        more.type = 'button';
+        more.className = 'spot-region-pill spot-load-more';
+        more.style.gridColumn = '1 / -1';
+        more.textContent = `${CategoryUI.t('ui.loadMore')} (${Math.min(limit, filtered.length)} / ${filtered.length})`;
+        more.addEventListener('click', () => renderSpots(limit + 48));
+        container.append(more);
+      }
+
     }
   </script>
   <script src="js/i18n.js"></script>

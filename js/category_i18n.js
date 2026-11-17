@@ -73,7 +73,8 @@ const CATEGORY_I18N = {
       "plan1": "1 日",
       "plan2": "2 日",
       "plan3": "3 日",
-      "allTaiwan": "全台灣"
+      "allTaiwan": "全台灣",
+      "loadMore": "顯示更多景點"
     },
     "features": {
       "全部": "全部",
@@ -132,30 +133,6 @@ const CATEGORY_I18N = {
       "hotspring": "溫泉",
       "hostel": "青年旅宿",
       "souvenir": "伴手禮"
-    },
-    "cities": {
-      "台北市": "台北市",
-      "桃園市": "桃園市",
-      "花蓮縣": "花蓮縣",
-      "台南市": "台南市",
-      "新北市": "新北市",
-      "基隆市": "基隆市",
-      "新竹縣": "新竹縣",
-      "新竹市": "新竹市",
-      "苗栗縣": "苗栗縣",
-      "台中市": "台中市",
-      "彰化縣": "彰化縣",
-      "南投縣": "南投縣",
-      "雲林縣": "雲林縣",
-      "嘉義縣": "嘉義縣",
-      "嘉義市": "嘉義市",
-      "高雄市": "高雄市",
-      "屏東縣": "屏東縣",
-      "宜蘭縣": "宜蘭縣",
-      "台東縣": "台東縣",
-      "澎湖縣": "澎湖縣",
-      "金門縣": "金門縣",
-      "連江縣": "連江縣"
     },
     "subcategories": {
       "all": "全部",
@@ -274,7 +251,8 @@ const CATEGORY_I18N = {
       "plan1": "1 day",
       "plan2": "2 days",
       "plan3": "3 days",
-      "allTaiwan": "All Taiwan"
+      "allTaiwan": "All Taiwan",
+      "loadMore": "Show more places"
     },
     "features": {
       "全部": "All",
@@ -333,30 +311,6 @@ const CATEGORY_I18N = {
       "hotspring": "Hot springs",
       "hostel": "Hostels",
       "souvenir": "Souvenirs"
-    },
-    "cities": {
-      "台北市": "Taipei",
-      "桃園市": "Taoyuan",
-      "花蓮縣": "Hualien",
-      "台南市": "Tainan",
-      "新北市": "New Taipei",
-      "基隆市": "Keelung",
-      "新竹縣": "Hsinchu County",
-      "新竹市": "Hsinchu City",
-      "苗栗縣": "Miaoli",
-      "台中市": "Taichung",
-      "彰化縣": "Changhua",
-      "南投縣": "Nantou",
-      "雲林縣": "Yunlin",
-      "嘉義縣": "Chiayi County",
-      "嘉義市": "Chiayi City",
-      "高雄市": "Kaohsiung",
-      "屏東縣": "Pingtung",
-      "宜蘭縣": "Yilan",
-      "台東縣": "Taitung",
-      "澎湖縣": "Penghu",
-      "金門縣": "Kinmen",
-      "連江縣": "Matsu"
     },
     "subcategories": {
       "all": "All",
@@ -475,7 +429,8 @@ const CATEGORY_I18N = {
       "plan1": "1日",
       "plan2": "2日",
       "plan3": "3日",
-      "allTaiwan": "台湾全域"
+      "allTaiwan": "台湾全域",
+      "loadMore": "もっと見る"
     },
     "features": {
       "全部": "すべて",
@@ -534,30 +489,6 @@ const CATEGORY_I18N = {
       "hotspring": "温泉",
       "hostel": "ホステル",
       "souvenir": "お土産"
-    },
-    "cities": {
-      "台北市": "台北市",
-      "桃園市": "桃園市",
-      "花蓮縣": "花蓮県",
-      "台南市": "台南市",
-      "新北市": "新北市",
-      "基隆市": "基隆市",
-      "新竹縣": "新竹県",
-      "新竹市": "新竹市",
-      "苗栗縣": "苗栗県",
-      "台中市": "台中市",
-      "彰化縣": "彰化県",
-      "南投縣": "南投県",
-      "雲林縣": "雲林県",
-      "嘉義縣": "嘉義県",
-      "嘉義市": "嘉義市",
-      "高雄市": "高雄市",
-      "屏東縣": "屏東県",
-      "宜蘭縣": "宜蘭県",
-      "台東縣": "台東県",
-      "澎湖縣": "澎湖県",
-      "金門縣": "金門県",
-      "連江縣": "連江県"
     },
     "subcategories": {
       "all": "すべて",
@@ -676,7 +607,8 @@ const CATEGORY_I18N = {
       "plan1": "1일",
       "plan2": "2일",
       "plan3": "3일",
-      "allTaiwan": "대만 전역"
+      "allTaiwan": "대만 전역",
+      "loadMore": "더 보기"
     },
     "features": {
       "全部": "전체",
@@ -735,30 +667,6 @@ const CATEGORY_I18N = {
       "hotspring": "온천",
       "hostel": "호스텔",
       "souvenir": "기념품"
-    },
-    "cities": {
-      "台北市": "타이베이",
-      "桃園市": "타오위안",
-      "花蓮縣": "화롄",
-      "台南市": "타이난",
-      "新北市": "신베이",
-      "基隆市": "지룽",
-      "新竹縣": "신주현",
-      "新竹市": "신주시",
-      "苗栗縣": "먀오리",
-      "台中市": "타이중",
-      "彰化縣": "장화",
-      "南投縣": "난터우",
-      "雲林縣": "윈린",
-      "嘉義縣": "자이현",
-      "嘉義市": "자이시",
-      "高雄市": "가오슝",
-      "屏東縣": "핑둥",
-      "宜蘭縣": "이란",
-      "台東縣": "타이둥",
-      "澎湖縣": "펑후",
-      "金門縣": "진먼",
-      "連江縣": "마쭈"
     },
     "subcategories": {
       "all": "전체",
@@ -877,7 +785,8 @@ const CATEGORY_I18N = {
       "plan1": "1 día",
       "plan2": "2 días",
       "plan3": "3 días",
-      "allTaiwan": "Todo Taiwán"
+      "allTaiwan": "Todo Taiwán",
+      "loadMore": "Ver más lugares"
     },
     "features": {
       "全部": "Todo",
@@ -936,30 +845,6 @@ const CATEGORY_I18N = {
       "hotspring": "Termas",
       "hostel": "Hostales",
       "souvenir": "Recuerdos"
-    },
-    "cities": {
-      "台北市": "Taipei",
-      "桃園市": "Taoyuan",
-      "花蓮縣": "Hualien",
-      "台南市": "Tainan",
-      "新北市": "New Taipei",
-      "基隆市": "Keelung",
-      "新竹縣": "Condado de Hsinchu",
-      "新竹市": "Hsinchu (ciudad)",
-      "苗栗縣": "Miaoli",
-      "台中市": "Taichung",
-      "彰化縣": "Changhua",
-      "南投縣": "Nantou",
-      "雲林縣": "Yunlin",
-      "嘉義縣": "Condado de Chiayi",
-      "嘉義市": "Chiayi (ciudad)",
-      "高雄市": "Kaohsiung",
-      "屏東縣": "Pingtung",
-      "宜蘭縣": "Yilan",
-      "台東縣": "Taitung",
-      "澎湖縣": "Penghu",
-      "金門縣": "Kinmen",
-      "連江縣": "Matsu"
     },
     "subcategories": {
       "all": "Todo",
@@ -1078,7 +963,8 @@ const CATEGORY_I18N = {
       "plan1": "1 Tag",
       "plan2": "2 Tage",
       "plan3": "3 Tage",
-      "allTaiwan": "Ganz Taiwan"
+      "allTaiwan": "Ganz Taiwan",
+      "loadMore": "Weitere Orte anzeigen"
     },
     "features": {
       "全部": "Alle",
@@ -1137,30 +1023,6 @@ const CATEGORY_I18N = {
       "hotspring": "Thermen",
       "hostel": "Hostels",
       "souvenir": "Souvenirs"
-    },
-    "cities": {
-      "台北市": "Taipei",
-      "桃園市": "Taoyuan",
-      "花蓮縣": "Hualien",
-      "台南市": "Tainan",
-      "新北市": "New Taipei",
-      "基隆市": "Keelung",
-      "新竹縣": "Landkreis Hsinchu",
-      "新竹市": "Hsinchu (Stadt)",
-      "苗栗縣": "Miaoli",
-      "台中市": "Taichung",
-      "彰化縣": "Changhua",
-      "南投縣": "Nantou",
-      "雲林縣": "Yunlin",
-      "嘉義縣": "Landkreis Chiayi",
-      "嘉義市": "Chiayi (Stadt)",
-      "高雄市": "Kaohsiung",
-      "屏東縣": "Pingtung",
-      "宜蘭縣": "Yilan",
-      "台東縣": "Taitung",
-      "澎湖縣": "Penghu",
-      "金門縣": "Kinmen",
-      "連江縣": "Matsu"
     },
     "subcategories": {
       "all": "Alle",
@@ -1279,7 +1141,8 @@ const CATEGORY_I18N = {
       "plan1": "1 วัน",
       "plan2": "2 วัน",
       "plan3": "3 วัน",
-      "allTaiwan": "ทั่วไต้หวัน"
+      "allTaiwan": "ทั่วไต้หวัน",
+      "loadMore": "ดูสถานที่เพิ่มเติม"
     },
     "features": {
       "全部": "ทั้งหมด",
@@ -1339,30 +1202,6 @@ const CATEGORY_I18N = {
       "hostel": "โฮสเทล",
       "souvenir": "ของฝาก"
     },
-    "cities": {
-      "台北市": "ไทเป",
-      "桃園市": "เถาหยวน",
-      "花蓮縣": "ฮวาเหลียน",
-      "台南市": "ไถหนาน",
-      "新北市": "นิวไทเป",
-      "基隆市": "จีหลง",
-      "新竹縣": "เทศมณฑลซินจู๋",
-      "新竹市": "เมืองซินจู๋",
-      "苗栗縣": "เหมียวลี่",
-      "台中市": "ไถจง",
-      "彰化縣": "จางฮว่า",
-      "南投縣": "หนานโถว",
-      "雲林縣": "หยุนหลิน",
-      "嘉義縣": "เทศมณฑลเจียอี้",
-      "嘉義市": "เมืองเจียอี้",
-      "高雄市": "เกาสง",
-      "屏東縣": "ผิงตง",
-      "宜蘭縣": "อี๋หลาน",
-      "台東縣": "ไถตง",
-      "澎湖縣": "เผิงหู",
-      "金門縣": "จินเหมิน",
-      "連江縣": "หมาจู่"
-    },
     "subcategories": {
       "all": "ทั้งหมด",
       "coast": "ชายฝั่ง",
@@ -1421,7 +1260,7 @@ const CategoryUI = (() => {
     const read = dict => key.split('.').reduce((value, part) => value?.[part], dict);
     return read(CATEGORY_I18N[lang()]) || read(CATEGORY_I18N.en) || '';
   }
-  function city(name) { return t(`cities.${String(name).replace(/臺/g, '台')}`) || name; }
+  function city(name) { return CityRegions.localizedName(name, lang()); }
   function region(id) { return t(`regions.${id}`); }
   function theme(id) { return t(`themeLabels.${id}`); }
   function topic(id) { return t(`topicLabels.${id}`); }
