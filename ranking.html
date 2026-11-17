@@ -594,6 +594,7 @@
   </footer>
 
   <script src="js/affiliate.js"></script>
+  <script src="js/favorites_i18n.js"></script>
   <script src="js/favorites.js"></script>
   <script src="js/rankings_full_data.js"></script>
   <script src="js/content_loader.js"></script>
@@ -1075,20 +1076,7 @@
               <!-- 收藏愛心固定於圖片右上角 -->
               <button type="button"
                       class="waterfall-fav-btn ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}"
-                      data-fav-name="${item.name.replace(/"/g, '&quot;')}"
-                      onclick="event.stopPropagation(); const favCat = currentTopicId === 'cafe' ? 'cafe' : (['nightview', 'historic', 'park'].includes(currentTopicId) || meta.category === 'scenic' ? 'spot' : 'restaurant'); const favCatLabel = favCat === 'cafe' ? '咖啡' : (favCat === 'spot' ? '景點' : '餐廳'); FavoritesManager.toggle({
-                        id: 'rank_' + '${item.name.replace(/'/g, "\'")}',
-                        name: '${item.name.replace(/'/g, "\'")}',
-                        category: favCat,
-                        categoryLabel: favCatLabel,
-                        city: '${displayRegion}',
-                        img: '${cardImg}',
-                        rating: '${item.rate || item.rating || '4.9★'}',
-                        desc: '${(item.highlight || item.desc || '').replace(/'/g, "\\'").replace(/\r?\n/g, ' ')}',
-                        klookUrl: typeof AFFILIATE_HUB !== 'undefined' ? AFFILIATE_HUB.getSearchUrl('${item.name.replace(/'/g, "\'")}') : 'https://www.klook.com/?aid=106452',
-                        tripUrl: typeof AFFILIATE_HUB !== 'undefined' ? AFFILIATE_HUB.getTripSearchUrl('${item.name.replace(/'/g, "\'")}') : 'https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275',
-                        mapUrl: '${mapUrl}'
-                      }, this);"
+                      ${FavoritesManager.buttonAttributes({ ...item, id: `ranking_${currentTopicId}_${item.id || item.rank}`, category: currentTopicId === 'cafe' ? 'cafe' : (['charter','hostel'].includes(currentTopicId) ? 'itinerary' : meta.category === 'food' ? 'restaurant' : 'spot'), city: displayRegion, img: cardImg, rating: item.rate || item.rating, desc: item.highlight || item.desc, mapUrl })}
                       title="收藏此項目"
                       style="position: absolute; top: 8px; right: 8px; bottom: auto; left: auto; width: 34px; height: 34px; z-index: 4;">
                 <img src="assets/icon_heart_sparkle.png" alt="favorite" class="fav-sparkle-icon ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}">

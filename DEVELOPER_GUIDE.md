@@ -111,3 +111,9 @@
 咖啡店卡片以 `cafe_info.html?id=cafe_1&lang=zh-TW` 開啟獨立店家文章；也支援 `?slug=...` 與 `?cafeId=...`。頁面保留新版紙本雜誌版型，樣式集中於 `css/cafe-info.css`，渲染與資料處理集中於 `js/cafe_info.js`。資料透過既有 `CONTENT_BASE_URL/{lang}/cafes.json` 及 `cafe_articles.json` 取得，以 `article.cafeId === cafe.id` 關聯，缺少語系文章時回退繁中並提示，不依店名或陣列順序比對。
 
 `data/cafe_articles.zh.json` 是從 ActivityEvent 的 `content/zh/cafe_articles.json` 同步的離線備援快照；更新後端文章時可同步更新此檔。API 失敗時使用這份快照與 `data.js` 店家資料，並提供重新載入；成功回傳空文章陣列則保留空狀態。沒有文章的店家仍顯示店名、簡介、地址、電話、地圖與附近住宿；無效 ID 不會套用示範店家。新版設計的示範菜單、贈品與認證文案不會在沒有 API 依據時顯示。標準店家卡片上的地圖、住宿與收藏維持獨立操作。驗證：`node --test scripts/test_cafe_info.cjs`。
+
+全站收藏由 `js/favorites.js` 的 `FavoritesManager` 統一處理。新增卡片請呼叫 `FavoritesManager.buttonAttributes(item)`，透過編碼後的 `data-favorite-item` 和共用事件取得完整資料，勿把店名、描述、陣列或區域變數拼進 inline `onclick`。各卡片提供穩定 ID（咖啡使用 API 店家 ID、排行榜使用主題與項目 ID/名次、景點使用景點 ID、主題使用主題與景點 ID/原始索引），以便翻譯或重新渲染後同步愛心狀態。首頁舊的抽屜入口轉交相同 Manager，避免維護第二份清單。
+
+收藏仍儲存於 `tw_roam_favorites_v2`，並相容 `tw_roam_web_favs` 舊資料；損壞的結構不會阻斷頁面。抽屜刪除使用穩定 ID；顯示文字及 PDF 預覽會跳脫 HTML，網址只接受 HTTP(S)。瀏覽器拒絕 localStorage 時保留本次瀏覽記憶體狀態，提示無法永久儲存。驗證：`node --test scripts/test_favorites.cjs`；瀏覽器須驗證五個主要卡片來源、加入/取消、重新載入、分類搜尋、抽屜刪除、跨分頁同步與 PDF 預覽。
+
+收藏夾介面與 PDF 固定文案集中於 `js/favorites_i18n.js`，支援全站 12 種語言；各頁須先載入字典，再載入 `js/favorites.js`。`updateSiteNavigation(lang)` 呼叫 `FavoritesManager.setLanguage(lang)`，同步更新已開啟的抽屜與 PDF、搜尋提示、分類、愛心輔助文字和操作訊息。切換語系保留收藏、分類及搜尋條件；收藏當時的店名與介紹保留原文，舊資料的中文分類及通用提示則改用目前語系顯示。

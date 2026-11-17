@@ -17,7 +17,7 @@ let waterfallLoadedCount = 10;
 let waterfallObserver = null;
 const WATERFALL_PAGE_SIZE = 10;
 let currentRankingTab = "drinks";
-let userFavorites = JSON.parse(localStorage.getItem("tw_roam_web_favs") || '["台北 101 高空觀景台", "九份老街與阿妹茶樓", "Simple Kaffa 興波咖啡旗艦店"]');
+let userFavorites = [];
 
 // 頁面加載完成後初始化
 document.addEventListener("DOMContentLoaded", async () => {
@@ -216,7 +216,7 @@ function getFilteredSpots() {
 }
 
 function renderSingleSpotCard(item, idx, isEn) {
-  const isFav = userFavorites.includes(item.name);
+  const isFav = FavoritesManager.isFavorited(item.id) || FavoritesManager.isFavorited(item.name);
   const escape = SpotExplorer.escapeHtml;
 
   // 依縣市自動賦予多彩分類膠囊
@@ -243,7 +243,7 @@ function renderSingleSpotCard(item, idx, isEn) {
       <div class="spot-img3-media-wrap">
         <img src="${escape(item.img)}" alt="${escape(item.name)}" loading="lazy">
         <span class="spot-img3-category-pill ${catClass}">${catPillText}</span>
-        <button type="button" class="waterfall-fav-btn ${isFav ? "active" : ""}" data-spot-favorite="${escape(item.name)}" title="${isEn ? 'Save' : '收藏景點'}" style="position: absolute; bottom: 12px; right: 12px; z-index: 3;">
+        <button type="button" class="waterfall-fav-btn ${isFav ? "active" : ""}" ${FavoritesManager.buttonAttributes({ ...item, id: `spot_${item.id || item.name}`, category: 'spot', rating: item.rate, klookUrl: SpotExplorer.links(item).tour, tripUrl: SpotExplorer.links(item).hotel, mapUrl: SpotExplorer.links(item).map })} title="${isEn ? 'Save' : '收藏景點'}" style="position: absolute; bottom: 12px; right: 12px; z-index: 3;">
           <img src="assets/icon_heart_sparkle.png" alt="favorite" class="fav-sparkle-icon ${isFav ? 'active' : ''}">
         </button>
       </div>
@@ -779,45 +779,7 @@ function showCuteToast(msg, icon) {
   }, 2200);
 }
 
-function updateFavBadge() {
-  const badge = document.getElementById("fav-count-badge");
-  if (badge) badge.textContent = userFavorites.length;
-}
-
-function openFavDrawer() {
-  const drawer = document.getElementById("fav-drawer");
-  const overlay = document.getElementById("fav-drawer-overlay");
-  if (drawer && overlay) {
-    drawer.classList.add("open");
-    overlay.classList.add("open");
-    renderFavDrawerList();
-  }
-}
-
-function closeFavDrawer() {
-  const drawer = document.getElementById("fav-drawer");
-  const overlay = document.getElementById("fav-drawer-overlay");
-  if (drawer && overlay) {
-    drawer.classList.remove("open");
-    overlay.classList.remove("open");
-  }
-}
-
-function renderFavDrawerList() {
-  const listEl = document.getElementById("fav-drawer-list");
-  if (!listEl) return;
-
-  if (userFavorites.length === 0) {
-    listEl.innerHTML = `<div style="padding:40px 20px; text-align:center; color:#94A3B8;">尚無收藏景點，趕快在卡片上點擊 ❤️ 收藏吧！</div>`;
-    return;
-  }
-
-  listEl.innerHTML = userFavorites.map(name => {
-    return `
-      <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:#F8FAFC; border-radius:12px; margin-bottom:8px;">
-        <span style="font-weight:700; font-size:14px; color:#0F172A;">${name}</span>
-        <button onclick="toggleFavorite('${name}'); renderFavDrawerList();" style="border:none; background:transparent; cursor:pointer; color:#E11D48; font-size:16px;">🗑️</button>
-      </div>
-    `;
-  }).join("");
-}
+function updateFavBadge() { FavoritesManager.updateBadges(); }
+function openFavDrawer(category = 'all') { FavoritesManager.openDrawer(category); }
+function closeFavDrawer() { FavoritesManager.closeDrawer(); }
+function renderFavDrawerList() { FavoritesManager.renderDrawerList(); }

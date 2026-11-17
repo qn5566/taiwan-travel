@@ -248,6 +248,7 @@
 
   <!-- 引用腳本 -->
   <script src="js/affiliate.js"></script>
+  <script src="js/favorites_i18n.js"></script>
   <script src="js/favorites.js"></script>
   <script src="js/data.js"></script>
   <script src="js/i18n.js"></script>
@@ -1065,7 +1066,7 @@
                 </div>
                 <button type="button"
                         class="waterfall-fav-btn"
-                        onclick="toggleThemeSpotFav('${spot.name.replace(/'/g, "\\'")}', this, event)"
+                        ${FavoritesManager.buttonAttributes({ ...spot, id: `theme_${theme.id}_${spot.id || theme.spots.indexOf(spot)}`, category: 'spot', city: spot.city || theme.shortTitle, rating: spot.rate || spot.rating, desc: spot.desc || spot.en, klookUrl: theme.bookingCta?.charter || theme.bookingCta?.tour, tripUrl: theme.bookingCta?.hotel, mapUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}` })}
                         title="收藏景點"
                         style="position: relative; width: 34px; height: 34px; background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.9); cursor: pointer;">
                   <img src="assets/icon_heart_sparkle.png" alt="收藏" style="width: 16px; height: 16px; object-fit: contain;">
@@ -1186,7 +1187,7 @@
               ${statusPill}
               <button type="button"
                       class="waterfall-fav-btn"
-                      onclick="toggleThemeSpotFav('${spot.name.replace(/'/g, "\\'")}', this, event)"
+                      ${FavoritesManager.buttonAttributes({ ...spot, id: `theme_${theme.id}_${spot.id || theme.spots.indexOf(spot)}`, category: 'spot', city: spot.city || theme.shortTitle, rating: spot.rate || spot.rating, desc: spot.desc || spot.en, klookUrl: theme.bookingCta?.charter || theme.bookingCta?.tour, tripUrl: theme.bookingCta?.hotel, mapUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}` })}
                       title="收藏景點"
                       style="position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.9); cursor: pointer; z-index: 5;">
                 <img src="assets/icon_heart_sparkle.png" alt="收藏" style="width: 16px; height: 16px; object-fit: contain;">

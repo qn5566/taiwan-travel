@@ -381,12 +381,19 @@
       from { transform: translateY(30px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
-    .article-modal-close {
+    .article-modal-close-layer {
       position: sticky;
+      top: 0;
+      height: 0;
+      z-index: 30;
+      pointer-events: none;
+    }
+    .article-modal-close {
+      position: absolute;
       top: 18px;
-      float: right;
-      margin-right: 18px;
-      margin-top: 18px;
+      right: 18px;
+      margin: 0;
+      pointer-events: auto;
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -1450,3 +1457,39 @@
 .cafe-detail-link::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
 .cafe-detail-link:focus-visible::after { outline: 3px solid #0284C7; outline-offset: 3px; }
 .cafe-card a:not(.cafe-detail-link), .cafe-card button { position: relative; z-index: 2; }
+
+/* Compact four-column recommendations inside the journal reader. */
+.journals-page #article-modal .hub-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+.journals-page #article-modal .hub-grid > * {
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+.journals-page #article-modal .hub-grid .hub-card {
+  padding: 14px 12px !important;
+  border-radius: 14px !important;
+}
+.journals-page #article-modal .hub-grid .hub-card-icon {
+  font-size: 22px !important;
+  margin-bottom: 6px !important;
+}
+.journals-page #article-modal .hub-grid .hub-card-title { font-size: 14px !important; }
+.journals-page #article-modal .hub-grid .hub-card-desc {
+  font-size: 12px !important;
+  margin-bottom: 12px !important;
+}
+.journals-page #article-modal .hub-grid :is(.hub-btn, .hub-card-btn) {
+  box-sizing: border-box;
+  padding: 8px !important;
+  font-size: 12px !important;
+  white-space: normal;
+}
+@media (max-width: 900px) {
+  .journals-page #article-modal .hub-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 480px) {
+  .journals-page #article-modal .hub-grid { grid-template-columns: minmax(0, 1fr) !important; }
+}

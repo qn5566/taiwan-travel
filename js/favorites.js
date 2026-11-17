@@ -10,23 +10,86 @@
   const STORAGE_KEY = "tw_roam_favorites_v2";
   const LEGACY_STORAGE_KEY = "tw_roam_web_favs";
 
+  const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const safeUrl = value => {
+    if (typeof value !== 'string' || !value) return '';
+    try {
+      const url = new URL(value, window.location.href);
+      return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
+    } catch (e) { return ''; }
+  };
+
   const FavoritesManager = {
     items: [],
     currentTab: "all",
     searchKeyword: "",
 
+    language: function () {
+      if (this.lang) return this.lang;
+      if (typeof getWebLang === 'function') return getWebLang();
+      let stored;
+      try { stored = localStorage.getItem('taiwan_travel_lang'); } catch (e) {}
+      return new URLSearchParams(window.location.search).get('lang') || stored || 'zh-TW';
+    },
+
+    t: function (key, values = {}) {
+      const lang = this.language() === 'zh' ? 'zh-TW' : this.language();
+      const dictionaries = window.FAVORITES_I18N || {};
+      let value = dictionaries[lang]?.[key] || dictionaries.en?.[key] || key;
+      return value.replace(/\{(\w+)\}/g, (match, name) => String(values[name] ?? match));
+    },
+
+    setLanguage: function (lang) {
+      this.lang = lang;
+      document.querySelectorAll('[data-fav-text]').forEach(el => { el.textContent = this.t(el.dataset.favText); });
+      document.querySelectorAll('[data-fav-title]').forEach(el => {
+        el.title = this.t(el.dataset.favTitle);
+        el.setAttribute('aria-label', el.title);
+      });
+      const search = document.getElementById('fav-drawer-search-input');
+      if (search) { search.placeholder = this.t('search'); search.setAttribute('aria-label', this.t('search')); }
+      this.syncActiveButtons();
+      if (this.isDrawerOpen()) this.renderDrawerList();
+      const pdf = document.getElementById('fav-pdf-modal');
+      if (pdf?.classList.contains('open')) document.getElementById('fav-pdf-preview-content').innerHTML = this.buildPdfHtml();
+    },
+
+    displayText: function (item, field) {
+      const value = item[field] || '';
+      if (field === 'city' && ['全台', '台灣'].includes(value)) return this.t('taiwan');
+      if (field === 'desc' && ['熱門精選景點', '編輯部嚴選打卡推薦', '編輯部推薦熱門景點', '精選深度行程景點'].includes(value)) return this.t('recommended');
+      return value;
+    },
+
     init: function () {
+      if (this.initialized) return;
+      this.initialized = true;
       this.loadStorage();
       this.injectStyles();
       this.injectDrawerDOM();
       this.injectPdfModalDOM();
       this.injectFloatingButton();
+      this.setLanguage(this.language());
       this.updateBadges();
       this.syncActiveButtons();
 
+      document.addEventListener('click', event => {
+        const button = event.target.closest('[data-favorite-item], [data-favorite-remove]');
+        if (!button) return;
+        event.preventDefault();
+        event.stopPropagation();
+        if (button.hasAttribute('data-favorite-remove')) {
+          const saved = this.items.find(item => item.id === button.dataset.favoriteRemove);
+          if (saved) this.toggle(saved);
+          return;
+        }
+        try { this.toggle(JSON.parse(decodeURIComponent(button.dataset.favoriteItem)), button); }
+        catch (error) { console.error('Invalid favorite item', error); }
+      });
+
       // 監聽全局自訂事件與熱鍵
       window.addEventListener("storage", (e) => {
-        if (e.key === STORAGE_KEY) {
+        if (e.key === STORAGE_KEY || e.key === null) {
           this.loadStorage();
           this.updateBadges();
           this.syncActiveButtons();
@@ -47,14 +110,22 @@
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (raw) {
-          this.items = JSON.parse(raw);
+          const parsed = JSON.parse(raw);
+          this.items = Array.isArray(parsed) ? parsed.filter(item => item && typeof item === 'object' && typeof item.name === 'string' && item.name.trim()).map(item => ({
+            ...item, id: String(item.id || `${item.category || 'spot'}_${item.name}`),
+            category: ['spot','itinerary','restaurant','cafe'].includes(item.category) ? item.category : 'spot',
+            city: String(item.city || ''), district: String(item.district || ''), desc: String(item.desc || ''),
+            img: item.img || 'assets/icon_lantern.png', rating: item.rating || '★ 4.9',
+            categoryLabel: item.categoryLabel || ({ cafe: '咖啡', restaurant: '餐廳', itinerary: '行程' }[item.category] || '景點'),
+            tags: Array.isArray(item.tags) ? item.tags.filter(tag => typeof tag === 'string') : []
+          })) : [];
         } else {
           // 嘗試相容遷移舊版單純字串陣列
           const legacy = localStorage.getItem(LEGACY_STORAGE_KEY);
           if (legacy) {
             const arr = JSON.parse(legacy);
             if (Array.isArray(arr)) {
-              this.items = arr.map(name => ({
+              this.items = arr.filter(name => typeof name === "string" && name.trim()).map(name => ({
                 id: "spot_" + name,
                 category: "spot",
                 categoryLabel: "景點",
@@ -89,9 +160,19 @@
         if (typeof window.userFavorites !== "undefined") {
           window.userFavorites = legacyNames;
         }
+        return true;
       } catch (err) {
         console.error("Failed to save favorites to localStorage", err);
+        return false;
       }
+    },
+
+    buttonAttributes: function (item) {
+      if (!this.syncPending) {
+        this.syncPending = true;
+        window.requestAnimationFrame(() => { this.syncPending = false; this.syncActiveButtons(); });
+      }
+      return `data-favorite-item="${encodeURIComponent(JSON.stringify(item))}" data-fav-id="${escapeHtml(item.id || '')}" data-fav-name="${escapeHtml(item.name || '')}" aria-pressed="${this.isFavorited(item.id || item.name) || this.isFavorited(item.name)}"`;
     },
 
     isFavorited: function (idOrName) {
@@ -104,6 +185,7 @@
      * @param {HTMLElement} btnEl 觸發按鈕元素 (可選)
      */
     toggle: function (itemData, btnEl) {
+      if (!itemData || (typeof itemData !== 'string' && typeof itemData !== 'object')) return false;
       let normalized = {};
 
       if (typeof itemData === "string") {
@@ -133,7 +215,7 @@
         const cleanMap = itemData.mapUrl || (typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(cleanName) : `https://maps.google.com/?q=${encodeURIComponent(cleanName)}`);
 
         normalized = {
-          id: itemData.id || `${cat}_${cleanName}`,
+          id: String(itemData.id || `${cat}_${cleanName}`),
           category: cat,
           categoryLabel: itemData.categoryLabel || catLabel,
           name: cleanName,
@@ -143,7 +225,7 @@
           img: itemData.img || itemData.image || "assets/icon_lantern.png",
           rating: itemData.rating || itemData.rate || "★ 4.9",
           desc: itemData.desc || itemData.features || itemData.excerpt || itemData.subtitle || "",
-          tags: itemData.tags || [],
+          tags: Array.isArray(itemData.tags) ? itemData.tags.filter(tag => typeof tag === "string") : [],
           klookUrl: cleanKlook,
           tripUrl: cleanTrip,
           uberEatsUrl: itemData.uberEatsUrl || "https://onelink.one/s/YoWYV",
@@ -161,7 +243,7 @@
         this.items.splice(existingIndex, 1);
       }
 
-      this.saveStorage();
+      const persisted = this.saveStorage();
       this.updateBadges();
 
       // 動態與視覺反饋
@@ -177,9 +259,9 @@
 
       // 彈出精緻提示 Toast
       if (isNowSaved) {
-        this.showToast(`已收藏【${normalized.categoryLabel}】${normalized.name}！已存入離線行程夾`, "💖");
+        this.showToast(this.t(persisted ? "saved" : "session", { name: normalized.name }), "💖");
       } else {
-        this.showToast(`已從離線收藏夾移除「${normalized.name}」`, "🤍");
+        this.showToast(this.t("removed", { name: normalized.name }), "🤍");
       }
 
       // 若抽屜開啟中則重繪
@@ -224,7 +306,7 @@
         toast.id = "fav-global-toast";
         document.body.appendChild(toast);
       }
-      toast.innerHTML = `<span style="font-size: 20px;">${icon}</span> <span>${msg}</span>`;
+      toast.innerHTML = `<span style="font-size: 20px;">${escapeHtml(icon)}</span> <span>${escapeHtml(msg)}</span>`;
       toast.classList.remove("show");
       void toast.offsetWidth;
       toast.classList.add("show");
@@ -250,6 +332,9 @@
         const name = btn.getAttribute("data-fav-name");
         const active = (id && this.isFavorited(id)) || (name && this.isFavorited(name));
         btn.classList.toggle("active", !!active);
+        btn.setAttribute("aria-pressed", String(!!active));
+        btn.title = this.t(active ? "unsave" : "save");
+        btn.setAttribute("aria-label", btn.title);
         const icon = btn.querySelector(".fav-sparkle-icon");
         if (icon) icon.classList.toggle("active", !!active);
       });
@@ -300,13 +385,13 @@
 
     clearAll: function () {
       if (this.items.length === 0) return;
-      if (confirm("確定要清空離線收藏夾中的所有卡牌嗎？")) {
+      if (confirm(this.t("confirmClear"))) {
         this.items = [];
         this.saveStorage();
         this.updateBadges();
         this.syncActiveButtons();
         this.renderDrawerList();
-        this.showToast("已清空所有離線收藏！", "🗑️");
+        this.showToast(this.t("cleared"), "🗑️");
       }
     },
 
@@ -341,10 +426,10 @@
           <div style="text-align: center; padding: 60px 20px; color: #94A3B8;">
             <div style="font-size: 48px; margin-bottom: 12px;">📭</div>
             <div style="font-size: 16px; font-weight: 800; color: #475569;">
-              ${this.items.length === 0 ? "您的離線收藏夾目前是空的" : "沒有符合篩選條件的卡牌"}
+              ${this.t(this.items.length === 0 ? "empty" : "noResults")}
             </div>
             <p style="font-size: 13px; color: #94A3B8; margin-top: 6px;">
-              ${this.items.length === 0 ? "瀏覽景點、行程、餐廳與咖啡卡片時，點擊「❤️ 收藏」隨時存入！" : "請嘗試切換「全部」或調整搜尋關鍵字"}
+              ${this.t(this.items.length === 0 ? "emptyHelp" : "noResultsHelp")}
             </p>
           </div>
         `;
@@ -366,31 +451,31 @@
         return `
           <div class="fav-item-card">
             <div class="fav-item-img-wrap">
-              <img src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.src='assets/icon_lantern.png'">
+              <img src="${escapeHtml(safeUrl(item.img))}" alt="${escapeHtml(item.name)}" loading="lazy" onerror="this.src='assets/icon_lantern.png'">
               <span class="fav-item-badge" style="background:${badgeBg}; color:${badgeColor};">
-                ${iconEmoji} ${item.categoryLabel}
+                ${iconEmoji} ${escapeHtml(this.t(item.category))}
               </span>
             </div>
             <div class="fav-item-content">
               <div class="fav-item-topline">
-                <span style="font-size: 11px; font-weight: 700; color: #64748B;">📍 ${item.city} ${item.district || ''}</span>
-                <span style="font-size: 11.5px; font-weight: 800; color: #D97706;">${item.rating}</span>
+                <span style="font-size: 11px; font-weight: 700; color: #64748B;">📍 ${escapeHtml(this.displayText(item, "city"))} ${escapeHtml(item.district || '')}</span>
+                <span style="font-size: 11.5px; font-weight: 800; color: #D97706;">${escapeHtml(item.rating)}</span>
               </div>
-              <h4 class="fav-item-title">${item.name}</h4>
-              <p class="fav-item-desc">${item.desc}</p>
+              <h4 class="fav-item-title">${escapeHtml(item.name)}</h4>
+              <p class="fav-item-desc">${escapeHtml(this.displayText(item, "desc"))}</p>
               
               <!-- 預約與導航按鈕列 (保留 Klook & Trip.com 聯盟連結) -->
               <div class="fav-item-actions">
-                <a href="${item.klookUrl}" target="_blank" rel="noopener noreferrer" class="fav-action-btn klook">
-                  🎫 Klook 預訂
+                <a href="${escapeHtml(safeUrl(item.klookUrl))}" target="_blank" rel="noopener noreferrer" class="fav-action-btn klook">
+                  🎫 ${this.t("klook")}
                 </a>
-                <a href="${item.tripUrl}" target="_blank" rel="noopener noreferrer" class="fav-action-btn trip">
-                  🏨 Trip 查訂房
+                <a href="${escapeHtml(safeUrl(item.tripUrl))}" target="_blank" rel="noopener noreferrer" class="fav-action-btn trip">
+                  🏨 ${this.t("trip")}
                 </a>
-                <a href="${item.mapUrl}" target="_blank" rel="noopener noreferrer" class="fav-action-btn map">
-                  📍 地圖
+                <a href="${escapeHtml(safeUrl(item.mapUrl))}" target="_blank" rel="noopener noreferrer" class="fav-action-btn map">
+                  📍 ${this.t("map")}
                 </a>
-                <button onclick="FavoritesManager.toggle('${item.name.replace(/'/g, "\\'")}');" class="fav-item-del-btn" title="移除收藏">
+                <button type="button" data-favorite-remove="${escapeHtml(item.id)}" class="fav-item-del-btn" title="${this.t("remove")}" aria-label="${this.t("remove")}">
                   🗑️
                 </button>
               </div>
@@ -405,7 +490,7 @@
        ========================================================= */
     exportPDF: function () {
       if (this.items.length === 0) {
-        alert("離線收藏夾中目前沒有任何卡牌，請先收藏景點或行程後再匯出 PDF！");
+        alert(this.t("noExport"));
         return;
       }
       this.closeDrawer();
@@ -458,24 +543,24 @@
               ${list.map(item => `
                 <div class="pdf-card">
                   <div class="pdf-card-img-wrap">
-                    <img src="${item.img}" alt="${item.name}" onerror="this.src='assets/icon_lantern.png'">
-                    <span class="pdf-card-badge">${item.categoryLabel}</span>
+                    <img src="${escapeHtml(safeUrl(item.img))}" alt="${escapeHtml(item.name)}" onerror="this.src='assets/icon_lantern.png'">
+                    <span class="pdf-card-badge">${escapeHtml(this.t(item.category))}</span>
                   </div>
                   <div class="pdf-card-body">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-                      <span style="font-size:11px; font-weight:700; color:#64748B;">📍 ${item.city} ${item.district || ''}</span>
-                      <span style="font-size:11.5px; font-weight:800; color:#D97706;">${item.rating}</span>
+                      <span style="font-size:11px; font-weight:700; color:#64748B;">📍 ${escapeHtml(this.displayText(item, "city"))} ${escapeHtml(item.district || '')}</span>
+                      <span style="font-size:11.5px; font-weight:800; color:#D97706;">${escapeHtml(item.rating)}</span>
                     </div>
-                    <div class="pdf-card-title">${item.name}</div>
-                    <div class="pdf-card-desc">${item.desc}</div>
+                    <div class="pdf-card-title">${escapeHtml(item.name)}</div>
+                    <div class="pdf-card-desc">${escapeHtml(this.displayText(item, "desc"))}</div>
                     
                     <!-- 關鍵：PDF 內完全保留並高亮超連結點擊導購 -->
                     <div class="pdf-card-links">
-                      <a href="${item.klookUrl}" target="_blank" rel="noopener noreferrer" class="pdf-link-btn klook">
-                        🚐 點擊直接預約 Klook 方案 ➔
+                      <a href="${escapeHtml(safeUrl(item.klookUrl))}" target="_blank" rel="noopener noreferrer" class="pdf-link-btn klook">
+                        🚐 ${this.t("klook")} ➔
                       </a>
-                      <a href="${item.tripUrl}" target="_blank" rel="noopener noreferrer" class="pdf-link-btn trip">
-                        🏨 Trip.com 飯店比價預訂 ➔
+                      <a href="${escapeHtml(safeUrl(item.tripUrl))}" target="_blank" rel="noopener noreferrer" class="pdf-link-btn trip">
+                        🏨 ${this.t("trip")} ➔
                       </a>
                     </div>
                   </div>
@@ -490,34 +575,34 @@
         <div class="pdf-document">
           <!-- 刊頭與封面區塊 -->
           <div class="pdf-header">
-            <div class="pdf-brand-tag">TAIWAN ROAM ‧ 台灣吃喝玩樂旅人誌</div>
-            <h1 class="pdf-main-title">我的台灣專屬客製化離線行程手冊</h1>
-            <p class="pdf-sub-title">Personalized Taiwan Offline Travel Guidebook ‧ 共收藏 ${this.items.length} 處必訪精選</p>
+            <div class="pdf-brand-tag">TAIWAN ROAM</div>
+            <h1 class="pdf-main-title">${this.t("pdfGuide")}</h1>
+            <p class="pdf-sub-title">${this.t("pdfCount", { count: this.items.length })}</p>
             <div class="pdf-meta-bar">
-              <span>📅 匯出日期：${dateStr}</span>
+              <span>📅 ${this.t("pdfDate", { date: dateStr })}</span>
               <span>·</span>
-              <span>📱 支援離線瀏覽 ＆ 點擊預訂</span>
+              <span>📱 ${this.t("storage")}</span>
               <span>·</span>
-              <span>✨ 官方直營聯盟特約</span>
+              <span>${this.t("klook")} · ${this.t("trip")}</span>
             </div>
             <div class="pdf-notice-banner">
-              💡 <strong>旅人使用指南</strong>：本手冊在手機、平板或印出的 PDF 中均<strong>保留可點擊的 Klook 與 Trip.com 專屬官方預約連結</strong>。在離線旅行途中隨時點擊即可直達專屬接駁、門票與星級飯店比價頁面！
+              💡 ${this.t("pdfNotice")}
             </div>
           </div>
 
           <!-- 各大主題清單 -->
-          ${renderSection("精選客製行程", "🗺️", itineraries, "#B45309")}
-          ${renderSection("必訪自然絕景與名勝", "🏔️", spots, "#0369A1")}
-          ${renderSection("老饕必嚐餐廳與名饌", "🍽️", restaurants, "#B91C1C")}
-          ${renderSection("職人風格咖啡館", "☕", cafes, "#6D28D9")}
+          ${renderSection(this.t("itinerary"), "🗺️", itineraries, "#B45309")}
+          ${renderSection(this.t("spot"), "🏔️", spots, "#0369A1")}
+          ${renderSection(this.t("restaurant"), "🍽️", restaurants, "#B91C1C")}
+          ${renderSection(this.t("cafe"), "☕", cafes, "#6D28D9")}
 
           <!-- 手冊頁尾版權 -->
           <div class="pdf-footer">
             <div style="font-weight: 800; color: #0F172A; font-size: 13px; margin-bottom: 4px;">
-              🌸 TAIWAN ROAM 台灣吃喝玩樂 ‧ 自由行旅人的隨身行囊
+              TAIWAN ROAM · ${this.t("pdfFooter")}
             </div>
             <div style="font-size: 11px; color: #64748B;">
-              官方網站：https://taiwanroam.tw ‧ 官方商務合作：himydream.studio0220@gmail.com
+              ${this.t("website")}：https://taiwanroam.tw · ${this.t("business")}：himydream.studio0220@gmail.com
             </div>
           </div>
         </div>
@@ -532,11 +617,12 @@
       const btn = document.createElement("button");
       btn.id = "fav-floating-btn";
       btn.className = "fav-floating-btn";
-      btn.title = "開啟離線收藏夾與匯出行程 PDF";
+      btn.title = this.t("open");
+      btn.dataset.favTitle = "open";
       btn.onclick = () => this.openDrawer();
       btn.innerHTML = `
         <span class="fav-floating-icon">❤️</span>
-        <span class="fav-floating-text">離線收藏夾</span>
+        <span class="fav-floating-text" data-fav-text="float">${this.t("float")}</span>
         <span id="fav-float-count" class="fav-floating-badge">${this.items.length}</span>
       `;
       document.body.appendChild(btn);
@@ -558,22 +644,22 @@
         <div class="fav-drawer-header">
           <div class="fav-drawer-title-wrap">
             <span style="font-size: 22px;">❤️</span>
-            <h3 class="fav-drawer-title">我的離線收藏夾 <span id="fav-drawer-total-count" style="font-size:14px; color:#0284C7;">(${this.items.length})</span></h3>
+            <h3 class="fav-drawer-title"><span data-fav-text="title">${this.t("title")}</span> <span id="fav-drawer-total-count" style="font-size:14px; color:#0284C7;">(${this.items.length})</span></h3>
           </div>
-          <button onclick="FavoritesManager.closeDrawer()" class="fav-drawer-close-btn" title="關閉">✕</button>
+          <button onclick="FavoritesManager.closeDrawer()" class="fav-drawer-close-btn" data-fav-title="close" title="${this.t("close")}">✕</button>
         </div>
 
         <!-- 搜尋列與快速切換膠囊 -->
         <div class="fav-drawer-toolbar">
           <div class="fav-drawer-search-wrap">
-            <input type="text" id="fav-drawer-search-input" placeholder="搜尋已收藏的景點、餐廳、行程..." oninput="FavoritesManager.searchKeyword = this.value; FavoritesManager.renderDrawerList();">
+            <input type="text" id="fav-drawer-search-input" placeholder="${this.t("search")}" oninput="FavoritesManager.searchKeyword = this.value; FavoritesManager.renderDrawerList();">
           </div>
           <div id="fav-drawer-tabs" class="fav-drawer-tabs">
-            <button class="fav-tab-btn active" data-tab="all" onclick="FavoritesManager.setTab('all')">🌟 全部</button>
-            <button class="fav-tab-btn" data-tab="spot" onclick="FavoritesManager.setTab('spot')">🏔️ 景點</button>
-            <button class="fav-tab-btn" data-tab="itinerary" onclick="FavoritesManager.setTab('itinerary')">🗺️ 行程</button>
-            <button class="fav-tab-btn" data-tab="restaurant" onclick="FavoritesManager.setTab('restaurant')">🍽️ 餐廳</button>
-            <button class="fav-tab-btn" data-tab="cafe" onclick="FavoritesManager.setTab('cafe')">☕ 咖啡</button>
+            <button class="fav-tab-btn active" data-tab="all" onclick="FavoritesManager.setTab('all')"><span data-fav-text="all">${this.t("all")}</span></button>
+            <button class="fav-tab-btn" data-tab="spot" onclick="FavoritesManager.setTab('spot')"><span data-fav-text="spot">${this.t("spot")}</span></button>
+            <button class="fav-tab-btn" data-tab="itinerary" onclick="FavoritesManager.setTab('itinerary')"><span data-fav-text="itinerary">${this.t("itinerary")}</span></button>
+            <button class="fav-tab-btn" data-tab="restaurant" onclick="FavoritesManager.setTab('restaurant')"><span data-fav-text="restaurant">${this.t("restaurant")}</span></button>
+            <button class="fav-tab-btn" data-tab="cafe" onclick="FavoritesManager.setTab('cafe')"><span data-fav-text="cafe">${this.t("cafe")}</span></button>
           </div>
         </div>
 
@@ -583,11 +669,11 @@
         <!-- 底部重點：PDF 匯出列與保留分潤預約 -->
         <div class="fav-drawer-footer">
           <button onclick="FavoritesManager.exportPDF()" class="fav-export-pdf-btn">
-            <span>📥 匯出個人專屬行程 PDF (保留 Klook/Trip 連結)</span>
+            <span data-fav-text="export">${this.t("export")}</span>
           </button>
           <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
-            <button onclick="FavoritesManager.clearAll()" class="fav-clear-btn">清空所有收藏</button>
-            <span style="font-size:11px; color:#94A3B8;">📱 隨身離線儲存 ‧ 免登入</span>
+            <button onclick="FavoritesManager.clearAll()" class="fav-clear-btn" data-fav-text="clear">${this.t("clear")}</button>
+            <span style="font-size:11px; color:#94A3B8;" data-fav-text="storage">${this.t("storage")}</span>
           </div>
         </div>
       `;
@@ -605,15 +691,15 @@
         <div class="fav-pdf-modal-dialog">
           <div class="fav-pdf-modal-header">
             <div>
-              <h3 style="font-size:18px; font-weight:900; color:#0F172A; margin:0;">📄 行程 PDF 預覽與下載</h3>
-              <p style="font-size:12px; color:#64748B; margin:4px 0 0 0;">手冊內保留所有 Klook 專車/體驗與 Trip.com 飯店直達預約連結</p>
+              <h3 style="font-size:18px; font-weight:900; color:#0F172A; margin:0;" data-fav-text="pdfTitle">${this.t("pdfTitle")}</h3>
+              <p style="font-size:12px; color:#64748B; margin:4px 0 0 0;" data-fav-text="pdfNotice">${this.t("pdfNotice")}</p>
             </div>
             <div style="display:flex; gap:10px;">
-              <button onclick="FavoritesManager.printPdf()" class="fav-print-action-btn">
-                🖨️ 列印 / 儲存為 PDF
+              <button onclick="FavoritesManager.printPdf()" class="fav-print-action-btn" data-fav-text="print">
+                ${this.t("print")}
               </button>
-              <button onclick="FavoritesManager.closePdfModal()" class="fav-pdf-close-btn">
-                ✕ 關閉
+              <button onclick="FavoritesManager.closePdfModal()" class="fav-pdf-close-btn" data-fav-text="close">
+                ${this.t("close")}
               </button>
             </div>
           </div>
@@ -749,6 +835,7 @@
         }
         .fav-drawer-title-wrap {
           display: flex;
+          min-width: 0;
           align-items: center;
           gap: 8px;
         }
@@ -759,6 +846,7 @@
           margin: 0;
         }
         .fav-drawer-close-btn {
+          flex-shrink: 0;
           background: #F1F5F9;
           border: none;
           width: 32px;
@@ -885,17 +973,21 @@
         }
         .fav-item-actions {
           display: flex;
+          flex-wrap: wrap;
           gap: 6px;
           align-items: center;
           margin-top: auto;
         }
         .fav-action-btn {
+          box-sizing: border-box;
+          max-width: 100%;
+          overflow-wrap: anywhere;
           font-size: 11px;
           font-weight: 700;
           text-decoration: none;
           padding: 4px 9px;
           border-radius: 6px;
-          white-space: nowrap;
+          white-space: normal;
         }
         .fav-action-btn.klook {
           background: #FF5B00;
@@ -1090,6 +1182,8 @@
           padding: 18px 28px;
           border-bottom: 1px solid #E2E8F0;
           display: flex;
+          flex-wrap: wrap;
+          gap: 16px;
           justify-content: space-between;
           align-items: center;
           background: #F8FAFC;
@@ -1160,6 +1254,7 @@
         }
         .pdf-meta-bar {
           display: flex;
+          flex-wrap: wrap;
           gap: 12px;
           font-size: 12px;
           color: #64748B;
@@ -1267,6 +1362,16 @@
           padding-top: 18px;
           margin-top: 36px;
           text-align: center;
+        }
+
+        @media screen and (max-width: 600px) {
+          .fav-pdf-modal-header { padding: 16px; }
+          .fav-pdf-modal-header > div { min-width: 0; }
+          .fav-pdf-modal-header > div:last-child { flex-wrap: wrap; }
+          .fav-pdf-modal-body { padding: 12px; }
+          .pdf-document { padding: 20px 16px; overflow-wrap: anywhere; }
+          .pdf-cards-grid { grid-template-columns: minmax(0, 1fr); }
+          .fav-drawer-footer > div { flex-wrap: wrap; gap: 8px; }
         }
 
         /* 專門針對瀏覽器列印 / 存為 PDF 的極致樣式 */

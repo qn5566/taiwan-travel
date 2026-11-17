@@ -90,10 +90,12 @@
        ========================================================= -->
   <div id="article-modal" class="article-modal-backdrop" onclick="closeArticleModal(event)">
     <div class="article-modal-card" onclick="event.stopPropagation()">
-      <button class="article-modal-close" onclick="closeArticleModalDirect()" title="關閉視窗" data-journal-title="close">✕</button>
+      <div class="article-modal-close-layer">
+        <button class="article-modal-close" onclick="closeArticleModalDirect()" title="關閉視窗" data-journal-title="close">✕</button>
+      </div>
 
       <!-- 報導大圖頂部 -->
-      <div id="modal-hero-banner" style="position: relative; height: 320px; overflow: hidden; border-top-left-radius: 28px; border-top-right-radius: 28px; margin-top: -58px;">
+      <div id="modal-hero-banner" style="position: relative; height: 320px; overflow: hidden; border-top-left-radius: 28px; border-top-right-radius: 28px;">
         <img id="modal-img" src="" alt="踩點實錄" style="width: 100%; height: 100%; object-fit: cover;">
         <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0.15) 0%, rgba(15,23,42,0.82) 100%);"></div>
         <div style="position: absolute; bottom: 22px; left: 32px; right: 32px; color: #FFFFFF;">
@@ -236,6 +238,7 @@
     </div>
   </footer>
   <script src="js/affiliate.js"></script>
+  <script src="js/favorites_i18n.js"></script>
   <script src="js/favorites.js"></script>
   <script src="js/data.js"></script>
   <script src="js/weekend_hop_i18n.js"></script>

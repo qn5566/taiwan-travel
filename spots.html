@@ -284,6 +284,7 @@
   </footer>
 
   <script src="js/affiliate.js"></script>
+  <script src="js/favorites_i18n.js"></script>
   <script src="js/favorites.js"></script>
   <script src="js/data.js"></script>
   <script src="js/spots.js"></script>
@@ -415,8 +416,7 @@
               <!-- ❤️ 首頁同款收藏愛心 -->
               <button type="button"
                       class="waterfall-fav-btn ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}"
-                      data-fav-name="${escape(item.name)}"
-                      data-spot-favorite="${escape(item.name)}"
+                      ${FavoritesManager.buttonAttributes({ ...item, id: `spot_${item.id || item.name}`, category: 'spot', rating: item.rate, klookUrl: SpotExplorer.links(item).tour, tripUrl: SpotExplorer.links(item).hotel, mapUrl: SpotExplorer.links(item).map })}
                       title="收藏景點"
                       style="position: absolute; bottom: 8px; right: 8px; width: 32px; height: 32px; z-index: 3;">
                 <img src="assets/icon_heart_sparkle.png" alt="favorite" class="fav-sparkle-icon ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}">

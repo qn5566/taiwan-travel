@@ -1258,6 +1258,7 @@ const HERO_SERVICE_TABS_I18N = {
 };
 
 function updateSiteNavigation(lang) {
+  if (typeof FavoritesManager !== "undefined") FavoritesManager.setLanguage(lang);
   if (typeof SiteFooter !== "undefined") SiteFooter.apply(lang);
   const labels = WEB_I18N[lang] || WEB_I18N.en;
   document.querySelectorAll("[data-nav-key]").forEach(link => {

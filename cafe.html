@@ -338,6 +338,7 @@
   </dialog>
 
   <script src="js/affiliate.js"></script>
+  <script src="js/favorites_i18n.js"></script>
   <script src="js/favorites.js"></script>
   <script src="js/data.js"></script>
   <script src="js/content_loader.js"></script>
@@ -629,22 +630,7 @@
               <!-- ❤️ 首頁同款收藏愛心 -->
               <button type="button"
                       class="waterfall-fav-btn ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}"
-                      data-fav-name="${item.name.replace(/"/g, '&quot;')}"
-                      onclick="event.stopPropagation(); FavoritesManager.toggle({
-                        id: 'cafe_' + '${item.name.replace(/'/g, "\'")}',
-                        name: '${item.name.replace(/'/g, "\'")}',
-                        category: 'cafe',
-                        categoryLabel: '咖啡',
-                        city: '${item.city}',
-                        district: '${item.district || ''}',
-                        img: '${item.img}',
-                        rating: '${item.rate || '4.9★'}',
-                        desc: '${(item.features || item.desc || '').replace(/'/g, "\\'").replace(/\r?\n/g, ' ')}',
-                        tags: ${JSON.stringify(item.tags || [])},
-                        klookUrl: typeof AFFILIATE_HUB !== 'undefined' ? AFFILIATE_HUB.getSearchUrl('${item.name.replace(/'/g, "\'")}') : 'https://www.klook.com/?aid=106452',
-                        tripUrl: '${hotelUrl}',
-                        mapUrl: '${mapUrl}'
-                      }, this);"
+                      ${FavoritesManager.buttonAttributes({ ...item, id: item.id || `cafe_${item.name}`, category: 'cafe', rating: item.rate, desc: item.features, tripUrl: hotelUrl, mapUrl })}
                       title="收藏咖啡館"
                       style="position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; z-index: 3;">
                 <img src="assets/icon_heart_sparkle.png" alt="favorite" class="fav-sparkle-icon ${typeof FavoritesManager !== 'undefined' && FavoritesManager.isFavorited(item.name) ? 'active' : ''}">
