@@ -1267,7 +1267,7 @@ const CategoryUI = (() => {
   function feature(tag) { return featureKeys[tag] ? t(`features.${featureKeys[tag]}`) : tag; }
 
   function applyCafeHero(tab) {
-    const kind = tab === 'michelin-guide' || tab === 'michelin' ? 'michelin' : tab === 'weekend-hop' ? 'journals' : 'coffee';
+    const kind = tab === 'michelin-guide' || tab === 'michelin' ? 'michelin' : 'coffee';
     const title = document.getElementById('hero-main-title');
     const subtitle = document.getElementById('hero-sub-desc');
     if (title) { title.textContent = t(`${kind}.title`); title.dataset.categoryText = `${kind}.title`; }

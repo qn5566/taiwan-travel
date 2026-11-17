@@ -86,14 +86,22 @@
 
 ## 分類頁單一語系介面
 
-`cafe.html`、`themes.html`、`spots.html`、`ranking.html` 與 `souvenir.html` 共用 `js/category_i18n.js`，以 `defer` 載入。標題與簡短副標、分頁及篩選文字集中支援繁中、英文、日文、韓文、西班牙文、德文與泰文；其他既有語系暫用英文介面。內容資料仍沿用 content loader 的來源及回退機制。
+`cafe.html`、`journals.html`、`themes.html`、`spots.html`、`ranking.html` 與 `souvenir.html` 共用 `js/category_i18n.js`，以 `defer` 載入。標題與簡短副標、分頁及篩選文字集中支援繁中、英文、日文、韓文、西班牙文、德文與泰文；其他既有語系暫用英文介面。內容資料仍沿用 content loader 的來源及回退機制。
 
 靜態文字使用 `data-category-text="coffee.title"`，搜尋提示使用 `data-category-placeholder`，無可見標題的篩選群組以 `data-category-label` 保留無障礙名稱。動態按鈕使用 `CategoryUI` 取得當前語系文字。分類頁加上 `category-page`，主標與副標分別使用 `category-hero-title`、`category-hero-subtitle`，避免另加重複英文標題。
 
-咖啡 API 的各語系資料須保留相同 ID；載入時以中文資料對照產生 `filterCity`、`filterTags`，顯示文字可翻譯，篩選鍵維持固定。咖啡、米其林與採訪分頁切換統一呼叫 `CategoryUI.applyCafeHero()` 更新標題。
+咖啡 API 的各語系資料須保留相同 ID；載入時以中文資料對照產生 `filterCity`、`filterTags`，顯示文字可翻譯，篩選鍵維持固定。咖啡與米其林分頁切換統一呼叫 `CategoryUI.applyCafeHero()` 更新標題；深度採訪使用獨立頁面 `journals.html`。
 
 驗證：`node --test scripts/test_category_ui.cjs scripts/test_spots.cjs`（不需安裝套件）。
 
 咖啡主理人合作入口使用原生 `<dialog>` 與 `js/cafe_partnership.js`，文案位於分類字典的 `partnership`。表單包含店名、縣市區域、聯絡方式三個必填文字欄位，以及探店、數位菜單、品牌廣告三選一的合作項目。驗證後開啟 Gmail 網頁撰寫視窗，自動帶入固定合作信箱 `himydream.studio0220@gmail.com`、店名與合作項目的主旨，以及四項表單資料。使用者須登入 Gmail、確認內容並自行寄出；網站不會宣稱郵件已寄出。若新視窗被阻擋，彈窗提供再次開啟 Gmail 的連結與複製信箱功能。此流程可直接在 GitHub Pages 使用，不需寄信 API 或金鑰。
 
 驗證：`node --test scripts/test_cafe_partnership.cjs`（不會寄出真實郵件）。
+
+## 深度採訪獨立頁面
+
+全站深度採訪入口統一使用 `journals.html`。頁面由 `js/journals.js` 渲染文章列表與完整閱讀彈窗，沿用 `weekend_hop_i18n.js` 與 `weekend_hop_i18n_extra.js` 的各語系資料。`cafe.html` 不再載入文章資料或讀取器；兩頁共用 `css/cafe-journals.css`，維持既有視覺樣式。
+
+舊網址 `cafe.html?tab=weekend-hop` 會在頁首以 `location.replace()` 轉址到 `journals.html`，保留語言、其他查詢參數與錨點，並移除 `tab`。咖啡與米其林原有網址不受影響。驗證：`node --test scripts/test_journals.cjs`。
+
+深度採訪的功能性文案集中於 `js/journals_i18n.js`（繁中、英、日、韓、西、德、泰；其餘語系回退英文）。靜態文案以 `data-journal-text`、`data-journal-title` 標記，頁尾連結重用 `WEB_CHROME_I18N`。閱讀彈窗每次開啟後套用翻譯，介面語系獨立於文章語系，故德文介面不會隨英文文章回退而改成英文。司機卡保留中文地址；缺少完整報導時顯示原始摘要，不產生中文通用文章。

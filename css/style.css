@@ -7697,6 +7697,23 @@ body.bg-theme-hotspring .itinerary-duration-badge {
   white-space: nowrap;
 }
 
+/* Keep translated header actions on one line and measure their full width. */
+.site-header .header-right-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  gap: 10px;
+}
+.site-header .header-right-tools a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.site-header #site-navigation { flex-shrink: 0; }
+
 .nav-toggle {
   display: none;
   align-items: center;
@@ -7747,6 +7764,36 @@ body.bg-theme-hotspring .itinerary-duration-badge {
     white-space: normal;
   }
 }
+
+/* Longer translations can need the compact menu even on wide screens. */
+
+  .site-header.nav-compact .header-inner { gap: 12px; }
+  .site-header.nav-compact .brand-logo-wrap { margin-right: auto; }
+  .site-header.nav-compact .nav-toggle { display: inline-flex; order: 3; }
+  .site-header.nav-compact #site-navigation {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 12px 20px;
+    background: #fff;
+    border-bottom: 1px solid #E2E8F0;
+    box-shadow: 0 12px 20px rgba(15, 23, 42, 0.1);
+    max-height: 75vh;
+    overflow-y: auto;
+  }
+  .site-header.nav-compact.nav-open #site-navigation { display: block; }
+  .site-header.nav-compact #site-navigation .nav-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+  .site-header.nav-compact #site-navigation .nav-item a {
+    min-height: 44px;
+    white-space: normal;
+  }
 
 @media (max-width: 680px) {
   .site-header .header-inner { padding: 0 16px; }

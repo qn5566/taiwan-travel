@@ -48,7 +48,7 @@ test('every supported language has complete short hero and filter labels', () =>
 test('switching cafe tabs preserves one title and one subtitle in the selected language', () => {
   for (const lang of languages) {
     const { ui, nodes } = setup(lang);
-    for (const [tab, key] of [['coffee-map', 'coffee'], ['michelin-guide', 'michelin'], ['weekend-hop', 'journals'], ['coffee-map', 'coffee']]) {
+    for (const [tab, key] of [['coffee-map', 'coffee'], ['michelin-guide', 'michelin'], ['coffee-map', 'coffee']]) {
       ui.applyCafeHero(tab);
       assert.equal(nodes.get('hero-main-title').textContent, ui.t(`${key}.title`));
       assert.equal(nodes.get('hero-sub-desc').textContent, ui.t(`${key}.subtitle`));
@@ -67,7 +67,7 @@ test('translated cafe data retains stable city and feature filter keys', () => {
 });
 
 test('category pages all load the shared module and coffee has no duplicate English hero', () => {
-  for (const page of ['cafe.html', 'themes.html', 'spots.html', 'ranking.html', 'souvenir.html']) {
+  for (const page of ['cafe.html', 'themes.html', 'spots.html', 'ranking.html', 'souvenir.html', 'journals.html']) {
     const html = fs.readFileSync(page, 'utf8');
     assert.equal((html.match(/src="js\/category_i18n.js" defer/g) || []).length, 1);
     assert.equal((html.match(/<h1\b/g) || []).length, 1);

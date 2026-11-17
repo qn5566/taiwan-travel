@@ -25,8 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const page = window.location.pathname.split("/").pop() || "index.html";
   if (page === "cafe.html") {
-    setSiteNavigationActive(new URLSearchParams(window.location.search).get("tab") === "weekend-hop"
-      ? "navJournals" : "navCafe");
+    setSiteNavigationActive("navCafe");
+  } else if (page === "journals.html") {
+    setSiteNavigationActive("navJournals");
   }
 
   function setOpen(open) {
@@ -52,6 +53,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!header.contains(event.target)) setOpen(false);
   });
   const mobile = window.matchMedia("(max-width: 1320px)");
-  mobile.addEventListener("change", () => setOpen(false));
+  // Measure the translated desktop labels instead of assuming every language
+  // fits at the same breakpoint. Removing the class is synchronous (no flicker).
+  function fitNavigation() {
+    header.classList.remove("nav-compact");
+    if (!mobile.matches) {
+      const inner = header.querySelector(".header-inner");
+      const style = getComputedStyle(inner);
+      const children = [...inner.children].filter(el => getComputedStyle(el).display !== "none");
+      const needed = children.reduce((sum, el) => sum + el.getBoundingClientRect().width, 0)
+        + Math.max(0, children.length - 1) * parseFloat(style.columnGap || 0);
+      const available = inner.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+      header.classList.toggle("nav-compact", needed > available);
+    }
+    if (!header.classList.contains("nav-compact") && !mobile.matches) setOpen(false);
+  }
+  mobile.addEventListener("change", () => { setOpen(false); fitNavigation(); });
+  window.addEventListener("resize", fitNavigation);
+  new MutationObserver(fitNavigation).observe(nav, { childList: true, subtree: true, characterData: true });
+  fitNavigation();
+  if (document.fonts) document.fonts.ready.then(fitNavigation);
 
 });
