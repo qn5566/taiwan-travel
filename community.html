@@ -82,7 +82,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo-wrap">
-        <img src="assets/taiwan_roam_logo.png" alt="台灣吃喝玩樂 TAIWAN ROAM" class="brand-logo-img" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
+        <img src="assets/taiwan_roam_logo.webp" alt="台灣吃喝玩樂 TAIWAN ROAM" class="brand-logo-img" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
         <div class="brand-text-block">
           <div class="brand-name">
             台灣吃喝玩樂
@@ -150,8 +150,8 @@
         </h3>
         
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 14px;">
-          <input type="text" id="comm-name" data-category-placeholder="community.namePlaceholder" placeholder="您的暱稱 (例: Kevin)" style="padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 12px; font-size: 14px; outline: none;">
-          <input type="text" id="comm-location" data-category-placeholder="community.locPlaceholder" placeholder="居住地 (例: 香港 / 東京)" style="padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 12px; font-size: 14px; outline: none;">
+          <input type="text" id="comm-name" maxlength="80" data-category-placeholder="community.namePlaceholder" placeholder="您的暱稱 (例: Kevin)" style="padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 12px; font-size: 14px; outline: none;">
+          <input type="text" id="comm-location" maxlength="120" data-category-placeholder="community.locPlaceholder" placeholder="居住地 (例: 香港 / 東京)" style="padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 12px; font-size: 14px; outline: none;">
           <select id="comm-topic" style="padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 12px; font-size: 14px; outline: none; background: #FFF; font-weight: 600;">
             <option value="行程健檢" data-category-text="community.topicItinerary">🗺️ 行程健檢 Q&A</option>
             <option value="美食推薦" selected data-category-text="community.topicFood">🧋 排隊美食推薦</option>
@@ -161,10 +161,10 @@
           </select>
         </div>
 
-        <textarea id="comm-content" rows="3" data-category-placeholder="community.contentPlaceholder" placeholder="請分享您的旅行體驗、給其他旅人的建議或提出您的行程疑問..." style="width: 100%; padding: 14px 16px; border: 1px solid #CBD5E1; border-radius: 14px; font-size: 14px; font-family: inherit; outline: none; margin-bottom: 14px; resize: vertical;"></textarea>
+        <textarea id="comm-content" maxlength="2000" rows="3" data-category-placeholder="community.contentPlaceholder" placeholder="請分享您的旅行體驗、給其他旅人的建議或提出您的行程疑問..." style="width: 100%; padding: 14px 16px; border: 1px solid #CBD5E1; border-radius: 14px; font-size: 14px; font-family: inherit; outline: none; margin-bottom: 14px; resize: vertical;"></textarea>
         
         <div style="display: flex; justify-content: space-between; align-items: center;">
-          <span style="font-size: 12px; color: #94A3B8;" data-category-text="community.formNote">文明交流，歡迎真實分享台灣在地美好時光</span>
+          <span style="font-size: 12px; color: #94A3B8;" data-category-text="community.formNote">留言僅儲存在此瀏覽器，不會公開或同步。</span>
           <button onclick="postComment()" class="btn-action btn-klook-book" style="padding: 10px 24px; font-size: 13px; font-weight: 800;" data-category-text="community.btnPost">
             發布留言 🚀
           </button>
@@ -176,7 +176,7 @@
         <h3 id="comments-header-title" style="font-size: 18px; font-weight: 900; color: #0F172A;">
           <span data-category-text="community.feedTitle">💬 最新交流動態</span> (<span id="comments-count">0</span>)
         </h3>
-        <span style="font-size: 12px; color: #64748B;" data-category-text="community.feedSub">即時在地回饋 · 已驗證旅人</span>
+        <span style="font-size: 12px; color: #64748B;" data-category-text="community.feedSub">範例內容與此瀏覽器的留言</span>
       </div>
 
       <div id="comments-list-box" style="display: flex; flex-direction: column; gap: 16px;">
@@ -199,7 +199,7 @@
         <!-- 左側：品牌核心理念、三語文案、網站使用介紹與開發團隊 -->
         <div style="flex: 1.45; min-width: 320px; max-width: 640px;">
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-            <img src="assets/taiwan_roam_logo.png" alt="Taiwan Roam" style="width: 46px; height: 46px; border-radius: 14px; object-fit: cover; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.22); border: 2px solid #FFFFFF;">
+            <img src="assets/taiwan_roam_logo.webp" alt="Taiwan Roam" style="width: 46px; height: 46px; border-radius: 14px; object-fit: cover; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.22); border: 2px solid #FFFFFF;">
             <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
               <span style="font-size: 22px; font-weight: 900; color: #0C4A6E; letter-spacing: -0.3px;" data-footer-text="brand">台灣吃喝玩樂</span>
 
@@ -265,6 +265,8 @@
     </div>
   </footer>
 
+  <script src="js/affiliate-config.js"></script>
+  <script src="js/affiliate-market.js"></script>
   <script src="js/affiliate.js"></script>
   <script src="js/favorites_i18n.js"></script>
   <script src="js/favorites.js"></script>
@@ -325,13 +327,29 @@
     });
 
     function getStoredComments() {
-      const stored = localStorage.getItem("tw_community_comments");
-      if (stored) {
-        try {
-          return JSON.parse(stored);
-        } catch(e) {}
-      }
-      return DEFAULT_COMMENTS;
+      let comments = DEFAULT_COMMENTS;
+      try {
+        const stored = JSON.parse(localStorage.getItem("tw_community_comments") || 'null');
+        if (Array.isArray(stored)) comments = stored;
+      } catch(e) {}
+      return comments.filter(c => c && typeof c.name === 'string' && typeof c.content === 'string').slice(0, 200).map((c, index) => ({
+        id: typeof c.id === 'string' && /^[a-zA-Z0-9_-]+$/.test(c.id) ? c.id : 'local_' + index,
+        name: c.name.slice(0, 80), content: c.content.slice(0, 2000),
+        location: String(c.location || '').slice(0, 120),
+        topic: ['行程健檢','美食推薦','咖啡探店','交通包車','住宿體驗'].includes(c.topic) ? c.topic : '美食推薦',
+        time: String(c.time || '').slice(0, 80),
+        createdAt: typeof c.createdAt === 'number' && Number.isFinite(c.createdAt) ? c.createdAt : null,
+        likes: Math.max(0, Math.min(100000, Math.floor(Number(c.likes) || 0)))
+      }));
+    }
+
+    function escapeCommentText(value) {
+      return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    function saveComments(comments) {
+      try { localStorage.setItem('tw_community_comments', JSON.stringify(comments.slice(0, 200))); return true; }
+      catch (_) { alert(getCommT('alertStorage', '無法儲存在此瀏覽器，請檢查儲存空間或隱私設定。您的輸入仍保留。')); return false; }
     }
 
     function filterTopic(topic) {
@@ -381,36 +399,37 @@
 
       container.innerHTML = filtered.map(c => {
         const displayTopic = getTopicName(c.topic);
-        const displayTime = (!c.time || c.time === '剛剛') ? justNowLabel : c.time;
+        const displayTime = c.createdAt ? new Date(c.createdAt).toLocaleString() : ((!c.time || c.time === '剛剛') ? justNowLabel : c.time);
         return `
           <div class="comment-card">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
               <div style="display: flex; align-items: center; gap: 10px;">
                 <div style="width: 38px; height: 38px; border-radius: 50%; background: #E0F2FE; color: #0284C7; font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center;">
-                  ${c.name.charAt(0)}
+                  ${escapeCommentText(c.name.charAt(0))}
                 </div>
                 <div>
-                  <div style="font-weight: 800; font-size: 14px; color: #0F172A;">${c.name}</div>
-                  <div style="font-size: 11px; color: #64748B;">📍 ${c.location} ‧ ${displayTime}</div>
+                  <div style="font-weight: 800; font-size: 14px; color: #0F172A;">${escapeCommentText(c.name)}</div>
+                  <div style="font-size: 11px; color: #64748B;">📍 ${escapeCommentText(c.location)} ‧ ${escapeCommentText(displayTime)}</div>
                 </div>
               </div>
               <span style="font-size: 11px; font-weight: 700; color: #0284C7; background: #F0F9FF; border: 1px solid #BAE6FD; padding: 3px 8px; border-radius: 6px;">
-                ${displayTopic}
+                ${escapeCommentText(displayTopic)}
               </span>
             </div>
 
             <p style="font-size: 14px; color: #334155; line-height: 1.6; margin-bottom: 12px;">
-              ${c.content}
+              ${escapeCommentText(c.content)}
             </p>
 
             <div style="display: flex; justify-content: flex-end; align-items: center; gap: 14px; font-size: 12px; color: #64748B;">
-              <button onclick="likeComment('${c.id}')" style="background: none; border: none; cursor: pointer; color: #64748B; font-size: 12px; display: flex; align-items: center; gap: 4px;">
-                ❤️ ${usefulLabel} (${c.likes || 0})
+              <button type="button" data-comment-id="${escapeCommentText(c.id)}" style="background: none; border: none; cursor: pointer; color: #64748B; font-size: 12px; display: flex; align-items: center; gap: 4px;">
+                ❤️ ${escapeCommentText(usefulLabel)} (${c.likes || 0})
               </button>
             </div>
           </div>
         `;
       }).join("");
+      container.querySelectorAll('[data-comment-id]').forEach(button => button.addEventListener('click', () => likeComment(button.dataset.commentId)));
     }
 
     function postComment() {
@@ -432,24 +451,27 @@
       const defaultUser = getCommT('defaultUser', "全球旅人");
 
       const newComm = {
-        id: "c_" + Date.now(),
-        name: name,
-        location: loc || defaultUser,
+        id: "c_" + crypto.randomUUID(),
+        name: name.slice(0, 80),
+        location: (loc || defaultUser).slice(0, 120),
         topic: topic,
         time: getCommT('justNow', "剛剛"),
-        likes: 1,
-        content: content
+        createdAt: Date.now(),
+        likes: 0,
+        content: content.slice(0, 2000)
       };
 
       const currentList = getStoredComments();
       currentList.unshift(newComm);
-      localStorage.setItem("tw_community_comments", JSON.stringify(currentList));
+      if (!saveComments(currentList)) return;
 
       nameInput.value = "";
       locInput.value = "";
       contentInput.value = "";
 
-      alert(getCommT('alertSuccess', "🎉 留言發布成功！感謝您的分享！"));
+      alert(getCommT('alertSuccess', "留言已儲存在此瀏覽器，尚未公開發布。"));
+      activeTopic = '全部';
+      document.querySelectorAll('.comment-tag-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.topic === '全部'));
       loadComments();
     }
 
@@ -458,7 +480,7 @@
       const target = currentList.find(c => c.id === id);
       if (target) {
         target.likes = (target.likes || 0) + 1;
-        localStorage.setItem("tw_community_comments", JSON.stringify(currentList));
+        if (!saveComments(currentList)) return;
         loadComments();
       }
     }

@@ -18,6 +18,7 @@
   
   <!-- 全站專用樣式表 -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" as="image" href="assets/hero_bg_island.webp" fetchpriority="high">
   <!-- Technical SEO: Canonical & Hreflang Multi-language Alternate Links -->
   <link rel="canonical" href="https://taiwanroam.tw/" />
   <link rel="alternate" hreflang="zh-TW" href="https://taiwanroam.tw/" />
@@ -51,7 +52,7 @@
     <div class="container header-inner">
       <!-- 品牌 Logo -->
       <a href="index.html" class="brand-logo-wrap">
-        <img src="assets/taiwan_roam_logo.png" alt="台灣吃喝玩樂 TAIWAN ROAM" class="brand-logo-img" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 8px rgba(0,0,0,0.18);">
+        <img src="assets/taiwan_roam_logo.webp" alt="台灣吃喝玩樂 TAIWAN ROAM" class="brand-logo-img" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 8px rgba(0,0,0,0.18);">
         <div class="brand-text-block">
           <div class="brand-name">
             台灣吃喝玩樂
@@ -88,7 +89,7 @@
        ✨ 2. 全寬英雄首頁視覺 (Hero Stage & Overhanging White Search Hub)
        ========================================================= -->
   <section id="hero" class="hero-stage-section">
-    <div class="hero-bg-cover" style="background-image: url('assets/hero_bg_island.png'); border-radius: 0;">
+    <div class="hero-bg-cover" style="background-image: url('assets/hero_bg_island.webp'); border-radius: 0;">
       <div class="container hero-content-center">
         <!-- 核心標語 (日雜散步小確幸・軟萌生活感) -->
         <div class="hero-headline-wrap">
@@ -118,19 +119,19 @@
                 <span class="hero-tab-en">Flights</span>
               </span>
             </a>
-            <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=106452" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
+            <a href="https://www.klook.com/zh-TW/city/19-taiwan-car-charter/?aid=123436" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
               <span class="hero-tab-text">
                 <span class="hero-tab-zh">包車</span>
                 <span class="hero-tab-en">Charter</span>
               </span>
             </a>
-            <a href="https://www.klook.com/zh-TW/airport-transfers/?aid=106452" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
+            <a href="https://www.klook.com/zh-TW/airport-transfers/?aid=123436" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
               <span class="hero-tab-text">
                 <span class="hero-tab-zh">接送</span>
                 <span class="hero-tab-en">Transfer</span>
               </span>
             </a>
-            <a href="https://www.klook.com/zh-TW/wifi-sim-card/?aid=106452" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
+            <a href="https://www.klook.com/zh-TW/wifi-sim-card/?aid=123436" target="_blank" rel="noopener noreferrer" class="hero-service-tab">
               <span class="hero-tab-text">
                 <span class="hero-tab-zh">網卡</span>
                 <span class="hero-tab-en">eSIM</span>
@@ -152,8 +153,8 @@
 
           <!-- 2. 中間主搜尋輸入列 -->
           <div class="hero-search-input-row">
-            <input type="text" id="hero-main-search" class="hero-search-input" placeholder="搜尋全台熱門景點、城市、美食或主題（如：台北 101、九份、咖啡廳、溫泉）...">
-            <button id="hero-search-btn" class="hero-search-submit-btn">
+            <input type="text" id="hero-main-search" class="hero-search-input" aria-label="搜尋全台景點 / Search Taiwan" placeholder="搜尋全台熱門景點、城市、美食或主題（如：台北 101、九份、咖啡廳、溫泉）...">
+            <button type="button" id="hero-search-btn" class="hero-search-submit-btn">
               探索台灣 Search
             </button>
           </div>
@@ -388,7 +389,7 @@
         <!-- 左側：品牌核心理念、三語文案、網站使用介紹與開發團隊 -->
         <div style="flex: 1.45; min-width: 320px; max-width: 640px;">
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-            <img src="assets/taiwan_roam_logo.png" alt="Taiwan Roam" style="width: 46px; height: 46px; border-radius: 14px; object-fit: cover; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.22); border: 2px solid #FFFFFF;">
+            <img src="assets/taiwan_roam_logo.webp" alt="Taiwan Roam" style="width: 46px; height: 46px; border-radius: 14px; object-fit: cover; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.22); border: 2px solid #FFFFFF;">
             <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
               <span style="font-size: 22px; font-weight: 900; color: #0C4A6E; letter-spacing: -0.3px;" data-footer-text="brand">台灣吃喝玩樂</span>
 
@@ -455,6 +456,8 @@
   </footer>
 
   <!-- 核心資料與互動腳本 -->
+  <script src="js/affiliate-config.js"></script>
+  <script src="js/affiliate-market.js"></script>
   <script src="js/affiliate.js"></script>
   <script src="js/favorites_i18n.js"></script>
   <script src="js/favorites.js"></script>
@@ -465,30 +468,6 @@
   <script src="js/content_loader.js"></script>
   <script src="js/app.js"></script>
 
-  <script>
-    function postComment() {
-      const name = document.getElementById('comm-name').value.trim();
-      const loc = document.getElementById('comm-location').value.trim();
-      const content = document.getElementById('comm-content').value.trim();
-      if (!name || !content) {
-        alert('請填寫稱呼與留言內容！');
-        return;
-      }
-      const box = document.getElementById('comments-list-box');
-      const item = document.createElement('div');
-      item.style.cssText = 'background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 16px 20px; animation: fadeInSlide 0.3s ease;';
-      item.innerHTML = `
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-          <span style="font-weight: 800; font-size: 14px; color: #0F172A;">${name} ${loc ? '(' + loc + ')' : ''}</span>
-          <span style="font-size: 12px; color: #0284C7; font-weight: 700;">剛剛</span>
-        </div>
-        <p style="font-size: 13px; color: #475569; line-height: 1.6;">${content}</p>
-      `;
-      box.prepend(item);
-      document.getElementById('comm-content').value = '';
-      alert('留言發布成功！感謝您的分享！');
-    }
-  </script>
   <script src="js/navigation.js"></script>
 </body>
 </html>

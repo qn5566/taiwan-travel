@@ -21,6 +21,8 @@
 
 ## 二、 台灣專案目錄分類體系
 
+目前對外官網入口是根目錄 `index.html`，共用程式位於根目錄 `js/`、`css/`；`app/` 是另外保留的 H5 預覽版型。以下歷史資料夾示意不代表目前全部正式路由。
+
 ```
 台灣吃喝玩樂/
 ├── app/                      # 前端網頁應用
@@ -30,7 +32,7 @@
 │   └── manifest.json         # PWA 獨立宣告
 ├── config/                   # 獨立設定檔
 │   ├── app_config.json       # 區域與主分類設定
-│   ├── affiliate.json        # Klook / KKday 台灣特約分潤代碼
+│   ├── affiliate.json        # 與 ActivityEvent 同步的全球分潤矩陣（不推測 KKday / Agoda 帳號）
 │   └── .env.example          # API 金鑰範本
 ├── data/                     # 地點資料庫
 │   ├── taiwan_spots.json     # 完整地點 JSON 資料

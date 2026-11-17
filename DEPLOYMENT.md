@@ -25,7 +25,7 @@
 
 ## 🏷️ 全專案分潤平台最新總覽表 (HiMyDream Studio 官方規格)
 
-全站所有按鈕與跳轉連結已全數集中由 `js/affiliate.js` 的 `AFFILIATE_HUB` 自動調用管理：
+最新設定以 `config/affiliate.json` 為準；由 `js/affiliate-config.js`、`js/affiliate-market.js` 與相容的 `AFFILIATE_HUB` 共同套用。下表為歷史通道說明，全球新增通道與維護方式請見 README 的「全球分潤設定」。
 
 | 編號 | 服務模組與通路 | 模組代號 | 追蹤參數與推廣網址 | 主要應用場景 |
 | :---: | :--- | :--- | :--- | :--- |
@@ -40,24 +40,26 @@
 | **09** | **奧丁丁在地深度體驗**| `MODULE_AFFILIATE_OWLRING_EXPERIENCE` | `https://linkgo.one/s/ikCjF` | 花東部落文化行腳、百岳嚮導團、小農採茶體驗 |
 | **10** | **化妝品藥品備用通道**| `MODULE_AFFILIATE_COSMETICS_PHARMA` | `https://afflink.one/s/3WAKW` | 開架美妝藥品導購備用通道、行前清單醫美保養品 |
 | **11** | **Trip.com 官方聯盟** | 官方旗艦通道 | Allianceid=9507030&SID=325761227&trip_sub3=D20272275 | ✈️ 查機票比價、高鐵特惠、國內外訂房比價 |
-| **12** | **Klook 官方聯盟** | 官方旗艦通道 | `?aid=106452` | 🎟️ 預定行程、🚗 包車一日遊、高鐵聯票、機場接送 |
-| **13** | **SimOptions 網卡** | 官方推薦通道 | `https://www.simoptions.com/zh/` | 📶 台灣 eSIM 網卡、外國旅客來台行前上網指南 |
+| **12** | **Klook 官方聯盟** | 官方旗艦通道 | `?aid=123436` | 🎟️ 預定行程、🚗 包車一日遊、高鐵聯票、機場接送 |
+| **13** | **區域 eSIM 網卡** | 官方推薦通道 | Klook 在地語系 / Yesim 國際短鏈 | 📶 台灣 eSIM 網卡、外國旅客來台行前上網指南 |
 | **14** | **官方商務窗口** | HiMyDream Studio | `himydream.studio0220@gmail.com` | 全站頁尾聯絡、商務異業合作洽談、資料勘誤 |
 
 ---
 
-### 🏨 Booking.com 雙重追蹤機制 (聯盟網 Affiliates.One + Booking 原廠)
-- **短網址轉址**：`https://affone.me/s/bQeO4`
-- **Booking 專屬 AID**：`8133101`
-- **媒體追蹤標籤 (Label)**：`affnetcj-17288959_pub-4456004_site-100117277`
-- **運作模式**：所有「🏨 訂房去」按鈕均自動帶入目的地搜尋頁面，並雙重封裝在聯盟網中，同時累積聯盟網佣金與 Booking 原廠數據！
+### 住宿與市場切換
+
+住宿依市場選用 Trip.com 或 Hotels.com；舊的 Booking.com 雙重追蹤封裝已停止使用。
+雙北使用已確認城市 ID 617／765 及行政區關鍵字，其餘縣市採關鍵字搜尋。
+全球短鏈沒有已確認的目的地參數，請勿自行附加未驗證的查詢格式。
+
+設定更新與部署時，需一併上傳 `config/affiliate.json`、`js/affiliate-config.js`、`js/affiliate-market.js`、`js/affiliate.js`、CSS 與已修改頁面。新增的 `assets/*.webp` 也需發布。
 
 ---
 
 ## 🚀 自架網站與部署方式
 
 ### 方法一：本機或內網直接開啟
-- 雙擊 `index.html` 即可在任一瀏覽器直接開啟完整功能。
+- 請使用下列 HTTP 伺服器預覽；直接以 file:// 開啟時，遠端載入與瀏覽器儲存可能受限。
 - 或在終端機啟動本機伺服器：
   ```bash
   cd "台灣吃喝玩樂網頁版"

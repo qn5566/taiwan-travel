@@ -10,7 +10,7 @@ const AFFILIATE_HUB = {
   contactEmail: "himydream.studio0220@gmail.com",
 
   // 12. Klook 官方聯盟
-  klookAid: "106452",
+  klookAid: "123436",
   spotKlookAid: "123436",
 
   // 11. Trip.com 官方聯盟
@@ -24,37 +24,37 @@ const AFFILIATE_HUB = {
   bookingAffoneBase: "https://affone.me/s/bQeO4",
 
   // 01. 露營生鮮食材箱 (Uber Eats 外送直配)
-  campingFreshFoodUrl: "https://onelink.one/s/YoWYV",
+  campingFreshFoodUrl: "https://aftck.com/track/clicks/1489/c627c2bc980522defc82ec23d62e9d47266c4cdf2aabebf50368bb13234652eed671a3ea103a9e71?subid_1=台灣吃喝玩樂&subid_2=日本報報",
 
   // 02. 教育學習綜合平台 (vbtrax)
-  educationLearningUrl: "https://vbtrax.com/track/clicks/9445/c627c2bc9b0428dbf189ec23d62e9d47266c4cdf2aabebfd0364b713234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+  educationLearningUrl: "https://vbtrax.com/track/clicks/9445/c627c2bc9b0428dbf189ec23d62e9d47266c4cdf2aabebfd0364b713234652eed671a3ea103a9e71?subid_1=台灣吃喝玩樂&subid_2=日本報報",
 
   // 03. 線上學英文專屬推薦 (affckr)
-  englishLearningAppUrl: "https://affckr.site/track/clicks/6826/c627c2bc9b0428dbf18eec23d62e9d47266c4cdf2aabebf20f62b413234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1&subid_3=%E5%AD%B8%E8%8B%B1%E6%96%87%EF%BC%A1%EF%BC%B0%EF%BC%B0",
+  englishLearningAppUrl: "https://affckr.site/track/clicks/6826/c627c2bc9b0428dbf18eec23d62e9d47266c4cdf2aabebf20f62b413234652eed671a3ea103a9e71?subid_1=台灣吃喝&subid_2=日本報報&subid_3=學英文ＡＰＰ",
 
   // 04. 台灣熱門藥妝店 (affckr)
-  drugstoreTaiwanUrl: "https://affckr.site/track/clicks/5891/c627c2bc9b0428dbf188ec23d62e9d47266c4cdf2aabebf10f69b313234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+  drugstoreTaiwanUrl: "https://affckr.site/track/clicks/5891/c627c2bc9b0428dbf188ec23d62e9d47266c4cdf2aabebf10f69b313234652eed671a3ea103a9e71?subid_1=台灣吃喝玩樂&subid_2=日本報報",
 
   // 05. 質感選物店與生活選品 (affclkr)
-  lifestyleShopUrl: "https://affclkr.online/track/clicks/5686/c627c2bf910421d7fb8dec23d62e9d47266c4cdf2aabebf10168b413234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+  lifestyleShopUrl: "https://affclkr.online/track/clicks/5686/c627c2bf910421d7fb8dec23d62e9d47266c4cdf2aabebf10168b413234652eed671a3ea103a9e71?subid_1=台灣吃喝玩樂&subid_2=日本報報",
 
   // 06. Uber Eats 萬家福「休閒零嘴」與伴手禮外送直送飯店
-  wanjiafuLatestUrl: "https://onelink.one/s/YoWYV",
+  wanjiafuLatestUrl: "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=台灣吃喝玩樂&subid_2=日本報報",
 
   // 07. 台灣訂餐與優惠餐券 (affckr)
-  diningVoucherUrl: "https://affckr.site/track/clicks/4127/c627c2bc980126defc88ec23d62e9d47266c4cdf2aabebf00662b513234652eed671a3ea103a9e71?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82&subid_2=%E6%97%A5%E6%9C%AC%E5%A0%B1%E5%A0%B1",
+  diningVoucherUrl: "https://affckr.site/track/clicks/4127/c627c2bc980126defc88ec23d62e9d47266c4cdf2aabebf00662b513234652eed671a3ea103a9e71?subid_1=台灣吃喝玩樂&subid_2=日本報報",
 
   // 08. 保健食品導購 (afftkr)
-  healthSupplementsUrl: "https://afftkr.site/track/clicks/2498/c627c2bc900729d8fd9cab248d219d46266e5b9633e0e4f00e68a44125095ff88635aca3163d8e?subid_1=%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82",
+  healthSupplementsUrl: "https://afftkr.site/track/clicks/2498/c627c2bc900729d8fd9cab248d219d46266e5b9633e0e4f00e68a44125095ff88635aca3163d8e?subid_1=台灣吃喝玩樂",
 
   // 09. 奧丁丁在地深度體驗 (linkgo)
   owltingExperienceUrl: "https://linkgo.one/s/ikCjF",
 
   // 10. 化妝品與藥品備用通道 (afflink)
-  cosmeticsPharmaUrl: "https://afflink.one/s/3WAKW",
+  cosmeticsPharmaUrl: "https://affckr.site/track/clicks/5891/c627c2bc9b0428dbf188ec23d62e9d47266c4cdf2aabebf10f69b313234652eed671a3ea103a9e71?subid_1=台灣吃喝玩樂&subid_2=日本報報",
 
   // 13. 台灣上網網卡 / eSIM (Klook 官方聯盟)
-  simOptionsUrl: "https://www.klook.com/zh-TW/wifi-sim-card/?aid=106452",
+  simOptionsUrl: "https://www.klook.com/zh-TW/wifi-sim-card/?aid=123436",
 
   // Booking 特定飯店專屬短網址映射表（可隨時擴增）
   customBookingLinks: {
@@ -67,10 +67,13 @@ const AFFILIATE_HUB = {
 
   /** 1. 預定行程 (Klook) */
   getTourUrl: function(activityIdOrPath = "1874-jiufen-shifen-day-tour-taipei") {
-    if (activityIdOrPath.startsWith("http")) {
-      const url = new URL(activityIdOrPath);
-      url.searchParams.set("aid", this.klookAid);
-      return url.toString();
+    if (String(activityIdOrPath).startsWith("http")) {
+      try {
+        const url = new URL(activityIdOrPath);
+        if (url.protocol !== 'https:' || !/(^|\.)klook\.com$/.test(url.hostname)) return this.getSearchUrl(activityIdOrPath);
+        url.searchParams.set("aid", this.klookAid);
+        return url.toString();
+      } catch (_) { return this.getSearchUrl(activityIdOrPath); }
     }
     return `https://www.klook.com/zh-TW/activity/${activityIdOrPath}/?aid=${this.klookAid}`;
   },
@@ -218,3 +221,39 @@ const AFFILIATE_HUB = {
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spotName)}`;
   }
 };
+
+// Preserve the existing API used by every content page while sharing the
+// current worldwide matrix with the app and ActivityEvent backend.
+if (typeof window !== 'undefined' && window.AffiliateMarket) {
+  const market = window.AffiliateMarket;
+  const cfg = market.config;
+  const getters = {
+    klookAid: () => cfg.tracking.klookAid,
+    spotKlookAid: () => cfg.tracking.klookAid,
+    tripAllianceId: () => cfg.tracking.trip.Allianceid,
+    tripSid: () => cfg.tracking.trip.SID,
+    tripSub3: () => cfg.tracking.trip.trip_sub3,
+    simOptionsUrl: () => market.link('esim')
+  };
+  for (const [property, platform] of Object.entries({
+    campingFreshFoodUrl:'camping', wanjiafuLatestUrl:'souvenirs',
+    educationLearningUrl:'education', englishLearningAppUrl:'english',
+    drugstoreTaiwanUrl:'drugstore', lifestyleShopUrl:'design',
+    diningVoucherUrl:'dining', healthSupplementsUrl:'health',
+    owltingExperienceUrl:'owlting', cosmeticsPharmaUrl:'drugstore'
+  })) getters[property] = () => cfg.platforms[platform].url;
+  Object.entries(getters).forEach(([key, get]) => Object.defineProperty(AFFILIATE_HUB, key, {get}));
+  for (const name of ['getTourUrl','getSearchUrl','getSpotTourUrl','getAirportTransferUrl']) {
+    const original = AFFILIATE_HUB[name];
+    AFFILIATE_HUB[name] = function (...args) {return market.resolve(original.apply(this, args));};
+  }
+  AFFILIATE_HUB.getTripSearchUrl = keyword => market.link('hotel', keyword);
+  AFFILIATE_HUB.getHotelUrl = keyword => market.link('hotel', keyword);
+  AFFILIATE_HUB.getBookingUrl = keyword => market.link('hotel', keyword);
+  AFFILIATE_HUB.getTripBaseUrl = () => market.link('hotel');
+  AFFILIATE_HUB.getFlightUrl = () => market.link('flights');
+  AFFILIATE_HUB.getCharterUrl = city => market.link('charter', city);
+  AFFILIATE_HUB.getHsrUrl = () => market.link('transit');
+  AFFILIATE_HUB.getSimOptionsUrl = () => market.link('esim');
+  AFFILIATE_HUB.getUberEatsUrl = () => market.link('delivery');
+}

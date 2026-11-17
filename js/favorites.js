@@ -1,7 +1,7 @@
 /**
  * 台灣吃喝玩樂 Taiwan Roam - 全站通用離線收藏夾與專屬行程 PDF 匯出系統 (Favorites & Offline Travel Guide)
  * 支援全站四大卡牌類型：景點 (Spot)、行程 (Itinerary)、餐廳 (Restaurant)、咖啡 (Cafe)
- * 完美保留 Klook (aid=106452) 與 Trip.com 聯盟分潤導購預訂連結
+ * 完美保留 Klook (aid=123436) 與 Trip.com 聯盟分潤導購預訂連結
  */
 
 (function (window, document) {
@@ -134,7 +134,7 @@
                 img: "assets/icon_lantern.png",
                 rating: "4.9★",
                 desc: "熱門精選景點",
-                klookUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSearchUrl(name) : "https://www.klook.com/?aid=106452",
+                klookUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSearchUrl(name) : "https://www.klook.com/?aid=123436",
                 tripUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getTripSearchUrl(name) : "https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275",
                 mapUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(name) : `https://maps.google.com/?q=${encodeURIComponent(name)}`,
                 savedAt: Date.now()
@@ -198,7 +198,7 @@
           img: "assets/icon_lantern.png",
           rating: "4.9★",
           desc: "編輯部嚴選打卡推薦",
-          klookUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSearchUrl(itemData) : "https://www.klook.com/?aid=106452",
+          klookUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSearchUrl(itemData) : "https://www.klook.com/?aid=123436",
           tripUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getTripSearchUrl(itemData) : "https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275",
           mapUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(itemData) : `https://maps.google.com/?q=${encodeURIComponent(itemData)}`
         };
@@ -210,7 +210,7 @@
         else if (cat === "cafe") catLabel = "咖啡";
 
         const cleanName = itemData.name || itemData.title || "特色景點";
-        const cleanKlook = itemData.klookUrl || (typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSearchUrl(cleanName) : "https://www.klook.com/?aid=106452");
+        const cleanKlook = itemData.klookUrl || (typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSearchUrl(cleanName) : "https://www.klook.com/?aid=123436");
         const cleanTrip = itemData.tripUrl || (typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getTripSearchUrl(cleanName) : "https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275");
         const cleanMap = itemData.mapUrl || (typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(cleanName) : `https://maps.google.com/?q=${encodeURIComponent(cleanName)}`);
 

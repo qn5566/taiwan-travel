@@ -24,7 +24,25 @@
    - 一鍵跳轉雙北、台中、台南、高雄、宜蘭、花蓮。
 
 4. **分潤與導流**：
-   - 票券與體驗自動帶入 Klook / KKday 特約推廣代碼（AID: `123436`）。
+   - 依旅客市場選用規格中已確認的亞洲帳號與國際分潤短鏈，Klook AID 為 `123436`。
+
+## 全球分潤設定
+
+共同來源為相鄰專案 `../ActivityEvent/affiliate_config.json`。更新後執行：
+
+```sh
+python3 scripts/sync_affiliate_config.py
+```
+
+也可用 `--source /完整路徑/affiliate_config.json` 指定來源。腳本更新 `config/affiliate.json` 與同步載入的 `js/affiliate-config.js`；寵物品牌略過。
+
+頁面依序載入 `affiliate-config.js`、`affiliate-market.js`，需要既有 API 的頁面再載入 `affiliate.js`。請一併發布這些檔案。市場／幣別選單獨立於網站語言；選「自動偵測」可取消手動市場。IP 失敗時使用瀏覽器語言備援，只有國家與時間會被快取。
+
+`AFFILIATE_HUB` 保留既有函式名稱，住宿改依市場進入 Trip 或 Hotels.com，不再使用舊的 Booking 雙重追蹤。商品連結保留商品路徑；首頁、收藏與後續載入的卡片也會套用目前市場。既有台幣參考價不做匯率換算。
+
+舊的 `scripts/global_link_cleaner.py` 現在只做相同的設定同步，不再把新帳號改回舊帳號。詳細檢視、修正與後續建議見 [H5_REVIEW.md](H5_REVIEW.md)。
+
+驗證指令：`node --test scripts/test_*.cjs`。
 
 ---
 

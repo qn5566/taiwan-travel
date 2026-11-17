@@ -3344,6 +3344,11 @@ a {
   outline-offset: 3px;
 }
 
+.pill-card-item:focus-visible, .theme-icon-card:focus-visible {
+  outline: 3px solid #0284C7;
+  outline-offset: 4px;
+}
+
 @media (max-width: 680px) {
   .top-lang-inner { padding: 0 16px; gap: 8px; }
   .top-lang-label {

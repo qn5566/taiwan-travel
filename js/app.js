@@ -19,10 +19,23 @@ const WATERFALL_PAGE_SIZE = 10;
 let currentRankingTab = "drinks";
 let userFavorites = [];
 
+function escapeHomeText(value) {
+  return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function themeDestination(id) {
+  const lang = encodeURIComponent(currentLang);
+  if (id === 'michelin') return `michelin.html?lang=${lang}`;
+  if (id === 'cafe') return `cafe.html?lang=${lang}`;
+  return `themes.html?theme=${encodeURIComponent(id)}&lang=${lang}`;
+}
+
 // 頁面加載完成後初始化
 document.addEventListener("DOMContentLoaded", async () => {
   const initialLang = (typeof getWebLang === "function") ? getWebLang() : "zh-TW";
   currentLang = initialLang;
+  setupSearchHub();
+  updateFavBadge();
   renderWaterfallSection();
   if (typeof switchLanguage === "function") {
     await switchLanguage(initialLang);
@@ -38,8 +51,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     renderRankingsSection();
     renderBlogSection();
   }
-  setupSearchHub();
-  updateFavBadge();
 });
 
 /* =========================================================
@@ -50,27 +61,31 @@ function renderTrendingSection() {
   if (!container || typeof TOP_ACTIVITIES_6 === "undefined") return;
 
   const isEn = (currentLang === "en");
+  const escape = escapeHomeText;
 
   container.innerHTML = TOP_ACTIVITIES_6.map(item => {
     const klookUrl = (typeof AFFILIATE_HUB !== "undefined" && AFFILIATE_HUB.getTourUrl) 
       ? AFFILIATE_HUB.getTourUrl(item.activityId) 
-      : `https://www.klook.com/zh-TW/activity/${item.activityId}/?aid=106452`;
+      : `https://www.klook.com/zh-TW/activity/${item.activityId}/?aid=123436`;
     const title = (isEn && item.enName) ? item.enName : item.name;
     const ctaText = isEn ? "Book ➔" : "預定去 ➔";
     const fallbackImg = item.localImg || item.img;
     return `
-      <div class="pill-card-item" onclick="window.open('${klookUrl}', '_blank')" title="${title}" style="cursor: pointer;">
+      <a class="pill-card-item" href="${escape(klookUrl)}" target="_blank" rel="sponsored noopener noreferrer" title="${escape(title)}" style="cursor: pointer; text-decoration:none; color:inherit;">
         <div class="pill-window">
-          <img src="${item.img}" alt="${title}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackImg}';">
+          <img src="${escape(item.img)}" alt="${escape(title)}" loading="lazy" data-fallback-src="${escape(fallbackImg)}">
           <div class="pill-window-overlay"></div>
         </div>
         <div class="pill-info-block">
-          <div class="pill-title" style="cursor: pointer; margin-bottom: 8px;">${title}</div>
+          <div class="pill-title" style="cursor: pointer; margin-bottom: 8px;">${escape(title)}</div>
           <span class="pill-klook-cta" style="cursor: pointer;">${ctaText}</span>
         </div>
-      </div>
+      </a>
     `;
   }).join("");
+  container.querySelectorAll('img[data-fallback-src]').forEach(image => image.addEventListener('error', () => {
+    if (image.dataset.fallbackSrc && image.src !== image.dataset.fallbackSrc) image.src = image.dataset.fallbackSrc;
+  }, {once:true}));
 }
 
 function scrollTrending(direction) {
@@ -92,27 +107,17 @@ function renderThemesSection() {
 
   container.innerHTML = THEMES_DATA.map(theme => {
     return `
-      <div class="theme-icon-card" onclick="filterByTheme('${theme.id}')" title="${theme.name}">
-        <div class="theme-icon-circle">${theme.icon}</div>
-        <div class="theme-card-title">${theme.shortName}</div>
-        <div class="theme-card-count">${theme.count}</div>
-      </div>
+      <a class="theme-icon-card" href="${escapeHomeText(themeDestination(theme.id))}" title="${escapeHomeText(theme.name)}" style="text-decoration:none;color:inherit;">
+        <div class="theme-icon-circle">${escapeHomeText(theme.icon)}</div>
+        <div class="theme-card-title">${escapeHomeText(theme.shortName)}</div>
+        <div class="theme-card-count">${escapeHomeText(theme.count)}</div>
+      </a>
     `;
   }).join("");
 }
 
 function filterByTheme(themeId) {
-  if (themeId === "michelin") {
-    window.location.href = "michelin.html";
-    return;
-  }
-  if (themeId === "cafe") {
-    window.location.href = "cafe.html";
-    return;
-  }
-  // 平滑滾動到瀑布流
-  const wf = document.getElementById("city-spots");
-  if (wf) wf.scrollIntoView({ behavior: "smooth" });
+  window.location.href = themeDestination(themeId);
 }
 
 /* =========================================================
@@ -694,7 +699,7 @@ function toggleFavorite(spotName, btnEl) {
       img: "assets/icon_lantern.png",
       rating: "★ 4.9",
       desc: "編輯部推薦熱門景點",
-      klookUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSearchUrl(spotName) : "https://www.klook.com/?aid=106452",
+      klookUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getSearchUrl(spotName) : "https://www.klook.com/?aid=123436",
       tripUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getTripSearchUrl(spotName) : "https://www.trip.com/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275",
       mapUrl: typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getMapUrl(spotName) : `https://maps.google.com/?q=${encodeURIComponent(spotName)}`
     };

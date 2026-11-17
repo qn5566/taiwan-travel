@@ -1,6 +1,6 @@
 /**
  * 台灣吃喝玩樂 - 伴手禮電商直購與熱賣排行榜資料集 (SOUVENIR_CATEGORIES_DATA)
- * 整合 Klook 官方直送飯店 (aid=106452) 與外送通道
+ * 整合 Klook 官方直送飯店 (aid=123436) 與外送通道
  */
 
 var SOUVENIR_CATEGORIES_DATA = [
@@ -13,7 +13,7 @@ var SOUVENIR_CATEGORIES_DATA = [
     "badge": "外籍旅客指名 No.1 必買",
     "desc": "全年熱銷破億顆的台灣國民冠軍之光！精選佳德、小潘、微熱山丘、糖村、海邊走走、郭元益、聖瑪莉等官方名店直送飯店服務。",
     "cta": "🛍️ 訂購直送飯店 ➔",
-    "defaultUrl": "https://www.klook.com/zh-TW/search/result/?query=%E4%BC%B4%E6%89%8B%E7%A6%AE&search_scope=main_search&aid=106452",
+    "defaultUrl": "https://www.klook.com/zh-TW/search/result/?query=%E4%BC%B4%E6%89%8B%E7%A6%AE&search_scope=main_search&aid=123436",
     "items": [
       {
         "rank": 1,
@@ -26,7 +26,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "25,150+ 好評",
         "img": "https://res.klook.com/image/upload/activities/tleeetz29fahtcfq9pxx.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/26641-chia-te-bakery-pineapple-cake-souvenir-set-delivery-taipei?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/26641-chia-te-bakery-pineapple-cake-souvenir-set-delivery-taipei?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       },
@@ -41,7 +41,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "24,300+ 好評",
         "img": "https://res.klook.com/image/upload/activities/lqzrcpabnn4m7rdiuxas.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/23075-pans-cake-pineapple-pastry-souvenir-set-taipei?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/23075-pans-cake-pineapple-pastry-souvenir-set-taipei?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       },
@@ -56,7 +56,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "18,400+ 好評",
         "img": "https://res.klook.com/image/upload/activities/nu4kgoykhgj7i8xclmsy.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/85580-sugar-and-spice-french-nougat?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/85580-sugar-and-spice-french-nougat?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       },
@@ -71,7 +71,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "12,900+ 好評",
         "img": "https://res.klook.com/image/upload/activities/mmm1isndzwxjgzgl3b6e.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/89958-hiwalk-egg-rolls-home-delivery-airport-pick-up?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/89958-hiwalk-egg-rolls-home-delivery-airport-pick-up?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       },
@@ -86,7 +86,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "26,000+ 好評",
         "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop",
-        "buyUrl": "https://onelink.one/s/YoWYV",
+        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=台灣吃喝玩樂&subid_2=日本報報",
         "isKlook": false,
         "ctaText": "🛵 訂購外送 ➔"
       },
@@ -101,7 +101,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.7★",
         "reviews": "9,800+ 好評",
         "img": "https://res.klook.com/image/upload/activities/ldys70lczlf3dwbhhske.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/23753-sunmerry-pineapple-shortcake-souvenir-set-taipei?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/23753-sunmerry-pineapple-shortcake-souvenir-set-taipei?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       },
@@ -116,7 +116,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.7★",
         "reviews": "8,400+ 好評",
         "img": "https://res.klook.com/image/upload/activities/meuwbopa8njaexxgdmf9.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/76047-salico-foods-butter-nougat-chestnut-candy-peanut-nougat-nougat-crackers-box-taiwan?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/76047-salico-foods-butter-nougat-chestnut-candy-peanut-nougat-nougat-crackers-box-taiwan?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       },
@@ -131,7 +131,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "11,200+ 好評",
         "img": "https://res.klook.com/image/upload/activities/wyxxzbexnefhatqxiu4s.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/41178-tainan-black-bridge-sausage-museum-keyring-diy?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/41178-tainan-black-bridge-sausage-museum-keyring-diy?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       },
@@ -146,7 +146,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "7,600+ 好評",
         "img": "https://res.klook.com/image/upload/activities/sxtehhlj2fpuiigkzcff.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/57963-taipei-kuo-yuan-ye-foods-mango-crisp-diy-experience-diy-experience?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/57963-taipei-kuo-yuan-ye-foods-mango-crisp-diy-experience-diy-experience?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       },
@@ -161,7 +161,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "5.0★",
         "reviews": "31,000+ 好評",
         "img": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&auto=format&fit=crop",
-        "buyUrl": "https://onelink.one/s/YoWYV",
+        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=台灣吃喝玩樂&subid_2=日本報報",
         "isKlook": false,
         "ctaText": "🛵 訂購外送 ➔"
       }
@@ -176,7 +176,7 @@ var SOUVENIR_CATEGORIES_DATA = [
     "badge": "茶人評鑑·米其林指定產區",
     "desc": "世界頂級的台灣高山茶饗宴！嚴選阿里山高山茶、日月潭台茶18號紅玉紅茶、坪林文山包種茶、桃園東方美人茶與天仁茗茶等，產地真空原葉禮盒直送飯店。",
     "cta": "🛍️ 訂購直送飯店 ➔",
-    "defaultUrl": "https://www.klook.com/zh-TW/search/result/?query=%E8%8C%B6%E8%91%89&search_scope=main_search&aid=106452",
+    "defaultUrl": "https://www.klook.com/zh-TW/search/result/?query=%E8%8C%B6%E8%91%89&search_scope=main_search&aid=123436",
     "items": [
       {
         "rank": 1,
@@ -189,7 +189,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "14,800+ 好評",
         "img": "https://res.klook.com/image/upload/activities/pw7xwggdplhsotlcu5vd.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/58136-hugosum-flower-tea-bag-blessing-bag-black-tea-soap-diy-experience-nantou?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/58136-hugosum-flower-tea-bag-blessing-bag-black-tea-soap-diy-experience-nantou?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       },
@@ -204,7 +204,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "16,200+ 好評",
         "img": "https://res.klook.com/image/upload/activities/rbgezftcckacrmx1ebqo.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/94760-alishan-funpass-chiayi?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/94760-alishan-funpass-chiayi?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       },
@@ -219,7 +219,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "22,500+ 好評",
         "img": "https://res.klook.com/image/upload/activities/rzjcymiy7gwdsnq0zaso.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/69997-cha-for-tea-taiwan?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/69997-cha-for-tea-taiwan?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       },
@@ -234,7 +234,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "8,900+ 好評",
         "img": "https://res.klook.com/image/upload/activities/utbnaeioioycapgaje1n.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/133613-oriental-beauty-tea-culture-museum-of-taiwan?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/133613-oriental-beauty-tea-culture-museum-of-taiwan?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       },
@@ -249,7 +249,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "6,500+ 好評",
         "img": "https://res.klook.com/image/upload/activities/ox6tbtb1c0adsw5wfai7.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/19770-siidcha-teahouse-taipei?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/19770-siidcha-teahouse-taipei?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       },
@@ -264,7 +264,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "7,300+ 好評",
         "img": "https://res.klook.com/image/upload/activities/omfmczizkpgrjly5qeic.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/3209-thousand-island-lake-pinglin-tea-plantation-taipei?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/3209-thousand-island-lake-pinglin-tea-plantation-taipei?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       },
@@ -279,7 +279,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "11,500+ 好評",
         "img": "https://res.klook.com/image/upload/activities/snjvegkanaybvxxefdo4.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/8569-skyline-teahouse-in-jiufen-voucher-taipei?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/8569-skyline-teahouse-in-jiufen-voucher-taipei?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       },
@@ -294,7 +294,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "5,400+ 好評",
         "img": "https://res.klook.com/image/upload/activities/mv0q6jq0tc9bobnx8ugc.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/28945-eirakucho-drum-tea-house-show-ticket-meal?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/28945-eirakucho-drum-tea-house-show-ticket-meal?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       },
@@ -309,7 +309,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "9,200+ 好評",
         "img": "https://res.klook.com/image/upload/activities/joizksgehepztcnphecx.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/117912-chicha-san-chen-in-taichung?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/117912-chicha-san-chen-in-taichung?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       },
@@ -324,7 +324,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "8,100+ 好評",
         "img": "https://res.klook.com/image/upload/activities/nvics9uzlozyi1iu1ogs.jpg",
-        "buyUrl": "https://www.klook.com/zh-TW/activity/115515-yonshin-tea-cake-selection-bar-parklane-branch?aid=106452",
+        "buyUrl": "https://www.klook.com/zh-TW/activity/115515-yonshin-tea-cake-selection-bar-parklane-branch?aid=123436",
         "isKlook": true,
         "ctaText": "🛍️ 訂購直送飯店 ➔"
       }
@@ -339,7 +339,7 @@ var SOUVENIR_CATEGORIES_DATA = [
     "badge": "宵夜追劇・童年回憶必備",
     "desc": "義美小泡芙、乖乖、可樂果、蝦味先等台灣國民熱銷零嘴，直接外送到下榻飯店大廳。",
     "cta": "🛵 訂購外送 ➔",
-    "defaultUrl": "https://onelink.one/s/YoWYV",
+    "defaultUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=台灣吃喝玩樂&subid_2=日本報報",
     "items": [
       {
         "rank": 1,
@@ -352,7 +352,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "52,000+ 好評",
         "img": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&auto=format&fit=crop",
-        "buyUrl": "https://onelink.one/s/YoWYV",
+        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=台灣吃喝玩樂&subid_2=日本報報",
         "isKlook": false,
         "ctaText": "🛵 訂購外送 ➔"
       },
@@ -367,7 +367,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "48,000+ 好評",
         "img": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&auto=format&fit=crop",
-        "buyUrl": "https://onelink.one/s/YoWYV",
+        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=台灣吃喝玩樂&subid_2=日本報報",
         "isKlook": false,
         "ctaText": "🛵 訂購外送 ➔"
       },
@@ -382,7 +382,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.8★",
         "reviews": "39,000+ 好評",
         "img": "https://images.unsplash.com/photo-1621447504864-d8686e12698c?w=600&auto=format&fit=crop",
-        "buyUrl": "https://onelink.one/s/YoWYV",
+        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=台灣吃喝玩樂&subid_2=日本報報",
         "isKlook": false,
         "ctaText": "🛵 訂購外送 ➔"
       }
@@ -397,7 +397,7 @@ var SOUVENIR_CATEGORIES_DATA = [
     "badge": "舒緩旅途疲勞・伴手禮首選",
     "desc": "金門一條根、綠油精、白花油、京都念慈菴川貝枇杷膏與台灣專利保養品。",
     "cta": "🛵 訂購外送 ➔",
-    "defaultUrl": "https://onelink.one/s/YoWYV",
+    "defaultUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=台灣吃喝玩樂&subid_2=日本報報",
     "items": [
       {
         "rank": 1,
@@ -410,7 +410,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "28,000+ 好評",
         "img": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop",
-        "buyUrl": "https://onelink.one/s/YoWYV",
+        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=台灣吃喝玩樂&subid_2=日本報報",
         "isKlook": false,
         "ctaText": "🛵 訂購外送 ➔"
       },
@@ -425,7 +425,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "33,000+ 好評",
         "img": "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=600&auto=format&fit=crop",
-        "buyUrl": "https://onelink.one/s/YoWYV",
+        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=台灣吃喝玩樂&subid_2=日本報報",
         "isKlook": false,
         "ctaText": "🛵 訂購外送 ➔"
       },
@@ -440,7 +440,7 @@ var SOUVENIR_CATEGORIES_DATA = [
         "rating": "4.9★",
         "reviews": "27,000+ 好評",
         "img": "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&auto=format&fit=crop",
-        "buyUrl": "https://onelink.one/s/YoWYV",
+        "buyUrl": "https://afftck.com/track/clicks/4459/c627c2bc980522defc8dec23d62e9d47266c4cdf2aabebf00365bb13234652eed671a3ea103a9e71?subid_1=台灣吃喝玩樂&subid_2=日本報報",
         "isKlook": false,
         "ctaText": "🛵 訂購外送 ➔"
       }
