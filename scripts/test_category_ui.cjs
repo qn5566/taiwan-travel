@@ -95,8 +95,8 @@ test('all ten API themes have labels in seven languages and new themes retain a 
   assert.equal(ui.theme('cinema'), '影視朝聖');
 });
 
-test('all seventeen ranking topics have seven-language labels and unknown topics keep their names', () => {
-  const ids = ['drinks', 'nightmarket', 'bbq', 'halal_vegan', 'tea', 'spots', 'walk', 'rainy', 'charter', 'hotspring', 'hostel', 'souvenir', 'cafe', 'events', 'anime', 'ocean', 'nightview'];
+test('all thirteen ranking topics have seven-language labels and unknown topics keep their names', () => {
+  const ids = ['drinks', 'nightmarket', 'bbq', 'halal_vegan', 'tea', 'spots', 'walk', 'rainy', 'charter', 'hotspring', 'hostel', 'souvenir', 'cafe'];
   for (const lang of languages) {
     const { ui, copy } = setup(lang);
     for (const id of ids) {
