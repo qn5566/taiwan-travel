@@ -733,21 +733,21 @@ function renderArticleModalContent(place) {
           </div>
         </div>
 
-        <h3 style="font-family: 'Noto Serif TC', serif; font-size: 19.5px; font-weight: 900; color: #082F49; line-height: 1.5; margin: 0 0 8px 0; letter-spacing: -0.3px;" data-journal-text="slogan">以熱愛出發，探索台灣的巷弄、山海與在地風味。</h3>
+        <h3 style="font-family: 'Noto Serif TC', serif; font-size: 19.5px; font-weight: 900; color: #082F49; line-height: 1.5; margin: 0 0 8px 0; letter-spacing: -0.3px;" data-footer-text="slogan">以熱愛出發，探索台灣的巷弄、山海與在地風味。</h3>
 
         
         
 
         <div style="background: #FFFFFF; border-left: 4px solid #0284C7; border-radius: 0 16px 16px 0; padding: 18px 22px; margin-bottom: 24px; box-shadow: 0 4px 16px rgba(12, 74, 110, 0.05);">
-          <p style="font-size: 13px; color: #334155; line-height: 1.85; margin: 0;" data-journal-text="about">HiMyDream STUDIO 策劃的台灣旅行指南，精選 22 縣市景點、米其林美食、330 間風格咖啡館與伴手禮，整合地圖導航、住宿比價與包車規劃。</p>
+          <p style="font-size: 13px; color: #334155; line-height: 1.85; margin: 0;" data-footer-text="about">HiMyDream STUDIO 策劃的台灣旅行指南，精選 22 縣市景點、米其林美食、330 間風格咖啡館與伴手禮，整合地圖導航、住宿比價與包車規劃。</p>
         </div>
 
         <div style="display: flex; gap: 12px; flex-wrap: wrap;">
           <a href="mailto:himydream.studio0220@gmail.com?subject=【品牌合作洽詢】台灣吃喝玩樂 Taiwan Roam 商業合作" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #0284C7 0%, #2563EB 100%); color: #FFFFFF; padding: 10px 22px; border-radius: 999px; font-size: 13px; font-weight: 800; text-decoration: none; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);">
-            <span data-journal-chrome="footerContactLabel">品牌合作洽詢</span>
+            <span data-footer-text="footerContactLabel">品牌合作洽詢</span>
           </a>
           <a href="https://himydream.me/studio/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; color: #0369A1; border: 1.5px solid #BAE6FD; padding: 10px 22px; border-radius: 999px; font-size: 13px; font-weight: 800; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-            <span data-journal-text="team">開發團隊</span> HiMyDream STUDIO ↗
+            <span data-footer-text="team">開發團隊</span> HiMyDream STUDIO ↗
           </a>
         </div>
       </div>
@@ -755,6 +755,7 @@ function renderArticleModalContent(place) {
   }
 
   applyJournalUI(modal);
+  SiteFooter.apply(getWebLang(), modal);
   modal.classList.add("show");
   modal.querySelector(".article-modal-card").scrollTop = 0;
   document.body.style.overflow = "hidden";

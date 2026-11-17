@@ -1131,20 +1131,8 @@ async function switchLanguage(lang) {
   const citySpotsTitle = document.querySelector("#city-spots h2");
   if (citySpotsTitle) citySpotsTitle.textContent = chrome.citySpotsTitle;
 
-  // 7. 頁尾 (僅翻譯具穩定 selector 的功能性文字；多語品牌宣言為設計元素維持原樣)
-  const footerContact = document.getElementById("footer-contact-label");
-  if (footerContact) footerContact.textContent = chrome.footerContactLabel;
-  const footerQuickLinks = document.getElementById("footer-quick-links-title");
-  if (footerQuickLinks) footerQuickLinks.textContent = chrome.footerQuickLinks;
-  const footerBottom = document.getElementById("footer-copyright");
-  if (footerBottom) footerBottom.textContent = chrome.footerBottom;
-
-  const footerQuickLinkEls = document.querySelectorAll("#footer-quick-links a");
-  footerQuickLinkEls.forEach((link, idx) => {
-    if (chrome.footerQuickLinkItems && chrome.footerQuickLinkItems[idx] != null) {
-      link.textContent = chrome.footerQuickLinkItems[idx];
-    }
-  });
+  // Footer strings are shared by all pages.
+  if (typeof SiteFooter !== "undefined") SiteFooter.apply(lang);
 
   // Load independent sections concurrently; each renders as soon as its data arrives.
   const sections = [
@@ -1270,6 +1258,7 @@ const HERO_SERVICE_TABS_I18N = {
 };
 
 function updateSiteNavigation(lang) {
+  if (typeof SiteFooter !== "undefined") SiteFooter.apply(lang);
   const labels = WEB_I18N[lang] || WEB_I18N.en;
   document.querySelectorAll("[data-nav-key]").forEach(link => {
     const label = labels[link.dataset.navKey];

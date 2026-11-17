@@ -111,6 +111,8 @@ const CATEGORY_I18N = {
       "shopping": "購物"
     },
     "themeLabels": {
+      "railway": "經典鐵道",
+      "cinema": "影視朝聖",
       "northcoast": "北海岸",
       "islands": "離島跳島",
       "hualien": "花東探索",
@@ -121,6 +123,11 @@ const CATEGORY_I18N = {
       "roadtrip": "台灣環島"
     },
     "topicLabels": {
+      "cafe": "風格咖啡",
+      "events": "年度活動",
+      "anime": "動漫朝聖",
+      "ocean": "海洋體驗",
+      "nightview": "絕美夜景",
       "drinks": "手搖飲",
       "nightmarket": "夜市小吃",
       "bbq": "燒肉",
@@ -156,7 +163,7 @@ const CATEGORY_I18N = {
       "sports": "運動"
     },
     "partnership": {
-      "entry": "咖啡店主理人專屬 ｜ 免費邀請探店採訪・商業合作 ➔",
+      "entry": "探店邀請與商業合作 ➔",
       "title": "邀請編輯部探店 / 商業合作洽談",
       "intro": "我們為全台具風格的咖啡空間提供「中英日多語系深度採訪專題」與「外國旅客友善數位菜單立牌」服務。",
       "shop": "咖啡店名稱",
@@ -289,6 +296,8 @@ const CATEGORY_I18N = {
       "shopping": "Shopping"
     },
     "themeLabels": {
+      "railway": "Scenic Railways",
+      "cinema": "Film Locations",
       "northcoast": "North Coast",
       "islands": "Island hopping",
       "hualien": "East Coast",
@@ -299,6 +308,11 @@ const CATEGORY_I18N = {
       "roadtrip": "Island road trip"
     },
     "topicLabels": {
+      "cafe": "Cafes",
+      "events": "Annual Events",
+      "anime": "Anime Spots",
+      "ocean": "Ocean Experiences",
+      "nightview": "Night Views",
       "drinks": "Boba",
       "nightmarket": "Night markets",
       "bbq": "Barbecue",
@@ -334,7 +348,7 @@ const CATEGORY_I18N = {
       "sports": "Sports"
     },
     "partnership": {
-      "entry": "Café Owners ｜ Invite Us for a Feature & Partnership ➔",
+      "entry": "Visit Invitations & Business Partnerships ➔",
       "title": "Invite Our Editors / Business Partnerships",
       "intro": "We offer in-depth features in Chinese, English and Japanese, plus multilingual digital menus and counter displays for international guests.",
       "shop": "Café name",
@@ -467,6 +481,8 @@ const CATEGORY_I18N = {
       "shopping": "買い物"
     },
     "themeLabels": {
+      "railway": "鉄道の旅",
+      "cinema": "ロケ地巡り",
       "northcoast": "北海岸",
       "islands": "離島めぐり",
       "hualien": "東海岸",
@@ -477,6 +493,11 @@ const CATEGORY_I18N = {
       "roadtrip": "台湾一周"
     },
     "topicLabels": {
+      "cafe": "カフェ",
+      "events": "年間イベント",
+      "anime": "アニメ聖地",
+      "ocean": "海の体験",
+      "nightview": "夜景",
       "drinks": "タピオカ",
       "nightmarket": "夜市グルメ",
       "bbq": "焼肉",
@@ -512,7 +533,7 @@ const CATEGORY_I18N = {
       "sports": "スポーツ"
     },
     "partnership": {
-      "entry": "カフェオーナー様へ ｜ 無料取材・掲載・ビジネス提携のご依頼 ➔",
+      "entry": "取材のご招待・ビジネス提携 ➔",
       "title": "編集部への取材招待 / ビジネス提携",
       "intro": "台湾の個性豊かなカフェに、中・英・日による特集取材と、海外のお客様向け多言語デジタルメニュー・店頭案内スタンドを提供しています。",
       "shop": "カフェ名",
@@ -645,6 +666,8 @@ const CATEGORY_I18N = {
       "shopping": "쇼핑"
     },
     "themeLabels": {
+      "railway": "철도 여행",
+      "cinema": "촬영지 여행",
       "northcoast": "북해안",
       "islands": "섬 여행",
       "hualien": "동해안",
@@ -655,6 +678,11 @@ const CATEGORY_I18N = {
       "roadtrip": "대만 일주"
     },
     "topicLabels": {
+      "cafe": "카페",
+      "events": "연간 행사",
+      "anime": "애니메이션 명소",
+      "ocean": "해양 체험",
+      "nightview": "야경",
       "drinks": "버블티",
       "nightmarket": "야시장",
       "bbq": "바비큐",
@@ -690,7 +718,7 @@ const CATEGORY_I18N = {
       "sports": "스포츠"
     },
     "partnership": {
-      "entry": "카페 사장님 전용 ｜ 무료 탐방 취재 및 제휴 신청 ➔",
+      "entry": "방문 취재 초청 및 비즈니스 제휴 ➔",
       "title": "편집부 방문 취재 초대 / 비즈니스 제휴",
       "intro": "대만의 개성 있는 카페를 위해 중국어·영어·일본어 심층 취재 특집과 외국인 친화 다국어 디지털 메뉴 및 카운터 안내판을 제공합니다.",
       "shop": "카페 이름",
@@ -823,6 +851,8 @@ const CATEGORY_I18N = {
       "shopping": "Compras"
     },
     "themeLabels": {
+      "railway": "Rutas en tren",
+      "cinema": "Lugares de rodaje",
       "northcoast": "Costa norte",
       "islands": "Islas",
       "hualien": "Costa este",
@@ -833,6 +863,11 @@ const CATEGORY_I18N = {
       "roadtrip": "Vuelta a Taiwán"
     },
     "topicLabels": {
+      "cafe": "Cafés",
+      "events": "Eventos anuales",
+      "anime": "Lugares de anime",
+      "ocean": "Experiencias marinas",
+      "nightview": "Vistas nocturnas",
       "drinks": "Té de burbujas",
       "nightmarket": "Mercados nocturnos",
       "bbq": "Barbacoa",
@@ -868,7 +903,7 @@ const CATEGORY_I18N = {
       "sports": "Deportes"
     },
     "partnership": {
-      "entry": "Para cafeterías ｜ Reportajes gratuitos y colaboraciones ➔",
+      "entry": "Invitaciones y colaboraciones comerciales ➔",
       "title": "Invita a la redacción / Colaboraciones",
       "intro": "Ofrecemos reportajes en chino, inglés y japonés, además de menús digitales multilingües y expositores de mostrador para visitantes internacionales.",
       "shop": "Nombre del café",
@@ -1001,6 +1036,8 @@ const CATEGORY_I18N = {
       "shopping": "Einkaufen"
     },
     "themeLabels": {
+      "railway": "Bahnreisen",
+      "cinema": "Drehorte",
       "northcoast": "Nordküste",
       "islands": "Inselhüpfen",
       "hualien": "Ostküste",
@@ -1011,6 +1048,11 @@ const CATEGORY_I18N = {
       "roadtrip": "Taiwan-Rundreise"
     },
     "topicLabels": {
+      "cafe": "Cafés",
+      "events": "Jährliche Events",
+      "anime": "Anime-Orte",
+      "ocean": "Meereserlebnisse",
+      "nightview": "Nachtpanoramen",
       "drinks": "Bubble Tea",
       "nightmarket": "Nachtmärkte",
       "bbq": "Grillgerichte",
@@ -1046,7 +1088,7 @@ const CATEGORY_I18N = {
       "sports": "Sport"
     },
     "partnership": {
-      "entry": "Für Cafébetreiber ｜ Kostenlose Reportage & Kooperation ➔",
+      "entry": "Besuchseinladungen & Geschäftskooperationen ➔",
       "title": "Redaktion einladen / Kooperationen",
       "intro": "Wir bieten Reportagen auf Chinesisch, Englisch und Japanisch sowie mehrsprachige digitale Speisekarten und Thekenaufsteller für internationale Gäste.",
       "shop": "Name des Cafés",
@@ -1179,6 +1221,8 @@ const CATEGORY_I18N = {
       "shopping": "ช้อปปิ้ง"
     },
     "themeLabels": {
+      "railway": "เส้นทางรถไฟ",
+      "cinema": "ตามรอยภาพยนตร์",
       "northcoast": "ชายฝั่งเหนือ",
       "islands": "เที่ยวเกาะ",
       "hualien": "ชายฝั่งตะวันออก",
@@ -1189,6 +1233,11 @@ const CATEGORY_I18N = {
       "roadtrip": "เที่ยวรอบไต้หวัน"
     },
     "topicLabels": {
+      "cafe": "คาเฟ่",
+      "events": "กิจกรรมประจำปี",
+      "anime": "ตามรอยอนิเมะ",
+      "ocean": "กิจกรรมทางทะเล",
+      "nightview": "วิวกลางคืน",
       "drinks": "ชานมไข่มุก",
       "nightmarket": "ตลาดกลางคืน",
       "bbq": "ปิ้งย่าง",
@@ -1224,7 +1273,7 @@ const CATEGORY_I18N = {
       "sports": "กีฬา"
     },
     "partnership": {
-      "entry": "สำหรับเจ้าของคาเฟ่ ｜ เชิญรีวิวฟรีและร่วมธุรกิจ ➔",
+      "entry": "เชิญเยี่ยมชมร้านและร่วมธุรกิจ ➔",
       "title": "เชิญกองบรรณาธิการเยี่ยมชม / ร่วมธุรกิจ",
       "intro": "เราจัดทำบทสัมภาษณ์เชิงลึกภาษาจีน อังกฤษ และญี่ปุ่น พร้อมเมนูดิจิทัลหลายภาษาและป้ายตั้งเคาน์เตอร์สำหรับนักท่องเที่ยวต่างชาติให้คาเฟ่ที่มีเอกลักษณ์ทั่วไต้หวัน",
       "shop": "ชื่อคาเฟ่",
@@ -1262,8 +1311,8 @@ const CategoryUI = (() => {
   }
   function city(name) { return CityRegions.localizedName(name, lang()); }
   function region(id) { return t(`regions.${id}`); }
-  function theme(id) { return t(`themeLabels.${id}`); }
-  function topic(id) { return t(`topicLabels.${id}`); }
+  function theme(id, fallback) { return t(`themeLabels.${id}`) || fallback || id; }
+  function topic(id, fallback) { return t(`topicLabels.${id}`) || fallback || id; }
   function feature(tag) { return featureKeys[tag] ? t(`features.${featureKeys[tag]}`) : tag; }
 
   function applyCafeHero(tab) {

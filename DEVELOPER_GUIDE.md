@@ -105,3 +105,5 @@
 舊網址 `cafe.html?tab=weekend-hop` 會在頁首以 `location.replace()` 轉址到 `journals.html`，保留語言、其他查詢參數與錨點，並移除 `tab`。咖啡與米其林原有網址不受影響。驗證：`node --test scripts/test_journals.cjs`。
 
 深度採訪的功能性文案集中於 `js/journals_i18n.js`（繁中、英、日、韓、西、德、泰；其餘語系回退英文）。靜態文案以 `data-journal-text`、`data-journal-title` 標記，頁尾連結重用 `WEB_CHROME_I18N`。閱讀彈窗每次開啟後套用翻譯，介面語系獨立於文章語系，故德文介面不會隨英文文章回退而改成英文。司機卡保留中文地址；缺少完整報導時顯示原始摘要，不產生中文通用文章。
+
+全站 11 個主要頁面的 `site-footer` 共用 `js/site-footer.js`，支援語言選擇器的 12 種語言。介紹、標語、開發團隊與版權文案集中於 `SITE_FOOTER_I18N`，快速連結與合作標籤沿用 `WEB_CHROME_I18N`（德文另提供對應）。透過 `data-footer-text`、`data-footer-link`、`data-footer-title` 套用文字，保留原始連結目標；`updateSiteNavigation(lang)` 同步更新頁尾，文章閱讀彈窗也使用相同模組。維護頁尾翻譯請修改這個共用模組，勿在各頁另加固定語言段落。驗證：`node --test scripts/test_site_footer.cjs`。

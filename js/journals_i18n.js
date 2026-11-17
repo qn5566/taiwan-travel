@@ -231,9 +231,6 @@ function applyJournalUI(root = document) {
     el.title = journalText(el.dataset.journalTitle);
     el.setAttribute('aria-label', el.title);
   });
-  const lang = journalLang();
-  const chrome = lang === 'de' ? { footerContactLabel: 'Markenkooperation', footerQuickLinks: 'Direktlinks', footerBottom: '© Taiwan Roam · HiMyDream STUDIO. Alle Rechte vorbehalten.', footerQuickLinkItems: ['Sehenswürdigkeiten', 'Michelin & Bib Gourmand', 'Ausgewählte Cafés', 'Private Taiwan-Touren', 'Inselhüpfen & Meeresschildkröten', 'Bahnreisen', 'Taiwan-Reportagen'] } : (WEB_CHROME_I18N[lang] || WEB_CHROME_I18N.en);
-  root.querySelectorAll('[data-journal-chrome]').forEach(el => { el.textContent = chrome[el.dataset.journalChrome]; });
-  root.querySelectorAll('#footer-quick-links a').forEach((el, index) => { el.textContent = chrome.footerQuickLinkItems[index]; });
+
 }
 document.addEventListener('DOMContentLoaded', () => applyJournalUI());
