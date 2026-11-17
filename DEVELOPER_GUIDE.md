@@ -107,3 +107,7 @@
 深度採訪的功能性文案集中於 `js/journals_i18n.js`（繁中、英、日、韓、西、德、泰；其餘語系回退英文）。靜態文案以 `data-journal-text`、`data-journal-title` 標記，頁尾連結重用 `WEB_CHROME_I18N`。閱讀彈窗每次開啟後套用翻譯，介面語系獨立於文章語系，故德文介面不會隨英文文章回退而改成英文。司機卡保留中文地址；缺少完整報導時顯示原始摘要，不產生中文通用文章。
 
 全站 11 個主要頁面的 `site-footer` 共用 `js/site-footer.js`，支援語言選擇器的 12 種語言。介紹、標語、開發團隊與版權文案集中於 `SITE_FOOTER_I18N`，快速連結與合作標籤沿用 `WEB_CHROME_I18N`（德文另提供對應）。透過 `data-footer-text`、`data-footer-link`、`data-footer-title` 套用文字，保留原始連結目標；`updateSiteNavigation(lang)` 同步更新頁尾，文章閱讀彈窗也使用相同模組。維護頁尾翻譯請修改這個共用模組，勿在各頁另加固定語言段落。驗證：`node --test scripts/test_site_footer.cjs`。
+
+咖啡店卡片以 `cafe_info.html?id=cafe_1&lang=zh-TW` 開啟獨立店家文章；也支援 `?slug=...` 與 `?cafeId=...`。頁面保留新版紙本雜誌版型，樣式集中於 `css/cafe-info.css`，渲染與資料處理集中於 `js/cafe_info.js`。資料透過既有 `CONTENT_BASE_URL/{lang}/cafes.json` 及 `cafe_articles.json` 取得，以 `article.cafeId === cafe.id` 關聯，缺少語系文章時回退繁中並提示，不依店名或陣列順序比對。
+
+`data/cafe_articles.zh.json` 是從 ActivityEvent 的 `content/zh/cafe_articles.json` 同步的離線備援快照；更新後端文章時可同步更新此檔。API 失敗時使用這份快照與 `data.js` 店家資料，並提供重新載入；成功回傳空文章陣列則保留空狀態。沒有文章的店家仍顯示店名、簡介、地址、電話、地圖與附近住宿；無效 ID 不會套用示範店家。新版設計的示範菜單、贈品與認證文案不會在沒有 API 依據時顯示。標準店家卡片上的地圖、住宿與收藏維持獨立操作。驗證：`node --test scripts/test_cafe_info.cjs`。

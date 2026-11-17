@@ -1443,3 +1443,10 @@
   border: 1.5px solid #FFFFFF !important;
 }
 
+
+/* The card opens its café story; action links and favorites stay independent. */
+.cafe-card { position: relative; }
+.cafe-detail-link { color: inherit; text-decoration: none; }
+.cafe-detail-link::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.cafe-detail-link:focus-visible::after { outline: 3px solid #0284C7; outline-offset: 3px; }
+.cafe-card a:not(.cafe-detail-link), .cafe-card button { position: relative; z-index: 2; }

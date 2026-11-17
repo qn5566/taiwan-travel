@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageTitle">咖啡店深度探訪｜Taiwan Roam</title>
+  <meta name="description" id="pageDesc" content="探索台灣咖啡空間與店家故事。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;600;700;900&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/cafe-info.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/content_loader.js" defer></script>
+  <script src="js/cafe_info.js" defer></script>
+</head>
+<body>
+  <div id="cafeInfoLoading" class="cafe-info-loading-overlay" role="status" aria-live="polite" hidden>
+    <span class="cafe-info-spinner" aria-hidden="true"></span>
+    <span id="cafeInfoLoadingText"></span>
+  </div>
+  <article class="magazine-page" id="cafe-article" aria-busy="true">
+    <div class="left-edge-micro">TAIWAN ROAM • COFFEE JOURNAL</div>
+    <div class="top-bar">
+      <a href="cafe.html" class="back-link" id="backToCafes" data-info-text="back">← 返回全台風格咖啡圖鑑</a>
+      <div class="cafe-info-top-right">
+        <select id="articleLanguage" class="cafe-info-language" aria-label="語言"></select>
+        <a class="cafe-info-partnership" href="https://docs.google.com/forms/d/e/1FAIpQLSe5ff2YJAekSHXnYPPIUgrdOTmIzPBD70ArCzRj-8lOfwMbaQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" data-info-text="partnership">探店邀約/外語菜單/活動打卡/特色餐點</a>
+      </div>
+    </div>
+    <div id="articleStatus" class="article-status" role="status" aria-live="polite"></div>
+    <button type="button" id="articleRetry" class="article-retry" data-info-text="retry" hidden>重新載入</button>
+    <header class="editorial-header">
+      <div class="title-block">
+        <span class="area-pill" id="shopAreaPill" hidden></span>
+        <h1 id="shopTitleZh" data-info-text="title">咖啡店深度探訪</h1>
+        <div class="article-byline" id="articleByline"></div>
+      </div>
+      <div class="hanko-stamp">TAIWAN<br>ROAM<span>COFFEE</span></div>
+    </header>
+    <section class="hero-stage" id="articleHero" hidden>
+      <div class="hero-photo-frame"><img id="photo1Img" alt=""><span class="hero-overlay-tag" id="photo1Caption"></span></div>
+    </section>
+    <p class="article-summary" id="articleSummary"></p>
+    <section class="article-empty" id="articleEmpty" hidden>
+      <h2 data-info-text="emptyTitle">這間咖啡店的故事，正在醞釀中。</h2>
+      <p data-info-text="emptyBody">目前尚未刊登探店文章，您仍可查看下方店家資訊，或返回咖啡圖鑑探索更多咖啡空間。</p>
+      <a class="back-link" id="emptyBack" href="cafe.html" data-info-text="back">← 返回全台風格咖啡圖鑑</a>
+    </section>
+    <div id="articleSections"></div>
+    <section class="article-highlights" id="articleHighlights" hidden>
+      <h2 data-info-text="highlights">探訪亮點</h2><ul id="highlightsList"></ul>
+    </section>
+    <section class="shop-footer-card" id="shopInfo" hidden>
+      <div class="shop-info-col">
+        <h2 id="infoName"></h2>
+        <div class="stacked-meta-item" id="addressRow"><span class="meta-label" data-info-text="address">地址</span><span class="info-value" id="infoAddress"></span></div>
+        <div class="stacked-meta-item" id="phoneRow"><span class="meta-label" data-info-text="phone">電話</span><a id="infoTel"></a></div>
+      </div>
+      <div class="shop-hours-col">
+        <div id="practicalInfo"></div>
+        <div class="map-btn-row">
+          <a id="infoMapUrl" target="_blank" rel="noopener noreferrer" class="mini-action-btn dark">Google Maps ↗</a>
+          <a id="infoHotelUrl" target="_blank" rel="noopener noreferrer" class="mini-action-btn" data-info-text="hotels">附近住宿 ↗</a>
+        </div>
+      </div>
+    </section>
+    <footer class="official-cert-box">
+      <div class="cert-text-wrap"><h5>TAIWAN ROAM · COFFEE JOURNAL</h5><p class="zh-cert" data-info-text="footer">走進台灣的咖啡空間，閱讀店家與在地生活的故事。</p></div>
+    </footer>
+  </article>
+</body>
+</html>

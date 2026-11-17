@@ -614,6 +614,7 @@
       }
 
       container.innerHTML = filtered.map(item => {
+        const articleUrl = `cafe_info.html?id=${encodeURIComponent(item.id)}&lang=${encodeURIComponent(getWebLang())}`;
         const mapUrl = item.mapUrl || `https://maps.google.com/?q=${encodeURIComponent(item.name)}`;
         const hotelUrl = typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getHotelUrl(item.city + " " + item.district + " 住宿") : "#";
         const tagsHtml = (item.filterTags || item.tags || []).map(t => `<span class="cafe-tag-chip">${CategoryUI.feature(t)}</span>`).join("");
@@ -661,7 +662,7 @@
               </div>
 
               <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; line-height: 1.35; margin-bottom: 6px;">
-                ${item.name}
+                <a class="cafe-detail-link" href="${articleUrl}">${item.name}</a>
               </h3>
 
               <div class="cafe-tag-chips">
