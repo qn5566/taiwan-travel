@@ -247,6 +247,19 @@
       }
     }
 
+    /* 細分類分組置中，窄螢幕可在各組內換行。 */
+    #ranking-tabs-row {
+      flex-direction: column;
+    }
+    .ranking-subtopics-line {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      max-width: 100%;
+    }
+
     /* 控制按鈕無陰影 */
     .glass-subtopic-btn {
       box-shadow: none !important;
@@ -470,7 +483,7 @@
       <div class="ranking-filter-glass-panel">
         <!-- 第一排：5 大情境分類透明膠囊按鈕 (Row 1: Major Category Tabs) -->
         <div class="ranking-category-row" id="category-capsules-bar">
-          <button class="glass-cat-btn active" data-scenario="all" onclick="switchScenario('all')"><span data-category-text="scenarios.all"></span> <span class="glass-count-badge">12</span>
+          <button class="glass-cat-btn active" data-scenario="all" onclick="switchScenario('all')"><span data-category-text="scenarios.all"></span> <span class="glass-count-badge">13</span>
           </button>
           <button class="glass-cat-btn" data-scenario="food" onclick="switchScenario('food')"><span data-category-text="scenarios.food"></span> <span class="glass-count-badge">5</span>
           </button>
@@ -843,7 +856,13 @@
       if (!row) return;
 
       const topics = getTopicsForScenario(currentScenario);
-      row.innerHTML = topics.map(t => {
+      const midpoint = Math.ceil(topics.length / 2);
+      const topicRows = currentScenario === "all"
+        ? [topics.slice(0, midpoint), topics.slice(midpoint)]
+        : [topics];
+      row.innerHTML = topicRows.filter(group => group.length).map(group => `
+        <div class="ranking-subtopics-line">
+          ${group.map(t => {
         const subtopicIconHtml = t.iconImg
           ? `<img src="${t.iconImg}" class="subtopic-icon-img" alt="${t.zhName}">`
           : t.icon;
@@ -856,7 +875,9 @@
             <span class="subtopic-current">${CategoryUI.topic(t.id, t.shortName || t.zhName || t.enShort)}</span>
           </button>
         `;
-      }).join("");
+          }).join("")}
+        </div>
+      `).join("");
     }
 
     function selectTopic(topicId) {
