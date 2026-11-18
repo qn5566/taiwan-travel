@@ -45,6 +45,48 @@ test('legacy hub API routes services, currency and exact city/district destinati
   assert.equal(hub.getUberEatsUrl(),market.config.platforms.delivery.url);
 });
 
+test('New Taipei attraction cards use the verified Trip city rather than Stuttgart in every Trip market', async () => {
+  const {context,market}=setup();
+  vm.runInContext(fs.readFileSync('js/spots.js','utf8'),context);
+  const explorer=vm.runInContext('SpotExplorer',context);
+  for (const [key,region] of Object.entries(market.config.regions)) {
+    if (!region.tripHost) continue;
+    await market.selectMarket(key);
+    const links=explorer.links({city:'新北市',name:'滿月圓國家森林遊樂區'});
+    const hotel=new URL(links.hotel);
+    assert.equal(hotel.hostname,region.tripHost);
+    assert.equal(hotel.searchParams.get('city'),'7662');
+    assert.equal(hotel.searchParams.get('keyword'),'新北市 滿月圓國家森林遊樂區');
+    assert.equal(new URL(market.resolve(hotel.href)).searchParams.get('city'),'7662');
+    assert.equal(hotel.searchParams.get('Allianceid'),'9507030');
+    assert.equal(new URL(links.tour).searchParams.get('query'),'滿月圓國家森林遊樂區');
+  }
+});
+
+test('all 22 official city IDs generate the same destinations in every Trip market', async () => {
+  const {market}=setup();
+  const verified=JSON.parse(fs.readFileSync('config/trip-city-ids.verified.json','utf8')).cities;
+  assert.equal(verified.length,22);
+  assert.equal(new Set(verified.map(city=>city.name)).size,22);
+  assert.equal(new Set(verified.map(city=>city.tripCityId)).size,22);
+  for (const city of verified) {
+    assert.ok(city.sourceUrl.endsWith(`-hotels-list-${city.tripCityId}/`));
+    assert.ok(city.pageTitle);
+    assert.equal(market.config.cities.find(record=>record.name===city.name)?.tripCityId,city.tripCityId);
+  }
+  for (const [key,region] of Object.entries(market.config.regions)) {
+    if (!region.tripHost) continue;
+    await market.selectMarket(key);
+    for (const city of verified) {
+      const url=new URL(market.link('hotel',{city:city.name,keyword:`${city.name} 測試景點`}));
+      assert.equal(url.searchParams.get('city'),city.tripCityId,`${key}/${city.name}`);
+      assert.equal(url.searchParams.get('keyword'),`${city.name} 測試景點`);
+      assert.equal(url.hostname,region.tripHost);
+      assert.equal(url.searchParams.get('curr'),region.currency);
+    }
+  }
+});
+
 test('product links and encoded Klook redirects keep products without nesting another provider', async () => {
   const {market}=setup();
   await market.selectMarket('KR');
@@ -61,7 +103,7 @@ test('product links and encoded Klook redirects keep products without nesting an
 });
 
 test('switching a rendered link back from global restores its original hotel keyword', async () => {
-  let href='https://tw.trip.com/hotels/list?city=765&keyword=九份';
+  let href='https://tw.trip.com/hotels/list?city=7662&keyword=九份';
   const anchor={dataset:{},children:[],textContent:'Trip.com',getAttribute:key=>key==='href'?href:'',setAttribute:(key,value)=>{if(key==='href')href=value;}};
   const {market}=setup({anchors:[anchor]});
   await market.selectMarket('GLOBAL');
@@ -70,7 +112,7 @@ test('switching a rendered link back from global restores its original hotel key
   await market.selectMarket('HK_MO');
   assert.equal(new URL(href).hostname,'hk.trip.com');
   assert.equal(new URL(href).searchParams.get('keyword'),'九份');
-  assert.equal(new URL(href).searchParams.get('city'),'765');
+  assert.equal(new URL(href).searchParams.get('city'),'7662');
   assert.equal(anchor.textContent,'Trip.com');
 });
 
@@ -107,7 +149,8 @@ test('new DOM cards and window.open receive the current market without waiting a
 });
 
 test('all active pages with booking links load the generated matrix before the router', () => {
-  const files=fs.readdirSync('.').filter(name=>name.endsWith('.html'));
+  // Imported design references are not active site pages.
+  const files=fs.readdirSync('.').filter(name=>name.endsWith('.html') && !/^gemini-code-\d+\.html$/.test(name));
   files.push(...fs.readdirSync('app').filter(name=>name.endsWith('.html')).map(name=>`app/${name}`));
   for(const folder of fs.readdirSync('blog',{withFileTypes:true}).filter(d=>d.isDirectory())) {
     files.push(...fs.readdirSync(`blog/${folder.name}`).filter(name=>name.endsWith('.html')).map(name=>`blog/${folder.name}/${name}`));

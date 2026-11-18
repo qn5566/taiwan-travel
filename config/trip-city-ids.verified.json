@@ -1,0 +1,137 @@
+{
+  "verifiedDate": "2026-11-18",
+  "cities": [
+    {
+      "name": "臺北市",
+      "tripCityId": "617",
+      "sourceUrl": "https://tw.trip.com/hotels/taipei-hotels-list-617/",
+      "pageTitle": "【台北飯店】12間高人氣住宿！西門町/台北車站/大巨蛋周邊住宿攻略｜Trip.com"
+    },
+    {
+      "name": "基隆市",
+      "tripCityId": "7810",
+      "sourceUrl": "https://tw.trip.com/hotels/jilong-hotels-list-7810/",
+      "pageTitle": "基隆住宿推薦：精選10家基隆飯店（最低 TWD1,084 起）｜Trip.com"
+    },
+    {
+      "name": "新北市",
+      "tripCityId": "7662",
+      "sourceUrl": "https://tw.trip.com/hotels/new-taipei-city-hotels-list-7662/",
+      "pageTitle": "新北住宿推薦：精選10家新北飯店（最低 TWD1,266 起）｜Trip.com"
+    },
+    {
+      "name": "桃園市",
+      "tripCityId": "7570",
+      "sourceUrl": "https://tw.trip.com/hotels/taoyuan-hotels-list-7570/",
+      "pageTitle": "桃園住宿推薦：精選10家桃園飯店（最低 TWD1,272 起）｜Trip.com"
+    },
+    {
+      "name": "新竹市",
+      "tripCityId": "3845",
+      "sourceUrl": "https://tw.trip.com/hotels/hsinchu-hotels-list-3845/",
+      "pageTitle": "新竹住宿推薦：精選10家新竹飯店（最低 TWD1,083 起）｜Trip.com"
+    },
+    {
+      "name": "新竹縣",
+      "tripCityId": "669328",
+      "sourceUrl": "https://tw.trip.com/hotels/hsinchu-county-hotels-list-669328/",
+      "pageTitle": "新竹縣住宿推薦：精選10家新竹縣飯店（最低 TWD2,095 起）｜Trip.com"
+    },
+    {
+      "name": "苗栗縣",
+      "tripCityId": "7809",
+      "sourceUrl": "https://tw.trip.com/hotels/miaoli-hotels-list-7809/",
+      "pageTitle": "苗栗住宿推薦：精選10家苗栗飯店（最低 TWD1,806 起）｜Trip.com"
+    },
+    {
+      "name": "臺中市",
+      "tripCityId": "3849",
+      "sourceUrl": "https://tw.trip.com/hotels/taichung-hotels-list-3849/",
+      "pageTitle": "【台中飯店】逢甲/勤美/一中街住宿攻略！精選16間人氣台中住宿不踩雷｜Trip.com"
+    },
+    {
+      "name": "彰化縣",
+      "tripCityId": "7811",
+      "sourceUrl": "https://tw.trip.com/hotels/zhanghua-hotels-list-7811/",
+      "pageTitle": "彰化住宿推薦：精選10家彰化飯店（最低 TWD1,578 起）｜Trip.com"
+    },
+    {
+      "name": "南投縣",
+      "tripCityId": "7524",
+      "sourceUrl": "https://tw.trip.com/hotels/nantou-hotels-list-7524/",
+      "pageTitle": "南投住宿推薦：精選10家南投飯店（最低 TWD1,786 起）｜Trip.com"
+    },
+    {
+      "name": "雲林縣",
+      "tripCityId": "7523",
+      "sourceUrl": "https://tw.trip.com/hotels/yunlin-hotels-list-7523/",
+      "pageTitle": "雲林住宿推薦：精選10家雲林飯店（最低 TWD2,291 起）｜Trip.com"
+    },
+    {
+      "name": "嘉義市",
+      "tripCityId": "5152",
+      "sourceUrl": "https://tw.trip.com/hotels/chiayi-city-hotels-list-5152/",
+      "pageTitle": "嘉義市住宿推薦：精選10家嘉義市飯店（最低 TWD792 起）｜Trip.com"
+    },
+    {
+      "name": "嘉義縣",
+      "tripCityId": "650358",
+      "sourceUrl": "https://tw.trip.com/hotels/chiayi-county-hotels-list-650358/",
+      "pageTitle": "嘉義縣住宿推薦：精選10家嘉義縣飯店（最低 TWD1,628 起）｜Trip.com"
+    },
+    {
+      "name": "臺南市",
+      "tripCityId": "3847",
+      "sourceUrl": "https://tw.trip.com/hotels/tainan-hotels-list-3847/",
+      "pageTitle": "【台南飯店】17間台南必住旅店及民宿！老屋、五星級飯店及青年旅館推薦｜Trip.com"
+    },
+    {
+      "name": "高雄市",
+      "tripCityId": "720",
+      "sourceUrl": "https://tw.trip.com/hotels/kaohsiung-hotels-list-720/",
+      "pageTitle": "【高雄飯店】必住12間高雄住宿！美麗島/駁二/三多商圈區域分析｜Trip.com"
+    },
+    {
+      "name": "屏東縣",
+      "tripCityId": "5589",
+      "sourceUrl": "https://tw.trip.com/hotels/pingtung-hotels-list-5589/",
+      "pageTitle": "屏東住宿推薦：精選10家屏東飯店（最低 TWD1,618 起）｜Trip.com"
+    },
+    {
+      "name": "宜蘭縣",
+      "tripCityId": "7614",
+      "sourceUrl": "https://tw.trip.com/hotels/yilan-hotels-list-7614/",
+      "pageTitle": "宜蘭住宿推薦：精選10家宜蘭飯店（最低 TWD1,290 起）｜Trip.com"
+    },
+    {
+      "name": "花蓮縣",
+      "tripCityId": "6954",
+      "sourceUrl": "https://tw.trip.com/hotels/hualien-hotels-list-6954/",
+      "pageTitle": "花蓮住宿推薦：精選10家花蓮飯店（最低 TWD1,202 起）｜Trip.com"
+    },
+    {
+      "name": "臺東縣",
+      "tripCityId": "3848",
+      "sourceUrl": "https://tw.trip.com/hotels/taitung-hotels-list-3848/",
+      "pageTitle": "【台東飯店】精選12間台東飯店與民宿！市區/知本溫泉/海景住宿攻略｜Trip.com"
+    },
+    {
+      "name": "澎湖縣",
+      "tripCityId": "7805",
+      "sourceUrl": "https://tw.trip.com/hotels/penghu-hotels-list-7805/",
+      "pageTitle": "澎湖住宿推薦：精選10家澎湖飯店（最低 TWD1,474 起）｜Trip.com"
+    },
+    {
+      "name": "金門縣",
+      "tripCityId": "7203",
+      "sourceUrl": "https://tw.trip.com/hotels/kinmen-hotels-list-7203/",
+      "pageTitle": "金門住宿推薦：精選10家金門飯店！最低 TWD1,662 起｜Trip.com"
+    },
+    {
+      "name": "連江縣",
+      "tripCityId": "7808",
+      "sourceUrl": "https://tw.trip.com/hotels/matsu-hotels-list-7808/",
+      "pageTitle": "馬祖住宿推薦：精選10家馬祖飯店（最低 TWD2,392 起）｜Trip.com"
+    }
+  ]
+}
