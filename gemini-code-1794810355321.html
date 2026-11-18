@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">興波咖啡旗艦店 Simple Kaffa Flagship｜台灣吃喝玩樂 深度採訪專刊</title>
+  <meta name="description" id="pageDesc" content="《台灣吃喝玩樂》編輯部專刊報導：興波咖啡旗艦店 Simple Kaffa Flagship，收錄老宅天井空間實拍、中英日必點菜單與讀者專屬禮遇。" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;600;700;900&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper-beige: #F4F0EA;
+      --paper-cream: #FAF8F5;
+      --ink-black: #231F1D;
+      --ink-muted: #6E655F;
+      --ink-light: #8C827A;
+      --stamp-green: #2E5A44;
+      --accent-rust: #B85233;
+      --line-color: #D8D0C5;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #E6E0D6;
+      color: var(--ink-black);
+      font-family: "Noto Sans TC", "Hiragino Sans", sans-serif;
+      line-height: 1.75;
+      padding: 24px 12px 64px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .magazine-page {
+      max-width: 880px;
+      margin: 0 auto;
+      background-color: var(--paper-beige);
+      border: 1px solid #CFC7BB;
+      box-shadow: 0 20px 60px rgba(35, 31, 29, 0.12);
+      position: relative;
+      padding: 48px 52px 52px 64px;
+      overflow: hidden;
+    }
+
+    /* 左側極細垂直英文邊標 */
+    .left-edge-micro {
+      position: absolute;
+      left: 18px;
+      top: 320px;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      color: var(--ink-muted);
+      font-family: monospace;
+      opacity: 0.7;
+    }
+    .left-edge-micro::after {
+      content: "";
+      display: inline-block;
+      width: 1px;
+      height: 60px;
+      background: var(--ink-muted);
+      margin-top: 12px;
+      vertical-align: middle;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line-color);
+      padding-bottom: 12px;
+      margin-bottom: 36px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--ink-muted);
+    }
+    .back-link {
+      text-decoration: none;
+      color: var(--ink-black);
+      font-weight: 700;
+    }
+
+    /* 頂部大標題 ＋ 直排日文引言 ＋ 印章 */
+    .editorial-header {
+      display: grid;
+      grid-template-columns: 1.2fr 1.5fr auto;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+    .title-block .area-pill {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--stamp-green);
+      border: 1px solid var(--stamp-green);
+      padding: 2px 10px;
+      margin-bottom: 10px;
+    }
+    .title-block h1 {
+      font-family: "Noto Serif JP", serif;
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.25;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .title-block .en-sub {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+    }
+
+    .vertical-intro-box {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 18px;
+    }
+    .v-jp-paragraph {
+      writing-mode: vertical-rl;
+      font-family: "Noto Serif JP", serif;
+      font-size: 11.5px;
+      line-height: 1.9;
+      letter-spacing: 2px;
+      color: var(--ink-black);
+      height: 145px;
+      border-left: 1px solid var(--line-color);
+      padding-left: 14px;
+    }
+    .v-jp-title {
+      writing-mode: vertical-rl;
+      font-family: "Noto Serif JP", serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--stamp-green);
+      height: 145px;
+    }
+
+    .hanko-stamp {
+      width: 54px;
+      height: 68px;
+      border: 2px solid var(--stamp-green);
+      border-radius: 3px;
+      color: var(--stamp-green);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: "Noto Serif JP", serif;
+      font-weight: 900;
+      font-size: 16px;
+      line-height: 1.15;
+      letter-spacing: 2px;
+      padding: 4px;
+      transform: rotate(2deg);
+    }
+    .hanko-stamp span {
+      font-size: 8.5px;
+      letter-spacing: 0.5px;
+      border-top: 1px solid var(--stamp-green);
+      margin-top: 3px;
+      padding-top: 2px;
+    }
+
+    /* 【第 1 張照片】頂部最大張主視覺 */
+    .hero-stage {
+      display: grid;
+      grid-template-columns: 1fr 40px;
+      gap: 14px;
+      align-items: stretch;
+      margin-bottom: 16px;
+    }
+    .hero-photo-frame {
+      position: relative;
+      background: #DED8CE;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    .hero-photo-frame img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-overlay-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(35, 31, 29, 0.78);
+      color: #FFF;
+      font-size: 9.5px;
+      letter-spacing: 2px;
+      padding: 4px 10px;
+    }
+    .hero-right-vertical-text {
+      writing-mode: vertical-rl;
+      font-family: "Zen Kurenaido", "Noto Serif JP", serif;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      color: var(--ink-black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quick-meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding: 10px 0 32px;
+      border-bottom: 1px solid var(--line-color);
+      margin-bottom: 36px;
+      font-family: "Noto Serif JP", serif;
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+    .quick-meta-strip strong {
+      color: var(--ink-black);
+      margin-right: 4px;
+    }
+
+    .mag-section-label {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 900;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      border-bottom: 1.5px solid var(--ink-black);
+      padding-bottom: 3px;
+      margin-bottom: 18px;
+    }
+
+    /* 招牌必點菜單（左右各 5 道，單語切換亦為 5 道） */
+    .menu-dual-wrapper {
+      background: var(--paper-cream);
+      border: 1px solid var(--line-color);
+      padding: 24px 28px;
+      margin-bottom: 44px;
+    }
+    .menu-top-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed var(--line-color);
+    }
+    .menu-top-controls h2 {
+      font-family: "Noto Serif JP", serif;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+    .menu-view-tabs {
+      display: flex;
+      gap: 6px;
+    }
+    .view-btn {
+      background: transparent;
+      border: 1px solid var(--line-color);
+      padding: 3px 11px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--ink-muted);
+    }
+    .view-btn.active {
+      background: var(--ink-black);
+      color: #FFF;
+      border-color: var(--ink-black);
+    }
+
+    .menu-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .menu-cards-grid.single-col {
+      grid-template-columns: 1fr;
+    }
+    .menu-sheet {
+      background: #FFF;
+      border: 1px solid #E5DEC9;
+      padding: 18px 20px;
+    }
+    .sheet-lang-tag {
+      display: inline-block;
+      background: var(--ink-black);
+      color: #FFF;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 2px 8px;
+      margin-bottom: 12px;
+    }
+    .menu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 7.5px 0;
+      border-bottom: 1px dotted #D8D0C5;
+      font-size: 13px;
+    }
+    .menu-row:last-child { border-bottom: none; }
+    .menu-row .m-name { font-weight: 700; }
+    .menu-row .m-desc {
+      display: block;
+      font-size: 11px;
+      color: var(--ink-muted);
+    }
+    .menu-row .m-price {
+      font-family: "Noto Serif JP", serif;
+      font-weight: 900;
+      color: var(--accent-rust);
+      white-space: nowrap;
+      margin-left: 10px;
+    }
+
+    .must-order-tags {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line-color);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .tag-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+    .boxed-label {
+      border: 1px solid var(--ink-black);
+      color: var(--ink-black);
+      padding: 1px 8px;
+      font-size: 10.5px;
+      font-weight: 700;
+      min-width: 68px;
+      text-align: center;
+      background: #FFF;
+    }
+
+    /* 【第 2、3、4 張照片】CONCEPT ＋ 三連拍 */
+    .concept-editorial-block {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 20px;
+    }
+    .concept-headline {
+      font-family: "Noto Serif JP", serif;
+      font-size: 19px;
+      font-weight: 900;
+      line-height: 1.5;
+    }
+    .concept-headline .jp-sub {
+      display: block;
+      font-size: 11px;
+      color: var(--stamp-green);
+      letter-spacing: 1.5px;
+      margin-bottom: 4px;
+    }
+    .concept-text {
+      font-size: 13px;
+      color: var(--ink-muted);
+      text-align: justify;
+    }
+
+    .three-photo-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .strip-item {
+      background: #FFF;
+      padding: 6px 6px 8px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    }
+    .strip-item img {
+      width: 100%;
+      height: 175px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .strip-item figcaption {
+      font-size: 10.5px;
+      color: var(--ink-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* 【第 5、6 張照片】方格手帳底 ＋ 迴紋針／燕尾夾（自動支援 5 張或 6 張照片） */
+    .scrapbook-zone {
+      background-color: #FAF9F5;
+      background-image:
+        linear-gradient(to right, rgba(180, 172, 160, 0.16) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(180, 172, 160, 0.16) 1px, transparent 1px);
+      background-size: 22px 22px;
+      border: 1px solid var(--line-color);
+      padding: 38px 28px;
+      margin-bottom: 44px;
+    }
+    .scrapbook-grid {
+      display: grid;
+      grid-template-columns: auto 1fr 1fr;
+      gap: 22px;
+      align-items: center;
+    }
+    /* 當店家只有 5 張照片時，自動切換為單張寬幅拍立得 */
+    .scrapbook-grid.five-photo-mode {
+      grid-template-columns: auto 1fr;
+    }
+    .scrapbook-grid.five-photo-mode .polaroid-card {
+      max-width: 560px;
+    }
+    .scrapbook-grid.five-photo-mode .polaroid-card img {
+      height: 270px;
+    }
+    .scrap-vertical-jp {
+      writing-mode: vertical-rl;
+      font-family: "Zen Kurenaido", "Noto Serif JP", serif;
+      font-size: 14.5px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      line-height: 2;
+      color: var(--ink-black);
+      padding: 0 6px;
+    }
+    .polaroid-card {
+      background: #FFF;
+      padding: 10px 10px 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+      position: relative;
+      border: 1px solid #EFECE6;
+    }
+    .polaroid-card.tilt-left { transform: rotate(-1.2deg); }
+    .polaroid-card.tilt-right { transform: rotate(1.5deg); }
+    .polaroid-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .polaroid-caption {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--ink-black);
+      text-align: center;
+    }
+    .polaroid-caption span {
+      display: block;
+      font-size: 9.5px;
+      color: var(--ink-muted);
+      font-weight: 400;
+      font-family: monospace;
+    }
+    .svg-paperclip {
+      position: absolute;
+      top: -14px;
+      left: 24px;
+      width: 20px;
+      height: 40px;
+      z-index: 5;
+    }
+    .svg-bulldog-clip {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 34px;
+      height: 34px;
+      z-index: 5;
+    }
+
+    /* SPECIAL OFFER 読者限定特典 */
+    .reader-coupon-ticket {
+      background: #FFFDF9;
+      border: 1.5px solid var(--ink-black);
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      margin-bottom: 36px;
+      box-shadow: 4px 4px 0 var(--ink-black);
+    }
+    .coupon-left {
+      padding: 18px 24px;
+      border-right: 1.5px dashed var(--ink-black);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .coupon-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .coupon-tag {
+      background: var(--accent-rust);
+      color: #FFF;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      padding: 2px 8px;
+    }
+    .coupon-jp-hint {
+      font-family: "Noto Serif JP", serif;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--ink-muted);
+      letter-spacing: 1px;
+    }
+    .coupon-left h3 {
+      font-family: "Noto Serif JP", serif;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+    }
+    .coupon-bilingual-note {
+      font-size: 11.5px;
+      color: var(--ink-muted);
+      line-height: 1.55;
+    }
+    .coupon-bilingual-note .jp-line {
+      display: block;
+      font-family: "Noto Serif JP", serif;
+      font-size: 10.5px;
+      color: var(--ink-light);
+      margin-top: 2px;
+    }
+
+    .coupon-right {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #FAF5EC;
+    }
+    .coupon-right .show-label {
+      font-size: 8.5px;
+      letter-spacing: 2px;
+      color: var(--ink-muted);
+      margin-bottom: 3px;
+    }
+    .coupon-right .gift-value {
+      font-family: "Noto Serif JP", serif;
+      font-size: 14.5px;
+      font-weight: 900;
+      color: var(--accent-rust);
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+    .coupon-right .gift-value small {
+      display: block;
+      font-size: 10px;
+      color: var(--ink-muted);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .claim-btn {
+      background: var(--ink-black);
+      color: #FFF;
+      border: none;
+      padding: 6px 12px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    /* 底部店家資訊（全英日文 JP / EN 上下堆疊排列、微縮字級） */
+    .shop-footer-card {
+      background: var(--paper-cream);
+      border-top: 1.5px solid var(--ink-black);
+      border-bottom: 1px solid var(--line-color);
+      padding: 22px 24px;
+      display: grid;
+      grid-template-columns: 1.2fr 1.3fr 115px;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .shop-info-col .jp-kana {
+      font-size: 9px;
+      color: var(--ink-light);
+      letter-spacing: 1.8px;
+      margin-bottom: 2px;
+    }
+    .shop-info-col h4 {
+      font-family: "Noto Serif JP", serif;
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      line-height: 1.25;
+      color: var(--ink-black);
+    }
+    .shop-info-col .jp-shop-sub {
+      font-family: "Noto Serif JP", serif;
+      font-size: 10.5px;
+      color: var(--ink-muted);
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .stacked-meta-item { margin-bottom: 7px; }
+    .stacked-meta-item:last-child { margin-bottom: 0; }
+    .meta-label {
+      display: inline-block;
+      font-family: monospace;
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--ink-black);
+      letter-spacing: 1.2px;
+      border-bottom: 1px solid var(--line-color);
+      margin-bottom: 2px;
+    }
+    .meta-jp {
+      display: block;
+      font-family: "Noto Serif JP", serif;
+      font-size: 10.5px;
+      color: var(--ink-black);
+      line-height: 1.45;
+      letter-spacing: 0.4px;
+    }
+    .meta-en {
+      display: block;
+      font-size: 10px;
+      color: var(--ink-light);
+      line-height: 1.4;
+      letter-spacing: 0.2px;
+    }
+
+    .shop-hours-col {
+      border-left: 1px solid var(--line-color);
+      border-right: 1px solid var(--line-color);
+      padding: 0 22px;
+    }
+    .map-btn-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .mini-action-btn {
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      padding: 5px 11px;
+      border: 1px solid var(--ink-black);
+      color: var(--ink-black);
+      background: #FFF;
+      white-space: nowrap;
+    }
+    .mini-action-btn.dark {
+      background: var(--ink-black);
+      color: #FFF;
+    }
+
+    .sns-scan-col { text-align: center; }
+    .sns-black-badge {
+      display: inline-block;
+      background: var(--ink-black);
+      color: #FFF;
+      font-size: 8.5px;
+      font-weight: 700;
+      line-height: 1.3;
+      padding: 3px 7px;
+      margin-bottom: 4px;
+      letter-spacing: 1px;
+    }
+    .scan-me-title {
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      margin-bottom: 4px;
+    }
+    .qr-corner-frame {
+      width: 84px;
+      height: 70px;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--ink-black);
+      background: #FFF;
+    }
+    .qr-corner-frame::before, .qr-corner-frame::after,
+    .qr-inner::before, .qr-inner::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-color: var(--ink-black);
+      border-style: solid;
+    }
+    .qr-corner-frame::before { top: 0; left: 0; border-width: 1.5px 0 0 1.5px; }
+    .qr-corner-frame::after  { top: 0; right: 0; border-width: 1.5px 1.5px 0 0; }
+    .qr-inner::before        { bottom: 0; left: 0; border-width: 0 0 1.5px 1.5px; }
+    .qr-inner::after         { bottom: 0; right: 0; border-width: 0 1.5px 1.5px 0; }
+    .qr-inner {
+      font-size: 9px;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: 0.2px;
+    }
+    .qr-inner small {
+      display: block;
+      font-size: 8px;
+      color: var(--ink-muted);
+      font-weight: 500;
+      letter-spacing: 0.8px;
+    }
+
+    /* 底部認證（專刊報導 ＋ 中日文上下排列） */
+    .official-cert-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      background: #EAE4DA;
+      padding: 13px 20px;
+      border-left: 3px solid var(--stamp-green);
+    }
+    .cert-text-wrap h5 {
+      font-family: "Noto Serif JP", serif;
+      font-size: 11.5px;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+      color: var(--ink-black);
+      margin-bottom: 3px;
+    }
+    .cert-text-wrap .zh-cert {
+      font-size: 10.5px;
+      color: var(--ink-muted);
+      line-height: 1.45;
+      margin-bottom: 2px;
+    }
+    .cert-text-wrap .jp-cert {
+      font-family: "Noto Serif JP", serif;
+      font-size: 10px;
+      color: var(--ink-light);
+      line-height: 1.45;
+      letter-spacing: 0.4px;
+    }
+    .cert-seal-pill {
+      font-family: "Noto Serif JP", serif;
+      font-size: 10px;
+      font-weight: 900;
+      color: var(--stamp-green);
+      border: 1px solid var(--stamp-green);
+      padding: 4px 10px;
+      white-space: nowrap;
+      letter-spacing: 1.5px;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .magazine-page { padding: 24px 18px; }
+      .left-edge-micro, .vertical-intro-box { display: none; }
+      .editorial-header, .menu-cards-grid, .concept-editorial-block,
+      .three-photo-strip, .scrapbook-grid, .reader-coupon-ticket, .shop-footer-card {
+        grid-template-columns: 1fr;
+      }
+      .hero-stage { grid-template-columns: 1fr 28px; }
+      .hero-photo-frame img { height: 260px; }
+      .coupon-left { border-right: none; border-bottom: 1.5px dashed var(--ink-black); }
+      .shop-hours-col { border: none; padding: 12px 0; border-top: 1px dashed var(--line-color); border-bottom: 1px dashed var(--line-color); }
+      .official-cert-box { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <article class="magazine-page">
+    <div class="left-edge-micro" id="issueEdge">SUPPORT YOUR COFFEE LIFE • TAIWAN ROAM ARCHIVE VOL.01</div>
+
+    <div class="top-bar">
+      <a href="coffee.html" class="back-link">← 返回全台風格咖啡圖鑑</a>
+      <span>TAIWAN ROAM COFFEE JOURNAL ‧ 特別編集</span>
+    </div>
+
+    <!-- 1. 頂部標題與日文引言 -->
+    <header class="editorial-header">
+      <div class="title-block">
+        <span class="area-pill" id="shopAreaPill"></span>
+        <h1 id="shopTitleZh"></h1>
+        <div class="en-sub" id="shopTitleEn"></div>
+      </div>
+
+      <div class="vertical-intro-box" aria-hidden="true">
+        <div class="v-jp-title" id="vJpTitle"></div>
+        <div class="v-jp-paragraph" id="vJpBody"></div>
+      </div>
+
+      <div class="hanko-stamp">
+        台湾<br>珈琲
+        <span>特選店</span>
+      </div>
+    </header>
+
+    <!-- 2. 【第 1 張照片】頂部最大主視覺 -->
+    <section class="hero-stage">
+      <div class="hero-photo-frame">
+        <img id="photo1Img" src="" alt="" />
+        <span class="hero-overlay-tag" id="photo1Caption"></span>
+      </div>
+      <div class="hero-right-vertical-text" id="heroRightJp"></div>
+    </section>
+
+    <div class="quick-meta-strip">
+      <div><strong id="metaLabel1">〇営業時間</strong> <span id="quickHours"></span></div>
+      <div><strong id="metaLabel2">〇アクセス</strong> <span id="quickAccess"></span></div>
+      <div><strong id="metaLabel3">〇特徴</strong> <span id="quickFeature"></span></div>
+    </div>
+
+    <!-- 3. 招牌必點菜單（中/英/日 各 5 道） -->
+    <div class="mag-section-label">MENU & SIGNATURE</div>
+    <section class="menu-dual-wrapper">
+      <div class="menu-top-controls">
+        <h2>招牌必點菜單</h2>
+        <div class="menu-view-tabs">
+          <button class="view-btn active" onclick="setMenuMode('dual', this)">中英並排</button>
+          <button class="view-btn" onclick="setMenuMode('zh', this)">繁體中文</button>
+          <button class="view-btn" onclick="setMenuMode('en', this)">English</button>
+          <button class="view-btn" onclick="setMenuMode('ja', this)">日本語</button>
+        </div>
+      </div>
+
+      <div class="menu-cards-grid" id="menuGrid">
+        <div class="menu-sheet" id="sheetLeft"></div>
+        <div class="menu-sheet" id="sheetRight"></div>
+      </div>
+
+      <div class="must-order-tags">
+        <div class="tag-line">
+          <span class="boxed-label">必喝珈琲</span>
+          <span id="mustDrinks"></span>
+        </div>
+        <div class="tag-line">
+          <span class="boxed-label">必吃甜點</span>
+          <span id="mustSweets"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 短評與【第 2、3、4 張照片】三連拍 -->
+    <div class="mag-section-label">CONCEPT & SPACE</div>
+    <section class="concept-editorial-block">
+      <div>
+        <h3 class="concept-headline">
+          <span class="jp-sub" id="conceptJpSub"></span>
+          <span id="conceptHeadline"></span>
+        </h3>
+      </div>
+      <p class="concept-text" id="conceptBody"></p>
+    </section>
+
+    <section class="three-photo-strip" id="stripContainer"></section>
+
+    <!-- 5. 【第 5、6 張照片】方格手帳拍立得（自動適應 5 張或 6 張照片） -->
+    <div class="mag-section-label">CAFE TIME & SWEETS</div>
+    <section class="scrapbook-zone">
+      <div class="scrapbook-grid" id="scrapbookGrid"></div>
+    </section>
+
+    <!-- 6. 讀者專屬禮遇 -->
+    <div class="mag-section-label">SPECIAL OFFER ‧ 読者限定特典</div>
+    <section class="reader-coupon-ticket">
+      <div class="coupon-left">
+        <div class="coupon-badge-row">
+          <span class="coupon-tag">READER EXCLUSIVE</span>
+          <span class="coupon-jp-hint">SNS投稿・五つ星レビュー特典</span>
+        </div>
+        <h3>《台灣吃喝玩樂》讀者專屬禮遇</h3>
+        <div class="coupon-bilingual-note">
+          <span id="offerConditionZh"></span>
+          <span class="jp-line" id="offerConditionJp"></span>
+        </div>
+      </div>
+      <div class="coupon-right">
+        <span class="show-label">SHOW TO STAFF</span>
+        <div class="gift-value">
+          <span id="offerGiftZh"></span>
+          <small id="offerGiftEn"></small>
+        </div>
+        <button class="claim-btn" onclick="alert('Please show this screen to the staff at checkout! / 会計時にスタッフへご提示ください！')">SHOW TO STAFF →</button>
+      </div>
+    </section>
+
+    <!-- 7. 全英日文上下排列店家資訊 -->
+    <section class="shop-footer-card">
+      <div class="shop-info-col">
+        <div class="jp-kana" id="infoKana"></div>
+        <h4 id="infoNameEn"></h4>
+        <div class="jp-shop-sub" id="infoNameJp"></div>
+
+        <div class="stacked-meta-item">
+          <span class="meta-label">ADDRESS & ACCESS</span>
+          <span class="meta-jp" id="infoAddrJp"></span>
+          <span class="meta-en" id="infoAddrEn"></span>
+        </div>
+
+        <div class="stacked-meta-item">
+          <span class="meta-label">TEL</span>
+          <span class="meta-en" id="infoTel"></span>
+        </div>
+      </div>
+
+      <div class="shop-hours-col">
+        <div class="stacked-meta-item">
+          <span class="meta-label">OPENING HOURS</span>
+          <span class="meta-jp" id="infoHoursJp"></span>
+          <span class="meta-en" id="infoHoursEn"></span>
+        </div>
+
+        <div class="stacked-meta-item">
+          <span class="meta-label">HOUSE RULES & PAYMENT</span>
+          <span class="meta-jp" id="infoRulesJp"></span>
+          <span class="meta-en" id="infoRulesEn"></span>
+        </div>
+
+        <div class="map-btn-row">
+          <a id="infoMapUrl" href="#" target="_blank" rel="noopener" class="mini-action-btn dark">Google Maps ↗</a>
+          <a id="infoHotelUrl" href="https://www.trip.com/hotels/list?city=617&Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" rel="noopener" class="mini-action-btn">Nearby Stays・周辺ホテル ↗</a>
+        </div>
+      </div>
+
+      <div class="sns-scan-col">
+        <div class="sns-black-badge">公式SNSは<br>こちらから</div>
+        <div class="scan-me-title">SCAN ME!</div>
+        <a id="infoIgUrl" href="#" target="_blank" rel="noopener" class="qr-corner-frame">
+          <div class="qr-inner">
+            <small>INSTAGRAM</small>
+            <span id="infoIgHandle"></span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 8. 固定底部：編輯部專刊報導認證 -->
+    <footer class="official-cert-box">
+      <div class="cert-text-wrap">
+        <h5>台灣吃喝玩樂 ‧ 官方探店認證（TAIWAN ROAM VERIFIED）</h5>
+        <p class="zh-cert">本頁由《台灣吃喝玩樂》編輯部專刊報導，嚴選具空間美學與國際友善服務之台灣在地名店。</p>
+        <p class="jp-cert">『台湾吃喝玩樂』編集部による特別編集・特集記事。空間美と旅人への優しさを兼ね備えた台湾の名店として認定しています。</p>
+      </div>
+      <div class="cert-seal-pill">編集部・特別編集認定</div>
+    </footer>
+  </article>
+
+  <!-- =========================================================================
+       店家資料庫（100% 綁定您給的真實照片檔名，支援 5 張或 6 張照片自動排版）
+       ========================================================================= -->
+  <script>
+    const CAFE_DATABASE = {
+      // 【1. 預設跳轉展示店家：興波咖啡旗艦店 Simple Kaffa（使用您給的 6 張照片）】
+      "simple-kaffa": {
+        vol: "VOL.01",
+        areaPill: "台北・中正區 ／ 華山藝文特區",
+        titleZh: "興波咖啡旗艦店",
+        titleEn: "Simple Kaffa Flagship Taipei",
+        vJpTitle: "台湾珈琲の最高峰へ",
+        vJpBody: "赤レンガの古民家に差し込む木漏れ日。世界チャンピオンが淹れる極上の一杯と、濃厚な抹茶ロールで過ごす台北の午後。",
+        heroRightJp: "珈琲の香りと、路地裏の静かな午後。",
+        quickHours: "10:00 – 17:00",
+        quickAccess: "MRT善導寺駅6番出口から徒歩3分",
+        quickFeature: "世界チャンピオンのハンドドリップ・古民家リノベ空間",
+
+        // 100% 對應您提供的 6 張照片檔名（同時支援原檔名、_2 檔名或 1.jpg~6.jpg）
+        photos: [
+          {
+            file: "截圖 2026-11-16 上午11.27.40.jpg",
+            altFile: "截圖 2026-11-16 上午11.27.40_2.jpg",
+            numFile: "1.jpg",
+            capZh: "老宅鐵窗光影與復古絨布沙發座",
+            capEn: "VINTAGE WINDOW & SOFA SPACE"
+          },
+          {
+            file: "截圖 2026-11-16 上午11.28.57.jpg",
+            altFile: "截圖 2026-11-16 上午11.28.57_2.jpg",
+            numFile: "2.jpg",
+            capZh: "冠軍手沖與黑糖拿鐵全系列",
+            capEn: "SIGNATURE COFFEE COLLECTION"
+          },
+          {
+            file: "截圖 2026-11-16 上午11.30.01.jpg",
+            altFile: "截圖 2026-11-16 上午11.30.01_2.jpg",
+            numFile: "3.jpg",
+            capZh: "漸層冰拿鐵與單品手沖分享壺",
+            capEn: "ICED LATTE & POUR-OVER CARAFE"
+          },
+          {
+            file: "截圖 2026-11-16 上午11.30.12.jpg",
+            altFile: "截圖 2026-11-16 上午11.30.12_2.jpg",
+            numFile: "4.jpg",
+            capZh: "興波經典冰飲三重奏",
+            capEn: "ICED SPECIALTY TRIO"
+          },
+          {
+            file: "截圖 2026-11-16 上午11.29.26.jpg",
+            altFile: "截圖 2026-11-16 上午11.29.26_2.jpg",
+            numFile: "5.jpg",
+            capZh: "爆漿流心・宇治抹茶生乳卷",
+            capEn: "UJI MATCHA CREAM ROLL"
+          },
+          {
+            file: "截圖 2026-11-16 上午11.30.29.jpg",
+            altFile: "截圖 2026-11-16 上午11.30.29_2.jpg",
+            numFile: "6.jpg",
+            capZh: "布拉塔起司彩番茄佐酸種麵包",
+            capEn: "BURRATA & HEIRLOOM TOMATOES"
+          }
+        ],
+
+        menus: {
+          zh: [
+            { name: "01. 衣索比亞 藝伎日曬手沖", desc: "白桃、茉莉花香與清亮柑橘尾韻（附風味小卡）", price: "NT$ 250" },
+            { name: "02. 台灣黑糖拿鐵", desc: "手炒黑糖脆皮炙燒，綿密奶泡必喝招牌", price: "NT$ 220" },
+            { name: "03. 創意咖啡 1+1（濃縮＋卡布）", desc: "一次品嚐冠軍配方豆的純粹與奶香融合", price: "NT$ 260" },
+            { name: "04. 爆漿宇治抹茶生乳卷", desc: "日本京都濃郁抹茶蛋糕體，切開流心抹茶內餡", price: "NT$ 190" },
+            { name: "05. 布拉塔起司彩番茄佐酸種麵包", desc: "初榨橄欖油淋乳香布拉塔起司，搭配烤酸種麵包", price: "NT$ 280" }
+          ],
+          en: [
+            { name: "01. Ethiopia Geisha Natural", desc: "Hand-drip: White peach, jasmine & citrus notes", price: "NT$ 250" },
+            { name: "02. Taiwanese Brown Sugar Latte", desc: "Caramelized local brown sugar top, signature pick", price: "NT$ 220" },
+            { name: "03. Signature 1+1 Combo", desc: "Single Espresso + Cappuccino tasting set", price: "NT$ 260" },
+            { name: "04. Lava Uji Matcha Cream Roll", desc: "Kyoto Uji matcha sponge with rich molten matcha cream", price: "NT$ 190" },
+            { name: "05. Burrata & Heirloom Tomatoes", desc: "Fresh burrata cheese, olive oil & toasted sourdough", price: "NT$ 280" }
+          ],
+          ja: [
+            { name: "01. エチオピア ゲイシャ ハンドドリップ", desc: "白桃とジャスミンの華やかな香り（風味カード付）", price: "NT$ 250" },
+            { name: "02. 台湾黒糖ラテ（人気No.1）", desc: "香ばしく炙った台湾産黒糖ときめ細やかなフォームミルク", price: "NT$ 220" },
+            { name: "03. シグネチャー 1+1 セット", desc: "エスプレッソとカプチーノを同時に味わうバリスタ推奨セット", price: "NT$ 260" },
+            { name: "04. とろける宇治抹茶ロールケーキ", desc: "濃厚な京都宇治抹茶クリームがあふれ出す名物スイーツ", price: "NT$ 190" },
+            { name: "05. ブッラータチーズと彩りトマトのタルティーヌ", desc: "新鮮なブッラータとオリーブオイル、香ばしいサワードウ", price: "NT$ 280" }
+          ]
+        },
+        mustDrinks: "● 淺焙藝伎單品手沖 ● 炙燒黑糖拿鐵 ● 經典冰拿鐵與黑咖啡",
+        mustSweets: "● 爆漿宇治抹茶生乳卷 ● 布拉塔起司彩番茄佐酸種麵包",
+
+        conceptJpSub: "古民家と珈琲の美しい調和",
+        conceptHeadline: "在老宅鐵窗與復古絨布沙發間，<br>品嚐世界冠軍的溫潤日常。",
+        conceptBody: "陽光透過大片黑色復古格紋鐵窗灑進紅磚牆面，綠意盆栽與深色絨布單椅交織出迷人的老屋光影。桌上一壺帶有果香的單品手沖與表面炙燒酥脆的黑糖拿鐵，再配上一口爆漿濃郁的宇治抹茶生乳卷與清爽的布拉塔起司番茄酸種麵包，是台北午後最奢侈的味蕾享受。",
+        scrapVerticalJp: "こだわりの珈琲と、<br>濃厚な抹茶スイーツは<br>いかがですか？",
+
+        offerConditionZh: "於 IG 限動標註店家或留下 Google 5 星好評，結帳出示本畫面即可兌換。",
+        offerConditionJp: "IGストーリーズ投稿またはGoogle 5つ星レビューの上、会計時にご提示ください。",
+        offerGiftZh: "招待 手工餅乾乙份",
+        offerGiftEn: "Free Handmade Cookie",
+
+        infoKana: "シンポー・コーヒー・フラッグシップ",
+        infoNameEn: "Simple Kaffa Flagship",
+        infoNameJp: "興波珈琲 フラッグシップ店（台北・華山）",
+        infoAddrJp: "台北市中正区忠孝東路二段27号（MRT善導寺駅6番出口から徒歩3分）",
+        infoAddrEn: "No. 27, Sec. 2, Zhongxiao E. Rd., Taipei (3-min walk from MRT Shandao Temple Exit 6)",
+        infoTel: "+886-2-3322-1888",
+        infoHoursJp: "10:00 – 17:00（年中無休・予約不可）",
+        infoHoursEn: "Daily 10:00 – 17:00 (No reservations / Walk-ins only)",
+        infoRulesJp: "お一人様ワンドリンク制 ／ クレジットカード・Apple Pay可",
+        infoRulesEn: "Min. 1 drink per person / Credit Cards & Apple Pay accepted",
+        infoMapUrl: "https://maps.google.com/?q=Simple+Kaffa+Flagship+Taipei",
+        infoIgUrl: "https://www.instagram.com/simplekaffa/",
+        infoIgHandle: "@simplekaffa"
+      },
+
+      // 【2. 第二家模板店家：咖啡哪有上班苦 Brewing Days（使用您給的 5 張照片）】
+      "brewing-days": {
+        vol: "VOL.02",
+        areaPill: "職人冰滴 ／ 手作肉桂捲專門",
+        titleZh: "咖啡哪有上班苦",
+        titleEn: "Brewing Days Specialty Coffee & Bakery",
+        vJpTitle: "仕事より甘い珈琲時間",
+        vJpBody: "コンクリートの壁に描かれた猫とパソコンの看板。扉を開ければ、焼きたてのシナモンロールと香り高い水出し珈琲が、日々の疲れをそっと癒やしてくれる。",
+        heroRightJp: "焼きたてシナモンロールと、癒やしの珈琲時間。",
+        quickHours: "依官方 IG 公告",
+        quickAccess: "Google マップ「咖啡哪有上班苦」で検索",
+        quickFeature: "木製タワー水出し珈琲・自家製シナモンロール・電源あり",
+
+        photos: [
+          {
+            file: "IMG_7403.jpg",
+            altFile: "IMG_7403.JPG",
+            numFile: "1.jpg",
+            capZh: "清水模光影外牆與「貓咪抱筆電泡咖啡」立體招牌",
+            capEn: "CONCRETE WALL & CAT LOGO"
+          },
+          {
+            file: "IMG_7405.jpg",
+            altFile: "IMG_7405.JPG",
+            numFile: "2.jpg",
+            capZh: "龍貓木鐘與靠窗獨享座",
+            capEn: "WINDOW COUNTER SEAT"
+          },
+          {
+            file: "截圖 2026-11-16 上午11.34.41.jpg",
+            altFile: "截圖 2026-11-16 上午11.34.41.png",
+            numFile: "3.jpg",
+            capZh: "木架慢萃冰滴與沖煮吧台",
+            capEn: "COLD DRIP COFFEE TOWER"
+          },
+          {
+            file: "IMG_7423.jpg",
+            altFile: "IMG_7423.JPG",
+            numFile: "4.jpg",
+            capZh: "雙口味肉桂捲與浮雕杯冰飲",
+            capEn: "CINNAMON ROLLS & ICED COFFEE"
+          },
+          {
+            file: "截圖 2026-11-16 上午11.36.36.jpg",
+            altFile: "截圖 2026-11-16 上午11.36.36.png",
+            numFile: "5.jpg",
+            capZh: "窗邊光影下的現烤焦糖肉桂捲與漸層西西里冰咖啡",
+            capEn: "CINNAMON ROLL & SICILIAN COFFEE"
+          }
+        ],
+
+        menus: {
+          zh: [
+            { name: "01. 職人慢萃冰滴咖啡", desc: "木架冰滴壺歷時慢火冰鎮萃取，帶有醇厚酒香與絲滑尾韻", price: "NT$ 160" },
+            { name: "02. 漸層西西里檸檬冰咖啡", desc: "復古水珠浮雕玻璃杯盛裝，鮮榨檸檬清香交織濃縮咖啡", price: "NT$ 150" },
+            { name: "03. 精選單品手沖咖啡（冰／熱）", desc: "自選淺中焙莊園級單品豆，呈現純淨明亮花果層次", price: "NT$ 160" },
+            { name: "04. 經典濃厚焦糖肉桂捲", desc: "外層微酥內裡鬆軟，層層捲入濃郁黑糖肉桂香氣", price: "NT$ 120" },
+            { name: "05. 香草糖霜淋醬肉桂捲", desc: "溫熱出爐淋上特製奶香糖霜，甜而不膩的午後救贖", price: "NT$ 130" }
+          ],
+          en: [
+            { name: "01. Slow-Drip Cold Brew Coffee", desc: "8-hour ice-dripped extraction with rich, winey aroma & smooth finish", price: "NT$ 160" },
+            { name: "02. Layered Sicilian Lemon Coffee", desc: "Fresh lemon juice & espresso served in a vintage beaded glass", price: "NT$ 150" },
+            { name: "03. Single-Origin Pour-Over (Iced / Hot)", desc: "Hand-dripped specialty beans with bright floral & fruity notes", price: "NT$ 160" },
+            { name: "04. Classic Caramel Cinnamon Roll", desc: "Crispy outside, fluffy inside, swirled with rich brown sugar cinnamon", price: "NT$ 120" },
+            { name: "05. Vanilla Glazed Cinnamon Roll", desc: "Warm freshly baked roll topped with house-made sweet vanilla glaze", price: "NT$ 130" }
+          ],
+          ja: [
+            { name: "01. 特製水出しダッチコーヒー（氷滴珈琲）", desc: "専用木製タワーで一滴ずつじっくり抽出した、芳醇な香りとまろやかな口当たり", price: "NT$ 160" },
+            { name: "02. 二層シチリアン・レモンアイスコーヒー", desc: "レトロなドット柄グラスで提供する、生搾りレモンとエスプレッソの爽快な一杯", price: "NT$ 150" },
+            { name: "03. 厳選シングルオリジン・ハンドドリップ", desc: "果実味あふれる浅煎り〜中煎り豆を丁寧にハンドドリップ（Hot / Ice）", price: "NT$ 160" },
+            { name: "04. クラシック・焦がしキャラメルシナモンロール", desc: "外はカリッと中はふんわり。濃厚な黒糖シナモンが香る看板スイーツ", price: "NT$ 120" },
+            { name: "05. 特製バニラシュガーグレーズ・シナモンロール", desc: "温かいロールにミルキーな特製アイシングをたっぷりかけた人気メニュー", price: "NT$ 130" }
+          ]
+        },
+        mustDrinks: "● 限量木架慢萃冰滴咖啡 ● 漸層西西里檸檬冰咖啡 ● 淺焙單品冰手沖",
+        mustSweets: "● 經典濃厚焦糖肉桂捲 ● 香草糖霜淋醬肉桂捲",
+
+        conceptJpSub: "「仕事なんかより、まず一杯の珈琲を。」",
+        conceptHeadline: "把上班的苦留在門外，<br>用肉桂香與冰滴咖啡溫柔充電。",
+        conceptBody: "店門口的灰牆上，一隻抱著筆電泡在咖啡杯裡的貓咪道盡了都會人的心聲：「咖啡哪有上班苦」。走進水泥質感空間，抬頭是俏皮的龍貓原木年輪掛鐘，轉角則是灑滿自然光的靠窗木吧台。吧台上巨型木架冰滴壺一滴一滴慢速萃取，配上一顆烤得外酥內軟的手作肉桂捲，瞬間療癒所有疲憊。",
+        scrapVerticalJp: "仕事の合間に、<br>焼きたてのシナモンロールと<br>爽やかな珈琲はいかがですか？",
+
+        offerConditionZh: "於 IG 限動標註店家或留下 Google 5 星好評，結帳出示本畫面即可兌換。",
+        offerConditionJp: "IGストーリーズ投稿またはGoogle 5つ星レビューの上、会計時にご提示ください。",
+        offerGiftZh: "飲品搭配肉桂捲現折優惠",
+        offerGiftEn: "Combo Special Discount",
+
+        infoKana: "ブルーイング・デイズ・カフェ",
+        infoNameEn: "Brewing Days Café",
+        infoNameJp: "咖啡哪有上班苦（シナモンロール＆水出し珈琲専門店）",
+        infoAddrJp: "自家製シナモンロール・水出しダッチコーヒー・窓際カウンター席あり",
+        infoAddrEn: "Handmade Cinnamon Rolls, Cold-Drip Coffee & Cozy Window Counter Seats",
+        infoTel: "Google Maps: 咖啡哪有上班苦 Brewing Days",
+        infoHoursJp: "営業時間は公式InstagramまたはGoogleマップにてご確認ください",
+        infoHoursEn: "Please check official Instagram or Google Maps for daily opening hours",
+        infoRulesJp: "お一人様ワンドリンク制 ／ 電源コンセント・Wi-Fi完備（ノマドワーク歓迎）",
+        infoRulesEn: "Min. 1 drink per person / Power outlets & Wi-Fi available (Laptop-friendly)",
+        infoMapUrl: "https://maps.google.com/?q=咖啡哪有上班苦+Brewing+Days",
+        infoIgUrl: "https://www.instagram.com/explore/tags/咖啡哪有上班苦/",
+        infoIgHandle: "#咖啡哪有上班苦"
+      }
+    };
+
+    // 預設顯示「興波咖啡旗艦店 (simple-kaffa)」，若網址帶 ?shop=brewing-days 則自動切換
+    const params = new URLSearchParams(window.location.search);
+    const shopKey = params.get('shop') || 'simple-kaffa';
+    const currentShop = CAFE_DATABASE[shopKey] || CAFE_DATABASE['simple-kaffa'];
+
+    function renderMenuSheet(tagTitle, items) {
+      return `
+        <span class="sheet-lang-tag">${tagTitle}</span>
+        ${items.map(item => `
+          <div class="menu-row">
+            <div>
+              <span class="m-name">${item.name}</span>
+              <span class="m-desc">${item.desc}</span>
+            </div>
+            <span class="m-price">${item.price}</span>
+          </div>
+        `).join('')}
+      `;
+    }
+
+    function initPage(shop) {
+      document.title = `${shop.titleZh} ${shop.titleEn}｜台灣吃喝玩樂 深度採訪專刊`;
+      document.getElementById('issueEdge').textContent = `SUPPORT YOUR COFFEE LIFE • TAIWAN ROAM ARCHIVE ${shop.vol}`;
+      document.getElementById('shopAreaPill').textContent = shop.areaPill;
+      document.getElementById('shopTitleZh').textContent = shop.titleZh;
+      document.getElementById('shopTitleEn').textContent = shop.titleEn;
+      document.getElementById('vJpTitle').textContent = shop.vJpTitle;
+      document.getElementById('vJpBody').textContent = shop.vJpBody;
+
+      // Photo 1（支援原始檔名、_2 檔名或 1.jpg 自動備援讀取）
+      const p1 = shop.photos[0];
+      const img1 = document.getElementById('photo1Img');
+      img1.src = p1.file;
+      img1.onerror = function() {
+        if (this.src.indexOf(encodeURI(p1.altFile)) === -1 && p1.altFile) {
+          this.src = p1.altFile;
+        } else {
+          this.onerror = null;
+          this.src = p1.numFile;
+        }
+      };
+      img1.alt = p1.capZh;
+      document.getElementById('photo1Caption').textContent = `PHOTO 01 ／ ${p1.capZh}`;
+      document.getElementById('heroRightJp').textContent = shop.heroRightJp;
+
+      document.getElementById('quickHours').textContent = shop.quickHours;
+      document.getElementById('quickAccess').textContent = shop.quickAccess;
+      document.getElementById('quickFeature').textContent = shop.quickFeature;
+
+      // 預設中英並排 5 道菜單
+      document.getElementById('sheetLeft').innerHTML = renderMenuSheet('CHINESE MENU', shop.menus.zh);
+      document.getElementById('sheetRight').innerHTML = renderMenuSheet('ENGLISH MENU', shop.menus.en);
+      document.getElementById('mustDrinks').textContent = shop.mustDrinks;
+      document.getElementById('mustSweets').textContent = shop.mustSweets;
+
+      // Concept & Photos 2, 3, 4
+      document.getElementById('conceptJpSub').textContent = shop.conceptJpSub;
+      document.getElementById('conceptHeadline').innerHTML = shop.conceptHeadline;
+      document.getElementById('conceptBody').textContent = shop.conceptBody;
+
+      const stripPhotos = shop.photos.slice(1, 4);
+      document.getElementById('stripContainer').innerHTML = stripPhotos.map((p, idx) => `
+        <figure class="strip-item">
+          <img src="${p.file}" alt="${p.capZh}" onerror="if(this.dataset.triedAlt!=='1'){this.dataset.triedAlt='1';this.src='${p.altFile}';}else{this.onerror=null;this.src='${p.numFile}';}" />
+          <figcaption><span>PHOTO 0${idx + 2}</span><span>${p.capZh}</span></figcaption>
+        </figure>
+      `).join('');
+
+      // Photos 5 & 6（自動判斷 5 張或 6 張照片）
+      const scrapGrid = document.getElementById('scrapbookGrid');
+      const p5 = shop.photos[4];
+      const p6 = shop.photos[5];
+
+      let scrapHTML = `<div class="scrap-vertical-jp">${shop.scrapVerticalJp}</div>`;
+      if (p5) {
+        scrapHTML += `
+          <figure class="polaroid-card tilt-left">
+            <svg class="svg-paperclip" viewBox="0 0 24 48" fill="none" stroke="#6E655F" stroke-width="2">
+              <path d="M7 14V36C7 40.4183 10.5817 44 15 44C19.4183 44 23 40.4183 23 36V10C23 4.47715 18.5228 0 13 0C7.47715 0 3 4.47715 3 10V32C3 35.3137 5.68629 38 9 38C12.3137 38 15 35.3137 15 32V14" />
+            </svg>
+            <img src="${p5.file}" alt="${p5.capZh}" onerror="if(this.dataset.triedAlt!=='1'){this.dataset.triedAlt='1';this.src='${p5.altFile}';}else{this.onerror=null;this.src='${p5.numFile}';}" />
+            <figcaption class="polaroid-caption">
+              ${p5.capZh}
+              <span>PHOTO 05 / ${p5.capEn}</span>
+            </figcaption>
+          </figure>
+        `;
+      }
+      if (p6) {
+        scrapGrid.classList.remove('five-photo-mode');
+        scrapHTML += `
+          <figure class="polaroid-card tilt-right">
+            <svg class="svg-bulldog-clip" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="8" r="5" stroke="#8C7A6B" stroke-width="2.5" fill="#FAF9F5"/>
+              <path d="M10 15H30L33 28H7L10 15Z" fill="#8C7A6B"/>
+              <rect x="6" y="27" width="28" height="4" rx="1" fill="#5C4D42"/>
+            </svg>
+            <img src="${p6.file}" alt="${p6.capZh}" onerror="if(this.dataset.triedAlt!=='1'){this.dataset.triedAlt='1';this.src='${p6.altFile}';}else{this.onerror=null;this.src='${p6.numFile}';}" />
+            <figcaption class="polaroid-caption">
+              ${p6.capZh}
+              <span>PHOTO 06 / ${p6.capEn}</span>
+            </figcaption>
+          </figure>
+        `;
+      } else {
+        scrapGrid.classList.add('five-photo-mode');
+      }
+      scrapGrid.innerHTML = scrapHTML;
+
+      // Offer & Shop Info
+      document.getElementById('offerConditionZh').textContent = shop.offerConditionZh;
+      document.getElementById('offerConditionJp').textContent = shop.offerConditionJp;
+      document.getElementById('offerGiftZh').textContent = shop.offerGiftZh;
+      document.getElementById('offerGiftEn').textContent = shop.offerGiftEn;
+
+      document.getElementById('infoKana').textContent = shop.infoKana;
+      document.getElementById('infoNameEn').textContent = shop.infoNameEn;
+      document.getElementById('infoNameJp').textContent = shop.infoNameJp;
+      document.getElementById('infoAddrJp').textContent = shop.infoAddrJp;
+      document.getElementById('infoAddrEn').textContent = shop.infoAddrEn;
+      document.getElementById('infoTel').textContent = shop.infoTel;
+      document.getElementById('infoHoursJp').textContent = shop.infoHoursJp;
+      document.getElementById('infoHoursEn').textContent = shop.infoHoursEn;
+      document.getElementById('infoRulesJp').textContent = shop.infoRulesJp;
+      document.getElementById('infoRulesEn').textContent = shop.infoRulesEn;
+      document.getElementById('infoMapUrl').href = shop.infoMapUrl;
+      document.getElementById('infoIgUrl').href = shop.infoIgUrl;
+      document.getElementById('infoIgHandle').textContent = shop.infoIgHandle;
+    }
+
+    function setMenuMode(mode, btn) {
+      document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const grid = document.getElementById('menuGrid');
+      const left = document.getElementById('sheetLeft');
+      const right = document.getElementById('sheetRight');
+
+      if (mode === 'dual') {
+        grid.classList.remove('single-col');
+        right.style.display = 'block';
+        left.innerHTML = renderMenuSheet('CHINESE MENU', currentShop.menus.zh);
+        right.innerHTML = renderMenuSheet('ENGLISH MENU', currentShop.menus.en);
+      } else if (mode === 'zh') {
+        grid.classList.add('single-col');
+        right.style.display = 'none';
+        left.innerHTML = renderMenuSheet('CHINESE MENU', currentShop.menus.zh);
+      } else if (mode === 'en') {
+        grid.classList.add('single-col');
+        right.style.display = 'none';
+        left.innerHTML = renderMenuSheet('ENGLISH MENU', currentShop.menus.en);
+      } else if (mode === 'ja') {
+        grid.classList.add('single-col');
+        right.style.display = 'none';
+        left.innerHTML = renderMenuSheet('JAPANESE MENU', currentShop.menus.ja);
+      }
+    }
+
+    initPage(currentShop);
+  </script>
+</body>
+</html>

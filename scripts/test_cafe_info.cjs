@@ -49,3 +49,25 @@ test('detail URL handling rejects unsafe links and all seven interfaces have com
  const html=fs.readFileSync('cafe.html','utf8');assert.ok(html.includes('cafe_info.html?id=${encodeURIComponent(item.id)}&lang=${encodeURIComponent(getWebLang())}'));
  const detail=fs.readFileSync('cafe_info.html','utf8');assert.ok(!detail.includes('CAFE_DATABASE'));assert.ok(!detail.includes('coffee.html'));assert.ok(!detail.includes('SHOW TO STAFF'));assert.ok(detail.includes('js/cafe_info.js'));
 });
+
+test('menus join the same article and cafe across languages without relabeling a Chinese fallback',async()=>{
+ const api=setup(), article=articles[0], calls=[];
+ const zh={...article,menuHtml:'<p>中文菜單</p>'};
+ const data={menuArticles:{zh:[zh],ko:[{...article,title:'한국어 기사',menuHtml:undefined}]}};
+ const menus=await api.loadMenus(article,'ko',data,async(file,lang)=>{
+  calls.push(lang);
+  if(lang==='en')return [{...article,menuHtml:'<p>English menu</p>'}];
+  return [{...article,cafeId:'wrong-cafe',menuHtml:'<p>Wrong venue</p>'}];
+ });
+ assert.deepEqual(Array.from(menus,m=>m.lang),['zh','en']);
+ assert.deepEqual(calls,['en','ja']);
+ assert.equal(menus[0].html,zh.menuHtml);
+});
+
+test('missing, empty, malformed, and unavailable menu translations stay hidden',async()=>{
+ const api=setup();
+ const data={menuArticles:{zh:[],en:[{...articles[0],menuHtml:'  '}],ja:null}};
+ const menus=await api.loadMenus(articles[0],'zh-TW',data,async()=>{throw Error('offline')});
+ assert.equal(menus.length,0);
+ assert.equal((await api.loadMenus(undefined,'zh-TW',data,async()=>{throw Error('must not fetch')})).length,0);
+});

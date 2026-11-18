@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/cafe-info.css">
   <script src="js/data.js" defer></script>
   <script src="js/content_loader.js" defer></script>
+  <script src="js/cafe-menu-html.js" defer></script>
   <script src="js/cafe_info.js" defer></script>
 </head>
 <body>
@@ -39,12 +40,22 @@
       <div class="title-block">
         <span class="area-pill" id="shopAreaPill" hidden></span>
         <h1 id="shopTitleZh" data-info-text="title">咖啡店深度探訪</h1>
+        <p class="en-sub" id="articleSubtitle"></p>
         <div class="article-byline" id="articleByline"></div>
       </div>
       <div class="hanko-stamp">TAIWAN<br>ROAM<span>COFFEE</span></div>
     </header>
     <section class="hero-stage" id="articleHero" hidden>
       <div class="hero-photo-frame"><img id="photo1Img" alt=""><span class="hero-overlay-tag" id="photo1Caption"></span></div>
+    </section>
+    <div class="quick-meta-strip" id="quickMeta" hidden></div>
+    <section class="menu-dual-wrapper" id="articleMenu" hidden aria-labelledby="menuHeading">
+      <div class="mag-section-label">MENU &amp; SIGNATURE</div>
+      <div class="menu-top-controls">
+        <h2 id="menuHeading">招牌必點菜單</h2>
+        <div class="menu-view-tabs" id="menuViewTabs" role="group" aria-label="菜單語言"></div>
+      </div>
+      <div class="menu-cards-grid" id="menuGrid"></div>
     </section>
     <p class="article-summary" id="articleSummary"></p>
     <section class="article-empty" id="articleEmpty" hidden>
@@ -53,6 +64,11 @@
       <a class="back-link" id="emptyBack" href="cafe.html" data-info-text="back">← 返回全台風格咖啡圖鑑</a>
     </section>
     <div id="articleSections"></div>
+    <section id="articleGallery" hidden aria-label="Photos">
+      <div class="mag-section-label">CAFE TIME &amp; SPACE</div>
+      <div class="three-photo-strip" id="stripContainer"></div>
+      <div class="scrapbook-zone" id="scrapbookZone" hidden><div class="scrapbook-grid" id="scrapbookGrid"></div></div>
+    </section>
     <section class="article-highlights" id="articleHighlights" hidden>
       <h2 data-info-text="highlights">探訪亮點</h2><ul id="highlightsList"></ul>
     </section>

@@ -1013,3 +1013,41 @@ body.cafe-info-loading { overflow: hidden; }
   overflow-wrap: anywhere;
 }
 .cafe-info-partnership:hover { color: var(--stamp-green); }
+
+/* HTML menus inherit the journal design; pasted formatting stays out of the layout. */
+.magazine-page { max-width: 1040px; }
+.title-block .en-sub { text-transform: none; letter-spacing: 1px; margin: 12px 0; line-height: 1.8; }
+.quick-meta-strip { gap: 12px 24px; padding-bottom: 22px; margin-bottom: 28px; }
+.quick-meta-strip > div { flex: 1 1 180px; }
+.quick-meta-strip strong { display: block; }
+.menu-dual-wrapper { margin-top: 28px; }
+.menu-view-tabs { flex-wrap: wrap; }
+.view-btn { min-height: 36px; font: inherit; font-size: 11px; }
+.menu-cards-grid, .menu-sheet, .menu-html { min-width: 0; }
+.menu-sheet { overflow-x: auto; padding: 16px; }
+.menu-html { font-size: 13px; overflow-wrap: anywhere; }
+.menu-html table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.menu-html th, .menu-html td { padding: 12px 6px; text-align: left; vertical-align: top; border-bottom: 1px dotted var(--line-color); }
+.menu-html th { color: var(--ink-muted); font-size: 11px; font-weight: 600; }
+.menu-html tr > :last-child:not(:first-child) { width: 30%; text-align: right; color: var(--accent-rust); }
+.menu-html p { margin: 8px 0; }
+.menu-html small, .menu-html .m-desc { display: block; color: var(--ink-muted); font-size: 11px; }
+.menu-html ul, .menu-html ol { padding-left: 22px; }
+.menu-html h3, .menu-html h4 { margin: 12px 0 6px; }
+.menu-html .menu-row { gap: 12px; }
+.three-photo-strip { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.strip-item figcaption { display: block; }
+.scrapbook-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.shop-info-col h2 { font-family: 'Noto Serif JP', serif; font-size: 20px; margin-bottom: 12px; }
+.stacked-meta-item .info-value, .stacked-meta-item > a { display: block; font-size: 13px; }
+.stacked-meta-item > a { color: var(--ink-black); }
+@media (max-width: 768px) {
+ .menu-dual-wrapper { padding: 18px 12px; }
+ .menu-cards-grid, .three-photo-strip { grid-template-columns: 1fr; }
+ .menu-top-controls { align-items: flex-start; }
+ .menu-view-tabs { gap: 6px; }
+ .view-btn { padding: 6px 10px; }
+ .menu-sheet { padding: 12px; }
+ .scrapbook-grid { grid-template-columns: 1fr; }
+ .quick-meta-strip > div { flex-basis: 100%; }
+}

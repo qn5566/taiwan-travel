@@ -65,11 +65,64 @@ const CafeArticleData = (() => {
     return {
       cafes: merge(result(0), merge(result(2), localCafes)),
       articles: merge(primaryArticles, zhArticles), offline,
+      menuArticles: { [mapToContentLang(lang)]: primaryArticles, zh: zhArticles },
       translatedArticleIds: new Set(primaryArticles.map(a => a.id))
     };
   }
-  return { text, list, resolve, merge, safeUrl, load };
+  async function loadMenus(article, lang, data, fetcher = fetchContentJson) {
+    if (!article) return [];
+    const languages = [...new Set(['zh', 'en', 'ja', mapToContentLang(lang)])];
+    return (await Promise.all(languages.map(async code => {
+      let records = data.menuArticles?.[code];
+      if (!records) {
+        try { records = await fetcher('cafe_articles.json', code === 'zh' ? 'zh-TW' : code); }
+        catch (e) { return null; }
+      }
+      const record = Array.isArray(records) ? records.find(a => a.id === article.id && a.cafeId === article.cafeId) : null;
+      return typeof record?.menuHtml === 'string' && record.menuHtml.trim() ? { lang: code, html: record.menuHtml } : null;
+    }))).filter(Boolean);
+  }
+  return { text, list, resolve, merge, safeUrl, load, loadMenus };
 })();
+
+async function renderCafeMenus(article, lang, data) {
+  const variants = (await CafeArticleData.loadMenus(article, lang, data))
+    .map(menu => ({ ...menu, html: CafeMenuHtml.sanitize(menu.html) })).filter(menu => menu.html);
+  const section = document.getElementById('articleMenu');
+  section.hidden = !variants.length;
+  if (!variants.length) return;
+  const labels = { zh: '繁體中文', en: 'English', ja: '日本語', ko: '한국어', es: 'Español', th: 'ไทย', vi: 'Tiếng Việt', id: 'Bahasa Indonesia', ms: 'Bahasa Melayu', fil: 'Filipino', hi: 'हिन्दी' };
+  const isZh = mapToContentLang(lang) === 'zh';
+  document.getElementById('menuHeading').textContent = isZh ? '招牌必點菜單' : lang === 'ja' ? 'おすすめメニュー' : 'Menu & Signature';
+  const tabs = document.getElementById('menuViewTabs');
+  tabs.setAttribute('aria-label', isZh ? '菜單語言' : 'Menu language');
+  tabs.replaceChildren();
+  const modes = variants.map(menu => ({ id: menu.lang, label: labels[menu.lang] || menu.lang, menus: [menu] }));
+  const chinese = variants.find(menu => menu.lang === 'zh');
+  const english = variants.find(menu => menu.lang === 'en');
+  if (chinese && english) modes.unshift({ id: 'dual', label: isZh ? '中英並排' : lang === 'ja' ? '中国語・英語' : '中文 / English', menus: [chinese, english] });
+  const grid = document.getElementById('menuGrid');
+  function select(mode) {
+    for (const button of tabs.children) {
+      const active = button.dataset.mode === mode.id;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+    }
+    grid.classList.toggle('single-col', mode.menus.length === 1);
+    grid.replaceChildren();
+    for (const menu of mode.menus) {
+      const sheet = document.createElement('section'); sheet.className = 'menu-sheet'; sheet.lang = menu.lang === 'zh' ? 'zh-Hant' : menu.lang;
+      const label = document.createElement('h3'); label.className = 'sheet-lang-tag'; label.textContent = labels[menu.lang] || menu.lang;
+      const body = document.createElement('div'); body.className = 'menu-html'; body.innerHTML = menu.html;
+      sheet.append(label, body); grid.appendChild(sheet);
+    }
+  }
+  for (const mode of modes) {
+    const button = document.createElement('button'); button.type = 'button'; button.className = 'view-btn'; button.dataset.mode = mode.id; button.textContent = mode.label;
+    button.addEventListener('click', () => select(mode)); tabs.appendChild(button);
+  }
+  select(modes.find(mode => mode.id === 'dual') || modes.find(mode => mode.id === mapToContentLang(lang)) || modes[0]);
+}
 
 function setCafeInfoLoading(active, lang = getWebLang()) {
   const overlay = document.getElementById('cafeInfoLoading');
@@ -110,7 +163,8 @@ async function initCafeInfo() {
   const data = await CafeArticleData.load(lang);
   const { cafe, article } = CafeArticleData.resolve(params, data.cafes, data.articles);
   const info = article?.practicalInfo && typeof article.practicalInfo === 'object' ? article.practicalInfo : {};
-  set('shopTitleZh', article?.title || cafe?.name || t('notFound'));
+  set('shopTitleZh', cafe?.name || article?.title || t('notFound'));
+  set('articleSubtitle', article?.subtitle);
   document.title = `${article?.title || cafe?.name || t('notFound')}｜Taiwan Roam`;
   byId('pageDesc').content = article?.summary || cafe?.features || t('emptyBody');
   set('articleSummary', article?.summary || cafe?.features);
@@ -123,12 +177,27 @@ async function initCafeInfo() {
   const image = (el, url, alt) => {
     const safe = CafeArticleData.safeUrl(url);
     if (!safe) { el.hidden = true; return false; }
-    el.src = safe; el.alt = alt || ''; el.onerror = () => { el.closest('figure, .hero-stage')?.setAttribute('hidden', ''); }; return true;
+    el.src = safe; el.alt = alt || '';
+    el.onerror = () => {
+      el.closest('figure, .hero-stage')?.setAttribute('hidden', '');
+      const gallery = byId('articleGallery');
+      if ([...gallery.querySelectorAll('figure')].every(figure => figure.hidden)) gallery.hidden = true;
+    };
+    return true;
   };
   byId('articleHero').hidden = !image(byId('photo1Img'), article?.coverImg || cafe?.img, cafe?.name || article?.title);
   set('photo1Caption', cafe?.name || article?.category);
   byId('photo1Caption').hidden = !byId('photo1Caption').textContent;
   byId('articleEmpty').hidden = !!article;
+  const quickMeta = byId('quickMeta');
+  for (const key of ['businessHours', 'nearestMrt', 'minOrder']) {
+    if (!info[key]) continue;
+    const item = document.createElement('div');
+    const label = document.createElement('strong'); label.textContent = t(key);
+    const value = document.createElement('span'); value.textContent = info[key];
+    item.append(label, value); quickMeta.appendChild(item);
+  }
+  quickMeta.hidden = !quickMeta.children.length;
   if (!cafe && !article) {
     byId('articleEmpty').querySelector('h2').textContent = t('notFound');
     byId('articleEmpty').querySelector('p').textContent = t('notFoundBody');
@@ -140,13 +209,18 @@ async function initCafeInfo() {
     const heading = document.createElement('h2'); heading.className = 'concept-headline'; heading.textContent = section.heading || '';
     const content = document.createElement('p'); content.className = 'concept-text'; content.textContent = section.content || '';
     block.append(heading, content); byId('articleSections').appendChild(block);
-    if (CafeArticleData.safeUrl(section.image)) {
-      const figure = document.createElement('figure'); figure.className = 'article-photo';
-      const img = document.createElement('img'); img.loading = 'lazy'; image(img, section.image, section.caption || section.heading);
-      const caption = document.createElement('figcaption'); caption.textContent = section.caption || '';
-      figure.append(img, caption); byId('articleSections').appendChild(figure);
-    }
   }
+  const photos = Array.isArray(article?.photos) ? article.photos : sections.map(section => ({ image: section?.image, caption: section?.caption }));
+  const validPhotos = photos.filter(photo => photo && CafeArticleData.safeUrl(photo.image));
+  byId('articleGallery').hidden = !validPhotos.length;
+  for (const [index, photo] of validPhotos.entries()) {
+    const figure = document.createElement('figure');
+    figure.className = index < 3 ? 'strip-item' : `polaroid-card ${index % 2 ? 'tilt-left' : 'tilt-right'}`;
+    const img = document.createElement('img'); img.loading = 'lazy'; image(img, photo.image, photo.caption);
+    const caption = document.createElement('figcaption'); caption.textContent = photo.caption || '';
+    figure.append(img, caption); byId(index < 3 ? 'stripContainer' : 'scrapbookGrid').appendChild(figure);
+  }
+  byId('scrapbookZone').hidden = validPhotos.length <= 3;
   const highlights = Array.isArray(article?.highlights) ? article.highlights : [];
   highlights.forEach(text => { const item = document.createElement('li'); item.textContent = text; byId('highlightsList').appendChild(item); });
   byId('articleHighlights').hidden = !highlights.length;
@@ -168,6 +242,7 @@ async function initCafeInfo() {
     byId('infoHotelUrl').href = `https://www.trip.com/hotels/list?Allianceid=9507030&SID=325761227&trip_sub3=D20272275&keyword=${encodeURIComponent([cafe?.city, cafe?.district, cafe?.name].filter(Boolean).join(' ') || article.title)}`;
   }
   byId('cafe-article').setAttribute('aria-busy', 'false');
+  await renderCafeMenus(article, lang, data);
 }
 if (typeof document !== 'undefined') document.addEventListener('DOMContentLoaded', () => {
   initCafeInfo().catch(() => {
