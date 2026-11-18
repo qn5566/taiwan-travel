@@ -1139,8 +1139,6 @@ async function switchLanguage(lang) {
     [typeof loadActivitiesContent === "function" ? loadActivitiesContent : null, typeof renderTrendingSection === "function" ? renderTrendingSection : null],
     [typeof loadThemeGridContent === "function" ? loadThemeGridContent : null, typeof renderThemesSection === "function" ? renderThemesSection : null],
     [typeof loadSpotsContent === "function" ? loadSpotsContent : null, typeof renderWaterfallSection === "function" ? renderWaterfallSection : null],
-    [typeof loadHomeRankingsContent === "function" ? loadHomeRankingsContent : null, typeof renderRankingsSection === "function" ? renderRankingsSection : null],
-    [typeof loadHomeBlogContent === "function" ? loadHomeBlogContent : null, typeof renderBlogSection === "function" ? renderBlogSection : null]
   ];
   await Promise.allSettled(sections.map(async ([load, render]) => {
     if (load) await load(lang);

@@ -4,8 +4,6 @@
  * 1. 圖四風格 Top 1-6 橢圓膠囊卡牌 (Trending Top 6 Pill Carousel)
  * 2. 18 大精選主題網格 (Themes 18 Grid)
  * 3. 全部景點 ＋ 全部縣市瀑布流 (Masonry Waterfall & City Filter)
- * 4. 7 大排行榜切換 (Rankings Hub: 手搖20、景點20、包車10、活動10、雨天10、咖啡20、文青20)
- * 5. 週末探店單列專欄文章 (Weekend Hop Editorial with Spot Info Box)
  * 6. 白色透明玻璃擬態搜尋樞紐 (Glassmorphic Search Hub)
  * 7. 收藏清單抽屜、社群留言討論區與多語系切換
  */
@@ -16,7 +14,6 @@ let currentSearchQuery = "";
 let waterfallLoadedCount = 10;
 let waterfallObserver = null;
 const WATERFALL_PAGE_SIZE = 10;
-let currentRankingTab = "drinks";
 let userFavorites = [];
 
 function escapeHomeText(value) {
@@ -43,13 +40,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadActivitiesContent(initialLang);
     await loadThemeGridContent(initialLang);
     await loadSpotsContent(initialLang);
-    await loadHomeRankingsContent(initialLang);
-    await loadHomeBlogContent(initialLang);
     renderTrendingSection();
     renderThemesSection();
     renderWaterfallSection();
-    renderRankingsSection();
-    renderBlogSection();
   }
 });
 
@@ -382,276 +375,6 @@ function initWaterfallInfiniteScroll() {
       }
     });
   }
-}
-
-/* =========================================================
-   4. 排行榜專區 (7 大排行 Tab 切換)
-   ========================================================= */
-function renderRankingsSection() {
-  const container = document.getElementById("rankings-display-container");
-  if (!container || typeof RANKINGS_DATA === "undefined") return;
-
-  const dataList = RANKINGS_DATA[currentRankingTab] || [];
-
-  if (currentRankingTab === "drinks") {
-    container.innerHTML = `
-      <div class="rankings-dual-grid" style="grid-template-columns: 1fr;">
-        <div class="ranking-list-card">
-          <div class="ranking-list-header">
-            <div class="ranking-header-title-row">
-              <span class="ranking-header-title">🧋 全台 20 大必喝手搖飲品牌與黃金甜度冰塊</span>
-            </div>
-          </div>
-          <div class="ranking-list-body">
-            ${dataList.map(item => {
-              const rankClass = item.rank === 1 ? "top1" : item.rank === 2 ? "top2" : item.rank === 3 ? "top3" : "";
-              const mapUrl = AFFILIATE_HUB.getMapUrl(item.name.split(" ")[0]);
-              return `
-                <div class="ranking-row-card">
-                  <div class="rank-number ${rankClass}">${item.rank}</div>
-                  <div style="font-size:24px; flex-shrink:0;">${item.logo}</div>
-                  <div class="rank-info">
-                    <div class="rank-name-row">
-                      <span class="rank-name">${item.name}</span>
-                      <span class="rank-tag-badge">${item.category}</span>
-                      <span style="font-size:12px; color:#D97706; font-weight:700;">${item.rate}</span>
-                    </div>
-                    <div class="rank-desc">招牌必點：${item.drinks.join("、")}</div>
-                    <div style="margin-top:4px;">
-                      <span class="sugar-ice-badge">🍯 ${item.sugarIce}</span>
-                    </div>
-                  </div>
-                  <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding:6px 12px; font-size:12px; flex-shrink:0;">
-                    📍 Map
-                  </a>
-                </div>
-              `;
-            }).join("")}
-          </div>
-        </div>
-      </div>
-    `;
-  } else if (currentRankingTab === "spots") {
-    container.innerHTML = `
-      <div class="rankings-dual-grid" style="grid-template-columns: 1fr;">
-        <div class="ranking-list-card">
-          <div class="ranking-list-header">
-            <div class="ranking-header-title-row">
-              <span class="ranking-header-title">🏆 全台 20 大熱門訂閱景點人氣排行榜</span>
-            </div>
-          </div>
-          <div class="ranking-list-body">
-            ${dataList.map(item => {
-              const rankClass = item.rank === 1 ? "top1" : item.rank === 2 ? "top2" : item.rank === 3 ? "top3" : "";
-              const tourUrl = AFFILIATE_HUB.getTourUrl(item.activityId || "1874-jiufen-shifen-day-tour-taipei");
-              const hotelUrl = AFFILIATE_HUB.getHotelUrl(item.name);
-              return `
-                <div class="ranking-row-card">
-                  <div class="rank-number ${rankClass}">${item.rank}</div>
-                  <img src="${item.img}" style="width:60px; height:60px; border-radius:12px; object-fit:cover; flex-shrink:0;" alt="${item.name}">
-                  <div class="rank-info">
-                    <div class="rank-name-row">
-                      <span class="rank-name">${item.name}</span>
-                      <span class="rank-tag-badge">${item.tag}</span>
-                      <span style="font-size:12px; color:#D97706; font-weight:700;">${item.rate}</span>
-                    </div>
-                    <div class="rank-desc">${item.desc}</div>
-                    <div style="font-size:11px; color:#0284C7; font-weight:700; margin-top:2px;">🔥 ${item.views}</div>
-                  </div>
-                  <div style="display:flex; flex-direction:column; gap:4px; align-items:flex-end; flex-shrink:0;">
-                    <a href="${tourUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding:5px 10px; font-size:11px;">🎟️ 預定行程</a>
-                    <a href="${hotelUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-booking-room" style="padding:4px 8px; font-size:11px;">🏨 住宿</a>
-                  </div>
-                </div>
-              `;
-            }).join("")}
-          </div>
-        </div>
-      </div>
-    `;
-  } else if (currentRankingTab === "charter") {
-    container.innerHTML = `
-      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap:20px;">
-        ${dataList.map(item => {
-          const charterUrl = AFFILIATE_HUB.getCharterUrl();
-          return `
-            <div style="background:#FFFFFF; border:1px solid var(--border-color); border-radius:18px; padding:22px; display:flex; flex-direction:column; box-shadow:var(--shadow-sm);">
-              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
-                <span style="font-size:18px; font-weight:800; color:var(--text-heading);">#${item.rank} ${item.name}</span>
-                <span style="background:#E0F2FE; color:#0284C7; font-size:11px; font-weight:800; padding:4px 10px; border-radius:9999px; flex-shrink:0;">${item.city}</span>
-              </div>
-              <p style="font-size:13px; color:var(--text-muted); line-height:1.6; margin-bottom:14px; flex:1;">${item.desc}</p>
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-top:auto; border-top:1px solid #F1F5F9; padding-top:12px;">
-                <div>
-                  <span style="font-size:11px; color:#64748B;">${item.trips}</span>
-                  <div style="font-size:16px; font-weight:800; color:#0284C7;">${item.price}</div>
-                </div>
-                <a href="${charterUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding:8px 16px; font-size:12px;">
-                  🚗 包車預約
-                </a>
-              </div>
-            </div>
-          `;
-        }).join("")}
-      </div>
-    `;
-  } else if (currentRankingTab === "events") {
-    container.innerHTML = `
-      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap:20px;">
-        ${dataList.map(item => `
-          <div style="background:#FFFFFF; border:1px solid var(--border-color); border-radius:18px; padding:22px; box-shadow:var(--shadow-sm);">
-            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
-              <span style="font-size:18px; font-weight:800; color:var(--text-heading);">#${item.rank} ${item.name}</span>
-              <span style="background:#FEF3C7; color:#92400E; font-size:11px; font-weight:800; padding:4px 10px; border-radius:9999px;">${item.tag}</span>
-            </div>
-            <div style="font-size:12px; color:#D97706; font-weight:700; margin-bottom:6px;">📅 ${item.date} ｜ 📍 ${item.loc}</div>
-            <p style="font-size:13px; color:var(--text-muted); line-height:1.6;">${item.desc}</p>
-          </div>
-        `).join("")}
-      </div>
-    `;
-  } else if (currentRankingTab === "rainy") {
-    container.innerHTML = `
-      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap:20px;">
-        ${dataList.map(item => `
-          <div style="background:#FFFFFF; border:1px solid var(--border-color); border-radius:18px; overflow:hidden; box-shadow:var(--shadow-sm); display:flex; flex-direction:column;">
-            <img src="${item.img}" style="width:100%; height:180px; object-fit:cover;" alt="${item.name}">
-            <div style="padding:20px; flex:1; display:flex; flex-direction:column;">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-                <span style="font-size:16px; font-weight:800; color:var(--text-heading);">#${item.rank} ${item.name}</span>
-                <span style="font-size:12px; color:#D97706; font-weight:800;">${item.rate}</span>
-              </div>
-              <div style="font-size:12px; color:#0284C7; font-weight:700; margin-bottom:8px;">🏛️ ${item.indoor}</div>
-              <p style="font-size:13px; color:var(--text-muted); line-height:1.6; margin-bottom:14px; flex:1;">${item.desc}</p>
-              <div style="display:flex; justify-content:space-between; align-items:center; padding-top:10px; border-top:1px solid #F1F5F9;">
-                <span style="font-size:13px; font-weight:800; color:#0F172A;">門票：${item.ticket}</span>
-                <a href="${AFFILIATE_HUB.getMapUrl(item.name)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding:6px 12px; font-size:12px;">📍 Map</a>
-              </div>
-            </div>
-          </div>
-        `).join("")}
-      </div>
-    `;
-  } else if (currentRankingTab === "cafe") {
-    container.innerHTML = `
-      <div class="cafe-grid-4col">
-        ${dataList.map(item => `
-          <div class="cafe-card">
-            <div class="cafe-img-wrap">
-              <img src="${item.img}" alt="${item.name}" loading="lazy">
-              <span style="position:absolute; top:12px; left:12px; background:rgba(15,23,42,0.8); color:#fff; font-size:11px; font-weight:800; padding:4px 8px; border-radius:6px;">#${item.rank}</span>
-            </div>
-            <div style="padding:18px; display:flex; flex-direction:column; flex:1;">
-              <div style="display:flex; justify-content:space-between; align-items:center;">
-                <span style="font-size:12px; font-weight:700; color:#D97706;">📍 ${item.city}</span>
-                <span style="font-size:12px; font-weight:800; color:#D97706;">${item.rate}</span>
-              </div>
-              <h4 style="font-size:16px; font-weight:800; color:var(--text-heading); margin:6px 0;">${item.name}</h4>
-              <div style="font-size:11px; color:#92400E; background:#FEF3C7; padding:3px 8px; border-radius:6px; display:inline-block; font-weight:700; margin-bottom:8px;">✨ ${item.tag}</div>
-              <p style="font-size:12px; color:var(--text-muted); line-height:1.5; margin-bottom:14px; flex:1;">${item.feature}</p>
-              <a href="${AFFILIATE_HUB.getMapUrl(item.name)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="text-align:center; padding:7px; font-size:12px;">
-                📍 Map
-              </a>
-            </div>
-          </div>
-        `).join("")}
-      </div>
-    `;
-  } else if (currentRankingTab === "walk") {
-    container.innerHTML = `
-      <div style="display:flex; flex-direction:column; gap:16px;">
-        ${dataList.map(item => `
-          <div style="background:#FFFFFF; border:1px solid var(--border-color); border-radius:16px; padding:20px; display:flex; align-items:center; gap:20px; box-shadow:var(--shadow-sm);">
-            <div style="font-size:22px; font-weight:900; color:#0284C7; width:44px; text-align:center; flex-shrink:0;">#${item.rank}</div>
-            <div style="flex:1;">
-              <div style="display:flex; align-items:center; gap:10px; margin-bottom:4px;">
-                <span style="font-size:16px; font-weight:800; color:var(--text-heading);">${item.name}</span>
-                <span style="font-size:11px; background:#F1F5F9; color:#475569; padding:2px 8px; border-radius:6px; font-weight:700;">${item.tag}</span>
-              </div>
-              <p style="font-size:13px; color:var(--text-muted); line-height:1.6;">${item.desc}</p>
-            </div>
-            <div style="text-align:right; flex-shrink:0;">
-              <div style="font-size:11px; color:#64748B;">🔥 ${item.views}</div>
-              <a href="${AFFILIATE_HUB.getMapUrl(item.name.split(" ｜ ")[0])}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="margin-top:6px; padding:6px 12px; font-size:12px;">📍 Map</a>
-            </div>
-          </div>
-        `).join("")}
-      </div>
-    `;
-  }
-}
-
-function switchRankingTab(tabKey) {
-  currentRankingTab = tabKey;
-  document.querySelectorAll(".ranking-tab-pill").forEach(btn => {
-    btn.classList.toggle("active", btn.dataset.tab === tabKey);
-  });
-  renderRankingsSection();
-}
-
-/* =========================================================
-   5. 週末探店專欄部落格 (Weekend Hop Editorial - 一排一個文章)
-   ========================================================= */
-function renderBlogSection() {
-  const container = document.getElementById("blog-articles-container");
-  if (!container || typeof BLOG_ARTICLES_DATA === "undefined") return;
-
-  container.innerHTML = BLOG_ARTICLES_DATA.map(art => {
-    const spot = art.spotInfo;
-    return `
-      <article class="blog-editorial-row">
-        <div class="blog-hero-wrap">
-          <img src="${art.heroImg}" alt="${art.title}" loading="lazy">
-          <span class="blog-category-badge">${art.category}</span>
-        </div>
-        <div class="blog-body">
-          <div class="blog-meta-line">
-            <span>📅 ${art.date}</span>
-            <span>·</span>
-            <span>✍️ ${art.author}</span>
-            <span>·</span>
-            <span>⏱️ ${art.readTime}</span>
-          </div>
-          <h3 class="blog-title">${art.title}</h3>
-          <div class="blog-subtitle">${art.subtitle}</div>
-          <div class="blog-excerpt">${art.content.replace(/\n\n/g, '<br><br>')}</div>
-
-          <!-- 景點詳細資訊盒 (Spot Info Box) -->
-          <div class="spot-info-box">
-            <div class="spot-info-header">
-              <span>🏠 ${spot.name}</span>
-            </div>
-            <div class="spot-info-list">
-              <div class="spot-info-item">
-                <span class="spot-info-label">📍 詳細地址</span>
-                <span>${spot.address}</span>
-              </div>
-              <div class="spot-info-item">
-                <span class="spot-info-label">⏰ 營業時間</span>
-                <span>${spot.hours}</span>
-              </div>
-              <div class="spot-info-item">
-                <span class="spot-info-label">💡 推薦必點</span>
-                <span>${spot.signature}</span>
-              </div>
-              <div class="spot-info-item">
-                <span class="spot-info-label">🚇 交通指南</span>
-                <span>${spot.transport}</span>
-              </div>
-            </div>
-            <div class="spot-info-actions">
-              <a href="${AFFILIATE_HUB.getMapUrl(spot.mapQuery)}" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps-nav" style="padding:8px 16px; font-size:12px;">
-                📍 Map
-              </a>
-              <a href="${spot.bookingUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-klook-book" style="padding:8px 16px; font-size:12px;">
-                🎟️ 線上預約 / 官方地圖
-              </a>
-            </div>
-          </div>
-        </div>
-      </article>
-    `;
-  }).join("");
 }
 
 /* =========================================================

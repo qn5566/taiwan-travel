@@ -256,33 +256,3 @@ async function loadThemeGridContent(lang) {
     return false;
   }
 }
-
-/** 抓取 home_rankings.json 並覆寫 RANKINGS_DATA（首頁 9 大排行榜） */
-async function loadHomeRankingsContent(lang) {
-  try {
-    const data = await fetchContentJson('home_rankings.json', lang);
-    if (data && typeof data === 'object' && Object.keys(data).length) {
-      window.RANKINGS_DATA = data;
-      return true;
-    }
-    return false;
-  } catch (e) {
-    console.warn('[content-loader] home_rankings.json 載入失敗，回退本地資料：', e && e.message);
-    return false;
-  }
-}
-
-/** 抓取 home_blog.json 並覆寫 BLOG_ARTICLES_DATA（首頁部落格文章） */
-async function loadHomeBlogContent(lang) {
-  try {
-    const data = await fetchContentJson('home_blog.json', lang);
-    if (Array.isArray(data) && data.length) {
-      window.BLOG_ARTICLES_DATA = data;
-      return true;
-    }
-    return false;
-  } catch (e) {
-    console.warn('[content-loader] home_blog.json 載入失敗，回退本地資料：', e && e.message);
-    return false;
-  }
-}
