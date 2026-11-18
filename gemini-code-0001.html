@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>台灣吃喝玩樂 TAIWAN ROAM ｜ 日雜周邊推薦卡牌與封底排版版</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500;1,600&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* 輕盈日雜燕麥拿鐵色系 */
+      --bg-oatmeal: #F6F3EE;
+      --paper-white: #FFFFFF;
+      --paper-cream: #FAF8F5;
+      --linen-sand: #EFECE6;
+      --linen-border: #DFD8CE;
+      --charcoal-ink: #2C2724;
+      --mocha-muted: #6B615A;
+      --latte-light: #968B82;
+      --terracotta-brown: #9C6644;
+      --terracotta-soft: #F5ECE4;
+      --sage-green: #2E5A44;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-oatmeal);
+      color: var(--charcoal-ink);
+      font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ================= 頂部導覽列 ================= */
+    .site-navbar {
+      background: rgba(250, 248, 245, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--linen-border);
+      padding: 14px 36px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      cursor: pointer;
+    }
+    .brand-emblem {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--terracotta-soft);
+      border: 1px solid #E2CEBE;
+      color: var(--terracotta-brown);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Noto Serif JP", serif;
+      font-size: 16px;
+      font-weight: 900;
+    }
+    .brand-text strong {
+      display: block;
+      font-family: "Noto Serif JP", "Noto Sans TC", serif;
+      font-size: 16.5px;
+      font-weight: 900;
+      color: var(--charcoal-ink);
+      line-height: 1.2;
+    }
+    .brand-text span {
+      display: block;
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 2.2px;
+      color: var(--terracotta-brown);
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--mocha-muted);
+      list-style: none;
+    }
+    .nav-links li { white-space: nowrap; cursor: pointer; }
+    .nav-links li.active {
+      color: var(--terracotta-brown);
+      font-weight: 800;
+      border-bottom: 2px solid var(--terracotta-brown);
+      padding-bottom: 3px;
+    }
+
+    /* ================= 視圖 1：總覽列表（點擊卡片才進入文章） ================= */
+    .hub-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 52px 24px 80px;
+    }
+    .hub-header {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+    .hub-eyebrow {
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 16px;
+      letter-spacing: 2px;
+      color: var(--terracotta-brown);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .hub-header h1 {
+      font-family: "Noto Serif JP", "Noto Sans TC", serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--charcoal-ink);
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .hub-header p {
+      font-size: 14px;
+      color: var(--mocha-muted);
+    }
+
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .zine-entry-card {
+      background: var(--paper-white);
+      border: 1px solid var(--linen-border);
+      border-radius: 18px;
+      padding: 18px;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 8px 24px rgba(44, 39, 36, 0.04);
+    }
+    .zine-entry-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 36px rgba(44, 39, 36, 0.09);
+      border-color: #C9B7A6;
+    }
+    .card-meta-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: monospace;
+      font-size: 10.5px;
+      letter-spacing: 1.5px;
+      color: var(--latte-light);
+      margin-bottom: 12px;
+    }
+    .arch-photo {
+      width: 100%;
+      height: 230px;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .arch-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .zine-entry-card:hover .arch-photo img {
+      transform: scale(1.04);
+    }
+    .zine-entry-card h3 {
+      font-family: "Noto Serif JP", "Noto Sans TC", serif;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--charcoal-ink);
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+    .card-footer-link {
+      border-top: 1px dashed var(--linen-border);
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--terracotta-brown);
+    }
+
+    /* =========================================================================
+       視圖 2：輕盈日雜內頁（含周邊 3 張日雜延伸卡牌 ＋ 純文字日雜封底品牌介紹）
+       ========================================================================= */
+    .article-view {
+      display: none;
+      max-width: 920px;
+      margin: 0 auto 80px;
+      padding: 28px 18px 0;
+    }
+
+    .reader-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .back-link-text {
+      background: none;
+      border: none;
+      border-bottom: 1px solid var(--charcoal-ink);
+      padding: 2px 0;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--charcoal-ink);
+      cursor: pointer;
+      letter-spacing: 0.8px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .back-link-text:hover {
+      color: var(--terracotta-brown);
+      border-bottom-color: var(--terracotta-brown);
+    }
+    .reader-slug {
+      font-family: monospace;
+      font-size: 11px;
+      color: var(--latte-light);
+    }
+
+    .editorial-paper {
+      background: var(--paper-white);
+      border: 1px solid var(--linen-border);
+      box-shadow: 0 18px 48px rgba(44, 39, 36, 0.06);
+      overflow: hidden;
+    }
+
+    .photo-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(6px);
+      color: var(--charcoal-ink);
+      font-family: monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 3px 9px;
+      border-radius: 3px;
+      z-index: 4;
+    }
+
+    /* 統一純日雜文字連結樣式（無按鈕感） */
+    a.zine-inline-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      color: var(--charcoal-ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--charcoal-ink);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    a.zine-inline-link:hover {
+      color: var(--terracotta-brown);
+      border-bottom-color: var(--terracotta-brown);
+    }
+
+    /* 1. 雜誌封面首屏 */
+    .mag-cover-split {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      min-height: 450px;
+      border-bottom: 1px solid var(--linen-border);
+    }
+    .cover-photo-box {
+      position: relative;
+      overflow: hidden;
+    }
+    .cover-photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .cover-italic-mark {
+      position: absolute;
+      bottom: 20px;
+      right: 16px;
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 38px;
+      color: #FFFDF9;
+      text-shadow: 0 2px 12px rgba(44, 39, 36, 0.42);
+    }
+
+    .cover-info-box {
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #FFFFFF;
+    }
+    .cover-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .issue-kicker {
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 2.2px;
+      color: var(--terracotta-brown);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .cover-title-col h1 {
+      font-family: "Noto Serif JP", "Noto Sans TC", serif;
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--charcoal-ink);
+      line-height: 1.38;
+      margin-bottom: 12px;
+    }
+    .cover-meta-sub {
+      font-size: 12px;
+      color: var(--mocha-muted);
+    }
+
+    .vertical-jp-note {
+      writing-mode: vertical-rl;
+      font-family: "Noto Serif JP", serif;
+      font-size: 12.5px;
+      letter-spacing: 3px;
+      line-height: 1.95;
+      color: var(--mocha-muted);
+      height: 175px;
+      border-left: 1px solid var(--linen-border);
+      padding-left: 12px;
+    }
+
+    .cover-toc-footer {
+      border-top: 1px solid var(--linen-border);
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .toc-items {
+      list-style: none;
+      font-size: 11.5px;
+      color: var(--mocha-muted);
+      line-height: 1.9;
+    }
+    .toc-items strong {
+      font-family: monospace;
+      color: var(--terracotta-brown);
+      margin-right: 8px;
+    }
+    .horizon-lines {
+      width: 44px;
+      height: 22px;
+      background: repeating-linear-gradient(
+        to bottom,
+        #B5A495 0px,
+        #B5A495 1.5px,
+        transparent 1.5px,
+        transparent 5px
+      );
+    }
+
+    /* 2. 淺亞麻拿鐵層（#EFECE6）＋ 大圓角相框 ＋ 小編實訪手記 */
+    .latte-story-band {
+      background: var(--linen-sand);
+      padding: 48px 44px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .arch-portrait-frame {
+      position: relative;
+      width: 100%;
+      height: 315px;
+      border-radius: 34px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(44, 39, 36, 0.09);
+    }
+    .arch-portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .editor-story-col .micro-tag {
+      font-family: monospace;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--sage-green);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .editor-story-col h2 {
+      font-family: "Noto Serif JP", "Noto Sans TC", serif;
+      font-size: 21px;
+      font-weight: 900;
+      color: var(--charcoal-ink);
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+    .editor-story-col p {
+      font-size: 13.8px;
+      color: var(--mocha-muted);
+      line-height: 1.85;
+      margin-bottom: 12px;
+    }
+    .editor-byline {
+      font-family: "Noto Serif JP", serif;
+      font-size: 12px;
+      color: var(--terracotta-brown);
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    /* 3. 純白留白寫真網格（01. 02. 03. 04. 編號實拍） */
+    .gallery-editorial-band {
+      padding: 48px 44px 24px;
+      background: #FFFFFF;
+    }
+    .band-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 1px solid var(--linen-border);
+      padding-bottom: 12px;
+      margin-bottom: 26px;
+    }
+    .band-title-row span {
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 15.5px;
+      color: var(--terracotta-brown);
+    }
+    .band-title-row h3 {
+      font-family: "Noto Serif JP", "Noto Sans TC", serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--charcoal-ink);
+    }
+
+    .four-photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+    .num-shot-card {
+      position: relative;
+    }
+    .num-shot-card img {
+      width: 100%;
+      height: 225px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .num-shot-card strong {
+      font-family: "Noto Serif JP", serif;
+      font-size: 13px;
+      color: var(--terracotta-brown);
+      margin-right: 6px;
+    }
+    .num-shot-card figcaption {
+      font-size: 12.5px;
+      color: var(--mocha-muted);
+      line-height: 1.6;
+    }
+
+    /* =========================================================================
+       【新增區塊】探店延伸／周邊店家推薦 3 張日雜卡牌（英文字＋直排日文點綴）
+       ========================================================================= */
+    .nearby-extension-band {
+      padding: 44px 44px 52px;
+      background: #FFFFFF;
+    }
+    .nearby-three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .nearby-zine-card {
+      background: var(--paper-cream);
+      border: 1px solid var(--linen-border);
+      padding: 16px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .nearby-zine-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--terracotta-brown);
+    }
+    .nearby-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .nearby-num {
+      font-family: monospace;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--terracotta-brown);
+    }
+    .nearby-en-italic {
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 13.5px;
+      color: var(--latte-light);
+    }
+    .nearby-photo-wrap {
+      position: relative;
+      width: 100%;
+      height: 165px;
+      overflow: hidden;
+      border-radius: 3px;
+      margin-bottom: 14px;
+    }
+    .nearby-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* 卡牌照片角落的日文豎排小標籤 */
+    .nearby-jp-tag {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      writing-mode: vertical-rl;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--charcoal-ink);
+      font-family: "Noto Serif JP", serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      padding: 6px 4px;
+      line-height: 1.3;
+    }
+    .nearby-zine-card h4 {
+      font-family: "Noto Serif JP", "Noto Sans TC", serif;
+      font-size: 15.5px;
+      font-weight: 900;
+      color: var(--charcoal-ink);
+      margin-bottom: 4px;
+    }
+    .nearby-jp-sub {
+      font-family: "Noto Serif JP", serif;
+      font-size: 10.5px;
+      color: var(--terracotta-brown);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .nearby-desc {
+      font-size: 12px;
+      color: var(--mocha-muted);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+    .nearby-card-foot {
+      border-top: 1px dashed var(--linen-border);
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10.5px;
+      color: var(--latte-light);
+    }
+
+    /* 4. 本篇主訪店家情報欄（純文字連結，無按鈕感） */
+    .spot-notes-footer {
+      background: var(--linen-sand);
+      padding: 36px 44px;
+      border-top: 1px solid var(--linen-border);
+    }
+    .spot-directory-box {
+      background: #FFFFFF;
+      border: 1px solid #CFC5B8;
+      padding: 24px 28px;
+    }
+    .spot-dir-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--linen-border);
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+    }
+    .spot-dir-head h4 {
+      font-family: "Noto Serif JP", serif;
+      font-size: 15.5px;
+      font-weight: 900;
+      color: var(--charcoal-ink);
+    }
+    .spot-dir-head span {
+      font-family: monospace;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      color: var(--latte-light);
+    }
+    .spot-notes-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .spot-notes-grid h5 {
+      font-family: "Noto Serif JP", serif;
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--charcoal-ink);
+      margin-bottom: 6px;
+    }
+    .micro-bilingual {
+      font-size: 11px;
+      color: var(--mocha-muted);
+      line-height: 1.75;
+    }
+    .micro-bilingual span {
+      display: block;
+      font-size: 10.5px;
+      color: var(--latte-light);
+    }
+    .spot-text-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* =========================================================================
+       【雜誌封底式排版】文章底部：台灣吃喝玩樂 TAIWAN ROAM（中文＋日文小字＋英文小字＋純文字連結＋直式日文／草寫英文點綴）
+       ========================================================================= */
+    .zine-colophon-brand-section {
+      background: linear-gradient(145deg, #F4EDE4 0%, #ECE3D7 100%);
+      border-top: 1.5px solid var(--charcoal-ink);
+      padding: 46px 44px 48px;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 36px;
+      align-items: stretch;
+    }
+
+    .colophon-main-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .colophon-brand-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .colophon-stamp {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--terracotta-brown);
+      background: #FFFFFF;
+      color: var(--terracotta-brown);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Noto Serif JP", serif;
+      font-size: 15px;
+      font-weight: 900;
+    }
+    .colophon-brand-head strong {
+      font-family: "Noto Serif JP", "Noto Sans TC", serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--charcoal-ink);
+      letter-spacing: 1px;
+    }
+    .colophon-brand-head span {
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      color: var(--terracotta-brown);
+      margin-left: 8px;
+    }
+
+    .colophon-slogan {
+      font-family: "Noto Serif JP", "Noto Sans TC", serif;
+      font-size: 21px;
+      font-weight: 900;
+      color: var(--charcoal-ink);
+      letter-spacing: 0.6px;
+      margin-bottom: 18px;
+    }
+
+    /* 三語並排雜誌說明區塊（中文主文 ＋ 日文字小字 ＋ 英文字小字） */
+    .trilingual-editorial-copy {
+      border-left: 2px solid var(--terracotta-brown);
+      padding-left: 18px;
+      margin-bottom: 24px;
+    }
+    .trilingual-editorial-copy .zh-copy {
+      font-size: 13.8px;
+      font-weight: 500;
+      color: var(--charcoal-ink);
+      line-height: 1.75;
+      margin-bottom: 8px;
+    }
+    .trilingual-editorial-copy .jp-micro-copy {
+      font-family: "Noto Serif JP", serif;
+      font-size: 11px;
+      color: var(--mocha-muted);
+      line-height: 1.7;
+      margin-bottom: 5px;
+    }
+    .trilingual-editorial-copy .en-micro-copy {
+      font-size: 10.8px;
+      color: var(--latte-light);
+      line-height: 1.65;
+    }
+
+    /* 純文字細底線連結列（無按鈕感） */
+    .colophon-text-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .colophon-text-links a {
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      color: var(--charcoal-ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--charcoal-ink);
+      padding-bottom: 3px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .colophon-text-links a:hover {
+      color: var(--terracotta-brown);
+      border-bottom-color: var(--terracotta-brown);
+    }
+
+    /* 右側雜誌裝飾欄（直式日文 ＋ 草寫英文點綴 ＋ 平行細線） */
+    .colophon-ornament-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-left: 1px solid #D6C9BA;
+      padding-left: 28px;
+    }
+    .colophon-vertical-jp {
+      writing-mode: vertical-rl;
+      font-family: "Noto Serif JP", serif;
+      font-size: 12px;
+      letter-spacing: 3.5px;
+      line-height: 1.9;
+      color: var(--mocha-muted);
+      height: 185px;
+    }
+    .colophon-script-accent {
+      text-align: right;
+      margin-top: 14px;
+    }
+    .colophon-script-accent em {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 24px;
+      color: var(--terracotta-brown);
+      line-height: 1.1;
+    }
+    .colophon-script-accent small {
+      font-family: monospace;
+      font-size: 9.5px;
+      letter-spacing: 2px;
+      color: var(--latte-light);
+    }
+
+    @media (max-width: 820px) {
+      .site-navbar { padding: 12px 18px; }
+      .nav-links { display: none; }
+      .editorial-grid, .mag-cover-split, .latte-story-band,
+      .four-photo-grid, .nearby-three-grid, .zine-colophon-brand-section {
+        grid-template-columns: 1fr;
+      }
+      .vertical-jp-note, .colophon-ornament-col { display: none; }
+      .latte-story-band, .gallery-editorial-band, .nearby-extension-band,
+      .spot-notes-footer, .zine-colophon-brand-section {
+        padding: 28px 22px;
+      }
+      .colophon-slogan { font-size: 18.5px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 頂部導覽列 -->
+  <nav class="site-navbar">
+    <div class="nav-inner">
+      <div class="brand-logo" onclick="backToHub()">
+        <div class="brand-emblem">台</div>
+        <div class="brand-text">
+          <strong>台灣吃喝玩樂</strong>
+          <span>TAIWAN ROAM</span>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li>首頁</li>
+        <li>精選主題</li>
+        <li>城市景點</li>
+        <li>排行榜</li>
+        <li>全台咖啡與米其林</li>
+        <li class="active" onclick="backToHub()">深度採訪</li>
+        <li>留言討論</li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- =========================================================================
+       視圖 1：台灣吃喝玩樂小編探店總覽列表（點擊卡片才會出現文章）
+       ========================================================================= -->
+  <main class="hub-container" id="hubListView">
+    <header class="hub-header">
+      <span class="hub-eyebrow">Taiwan Roam Field Notes</span>
+      <h1>台灣吃喝玩樂報導</h1>
+      <p>以熱愛出發，走進台灣的巷弄、山海與在地風味。</p>
+    </header>
+
+    <section class="editorial-grid">
+      <article class="zine-entry-card" onclick="openStory(0)">
+        <div>
+          <div class="card-meta-top">
+            <span>REPORT NO. 01</span>
+            <span>TAIPEI ・ ZHONGSHAN</span>
+          </div>
+          <div class="arch-photo">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=750&fit=crop" alt="赤峰街昭和老宅咖啡" />
+          </div>
+          <h3>赤峰街打鐵巷裡的昭和光影：在百年老宅二樓品嚐大人味焦糖布丁</h3>
+        </div>
+        <div class="card-footer-link">
+          <span>小編實地探店</span>
+          <span>閱讀報導 →</span>
+        </div>
+      </article>
+
+      <article class="zine-entry-card" onclick="openStory(1)">
+        <div>
+          <div class="card-meta-top">
+            <span>REPORT NO. 02</span>
+            <span>TAIPEI ・ DADAOCHENG</span>
+          </div>
+          <div class="arch-photo">
+            <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=750&fit=crop" alt="大稻埕現代茶席" />
+          </div>
+          <h3>大稻埕紅磚街屋裡的現代茶席：用冷萃東方美人茶開啟迪化街慢散步</h3>
+        </div>
+        <div class="card-footer-link">
+          <span>小編實地探店</span>
+          <span>閱讀報導 →</span>
+        </div>
+      </article>
+
+      <article class="zine-entry-card" onclick="openStory(2)">
+        <div>
+          <div class="card-meta-top">
+            <span>REPORT NO. 03</span>
+            <span>TAINAN ・ WEST CENTRAL</span>
+          </div>
+          <div class="arch-photo">
+            <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=750&fit=crop" alt="台南神農街深夜食堂" />
+          </div>
+          <h3>台南神農街燈籠下的深夜關東煮：用虱目魚湯頭熬煮的府城人情味</h3>
+        </div>
+        <div class="card-footer-link">
+          <span>小編實地探店</span>
+          <span>閱讀報導 →</span>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       視圖 2：輕盈日雜內頁（含周邊 3 張延伸卡牌 ＋ 純文字日雜封底品牌介紹）
+       ========================================================================= -->
+  <div class="article-view" id="articleDetailView">
+    <div class="reader-nav-bar">
+      <button class="back-link-text" onclick="backToHub()">← 返回報導列表</button>
+      <span class="reader-slug" id="storySlug">TAIWAN ROAM ZINE ‧ REPORT NO. 01</span>
+    </div>
+
+    <article class="editorial-paper">
+      <!-- 1. 雜誌封面首屏（PHOTO 01） -->
+      <section class="mag-cover-split">
+        <div class="cover-photo-box">
+          <span class="photo-badge">PHOTO 01 / 06</span>
+          <img id="storyHeroImg" src="" alt="Cover" />
+          <div class="cover-italic-mark" id="storyItalicMark">Alleyway Roasters</div>
+        </div>
+
+        <div class="cover-info-box">
+          <div class="cover-top-row">
+            <div class="cover-title-col">
+              <span class="issue-kicker" id="storyAreaTag">TAIPEI ‧ CHIFENG STREET</span>
+              <h1 id="storyTitle">赤峰街打鐵巷裡的昭和光影：在百年老宅二樓品嚐大人味焦糖布丁</h1>
+              <div class="cover-meta-sub" id="storyDateMeta">2026.11.18 ｜ 編輯部實地探訪</div>
+            </div>
+            <div class="vertical-jp-note" id="storyVerticalJp">
+              路地裏の古い階段を上ると、穏やかな珈琲の香りと出会う。
+            </div>
+          </div>
+
+          <div class="cover-toc-footer">
+            <ul class="toc-items">
+              <li><strong>01</strong> 空間故事 ／ 小編探店手記</li>
+              <li><strong>02</strong> 實拍寫真 ／ 光影與招牌風味</li>
+              <li><strong>03</strong> 周辺散策 ／ 周邊延伸推薦三選</li>
+            </ul>
+            <div class="horizon-lines" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. 淺亞麻拿鐵層（#EFECE6）＋ 圓角相框（PHOTO 02）＋ 小編實訪手記 -->
+      <section class="latte-story-band">
+        <div class="arch-portrait-frame">
+          <span class="photo-badge">PHOTO 02 / 06</span>
+          <img id="storyArchImg" src="" alt="Space" />
+        </div>
+
+        <div class="editor-story-col">
+          <span class="micro-tag">FIELD NOTE ‧ 01</span>
+          <h2 id="storyHeading">推開老鐵窗，把城市的快節奏留在巷口之外。</h2>
+          <p id="storyP1"></p>
+          <p id="storyP2"></p>
+          <div class="editor-byline">—— 台灣吃喝玩樂 TAIWAN ROAM 編輯部實地採訪</div>
+        </div>
+      </section>
+
+      <!-- 3. 純白留白寫真網格（PHOTO 03 ~ PHOTO 06） -->
+      <section class="gallery-editorial-band">
+        <div class="band-title-row">
+          <div>
+            <span>Visual Archive / #02</span>
+            <h3>空間光影與必點風味紀錄</h3>
+          </div>
+          <div class="horizon-lines" aria-hidden="true"></div>
+        </div>
+
+        <div class="four-photo-grid">
+          <figure class="num-shot-card">
+            <span class="photo-badge">PHOTO 03 / 06</span>
+            <img id="shotImg1" src="" alt="01" />
+            <figcaption><strong>01.</strong> <span id="shotCap1"></span></figcaption>
+          </figure>
+          <figure class="num-shot-card">
+            <span class="photo-badge">PHOTO 04 / 06</span>
+            <img id="shotImg2" src="" alt="02" />
+            <figcaption><strong>02.</strong> <span id="shotCap2"></span></figcaption>
+          </figure>
+          <figure class="num-shot-card">
+            <span class="photo-badge">PHOTO 05 / 06</span>
+            <img id="shotImg3" src="" alt="03" />
+            <figcaption><strong>03.</strong> <span id="shotCap3"></span></figcaption>
+          </figure>
+          <figure class="num-shot-card">
+            <span class="photo-badge">PHOTO 06 / 06</span>
+            <img id="shotImg4" src="" alt="04" />
+            <figcaption><strong>04.</strong> <span id="shotCap4"></span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+           【新增】探店延伸／周邊店家推薦 3 張日雜卡牌（英文字＋直排日文點綴）
+           ========================================================================= -->
+      <section class="nearby-extension-band">
+        <div class="band-title-row">
+          <div>
+            <span>Around the Neighborhood / #03</span>
+            <h3>順遊散策・周邊推薦店家三選</h3>
+          </div>
+          <div class="horizon-lines" aria-hidden="true"></div>
+        </div>
+
+        <div class="nearby-three-grid" id="nearbyCardsGrid">
+          <!-- 由 JS 動態渲染對應區域的 3 張日雜周邊店家卡牌 -->
+        </div>
+      </section>
+
+      <!-- 4. 本篇主訪店家情報欄（純文字連結，無按鈕感） -->
+      <footer class="spot-notes-footer">
+        <div class="spot-directory-box">
+          <div class="spot-dir-head">
+            <h4>Featured Spot Directory ｜ 掲載スポット情報</h4>
+            <span>JP / EN TRAVELER DATA</span>
+          </div>
+          <div class="spot-notes-grid">
+            <div>
+              <h5 id="spotName"></h5>
+              <div class="micro-bilingual">
+                <strong id="spotAddrZh"></strong>
+                <span id="spotAddrEn"></span>
+                <span id="spotHoursNote"></span>
+              </div>
+            </div>
+            <div class="spot-text-links">
+              <a id="spotMapLink" href="#" target="_blank" class="zine-inline-link">Google Maps ↗</a>
+              <a href="https://tw.trip.com/hotels/?Allianceid=9507030&SID=325761227&trip_sub3=D20272275" target="_blank" class="zine-inline-link">Nearby Stays ↗</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <!-- =========================================================================
+           【雜誌封底式排版】台灣吃喝玩樂 TAIWAN ROAM（中文＋日文小字＋英文小字＋純文字連結＋日英文字點綴）
+           ========================================================================= -->
+      <section class="zine-colophon-brand-section">
+        <div class="colophon-main-col">
+          <div>
+            <div class="colophon-brand-head">
+              <div class="colophon-stamp">台</div>
+              <div>
+                <strong>台灣吃喝玩樂</strong>
+                <span>TAIWAN ROAM</span>
+              </div>
+            </div>
+
+            <h2 class="colophon-slogan">以熱愛出發，探索台灣的巷弄、山海與在地風味。</h2>
+
+            <!-- 中文主文 ＋ 日文字小字 ＋ 英文字小字 -->
+            <div class="trilingual-editorial-copy">
+              <p class="zh-copy">
+                HiMyDream STUDIO 策劃的台灣旅行指南，精選 22 縣市景點、米其林美食、330 間風格咖啡館與伴手禮，整合地圖導航、住宿比價與包車規劃。
+              </p>
+              <p class="jp-micro-copy">
+                HiMyDream STUDIO が手がける台湾トラベルガイド。全22県市の名所・ミシュラン掲載グルメ・厳選カフェ330軒とお土産情報を網羅し、地図ナビやホテル比較・チャーター車手配までスマートに案内します。
+              </p>
+              <p class="en-micro-copy">
+                Curated by HiMyDream STUDIO — featuring 22 cities &amp; counties, Michelin eats, 330 independent cafes, and local souvenirs, seamlessly integrated with map navigation, stay comparisons, and private charters.
+              </p>
+            </div>
+          </div>
+
+          <!-- 純文字細底線連結（不要都是按鈕感） -->
+          <div class="colophon-text-links">
+            <a href="mailto:himydream.studio0220@gmail.com">品牌合作洽詢 ／ Brand Inquiries ↗</a>
+            <a href="https://taiwanroam.tw" target="_blank" rel="noopener">開發團隊 HiMyDream STUDIO ↗</a>
+          </div>
+        </div>
+
+        <!-- 右側日雜文字點綴（直式日文 ＋ 草寫英文） -->
+        <aside class="colophon-ornament-col" aria-hidden="true">
+          <div class="colophon-vertical-jp">
+            愛を込めて、台湾の路地裏と山海の物語を巡る。
+          </div>
+          <div class="colophon-script-accent">
+            <em>Curated with Love</em>
+            <small>TAIWAN ROAM ZINE</small>
+          </div>
+        </aside>
+      </section>
+    </article>
+  </div>
+
+  <script>
+    const storiesDB = [
+      {
+        slug: "TAIWAN ROAM ZINE ‧ REPORT NO. 01",
+        areaTag: "TAIPEI ‧ CHIFENG STREET",
+        title: "赤峰街打鐵巷裡的昭和光影：在百年老宅二樓品嚐大人味焦糖布丁",
+        dateMeta: "2026.11.18 ｜ 台北・捷運中山站 4 號出口步行 4 分鐘",
+        verticalJp: "路地裏の古い階段を上ると、穏やかな珈琲の香りと出会う。",
+        italicMark: "Alleyway Roasters",
+        heroImg: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=900&fit=crop",
+        archImg: "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=700&fit=crop",
+        heading: "推開老鐵窗，把城市的快節奏留在巷口之外。",
+        p1: "沿著捷運中山站旁的赤峰街散步，昔日打鐵舖的金屬聲響已化為一家家充滿個性的老宅咖啡館。走上磨石子窄梯來到二樓，午後陽光正好斜射在復古絲絨沙發與木質吧台上。",
+        p2: "小編這次實測招牌「昭和大人味焦糖布丁」與手沖衣索比亞日曬，蛋香濃郁且焦糖帶點微苦層次，搭配清爽果酸咖啡剛剛好。店內提供中英日對照菜單，對外國自由行旅人相當友善。",
+        shots: [
+          { img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&fit=crop", cap: "二樓窗邊保留昭和時期壓花玻璃與木框，最適合午後獨自閱讀。" },
+          { img: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&fit=crop", cap: "每日限量手工焦糖布丁，鮮奶油與微苦焦糖醬比例恰到好處。" },
+          { img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&fit=crop", cap: "咖啡師現場手沖淺焙單品，入口帶有白桃與茉莉花的清雅尾韻。" },
+          { img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&fit=crop", cap: "轉角選物陳列區收錄台灣在地陶藝器皿與掛耳咖啡禮盒。" }
+        ],
+        nearby: [
+          {
+            num: "SPOT 01",
+            enTag: "Independent Bookstore",
+            jpVertical: "本と珈琲の時間",
+            name: "浮光書店 Floating Books",
+            jpSub: "赤峰街の静かな独立系書店カフェ",
+            desc: "步行 2 分鐘即達，老宅二樓的獨立書店與咖啡空間，適合午後安靜閱讀與選書。",
+            walk: "Walk 2 min",
+            img: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=500&fit=crop",
+            map: "https://maps.google.com/?q=浮光書店+赤峰街"
+          },
+          {
+            num: "SPOT 02",
+            enTag: "Bib Gourmand Noodles",
+            jpVertical: "老舗の台湾麺",
+            name: "阿國切仔麵",
+            jpSub: "ミシュラン掲載の伝統台湾麺食堂",
+            desc: "步行 4 分鐘往雙連站方向，必點古早味油蔥乾麵與紅燒肉，體驗最道地的午餐日常。",
+            walk: "Walk 4 min",
+            img: "https://images.unsplash.com/photo-1552611052-33e04de081de?w=500&fit=crop",
+            map: "https://maps.google.com/?q=阿國切仔麵+台北"
+          },
+          {
+            num: "SPOT 03",
+            enTag: "Crepes & Pudding",
+            jpVertical: "季節のクレープ",
+            name: "Cafe waku",
+            jpSub: "シンプルで心地よいデザートの店",
+            desc: "轉角巷弄裡的純白系甜點店，招牌法式可麗餅與海鹽黑糖布丁深受日本旅人喜愛。",
+            walk: "Walk 3 min",
+            img: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=500&fit=crop",
+            map: "https://maps.google.com/?q=Cafe+waku+赤峰街"
+          }
+        ],
+        spotName: "赤峰街二樓老宅喫茶（編輯部實訪特選）",
+        spotAddrZh: "アクセス：MRT中山駅 4番出口より徒歩約4分（台北市大同區赤峰街49巷2樓）",
+        spotAddrEn: "ACCESS. 4-min walk from MRT Zhongshan Station Exit 4 (2F, Ln. 49, Chifeng St., Taipei)",
+        spotHoursNote: "HOURS. 12:00 – 19:00 ｜ RULE. One-drink minimum ・ Credit cards accepted",
+        spotMapUrl: "https://maps.google.com/?q=赤峰街"
+      },
+      {
+        slug: "TAIWAN ROAM ZINE ‧ REPORT NO. 02",
+        areaTag: "TAIPEI ‧ DADAOCHENG",
+        title: "大稻埕紅磚街屋裡的現代茶席：用冷萃東方美人茶開啟迪化街慢散步",
+        dateMeta: "2026.11.15 ｜ 台北・捷運北門站步行 7 分鐘",
+        verticalJp: "歴史ある赤レンガの街並みで、芳醇な台湾茶を味わう。",
+        italicMark: "Tea & Heritage",
+        heroImg: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=900&fit=crop",
+        archImg: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=700&fit=crop",
+        heading: "百年中藥行的木櫃香氣，揉合了新竹峨眉的蜜香茶韻。",
+        p1: "走進迪化街一段的閩南式長條街屋，穿過第一進的選物店，後方天井藏著一座光影極美的現代茶席。店主將傳統台灣烏龍茶以冷萃與手沖方式呈現。",
+        p2: "特別推薦用高腳杯品飲「冷萃東方美人茶」，天然熟果與蜂蜜香氣撲鼻，搭配一塊微甜的手工綠豆糕，是認識台灣茶文化最輕鬆的散步起點。",
+        shots: [
+          { img: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&fit=crop", cap: "高腳杯冷萃東方美人茶，完整釋放天然蜜香與熟果韻味。" },
+          { img: "https://images.unsplash.com/photo-1563822249366-3efb23b8e0c9?w=600&fit=crop", cap: "職人現沖阿里山金萱烏龍，附有中英日三語沖泡時間說明卡。" },
+          { img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&fit=crop", cap: "百年街屋天井採光，保留紅磚牆與傳統木桁架結構。" },
+          { img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&fit=crop", cap: "中藥百子櫃改造的茶葉展示牆，可選購精緻小包裝伴手禮。" }
+        ],
+        nearby: [
+          {
+            num: "SPOT 01",
+            enTag: "70-Year Wagashi",
+            jpVertical: "季節のいちご大福",
+            name: "滋養豆製舖",
+            jpSub: "創業70年以上の老舗和菓子店",
+            desc: "步行 3 分鐘，招牌最中餅與季節草莓大福，騎樓下即可配熱茶品嚐。",
+            walk: "Walk 3 min",
+            img: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=500&fit=crop",
+            map: "https://maps.google.com/?q=滋養豆製舖+迪化街"
+          },
+          {
+            num: "SPOT 02",
+            enTag: "Heritage Pastry",
+            jpVertical: "伝統の中華菓子",
+            name: "李亭香餅店",
+            jpSub: "1895年創業の伝統台湾菓子と喫茶",
+            desc: "創立於 1895 年的百年漢餅舖，內用可點平安龜與台式馬卡龍搭配台灣茶。",
+            walk: "Walk 5 min",
+            img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500&fit=crop",
+            map: "https://maps.google.com/?q=李亭香餅店+迪化街"
+          },
+          {
+            num: "SPOT 03",
+            enTag: "Riverside Sunset",
+            jpVertical: "夕暮れの水辺散歩",
+            name: "大稻埕碼頭貨櫃市集",
+            jpSub: "淡水河沿いのサンセットスポット",
+            desc: "往西步行 5 分鐘抵達淡水河畔，傍晚吹著河風欣賞夕陽與城市天際線。",
+            walk: "Walk 5 min",
+            img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&fit=crop",
+            map: "https://maps.google.com/?q=大稻埕碼頭"
+          }
+        ],
+        spotName: "大稻埕紅磚茶屋（迪化街一段）",
+        spotAddrZh: "アクセス：MRT北門駅 3番出口より徒歩約7分（台北市大同區迪化街一段）",
+        spotAddrEn: "ACCESS. 7-min walk from MRT Beimen Station Exit 3 (Sec. 1, Dihua St., Taipei)",
+        spotHoursNote: "HOURS. 10:30 – 18:30 ｜ NOTE. English & Japanese tea menu available",
+        spotMapUrl: "https://maps.google.com/?q=迪化街"
+      },
+      {
+        slug: "TAIWAN ROAM ZINE ‧ REPORT NO. 03",
+        areaTag: "TAINAN ‧ SHENNONG STREET",
+        title: "台南神農街燈籠下的深夜關東煮：用虱目魚湯頭熬煮的府城人情味",
+        dateMeta: "2026.11.10 ｜ 台南・中西區神農街口",
+        verticalJp: "提灯が灯る台南の夜、温かいおでんで乾杯。",
+        italicMark: "Midnight Tainan",
+        heroImg: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=900&fit=crop",
+        archImg: "https://images.unsplash.com/photo-1547592180-85f173990554?w=700&fit=crop",
+        heading: "夜風微涼時，坐進木造騎樓喝一碗鮮甜魚骨高湯。",
+        p1: "入夜後的台南神農街掛起整排暖黃燈籠，比白天更添幾分迷人古韻。轉角這家木造小攤沒有華麗裝潢，卻總在晚上八點後聚滿熟客與自由行旅人。",
+        p2: "湯底每天用台南在地虱目魚骨與白蘿蔔慢火熬煮，清甜不油膩。小編大推府城特有的「手工魚冊」與吸飽湯汁的油豆腐，暖胃又療癒。",
+        shots: [
+          { img: "https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=600&fit=crop", cap: "台南在地特色「手工魚冊」與苦瓜封，湯頭清甜可免費續碗。" },
+          { img: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&fit=crop", cap: "炭火現烤手工黑輪片，外酥內軟刷上微甜府城秘製醬汁。" },
+          { img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&fit=crop", cap: "木造騎樓下的暖黃燈籠座位區，充滿台南老街慢活氛圍。" },
+          { img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&fit=crop", cap: "攤位備有附照片的多語點餐板，用手指就能輕鬆點滿一桌。" }
+        ],
+        nearby: [
+          {
+            num: "SPOT 01",
+            enTag: "Night Food Street",
+            jpVertical: "台南グルメの聖地",
+            name: "國華街永樂市場小吃圈",
+            jpSub: "歩いて巡る台南ローカル屋台街",
+            desc: "步行 3 分鐘即達，集結碗粿、春捲、割包與金得春捲等台南經典老字號。",
+            walk: "Walk 3 min",
+            img: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500&fit=crop",
+            map: "https://maps.google.com/?q=台南永樂市場"
+          },
+          {
+            num: "SPOT 02",
+            enTag: "Alleyway Cocktail Bar",
+            jpVertical: "古民家の隠れ家バー",
+            name: "神農街老屋微醺小酒館",
+            jpSub: "台湾茶カクテルが楽しめる大人の空間",
+            desc: "就在同一條燈籠老街中段，將台南蜜餞與高山烏龍融入特調，氣氛極佳。",
+            walk: "Walk 1 min",
+            img: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=500&fit=crop",
+            map: "https://maps.google.com/?q=神農街+台南"
+          },
+          {
+            num: "SPOT 03",
+            enTag: "Traditional Ice",
+            jpVertical: "名物の台湾かき氷",
+            name: "正興街水果冰與豆花",
+            jpSub: "旬のフルーツと手作り豆花の甘味処",
+            desc: "散步 5 分鐘至正興街，飯後來一碗古早味手工豆花或季節鮮果冰最對味。",
+            walk: "Walk 5 min",
+            img: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=500&fit=crop",
+            map: "https://maps.google.com/?q=正興街+台南"
+          }
+        ],
+        spotName: "神農街口深夜關東煮・炭烤黑輪",
+        spotAddrZh: "アクセス：台南市中西區神農街口（神農街入口すぐ）",
+        spotAddrEn: "ACCESS. Entrance of Shennong St., West Central Dist., Tainan City",
+        spotHoursNote: "HOURS. 17:30 – 00:30 (Closed Tue) ｜ NOTE. Cash preferred",
+        spotMapUrl: "https://maps.google.com/?q=台南神農街"
+      }
+    ];
+
+    function openStory(idx) {
+      const s = storiesDB[idx];
+      document.getElementById('storySlug').textContent = s.slug;
+      document.getElementById('storyAreaTag').textContent = s.areaTag;
+      document.getElementById('storyTitle').textContent = s.title;
+      document.getElementById('storyDateMeta').textContent = s.dateMeta;
+      document.getElementById('storyVerticalJp').textContent = s.verticalJp;
+      document.getElementById('storyItalicMark').textContent = s.italicMark;
+      document.getElementById('storyHeroImg').src = s.heroImg;
+      document.getElementById('storyArchImg').src = s.archImg;
+      document.getElementById('storyHeading').textContent = s.heading;
+      document.getElementById('storyP1').textContent = s.p1;
+      document.getElementById('storyP2').textContent = s.p2;
+
+      s.shots.forEach((shot, i) => {
+        document.getElementById(`shotImg${i + 1}`).src = shot.img;
+        document.getElementById(`shotCap${i + 1}`).textContent = shot.cap;
+      });
+
+      // 渲染周邊 3 張日雜延伸推薦卡牌
+      const nearbyContainer = document.getElementById('nearbyCardsGrid');
+      nearbyContainer.innerHTML = s.nearby.map(item => `
+        <article class="nearby-zine-card">
+          <div>
+            <div class="nearby-card-top">
+              <span class="nearby-num">${item.num}</span>
+              <span class="nearby-en-italic">${item.enTag}</span>
+            </div>
+            <div class="nearby-photo-wrap">
+              <img src="${item.img}" alt="${item.name}" />
+              <span class="nearby-jp-tag">${item.jpVertical}</span>
+            </div>
+            <h4>${item.name}</h4>
+            <span class="nearby-jp-sub">${item.jpSub}</span>
+            <p class="nearby-desc">${item.desc}</p>
+          </div>
+          <div class="nearby-card-foot">
+            <span>${item.walk}</span>
+            <a href="${item.map}" target="_blank" class="zine-inline-link">Google Maps ↗</a>
+          </div>
+        </article>
+      `).join('');
+
+      document.getElementById('spotName').textContent = s.spotName;
+      document.getElementById('spotAddrZh').textContent = s.spotAddrZh;
+      document.getElementById('spotAddrEn').textContent = s.spotAddrEn;
+      document.getElementById('spotHoursNote').textContent = s.spotHoursNote;
+      document.getElementById('spotMapLink').href = s.spotMapUrl;
+
+      document.getElementById('hubListView').style.display = 'none';
+      document.getElementById('articleDetailView').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function backToHub() {
+      document.getElementById('articleDetailView').style.display = 'none';
+      document.getElementById('hubListView').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

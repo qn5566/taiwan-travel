@@ -77,7 +77,11 @@ function renderHopCards() {
   const isEn = currentHopLang === 'en';
   const isJa = currentHopLang === 'ja';
 
-  if (!rawArticles || rawArticles.length === 0) return;
+  if (!rawArticles || rawArticles.length === 0) {
+    showcaseEl.replaceChildren();
+    if (typeof JournalReports !== 'undefined') JournalReports.renderEmpty(showcaseEl, 'articles');
+    return;
+  }
 
   // 不做分類，直接全部呈現 10 篇完整篇章
   const filtered = rawArticles;

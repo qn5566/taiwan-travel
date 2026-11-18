@@ -50,10 +50,11 @@ function mapToContentLang(lang) {
  * 抓取後端單一 content JSON 檔 (自動帶入目前語系)
  * @param {string} filename 例如 'rankings.json'
  * @param {string} [lang]   覆寫語系 (預設目前語系)
+ * @param {string} [contentLanguage] 個別資料集的語言代碼（例如報導新增的 de）
  * @returns {Promise<any>}  解析後的 JSON
  */
-async function fetchContentJson(filename, lang) {
-  const l = mapToContentLang(lang || getWebLang());
+async function fetchContentJson(filename, lang, contentLanguage) {
+  const l = contentLanguage || mapToContentLang(lang || getWebLang());
   const url = `${window.CONTENT_BASE_URL}/${l}/${filename}`;
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), 10000);

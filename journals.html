@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="css/style.css">
 
   <link rel="stylesheet" href="css/cafe-journals.css">
+  <link rel="stylesheet" href="css/journal-reports.css">
   <script src="js/city_regions.js" defer></script>
   <script src="js/category_i18n.js" defer></script>
   <script src="js/site-footer.js" defer></script>
@@ -72,6 +73,10 @@
       <p class="category-hero-subtitle" data-category-text="journals.subtitle">走進街區與山海，閱讀台灣的生活故事。</p>
     </div>
   </section>
+  <nav class="journal-type-tabs" id="journal-type-tabs" aria-label="文章類型">
+    <a href="journals.html?type=articles" data-journal-kind="articles" aria-current="page">深度文章</a>
+    <a href="journals.html?type=reports" data-journal-kind="reports">台灣吃喝玩樂採訪報導</a>
+  </nav>
   <div id="section-weekend-hop">
 
     <!-- 深度慢活採訪實錄 (國際多語系切換中樞) -->
@@ -90,6 +95,18 @@
       </div>
     </main>
   </div>
+
+  <main id="journal-reports-panel" class="report-surface" hidden>
+    <div class="hub-container">
+      <header class="hub-header">
+        <span class="hub-eyebrow">Taiwan Roam Field Notes</span>
+        <h2 data-report-text="reportsTitle">台灣吃喝玩樂採訪報導</h2>
+        <p data-report-text="reportsSubtitle">跟著編輯部走進巷弄、山海與在地風味。</p>
+      </header>
+      <div id="report-list-status" role="status" aria-live="polite"></div>
+      <div class="editorial-grid" id="editorial-reports-grid"></div>
+    </div>
+  </main>
 
   <!-- =========================================================
        📖 踩點完整報導全螢幕彈窗 (Editorial Article Modal)
@@ -253,6 +270,8 @@
   <script src="js/weekend_hop_i18n_extra.js"></script>
   <script src="js/content_loader.js"></script>
   <script src="js/journals_i18n.js"></script>
+  <script src="js/journal_reports_data.js"></script>
+  <script src="js/journal_reports.js"></script>
   <script src="js/journals.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/navigation.js"></script>
