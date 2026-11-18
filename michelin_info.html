@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <!-- Shared site tracking -->
+  <script async src="js/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>米其林餐廳專刊｜Taiwan Roam</title>
+  <meta id="michelin-page-description" name="description" content="台灣米其林餐廳專刊，閱讀餐廳故事、招牌菜單與用餐資訊。">
+  <link rel="canonical" href="https://taiwanroam.tw/michelin_info.html">
+  <link rel="alternate" hreflang="zh-TW" href="https://taiwanroam.tw/michelin_info.html">
+  <link rel="alternate" hreflang="en" href="https://taiwanroam.tw/michelin_info.html?lang=en">
+  <link rel="alternate" hreflang="ja" href="https://taiwanroam.tw/michelin_info.html?lang=ja">
+  <link rel="alternate" hreflang="x-default" href="https://taiwanroam.tw/michelin_info.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="米其林餐廳專刊｜Taiwan Roam">
+  <meta property="og:description" content="編輯部實地走訪台灣山海與人文，閱讀完整深度採訪專題。">
+  <meta property="og:url" content="https://taiwanroam.tw/michelin_info.html">
+  <!-- Google Fonts: 文青雜誌風 (Playfair Display, Cormorant Garamond, Pinyon Script, Noto Serif TC) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600;1,700&family=Pinyon+Script&family=Noto+Serif+TC:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="css/michelin-article.css">
+  <script src="js/city_regions.js" defer></script>
+  <script src="js/category_i18n.js" defer></script>
+  <script src="js/site-footer.js" defer></script>
+  <script src="js/global-language-bar.js" defer></script>
+</head>
+<body class="category-page michelin-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N38CZ8XN"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <img src="assets/taiwan_roam_logo.webp" alt="台灣吃喝玩樂 TAIWAN ROAM" class="brand-logo-img" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 8px rgba(0,0,0,0.18);">
+        <div class="brand-text-block">
+          <div class="brand-name">
+            台灣吃喝玩樂
+          </div>
+          <span class="brand-subtext">TAIWAN ROAM</span>
+        </div>
+      </a>
+
+      <!-- 整合後的導航選單 -->
+      <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="開啟選單"><span aria-hidden="true">☰</span></button>
+      <nav id="site-navigation" aria-label="主要導覽">
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" data-nav-key="navHome">首頁</a></li>
+          <li class="nav-item"><a href="themes.html" data-nav-key="navThemes">精選主題</a></li>
+          <li class="nav-item"><a href="spots.html" data-nav-key="navSpots">城市景點</a></li>
+          <li class="nav-item"><a href="ranking.html" data-nav-key="navRankings">排行榜</a></li>
+          <li class="nav-item active"><a href="cafe.html?tab=michelin-guide" data-nav-key="navCafe" aria-current="page">全台咖啡與米其林</a></li>
+          <li class="nav-item"><a href="journals.html" data-nav-key="navJournals">深度採訪</a></li>
+          <li class="nav-item"><a href="community.html" data-nav-key="navCommunity">留言討論</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right-tools">
+        <a href="souvenir.html" class="btn-cta-primary" style="padding: 9px 18px; font-size: 13px; text-decoration: none;" data-category-text="ui.btnSouvenir">伴手禮直送</a>
+        <a href="https://play.google.com/store/apps/details?id=com.meetstudio.event" class="btn-cta-primary" style="padding: 9px 18px; font-size: 13px; text-decoration: none;" onclick="this.href=(/iPad|iPhone|iPod/.test(navigator.userAgent))?'https://apps.apple.com/us/app/id6446348643':'https://play.google.com/store/apps/details?id=com.meetstudio.event';" data-category-text="ui.btnDownload">App 下載</a>
+      </div>
+    </div>
+  </header>
+  <main class="michelin-feature" id="michelin-article-reader" aria-live="polite" aria-busy="true"></main>
+  <footer class="site-footer" style="background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 35%, #E0E7FF 68%, #F3E8FF 100%); border-top: 2px solid #93C5FD; padding: 60px 0 28px 0; margin-top: 0; color: #0F172A; position: relative; overflow: hidden;">
+    <!-- 海藍與淺紫微光氛圍裝飾 -->
+    <div style="position: absolute; top: -100px; left: 8%; width: 380px; height: 220px; background: radial-gradient(circle, rgba(2, 132, 199, 0.14) 0%, transparent 70%); pointer-events: none;"></div>
+    <div style="position: absolute; bottom: -80px; right: 10%; width: 360px; height: 220px; background: radial-gradient(circle, rgba(139, 92, 246, 0.14) 0%, transparent 70%); pointer-events: none;"></div>
+
+    <div class="container" style="position: relative; z-index: 1;">
+      <!-- 第一排：左側品牌中英日宣言與開發團隊用心介紹 ＋ 右側專題導覽快速連結 -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 52px; flex-wrap: wrap; padding-bottom: 38px; border-bottom: 1px solid rgba(3, 105, 161, 0.16);">
+
+        <!-- 左側：品牌核心理念、三語文案、網站使用介紹與開發團隊 -->
+        <div style="flex: 1.45; min-width: 320px; max-width: 640px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <img src="assets/taiwan_roam_logo.webp" alt="Taiwan Roam" style="width: 46px; height: 46px; border-radius: 14px; object-fit: cover; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.22); border: 2px solid #FFFFFF;">
+            <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+              <span style="font-size: 22px; font-weight: 900; color: #0C4A6E; letter-spacing: -0.3px;" data-footer-text="brand">台灣吃喝玩樂</span>
+
+            </div>
+          </div>
+
+          <!-- 中文主標語 -->
+          <h3 style="font-size: 19.5px; font-weight: 900; color: #0F172A; margin: 0 0 6px 0; line-height: 1.45; letter-spacing: -0.2px; font-family: 'Noto Serif TC', serif;" data-footer-text="slogan">以熱愛出發，探索台灣的巷弄、山海與在地風味。</h3>
+
+          <!-- 英文副標語 -->
+
+
+          <!-- 日文副標語 -->
+
+
+          <!-- 網站使用指南與開發團隊用心介紹 -->
+          <p style="font-size: 13px; color: #334155; line-height: 1.75; margin: 0 0 20px 0; font-weight: 500; background: rgba(255, 255, 255, 0.68); border-left: 3px solid #0284C7; padding: 10px 14px; border-radius: 0 12px 12px 0;" data-footer-text="about">HiMyDream STUDIO 策劃的台灣旅行指南，精選 22 縣市景點、米其林美食、330 間風格咖啡館與伴手禮，整合地圖導航、住宿比價與包車規劃。</p>
+
+          <!-- 合作洽詢與開發團隊徽章橫排 -->
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <a href="mailto:himydream.studio0220@gmail.com?subject=%E3%80%90%E5%93%81%E7%89%8C%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2%E3%80%91%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82%20Taiwan%20Roam%20%E5%95%86%E6%A5%AD%E5%90%88%E4%BD%9C"
+               style="display: inline-flex; align-items: center; gap: 7px; background: linear-gradient(135deg, #0284C7 0%, #6366F1 100%); color: #FFFFFF; text-decoration: none; font-size: 13px; font-weight: 800; padding: 9px 22px; border-radius: 9999px; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.28); transition: all 0.2s ease;">
+              <span>🤝</span>
+              <span data-footer-text="footerContactLabel">品牌合作洽詢</span>
+
+            </a>
+
+            <a href="https://himydream.me/studio/" target="_blank" rel="noopener noreferrer"
+               style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; border: 1.5px solid #93C5FD; padding: 8px 18px; border-radius: 9999px; text-decoration: none; box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08); transition: all 0.2s ease;" data-footer-title="team">
+              <span style="font-size: 11.5px; font-weight: 800; color: #0369A1; letter-spacing: 0.5px;" data-footer-text="team">開發團隊</span>
+              <span style="font-size: 12.5px; font-weight: 900; color: #0F172A;">HiMyDream STUDIO</span>
+              <span style="font-size: 12px; color: #6366F1; font-weight: 900;">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 右側：專題導覽 QUICK LINKS -->
+        <div class="footer-quick-links-block" style="flex: 1; min-width: 280px; max-width: 440px;">
+          <div style="font-size: 14.5px; font-weight: 900; color: #0C4A6E; letter-spacing: 0.8px; margin-bottom: 16px; display: flex; align-items: baseline; gap: 8px;">
+            <span id="footer-quick-links-title" data-footer-text="footerQuickLinks">專題導覽</span>
+
+          </div>
+          <ul id="footer-quick-links" style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px;">
+            <li><a href="spots.html" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;" data-footer-link="0">全台景點</a></li>
+            <li><a href="michelin.html" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;" data-footer-link="1">米其林星級與必比登美食</a></li>
+            <li><a href="cafe.html" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;" data-footer-link="2">精選咖啡店</a></li>
+            <li><a href="themes.html?theme=roadtrip" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;" data-footer-link="3">台灣旅遊包車推薦行程</a></li>
+            <li><a href="themes.html?theme=islands&sub=diving" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;" data-footer-link="4">跳島浮潛和海龜</a></li>
+            <li><a href="themes.html?theme=railway" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;" data-footer-link="5">火車鐵道之旅</a></li>
+            <li><a href="journals.html" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;" data-footer-link="6">深度慢活採訪實錄</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 第二排：最底部品牌版權列 (Bottom Brand Signature Row) -->
+      <div style="padding-top: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12px; color: #0C4A6E;">
+        <div data-footer-text="copyright" style="display: flex; align-items: center; gap: 8px; opacity: 0.85;">© Taiwan Roam · HiMyDream STUDIO. 版權所有。</div>
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 2px; color: #4F46E5; text-transform: uppercase; opacity: 0.8;">
+          TAIWAN ROAM
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/affiliate-config.js"></script>
+  <script src="js/affiliate-market.js"></script>
+  <script src="js/affiliate.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/content_loader.js"></script>
+  <script src="js/michelin_article_data.js"></script>
+  <script src="js/michelin_article.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/navigation.js"></script>
+</body>
+</html>

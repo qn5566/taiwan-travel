@@ -36,4 +36,9 @@ for (const page of ['cafe.html', 'michelin.html']) {
     assert.ok(html.includes('https://maps.example/?q=Restaurant%20Taichung'));
     assert.ok(render({ name: 'Other restaurant' }).includes('href="https://dining.example/"'));
   });
+  test(`${page}: article links use a stable restaurant ID instead of its rank`,()=>{
+    const html=render({id:'star-jl-studio',rank:1,name:'JL STUDIO'});
+    assert.ok(html.includes('michelin_info.html?id=star-jl-studio&lang=zh-TW'));
+    assert.equal((html.match(/data-michelin-article/g)||[]).length,2);
+  });
 }

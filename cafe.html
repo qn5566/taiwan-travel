@@ -68,6 +68,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600;1,700&family=Pinyon+Script&family=Noto+Serif+TC:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/michelin-article.css">
 
   <link rel="stylesheet" href="css/cafe-journals.css">
   <script src="js/city_regions.js" defer></script>
@@ -700,6 +701,7 @@
       }
 
       container.innerHTML = filtered.map(item => {
+        const articleUrl = `michelin_info.html?id=${encodeURIComponent(item.id || "")}&lang=${encodeURIComponent(typeof getWebLang === "function" ? getWebLang() : "zh-TW")}`;
         const starTag = item.stars || item.badge || "⭐ 米其林評鑑";
         const isBib = starTag.includes("必比登");
         const tagBg = isBib ? "#FEF3C7" : "#FFE4E6";
@@ -711,8 +713,8 @@
         const diningUrl = item.bookingUrl || item.links?.find(link => link.type === "official")?.url || (typeof AFFILIATE_HUB !== "undefined" ? AFFILIATE_HUB.getDiningUrl() : "#");
 
         return `
-          <div style="background: #FFFFFF; border: 1px solid #EADBCE; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 18px rgba(74, 62, 57, 0.05); display: flex; flex-direction: column; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
-            <div style="position: relative; width: 100%; height: 210px; overflow: hidden; background: #F3EDE4;">
+          <div class="michelin-card" style="background: #FFFFFF; border: 1px solid #EADBCE; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 18px rgba(74, 62, 57, 0.05); display: flex; flex-direction: column; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
+            <a href="${articleUrl}" data-michelin-article style="display:block; position: relative; width: 100%; height: 210px; overflow: hidden; background: #F3EDE4;">
               <img src="${item.img || 'https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop'}" alt="${item.name}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
               <span style="position: absolute; top: 14px; left: 14px; background: ${tagBg}; color: ${tagColor}; border: 1px solid ${tagBorder}; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 9999px; box-shadow: 0 4px 12px rgba(0,0,0,0.12);">
                 ${starTag}
@@ -720,13 +722,13 @@
               <span style="position: absolute; bottom: 10px; right: 12px; background: rgba(45, 37, 34, 0.88); backdrop-filter: blur(6px); color: #F5EFEB; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 6px;">
                 ${item.stars ? '米其林星級' : '米其林必比登'}
               </span>
-            </div>
+            </a>
             <div style="padding: 22px; display: flex; flex-direction: column; flex: 1;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
                 <span style="font-size: 12px; font-weight: 800; color: #8C5331;">📍 ${item.city || '台北市'}</span>
                 <span style="font-size: 12px; font-weight: 800; color: #78350F; background: #FEF3C7; padding: 2px 8px; border-radius: 6px;">${item.cuisine || item.categoryName || '在地料理'}</span>
               </div>
-              <h3 style="font-size: 18px; font-weight: 900; color: #2D2522; margin: 4px 0 8px 0; line-height: 1.35; font-family: 'Noto Serif TC', serif;">${item.name}</h3>
+              <h3 style="font-size: 18px; font-weight: 900; color: #2D2522; margin: 4px 0 8px 0; line-height: 1.35; font-family: 'Noto Serif TC', serif;"><a href="${articleUrl}" data-michelin-article>${item.name}</a></h3>
               <p style="font-size: 13.5px; color: #6C5F56; line-height: 1.65; margin-bottom: 16px; flex: 1;">${item.feature || item.desc}</p>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: auto;">
                 <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" style="text-align: center; padding: 9px 4px; font-size: 12px; font-weight: 700; text-decoration: none; background: #F8F5F0; color: #5C5047; border: 1px solid #E4D9CE; border-radius: 10px; transition: all 0.2s;">
@@ -744,5 +746,6 @@
   </script>
   <script src="js/i18n.js"></script>
   <script src="js/navigation.js"></script>
+  <script src="js/michelin_cards.js"></script>
 </body>
 </html>

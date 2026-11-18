@@ -141,10 +141,10 @@ def batches(texts, limit=3000):
         yield batch
 
 
-def translate_batch(texts, target):
+def translate_batch(texts, target, source_language='en'):
     # Numbered separators survive translation and let us verify every item is present.
     payload = ''.join(f'\nZXQ{i:04d}QXZ\n{text}\n' for i, text in enumerate(texts))
-    query = urllib.parse.urlencode({'client': 'gtx', 'sl': 'en', 'tl': target, 'dt': 't', 'q': payload})
+    query = urllib.parse.urlencode({'client': 'gtx', 'sl': source_language, 'tl': target, 'dt': 't', 'q': payload})
     request = urllib.request.Request('https://translate.googleapis.com/translate_a/single?' + query,
                                      headers={'User-Agent': 'Mozilla/5.0'})
     error = None
@@ -167,7 +167,7 @@ def translate_batch(texts, target):
             time.sleep(min(2 ** attempt, 12))
     if len(texts) > 1:
         middle = len(texts) // 2
-        return {**translate_batch(texts[:middle], target), **translate_batch(texts[middle:], target)}
+        return {**translate_batch(texts[:middle], target, source_language), **translate_batch(texts[middle:], target, source_language)}
     raise RuntimeError(f'Translation failed for {target}: {error}')
 
 
