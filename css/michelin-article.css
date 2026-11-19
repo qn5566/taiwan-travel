@@ -1,16 +1,16 @@
 /* Michelin editorial palette from the PM's 01-mi.html, scoped to the article. */
-.michelin-feature { --mi-dark:#141110; --mi-card:#1f1a18; --mi-wine:#5e141b; --mi-gold:#d4af6a; --mi-paper:#faf7f2; background:var(--mi-dark); color:#1e1b18; line-height:1.85; overflow-wrap:anywhere; }
-.michelin-feature *, .michelin-feature *::before, .michelin-feature *::after { box-sizing:border-box; }
-.michelin-feature [hidden] { display:none!important; }
-.michelin-feature h1,.michelin-feature h2,.michelin-feature h3 { font-family:'Noto Serif TC',Georgia,serif; line-height:1.5; }
-.michelin-feature h2 { font-size:clamp(23px,3vw,30px); margin:0 0 24px; }
-.michelin-feature h3 { font-size:20px; margin:0 0 16px; }
-.michelin-feature p { margin:0 0 16px; white-space:pre-line; }
-.michelin-feature figure { margin:0; position:relative; }
-.michelin-feature img { display:block; width:100%; object-fit:cover; }
-.michelin-feature figcaption { padding:8px 12px; background:#1f1a18; color:#e6c588; font-size:11px; }
-.michelin-feature a { color:inherit; text-underline-offset:4px; }
-.michelin-feature a:focus-visible,.michelin-feature button:focus-visible { outline:3px solid var(--mi-gold); outline-offset:4px; }
+.michelin-feature:not(.pm-edition) { --mi-dark:#141110; --mi-card:#1f1a18; --mi-wine:#5e141b; --mi-gold:#d4af6a; --mi-paper:#faf7f2; background:var(--mi-dark); color:#1e1b18; line-height:1.85; overflow-wrap:anywhere; }
+.michelin-feature:not(.pm-edition) *, .michelin-feature:not(.pm-edition) *::before, .michelin-feature:not(.pm-edition) *::after { box-sizing:border-box; }
+.michelin-feature:not(.pm-edition) [hidden] { display:none!important; }
+.michelin-feature:not(.pm-edition) h1,.michelin-feature:not(.pm-edition) h2,.michelin-feature:not(.pm-edition) h3 { font-family:'Noto Serif TC',Georgia,serif; line-height:1.5; }
+.michelin-feature:not(.pm-edition) h2 { font-size:clamp(23px,3vw,30px); margin:0 0 24px; }
+.michelin-feature:not(.pm-edition) h3 { font-size:20px; margin:0 0 16px; }
+.michelin-feature:not(.pm-edition) p { margin:0 0 16px; white-space:pre-line; }
+.michelin-feature:not(.pm-edition) figure { margin:0; position:relative; }
+.michelin-feature:not(.pm-edition) img { display:block; width:100%; object-fit:cover; }
+.michelin-feature:not(.pm-edition) figcaption { padding:8px 12px; background:#1f1a18; color:#e6c588; font-size:11px; }
+.michelin-feature:not(.pm-edition) a { color:inherit; text-underline-offset:4px; }
+.michelin-feature:not(.pm-edition) a:focus-visible,.michelin-feature:not(.pm-edition) button:focus-visible { outline:3px solid var(--mi-gold); outline-offset:4px; }
 .mi-reader-nav { max-width:1120px; margin:auto; padding:18px 32px; color:var(--mi-gold); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:12px; }
 .mi-reader-nav span { font:11px/1.8 monospace; letter-spacing:1px; }
 .mi-hero { position:relative; min-height:560px; display:flex; align-items:flex-end; isolation:isolate; overflow:hidden; background:linear-gradient(135deg,#3d0b10,#141110); }
@@ -32,7 +32,7 @@
 .mi-years { display:flex; flex-wrap:wrap; gap:8px; list-style:none; padding:0; }
 .mi-years li { padding:4px 12px; color:var(--mi-gold); border:1px solid #d4af6a77; background:#14111088; font:12px/1.8 monospace; }
 .mi-period-note { font-size:12px; color:var(--mi-gold); }
-.michelin-feature blockquote { border-left:3px solid var(--mi-gold); color:var(--mi-gold); padding:20px; margin:28px 0; background:var(--mi-card); }
+.michelin-feature:not(.pm-edition) blockquote { border-left:3px solid var(--mi-gold); color:var(--mi-gold); padding:20px; margin:28px 0; background:var(--mi-card); }
 .mi-gallery { background:var(--mi-paper); }
 .mi-dish-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; }
 .mi-ambiance { grid-column:1/-1; }
@@ -69,8 +69,8 @@
 .mi-empty a { display:inline-block; color:var(--mi-wine); margin-bottom:28px; }
 .mi-loading { text-align:center; padding:80px; color:var(--mi-gold); }
 .mi-table-scroll { overflow-x:auto; max-width:100%; }
-.michelin-feature table { width:100%; min-width:560px; border-collapse:collapse; }
-.michelin-feature th,.michelin-feature td { padding:12px; border:1px solid #a89981; text-align:left; vertical-align:top; }
+.michelin-feature:not(.pm-edition) table { width:100%; min-width:560px; border-collapse:collapse; }
+.michelin-feature:not(.pm-edition) th,.michelin-feature:not(.pm-edition) td { padding:12px; border:1px solid #a89981; text-align:left; vertical-align:top; }
 .michelin-card { cursor:pointer; }
 .michelin-card h3 a { text-decoration:none; color:inherit; }
 .michelin-card h3 a:hover { text-decoration:underline; }

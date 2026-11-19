@@ -73,7 +73,110 @@ const MichelinArticle = (() => {
     tabs.setAttribute('aria-label',t('menu'));group.inner.append(tabs,grid);if(str(article.menuNote))group.inner.appendChild(node('p',article.menuNote,'mi-menu-note'));
     root.appendChild(group.section);const lang=getWebLang();select(modes.find(m=>m.id===(lang==='zh-TW'?'zh-en':lang))||modes[0]);
   }
+  // Keep the PM's DOM and CSS intact; populate editable article fields safely.
+  function renderPM(root,article,restaurant){
+    const template=document.getElementById('michelin-pm-template');
+    if(!template || article.source?.file!=='米其林餐廳/01-mi.html')return false;
+    root.classList.add('pm-edition');
+    root.replaceChildren(template.content.cloneNode(true));
+    const $=selector=>root.querySelector(selector);
+    const text=(selector,value)=>{const element=$(selector);if(element)element.textContent=value||'';};
+    const fill=(element,section,items=section?.blocks)=>{
+      element.replaceChildren();
+      if(Array.isArray(items)&&items.length)blocks(element,items);
+      else if(str(section?.content))element.appendChild(node('p',section.content));
+    };
+    const image=(element,src,alt,role)=>{
+      const safe=MichelinArticleData.safeUrl(src);
+      if(!safe){element.removeAttribute('src');element.hidden=true;return;}
+      element.src=safe;element.alt=alt||'';
+      if(role==='illustration')element.title=t('illustration');
+    };
+    text('h1',article.title);text('.hero-en-display',article.enTitle);
+    text('.nav-crumb .active',[article.title,article.enTitle?.split(' — ')[0]].filter(Boolean).join(' '));
+    const returnLink=$('.nav-back');
+    returnLink.href=back().href;
+    returnLink.setAttribute('aria-label',t('back'));
+    returnLink.title=t('back');
+    returnLink.querySelector('span').textContent=({'zh-TW':'返回',zh:'返回',en:'Back',ja:'戻る',ko:'뒤로',es:'Volver',de:'Zurück',th:'กลับ'})[getWebLang()]||'Back';
+    for(const a of root.querySelectorAll('.nav-crumb a')){const url=new URL(a.href);url.searchParams.set('lang',getWebLang());a.href=url.href;}
+    image($('.hero-bg-img'),article.coverImg,article.title,article.coverImageRole);
+    $('.hero-quick-specs').replaceChildren(...(article.quickFacts||[]).map(value=>node('span',value)));
+    const honors=article.honors||{};
+    text('.michelin-honor-block h2',honors.heading);text('.michelin-honor-block p',honors.content);
+    $('.years-ribbon').replaceChildren(...(honors.years||[]).map(year=>node('span',year)));
+    text('.honor-big-stat strong',String(honors.years?.length||0).padStart(2,'0'));
+    const sections=article.sections||[],intro=sections.find(s=>s.layout==='intro');
+    if(intro){
+      const essay=$('.editorial-essay');text('.editorial-essay h3',intro.heading);
+      essay.querySelectorAll('p').forEach(p=>p.remove());
+      const copy=node('div');fill(copy,intro,intro.blocks?.filter(b=>b.tag&&b.tag!=='blockquote'));
+      essay.append(...copy.childNodes);essay.querySelector('p')?.classList.add('drop-cap');
+      const quote=intro.blocks?.find(b=>b.tag==='blockquote');
+      if(quote){$('.editorial-pullquote-box blockquote').replaceChildren();blocks($('.editorial-pullquote-box blockquote'),quote.children);}
+      const cite=intro.blocks?.find(b=>typeof b.text==='string');if(cite)text('.editorial-pullquote-box cite',cite.text);
+    }else $('.story-magazine-grid').hidden=true;
+    const ambiance=sections.find(s=>s.layout==='ambiance');
+    if(ambiance){
+      image($('.spatial-wide-img img'),ambiance.image,ambiance.heading,ambiance.imageRole);
+      const card=$('.spatial-floating-card');card.replaceChildren(node('h3',ambiance.heading));
+      const copy=node('div');fill(copy,ambiance,ambiance.blocks?.filter(b=>b.tag));card.append(...copy.childNodes);
+      const tags=node('div',null,'ambiance-tags');for(const b of ambiance.blocks||[])if(b.text)tags.appendChild(node('span',b.text));card.appendChild(tags);
+    }else $('.spatial-feature-stage').hidden=true;
+    const dishes=sections.filter(s=>s.layout==='dish'),cards=[...root.querySelectorAll('.dish-editorial-item')];
+    dishes.forEach((dish,index)=>{
+      const card=cards[index]||cards.at(-1).cloneNode(true);if(!cards[index])$('.bottom-duo-dishes').appendChild(card);
+      image(card.querySelector('img'),dish.image,dish.heading,dish.imageRole);
+      const body=card.querySelector('.dish-text-body');body.replaceChildren();
+      const label=dish.blocks?.find(b=>b.text);if(label)body.appendChild(node('span',label.text,'dish-index-label'));
+      body.appendChild(node('h4',dish.heading));const copy=node('div');fill(copy,dish,dish.blocks?.filter(b=>b.tag));body.append(...copy.childNodes);
+    });
+    cards.slice(dishes.length).forEach(card=>card.remove());
+    // Menu modes retain the PM's default Chinese/English pairing and styling.
+    const variants=article.menuVariants||[],tabs=$('.lang-tabs'),grid=$('#menuBoardsGrid');tabs.replaceChildren();grid.replaceChildren();
+    const modes=[['zh-en','中英並排',['zh','en']],['zh-ja','中日並排',['zh','ja']],['zh','繁體中文',['zh']],['en','English',['en']],['ja','日本語',['ja']]]
+      .filter(mode=>mode[2].every(lang=>variants.some(v=>v.language===lang)));
+    for(const variant of variants){
+      const board=node('div',null,'menu-board-card');board.dataset.language=variant.language;board.lang=variant.language==='zh'?'zh-Hant':variant.language;
+      board.appendChild(node('div',variant.title,'board-lang-title'));const list=node('ul',null,'menu-items-list');
+      for(const item of variant.items||[]){const row=node('li'),copy=node('div');copy.append(node('span',item.name,'m-name'),node('span',item.description,'m-desc'));row.append(copy,node('span',item.price,'m-price'));list.appendChild(row);}
+      board.appendChild(list);grid.appendChild(board);
+    }
+    function select(mode){
+      for(const button of tabs.children){const active=button.dataset.mode===mode[0];button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));}
+      for(const board of grid.children)board.hidden=!mode[2].includes(board.dataset.language);
+      grid.classList.toggle('single',mode[2].length===1);
+    }
+    for(const mode of modes){const button=node('button',mode[1],'lang-tab-btn');button.type='button';button.dataset.mode=mode[0];button.onclick=()=>select(mode);tabs.appendChild(button);}
+    if(modes.length)select(modes[0]);else $('.trilingual-menu-band').hidden=true;
+    text('.trilingual-menu-band .container-narrow > p',article.menuNote);
+    // Original English/Japanese editorial copy is preserved in the CMS dataset.
+    const guides=sections.filter(s=>s.layout==='guide');
+    root.querySelectorAll('.etiquette-card').forEach((card,index)=>{
+      const guide=guides[index];if(!guide){card.remove();return;}
+      for(const [lang,selector] of [['en','.en-guide'],['ja','.jp-guide']]){
+        const source=(article.language===lang?guide:article.source?.guideOriginals?.[guide.key]?.[lang])||guide;
+        const target=card.querySelector(selector);target.replaceChildren(node('h3',source.heading));const copy=node('div');fill(copy,source);target.append(...copy.childNodes);
+      }
+    });
+    const info=article.practicalInfo||{};
+    text('.concierge-info strong',info.name||restaurant?.name);
+    const address=[info.address,info.transport?`（${info.transport.replace('／',' / ')}）`:''].join('');
+    const detail=$('.concierge-info p');detail.replaceChildren(document.createTextNode(`📍 ${address}`),node('br'),document.createTextNode(`🕒 ${info.businessHours||''} ｜ ☎️ ${info.phone||''}`));
+    const actions=$('.concierge-actions'),map=MichelinArticleData.safeUrl(info.mapUrl||restaurant?.mapUrl),booking=MichelinArticleData.safeUrl(article.bookingUrl||restaurant?.bookingUrl);
+    const mapLink=actions.querySelector('a:first-child'),bookingLink=actions.querySelector('a:last-child');
+    if(map)mapLink.href=map;else mapLink.remove();if(booking)bookingLink.href=booking;else bookingLink.remove();
+    const hotel=actions.querySelector('a[href*="trip.com"]');
+    if(hotel&&typeof AFFILIATE_HUB!=='undefined'){
+      const url=new URL(hotel.href);url.searchParams.set('Allianceid',AFFILIATE_HUB.tripAllianceId);url.searchParams.set('SID',AFFILIATE_HUB.tripSid);url.searchParams.set('trip_sub3',AFFILIATE_HUB.tripSub3);hotel.href=url.href;
+    }
+    if(article.isSample)$('.editorial-stamp-box').title=article.editorialNote||t('sample');
+    document.documentElement.lang=article.language==='zh'?'zh-Hant':article.language||'zh-Hant';
+    return true;
+  }
   function render(root,article,restaurant){
+    root.classList.remove('pm-edition');
+    if(renderPM(root,article,restaurant))return;
     root.replaceChildren();const nav=node('nav',null,'mi-reader-nav');nav.append(back(),node('span','TAIWAN ROAM · MICHELIN EDITION'));root.appendChild(nav);
     const hero=node('header',null,'mi-hero');const image=picture(article.coverImg,article.title,article.coverImageRole==='illustration');if(image){image.querySelector('img').loading='eager';hero.appendChild(image);}
     const intro=node('div',null,'mi-hero-copy');if(restaurant?.stars||restaurant?.badge)intro.appendChild(node('span',restaurant.stars||restaurant.badge,'mi-award'));
@@ -96,8 +199,7 @@ const MichelinArticle = (() => {
   async function init(){
     const root=document.getElementById('michelin-article-reader');if(!root)return;
     root.setAttribute('aria-busy','true');root.replaceChildren(node('p','…','mi-loading'));
-    const id=new URLSearchParams(location.search).get('id');
-    if(!id){empty(root,'notFound');root.setAttribute('aria-busy','false');return;}
+    const id=new URLSearchParams(location.search).get('id')||'star-1';
     const data=await MichelinArticleData.load(getWebLang()),{article,restaurant}=MichelinArticleData.resolve(id,data);
     if(article){
       render(root,article,restaurant);document.title=article.seo?.title||`${article.title}｜Taiwan Roam`;
@@ -113,7 +215,7 @@ const MichelinArticle = (() => {
     else empty(root,data.restaurantState==='error' || data.articleState==='error'?'error':'notFound',data.restaurantState==='error' || data.articleState==='error');
     root.setAttribute('aria-busy','false');
   }
-  function empty(root,kind,retry=false){root.replaceChildren();const group=band(t(kind),'mi-empty');if(t(kind+'Body')!==kind+'Body')group.inner.appendChild(node('p',t(kind+'Body')));group.inner.prepend(back());if(retry){const b=node('button',t('retry'));b.type='button';b.onclick=init;group.inner.appendChild(b);}root.appendChild(group.section);}
+  function empty(root,kind,retry=false){root.classList.remove('pm-edition');root.replaceChildren();const group=band(t(kind),'mi-empty');if(t(kind+'Body')!==kind+'Body')group.inner.appendChild(node('p',t(kind+'Body')));group.inner.prepend(back());if(retry){const b=node('button',t('retry'));b.type='button';b.onclick=init;group.inner.appendChild(b);}root.appendChild(group.section);}
   return {init,render,t};
 })();
 document.addEventListener('DOMContentLoaded',MichelinArticle.init);

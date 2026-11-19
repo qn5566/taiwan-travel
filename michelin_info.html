@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
   <!-- Shared site tracking -->
   <script async src="js/analytics.js"></script>
@@ -16,142 +16,593 @@
   <meta property="og:title" content="米其林餐廳專刊｜Taiwan Roam">
   <meta property="og:description" content="編輯部實地走訪台灣山海與人文，閱讀完整深度採訪專題。">
   <meta property="og:url" content="https://taiwanroam.tw/michelin_info.html">
-  <!-- Google Fonts: 文青雜誌風 (Playfair Display, Cormorant Garamond, Pinyon Script, Noto Serif TC) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600;1,700&family=Pinyon+Script&family=Noto+Serif+TC:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;700;900&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/michelin-article.css">
-  <script src="js/city_regions.js" defer></script>
-  <script src="js/category_i18n.js" defer></script>
-  <script src="js/site-footer.js" defer></script>
-  <script src="js/global-language-bar.js" defer></script>
+  <link rel="stylesheet" href="css/michelin-pm.css">
 </head>
-<body class="category-page michelin-page">
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N38CZ8XN"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand-logo-wrap">
-        <img src="assets/taiwan_roam_logo.webp" alt="台灣吃喝玩樂 TAIWAN ROAM" class="brand-logo-img" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 8px rgba(0,0,0,0.18);">
-        <div class="brand-text-block">
-          <div class="brand-name">
-            台灣吃喝玩樂
-          </div>
-          <span class="brand-subtext">TAIWAN ROAM</span>
-        </div>
+<body data-affiliate-controls="hidden">
+  <main class="michelin-feature" id="michelin-article-reader" aria-live="polite" aria-busy="true"></main>
+  <template id="michelin-pm-template">
+
+  <!-- 頂部懸浮透明暗色導覽列 -->
+  <header class="top-luxury-nav">
+    <div class="nav-leading">
+      <a href="cafe.html?tab=michelin-guide" class="nav-back" aria-label="返回米其林餐廳">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m12 5-7 7 7 7M5 12h14" />
+        </svg>
+        <span>返回</span>
       </a>
-
-      <!-- 整合後的導航選單 -->
-      <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="開啟選單"><span aria-hidden="true">☰</span></button>
-      <nav id="site-navigation" aria-label="主要導覽">
-        <ul class="nav-menu">
-          <li class="nav-item"><a href="index.html" data-nav-key="navHome">首頁</a></li>
-          <li class="nav-item"><a href="themes.html" data-nav-key="navThemes">精選主題</a></li>
-          <li class="nav-item"><a href="spots.html" data-nav-key="navSpots">城市景點</a></li>
-          <li class="nav-item"><a href="ranking.html" data-nav-key="navRankings">排行榜</a></li>
-          <li class="nav-item active"><a href="cafe.html?tab=michelin-guide" data-nav-key="navCafe" aria-current="page">全台咖啡與米其林</a></li>
-          <li class="nav-item"><a href="journals.html" data-nav-key="navJournals">深度採訪</a></li>
-          <li class="nav-item"><a href="community.html" data-nav-key="navCommunity">留言討論</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-right-tools">
-        <a href="souvenir.html" class="btn-cta-primary" style="padding: 9px 18px; font-size: 13px; text-decoration: none;" data-category-text="ui.btnSouvenir">伴手禮直送</a>
-        <a href="https://play.google.com/store/apps/details?id=com.meetstudio.event" class="btn-cta-primary" style="padding: 9px 18px; font-size: 13px; text-decoration: none;" onclick="this.href=(/iPad|iPhone|iPod/.test(navigator.userAgent))?'https://apps.apple.com/us/app/id6446348643':'https://play.google.com/store/apps/details?id=com.meetstudio.event';" data-category-text="ui.btnDownload">App 下載</a>
+    <a href="index.html" class="nav-brand">
+      <img src="assets/michelin_pm_logo.png" alt="台灣吃喝玩樂 TAIWAN ROAM Logo" class="nav-brand-logo-img" />
+      <div class="nav-brand-text">
+        <strong>台灣吃喝玩樂</strong>
+        <span>TAIWAN ROAM</span>
       </div>
+    </a>
+    </div>
+    <div class="nav-crumb">
+      <a href="cafe.html?tab=michelin-guide">台灣米其林指南</a>
+      <span>/</span>
+      <a href="cafe.html?tab=michelin-guide#michelin-cards-grid">三星與二星</a>
+      <span>/</span>
+      <span class="active">頤宮中餐廳 Le Palais</span>
     </div>
   </header>
-  <main class="michelin-feature" id="michelin-article-reader" aria-live="polite" aria-busy="true"></main>
-  <footer class="site-footer" style="background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 35%, #E0E7FF 68%, #F3E8FF 100%); border-top: 2px solid #93C5FD; padding: 60px 0 28px 0; margin-top: 0; color: #0F172A; position: relative; overflow: hidden;">
-    <!-- 海藍與淺紫微光氛圍裝飾 -->
-    <div style="position: absolute; top: -100px; left: 8%; width: 380px; height: 220px; background: radial-gradient(circle, rgba(2, 132, 199, 0.14) 0%, transparent 70%); pointer-events: none;"></div>
-    <div style="position: absolute; bottom: -80px; right: 10%; width: 360px; height: 220px; background: radial-gradient(circle, rgba(139, 92, 246, 0.14) 0%, transparent 70%); pointer-events: none;"></div>
 
-    <div class="container" style="position: relative; z-index: 1;">
-      <!-- 第一排：左側品牌中英日宣言與開發團隊用心介紹 ＋ 右側專題導覽快速連結 -->
-      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 52px; flex-wrap: wrap; padding-bottom: 38px; border-bottom: 1px solid rgba(3, 105, 161, 0.16);">
+  <!-- =========================================================================
+       01. 吸睛全幅沉浸式大圖 BANNER (PHOTO 01 / 07)
+       ========================================================================= -->
+  <section class="cinematic-hero-banner">
+    <span class="photo-badge">PHOTO 01 / 07 ｜ 招牌桌邊火焰片皮鴨</span>
+    <img class="hero-bg-img" src="https://images.unsplash.com/photo-1518492104633-130d0cc84637?w=1800&fit=crop" alt="頤宮中餐廳 Le Palais 火焰片皮鴨主視覺" />
+    <div class="hero-vignette-overlay"></div>
 
-        <!-- 左側：品牌核心理念、三語文案、網站使用介紹與開發團隊 -->
-        <div style="flex: 1.45; min-width: 320px; max-width: 640px;">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-            <img src="assets/taiwan_roam_logo.webp" alt="Taiwan Roam" style="width: 46px; height: 46px; border-radius: 14px; object-fit: cover; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.22); border: 2px solid #FFFFFF;">
-            <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
-              <span style="font-size: 22px; font-weight: 900; color: #0C4A6E; letter-spacing: -0.3px;" data-footer-text="brand">台灣吃喝玩樂</span>
+    <div class="hero-banner-content">
+      <div>
+        <div class="michelin-crown-tag">
+          <span class="stars">★★★</span>
+          <span>MICHELIN THREE STARS ｜ 2018–2025 八連霸傳奇</span>
+        </div>
+        <h1>頤宮中餐廳</h1>
+        <span class="hero-en-display">Le Palais — Palais de Chine Hotel Taipei</span>
+        <div class="hero-quick-specs">
+          <span>📍 台北市大同區（君品酒店 17F）</span>
+          <span>🥢 頂級經典廣東菜・手工港點</span>
+          <span>💰 午間 NT$3,880+ / 晚間 NT$4,880+</span>
+        </div>
+      </div>
 
-            </div>
-          </div>
+      <div class="hero-vertical-jp">
+        台湾最高峰の三つ星広東料理殿堂
+      </div>
+    </div>
+  </section>
 
-          <!-- 中文主標語 -->
-          <h3 style="font-size: 19.5px; font-weight: 900; color: #0F172A; margin: 0 0 6px 0; line-height: 1.45; letter-spacing: -0.2px; font-family: 'Noto Serif TC', serif;" data-footer-text="slogan">以熱愛出發，探索台灣的巷弄、山海與在地風味。</h3>
+  <!-- =========================================================================
+       02. 曜石黑 × 酒紅燙金色塊：米其林三星紀錄與餐廳由來故事
+       ========================================================================= -->
+  <section class="dark-editorial-intro">
+    <div class="container-narrow">
 
-          <!-- 英文副標語 -->
-
-
-          <!-- 日文副標語 -->
-
-
-          <!-- 網站使用指南與開發團隊用心介紹 -->
-          <p style="font-size: 13px; color: #334155; line-height: 1.75; margin: 0 0 20px 0; font-weight: 500; background: rgba(255, 255, 255, 0.68); border-left: 3px solid #0284C7; padding: 10px 14px; border-radius: 0 12px 12px 0;" data-footer-text="about">HiMyDream STUDIO 策劃的台灣旅行指南，精選 22 縣市景點、米其林美食、330 間風格咖啡館與伴手禮，整合地圖導航、住宿比價與包車規劃。</p>
-
-          <!-- 合作洽詢與開發團隊徽章橫排 -->
-          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-            <a href="mailto:himydream.studio0220@gmail.com?subject=%E3%80%90%E5%93%81%E7%89%8C%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2%E3%80%91%E5%8F%B0%E7%81%A3%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82%20Taiwan%20Roam%20%E5%95%86%E6%A5%AD%E5%90%88%E4%BD%9C"
-               style="display: inline-flex; align-items: center; gap: 7px; background: linear-gradient(135deg, #0284C7 0%, #6366F1 100%); color: #FFFFFF; text-decoration: none; font-size: 13px; font-weight: 800; padding: 9px 22px; border-radius: 9999px; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.28); transition: all 0.2s ease;">
-              <span>🤝</span>
-              <span data-footer-text="footerContactLabel">品牌合作洽詢</span>
-
-            </a>
-
-            <a href="https://himydream.me/studio/" target="_blank" rel="noopener noreferrer"
-               style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; border: 1.5px solid #93C5FD; padding: 8px 18px; border-radius: 9999px; text-decoration: none; box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08); transition: all 0.2s ease;" data-footer-title="team">
-              <span style="font-size: 11.5px; font-weight: 800; color: #0369A1; letter-spacing: 0.5px;" data-footer-text="team">開發團隊</span>
-              <span style="font-size: 12.5px; font-weight: 900; color: #0F172A;">HiMyDream STUDIO</span>
-              <span style="font-size: 12px; color: #6366F1; font-weight: 900;">↗</span>
-            </a>
+      <div class="michelin-honor-block">
+        <div>
+          <span class="honor-kicker">MICHELIN GUIDE TAIWAN ACCOLADES</span>
+          <h2>《臺灣米其林指南》歷年獲選紀錄：連續八年三星最高榮譽</h2>
+          <p>
+            自 2018 年米其林指南首度登陸台灣以來，頤宮以無懈可擊的火候工藝與細膩桌邊服務，成為全台唯一蟬聯最高「三星（值得專程造訪的卓越料理）」八連霸的餐飲殿堂。
+          </p>
+          <div class="years-ribbon">
+            <span>2018 ★★★</span>
+            <span>2019 ★★★</span>
+            <span>2020 ★★★</span>
+            <span>2021 ★★★</span>
+            <span>2022 ★★★</span>
+            <span>2023 ★★★</span>
+            <span>2024 ★★★</span>
+            <span>2025 ★★★</span>
           </div>
         </div>
+        <div class="honor-big-stat">
+          <strong>08</strong>
+          <span>YEARS THREE STARS</span>
+        </div>
+      </div>
 
-        <!-- 右側：專題導覽 QUICK LINKS -->
-        <div class="footer-quick-links-block" style="flex: 1; min-width: 280px; max-width: 440px;">
-          <div style="font-size: 14.5px; font-weight: 900; color: #0C4A6E; letter-spacing: 0.8px; margin-bottom: 16px; display: flex; align-items: baseline; gap: 8px;">
-            <span id="footer-quick-links-title" data-footer-text="footerQuickLinks">專題導覽</span>
+      <div class="story-magazine-grid">
+        <article class="editorial-essay">
+          <h3>當法式「宮殿」遇見宋代文人雅集，重現失傳老粵菜的極致風華</h3>
+          <p class="drop-cap">
+            「頤宮」二字源自《易經》頤卦「觀頤，觀其所養也」，寓意飲食不僅止於味蕾的滿足，更是一場身心靈的滋養；而法文店名 <strong>Le Palais</strong> 意為「宮殿」，精準呼應君品酒店（Palais de Chine）將歐式古堡建築語彙與東方宋代美學交融的設計靈魂。自 2010 年隨飯店開幕以來，團隊便立下「復興失傳手工老粵菜」與「極致港式點心」的雙軸定位。
+          </p>
+          <p>
+            在廣東菜講究「清、鮮、嫩、滑、爽、香」的傳統根基上，頤宮廚藝團隊嚴選台灣在地頂級山海食材，將繁複費時的古法工藝推向當代藝術高度。無論是需耗時數日風乾烤製、於桌邊點燃君度橙酒綻放藍色火光的<strong>「火焰片皮鴨」</strong>，或是以老母雞與金華火腿慢火熬煮八小時的上湯名菜，每一道端上桌的瓷盤，都展現了華人頂級宴席無可取代的深度與底蘊。
+          </p>
+        </article>
 
+        <aside class="editorial-pullquote-box">
+          <span class="quote-mark">“</span>
+          <blockquote>
+            將看似家常的叉燒與豆腐奶，透過毫釐不差的油溫與火候，昇華為令國際美食評審驚嘆的藝術品。
+          </blockquote>
+          <cite>— TAIWAN ROAM MICHELIN EDITION</cite>
+        </aside>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       03. 象牙絲綢色塊：空間美學與完整 7 張寫真畫報（空間 1 張 ＋ 菜色 6 道）
+       ========================================================================= -->
+  <section class="ivory-gallery-band">
+    <div class="container-narrow">
+
+      <div class="section-header-editorial">
+        <div>
+          <span class="kicker">AMBIANCE &amp; SIGNATURE GASTRONOMY</span>
+          <h2>空間氛圍與鎮店七大名菜畫報</h2>
+        </div>
+        <span class="issue-no">Editorial Feature No. 01</span>
+      </div>
+
+      <!-- PHOTO 02 / 07：全寬空間大圖 ＋ 懸浮深色質感解說卡 -->
+      <div class="spatial-feature-stage">
+        <div class="spatial-wide-img">
+          <span class="photo-badge">PHOTO 02 / 07 ｜ 宋代美學與古董工藝用餐空間</span>
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1400&fit=crop" alt="頤宮中餐廳用餐環境與氣氛" />
+        </div>
+        <div class="spatial-floating-card">
+          <h3>用餐環境與氣氛：紅磚拱廊與燭光交織的靜謐夜宴</h3>
+          <p>
+            步入君品酒店 17 樓，深胡桃木門扉隔絕了台北車站的繁華喧囂。室內以古樸紅磚拱門、宋代山水畫意象與珍貴古董刺繡屏風構築出沉穩私密的文人宅邸。不同於一般中餐廳的熱鬧喧騰，頤宮的氣氛<strong>極為靜謐、優雅且充滿儀式感</strong>——柔和聚光燈精準落在餐桌中央，專屬侍茶師隨侍在側為賓客沖泡台灣高山烏龍，是商務宴請、重要紀念日與款待國際貴賓的首選殿堂。
+          </p>
+          <div class="ambiance-tags">
+            <span>🕯️ 低調靜謐燭光氛圍</span>
+            <span>🫖 專屬侍茶師佐餐茶席</span>
+            <span>🏛️ 獨立包廂與半開放雅座</span>
+            <span>🔥 桌邊片鴨火焰秀</span>
           </div>
-          <ul id="footer-quick-links" style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px;">
-            <li><a href="spots.html" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;" data-footer-link="0">全台景點</a></li>
-            <li><a href="michelin.html" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;" data-footer-link="1">米其林星級與必比登美食</a></li>
-            <li><a href="cafe.html" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;" data-footer-link="2">精選咖啡店</a></li>
-            <li><a href="themes.html?theme=roadtrip" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;" data-footer-link="3">台灣旅遊包車推薦行程</a></li>
-            <li><a href="themes.html?theme=islands&sub=diving" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;" data-footer-link="4">跳島浮潛和海龜</a></li>
-            <li><a href="themes.html?theme=railway" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;" data-footer-link="5">火車鐵道之旅</a></li>
-            <li><a href="journals.html" style="color: #1E293B; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;" data-footer-link="6">深度慢活採訪實錄</a></li>
+        </div>
+      </div>
+
+      <!-- 上層不對稱雜誌拼貼（PHOTO 03、04、05） -->
+      <div class="asymmetric-dish-spread">
+        <!-- 左側直式大圖：PHOTO 03 / 07 -->
+        <article class="dish-editorial-item tall">
+          <div class="img-box">
+            <span class="photo-badge">PHOTO 03 / 07</span>
+            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=900&fit=crop" alt="先知鴨" />
+          </div>
+          <div class="dish-text-body">
+            <span class="dish-index-label">Signature Dish 01 — Pre-Order Required</span>
+            <h4>先知鴨（需提前 2 日預訂）</h4>
+            <p>
+              嚴選生長僅 28 天、重約一斤的宜蘭小北鴨，塞入秘製中藥與香料醃漬風乾後掛爐燒烤。外皮薄脆如琉璃、肉質細嫩多汁，一鴨兩吃搭配酸菜鴨架湯清甜回甘，是老饕造訪頤宮的必點名菜。
+            </p>
+          </div>
+        </article>
+
+        <!-- 右側雙疊圖：PHOTO 04 / 07 & PHOTO 05 / 07 -->
+        <div class="right-stacked-dishes">
+          <article class="dish-editorial-item standard">
+            <div class="img-box">
+              <span class="photo-badge">PHOTO 04 / 07</span>
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&fit=crop" alt="頤宮叉燒皇" />
+            </div>
+            <div class="dish-text-body">
+              <span class="dish-index-label">Signature Dish 02</span>
+              <h4>頤宮叉燒皇 / 脆皮叉燒</h4>
+              <p>精選油花均勻的頂級松阪豬與梅花肉，以麥芽糖蜜汁反覆炙烤，外層微焦酥脆、內裡軟嫩化口。</p>
+            </div>
+          </article>
+
+          <article class="dish-editorial-item standard">
+            <div class="img-box">
+              <span class="photo-badge">PHOTO 05 / 07</span>
+              <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=800&fit=crop" alt="春風得意腸" />
+            </div>
+            <div class="dish-text-body">
+              <span class="dish-index-label">Signature Dish 03 — Lunch Dim Sum</span>
+              <h4>春風得意腸（午間港點必點）</h4>
+              <p>滑嫩紅米腸粉皮包裹金黃酥脆網皮與整隻鮮蝦仁，一口感受軟滑、酥脆、鮮彈三重奏。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- 下層雙橫幅壓軸名菜（PHOTO 06 / 07 & PHOTO 07 / 07） -->
+      <div class="bottom-duo-dishes">
+        <!-- PHOTO 06 / 07 -->
+        <article class="dish-editorial-item">
+          <div class="img-box">
+            <span class="photo-badge">PHOTO 06 / 07</span>
+            <img src="https://images.unsplash.com/photo-1559742811-822873691df8?w=900&fit=crop" alt="上湯焗龍蝦" />
+          </div>
+          <div class="dish-text-body">
+            <span class="dish-index-label">Signature Dish 04 — Imperial Seafood</span>
+            <h4>上湯焗波士頓龍蝦</h4>
+            <p>
+              嚴選鮮活波士頓龍蝦過油鎖住彈牙海味，再以老母雞、金華火腿慢火熬煮八小時的濃郁上湯燜焗收汁，蝦肉鮮甜飽滿、湯汁精華滲入伊麵底，盡顯頂級粵菜底蘊。
+            </p>
+          </div>
+        </article>
+
+        <!-- PHOTO 07 / 07 -->
+        <article class="dish-editorial-item">
+          <div class="img-box">
+            <span class="photo-badge">PHOTO 07 / 07</span>
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=900&fit=crop" alt="炸豆腐奶" />
+          </div>
+          <div class="dish-text-body">
+            <span class="dish-index-label">Signature Dish 05 — Heritage Dessert</span>
+            <h4>炸豆腐奶（失傳手工粵式甜品）</h4>
+            <p>
+              極度考驗師傅油溫掌控的經典老粵式甜點！金黃酥香的薄脆麵衣內包裹溫熱牽絲的香濃起司，外撒細白糖粉，鹹甜交織、奶香濃郁而不膩，為三星宴席畫下驚豔句點。
+            </p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       04. 暖石色塊：中・英・日三國語招牌菜單（同步 7 道招牌菜）
+       ========================================================================= -->
+  <section class="trilingual-menu-band">
+    <div class="container-narrow">
+      <div class="menu-header-flex">
+        <div>
+          <span style="font-family:'Cormorant Garamond',serif; font-size:13px; letter-spacing:2.5px; color:var(--imperial-burgundy); font-weight:700; display:block;">TRILINGUAL SIGNATURE MENU</span>
+          <h2>招牌必點菜單（中・英・日三語對照）</h2>
+        </div>
+        <div class="lang-tabs">
+          <button class="lang-tab-btn active">中英並排</button>
+          <button class="lang-tab-btn">中日並排</button>
+          <button class="lang-tab-btn">繁體中文</button>
+          <button class="lang-tab-btn">English</button>
+          <button class="lang-tab-btn">日本語</button>
+        </div>
+      </div>
+
+      <div class="menu-boards-grid" id="menuBoardsGrid">
+        <!-- 繁體中文（7 道） -->
+        <div class="menu-board-card" id="boardZh">
+          <div class="board-lang-title">TRADITIONAL CHINESE ｜ 繁體中文</div>
+          <ul class="menu-items-list">
+            <li>
+              <div>
+                <span class="m-name">1. 火焰片皮鴨（三吃）＊需提前預訂</span>
+                <span class="m-desc">桌邊君度橙酒點火秀・附手工餅皮、鴨腿與鴨架粥/湯</span>
+              </div>
+              <span class="m-price">NT$ 4,280+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">2. 先知鴨（二吃）＊需提前 2 日預訂</span>
+                <span class="m-desc">28天宜蘭幼鴨秘製香料燒烤・附酸菜鴨架湯</span>
+              </div>
+              <span class="m-price">NT$ 3,280+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">3. 頤宮叉燒皇</span>
+                <span class="m-desc">頂級松阪豬與梅花肉麥芽糖蜜汁炙烤</span>
+              </div>
+              <span class="m-price">NT$ 1,280+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">4. 上湯焗波士頓龍蝦</span>
+                <span class="m-desc">八小時金華火腿老母雞上湯燜焗鮮活龍蝦</span>
+              </div>
+              <span class="m-price">NT$ 2,680+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">5. 春風得意腸（午間供應）</span>
+                <span class="m-desc">紅米腸粉包裹金黃脆網皮與整隻鮮蝦仁</span>
+              </div>
+              <span class="m-price">NT$ 580+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">6. 君品明蝦餃皇（午間供應）</span>
+                <span class="m-desc">手工水晶澄麵皮包裹飽滿鮮甜大明蝦</span>
+              </div>
+              <span class="m-price">NT$ 480+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">7. 炸豆腐奶（經典手工甜品）</span>
+                <span class="m-desc">金黃酥脆外皮包裹溫熱濃郁起司內餡</span>
+              </div>
+              <span class="m-price">NT$ 380+</span>
+            </li>
           </ul>
         </div>
 
+        <!-- English（7 道） -->
+        <div class="menu-board-card" id="boardEn">
+          <div class="board-lang-title">ENGLISH ｜ INTERNATIONAL MENU</div>
+          <ul class="menu-items-list">
+            <li>
+              <div>
+                <span class="m-name">1. Flambé Roast Peking Duck (3 Courses) *Pre-order</span>
+                <span class="m-desc">Tableside Cointreau flambé, crispy skin, pancakes &amp; duck soup</span>
+              </div>
+              <span class="m-price">NT$ 4,280+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">2. Crispy Roasted Baby Duck (2 Courses) *2-Day Pre-order</span>
+                <span class="m-desc">28-day young Yilan duck marinated with Chinese herbs</span>
+              </div>
+              <span class="m-price">NT$ 3,280+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">3. Le Palais Signature Honey-Glazed BBQ Pork</span>
+                <span class="m-desc">Charcoal-roasted premium pork neck glazed with maltose</span>
+              </div>
+              <span class="m-price">NT$ 1,280+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">4. Braised Boston Lobster in Supreme Broth</span>
+                <span class="m-desc">Live lobster braised in 8-hour Jinhua ham &amp; chicken stock</span>
+              </div>
+              <span class="m-price">NT$ 2,680+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">5. Crispy Shrimp Rice Noodle Roll (Lunch Only)</span>
+                <span class="m-desc">Steamed red rice roll filled with crispy net &amp; fresh prawns</span>
+              </div>
+              <span class="m-price">NT$ 580+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">6. Steamed King Prawn Dumplings (Lunch Only)</span>
+                <span class="m-desc">Handcrafted translucent Har Gow filled with whole king prawns</span>
+              </div>
+              <span class="m-price">NT$ 480+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">7. Deep-Fried Crispy Milk &amp; Cheese Pastry</span>
+                <span class="m-desc">Traditional Cantonese dessert with warm melted cheese filling</span>
+              </div>
+              <span class="m-price">NT$ 380+</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 日本語（7 道） -->
+        <div class="menu-board-card" id="boardJp" style="display:none;">
+          <div class="board-lang-title">JAPANESE ｜ 日本語メニュー</div>
+          <ul class="menu-items-list">
+            <li>
+              <div>
+                <span class="m-name">1. ファイヤー北京ダック（三種食べ方）＊要事前予約</span>
+                <span class="m-desc">目の前でコアントローの炎を纏わせる名物・クレープ包み＆スープ付</span>
+              </div>
+              <span class="m-price">NT$ 4,280+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">2. 先知鴨（28日若鴨の丸焼き）＊2日前要予約</span>
+                <span class="m-desc">漢方スパイスで熟成させた宜蘭産若鴨のパリパリロースト</span>
+              </div>
+              <span class="m-price">NT$ 3,280+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">3. 頤宮特製・極上蜜汁チャーシュー</span>
+                <span class="m-desc">厳選豚トロと肩ロースを麦芽糖で香ばしく焼き上げた逸品</span>
+              </div>
+              <span class="m-price">NT$ 1,280+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">4. ボストンロブスターの上湯煮込み</span>
+                <span class="m-desc">金華ハムと老鶏を8時間煮込んだ極上スープで仕上げた活ロブスター</span>
+              </div>
+              <span class="m-price">NT$ 2,680+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">5. 春風得意腸（サクサク海老入り紅米腸粉・ランチ限定）</span>
+                <span class="m-desc">もちもちの紅米腸粉で揚げ湯葉とプリプリ海老を包んだ人気点心</span>
+              </div>
+              <span class="m-price">NT$ 580+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">6. 君品特製・大海老蒸し餃子（ランチ限定）</span>
+                <span class="m-desc">職人手打ちの透き通る皮に大ぶりな車海老を贅沢に包んだハーガオ</span>
+              </div>
+              <span class="m-price">NT$ 480+</span>
+            </li>
+            <li>
+              <div>
+                <span class="m-name">7. 炸豆腐奶（チーズ入り揚げミルクパイ）</span>
+                <span class="m-desc">サクサクの薄衣から温かい濃厚チーズがとろけ出す伝統広東スイーツ</span>
+              </div>
+              <span class="m-price">NT$ 380+</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p style="font-size:12px; color:var(--ink-muted); margin-top:14px;">
+        * 以上價格均需另加 10% 服務費；烤鴨與部分手工功夫大菜需於訂位時提前預訂。Subject to 10% service charge.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       05. 帝王酒紅緞面色塊：歐美日旅客行前須知（英文 & 日文雙語呈現）
+       ========================================================================= -->
+  <section class="burgundy-etiquette-band">
+    <div class="container-narrow">
+
+      <div class="etiquette-title-wrap">
+        <span>ESSENTIAL DINING GUIDE FOR INTERNATIONAL GUESTS</span>
+        <h2>Practical Information &amp; Etiquette（English &amp; 日本語案内）</h2>
       </div>
 
-      <!-- 第二排：最底部品牌版權列 (Bottom Brand Signature Row) -->
-      <div style="padding-top: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12px; color: #0C4A6E;">
-        <div data-footer-text="copyright" style="display: flex; align-items: center; gap: 8px; opacity: 0.85;">© Taiwan Roam · HiMyDream STUDIO. 版權所有。</div>
-        <div style="font-size: 11px; font-weight: 800; letter-spacing: 2px; color: #4F46E5; text-transform: uppercase; opacity: 0.8;">
-          TAIWAN ROAM
+      <div class="etiquette-cards-grid">
+        <!-- 1. Dress Code -->
+        <div class="etiquette-card">
+          <span class="etiquette-pill">01 ｜ DRESS CODE / ドレスコード</span>
+          <div class="en-guide">
+            <h3>Can I wear shorts, sneakers, or flip-flops?</h3>
+            <p><strong>Smart Casual is strictly required.</strong> Gentlemen must wear long trousers and closed-toe shoes (clean leather sneakers or loafers are acceptable). <strong>Strictly NO shorts, sleeveless shirts/tank tops, flip-flops, or slippers</strong>—guests in violation may be refused entry.</p>
+          </div>
+          <div class="jp-guide">
+            <h3>短パン・スニーカー・サンダルでの入店は可能ですか？</h3>
+            <p><strong>スマートカジュアル必須です。</strong>男性は長ズボンとつま先の隠れる靴（清潔感のあるスニーカーや革靴は可）をご着用ください。<strong>短パン、タンクトップ、ビーチサンダル、スリッパでの入店は固くお断り</strong>しております。</p>
+          </div>
+        </div>
+
+        <!-- 2. Reservation Window -->
+        <div class="etiquette-card">
+          <span class="etiquette-pill">02 ｜ RESERVATIONS / 予約開始時期</span>
+          <div class="en-guide">
+            <h3>How far in advance do reservations open?</h3>
+            <p>Online reservations open <strong>1 to 2 months in advance</strong> (on the 1st of each month for the following month). A credit card deposit is required to secure your table. Weekend dinners book out within minutes—reserve early.</p>
+          </div>
+          <div class="jp-guide">
+            <h3>何ヶ月前から予約ができますか？</h3>
+            <p>オンライン予約は<strong>1〜2ヶ月前（毎月1日に翌月分）</strong>より受付開始となります。予約確定にはクレジットカードのデポジット登録が必要です。週末のディナーは即満席となるためお早めにご予約ください。</p>
+          </div>
+        </div>
+
+        <!-- 3. Vegetarian & No-Beef -->
+        <div class="etiquette-card">
+          <span class="etiquette-pill">03 ｜ DIETARY &amp; VEGETARIAN / ベジタリアン・食事制限</span>
+          <div class="en-guide">
+            <h3>Are vegetarian or beef-free menus available?</h3>
+            <p><strong>Yes.</strong> Le Palais offers dedicated <strong>Vegetarian Set Menus</strong> and accommodates beef-free, pork-free, or shellfish allergy requests. Please specify your dietary requirements at least <strong>3 days prior</strong> to your visit.</p>
+          </div>
+          <div class="jp-guide">
+            <h3>ベジタリアンや牛肉NGの対応メニューはありますか？</h3>
+            <p><strong>はい、対応可能です。</strong>専用のベジタリアンコースのほか、牛肉・豚肉抜きや甲殻類アレルギーにも柔軟に対応いたします。食材の変更は<strong>ご来店の3日前まで</strong>に必ず事前にお知らせください。</p>
+          </div>
+        </div>
+
+        <!-- 4. Must-Order Dishes -->
+        <div class="etiquette-card">
+          <span class="etiquette-pill">04 ｜ MUST-ORDER DISHES / 必食看板メニュー</span>
+          <div class="en-guide">
+            <h3>What are the must-order signature dishes?</h3>
+            <p>The legendary <strong>Flambé Roast Peking Duck</strong> and <strong>Crispy Roasted Baby Duck</strong> are absolute musts—both <strong>must be pre-ordered when booking</strong>. For lunch, do not miss the Crispy Shrimp Rice Noodle Roll and Honey-Glazed BBQ Pork.</p>
+          </div>
+          <div class="jp-guide">
+            <h3>絶対に注文すべき看板メニューは何ですか？</h3>
+            <p>名物の<strong>「ファイヤー北京ダック」</strong>と<strong>「先知鴨（若鴨の丸焼き）」</strong>は必食ですが、<strong>予約時の事前注文が必須</strong>です。ランチタイムなら「春風得意腸（海老入り紅米腸粉）」と「極上蜜汁チャーシュー」も外せません。</p>
+          </div>
+        </div>
+
+        <!-- 5. Birthday & Anniversary Celebrations -->
+        <div class="etiquette-card wide">
+          <span class="etiquette-pill">05 ｜ BIRTHDAY &amp; ANNIVERSARY / 誕生日・記念日のお祝い</span>
+          <div class="en-guide">
+            <h3>Celebrating a Birthday or Special Anniversary?</h3>
+            <p>Inform the restaurant in advance if you are celebrating a birthday or anniversary. Complimentary longevity peach buns (<em>Shou Tao</em>) or a personalized dessert plate can be arranged. Private dining rooms with minimum spend are also available for family milestones (corkage fee applies for outside wine/liquor).</p>
+          </div>
+          <div class="jp-guide">
+            <h3>誕生日や結婚記念日のお祝いサービスはありますか？</h3>
+            <p>ご予約時にお誕生日や記念日利用の旨をお伝えいただくと、お祝いの桃まんじゅう（壽桃）やメッセージ付きデザートプレートのご用意が可能です。ご家族での大切な節目には、ミニマムチャージ制の個室（全席禁煙・お酒の持ち込みは抜栓料あり）もご利用いただけます。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 餐廳資訊與訂位導購列（已更新為「官網預約」與「Trip.com 台北飯店搜尋」） -->
+      <div class="restaurant-concierge-bar">
+        <div class="concierge-info">
+          <strong>頤宮中餐廳 Le Palais（君品酒店 17 樓）</strong>
+          <p>
+            📍 台北市大同區承德路一段 3 號 17 樓（台北車站步行 3 分鐘 / 捷運中山站步行 6 分鐘）<br>
+            🕒 午餐 11:30–14:30 ｜ 晚餐 17:30–21:30 ｜ ☎️ +886-2-2181-9985
+          </p>
+        </div>
+
+        <div class="concierge-actions">
+          <a href="https://maps.google.com/?q=頤宮中餐廳+Le+Palais" target="_blank" rel="noopener noreferrer" class="btn-luxury btn-outline-gold">
+            📍 Google Maps
+          </a>
+          <a href="https://www.trip.com/hotels/list?city=617&Allianceid=9507030" target="_blank" rel="noopener noreferrer" class="btn-luxury btn-outline-gold">
+            🏨 Trip.com 台北飯店搜尋 ↗
+          </a>
+          <a href="https://www.palaisdechinehotel.com/tw/restaurant-info.php?id=6" target="_blank" rel="noopener noreferrer" class="btn-luxury btn-solid-gold">
+            🌐 官網預約 ↗
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       06. 文末封底：TAIWAN ROAM 您的官方品牌 LOGO 與雙語品牌介紹
+       ========================================================================= -->
+  <footer class="brand-colophon-footer">
+    <div class="colophon-grid">
+      <div>
+        <div class="brand-identity-lockup">
+          <img src="assets/michelin_pm_logo.png" alt="台灣吃喝玩樂 TAIWAN ROAM 官方品牌標誌" class="taiwan-roam-official-logo" />
+          <div class="brand-lockup-titles">
+            <h3>台灣吃喝玩樂</h3>
+            <span>TAIWAN ROAM</span>
+          </div>
+        </div>
+
+        <p class="brand-manifesto-zh">
+          以熱愛出發，探索台灣的巷弄、山海與在地風味。由 HiMyDream STUDIO 策劃的國際旅行生活指南，精選全台 22 縣市秘境景點、米其林星級美饌、風格咖啡圖鑑與伴手禮，整合多語系導航、旅宿比價與包車規劃，陪伴全球旅人走進最純粹的島嶼日常。
+        </p>
+        <p class="brand-manifesto-en">
+          Curated with love — exploring Taiwan’s vibrant alleyways, untamed mountain shores, Michelin gastronomy, and independent coffee culture for global wanderers.
+        </p>
+        <p class="brand-manifesto-jp">
+          愛を込めて、台湾の路地裏や山海の絶景、ミシュランの美食と洗練されたカフェ文化を巡る。世界中の旅人に贈る、とっておきの台湾カルチャー＆トラベルガイド。
+        </p>
+
+        <div class="colophon-text-links">
+          <a href="mailto:himydream.studio0220@gmail.com">品牌與餐廳專刊合作洽詢 ↗</a>
+          <a href="https://himydream.me/studio/" target="_blank" rel="noopener noreferrer">開發團隊 HiMyDream STUDIO ↗</a>
+        </div>
+      </div>
+
+      <div class="colophon-right-deco">
+        <div class="vertical-poetic-jp">
+          島の記憶と、至高の一皿を巡る旅。
+        </div>
+        <div class="editorial-stamp-box">
+          <strong>TAIWAN ROAM<br>MICHELIN EDITION</strong>
+          <p>
+            本頁由《台灣吃喝玩樂》編輯部專刊報導，嚴選具空間美學與國際友善服務之台灣星級名店。
+          </p>
         </div>
       </div>
     </div>
+
+    <div class="colophon-bottom-note">
+      <span>© 2026 台灣吃喝玩樂 TAIWAN ROAM ｜ Produced by HiMyDream STUDIO</span>
+      <span>AUTHENTIC TAIWAN GASTRONOMY &amp; ISLAND STORIES</span>
+    </div>
   </footer>
+
+  </template>
   <script src="js/affiliate-config.js"></script>
   <script src="js/affiliate-market.js"></script>
   <script src="js/affiliate.js"></script>
-  <script src="js/data.js"></script>
   <script src="js/content_loader.js"></script>
   <script src="js/michelin_article_data.js"></script>
   <script src="js/michelin_article.js"></script>
-  <script src="js/i18n.js"></script>
-  <script src="js/navigation.js"></script>
 </body>
 </html>

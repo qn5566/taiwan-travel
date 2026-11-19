@@ -239,7 +239,7 @@
   async function init() {
     // Keep the shared language bar dedicated to language selection.
     let controls;
-    if (!document.querySelector('.top-lang-inner') && !document.querySelector('script[src$="global-language-bar.js"]')) {
+    if (document.body.dataset?.affiliateControls !== 'hidden' && !document.querySelector('.top-lang-inner') && !document.querySelector('script[src$="global-language-bar.js"]')) {
       controls = document.createElement('aside');
       controls.style.cssText = 'position:sticky;top:0;z-index:1000;padding:8px 16px;background:#0f172a;color:#fff;font:13px system-ui;display:flex;justify-content:flex-end;';
       document.body.prepend(controls);

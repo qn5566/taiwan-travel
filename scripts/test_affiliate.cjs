@@ -148,6 +148,15 @@ test('new DOM cards and window.open receive the current market without waiting a
   assert.equal(opened.target,'_blank');
 });
 
+test('magazine pages can hide market controls while retaining market detection and routing', async () => {
+  const {context,events,market,hub}=setup();
+  context.document.body={dataset:{affiliateControls:'hidden'}};
+  context.document.createElement=()=>{throw Error('Magazine must not receive a market toolbar');};
+  await events.DOMContentLoaded();
+  assert.equal(market.market,'JP');
+  assert.equal(new URL(hub.getHotelUrl('台北市')).hostname,'jp.trip.com');
+});
+
 test('all active pages with booking links load the generated matrix before the router', () => {
   // Imported design references are not active site pages.
   const files=fs.readdirSync('.').filter(name=>name.endsWith('.html') && !/^gemini-code-\d+\.html$/.test(name));
