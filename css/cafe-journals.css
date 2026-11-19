@@ -38,6 +38,9 @@
       justify-content: center;
       box-shadow: none;
     }
+    .tab-switch-container .cafe-partnership-entry {
+      align-self: center;
+    }
     .main-tab-pill {
       display: inline-flex;
       align-items: center;
